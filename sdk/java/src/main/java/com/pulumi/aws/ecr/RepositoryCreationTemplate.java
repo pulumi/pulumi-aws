@@ -179,14 +179,14 @@ public class RepositoryCreationTemplate extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.encryptionConfigurations);
     }
     /**
-     * The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+     * The tag mutability setting for any created repositories. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
      * 
      */
     @Export(name="imageTagMutability", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> imageTagMutability;
 
     /**
-     * @return The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+     * @return The tag mutability setting for any created repositories. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
      * 
      */
     public Output<Optional<String>> imageTagMutability() {

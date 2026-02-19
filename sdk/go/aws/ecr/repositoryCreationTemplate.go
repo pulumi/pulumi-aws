@@ -129,7 +129,7 @@ type RepositoryCreationTemplate struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Encryption configuration for any created repositories. See below for schema.
 	EncryptionConfigurations RepositoryCreationTemplateEncryptionConfigurationArrayOutput `pulumi:"encryptionConfigurations"`
-	// The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+	// The tag mutability setting for any created repositories. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
 	ImageTagMutability pulumi.StringPtrOutput `pulumi:"imageTagMutability"`
 	// Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
 	ImageTagMutabilityExclusionFilters RepositoryCreationTemplateImageTagMutabilityExclusionFilterArrayOutput `pulumi:"imageTagMutabilityExclusionFilters"`
@@ -191,7 +191,7 @@ type repositoryCreationTemplateState struct {
 	Description *string `pulumi:"description"`
 	// Encryption configuration for any created repositories. See below for schema.
 	EncryptionConfigurations []RepositoryCreationTemplateEncryptionConfiguration `pulumi:"encryptionConfigurations"`
-	// The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+	// The tag mutability setting for any created repositories. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
 	ImageTagMutability *string `pulumi:"imageTagMutability"`
 	// Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
 	ImageTagMutabilityExclusionFilters []RepositoryCreationTemplateImageTagMutabilityExclusionFilter `pulumi:"imageTagMutabilityExclusionFilters"`
@@ -218,7 +218,7 @@ type RepositoryCreationTemplateState struct {
 	Description pulumi.StringPtrInput
 	// Encryption configuration for any created repositories. See below for schema.
 	EncryptionConfigurations RepositoryCreationTemplateEncryptionConfigurationArrayInput
-	// The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+	// The tag mutability setting for any created repositories. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
 	ImageTagMutability pulumi.StringPtrInput
 	// Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
 	ImageTagMutabilityExclusionFilters RepositoryCreationTemplateImageTagMutabilityExclusionFilterArrayInput
@@ -249,7 +249,7 @@ type repositoryCreationTemplateArgs struct {
 	Description *string `pulumi:"description"`
 	// Encryption configuration for any created repositories. See below for schema.
 	EncryptionConfigurations []RepositoryCreationTemplateEncryptionConfiguration `pulumi:"encryptionConfigurations"`
-	// The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+	// The tag mutability setting for any created repositories. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
 	ImageTagMutability *string `pulumi:"imageTagMutability"`
 	// Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
 	ImageTagMutabilityExclusionFilters []RepositoryCreationTemplateImageTagMutabilityExclusionFilter `pulumi:"imageTagMutabilityExclusionFilters"`
@@ -275,7 +275,7 @@ type RepositoryCreationTemplateArgs struct {
 	Description pulumi.StringPtrInput
 	// Encryption configuration for any created repositories. See below for schema.
 	EncryptionConfigurations RepositoryCreationTemplateEncryptionConfigurationArrayInput
-	// The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+	// The tag mutability setting for any created repositories. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
 	ImageTagMutability pulumi.StringPtrInput
 	// Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `imageTagMutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
 	ImageTagMutabilityExclusionFilters RepositoryCreationTemplateImageTagMutabilityExclusionFilterArrayInput
@@ -400,7 +400,7 @@ func (o RepositoryCreationTemplateOutput) EncryptionConfigurations() RepositoryC
 	}).(RepositoryCreationTemplateEncryptionConfigurationArrayOutput)
 }
 
-// The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+// The tag mutability setting for any created repositories. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
 func (o RepositoryCreationTemplateOutput) ImageTagMutability() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryCreationTemplate) pulumi.StringPtrOutput { return v.ImageTagMutability }).(pulumi.StringPtrOutput)
 }

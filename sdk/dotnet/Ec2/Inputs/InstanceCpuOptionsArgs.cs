@@ -25,6 +25,12 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<int>? CoreCount { get; set; }
 
         /// <summary>
+        /// Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `Enabled` and `Disabled`.
+        /// </summary>
+        [Input("nestedVirtualization")]
+        public Input<string>? NestedVirtualization { get; set; }
+
+        /// <summary>
         /// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         /// 
         /// For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).

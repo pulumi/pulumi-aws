@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as time from "@pulumiverse/time";
+ * import * as time from "@pulumi/time";
  *
  * const example = aws.organizations.getOrganization({});
  * const exampleNotificationConfiguration = new aws.notifications.NotificationConfiguration("example", {
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     parentId: example.then(example => example.roots?.[0]?.id),
  * });
  * // Allow time for organizational unit creation to propagate
- * const wait = new time.Sleep("wait", {createDuration: "5s"}, {
+ * const wait = new time.index.Sleep("wait", {createDuration: "5s"}, {
  *     dependsOn: [
  *         exampleOrganizationalUnit,
  *         exampleNotificationConfiguration,

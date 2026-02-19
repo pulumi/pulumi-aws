@@ -47,6 +47,21 @@ public final class InstanceCpuOptionsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
+     * 
+     */
+    @Import(name="nestedVirtualization")
+    private @Nullable Output<String> nestedVirtualization;
+
+    /**
+     * @return Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
+     * 
+     */
+    public Optional<Output<String>> nestedVirtualization() {
+        return Optional.ofNullable(this.nestedVirtualization);
+    }
+
+    /**
      * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
      * 
      * For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
@@ -70,6 +85,7 @@ public final class InstanceCpuOptionsArgs extends com.pulumi.resources.ResourceA
     private InstanceCpuOptionsArgs(InstanceCpuOptionsArgs $) {
         this.amdSevSnp = $.amdSevSnp;
         this.coreCount = $.coreCount;
+        this.nestedVirtualization = $.nestedVirtualization;
         this.threadsPerCore = $.threadsPerCore;
     }
 
@@ -131,6 +147,27 @@ public final class InstanceCpuOptionsArgs extends com.pulumi.resources.ResourceA
          */
         public Builder coreCount(Integer coreCount) {
             return coreCount(Output.of(coreCount));
+        }
+
+        /**
+         * @param nestedVirtualization Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nestedVirtualization(@Nullable Output<String> nestedVirtualization) {
+            $.nestedVirtualization = nestedVirtualization;
+            return this;
+        }
+
+        /**
+         * @param nestedVirtualization Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nestedVirtualization(String nestedVirtualization) {
+            return nestedVirtualization(Output.of(nestedVirtualization));
         }
 
         /**

@@ -6,6 +6,7 @@ package com.pulumi.aws.budgets;
 import com.pulumi.aws.budgets.inputs.BudgetAutoAdjustDataArgs;
 import com.pulumi.aws.budgets.inputs.BudgetCostFilterArgs;
 import com.pulumi.aws.budgets.inputs.BudgetCostTypesArgs;
+import com.pulumi.aws.budgets.inputs.BudgetFilterExpressionArgs;
 import com.pulumi.aws.budgets.inputs.BudgetNotificationArgs;
 import com.pulumi.aws.budgets.inputs.BudgetPlannedLimitArgs;
 import com.pulumi.core.Output;
@@ -84,14 +85,14 @@ public final class BudgetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of CostFilter name/values pair to apply to budget.
+     * A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
      * 
      */
     @Import(name="costFilters")
     private @Nullable Output<List<BudgetCostFilterArgs>> costFilters;
 
     /**
-     * @return A list of CostFilter name/values pair to apply to budget.
+     * @return A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
      * 
      */
     public Optional<Output<List<BudgetCostFilterArgs>>> costFilters() {
@@ -111,6 +112,21 @@ public final class BudgetArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<BudgetCostTypesArgs>> costTypes() {
         return Optional.ofNullable(this.costTypes);
+    }
+
+    /**
+     * Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+     * 
+     */
+    @Import(name="filterExpression")
+    private @Nullable Output<BudgetFilterExpressionArgs> filterExpression;
+
+    /**
+     * @return Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+     * 
+     */
+    public Optional<Output<BudgetFilterExpressionArgs>> filterExpression() {
+        return Optional.ofNullable(this.filterExpression);
     }
 
     /**
@@ -282,6 +298,7 @@ public final class BudgetArgs extends com.pulumi.resources.ResourceArgs {
         this.budgetType = $.budgetType;
         this.costFilters = $.costFilters;
         this.costTypes = $.costTypes;
+        this.filterExpression = $.filterExpression;
         this.limitAmount = $.limitAmount;
         this.limitUnit = $.limitUnit;
         this.name = $.name;
@@ -397,7 +414,7 @@ public final class BudgetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param costFilters A list of CostFilter name/values pair to apply to budget.
+         * @param costFilters A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
          * 
          * @return builder
          * 
@@ -408,7 +425,7 @@ public final class BudgetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param costFilters A list of CostFilter name/values pair to apply to budget.
+         * @param costFilters A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
          * 
          * @return builder
          * 
@@ -418,7 +435,7 @@ public final class BudgetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param costFilters A list of CostFilter name/values pair to apply to budget.
+         * @param costFilters A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
          * 
          * @return builder
          * 
@@ -446,6 +463,27 @@ public final class BudgetArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder costTypes(BudgetCostTypesArgs costTypes) {
             return costTypes(Output.of(costTypes));
+        }
+
+        /**
+         * @param filterExpression Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filterExpression(@Nullable Output<BudgetFilterExpressionArgs> filterExpression) {
+            $.filterExpression = filterExpression;
+            return this;
+        }
+
+        /**
+         * @param filterExpression Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filterExpression(BudgetFilterExpressionArgs filterExpression) {
+            return filterExpression(Output.of(filterExpression));
         }
 
         /**

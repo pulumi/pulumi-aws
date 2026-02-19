@@ -9,6 +9,7 @@ import com.pulumi.aws.budgets.inputs.BudgetState;
 import com.pulumi.aws.budgets.outputs.BudgetAutoAdjustData;
 import com.pulumi.aws.budgets.outputs.BudgetCostFilter;
 import com.pulumi.aws.budgets.outputs.BudgetCostTypes;
+import com.pulumi.aws.budgets.outputs.BudgetFilterExpression;
 import com.pulumi.aws.budgets.outputs.BudgetNotification;
 import com.pulumi.aws.budgets.outputs.BudgetPlannedLimit;
 import com.pulumi.core.Output;
@@ -371,6 +372,283 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * Create a budget with a simple dimension filter
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.budgets.Budget;
+ * import com.pulumi.aws.budgets.BudgetArgs;
+ * import com.pulumi.aws.budgets.inputs.BudgetFilterExpressionArgs;
+ * import com.pulumi.aws.budgets.inputs.BudgetFilterExpressionDimensionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var simple = new Budget("simple", BudgetArgs.builder()
+ *             .name("budget-ec2-filter")
+ *             .budgetType("COST")
+ *             .limitAmount("500")
+ *             .limitUnit("USD")
+ *             .timeUnit("MONTHLY")
+ *             .filterExpression(BudgetFilterExpressionArgs.builder()
+ *                 .dimensions(BudgetFilterExpressionDimensionsArgs.builder()
+ *                     .key("SERVICE")
+ *                     .values("Amazon Elastic Compute Cloud - Compute")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * Create a budget with AND filter
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.budgets.Budget;
+ * import com.pulumi.aws.budgets.BudgetArgs;
+ * import com.pulumi.aws.budgets.inputs.BudgetFilterExpressionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var andExample = new Budget("andExample", BudgetArgs.builder()
+ *             .name("budget-and-filter")
+ *             .budgetType("COST")
+ *             .limitAmount("1200")
+ *             .limitUnit("USD")
+ *             .timeUnit("MONTHLY")
+ *             .filterExpression(BudgetFilterExpressionArgs.builder()
+ *                 .ands(                
+ *                     BudgetFilterExpressionAndArgs.builder()
+ *                         .dimensions(BudgetFilterExpressionAndDimensionsArgs.builder()
+ *                             .key("SERVICE")
+ *                             .values("Amazon Elastic Compute Cloud - Compute")
+ *                             .build())
+ *                         .build(),
+ *                     BudgetFilterExpressionAndArgs.builder()
+ *                         .tags(BudgetFilterExpressionAndTagsArgs.builder()
+ *                             .key("Environment")
+ *                             .values("Production")
+ *                             .build())
+ *                         .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * Create a budget with OR filter
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.budgets.Budget;
+ * import com.pulumi.aws.budgets.BudgetArgs;
+ * import com.pulumi.aws.budgets.inputs.BudgetFilterExpressionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var orExample = new Budget("orExample", BudgetArgs.builder()
+ *             .name("budget-or-filter")
+ *             .budgetType("COST")
+ *             .limitAmount("2000")
+ *             .limitUnit("USD")
+ *             .timeUnit("MONTHLY")
+ *             .filterExpression(BudgetFilterExpressionArgs.builder()
+ *                 .ors(                
+ *                     BudgetFilterExpressionOrArgs.builder()
+ *                         .dimensions(BudgetFilterExpressionOrDimensionsArgs.builder()
+ *                             .key("SERVICE")
+ *                             .values("Amazon Elastic Compute Cloud - Compute")
+ *                             .build())
+ *                         .build(),
+ *                     BudgetFilterExpressionOrArgs.builder()
+ *                         .dimensions(BudgetFilterExpressionOrDimensionsArgs.builder()
+ *                             .key("SERVICE")
+ *                             .values("Amazon Relational Database Service")
+ *                             .build())
+ *                         .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * Create a budget with NOT filter
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.budgets.Budget;
+ * import com.pulumi.aws.budgets.BudgetArgs;
+ * import com.pulumi.aws.budgets.inputs.BudgetFilterExpressionArgs;
+ * import com.pulumi.aws.budgets.inputs.BudgetFilterExpressionNotArgs;
+ * import com.pulumi.aws.budgets.inputs.BudgetFilterExpressionNotDimensionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var notExample = new Budget("notExample", BudgetArgs.builder()
+ *             .name("budget-not-filter")
+ *             .budgetType("COST")
+ *             .limitAmount("1000")
+ *             .limitUnit("USD")
+ *             .timeUnit("MONTHLY")
+ *             .filterExpression(BudgetFilterExpressionArgs.builder()
+ *                 .not(BudgetFilterExpressionNotArgs.builder()
+ *                     .dimensions(BudgetFilterExpressionNotDimensionsArgs.builder()
+ *                         .key("REGION")
+ *                         .values("us-west-2")
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * Create a budget with a compound filter
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.budgets.Budget;
+ * import com.pulumi.aws.budgets.BudgetArgs;
+ * import com.pulumi.aws.budgets.inputs.BudgetFilterExpressionArgs;
+ * import com.pulumi.aws.budgets.inputs.BudgetNotificationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         var compoundExample = new Budget("compoundExample", BudgetArgs.builder()
+ *             .name("budget-compound-filter")
+ *             .budgetType("COST")
+ *             .limitAmount("1500")
+ *             .limitUnit("USD")
+ *             .timeUnit("MONTHLY")
+ *             .filterExpression(BudgetFilterExpressionArgs.builder()
+ *                 .ors(                
+ *                     BudgetFilterExpressionOrArgs.builder()
+ *                         .ands(                        
+ *                             BudgetFilterExpressionOrAndArgs.builder()
+ *                                 .dimensions(BudgetFilterExpressionOrAndDimensionsArgs.builder()
+ *                                     .key("SERVICE")
+ *                                     .values("Amazon Elastic Compute Cloud - Compute")
+ *                                     .build())
+ *                                 .build(),
+ *                             BudgetFilterExpressionOrAndArgs.builder()
+ *                                 .tags(BudgetFilterExpressionOrAndTagsArgs.builder()
+ *                                     .key("Environment")
+ *                                     .values("production")
+ *                                     .build())
+ *                                 .build(),
+ *                             BudgetFilterExpressionOrAndArgs.builder()
+ *                                 .costCategories(BudgetFilterExpressionOrAndCostCategoriesArgs.builder()
+ *                                     .key("Environment")
+ *                                     .values("production")
+ *                                     .build())
+ *                                 .build())
+ *                         .build(),
+ *                     BudgetFilterExpressionOrArgs.builder()
+ *                         .not(BudgetFilterExpressionOrNotArgs.builder()
+ *                             .dimensions(BudgetFilterExpressionOrNotDimensionsArgs.builder()
+ *                                 .key("REGION")
+ *                                 .values("us-west-2")
+ *                                 .build())
+ *                             .build())
+ *                         .build())
+ *                 .build())
+ *             .notifications(BudgetNotificationArgs.builder()
+ *                 .comparisonOperator("GREATER_THAN")
+ *                 .threshold(100.0)
+ *                 .thresholdType("PERCENTAGE")
+ *                 .notificationType("FORECASTED")
+ *                 .subscriberEmailAddresses("test}{@literal @}{@code example.com")
+ *                 .build())
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import budgets using `AccountID:BudgetName`. For example:
@@ -453,14 +731,14 @@ public class Budget extends com.pulumi.resources.CustomResource {
         return this.budgetType;
     }
     /**
-     * A list of CostFilter name/values pair to apply to budget.
+     * A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
      * 
      */
     @Export(name="costFilters", refs={List.class,BudgetCostFilter.class}, tree="[0,1]")
     private Output<List<BudgetCostFilter>> costFilters;
 
     /**
-     * @return A list of CostFilter name/values pair to apply to budget.
+     * @return A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
      * 
      */
     public Output<List<BudgetCostFilter>> costFilters() {
@@ -479,6 +757,20 @@ public class Budget extends com.pulumi.resources.CustomResource {
      */
     public Output<BudgetCostTypes> costTypes() {
         return this.costTypes;
+    }
+    /**
+     * Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+     * 
+     */
+    @Export(name="filterExpression", refs={BudgetFilterExpression.class}, tree="[0]")
+    private Output</* @Nullable */ BudgetFilterExpression> filterExpression;
+
+    /**
+     * @return Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+     * 
+     */
+    public Output<Optional<BudgetFilterExpression>> filterExpression() {
+        return Codegen.optional(this.filterExpression);
     }
     /**
      * The amount of cost or usage being measured for a budget.

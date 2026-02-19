@@ -20,6 +20,10 @@ namespace Pulumi.Aws.Budgets.Inputs
 
         [Input("values", required: true)]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// (Optional) A list of cost category values to match. At least one value is required.
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

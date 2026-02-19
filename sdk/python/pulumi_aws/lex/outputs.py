@@ -965,6 +965,15 @@ __all__ = [
     'V2modelsIntentInputContext',
     'V2modelsIntentKendraConfiguration',
     'V2modelsIntentOutputContext',
+    'V2modelsIntentQnaIntentConfiguration',
+    'V2modelsIntentQnaIntentConfigurationBedrockModelConfiguration',
+    'V2modelsIntentQnaIntentConfigurationBedrockModelConfigurationGuardrail',
+    'V2modelsIntentQnaIntentConfigurationDataSourceConfiguration',
+    'V2modelsIntentQnaIntentConfigurationDataSourceConfigurationBedrockKnowledgeStoreConfiguration',
+    'V2modelsIntentQnaIntentConfigurationDataSourceConfigurationBedrockKnowledgeStoreConfigurationExactResponseFields',
+    'V2modelsIntentQnaIntentConfigurationDataSourceConfigurationKendraConfiguration',
+    'V2modelsIntentQnaIntentConfigurationDataSourceConfigurationOpensearchConfiguration',
+    'V2modelsIntentQnaIntentConfigurationDataSourceConfigurationOpensearchConfigurationExactResponseFields',
     'V2modelsIntentSampleUtterance',
     'V2modelsIntentSlotPriority',
     'V2modelsIntentTimeouts',
@@ -42498,9 +42507,9 @@ class V2modelsIntentKendraConfiguration(dict):
                  query_filter_string: Optional[_builtins.str] = None,
                  query_filter_string_enabled: Optional[_builtins.bool] = None):
         """
-        :param _builtins.str kendra_index: ARN of the Amazon Kendra index that you want the AMAZON.KendraSearchIntent intent to search. The index must be in the same account and Region as the Amazon Lex bot.
-        :param _builtins.str query_filter_string: Query filter that Amazon Lex sends to Amazon Kendra to filter the response from a query. The filter is in the format defined by Amazon Kendra. For more information, see [Filtering queries](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html).
-        :param _builtins.bool query_filter_string_enabled: Whether the AMAZON.KendraSearchIntent intent uses a custom query string to query the Amazon Kendra index.
+        :param _builtins.str kendra_index: ARN of the Kendra index.
+        :param _builtins.str query_filter_string: Query filter string for Kendra.
+        :param _builtins.bool query_filter_string_enabled: Whether the query filter string is enabled.
         """
         pulumi.set(__self__, "kendra_index", kendra_index)
         if query_filter_string is not None:
@@ -42512,7 +42521,7 @@ class V2modelsIntentKendraConfiguration(dict):
     @pulumi.getter(name="kendraIndex")
     def kendra_index(self) -> _builtins.str:
         """
-        ARN of the Amazon Kendra index that you want the AMAZON.KendraSearchIntent intent to search. The index must be in the same account and Region as the Amazon Lex bot.
+        ARN of the Kendra index.
         """
         return pulumi.get(self, "kendra_index")
 
@@ -42520,7 +42529,7 @@ class V2modelsIntentKendraConfiguration(dict):
     @pulumi.getter(name="queryFilterString")
     def query_filter_string(self) -> Optional[_builtins.str]:
         """
-        Query filter that Amazon Lex sends to Amazon Kendra to filter the response from a query. The filter is in the format defined by Amazon Kendra. For more information, see [Filtering queries](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html).
+        Query filter string for Kendra.
         """
         return pulumi.get(self, "query_filter_string")
 
@@ -42528,7 +42537,7 @@ class V2modelsIntentKendraConfiguration(dict):
     @pulumi.getter(name="queryFilterStringEnabled")
     def query_filter_string_enabled(self) -> Optional[_builtins.bool]:
         """
-        Whether the AMAZON.KendraSearchIntent intent uses a custom query string to query the Amazon Kendra index.
+        Whether the query filter string is enabled.
         """
         return pulumi.get(self, "query_filter_string_enabled")
 
@@ -42590,6 +42599,538 @@ class V2modelsIntentOutputContext(dict):
         Number of conversation turns that the output context should remain active. The number of turns is counted from the first time that the context is sent to the user.
         """
         return pulumi.get(self, "turns_to_live")
+
+
+@pulumi.output_type
+class V2modelsIntentQnaIntentConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bedrockModelConfiguration":
+            suggest = "bedrock_model_configuration"
+        elif key == "dataSourceConfiguration":
+            suggest = "data_source_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsIntentQnaIntentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsIntentQnaIntentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsIntentQnaIntentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bedrock_model_configuration: Optional['outputs.V2modelsIntentQnaIntentConfigurationBedrockModelConfiguration'] = None,
+                 data_source_configuration: Optional['outputs.V2modelsIntentQnaIntentConfigurationDataSourceConfiguration'] = None):
+        """
+        :param 'V2modelsIntentQnaIntentConfigurationBedrockModelConfigurationArgs' bedrock_model_configuration: Configuration block for the Amazon Bedrock model to use for generating responses. See `bedrock_model_configuration`.
+        :param 'V2modelsIntentQnaIntentConfigurationDataSourceConfigurationArgs' data_source_configuration: Configuration block for the data sources to use for the QnA intent. Only one data source (Bedrock Knowledge Base, Kendra, or OpenSearch) can be specified. See `data_source_configuration`.
+        """
+        if bedrock_model_configuration is not None:
+            pulumi.set(__self__, "bedrock_model_configuration", bedrock_model_configuration)
+        if data_source_configuration is not None:
+            pulumi.set(__self__, "data_source_configuration", data_source_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="bedrockModelConfiguration")
+    def bedrock_model_configuration(self) -> Optional['outputs.V2modelsIntentQnaIntentConfigurationBedrockModelConfiguration']:
+        """
+        Configuration block for the Amazon Bedrock model to use for generating responses. See `bedrock_model_configuration`.
+        """
+        return pulumi.get(self, "bedrock_model_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="dataSourceConfiguration")
+    def data_source_configuration(self) -> Optional['outputs.V2modelsIntentQnaIntentConfigurationDataSourceConfiguration']:
+        """
+        Configuration block for the data sources to use for the QnA intent. Only one data source (Bedrock Knowledge Base, Kendra, or OpenSearch) can be specified. See `data_source_configuration`.
+        """
+        return pulumi.get(self, "data_source_configuration")
+
+
+@pulumi.output_type
+class V2modelsIntentQnaIntentConfigurationBedrockModelConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelArn":
+            suggest = "model_arn"
+        elif key == "customPrompt":
+            suggest = "custom_prompt"
+        elif key == "traceStatus":
+            suggest = "trace_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsIntentQnaIntentConfigurationBedrockModelConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsIntentQnaIntentConfigurationBedrockModelConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsIntentQnaIntentConfigurationBedrockModelConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 model_arn: _builtins.str,
+                 custom_prompt: Optional[_builtins.str] = None,
+                 guardrail: Optional['outputs.V2modelsIntentQnaIntentConfigurationBedrockModelConfigurationGuardrail'] = None,
+                 trace_status: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str model_arn: ARN of the Bedrock model to use.
+        :param _builtins.str custom_prompt: Custom prompt to use for the Bedrock model.
+        :param 'V2modelsIntentQnaIntentConfigurationBedrockModelConfigurationGuardrailArgs' guardrail: Configuration block for the guardrail to use with the Bedrock model. See `guardrail`.
+        :param _builtins.str trace_status: Whether to enable tracing for the Bedrock model. Valid values are `ENABLED` and `DISABLED`.
+        """
+        pulumi.set(__self__, "model_arn", model_arn)
+        if custom_prompt is not None:
+            pulumi.set(__self__, "custom_prompt", custom_prompt)
+        if guardrail is not None:
+            pulumi.set(__self__, "guardrail", guardrail)
+        if trace_status is not None:
+            pulumi.set(__self__, "trace_status", trace_status)
+
+    @_builtins.property
+    @pulumi.getter(name="modelArn")
+    def model_arn(self) -> _builtins.str:
+        """
+        ARN of the Bedrock model to use.
+        """
+        return pulumi.get(self, "model_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="customPrompt")
+    def custom_prompt(self) -> Optional[_builtins.str]:
+        """
+        Custom prompt to use for the Bedrock model.
+        """
+        return pulumi.get(self, "custom_prompt")
+
+    @_builtins.property
+    @pulumi.getter
+    def guardrail(self) -> Optional['outputs.V2modelsIntentQnaIntentConfigurationBedrockModelConfigurationGuardrail']:
+        """
+        Configuration block for the guardrail to use with the Bedrock model. See `guardrail`.
+        """
+        return pulumi.get(self, "guardrail")
+
+    @_builtins.property
+    @pulumi.getter(name="traceStatus")
+    def trace_status(self) -> Optional[_builtins.str]:
+        """
+        Whether to enable tracing for the Bedrock model. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "trace_status")
+
+
+@pulumi.output_type
+class V2modelsIntentQnaIntentConfigurationBedrockModelConfigurationGuardrail(dict):
+    def __init__(__self__, *,
+                 identifier: _builtins.str,
+                 version: _builtins.str):
+        """
+        :param _builtins.str identifier: Identifier of the guardrail.
+        :param _builtins.str version: Version of the guardrail.
+        """
+        pulumi.set(__self__, "identifier", identifier)
+        pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter
+    def identifier(self) -> _builtins.str:
+        """
+        Identifier of the guardrail.
+        """
+        return pulumi.get(self, "identifier")
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> _builtins.str:
+        """
+        Version of the guardrail.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class V2modelsIntentQnaIntentConfigurationDataSourceConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bedrockKnowledgeStoreConfiguration":
+            suggest = "bedrock_knowledge_store_configuration"
+        elif key == "kendraConfiguration":
+            suggest = "kendra_configuration"
+        elif key == "opensearchConfiguration":
+            suggest = "opensearch_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsIntentQnaIntentConfigurationDataSourceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsIntentQnaIntentConfigurationDataSourceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsIntentQnaIntentConfigurationDataSourceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bedrock_knowledge_store_configuration: Optional['outputs.V2modelsIntentQnaIntentConfigurationDataSourceConfigurationBedrockKnowledgeStoreConfiguration'] = None,
+                 kendra_configuration: Optional['outputs.V2modelsIntentQnaIntentConfigurationDataSourceConfigurationKendraConfiguration'] = None,
+                 opensearch_configuration: Optional['outputs.V2modelsIntentQnaIntentConfigurationDataSourceConfigurationOpensearchConfiguration'] = None):
+        """
+        :param 'V2modelsIntentQnaIntentConfigurationDataSourceConfigurationBedrockKnowledgeStoreConfigurationArgs' bedrock_knowledge_store_configuration: Configuration block for Amazon Bedrock Knowledge Base as a data source. See `bedrock_knowledge_store_configuration`.
+        :param 'V2modelsIntentQnaIntentConfigurationDataSourceConfigurationKendraConfigurationArgs' kendra_configuration: Configuration block for Amazon Kendra as a data source. See `kendra_configuration`.
+        :param 'V2modelsIntentQnaIntentConfigurationDataSourceConfigurationOpensearchConfigurationArgs' opensearch_configuration: Configuration block for OpenSearch as a data source. See `opensearch_configuration`.
+        """
+        if bedrock_knowledge_store_configuration is not None:
+            pulumi.set(__self__, "bedrock_knowledge_store_configuration", bedrock_knowledge_store_configuration)
+        if kendra_configuration is not None:
+            pulumi.set(__self__, "kendra_configuration", kendra_configuration)
+        if opensearch_configuration is not None:
+            pulumi.set(__self__, "opensearch_configuration", opensearch_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="bedrockKnowledgeStoreConfiguration")
+    def bedrock_knowledge_store_configuration(self) -> Optional['outputs.V2modelsIntentQnaIntentConfigurationDataSourceConfigurationBedrockKnowledgeStoreConfiguration']:
+        """
+        Configuration block for Amazon Bedrock Knowledge Base as a data source. See `bedrock_knowledge_store_configuration`.
+        """
+        return pulumi.get(self, "bedrock_knowledge_store_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="kendraConfiguration")
+    def kendra_configuration(self) -> Optional['outputs.V2modelsIntentQnaIntentConfigurationDataSourceConfigurationKendraConfiguration']:
+        """
+        Configuration block for Amazon Kendra as a data source. See `kendra_configuration`.
+        """
+        return pulumi.get(self, "kendra_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="opensearchConfiguration")
+    def opensearch_configuration(self) -> Optional['outputs.V2modelsIntentQnaIntentConfigurationDataSourceConfigurationOpensearchConfiguration']:
+        """
+        Configuration block for OpenSearch as a data source. See `opensearch_configuration`.
+        """
+        return pulumi.get(self, "opensearch_configuration")
+
+
+@pulumi.output_type
+class V2modelsIntentQnaIntentConfigurationDataSourceConfigurationBedrockKnowledgeStoreConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bedrockKnowledgeBaseArn":
+            suggest = "bedrock_knowledge_base_arn"
+        elif key == "exactResponse":
+            suggest = "exact_response"
+        elif key == "exactResponseFields":
+            suggest = "exact_response_fields"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsIntentQnaIntentConfigurationDataSourceConfigurationBedrockKnowledgeStoreConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsIntentQnaIntentConfigurationDataSourceConfigurationBedrockKnowledgeStoreConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsIntentQnaIntentConfigurationDataSourceConfigurationBedrockKnowledgeStoreConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bedrock_knowledge_base_arn: _builtins.str,
+                 exact_response: Optional[_builtins.bool] = None,
+                 exact_response_fields: Optional['outputs.V2modelsIntentQnaIntentConfigurationDataSourceConfigurationBedrockKnowledgeStoreConfigurationExactResponseFields'] = None):
+        """
+        :param _builtins.str bedrock_knowledge_base_arn: ARN of the Bedrock Knowledge Base.
+        :param _builtins.bool exact_response: Whether to return exact responses from the knowledge base. Defaults to `false`.
+        :param 'V2modelsIntentQnaIntentConfigurationDataSourceConfigurationBedrockKnowledgeStoreConfigurationExactResponseFieldsArgs' exact_response_fields: Configuration block for exact response fields. See `exact_response_fields`.
+        """
+        pulumi.set(__self__, "bedrock_knowledge_base_arn", bedrock_knowledge_base_arn)
+        if exact_response is not None:
+            pulumi.set(__self__, "exact_response", exact_response)
+        if exact_response_fields is not None:
+            pulumi.set(__self__, "exact_response_fields", exact_response_fields)
+
+    @_builtins.property
+    @pulumi.getter(name="bedrockKnowledgeBaseArn")
+    def bedrock_knowledge_base_arn(self) -> _builtins.str:
+        """
+        ARN of the Bedrock Knowledge Base.
+        """
+        return pulumi.get(self, "bedrock_knowledge_base_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="exactResponse")
+    def exact_response(self) -> Optional[_builtins.bool]:
+        """
+        Whether to return exact responses from the knowledge base. Defaults to `false`.
+        """
+        return pulumi.get(self, "exact_response")
+
+    @_builtins.property
+    @pulumi.getter(name="exactResponseFields")
+    def exact_response_fields(self) -> Optional['outputs.V2modelsIntentQnaIntentConfigurationDataSourceConfigurationBedrockKnowledgeStoreConfigurationExactResponseFields']:
+        """
+        Configuration block for exact response fields. See `exact_response_fields`.
+        """
+        return pulumi.get(self, "exact_response_fields")
+
+
+@pulumi.output_type
+class V2modelsIntentQnaIntentConfigurationDataSourceConfigurationBedrockKnowledgeStoreConfigurationExactResponseFields(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "answerField":
+            suggest = "answer_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsIntentQnaIntentConfigurationDataSourceConfigurationBedrockKnowledgeStoreConfigurationExactResponseFields. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsIntentQnaIntentConfigurationDataSourceConfigurationBedrockKnowledgeStoreConfigurationExactResponseFields.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsIntentQnaIntentConfigurationDataSourceConfigurationBedrockKnowledgeStoreConfigurationExactResponseFields.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 answer_field: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str answer_field: Field name for the answer.
+        """
+        if answer_field is not None:
+            pulumi.set(__self__, "answer_field", answer_field)
+
+    @_builtins.property
+    @pulumi.getter(name="answerField")
+    def answer_field(self) -> Optional[_builtins.str]:
+        """
+        Field name for the answer.
+        """
+        return pulumi.get(self, "answer_field")
+
+
+@pulumi.output_type
+class V2modelsIntentQnaIntentConfigurationDataSourceConfigurationKendraConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kendraIndex":
+            suggest = "kendra_index"
+        elif key == "exactResponse":
+            suggest = "exact_response"
+        elif key == "queryFilterString":
+            suggest = "query_filter_string"
+        elif key == "queryFilterStringEnabled":
+            suggest = "query_filter_string_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsIntentQnaIntentConfigurationDataSourceConfigurationKendraConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsIntentQnaIntentConfigurationDataSourceConfigurationKendraConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsIntentQnaIntentConfigurationDataSourceConfigurationKendraConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kendra_index: _builtins.str,
+                 exact_response: Optional[_builtins.bool] = None,
+                 query_filter_string: Optional[_builtins.str] = None,
+                 query_filter_string_enabled: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str kendra_index: ARN of the Kendra index.
+        :param _builtins.bool exact_response: Whether to return exact responses from Kendra. Defaults to `false`.
+        :param _builtins.str query_filter_string: Query filter string for Kendra.
+        :param _builtins.bool query_filter_string_enabled: Whether the query filter string is enabled.
+        """
+        pulumi.set(__self__, "kendra_index", kendra_index)
+        if exact_response is not None:
+            pulumi.set(__self__, "exact_response", exact_response)
+        if query_filter_string is not None:
+            pulumi.set(__self__, "query_filter_string", query_filter_string)
+        if query_filter_string_enabled is not None:
+            pulumi.set(__self__, "query_filter_string_enabled", query_filter_string_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="kendraIndex")
+    def kendra_index(self) -> _builtins.str:
+        """
+        ARN of the Kendra index.
+        """
+        return pulumi.get(self, "kendra_index")
+
+    @_builtins.property
+    @pulumi.getter(name="exactResponse")
+    def exact_response(self) -> Optional[_builtins.bool]:
+        """
+        Whether to return exact responses from Kendra. Defaults to `false`.
+        """
+        return pulumi.get(self, "exact_response")
+
+    @_builtins.property
+    @pulumi.getter(name="queryFilterString")
+    def query_filter_string(self) -> Optional[_builtins.str]:
+        """
+        Query filter string for Kendra.
+        """
+        return pulumi.get(self, "query_filter_string")
+
+    @_builtins.property
+    @pulumi.getter(name="queryFilterStringEnabled")
+    def query_filter_string_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether the query filter string is enabled.
+        """
+        return pulumi.get(self, "query_filter_string_enabled")
+
+
+@pulumi.output_type
+class V2modelsIntentQnaIntentConfigurationDataSourceConfigurationOpensearchConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainEndpoint":
+            suggest = "domain_endpoint"
+        elif key == "indexName":
+            suggest = "index_name"
+        elif key == "exactResponse":
+            suggest = "exact_response"
+        elif key == "exactResponseFields":
+            suggest = "exact_response_fields"
+        elif key == "includeFields":
+            suggest = "include_fields"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsIntentQnaIntentConfigurationDataSourceConfigurationOpensearchConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsIntentQnaIntentConfigurationDataSourceConfigurationOpensearchConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsIntentQnaIntentConfigurationDataSourceConfigurationOpensearchConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_endpoint: _builtins.str,
+                 index_name: _builtins.str,
+                 exact_response: Optional[_builtins.bool] = None,
+                 exact_response_fields: Optional['outputs.V2modelsIntentQnaIntentConfigurationDataSourceConfigurationOpensearchConfigurationExactResponseFields'] = None,
+                 include_fields: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str domain_endpoint: Endpoint of the OpenSearch domain.
+        :param _builtins.str index_name: Name of the OpenSearch index.
+        :param _builtins.bool exact_response: Whether to return exact responses from OpenSearch. Defaults to `false`.
+        :param 'V2modelsIntentQnaIntentConfigurationDataSourceConfigurationOpensearchConfigurationExactResponseFieldsArgs' exact_response_fields: Configuration block for exact response fields. See `exact_response_fields`.
+        :param Sequence[_builtins.str] include_fields: List of fields to include in the response.
+        """
+        pulumi.set(__self__, "domain_endpoint", domain_endpoint)
+        pulumi.set(__self__, "index_name", index_name)
+        if exact_response is not None:
+            pulumi.set(__self__, "exact_response", exact_response)
+        if exact_response_fields is not None:
+            pulumi.set(__self__, "exact_response_fields", exact_response_fields)
+        if include_fields is not None:
+            pulumi.set(__self__, "include_fields", include_fields)
+
+    @_builtins.property
+    @pulumi.getter(name="domainEndpoint")
+    def domain_endpoint(self) -> _builtins.str:
+        """
+        Endpoint of the OpenSearch domain.
+        """
+        return pulumi.get(self, "domain_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="indexName")
+    def index_name(self) -> _builtins.str:
+        """
+        Name of the OpenSearch index.
+        """
+        return pulumi.get(self, "index_name")
+
+    @_builtins.property
+    @pulumi.getter(name="exactResponse")
+    def exact_response(self) -> Optional[_builtins.bool]:
+        """
+        Whether to return exact responses from OpenSearch. Defaults to `false`.
+        """
+        return pulumi.get(self, "exact_response")
+
+    @_builtins.property
+    @pulumi.getter(name="exactResponseFields")
+    def exact_response_fields(self) -> Optional['outputs.V2modelsIntentQnaIntentConfigurationDataSourceConfigurationOpensearchConfigurationExactResponseFields']:
+        """
+        Configuration block for exact response fields. See `exact_response_fields`.
+        """
+        return pulumi.get(self, "exact_response_fields")
+
+    @_builtins.property
+    @pulumi.getter(name="includeFields")
+    def include_fields(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of fields to include in the response.
+        """
+        return pulumi.get(self, "include_fields")
+
+
+@pulumi.output_type
+class V2modelsIntentQnaIntentConfigurationDataSourceConfigurationOpensearchConfigurationExactResponseFields(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "answerField":
+            suggest = "answer_field"
+        elif key == "questionField":
+            suggest = "question_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsIntentQnaIntentConfigurationDataSourceConfigurationOpensearchConfigurationExactResponseFields. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsIntentQnaIntentConfigurationDataSourceConfigurationOpensearchConfigurationExactResponseFields.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsIntentQnaIntentConfigurationDataSourceConfigurationOpensearchConfigurationExactResponseFields.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 answer_field: _builtins.str,
+                 question_field: _builtins.str):
+        """
+        :param _builtins.str answer_field: Field name for the answer.
+        :param _builtins.str question_field: Field name for the question.
+        """
+        pulumi.set(__self__, "answer_field", answer_field)
+        pulumi.set(__self__, "question_field", question_field)
+
+    @_builtins.property
+    @pulumi.getter(name="answerField")
+    def answer_field(self) -> _builtins.str:
+        """
+        Field name for the answer.
+        """
+        return pulumi.get(self, "answer_field")
+
+    @_builtins.property
+    @pulumi.getter(name="questionField")
+    def question_field(self) -> _builtins.str:
+        """
+        Field name for the question.
+        """
+        return pulumi.get(self, "question_field")
 
 
 @pulumi.output_type

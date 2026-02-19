@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.aws.sagemaker.outputs.DomainDomainSettingsDockerSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainDomainSettingsRStudioServerProDomainSettings;
+import com.pulumi.aws.sagemaker.outputs.DomainDomainSettingsTrustedIdentityPropagationSettings;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
@@ -34,6 +35,11 @@ public final class DomainDomainSettings {
      * 
      */
     private @Nullable List<String> securityGroupIds;
+    /**
+     * @return Configuration for trusted identity propagation. See the `trustedIdentityPropagationSettings` Block below.
+     * 
+     */
+    private @Nullable DomainDomainSettingsTrustedIdentityPropagationSettings trustedIdentityPropagationSettings;
 
     private DomainDomainSettings() {}
     /**
@@ -64,6 +70,13 @@ public final class DomainDomainSettings {
     public List<String> securityGroupIds() {
         return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
+    /**
+     * @return Configuration for trusted identity propagation. See the `trustedIdentityPropagationSettings` Block below.
+     * 
+     */
+    public Optional<DomainDomainSettingsTrustedIdentityPropagationSettings> trustedIdentityPropagationSettings() {
+        return Optional.ofNullable(this.trustedIdentityPropagationSettings);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -78,6 +91,7 @@ public final class DomainDomainSettings {
         private @Nullable String executionRoleIdentityConfig;
         private @Nullable DomainDomainSettingsRStudioServerProDomainSettings rStudioServerProDomainSettings;
         private @Nullable List<String> securityGroupIds;
+        private @Nullable DomainDomainSettingsTrustedIdentityPropagationSettings trustedIdentityPropagationSettings;
         public Builder() {}
         public Builder(DomainDomainSettings defaults) {
     	      Objects.requireNonNull(defaults);
@@ -85,6 +99,7 @@ public final class DomainDomainSettings {
     	      this.executionRoleIdentityConfig = defaults.executionRoleIdentityConfig;
     	      this.rStudioServerProDomainSettings = defaults.rStudioServerProDomainSettings;
     	      this.securityGroupIds = defaults.securityGroupIds;
+    	      this.trustedIdentityPropagationSettings = defaults.trustedIdentityPropagationSettings;
         }
 
         @CustomType.Setter
@@ -114,12 +129,19 @@ public final class DomainDomainSettings {
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
+        @CustomType.Setter
+        public Builder trustedIdentityPropagationSettings(@Nullable DomainDomainSettingsTrustedIdentityPropagationSettings trustedIdentityPropagationSettings) {
+
+            this.trustedIdentityPropagationSettings = trustedIdentityPropagationSettings;
+            return this;
+        }
         public DomainDomainSettings build() {
             final var _resultValue = new DomainDomainSettings();
             _resultValue.dockerSettings = dockerSettings;
             _resultValue.executionRoleIdentityConfig = executionRoleIdentityConfig;
             _resultValue.rStudioServerProDomainSettings = rStudioServerProDomainSettings;
             _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.trustedIdentityPropagationSettings = trustedIdentityPropagationSettings;
             return _resultValue;
         }
     }

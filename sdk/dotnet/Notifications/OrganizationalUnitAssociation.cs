@@ -21,7 +21,7 @@ namespace Pulumi.Aws.Notifications
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
-    /// using Time = Pulumiverse.Time;
+    /// using Time = Pulumi.Time;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Notifications
     ///     });
     /// 
     ///     // Allow time for organizational unit creation to propagate
-    ///     var wait = new Time.Sleep("wait", new()
+    ///     var wait = new Time.Index.Sleep("wait", new()
     ///     {
     ///         CreateDuration = "5s",
     ///     }, new CustomResourceOptions

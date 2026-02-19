@@ -336,6 +336,18 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Family` (String) The unique name for your task definition.
+    /// * `Revision` (Integer) The revision of the task in a particular family.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import ECS Task Definitions using their ARNs. For example:
     /// 
     /// ```sh

@@ -7,6 +7,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .attachment_accepter import *
+from .attachment_routing_policy_label import *
 from .connect_attachment import *
 from .connect_peer import *
 from .connection import *

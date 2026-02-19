@@ -272,6 +272,270 @@ namespace Pulumi.Aws.Budgets
     /// });
     /// ```
     /// 
+    /// Create a budget with a simple dimension filter
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var simple = new Aws.Budgets.Budget("simple", new()
+    ///     {
+    ///         Name = "budget-ec2-filter",
+    ///         BudgetType = "COST",
+    ///         LimitAmount = "500",
+    ///         LimitUnit = "USD",
+    ///         TimeUnit = "MONTHLY",
+    ///         FilterExpression = new Aws.Budgets.Inputs.BudgetFilterExpressionArgs
+    ///         {
+    ///             Dimensions = new Aws.Budgets.Inputs.BudgetFilterExpressionDimensionsArgs
+    ///             {
+    ///                 Key = "SERVICE",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "Amazon Elastic Compute Cloud - Compute",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Create a budget with AND filter
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var andExample = new Aws.Budgets.Budget("and_example", new()
+    ///     {
+    ///         Name = "budget-and-filter",
+    ///         BudgetType = "COST",
+    ///         LimitAmount = "1200",
+    ///         LimitUnit = "USD",
+    ///         TimeUnit = "MONTHLY",
+    ///         FilterExpression = new Aws.Budgets.Inputs.BudgetFilterExpressionArgs
+    ///         {
+    ///             Ands = new[]
+    ///             {
+    ///                 new Aws.Budgets.Inputs.BudgetFilterExpressionAndArgs
+    ///                 {
+    ///                     Dimensions = new Aws.Budgets.Inputs.BudgetFilterExpressionAndDimensionsArgs
+    ///                     {
+    ///                         Key = "SERVICE",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "Amazon Elastic Compute Cloud - Compute",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Aws.Budgets.Inputs.BudgetFilterExpressionAndArgs
+    ///                 {
+    ///                     Tags = new Aws.Budgets.Inputs.BudgetFilterExpressionAndTagsArgs
+    ///                     {
+    ///                         Key = "Environment",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "Production",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Create a budget with OR filter
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var orExample = new Aws.Budgets.Budget("or_example", new()
+    ///     {
+    ///         Name = "budget-or-filter",
+    ///         BudgetType = "COST",
+    ///         LimitAmount = "2000",
+    ///         LimitUnit = "USD",
+    ///         TimeUnit = "MONTHLY",
+    ///         FilterExpression = new Aws.Budgets.Inputs.BudgetFilterExpressionArgs
+    ///         {
+    ///             Ors = new[]
+    ///             {
+    ///                 new Aws.Budgets.Inputs.BudgetFilterExpressionOrArgs
+    ///                 {
+    ///                     Dimensions = new Aws.Budgets.Inputs.BudgetFilterExpressionOrDimensionsArgs
+    ///                     {
+    ///                         Key = "SERVICE",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "Amazon Elastic Compute Cloud - Compute",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Aws.Budgets.Inputs.BudgetFilterExpressionOrArgs
+    ///                 {
+    ///                     Dimensions = new Aws.Budgets.Inputs.BudgetFilterExpressionOrDimensionsArgs
+    ///                     {
+    ///                         Key = "SERVICE",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "Amazon Relational Database Service",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Create a budget with NOT filter
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var notExample = new Aws.Budgets.Budget("not_example", new()
+    ///     {
+    ///         Name = "budget-not-filter",
+    ///         BudgetType = "COST",
+    ///         LimitAmount = "1000",
+    ///         LimitUnit = "USD",
+    ///         TimeUnit = "MONTHLY",
+    ///         FilterExpression = new Aws.Budgets.Inputs.BudgetFilterExpressionArgs
+    ///         {
+    ///             Not = new Aws.Budgets.Inputs.BudgetFilterExpressionNotArgs
+    ///             {
+    ///                 Dimensions = new Aws.Budgets.Inputs.BudgetFilterExpressionNotDimensionsArgs
+    ///                 {
+    ///                     Key = "REGION",
+    ///                     Values = new[]
+    ///                     {
+    ///                         "us-west-2",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Create a budget with a compound filter
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var compoundExample = new Aws.Budgets.Budget("compound_example", new()
+    ///     {
+    ///         Name = "budget-compound-filter",
+    ///         BudgetType = "COST",
+    ///         LimitAmount = "1500",
+    ///         LimitUnit = "USD",
+    ///         TimeUnit = "MONTHLY",
+    ///         FilterExpression = new Aws.Budgets.Inputs.BudgetFilterExpressionArgs
+    ///         {
+    ///             Ors = new[]
+    ///             {
+    ///                 new Aws.Budgets.Inputs.BudgetFilterExpressionOrArgs
+    ///                 {
+    ///                     Ands = new[]
+    ///                     {
+    ///                         new Aws.Budgets.Inputs.BudgetFilterExpressionOrAndArgs
+    ///                         {
+    ///                             Dimensions = new Aws.Budgets.Inputs.BudgetFilterExpressionOrAndDimensionsArgs
+    ///                             {
+    ///                                 Key = "SERVICE",
+    ///                                 Values = new[]
+    ///                                 {
+    ///                                     "Amazon Elastic Compute Cloud - Compute",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         new Aws.Budgets.Inputs.BudgetFilterExpressionOrAndArgs
+    ///                         {
+    ///                             Tags = new Aws.Budgets.Inputs.BudgetFilterExpressionOrAndTagsArgs
+    ///                             {
+    ///                                 Key = "Environment",
+    ///                                 Values = new[]
+    ///                                 {
+    ///                                     "production",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         new Aws.Budgets.Inputs.BudgetFilterExpressionOrAndArgs
+    ///                         {
+    ///                             CostCategories = new Aws.Budgets.Inputs.BudgetFilterExpressionOrAndCostCategoriesArgs
+    ///                             {
+    ///                                 Key = "Environment",
+    ///                                 Values = new[]
+    ///                                 {
+    ///                                     "production",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Aws.Budgets.Inputs.BudgetFilterExpressionOrArgs
+    ///                 {
+    ///                     Not = new Aws.Budgets.Inputs.BudgetFilterExpressionOrNotArgs
+    ///                     {
+    ///                         Dimensions = new Aws.Budgets.Inputs.BudgetFilterExpressionOrNotDimensionsArgs
+    ///                         {
+    ///                             Key = "REGION",
+    ///                             Values = new[]
+    ///                             {
+    ///                                 "us-west-2",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Notifications = new[]
+    ///         {
+    ///             new Aws.Budgets.Inputs.BudgetNotificationArgs
+    ///             {
+    ///                 ComparisonOperator = "GREATER_THAN",
+    ///                 Threshold = 100,
+    ///                 ThresholdType = "PERCENTAGE",
+    ///                 NotificationType = "FORECASTED",
+    ///                 SubscriberEmailAddresses = new[]
+    ///                 {
+    ///                     "test@example.com",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import budgets using `AccountID:BudgetName`. For example:
@@ -314,7 +578,7 @@ namespace Pulumi.Aws.Budgets
         public Output<string> BudgetType { get; private set; } = null!;
 
         /// <summary>
-        /// A list of CostFilter name/values pair to apply to budget.
+        /// A list of CostFilter name/values pair to apply to budget. Conflicts with `FilterExpression`.
         /// </summary>
         [Output("costFilters")]
         public Output<ImmutableArray<Outputs.BudgetCostFilter>> CostFilters { get; private set; } = null!;
@@ -324,6 +588,12 @@ namespace Pulumi.Aws.Budgets
         /// </summary>
         [Output("costTypes")]
         public Output<Outputs.BudgetCostTypes> CostTypes { get; private set; } = null!;
+
+        /// <summary>
+        /// Object containing Filter Expression to apply to budget. Conflicts with `CostFilter`.
+        /// </summary>
+        [Output("filterExpression")]
+        public Output<Outputs.BudgetFilterExpression?> FilterExpression { get; private set; } = null!;
 
         /// <summary>
         /// The amount of cost or usage being measured for a budget.
@@ -470,7 +740,7 @@ namespace Pulumi.Aws.Budgets
         private InputList<Inputs.BudgetCostFilterArgs>? _costFilters;
 
         /// <summary>
-        /// A list of CostFilter name/values pair to apply to budget.
+        /// A list of CostFilter name/values pair to apply to budget. Conflicts with `FilterExpression`.
         /// </summary>
         public InputList<Inputs.BudgetCostFilterArgs> CostFilters
         {
@@ -483,6 +753,12 @@ namespace Pulumi.Aws.Budgets
         /// </summary>
         [Input("costTypes")]
         public Input<Inputs.BudgetCostTypesArgs>? CostTypes { get; set; }
+
+        /// <summary>
+        /// Object containing Filter Expression to apply to budget. Conflicts with `CostFilter`.
+        /// </summary>
+        [Input("filterExpression")]
+        public Input<Inputs.BudgetFilterExpressionArgs>? FilterExpression { get; set; }
 
         /// <summary>
         /// The amount of cost or usage being measured for a budget.
@@ -609,7 +885,7 @@ namespace Pulumi.Aws.Budgets
         private InputList<Inputs.BudgetCostFilterGetArgs>? _costFilters;
 
         /// <summary>
-        /// A list of CostFilter name/values pair to apply to budget.
+        /// A list of CostFilter name/values pair to apply to budget. Conflicts with `FilterExpression`.
         /// </summary>
         public InputList<Inputs.BudgetCostFilterGetArgs> CostFilters
         {
@@ -622,6 +898,12 @@ namespace Pulumi.Aws.Budgets
         /// </summary>
         [Input("costTypes")]
         public Input<Inputs.BudgetCostTypesGetArgs>? CostTypes { get; set; }
+
+        /// <summary>
+        /// Object containing Filter Expression to apply to budget. Conflicts with `CostFilter`.
+        /// </summary>
+        [Input("filterExpression")]
+        public Input<Inputs.BudgetFilterExpressionGetArgs>? FilterExpression { get; set; }
 
         /// <summary>
         /// The amount of cost or usage being measured for a budget.

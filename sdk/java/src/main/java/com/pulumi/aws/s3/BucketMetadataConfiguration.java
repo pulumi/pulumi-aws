@@ -71,20 +71,21 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, import using the `bucket` and `expectedBucketOwner` separated by a comma (`,`):
+ * ### Identity Schema
  * 
- * **Using `pulumi import` to import** S3 bucket metadata configuration using the `bucket` or using the `bucket` and `expectedBucketOwner` separated by a comma (`,`). For example:
+ * #### Required
  * 
- * If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, import using the `bucket`:
+ * * `bucket` (String) S3 bucket name.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * **Using `pulumi import` to import** S3 bucket metadata configuration using the `bucket`. For example:
  * 
  * ```sh
  * $ pulumi import aws:s3/bucketMetadataConfiguration:BucketMetadataConfiguration example bucket-name
- * ```
- * 
- * If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, import using the `bucket` and `expectedBucketOwner` separated by a comma (`,`):
- * 
- * ```sh
- * $ pulumi import aws:s3/bucketMetadataConfiguration:BucketMetadataConfiguration example bucket-name,123456789012
  * ```
  * 
  */

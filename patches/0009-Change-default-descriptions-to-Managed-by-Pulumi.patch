@@ -278,10 +278,10 @@ index 50efd08714f..a275f68c584 100644
  			names.AttrName: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/route53/record.go b/internal/service/route53/record.go
-index 92359fd267b..1bcdf903575 100644
+index 6bd3c5d8db1..f2f9b95436f 100644
 --- a/internal/service/route53/record.go
 +++ b/internal/service/route53/record.go
-@@ -364,7 +364,7 @@ func resourceRecordCreate(ctx context.Context, d *schema.ResourceData, meta any)
+@@ -362,7 +362,7 @@ func resourceRecordCreate(ctx context.Context, d *schema.ResourceData, meta any)
  					ResourceRecordSet: expandResourceRecordSet(d, aws.ToString(zoneRecord.HostedZone.Name)),
  				},
  			},
@@ -290,7 +290,7 @@ index 92359fd267b..1bcdf903575 100644
  		},
  		HostedZoneId: aws.String(cleanZoneID(aws.ToString(zoneRecord.HostedZone.Id))),
  	}
-@@ -666,7 +666,7 @@ func resourceRecordUpdate(ctx context.Context, d *schema.ResourceData, meta any)
+@@ -664,7 +664,7 @@ func resourceRecordUpdate(ctx context.Context, d *schema.ResourceData, meta any)
  					ResourceRecordSet: expandResourceRecordSet(d, aws.ToString(zoneRecord.HostedZone.Name)),
  				},
  			},
@@ -299,7 +299,7 @@ index 92359fd267b..1bcdf903575 100644
  		},
  		HostedZoneId: aws.String(cleanZoneID(aws.ToString(zoneRecord.HostedZone.Id))),
  	}
-@@ -724,7 +724,7 @@ func resourceRecordDelete(ctx context.Context, d *schema.ResourceData, meta any)
+@@ -722,7 +722,7 @@ func resourceRecordDelete(ctx context.Context, d *schema.ResourceData, meta any)
  					ResourceRecordSet: rec,
  				},
  			},
@@ -322,10 +322,10 @@ index 0ce85e138a3..219d4f94cb0 100644
  			},
  			"delegation_set_id": {
 diff --git a/internal/service/route53/zone_association.go b/internal/service/route53/zone_association.go
-index 380906ff562..ff63ca9b220 100644
+index 7893ad0d6e5..e5bb8f8a5f4 100644
 --- a/internal/service/route53/zone_association.go
 +++ b/internal/service/route53/zone_association.go
-@@ -83,7 +83,7 @@ func resourceZoneAssociationCreate(ctx context.Context, d *schema.ResourceData,
+@@ -82,7 +82,7 @@ func resourceZoneAssociationCreate(ctx context.Context, d *schema.ResourceData,
  	zoneID := d.Get("zone_id").(string)
  	id := zoneAssociationCreateResourceID(zoneID, vpcID, vpcRegion)
  	input := &route53.AssociateVPCWithHostedZoneInput{
@@ -334,7 +334,7 @@ index 380906ff562..ff63ca9b220 100644
  		HostedZoneId: aws.String(zoneID),
  		VPC: &awstypes.VPC{
  			VPCId:     aws.String(vpcID),
-@@ -167,7 +167,7 @@ func resourceZoneAssociationDelete(ctx context.Context, d *schema.ResourceData,
+@@ -166,7 +166,7 @@ func resourceZoneAssociationDelete(ctx context.Context, d *schema.ResourceData,
  
  	log.Printf("[INFO] Deleting Route53 Zone Association: %s", d.Id())
  	output, err := conn.DisassociateVPCFromHostedZone(ctx, &route53.DisassociateVPCFromHostedZoneInput{

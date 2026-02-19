@@ -20,6 +20,7 @@ import com.pulumi.aws.ec2.inputs.LaunchTemplateNetworkInterfaceArgs;
 import com.pulumi.aws.ec2.inputs.LaunchTemplateNetworkPerformanceOptionsArgs;
 import com.pulumi.aws.ec2.inputs.LaunchTemplatePlacementArgs;
 import com.pulumi.aws.ec2.inputs.LaunchTemplatePrivateDnsNameOptionsArgs;
+import com.pulumi.aws.ec2.inputs.LaunchTemplateSecondaryInterfaceArgs;
 import com.pulumi.aws.ec2.inputs.LaunchTemplateTagSpecificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -509,6 +510,23 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Secondary interfaces to associate with instances launched from the template. See Secondary
+     * Interfaces below for more details.
+     * 
+     */
+    @Import(name="secondaryInterfaces")
+    private @Nullable Output<List<LaunchTemplateSecondaryInterfaceArgs>> secondaryInterfaces;
+
+    /**
+     * @return Secondary interfaces to associate with instances launched from the template. See Secondary
+     * Interfaces below for more details.
+     * 
+     */
+    public Optional<Output<List<LaunchTemplateSecondaryInterfaceArgs>>> secondaryInterfaces() {
+        return Optional.ofNullable(this.secondaryInterfaces);
+    }
+
+    /**
      * A list of security group names to associate with. If you are creating Instances in a VPC, use
      * `vpcSecurityGroupIds` instead.
      * 
@@ -634,6 +652,7 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.ResourceArgs 
         this.privateDnsNameOptions = $.privateDnsNameOptions;
         this.ramDiskId = $.ramDiskId;
         this.region = $.region;
+        this.secondaryInterfaces = $.secondaryInterfaces;
         this.securityGroupNames = $.securityGroupNames;
         this.tagSpecifications = $.tagSpecifications;
         this.tags = $.tags;
@@ -1343,6 +1362,40 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param secondaryInterfaces Secondary interfaces to associate with instances launched from the template. See Secondary
+         * Interfaces below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryInterfaces(@Nullable Output<List<LaunchTemplateSecondaryInterfaceArgs>> secondaryInterfaces) {
+            $.secondaryInterfaces = secondaryInterfaces;
+            return this;
+        }
+
+        /**
+         * @param secondaryInterfaces Secondary interfaces to associate with instances launched from the template. See Secondary
+         * Interfaces below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryInterfaces(List<LaunchTemplateSecondaryInterfaceArgs> secondaryInterfaces) {
+            return secondaryInterfaces(Output.of(secondaryInterfaces));
+        }
+
+        /**
+         * @param secondaryInterfaces Secondary interfaces to associate with instances launched from the template. See Secondary
+         * Interfaces below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryInterfaces(LaunchTemplateSecondaryInterfaceArgs... secondaryInterfaces) {
+            return secondaryInterfaces(List.of(secondaryInterfaces));
         }
 
         /**

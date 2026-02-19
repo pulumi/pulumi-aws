@@ -10,6 +10,11 @@ export type AttachmentAccepter = import("./attachmentAccepter").AttachmentAccept
 export const AttachmentAccepter: typeof import("./attachmentAccepter").AttachmentAccepter = null as any;
 utilities.lazyLoad(exports, ["AttachmentAccepter"], () => require("./attachmentAccepter"));
 
+export { AttachmentRoutingPolicyLabelArgs, AttachmentRoutingPolicyLabelState } from "./attachmentRoutingPolicyLabel";
+export type AttachmentRoutingPolicyLabel = import("./attachmentRoutingPolicyLabel").AttachmentRoutingPolicyLabel;
+export const AttachmentRoutingPolicyLabel: typeof import("./attachmentRoutingPolicyLabel").AttachmentRoutingPolicyLabel = null as any;
+utilities.lazyLoad(exports, ["AttachmentRoutingPolicyLabel"], () => require("./attachmentRoutingPolicyLabel"));
+
 export { ConnectAttachmentArgs, ConnectAttachmentState } from "./connectAttachment";
 export type ConnectAttachment = import("./connectAttachment").ConnectAttachment;
 export const ConnectAttachment: typeof import("./connectAttachment").ConnectAttachment = null as any;
@@ -162,6 +167,8 @@ const _module = {
         switch (type) {
             case "aws:networkmanager/attachmentAccepter:AttachmentAccepter":
                 return new AttachmentAccepter(name, <any>undefined, { urn })
+            case "aws:networkmanager/attachmentRoutingPolicyLabel:AttachmentRoutingPolicyLabel":
+                return new AttachmentRoutingPolicyLabel(name, <any>undefined, { urn })
             case "aws:networkmanager/connectAttachment:ConnectAttachment":
                 return new ConnectAttachment(name, <any>undefined, { urn })
             case "aws:networkmanager/connectPeer:ConnectPeer":
@@ -204,6 +211,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "networkmanager/attachmentAccepter", _module)
+pulumi.runtime.registerResourceModule("aws", "networkmanager/attachmentRoutingPolicyLabel", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/connectAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/connectPeer", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/connection", _module)

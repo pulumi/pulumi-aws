@@ -768,6 +768,10 @@ class EndpointMongodbSettingsArgsDict(TypedDict):
     """
     Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
     """
+    use_update_lookup: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If `true`, DMS retrieves the entire document from the MongoDB source during migration. Default is `false`.
+    """
 
 @pulumi.input_type
 class EndpointMongodbSettingsArgs:
@@ -777,7 +781,8 @@ class EndpointMongodbSettingsArgs:
                  auth_type: Optional[pulumi.Input[_builtins.str]] = None,
                  docs_to_investigate: Optional[pulumi.Input[_builtins.str]] = None,
                  extract_doc_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 nesting_level: Optional[pulumi.Input[_builtins.str]] = None):
+                 nesting_level: Optional[pulumi.Input[_builtins.str]] = None,
+                 use_update_lookup: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] auth_mechanism: Authentication mechanism to access the MongoDB source endpoint. Default is `default`.
         :param pulumi.Input[_builtins.str] auth_source: Authentication database name. Not used when `auth_type` is `no`. Default is `admin`.
@@ -785,6 +790,7 @@ class EndpointMongodbSettingsArgs:
         :param pulumi.Input[_builtins.str] docs_to_investigate: Number of documents to preview to determine the document organization. Use this setting when `nesting_level` is set to `one`. Default is `1000`.
         :param pulumi.Input[_builtins.str] extract_doc_id: Document ID. Use this setting when `nesting_level` is set to `none`. Default is `false`.
         :param pulumi.Input[_builtins.str] nesting_level: Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
+        :param pulumi.Input[_builtins.bool] use_update_lookup: If `true`, DMS retrieves the entire document from the MongoDB source during migration. Default is `false`.
         """
         if auth_mechanism is not None:
             pulumi.set(__self__, "auth_mechanism", auth_mechanism)
@@ -798,6 +804,8 @@ class EndpointMongodbSettingsArgs:
             pulumi.set(__self__, "extract_doc_id", extract_doc_id)
         if nesting_level is not None:
             pulumi.set(__self__, "nesting_level", nesting_level)
+        if use_update_lookup is not None:
+            pulumi.set(__self__, "use_update_lookup", use_update_lookup)
 
     @_builtins.property
     @pulumi.getter(name="authMechanism")
@@ -870,6 +878,18 @@ class EndpointMongodbSettingsArgs:
     @nesting_level.setter
     def nesting_level(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "nesting_level", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useUpdateLookup")
+    def use_update_lookup(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If `true`, DMS retrieves the entire document from the MongoDB source during migration. Default is `false`.
+        """
+        return pulumi.get(self, "use_update_lookup")
+
+    @use_update_lookup.setter
+    def use_update_lookup(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "use_update_lookup", value)
 
 
 class EndpointMysqlSettingsArgsDict(TypedDict):
@@ -1082,20 +1102,416 @@ class EndpointMysqlSettingsArgs:
 
 
 class EndpointOracleSettingsArgsDict(TypedDict):
+    access_alternate_directly: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set this attribute to `false` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+    """
+    add_supplemental_logging: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set this attribute to set up table-level supplemental logging for the Oracle database. This attribute enables PRIMARY KEY supplemental logging on all tables selected for a migration task.
+    """
+    additional_archived_log_dest_id: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Set this attribute with `archived_log_dest_id` in a primary/standby setup. This attribute is useful in the case of a switchover.
+    """
+    allow_selected_nested_tables: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set this attribute to `true` to enable replication of Oracle tables containing columns that are nested tables or defined types.
+    """
+    archived_log_dest_id: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the ID of the destination for the archived redo logs. This value should be the same as a number in the dest_id column of the v$archived_log view.
+    """
+    archived_logs_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When this field is set to `true`, AWS DMS only accesses the archived redo logs.
+    """
+    asm_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    For an Oracle source endpoint, your Oracle Automatic Storage Management (ASM) password.
+    """
+    asm_server: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    For an Oracle source endpoint, your ASM server address.
+    """
+    asm_user: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    For an Oracle source endpoint, your ASM user name.
+    """
     authentication_method: NotRequired[pulumi.Input[_builtins.str]]
     """
     Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
+    """
+    char_length_semantics: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies whether the length of a character column is in bytes or in characters. Valid values are `default`, `char`, and `byte`.
+    """
+    convert_timestamp_with_zone_to_utc: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When `true`, converts timestamps with the timezone datatype to their UTC value.
+    """
+    direct_path_no_log: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When set to `true`, this attribute helps to increase the commit rate on the Oracle target database by writing directly to tables and not writing a trail to database logs.
+    """
+    direct_path_parallel_load: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When set to `true`, this attribute specifies a parallel load when use_direct_path_full_load is set to true.
+    """
+    enable_homogenous_tablespace: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set this attribute to enable homogenous tablespace replication and create existing tables or indexes under the same tablespace on the target.
+    """
+    extra_archived_log_dest_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    Specifies the IDs of one more destinations for one or more archived redo logs. These IDs are the values of the dest_id column in the v$archived_log view.
+    """
+    fail_task_on_lob_truncation: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When set to `true`, this attribute causes a task to fail if the actual size of an LOB column is greater than the specified lob_max_size.
+    """
+    number_datatype_scale: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the number scale.
+    """
+    open_transaction_window: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The timeframe in minutes to check for open transactions for a CDC-only task. You can specify an integer value between 0 (the default) and 240 (the maximum).
+    """
+    oracle_path_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This value specifies the default Oracle root used to access the redo logs.
+    """
+    parallel_asm_read_threads: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Set this attribute to change the number of threads that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM). You can specify an integer value between 2 (the default) and 8 (the maximum).
+    """
+    read_ahead_blocks: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Set this attribute to change the number of read-ahead blocks that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM). You can specify an integer value between 1000 (the default) and 200,000 (the maximum).
+    """
+    read_table_space_name: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When set to `true`, this attribute supports tablespace replication.
+    """
+    replace_path_prefix: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set this attribute to `true` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This setting tells DMS instance to replace the default Oracle root with the specified `use_path_prefix` setting to access the redo logs.
+    """
+    retry_interval: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the number of seconds that the system waits before resending a query.
+    """
+    secrets_manager_oracle_asm_access_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The full ARN of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the `secrets_manager_oracle_asm_secret_id`.
+    """
+    secrets_manager_oracle_asm_secret_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The full ARN, partial ARN, or friendly name of the secret that contains the Oracle ASM connection details for the Oracle endpoint.
+    """
+    security_db_encryption: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    For an Oracle source endpoint, the transparent data encryption (TDE) password required by AWM DMS to access Oracle redo logs encrypted by TDE using Binary Reader.
+    """
+    security_db_encryption_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    For an Oracle source endpoint, the name of a key used for the transparent data encryption (TDE) of the columns and tablespaces in an Oracle source database that is encrypted using TDE.
+    """
+    spatial_data_option_to_geo_json_function_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this attribute to convert SDO_GEOMETRY to GEOJSON format. By default, DMS calls the SDO2GEOJSON custom function if present and accessible.
+    """
+    standby_delay_time: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Use this attribute to specify a time in minutes for the delay in standby sync. If the source is an Oracle Active Data Guard standby database, use this attribute to specify the time lag between primary and standby databases.
+    """
+    trim_space_in_char: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Use this attribute to trim data on CHAR and NCHAR data types during migration. The default value is `true`.
+    """
+    use_alternate_folder_for_online: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set this attribute to `true` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This tells the DMS instance to use any specified prefix replacement to access all online redo logs.
+    """
+    use_bfile: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set this attribute to `true` to capture change data using the Binary Reader utility. Set `use_logminer_reader` to `false` to set this attribute to `true`.
+    """
+    use_direct_path_full_load: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set this attribute to `true` to have AWS DMS use a direct path full load. Specify this value to use the direct path protocol in the Oracle Call Interface (OCI).
+    """
+    use_logminer_reader: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set this attribute to `true` to capture change data using the Oracle LogMiner utility (the default). Set this attribute to `false` if you want to access the redo logs as a binary file.
+    """
+    use_path_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This value specifies the path prefix used to replace the default Oracle root to access the redo logs.
     """
 
 @pulumi.input_type
 class EndpointOracleSettingsArgs:
     def __init__(__self__, *,
-                 authentication_method: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_alternate_directly: Optional[pulumi.Input[_builtins.bool]] = None,
+                 add_supplemental_logging: Optional[pulumi.Input[_builtins.bool]] = None,
+                 additional_archived_log_dest_id: Optional[pulumi.Input[_builtins.int]] = None,
+                 allow_selected_nested_tables: Optional[pulumi.Input[_builtins.bool]] = None,
+                 archived_log_dest_id: Optional[pulumi.Input[_builtins.int]] = None,
+                 archived_logs_only: Optional[pulumi.Input[_builtins.bool]] = None,
+                 asm_password: Optional[pulumi.Input[_builtins.str]] = None,
+                 asm_server: Optional[pulumi.Input[_builtins.str]] = None,
+                 asm_user: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_method: Optional[pulumi.Input[_builtins.str]] = None,
+                 char_length_semantics: Optional[pulumi.Input[_builtins.str]] = None,
+                 convert_timestamp_with_zone_to_utc: Optional[pulumi.Input[_builtins.bool]] = None,
+                 direct_path_no_log: Optional[pulumi.Input[_builtins.bool]] = None,
+                 direct_path_parallel_load: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_homogenous_tablespace: Optional[pulumi.Input[_builtins.bool]] = None,
+                 extra_archived_log_dest_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 fail_task_on_lob_truncation: Optional[pulumi.Input[_builtins.bool]] = None,
+                 number_datatype_scale: Optional[pulumi.Input[_builtins.int]] = None,
+                 open_transaction_window: Optional[pulumi.Input[_builtins.int]] = None,
+                 oracle_path_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 parallel_asm_read_threads: Optional[pulumi.Input[_builtins.int]] = None,
+                 read_ahead_blocks: Optional[pulumi.Input[_builtins.int]] = None,
+                 read_table_space_name: Optional[pulumi.Input[_builtins.bool]] = None,
+                 replace_path_prefix: Optional[pulumi.Input[_builtins.bool]] = None,
+                 retry_interval: Optional[pulumi.Input[_builtins.int]] = None,
+                 secrets_manager_oracle_asm_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 secrets_manager_oracle_asm_secret_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 security_db_encryption: Optional[pulumi.Input[_builtins.str]] = None,
+                 security_db_encryption_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 spatial_data_option_to_geo_json_function_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 standby_delay_time: Optional[pulumi.Input[_builtins.int]] = None,
+                 trim_space_in_char: Optional[pulumi.Input[_builtins.bool]] = None,
+                 use_alternate_folder_for_online: Optional[pulumi.Input[_builtins.bool]] = None,
+                 use_bfile: Optional[pulumi.Input[_builtins.bool]] = None,
+                 use_direct_path_full_load: Optional[pulumi.Input[_builtins.bool]] = None,
+                 use_logminer_reader: Optional[pulumi.Input[_builtins.bool]] = None,
+                 use_path_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
+        :param pulumi.Input[_builtins.bool] access_alternate_directly: Set this attribute to `false` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+        :param pulumi.Input[_builtins.bool] add_supplemental_logging: Set this attribute to set up table-level supplemental logging for the Oracle database. This attribute enables PRIMARY KEY supplemental logging on all tables selected for a migration task.
+        :param pulumi.Input[_builtins.int] additional_archived_log_dest_id: Set this attribute with `archived_log_dest_id` in a primary/standby setup. This attribute is useful in the case of a switchover.
+        :param pulumi.Input[_builtins.bool] allow_selected_nested_tables: Set this attribute to `true` to enable replication of Oracle tables containing columns that are nested tables or defined types.
+        :param pulumi.Input[_builtins.int] archived_log_dest_id: Specifies the ID of the destination for the archived redo logs. This value should be the same as a number in the dest_id column of the v$archived_log view.
+        :param pulumi.Input[_builtins.bool] archived_logs_only: When this field is set to `true`, AWS DMS only accesses the archived redo logs.
+        :param pulumi.Input[_builtins.str] asm_password: For an Oracle source endpoint, your Oracle Automatic Storage Management (ASM) password.
+        :param pulumi.Input[_builtins.str] asm_server: For an Oracle source endpoint, your ASM server address.
+        :param pulumi.Input[_builtins.str] asm_user: For an Oracle source endpoint, your ASM user name.
         :param pulumi.Input[_builtins.str] authentication_method: Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
+        :param pulumi.Input[_builtins.str] char_length_semantics: Specifies whether the length of a character column is in bytes or in characters. Valid values are `default`, `char`, and `byte`.
+        :param pulumi.Input[_builtins.bool] convert_timestamp_with_zone_to_utc: When `true`, converts timestamps with the timezone datatype to their UTC value.
+        :param pulumi.Input[_builtins.bool] direct_path_no_log: When set to `true`, this attribute helps to increase the commit rate on the Oracle target database by writing directly to tables and not writing a trail to database logs.
+        :param pulumi.Input[_builtins.bool] direct_path_parallel_load: When set to `true`, this attribute specifies a parallel load when use_direct_path_full_load is set to true.
+        :param pulumi.Input[_builtins.bool] enable_homogenous_tablespace: Set this attribute to enable homogenous tablespace replication and create existing tables or indexes under the same tablespace on the target.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] extra_archived_log_dest_ids: Specifies the IDs of one more destinations for one or more archived redo logs. These IDs are the values of the dest_id column in the v$archived_log view.
+        :param pulumi.Input[_builtins.bool] fail_task_on_lob_truncation: When set to `true`, this attribute causes a task to fail if the actual size of an LOB column is greater than the specified lob_max_size.
+        :param pulumi.Input[_builtins.int] number_datatype_scale: Specifies the number scale.
+        :param pulumi.Input[_builtins.int] open_transaction_window: The timeframe in minutes to check for open transactions for a CDC-only task. You can specify an integer value between 0 (the default) and 240 (the maximum).
+        :param pulumi.Input[_builtins.str] oracle_path_prefix: Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This value specifies the default Oracle root used to access the redo logs.
+        :param pulumi.Input[_builtins.int] parallel_asm_read_threads: Set this attribute to change the number of threads that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM). You can specify an integer value between 2 (the default) and 8 (the maximum).
+        :param pulumi.Input[_builtins.int] read_ahead_blocks: Set this attribute to change the number of read-ahead blocks that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM). You can specify an integer value between 1000 (the default) and 200,000 (the maximum).
+        :param pulumi.Input[_builtins.bool] read_table_space_name: When set to `true`, this attribute supports tablespace replication.
+        :param pulumi.Input[_builtins.bool] replace_path_prefix: Set this attribute to `true` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This setting tells DMS instance to replace the default Oracle root with the specified `use_path_prefix` setting to access the redo logs.
+        :param pulumi.Input[_builtins.int] retry_interval: Specifies the number of seconds that the system waits before resending a query.
+        :param pulumi.Input[_builtins.str] secrets_manager_oracle_asm_access_role_arn: Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The full ARN of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the `secrets_manager_oracle_asm_secret_id`.
+        :param pulumi.Input[_builtins.str] secrets_manager_oracle_asm_secret_id: Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The full ARN, partial ARN, or friendly name of the secret that contains the Oracle ASM connection details for the Oracle endpoint.
+        :param pulumi.Input[_builtins.str] security_db_encryption: For an Oracle source endpoint, the transparent data encryption (TDE) password required by AWM DMS to access Oracle redo logs encrypted by TDE using Binary Reader.
+        :param pulumi.Input[_builtins.str] security_db_encryption_name: For an Oracle source endpoint, the name of a key used for the transparent data encryption (TDE) of the columns and tablespaces in an Oracle source database that is encrypted using TDE.
+        :param pulumi.Input[_builtins.str] spatial_data_option_to_geo_json_function_name: Use this attribute to convert SDO_GEOMETRY to GEOJSON format. By default, DMS calls the SDO2GEOJSON custom function if present and accessible.
+        :param pulumi.Input[_builtins.int] standby_delay_time: Use this attribute to specify a time in minutes for the delay in standby sync. If the source is an Oracle Active Data Guard standby database, use this attribute to specify the time lag between primary and standby databases.
+        :param pulumi.Input[_builtins.bool] trim_space_in_char: Use this attribute to trim data on CHAR and NCHAR data types during migration. The default value is `true`.
+        :param pulumi.Input[_builtins.bool] use_alternate_folder_for_online: Set this attribute to `true` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This tells the DMS instance to use any specified prefix replacement to access all online redo logs.
+        :param pulumi.Input[_builtins.bool] use_bfile: Set this attribute to `true` to capture change data using the Binary Reader utility. Set `use_logminer_reader` to `false` to set this attribute to `true`.
+        :param pulumi.Input[_builtins.bool] use_direct_path_full_load: Set this attribute to `true` to have AWS DMS use a direct path full load. Specify this value to use the direct path protocol in the Oracle Call Interface (OCI).
+        :param pulumi.Input[_builtins.bool] use_logminer_reader: Set this attribute to `true` to capture change data using the Oracle LogMiner utility (the default). Set this attribute to `false` if you want to access the redo logs as a binary file.
+        :param pulumi.Input[_builtins.str] use_path_prefix: Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This value specifies the path prefix used to replace the default Oracle root to access the redo logs.
         """
+        if access_alternate_directly is not None:
+            pulumi.set(__self__, "access_alternate_directly", access_alternate_directly)
+        if add_supplemental_logging is not None:
+            pulumi.set(__self__, "add_supplemental_logging", add_supplemental_logging)
+        if additional_archived_log_dest_id is not None:
+            pulumi.set(__self__, "additional_archived_log_dest_id", additional_archived_log_dest_id)
+        if allow_selected_nested_tables is not None:
+            pulumi.set(__self__, "allow_selected_nested_tables", allow_selected_nested_tables)
+        if archived_log_dest_id is not None:
+            pulumi.set(__self__, "archived_log_dest_id", archived_log_dest_id)
+        if archived_logs_only is not None:
+            pulumi.set(__self__, "archived_logs_only", archived_logs_only)
+        if asm_password is not None:
+            pulumi.set(__self__, "asm_password", asm_password)
+        if asm_server is not None:
+            pulumi.set(__self__, "asm_server", asm_server)
+        if asm_user is not None:
+            pulumi.set(__self__, "asm_user", asm_user)
         if authentication_method is not None:
             pulumi.set(__self__, "authentication_method", authentication_method)
+        if char_length_semantics is not None:
+            pulumi.set(__self__, "char_length_semantics", char_length_semantics)
+        if convert_timestamp_with_zone_to_utc is not None:
+            pulumi.set(__self__, "convert_timestamp_with_zone_to_utc", convert_timestamp_with_zone_to_utc)
+        if direct_path_no_log is not None:
+            pulumi.set(__self__, "direct_path_no_log", direct_path_no_log)
+        if direct_path_parallel_load is not None:
+            pulumi.set(__self__, "direct_path_parallel_load", direct_path_parallel_load)
+        if enable_homogenous_tablespace is not None:
+            pulumi.set(__self__, "enable_homogenous_tablespace", enable_homogenous_tablespace)
+        if extra_archived_log_dest_ids is not None:
+            pulumi.set(__self__, "extra_archived_log_dest_ids", extra_archived_log_dest_ids)
+        if fail_task_on_lob_truncation is not None:
+            pulumi.set(__self__, "fail_task_on_lob_truncation", fail_task_on_lob_truncation)
+        if number_datatype_scale is not None:
+            pulumi.set(__self__, "number_datatype_scale", number_datatype_scale)
+        if open_transaction_window is not None:
+            pulumi.set(__self__, "open_transaction_window", open_transaction_window)
+        if oracle_path_prefix is not None:
+            pulumi.set(__self__, "oracle_path_prefix", oracle_path_prefix)
+        if parallel_asm_read_threads is not None:
+            pulumi.set(__self__, "parallel_asm_read_threads", parallel_asm_read_threads)
+        if read_ahead_blocks is not None:
+            pulumi.set(__self__, "read_ahead_blocks", read_ahead_blocks)
+        if read_table_space_name is not None:
+            pulumi.set(__self__, "read_table_space_name", read_table_space_name)
+        if replace_path_prefix is not None:
+            pulumi.set(__self__, "replace_path_prefix", replace_path_prefix)
+        if retry_interval is not None:
+            pulumi.set(__self__, "retry_interval", retry_interval)
+        if secrets_manager_oracle_asm_access_role_arn is not None:
+            pulumi.set(__self__, "secrets_manager_oracle_asm_access_role_arn", secrets_manager_oracle_asm_access_role_arn)
+        if secrets_manager_oracle_asm_secret_id is not None:
+            pulumi.set(__self__, "secrets_manager_oracle_asm_secret_id", secrets_manager_oracle_asm_secret_id)
+        if security_db_encryption is not None:
+            pulumi.set(__self__, "security_db_encryption", security_db_encryption)
+        if security_db_encryption_name is not None:
+            pulumi.set(__self__, "security_db_encryption_name", security_db_encryption_name)
+        if spatial_data_option_to_geo_json_function_name is not None:
+            pulumi.set(__self__, "spatial_data_option_to_geo_json_function_name", spatial_data_option_to_geo_json_function_name)
+        if standby_delay_time is not None:
+            pulumi.set(__self__, "standby_delay_time", standby_delay_time)
+        if trim_space_in_char is not None:
+            pulumi.set(__self__, "trim_space_in_char", trim_space_in_char)
+        if use_alternate_folder_for_online is not None:
+            pulumi.set(__self__, "use_alternate_folder_for_online", use_alternate_folder_for_online)
+        if use_bfile is not None:
+            pulumi.set(__self__, "use_bfile", use_bfile)
+        if use_direct_path_full_load is not None:
+            pulumi.set(__self__, "use_direct_path_full_load", use_direct_path_full_load)
+        if use_logminer_reader is not None:
+            pulumi.set(__self__, "use_logminer_reader", use_logminer_reader)
+        if use_path_prefix is not None:
+            pulumi.set(__self__, "use_path_prefix", use_path_prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="accessAlternateDirectly")
+    def access_alternate_directly(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Set this attribute to `false` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+        """
+        return pulumi.get(self, "access_alternate_directly")
+
+    @access_alternate_directly.setter
+    def access_alternate_directly(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "access_alternate_directly", value)
+
+    @_builtins.property
+    @pulumi.getter(name="addSupplementalLogging")
+    def add_supplemental_logging(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Set this attribute to set up table-level supplemental logging for the Oracle database. This attribute enables PRIMARY KEY supplemental logging on all tables selected for a migration task.
+        """
+        return pulumi.get(self, "add_supplemental_logging")
+
+    @add_supplemental_logging.setter
+    def add_supplemental_logging(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "add_supplemental_logging", value)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalArchivedLogDestId")
+    def additional_archived_log_dest_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Set this attribute with `archived_log_dest_id` in a primary/standby setup. This attribute is useful in the case of a switchover.
+        """
+        return pulumi.get(self, "additional_archived_log_dest_id")
+
+    @additional_archived_log_dest_id.setter
+    def additional_archived_log_dest_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "additional_archived_log_dest_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowSelectedNestedTables")
+    def allow_selected_nested_tables(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Set this attribute to `true` to enable replication of Oracle tables containing columns that are nested tables or defined types.
+        """
+        return pulumi.get(self, "allow_selected_nested_tables")
+
+    @allow_selected_nested_tables.setter
+    def allow_selected_nested_tables(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "allow_selected_nested_tables", value)
+
+    @_builtins.property
+    @pulumi.getter(name="archivedLogDestId")
+    def archived_log_dest_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Specifies the ID of the destination for the archived redo logs. This value should be the same as a number in the dest_id column of the v$archived_log view.
+        """
+        return pulumi.get(self, "archived_log_dest_id")
+
+    @archived_log_dest_id.setter
+    def archived_log_dest_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "archived_log_dest_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="archivedLogsOnly")
+    def archived_logs_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When this field is set to `true`, AWS DMS only accesses the archived redo logs.
+        """
+        return pulumi.get(self, "archived_logs_only")
+
+    @archived_logs_only.setter
+    def archived_logs_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "archived_logs_only", value)
+
+    @_builtins.property
+    @pulumi.getter(name="asmPassword")
+    def asm_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        For an Oracle source endpoint, your Oracle Automatic Storage Management (ASM) password.
+        """
+        return pulumi.get(self, "asm_password")
+
+    @asm_password.setter
+    def asm_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "asm_password", value)
+
+    @_builtins.property
+    @pulumi.getter(name="asmServer")
+    def asm_server(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        For an Oracle source endpoint, your ASM server address.
+        """
+        return pulumi.get(self, "asm_server")
+
+    @asm_server.setter
+    def asm_server(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "asm_server", value)
+
+    @_builtins.property
+    @pulumi.getter(name="asmUser")
+    def asm_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        For an Oracle source endpoint, your ASM user name.
+        """
+        return pulumi.get(self, "asm_user")
+
+    @asm_user.setter
+    def asm_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "asm_user", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationMethod")
@@ -1108,6 +1524,330 @@ class EndpointOracleSettingsArgs:
     @authentication_method.setter
     def authentication_method(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "authentication_method", value)
+
+    @_builtins.property
+    @pulumi.getter(name="charLengthSemantics")
+    def char_length_semantics(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies whether the length of a character column is in bytes or in characters. Valid values are `default`, `char`, and `byte`.
+        """
+        return pulumi.get(self, "char_length_semantics")
+
+    @char_length_semantics.setter
+    def char_length_semantics(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "char_length_semantics", value)
+
+    @_builtins.property
+    @pulumi.getter(name="convertTimestampWithZoneToUtc")
+    def convert_timestamp_with_zone_to_utc(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When `true`, converts timestamps with the timezone datatype to their UTC value.
+        """
+        return pulumi.get(self, "convert_timestamp_with_zone_to_utc")
+
+    @convert_timestamp_with_zone_to_utc.setter
+    def convert_timestamp_with_zone_to_utc(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "convert_timestamp_with_zone_to_utc", value)
+
+    @_builtins.property
+    @pulumi.getter(name="directPathNoLog")
+    def direct_path_no_log(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When set to `true`, this attribute helps to increase the commit rate on the Oracle target database by writing directly to tables and not writing a trail to database logs.
+        """
+        return pulumi.get(self, "direct_path_no_log")
+
+    @direct_path_no_log.setter
+    def direct_path_no_log(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "direct_path_no_log", value)
+
+    @_builtins.property
+    @pulumi.getter(name="directPathParallelLoad")
+    def direct_path_parallel_load(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When set to `true`, this attribute specifies a parallel load when use_direct_path_full_load is set to true.
+        """
+        return pulumi.get(self, "direct_path_parallel_load")
+
+    @direct_path_parallel_load.setter
+    def direct_path_parallel_load(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "direct_path_parallel_load", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableHomogenousTablespace")
+    def enable_homogenous_tablespace(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Set this attribute to enable homogenous tablespace replication and create existing tables or indexes under the same tablespace on the target.
+        """
+        return pulumi.get(self, "enable_homogenous_tablespace")
+
+    @enable_homogenous_tablespace.setter
+    def enable_homogenous_tablespace(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_homogenous_tablespace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="extraArchivedLogDestIds")
+    def extra_archived_log_dest_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        Specifies the IDs of one more destinations for one or more archived redo logs. These IDs are the values of the dest_id column in the v$archived_log view.
+        """
+        return pulumi.get(self, "extra_archived_log_dest_ids")
+
+    @extra_archived_log_dest_ids.setter
+    def extra_archived_log_dest_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+        pulumi.set(self, "extra_archived_log_dest_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="failTaskOnLobTruncation")
+    def fail_task_on_lob_truncation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When set to `true`, this attribute causes a task to fail if the actual size of an LOB column is greater than the specified lob_max_size.
+        """
+        return pulumi.get(self, "fail_task_on_lob_truncation")
+
+    @fail_task_on_lob_truncation.setter
+    def fail_task_on_lob_truncation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "fail_task_on_lob_truncation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="numberDatatypeScale")
+    def number_datatype_scale(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Specifies the number scale.
+        """
+        return pulumi.get(self, "number_datatype_scale")
+
+    @number_datatype_scale.setter
+    def number_datatype_scale(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "number_datatype_scale", value)
+
+    @_builtins.property
+    @pulumi.getter(name="openTransactionWindow")
+    def open_transaction_window(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The timeframe in minutes to check for open transactions for a CDC-only task. You can specify an integer value between 0 (the default) and 240 (the maximum).
+        """
+        return pulumi.get(self, "open_transaction_window")
+
+    @open_transaction_window.setter
+    def open_transaction_window(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "open_transaction_window", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oraclePathPrefix")
+    def oracle_path_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This value specifies the default Oracle root used to access the redo logs.
+        """
+        return pulumi.get(self, "oracle_path_prefix")
+
+    @oracle_path_prefix.setter
+    def oracle_path_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "oracle_path_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="parallelAsmReadThreads")
+    def parallel_asm_read_threads(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Set this attribute to change the number of threads that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM). You can specify an integer value between 2 (the default) and 8 (the maximum).
+        """
+        return pulumi.get(self, "parallel_asm_read_threads")
+
+    @parallel_asm_read_threads.setter
+    def parallel_asm_read_threads(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "parallel_asm_read_threads", value)
+
+    @_builtins.property
+    @pulumi.getter(name="readAheadBlocks")
+    def read_ahead_blocks(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Set this attribute to change the number of read-ahead blocks that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM). You can specify an integer value between 1000 (the default) and 200,000 (the maximum).
+        """
+        return pulumi.get(self, "read_ahead_blocks")
+
+    @read_ahead_blocks.setter
+    def read_ahead_blocks(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "read_ahead_blocks", value)
+
+    @_builtins.property
+    @pulumi.getter(name="readTableSpaceName")
+    def read_table_space_name(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When set to `true`, this attribute supports tablespace replication.
+        """
+        return pulumi.get(self, "read_table_space_name")
+
+    @read_table_space_name.setter
+    def read_table_space_name(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "read_table_space_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="replacePathPrefix")
+    def replace_path_prefix(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Set this attribute to `true` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This setting tells DMS instance to replace the default Oracle root with the specified `use_path_prefix` setting to access the redo logs.
+        """
+        return pulumi.get(self, "replace_path_prefix")
+
+    @replace_path_prefix.setter
+    def replace_path_prefix(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "replace_path_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="retryInterval")
+    def retry_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Specifies the number of seconds that the system waits before resending a query.
+        """
+        return pulumi.get(self, "retry_interval")
+
+    @retry_interval.setter
+    def retry_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "retry_interval", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerOracleAsmAccessRoleArn")
+    def secrets_manager_oracle_asm_access_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The full ARN of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the `secrets_manager_oracle_asm_secret_id`.
+        """
+        return pulumi.get(self, "secrets_manager_oracle_asm_access_role_arn")
+
+    @secrets_manager_oracle_asm_access_role_arn.setter
+    def secrets_manager_oracle_asm_access_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_oracle_asm_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerOracleAsmSecretId")
+    def secrets_manager_oracle_asm_secret_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The full ARN, partial ARN, or friendly name of the secret that contains the Oracle ASM connection details for the Oracle endpoint.
+        """
+        return pulumi.get(self, "secrets_manager_oracle_asm_secret_id")
+
+    @secrets_manager_oracle_asm_secret_id.setter
+    def secrets_manager_oracle_asm_secret_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_oracle_asm_secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityDbEncryption")
+    def security_db_encryption(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        For an Oracle source endpoint, the transparent data encryption (TDE) password required by AWM DMS to access Oracle redo logs encrypted by TDE using Binary Reader.
+        """
+        return pulumi.get(self, "security_db_encryption")
+
+    @security_db_encryption.setter
+    def security_db_encryption(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "security_db_encryption", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityDbEncryptionName")
+    def security_db_encryption_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        For an Oracle source endpoint, the name of a key used for the transparent data encryption (TDE) of the columns and tablespaces in an Oracle source database that is encrypted using TDE.
+        """
+        return pulumi.get(self, "security_db_encryption_name")
+
+    @security_db_encryption_name.setter
+    def security_db_encryption_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "security_db_encryption_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="spatialDataOptionToGeoJsonFunctionName")
+    def spatial_data_option_to_geo_json_function_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Use this attribute to convert SDO_GEOMETRY to GEOJSON format. By default, DMS calls the SDO2GEOJSON custom function if present and accessible.
+        """
+        return pulumi.get(self, "spatial_data_option_to_geo_json_function_name")
+
+    @spatial_data_option_to_geo_json_function_name.setter
+    def spatial_data_option_to_geo_json_function_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "spatial_data_option_to_geo_json_function_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="standbyDelayTime")
+    def standby_delay_time(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Use this attribute to specify a time in minutes for the delay in standby sync. If the source is an Oracle Active Data Guard standby database, use this attribute to specify the time lag between primary and standby databases.
+        """
+        return pulumi.get(self, "standby_delay_time")
+
+    @standby_delay_time.setter
+    def standby_delay_time(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "standby_delay_time", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpaceInChar")
+    def trim_space_in_char(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Use this attribute to trim data on CHAR and NCHAR data types during migration. The default value is `true`.
+        """
+        return pulumi.get(self, "trim_space_in_char")
+
+    @trim_space_in_char.setter
+    def trim_space_in_char(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "trim_space_in_char", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useAlternateFolderForOnline")
+    def use_alternate_folder_for_online(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Set this attribute to `true` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This tells the DMS instance to use any specified prefix replacement to access all online redo logs.
+        """
+        return pulumi.get(self, "use_alternate_folder_for_online")
+
+    @use_alternate_folder_for_online.setter
+    def use_alternate_folder_for_online(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "use_alternate_folder_for_online", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useBfile")
+    def use_bfile(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Set this attribute to `true` to capture change data using the Binary Reader utility. Set `use_logminer_reader` to `false` to set this attribute to `true`.
+        """
+        return pulumi.get(self, "use_bfile")
+
+    @use_bfile.setter
+    def use_bfile(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "use_bfile", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useDirectPathFullLoad")
+    def use_direct_path_full_load(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Set this attribute to `true` to have AWS DMS use a direct path full load. Specify this value to use the direct path protocol in the Oracle Call Interface (OCI).
+        """
+        return pulumi.get(self, "use_direct_path_full_load")
+
+    @use_direct_path_full_load.setter
+    def use_direct_path_full_load(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "use_direct_path_full_load", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useLogminerReader")
+    def use_logminer_reader(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Set this attribute to `true` to capture change data using the Oracle LogMiner utility (the default). Set this attribute to `false` if you want to access the redo logs as a binary file.
+        """
+        return pulumi.get(self, "use_logminer_reader")
+
+    @use_logminer_reader.setter
+    def use_logminer_reader(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "use_logminer_reader", value)
+
+    @_builtins.property
+    @pulumi.getter(name="usePathPrefix")
+    def use_path_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This value specifies the path prefix used to replace the default Oracle root to access the redo logs.
+        """
+        return pulumi.get(self, "use_path_prefix")
+
+    @use_path_prefix.setter
+    def use_path_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "use_path_prefix", value)
 
 
 class EndpointPostgresSettingsArgsDict(TypedDict):

@@ -30,9 +30,17 @@ public final class BudgetCostFilterArgs extends com.pulumi.resources.ResourceArg
         return this.name;
     }
 
+    /**
+     * (Optional) A list of cost category values to match. At least one value is required.
+     * 
+     */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
+    /**
+     * @return (Optional) A list of cost category values to match. At least one value is required.
+     * 
+     */
     public Output<List<String>> values() {
         return this.values;
     }
@@ -83,15 +91,33 @@ public final class BudgetCostFilterArgs extends com.pulumi.resources.ResourceArg
             return name(Output.of(name));
         }
 
+        /**
+         * @param values (Optional) A list of cost category values to match. At least one value is required.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
+        /**
+         * @param values (Optional) A list of cost category values to match. At least one value is required.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
+        /**
+         * @param values (Optional) A list of cost category values to match. At least one value is required.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

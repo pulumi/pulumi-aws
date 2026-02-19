@@ -421,6 +421,10 @@ class CertificateAuthorityRevocationConfigurationCrlConfigurationArgsDict(TypedD
     """
     Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
     """
+    custom_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Configures a custom path for the CRL in S3. If specified, the CRL will be written to `s3://<s3_bucket_name>/<custom_path>/<crl_file>`. Must conform to the pattern `[-a-zA-Z0-9;?:@&=+$,%_.!~*()']+(/[-a-zA-Z0-9;?:@&=+$,%_.!~*()']+)*` and be between 0 and 253 characters in length.
+    """
     enabled: NotRequired[pulumi.Input[_builtins.bool]]
     """
     Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
@@ -442,12 +446,14 @@ class CertificateAuthorityRevocationConfigurationCrlConfigurationArgsDict(TypedD
 class CertificateAuthorityRevocationConfigurationCrlConfigurationArgs:
     def __init__(__self__, *,
                  custom_cname: Optional[pulumi.Input[_builtins.str]] = None,
+                 custom_path: Optional[pulumi.Input[_builtins.str]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  expiration_in_days: Optional[pulumi.Input[_builtins.int]] = None,
                  s3_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
                  s3_object_acl: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] custom_cname: Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
+        :param pulumi.Input[_builtins.str] custom_path: Configures a custom path for the CRL in S3. If specified, the CRL will be written to `s3://<s3_bucket_name>/<custom_path>/<crl_file>`. Must conform to the pattern `[-a-zA-Z0-9;?:@&=+$,%_.!~*()']+(/[-a-zA-Z0-9;?:@&=+$,%_.!~*()']+)*` and be between 0 and 253 characters in length.
         :param pulumi.Input[_builtins.bool] enabled: Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.int] expiration_in_days: Number of days until a certificate expires. Must be between 1 and 5000.
         :param pulumi.Input[_builtins.str] s3_bucket_name: Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be between 3 and 255 characters in length.
@@ -455,6 +461,8 @@ class CertificateAuthorityRevocationConfigurationCrlConfigurationArgs:
         """
         if custom_cname is not None:
             pulumi.set(__self__, "custom_cname", custom_cname)
+        if custom_path is not None:
+            pulumi.set(__self__, "custom_path", custom_path)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if expiration_in_days is not None:
@@ -475,6 +483,18 @@ class CertificateAuthorityRevocationConfigurationCrlConfigurationArgs:
     @custom_cname.setter
     def custom_cname(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "custom_cname", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customPath")
+    def custom_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Configures a custom path for the CRL in S3. If specified, the CRL will be written to `s3://<s3_bucket_name>/<custom_path>/<crl_file>`. Must conform to the pattern `[-a-zA-Z0-9;?:@&=+$,%_.!~*()']+(/[-a-zA-Z0-9;?:@&=+$,%_.!~*()']+)*` and be between 0 and 253 characters in length.
+        """
+        return pulumi.get(self, "custom_path")
+
+    @custom_path.setter
+    def custom_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "custom_path", value)
 
     @_builtins.property
     @pulumi.getter

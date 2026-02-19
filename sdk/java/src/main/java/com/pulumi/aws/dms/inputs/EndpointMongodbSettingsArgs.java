@@ -5,6 +5,7 @@ package com.pulumi.aws.dms.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -105,6 +106,21 @@ public final class EndpointMongodbSettingsArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.nestingLevel);
     }
 
+    /**
+     * If `true`, DMS retrieves the entire document from the MongoDB source during migration. Default is `false`.
+     * 
+     */
+    @Import(name="useUpdateLookup")
+    private @Nullable Output<Boolean> useUpdateLookup;
+
+    /**
+     * @return If `true`, DMS retrieves the entire document from the MongoDB source during migration. Default is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> useUpdateLookup() {
+        return Optional.ofNullable(this.useUpdateLookup);
+    }
+
     private EndpointMongodbSettingsArgs() {}
 
     private EndpointMongodbSettingsArgs(EndpointMongodbSettingsArgs $) {
@@ -114,6 +130,7 @@ public final class EndpointMongodbSettingsArgs extends com.pulumi.resources.Reso
         this.docsToInvestigate = $.docsToInvestigate;
         this.extractDocId = $.extractDocId;
         this.nestingLevel = $.nestingLevel;
+        this.useUpdateLookup = $.useUpdateLookup;
     }
 
     public static Builder builder() {
@@ -258,6 +275,27 @@ public final class EndpointMongodbSettingsArgs extends com.pulumi.resources.Reso
          */
         public Builder nestingLevel(String nestingLevel) {
             return nestingLevel(Output.of(nestingLevel));
+        }
+
+        /**
+         * @param useUpdateLookup If `true`, DMS retrieves the entire document from the MongoDB source during migration. Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useUpdateLookup(@Nullable Output<Boolean> useUpdateLookup) {
+            $.useUpdateLookup = useUpdateLookup;
+            return this;
+        }
+
+        /**
+         * @param useUpdateLookup If `true`, DMS retrieves the entire document from the MongoDB source during migration. Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useUpdateLookup(Boolean useUpdateLookup) {
+            return useUpdateLookup(Output.of(useUpdateLookup));
         }
 
         public EndpointMongodbSettingsArgs build() {

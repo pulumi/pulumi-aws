@@ -1621,6 +1621,7 @@
         "networkflowmonitor/monitor.ts",
         "networkflowmonitor/scope.ts",
         "networkmanager/attachmentAccepter.ts",
+        "networkmanager/attachmentRoutingPolicyLabel.ts",
         "networkmanager/connectAttachment.ts",
         "networkmanager/connectPeer.ts",
         "networkmanager/connection.ts",

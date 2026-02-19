@@ -196,6 +196,47 @@ namespace Pulumi.Aws.Lex
     /// });
     /// ```
     /// 
+    /// ### QnA Intent Example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var qnaExample = new Aws.Lex.V2modelsIntent("qna_example", new()
+    ///     {
+    ///         BotId = test.Id,
+    ///         BotVersion = testAwsLexv2modelsBotLocale.BotVersion,
+    ///         Name = "qna_intent",
+    ///         LocaleId = testAwsLexv2modelsBotLocale.LocaleId,
+    ///         ParentIntentSignature = "AMAZON.QnAIntent",
+    ///         QnaIntentConfiguration = new Aws.Lex.Inputs.V2modelsIntentQnaIntentConfigurationArgs
+    ///         {
+    ///             DataSourceConfiguration = new Aws.Lex.Inputs.V2modelsIntentQnaIntentConfigurationDataSourceConfigurationArgs
+    ///             {
+    ///                 KendraConfiguration = new Aws.Lex.Inputs.V2modelsIntentQnaIntentConfigurationDataSourceConfigurationKendraConfigurationArgs
+    ///                 {
+    ///                     KendraIndex = example.Arn,
+    ///                     ExactResponse = true,
+    ///                     QueryFilterStringEnabled = false,
+    ///                 },
+    ///             },
+    ///         },
+    ///         SampleUtterances = new[]
+    ///         {
+    ///             new Aws.Lex.Inputs.V2modelsIntentSampleUtteranceArgs
+    ///             {
+    ///                 Utterance = "What is the answer?",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Lex V2 Models Intent using the `intent_id:bot_id:bot_version:locale_id`. For example:
@@ -274,7 +315,7 @@ namespace Pulumi.Aws.Lex
         public Output<string> IntentId { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `KendraConfiguration`.
+        /// Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. Cannot be used with `QnaIntentConfiguration`. See `KendraConfiguration`.
         /// </summary>
         [Output("kendraConfiguration")]
         public Output<Outputs.V2modelsIntentKendraConfiguration?> KendraConfiguration { get; private set; } = null!;
@@ -310,6 +351,12 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         [Output("parentIntentSignature")]
         public Output<string?> ParentIntentSignature { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block for QnA intent settings. This is used when `ParentIntentSignature` is set to `AMAZON.QnAIntent`. Cannot be used with `KendraConfiguration`. See `QnaIntentConfiguration`.
+        /// </summary>
+        [Output("qnaIntentConfiguration")]
+        public Output<Outputs.V2modelsIntentQnaIntentConfiguration?> QnaIntentConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -439,7 +486,7 @@ namespace Pulumi.Aws.Lex
         }
 
         /// <summary>
-        /// Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `KendraConfiguration`.
+        /// Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. Cannot be used with `QnaIntentConfiguration`. See `KendraConfiguration`.
         /// </summary>
         [Input("kendraConfiguration")]
         public Input<Inputs.V2modelsIntentKendraConfigurationArgs>? KendraConfiguration { get; set; }
@@ -475,6 +522,12 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         [Input("parentIntentSignature")]
         public Input<string>? ParentIntentSignature { get; set; }
+
+        /// <summary>
+        /// Configuration block for QnA intent settings. This is used when `ParentIntentSignature` is set to `AMAZON.QnAIntent`. Cannot be used with `KendraConfiguration`. See `QnaIntentConfiguration`.
+        /// </summary>
+        [Input("qnaIntentConfiguration")]
+        public Input<Inputs.V2modelsIntentQnaIntentConfigurationArgs>? QnaIntentConfiguration { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -590,7 +643,7 @@ namespace Pulumi.Aws.Lex
         public Input<string>? IntentId { get; set; }
 
         /// <summary>
-        /// Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `KendraConfiguration`.
+        /// Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. Cannot be used with `QnaIntentConfiguration`. See `KendraConfiguration`.
         /// </summary>
         [Input("kendraConfiguration")]
         public Input<Inputs.V2modelsIntentKendraConfigurationGetArgs>? KendraConfiguration { get; set; }
@@ -632,6 +685,12 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         [Input("parentIntentSignature")]
         public Input<string>? ParentIntentSignature { get; set; }
+
+        /// <summary>
+        /// Configuration block for QnA intent settings. This is used when `ParentIntentSignature` is set to `AMAZON.QnAIntent`. Cannot be used with `KendraConfiguration`. See `QnaIntentConfiguration`.
+        /// </summary>
+        [Input("qnaIntentConfiguration")]
+        public Input<Inputs.V2modelsIntentQnaIntentConfigurationGetArgs>? QnaIntentConfiguration { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

@@ -8927,6 +8927,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "networkmanager/attachmentRoutingPolicyLabel",
+  "fqn": "pulumi_aws.networkmanager",
+  "classes": {
+   "aws:networkmanager/attachmentRoutingPolicyLabel:AttachmentRoutingPolicyLabel": "AttachmentRoutingPolicyLabel"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "networkmanager/connectAttachment",
   "fqn": "pulumi_aws.networkmanager",
   "classes": {

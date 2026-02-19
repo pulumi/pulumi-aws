@@ -218,6 +218,8 @@ __all__ = [
     'LaunchTemplatePlacementArgsDict',
     'LaunchTemplatePrivateDnsNameOptionsArgs',
     'LaunchTemplatePrivateDnsNameOptionsArgsDict',
+    'LaunchTemplateSecondaryInterfaceArgs',
+    'LaunchTemplateSecondaryInterfaceArgsDict',
     'LaunchTemplateTagSpecificationArgs',
     'LaunchTemplateTagSpecificationArgsDict',
     'ManagedPrefixListEntryArgs',
@@ -5410,6 +5412,10 @@ class InstanceCpuOptionsArgsDict(TypedDict):
     """
     Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
     """
+    nested_virtualization: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
+    """
     threads_per_core: NotRequired[pulumi.Input[_builtins.int]]
     """
     If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
@@ -5422,10 +5428,12 @@ class InstanceCpuOptionsArgs:
     def __init__(__self__, *,
                  amd_sev_snp: Optional[pulumi.Input[_builtins.str]] = None,
                  core_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 nested_virtualization: Optional[pulumi.Input[_builtins.str]] = None,
                  threads_per_core: Optional[pulumi.Input[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] amd_sev_snp: Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
         :param pulumi.Input[_builtins.int] core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+        :param pulumi.Input[_builtins.str] nested_virtualization: Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
         :param pulumi.Input[_builtins.int] threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
                
                For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
@@ -5434,6 +5442,8 @@ class InstanceCpuOptionsArgs:
             pulumi.set(__self__, "amd_sev_snp", amd_sev_snp)
         if core_count is not None:
             pulumi.set(__self__, "core_count", core_count)
+        if nested_virtualization is not None:
+            pulumi.set(__self__, "nested_virtualization", nested_virtualization)
         if threads_per_core is not None:
             pulumi.set(__self__, "threads_per_core", threads_per_core)
 
@@ -5460,6 +5470,18 @@ class InstanceCpuOptionsArgs:
     @core_count.setter
     def core_count(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "core_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nestedVirtualization")
+    def nested_virtualization(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
+        """
+        return pulumi.get(self, "nested_virtualization")
+
+    @nested_virtualization.setter
+    def nested_virtualization(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "nested_virtualization", value)
 
     @_builtins.property
     @pulumi.getter(name="threadsPerCore")
@@ -7605,6 +7627,10 @@ class LaunchTemplateCpuOptionsArgsDict(TypedDict):
     """
     The number of CPU cores for the instance.
     """
+    nested_virtualization: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
+    """
     threads_per_core: NotRequired[pulumi.Input[_builtins.int]]
     """
     The number of threads per CPU core.
@@ -7619,10 +7645,12 @@ class LaunchTemplateCpuOptionsArgs:
     def __init__(__self__, *,
                  amd_sev_snp: Optional[pulumi.Input[_builtins.str]] = None,
                  core_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 nested_virtualization: Optional[pulumi.Input[_builtins.str]] = None,
                  threads_per_core: Optional[pulumi.Input[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] amd_sev_snp: Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
         :param pulumi.Input[_builtins.int] core_count: The number of CPU cores for the instance.
+        :param pulumi.Input[_builtins.str] nested_virtualization: Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
         :param pulumi.Input[_builtins.int] threads_per_core: The number of threads per CPU core.
                To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
                Otherwise, specify the default value of 2.
@@ -7633,6 +7661,8 @@ class LaunchTemplateCpuOptionsArgs:
             pulumi.set(__self__, "amd_sev_snp", amd_sev_snp)
         if core_count is not None:
             pulumi.set(__self__, "core_count", core_count)
+        if nested_virtualization is not None:
+            pulumi.set(__self__, "nested_virtualization", nested_virtualization)
         if threads_per_core is not None:
             pulumi.set(__self__, "threads_per_core", threads_per_core)
 
@@ -7659,6 +7689,18 @@ class LaunchTemplateCpuOptionsArgs:
     @core_count.setter
     def core_count(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "core_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nestedVirtualization")
+    def nested_virtualization(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
+        """
+        return pulumi.get(self, "nested_virtualization")
+
+    @nested_virtualization.setter
+    def nested_virtualization(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "nested_virtualization", value)
 
     @_builtins.property
     @pulumi.getter(name="threadsPerCore")
@@ -10167,6 +10209,155 @@ class LaunchTemplatePrivateDnsNameOptionsArgs:
     @hostname_type.setter
     def hostname_type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "hostname_type", value)
+
+
+class LaunchTemplateSecondaryInterfaceArgsDict(TypedDict):
+    delete_on_termination: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the secondary interface is deleted when the instance is terminated. The only supported value is `true`.
+    """
+    device_index: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Device index for the secondary interface attachment.
+    """
+    interface_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of secondary interface. The only supported value is: `secondary`.
+    """
+    network_card_index: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Index of the network card.
+    """
+    private_ip_address_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of private IPv4 addresses to assign to the secondary interface.
+    """
+    private_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Private IPv4 addresses to assign to the secondary interface.
+    """
+    secondary_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ID of the secondary subnet.
+    """
+
+@pulumi.input_type
+class LaunchTemplateSecondaryInterfaceArgs:
+    def __init__(__self__, *,
+                 delete_on_termination: Optional[pulumi.Input[_builtins.bool]] = None,
+                 device_index: Optional[pulumi.Input[_builtins.int]] = None,
+                 interface_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_card_index: Optional[pulumi.Input[_builtins.int]] = None,
+                 private_ip_address_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 secondary_subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] delete_on_termination: Whether the secondary interface is deleted when the instance is terminated. The only supported value is `true`.
+        :param pulumi.Input[_builtins.int] device_index: Device index for the secondary interface attachment.
+        :param pulumi.Input[_builtins.str] interface_type: Type of secondary interface. The only supported value is: `secondary`.
+        :param pulumi.Input[_builtins.int] network_card_index: Index of the network card.
+        :param pulumi.Input[_builtins.int] private_ip_address_count: Number of private IPv4 addresses to assign to the secondary interface.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] private_ip_addresses: Private IPv4 addresses to assign to the secondary interface.
+        :param pulumi.Input[_builtins.str] secondary_subnet_id: ID of the secondary subnet.
+        """
+        if delete_on_termination is not None:
+            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if device_index is not None:
+            pulumi.set(__self__, "device_index", device_index)
+        if interface_type is not None:
+            pulumi.set(__self__, "interface_type", interface_type)
+        if network_card_index is not None:
+            pulumi.set(__self__, "network_card_index", network_card_index)
+        if private_ip_address_count is not None:
+            pulumi.set(__self__, "private_ip_address_count", private_ip_address_count)
+        if private_ip_addresses is not None:
+            pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
+        if secondary_subnet_id is not None:
+            pulumi.set(__self__, "secondary_subnet_id", secondary_subnet_id)
+
+    @_builtins.property
+    @pulumi.getter(name="deleteOnTermination")
+    def delete_on_termination(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the secondary interface is deleted when the instance is terminated. The only supported value is `true`.
+        """
+        return pulumi.get(self, "delete_on_termination")
+
+    @delete_on_termination.setter
+    def delete_on_termination(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "delete_on_termination", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deviceIndex")
+    def device_index(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Device index for the secondary interface attachment.
+        """
+        return pulumi.get(self, "device_index")
+
+    @device_index.setter
+    def device_index(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "device_index", value)
+
+    @_builtins.property
+    @pulumi.getter(name="interfaceType")
+    def interface_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Type of secondary interface. The only supported value is: `secondary`.
+        """
+        return pulumi.get(self, "interface_type")
+
+    @interface_type.setter
+    def interface_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "interface_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkCardIndex")
+    def network_card_index(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Index of the network card.
+        """
+        return pulumi.get(self, "network_card_index")
+
+    @network_card_index.setter
+    def network_card_index(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "network_card_index", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateIpAddressCount")
+    def private_ip_address_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Number of private IPv4 addresses to assign to the secondary interface.
+        """
+        return pulumi.get(self, "private_ip_address_count")
+
+    @private_ip_address_count.setter
+    def private_ip_address_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "private_ip_address_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateIpAddresses")
+    def private_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Private IPv4 addresses to assign to the secondary interface.
+        """
+        return pulumi.get(self, "private_ip_addresses")
+
+    @private_ip_addresses.setter
+    def private_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "private_ip_addresses", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secondarySubnetId")
+    def secondary_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ID of the secondary subnet.
+        """
+        return pulumi.get(self, "secondary_subnet_id")
+
+    @secondary_subnet_id.setter
+    def secondary_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "secondary_subnet_id", value)
 
 
 class LaunchTemplateTagSpecificationArgsDict(TypedDict):
@@ -20303,6 +20494,10 @@ class SpotInstanceRequestCpuOptionsArgsDict(TypedDict):
     """
     Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
     """
+    nested_virtualization: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
+    """
     threads_per_core: NotRequired[pulumi.Input[_builtins.int]]
     """
     If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
@@ -20315,10 +20510,12 @@ class SpotInstanceRequestCpuOptionsArgs:
     def __init__(__self__, *,
                  amd_sev_snp: Optional[pulumi.Input[_builtins.str]] = None,
                  core_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 nested_virtualization: Optional[pulumi.Input[_builtins.str]] = None,
                  threads_per_core: Optional[pulumi.Input[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] amd_sev_snp: Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
         :param pulumi.Input[_builtins.int] core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+        :param pulumi.Input[_builtins.str] nested_virtualization: Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
         :param pulumi.Input[_builtins.int] threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
                
                For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
@@ -20327,6 +20524,8 @@ class SpotInstanceRequestCpuOptionsArgs:
             pulumi.set(__self__, "amd_sev_snp", amd_sev_snp)
         if core_count is not None:
             pulumi.set(__self__, "core_count", core_count)
+        if nested_virtualization is not None:
+            pulumi.set(__self__, "nested_virtualization", nested_virtualization)
         if threads_per_core is not None:
             pulumi.set(__self__, "threads_per_core", threads_per_core)
 
@@ -20353,6 +20552,18 @@ class SpotInstanceRequestCpuOptionsArgs:
     @core_count.setter
     def core_count(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "core_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nestedVirtualization")
+    def nested_virtualization(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
+        """
+        return pulumi.get(self, "nested_virtualization")
+
+    @nested_virtualization.setter
+    def nested_virtualization(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "nested_virtualization", value)
 
     @_builtins.property
     @pulumi.getter(name="threadsPerCore")

@@ -14,6 +14,7 @@ import com.pulumi.aws.lex.outputs.V2modelsIntentInitialResponseSetting;
 import com.pulumi.aws.lex.outputs.V2modelsIntentInputContext;
 import com.pulumi.aws.lex.outputs.V2modelsIntentKendraConfiguration;
 import com.pulumi.aws.lex.outputs.V2modelsIntentOutputContext;
+import com.pulumi.aws.lex.outputs.V2modelsIntentQnaIntentConfiguration;
 import com.pulumi.aws.lex.outputs.V2modelsIntentSampleUtterance;
 import com.pulumi.aws.lex.outputs.V2modelsIntentSlotPriority;
 import com.pulumi.aws.lex.outputs.V2modelsIntentTimeouts;
@@ -223,6 +224,59 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### QnA Intent Example
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lex.V2modelsIntent;
+ * import com.pulumi.aws.lex.V2modelsIntentArgs;
+ * import com.pulumi.aws.lex.inputs.V2modelsIntentQnaIntentConfigurationArgs;
+ * import com.pulumi.aws.lex.inputs.V2modelsIntentQnaIntentConfigurationDataSourceConfigurationArgs;
+ * import com.pulumi.aws.lex.inputs.V2modelsIntentQnaIntentConfigurationDataSourceConfigurationKendraConfigurationArgs;
+ * import com.pulumi.aws.lex.inputs.V2modelsIntentSampleUtteranceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var qnaExample = new V2modelsIntent("qnaExample", V2modelsIntentArgs.builder()
+ *             .botId(test.id())
+ *             .botVersion(testAwsLexv2modelsBotLocale.botVersion())
+ *             .name("qna_intent")
+ *             .localeId(testAwsLexv2modelsBotLocale.localeId())
+ *             .parentIntentSignature("AMAZON.QnAIntent")
+ *             .qnaIntentConfiguration(V2modelsIntentQnaIntentConfigurationArgs.builder()
+ *                 .dataSourceConfiguration(V2modelsIntentQnaIntentConfigurationDataSourceConfigurationArgs.builder()
+ *                     .kendraConfiguration(V2modelsIntentQnaIntentConfigurationDataSourceConfigurationKendraConfigurationArgs.builder()
+ *                         .kendraIndex(example.arn())
+ *                         .exactResponse(true)
+ *                         .queryFilterStringEnabled(false)
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .sampleUtterances(V2modelsIntentSampleUtteranceArgs.builder()
+ *                 .utterance("What is the answer?")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Lex V2 Models Intent using the `intent_id:bot_id:bot_version:locale_id`. For example:
@@ -389,14 +443,14 @@ public class V2modelsIntent extends com.pulumi.resources.CustomResource {
         return this.intentId;
     }
     /**
-     * Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can&#39;t determine another intent to invoke. See `kendraConfiguration`.
+     * Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can&#39;t determine another intent to invoke. Cannot be used with `qnaIntentConfiguration`. See `kendraConfiguration`.
      * 
      */
     @Export(name="kendraConfiguration", refs={V2modelsIntentKendraConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ V2modelsIntentKendraConfiguration> kendraConfiguration;
 
     /**
-     * @return Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can&#39;t determine another intent to invoke. See `kendraConfiguration`.
+     * @return Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can&#39;t determine another intent to invoke. Cannot be used with `qnaIntentConfiguration`. See `kendraConfiguration`.
      * 
      */
     public Output<Optional<V2modelsIntentKendraConfiguration>> kendraConfiguration() {
@@ -475,6 +529,20 @@ public class V2modelsIntent extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> parentIntentSignature() {
         return Codegen.optional(this.parentIntentSignature);
+    }
+    /**
+     * Configuration block for QnA intent settings. This is used when `parentIntentSignature` is set to `AMAZON.QnAIntent`. Cannot be used with `kendraConfiguration`. See `qnaIntentConfiguration`.
+     * 
+     */
+    @Export(name="qnaIntentConfiguration", refs={V2modelsIntentQnaIntentConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ V2modelsIntentQnaIntentConfiguration> qnaIntentConfiguration;
+
+    /**
+     * @return Configuration block for QnA intent settings. This is used when `parentIntentSignature` is set to `AMAZON.QnAIntent`. Cannot be used with `kendraConfiguration`. See `qnaIntentConfiguration`.
+     * 
+     */
+    public Output<Optional<V2modelsIntentQnaIntentConfiguration>> qnaIntentConfiguration() {
+        return Codegen.optional(this.qnaIntentConfiguration);
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

@@ -29,6 +29,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
+        /// <summary>
+        /// Configuration for trusted identity propagation. See the `TrustedIdentityPropagationSettings` Block below.
+        /// </summary>
+        public readonly Outputs.DomainDomainSettingsTrustedIdentityPropagationSettings? TrustedIdentityPropagationSettings;
 
         [OutputConstructor]
         private DomainDomainSettings(
@@ -38,12 +42,15 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
             Outputs.DomainDomainSettingsRStudioServerProDomainSettings? rStudioServerProDomainSettings,
 
-            ImmutableArray<string> securityGroupIds)
+            ImmutableArray<string> securityGroupIds,
+
+            Outputs.DomainDomainSettingsTrustedIdentityPropagationSettings? trustedIdentityPropagationSettings)
         {
             DockerSettings = dockerSettings;
             ExecutionRoleIdentityConfig = executionRoleIdentityConfig;
             RStudioServerProDomainSettings = rStudioServerProDomainSettings;
             SecurityGroupIds = securityGroupIds;
+            TrustedIdentityPropagationSettings = trustedIdentityPropagationSettings;
         }
     }
 }

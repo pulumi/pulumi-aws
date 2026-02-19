@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Acmpca.Outputs
         /// </summary>
         public readonly string? CustomCname;
         /// <summary>
+        /// Configures a custom path for the CRL in S3. If specified, the CRL will be written to `s3://&lt;s3_bucket_name&gt;/&lt;custom_path&gt;/&lt;crl_file&gt;`. Must conform to the pattern `[-a-zA-Z0-9;?:@&amp;=+$,%_.!~*()']+(/[-a-zA-Z0-9;?:@&amp;=+$,%_.!~*()']+)*` and be between 0 and 253 characters in length.
+        /// </summary>
+        public readonly string? CustomPath;
+        /// <summary>
         /// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `False`.
         /// </summary>
         public readonly bool? Enabled;
@@ -38,6 +42,8 @@ namespace Pulumi.Aws.Acmpca.Outputs
         private CertificateAuthorityRevocationConfigurationCrlConfiguration(
             string? customCname,
 
+            string? customPath,
+
             bool? enabled,
 
             int? expirationInDays,
@@ -47,6 +53,7 @@ namespace Pulumi.Aws.Acmpca.Outputs
             string? s3ObjectAcl)
         {
             CustomCname = customCname;
+            CustomPath = customPath;
             Enabled = enabled;
             ExpirationInDays = expirationInDays;
             S3BucketName = s3BucketName;

@@ -11,6 +11,7 @@ import com.pulumi.aws.lex.inputs.V2modelsIntentInitialResponseSettingArgs;
 import com.pulumi.aws.lex.inputs.V2modelsIntentInputContextArgs;
 import com.pulumi.aws.lex.inputs.V2modelsIntentKendraConfigurationArgs;
 import com.pulumi.aws.lex.inputs.V2modelsIntentOutputContextArgs;
+import com.pulumi.aws.lex.inputs.V2modelsIntentQnaIntentConfigurationArgs;
 import com.pulumi.aws.lex.inputs.V2modelsIntentSampleUtteranceArgs;
 import com.pulumi.aws.lex.inputs.V2modelsIntentSlotPriorityArgs;
 import com.pulumi.aws.lex.inputs.V2modelsIntentTimeoutsArgs;
@@ -193,14 +194,14 @@ public final class V2modelsIntentState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can&#39;t determine another intent to invoke. See `kendraConfiguration`.
+     * Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can&#39;t determine another intent to invoke. Cannot be used with `qnaIntentConfiguration`. See `kendraConfiguration`.
      * 
      */
     @Import(name="kendraConfiguration")
     private @Nullable Output<V2modelsIntentKendraConfigurationArgs> kendraConfiguration;
 
     /**
-     * @return Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can&#39;t determine another intent to invoke. See `kendraConfiguration`.
+     * @return Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can&#39;t determine another intent to invoke. Cannot be used with `qnaIntentConfiguration`. See `kendraConfiguration`.
      * 
      */
     public Optional<Output<V2modelsIntentKendraConfigurationArgs>> kendraConfiguration() {
@@ -287,6 +288,21 @@ public final class V2modelsIntentState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Configuration block for QnA intent settings. This is used when `parentIntentSignature` is set to `AMAZON.QnAIntent`. Cannot be used with `kendraConfiguration`. See `qnaIntentConfiguration`.
+     * 
+     */
+    @Import(name="qnaIntentConfiguration")
+    private @Nullable Output<V2modelsIntentQnaIntentConfigurationArgs> qnaIntentConfiguration;
+
+    /**
+     * @return Configuration block for QnA intent settings. This is used when `parentIntentSignature` is set to `AMAZON.QnAIntent`. Cannot be used with `kendraConfiguration`. See `qnaIntentConfiguration`.
+     * 
+     */
+    public Optional<Output<V2modelsIntentQnaIntentConfigurationArgs>> qnaIntentConfiguration() {
+        return Optional.ofNullable(this.qnaIntentConfiguration);
+    }
+
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
@@ -358,6 +374,7 @@ public final class V2modelsIntentState extends com.pulumi.resources.ResourceArgs
         this.name = $.name;
         this.outputContexts = $.outputContexts;
         this.parentIntentSignature = $.parentIntentSignature;
+        this.qnaIntentConfiguration = $.qnaIntentConfiguration;
         this.region = $.region;
         this.sampleUtterances = $.sampleUtterances;
         this.slotPriorities = $.slotPriorities;
@@ -624,7 +641,7 @@ public final class V2modelsIntentState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param kendraConfiguration Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can&#39;t determine another intent to invoke. See `kendraConfiguration`.
+         * @param kendraConfiguration Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can&#39;t determine another intent to invoke. Cannot be used with `qnaIntentConfiguration`. See `kendraConfiguration`.
          * 
          * @return builder
          * 
@@ -635,7 +652,7 @@ public final class V2modelsIntentState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param kendraConfiguration Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can&#39;t determine another intent to invoke. See `kendraConfiguration`.
+         * @param kendraConfiguration Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can&#39;t determine another intent to invoke. Cannot be used with `qnaIntentConfiguration`. See `kendraConfiguration`.
          * 
          * @return builder
          * 
@@ -761,6 +778,27 @@ public final class V2modelsIntentState extends com.pulumi.resources.ResourceArgs
          */
         public Builder parentIntentSignature(String parentIntentSignature) {
             return parentIntentSignature(Output.of(parentIntentSignature));
+        }
+
+        /**
+         * @param qnaIntentConfiguration Configuration block for QnA intent settings. This is used when `parentIntentSignature` is set to `AMAZON.QnAIntent`. Cannot be used with `kendraConfiguration`. See `qnaIntentConfiguration`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder qnaIntentConfiguration(@Nullable Output<V2modelsIntentQnaIntentConfigurationArgs> qnaIntentConfiguration) {
+            $.qnaIntentConfiguration = qnaIntentConfiguration;
+            return this;
+        }
+
+        /**
+         * @param qnaIntentConfiguration Configuration block for QnA intent settings. This is used when `parentIntentSignature` is set to `AMAZON.QnAIntent`. Cannot be used with `kendraConfiguration`. See `qnaIntentConfiguration`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder qnaIntentConfiguration(V2modelsIntentQnaIntentConfigurationArgs qnaIntentConfiguration) {
+            return qnaIntentConfiguration(Output.of(qnaIntentConfiguration));
         }
 
         /**

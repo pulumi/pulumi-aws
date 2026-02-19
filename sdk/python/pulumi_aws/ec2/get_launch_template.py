@@ -28,7 +28,7 @@ class GetLaunchTemplateResult:
     """
     A collection of values returned by getLaunchTemplate.
     """
-    def __init__(__self__, arn=None, block_device_mappings=None, capacity_reservation_specifications=None, cpu_options=None, credit_specifications=None, default_version=None, description=None, disable_api_stop=None, disable_api_termination=None, ebs_optimized=None, enclave_options=None, filters=None, hibernation_options=None, iam_instance_profiles=None, id=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_requirements=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, license_specifications=None, maintenance_options=None, metadata_options=None, monitorings=None, name=None, network_interfaces=None, placements=None, private_dns_name_options=None, ram_disk_id=None, region=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
+    def __init__(__self__, arn=None, block_device_mappings=None, capacity_reservation_specifications=None, cpu_options=None, credit_specifications=None, default_version=None, description=None, disable_api_stop=None, disable_api_termination=None, ebs_optimized=None, enclave_options=None, filters=None, hibernation_options=None, iam_instance_profiles=None, id=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_requirements=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, license_specifications=None, maintenance_options=None, metadata_options=None, monitorings=None, name=None, network_interfaces=None, network_performance_options=None, placements=None, private_dns_name_options=None, ram_disk_id=None, region=None, secondary_interfaces=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -116,6 +116,9 @@ class GetLaunchTemplateResult:
         if network_interfaces and not isinstance(network_interfaces, list):
             raise TypeError("Expected argument 'network_interfaces' to be a list")
         pulumi.set(__self__, "network_interfaces", network_interfaces)
+        if network_performance_options and not isinstance(network_performance_options, list):
+            raise TypeError("Expected argument 'network_performance_options' to be a list")
+        pulumi.set(__self__, "network_performance_options", network_performance_options)
         if placements and not isinstance(placements, list):
             raise TypeError("Expected argument 'placements' to be a list")
         pulumi.set(__self__, "placements", placements)
@@ -128,6 +131,9 @@ class GetLaunchTemplateResult:
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
+        if secondary_interfaces and not isinstance(secondary_interfaces, list):
+            raise TypeError("Expected argument 'secondary_interfaces' to be a list")
+        pulumi.set(__self__, "secondary_interfaces", secondary_interfaces)
         if security_group_names and not isinstance(security_group_names, list):
             raise TypeError("Expected argument 'security_group_names' to be a list")
         pulumi.set(__self__, "security_group_names", security_group_names)
@@ -293,6 +299,11 @@ class GetLaunchTemplateResult:
         return pulumi.get(self, "network_interfaces")
 
     @_builtins.property
+    @pulumi.getter(name="networkPerformanceOptions")
+    def network_performance_options(self) -> Sequence['outputs.GetLaunchTemplateNetworkPerformanceOptionResult']:
+        return pulumi.get(self, "network_performance_options")
+
+    @_builtins.property
     @pulumi.getter
     def placements(self) -> Sequence['outputs.GetLaunchTemplatePlacementResult']:
         return pulumi.get(self, "placements")
@@ -311,6 +322,11 @@ class GetLaunchTemplateResult:
     @pulumi.getter
     def region(self) -> _builtins.str:
         return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="secondaryInterfaces")
+    def secondary_interfaces(self) -> Sequence['outputs.GetLaunchTemplateSecondaryInterfaceResult']:
+        return pulumi.get(self, "secondary_interfaces")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupNames")
@@ -373,10 +389,12 @@ class AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
             monitorings=self.monitorings,
             name=self.name,
             network_interfaces=self.network_interfaces,
+            network_performance_options=self.network_performance_options,
             placements=self.placements,
             private_dns_name_options=self.private_dns_name_options,
             ram_disk_id=self.ram_disk_id,
             region=self.region,
+            secondary_interfaces=self.secondary_interfaces,
             security_group_names=self.security_group_names,
             tag_specifications=self.tag_specifications,
             tags=self.tags,
@@ -460,10 +478,12 @@ def get_launch_template(filters: Optional[Sequence[Union['GetLaunchTemplateFilte
         monitorings=pulumi.get(__ret__, 'monitorings'),
         name=pulumi.get(__ret__, 'name'),
         network_interfaces=pulumi.get(__ret__, 'network_interfaces'),
+        network_performance_options=pulumi.get(__ret__, 'network_performance_options'),
         placements=pulumi.get(__ret__, 'placements'),
         private_dns_name_options=pulumi.get(__ret__, 'private_dns_name_options'),
         ram_disk_id=pulumi.get(__ret__, 'ram_disk_id'),
         region=pulumi.get(__ret__, 'region'),
+        secondary_interfaces=pulumi.get(__ret__, 'secondary_interfaces'),
         security_group_names=pulumi.get(__ret__, 'security_group_names'),
         tag_specifications=pulumi.get(__ret__, 'tag_specifications'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -544,10 +564,12 @@ def get_launch_template_output(filters: Optional[pulumi.Input[Optional[Sequence[
         monitorings=pulumi.get(__response__, 'monitorings'),
         name=pulumi.get(__response__, 'name'),
         network_interfaces=pulumi.get(__response__, 'network_interfaces'),
+        network_performance_options=pulumi.get(__response__, 'network_performance_options'),
         placements=pulumi.get(__response__, 'placements'),
         private_dns_name_options=pulumi.get(__response__, 'private_dns_name_options'),
         ram_disk_id=pulumi.get(__response__, 'ram_disk_id'),
         region=pulumi.get(__response__, 'region'),
+        secondary_interfaces=pulumi.get(__response__, 'secondary_interfaces'),
         security_group_names=pulumi.get(__response__, 'security_group_names'),
         tag_specifications=pulumi.get(__response__, 'tag_specifications'),
         tags=pulumi.get(__response__, 'tags'),

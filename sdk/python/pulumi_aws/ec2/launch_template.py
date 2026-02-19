@@ -52,6 +52,7 @@ class LaunchTemplateArgs:
                  private_dns_name_options: Optional[pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs']] = None,
                  ram_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
+                 secondary_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateSecondaryInterfaceArgs']]]] = None,
                  security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -97,6 +98,8 @@ class LaunchTemplateArgs:
         :param pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs'] private_dns_name_options: The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         :param pulumi.Input[_builtins.str] ram_disk_id: The ID of the RAM disk.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateSecondaryInterfaceArgs']]] secondary_interfaces: Secondary interfaces to associate with instances launched from the template. See Secondary
+               Interfaces below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_names: A list of security group names to associate with. If you are creating Instances in a VPC, use
                `vpc_security_group_ids` instead.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]] tag_specifications: The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
@@ -167,6 +170,8 @@ class LaunchTemplateArgs:
             pulumi.set(__self__, "ram_disk_id", ram_disk_id)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if secondary_interfaces is not None:
+            pulumi.set(__self__, "secondary_interfaces", secondary_interfaces)
         if security_group_names is not None:
             pulumi.set(__self__, "security_group_names", security_group_names)
         if tag_specifications is not None:
@@ -557,6 +562,19 @@ class LaunchTemplateArgs:
         pulumi.set(self, "region", value)
 
     @_builtins.property
+    @pulumi.getter(name="secondaryInterfaces")
+    def secondary_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateSecondaryInterfaceArgs']]]]:
+        """
+        Secondary interfaces to associate with instances launched from the template. See Secondary
+        Interfaces below for more details.
+        """
+        return pulumi.get(self, "secondary_interfaces")
+
+    @secondary_interfaces.setter
+    def secondary_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateSecondaryInterfaceArgs']]]]):
+        pulumi.set(self, "secondary_interfaces", value)
+
+    @_builtins.property
     @pulumi.getter(name="securityGroupNames")
     def security_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -666,6 +684,7 @@ class _LaunchTemplateState:
                  private_dns_name_options: Optional[pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs']] = None,
                  ram_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
+                 secondary_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateSecondaryInterfaceArgs']]]] = None,
                  security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -714,6 +733,8 @@ class _LaunchTemplateState:
         :param pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs'] private_dns_name_options: The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         :param pulumi.Input[_builtins.str] ram_disk_id: The ID of the RAM disk.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateSecondaryInterfaceArgs']]] secondary_interfaces: Secondary interfaces to associate with instances launched from the template. See Secondary
+               Interfaces below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_names: A list of security group names to associate with. If you are creating Instances in a VPC, use
                `vpc_security_group_ids` instead.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]] tag_specifications: The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
@@ -789,6 +810,8 @@ class _LaunchTemplateState:
             pulumi.set(__self__, "ram_disk_id", ram_disk_id)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if secondary_interfaces is not None:
+            pulumi.set(__self__, "secondary_interfaces", secondary_interfaces)
         if security_group_names is not None:
             pulumi.set(__self__, "security_group_names", security_group_names)
         if tag_specifications is not None:
@@ -1205,6 +1228,19 @@ class _LaunchTemplateState:
         pulumi.set(self, "region", value)
 
     @_builtins.property
+    @pulumi.getter(name="secondaryInterfaces")
+    def secondary_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateSecondaryInterfaceArgs']]]]:
+        """
+        Secondary interfaces to associate with instances launched from the template. See Secondary
+        Interfaces below for more details.
+        """
+        return pulumi.get(self, "secondary_interfaces")
+
+    @secondary_interfaces.setter
+    def secondary_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateSecondaryInterfaceArgs']]]]):
+        pulumi.set(self, "secondary_interfaces", value)
+
+    @_builtins.property
     @pulumi.getter(name="securityGroupNames")
     def security_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -1327,6 +1363,7 @@ class LaunchTemplate(pulumi.CustomResource):
                  private_dns_name_options: Optional[pulumi.Input[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict']]] = None,
                  ram_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
+                 secondary_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateSecondaryInterfaceArgs', 'LaunchTemplateSecondaryInterfaceArgsDict']]]]] = None,
                  security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -1384,6 +1421,8 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict']] private_dns_name_options: The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         :param pulumi.Input[_builtins.str] ram_disk_id: The ID of the RAM disk.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateSecondaryInterfaceArgs', 'LaunchTemplateSecondaryInterfaceArgsDict']]]] secondary_interfaces: Secondary interfaces to associate with instances launched from the template. See Secondary
+               Interfaces below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_names: A list of security group names to associate with. If you are creating Instances in a VPC, use
                `vpc_security_group_ids` instead.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict']]]] tag_specifications: The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
@@ -1455,6 +1494,7 @@ class LaunchTemplate(pulumi.CustomResource):
                  private_dns_name_options: Optional[pulumi.Input[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict']]] = None,
                  ram_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
+                 secondary_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateSecondaryInterfaceArgs', 'LaunchTemplateSecondaryInterfaceArgsDict']]]]] = None,
                  security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -1501,6 +1541,7 @@ class LaunchTemplate(pulumi.CustomResource):
             __props__.__dict__["private_dns_name_options"] = private_dns_name_options
             __props__.__dict__["ram_disk_id"] = ram_disk_id
             __props__.__dict__["region"] = region
+            __props__.__dict__["secondary_interfaces"] = secondary_interfaces
             __props__.__dict__["security_group_names"] = security_group_names
             __props__.__dict__["tag_specifications"] = tag_specifications
             __props__.__dict__["tags"] = tags
@@ -1553,6 +1594,7 @@ class LaunchTemplate(pulumi.CustomResource):
             private_dns_name_options: Optional[pulumi.Input[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict']]] = None,
             ram_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
+            secondary_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateSecondaryInterfaceArgs', 'LaunchTemplateSecondaryInterfaceArgsDict']]]]] = None,
             security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -1606,6 +1648,8 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict']] private_dns_name_options: The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         :param pulumi.Input[_builtins.str] ram_disk_id: The ID of the RAM disk.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateSecondaryInterfaceArgs', 'LaunchTemplateSecondaryInterfaceArgsDict']]]] secondary_interfaces: Secondary interfaces to associate with instances launched from the template. See Secondary
+               Interfaces below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_names: A list of security group names to associate with. If you are creating Instances in a VPC, use
                `vpc_security_group_ids` instead.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict']]]] tag_specifications: The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
@@ -1652,6 +1696,7 @@ class LaunchTemplate(pulumi.CustomResource):
         __props__.__dict__["private_dns_name_options"] = private_dns_name_options
         __props__.__dict__["ram_disk_id"] = ram_disk_id
         __props__.__dict__["region"] = region
+        __props__.__dict__["secondary_interfaces"] = secondary_interfaces
         __props__.__dict__["security_group_names"] = security_group_names
         __props__.__dict__["tag_specifications"] = tag_specifications
         __props__.__dict__["tags"] = tags
@@ -1928,6 +1973,15 @@ class LaunchTemplate(pulumi.CustomResource):
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="secondaryInterfaces")
+    def secondary_interfaces(self) -> pulumi.Output[Optional[Sequence['outputs.LaunchTemplateSecondaryInterface']]]:
+        """
+        Secondary interfaces to associate with instances launched from the template. See Secondary
+        Interfaces below for more details.
+        """
+        return pulumi.get(self, "secondary_interfaces")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupNames")
