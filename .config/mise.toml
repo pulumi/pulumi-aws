@@ -32,3 +32,6 @@ fetch_remote_versions_cache = "24h" # Mise queries versions even if they're pinn
 
 [plugins]
 vfox-pulumi = "https://github.com/pulumi/vfox-pulumi"
+
+[shell_alias]
+mise = "{{config_root}}/scripts/mise.sh"

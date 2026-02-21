@@ -8,11 +8,11 @@ generate-nightly-test-workflow: true
 providerVersion: github.com/hashicorp/terraform-provider-aws/version.ProviderVersion
 buildProviderPre: "VERSION=${VERSION_GENERIC} ./scripts/minimal_schema.sh"
 esc:
-    enabled: true
+  enabled: true
 env:
-    PULUMI_MISSING_DOCS_ERROR: true
-    AWS_REGION: "us-west-2"
-    OIDC_ROLE_ARN: ${{ secrets.OIDC_ROLE_ARN }}
+  PULUMI_MISSING_DOCS_ERROR: true
+  AWS_REGION: "us-west-2"
+  OIDC_ROLE_ARN: ${{ secrets.OIDC_ROLE_ARN }}
 makeTemplate: bridged
 checkoutSubmodules: true
 freeDiskSpaceBeforeBuild: true
@@ -27,10 +27,11 @@ allowMissingDocs: false
 goBuildParallelism: 2
 aws: true
 releaseVerification:
-    nodejs: examples/release-verification
-    python: examples/webserver-py
-    dotnet: examples/webserver-cs
-    go: examples/webserver-go
+  nodejs: examples/release-verification
+  python: examples/webserver-py
+  dotnet: examples/webserver-cs
+  go: examples/webserver-go
 autoMergeProviderUpgrades: false
 runner:
-    prerequisites: pulumi-ubuntu-8core
+  prerequisites: pulumi-ubuntu-8core
+mise-bootstrap: true
