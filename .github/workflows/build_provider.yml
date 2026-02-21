@@ -71,15 +71,21 @@ jobs:
       - uses: MOZGIII/install-ldid-action@d5ab465f3a66a4d60a59882b935eb30e18e8d043 # v1
         with:
           tag: v2.1.5-procursus2
-      - name: Setup mise
-        uses: jdx/mise-action@c1a019b8d2586943b4dbebc456323b516910e310
-        env:
-          MISE_FETCH_REMOTE_VERSIONS_TIMEOUT: 30s
+      - name: Get mise cache path
+        id: mise-cache-path
+        shell: bash
+        run: echo "path=$(./scripts/mise.sh cache path)" >> "$GITHUB_OUTPUT"
+      - name: Restore mise cache
+        uses: actions/cache/restore@9255dc7a253b0ccc959486e2bca901246202afeb # v5
         with:
-          version: 2026.2.15
-          github_token: ${{ steps.app-auth.outputs.token }}
-          # only saving the cache in the prerequisites job
-          cache_save: false
+          path: ${{ steps.mise-cache-path.outputs.path }}
+          key: mise-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('mise*.toml', '.config/mise*.toml') }}
+          restore-keys: mise-${{ runner.os }}-${{ runner.arch }}-
+      - name: Setup mise
+        shell: bash
+        run: ./scripts/mise.sh install
+        env:
+          MISE_GITHUB_TOKEN: ${{ steps.app-auth.outputs.token }}
       # Based on https://github.com/actions/cache/blob/main/examples.md#go---modules
       - name: Get GOCACHE
         id: gocache
@@ -101,7 +107,7 @@ jobs:
           restore-keys: |
             go-provider-${{ matrix.platform.os }}-${{ matrix.platform.arch }}-
       - name: Prepare local workspace before restoring previously built
-        run: make prepare_local_workspace
+        run: make prepare
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Restore prerequisites

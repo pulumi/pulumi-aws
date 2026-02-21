@@ -69,15 +69,21 @@ jobs:
           app-id: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_APP_ID }}
           private-key: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_PRIVATE_KEY }}
           owner: ${{ github.repository_owner }}
-      - name: Setup mise
-        uses: jdx/mise-action@c1a019b8d2586943b4dbebc456323b516910e310
-        env:
-          MISE_FETCH_REMOTE_VERSIONS_TIMEOUT: 30s
+      - name: Get mise cache path
+        id: mise-cache-path
+        shell: bash
+        run: echo "path=$(./scripts/mise.sh cache path)" >> "$GITHUB_OUTPUT"
+      - name: Restore mise cache
+        uses: actions/cache/restore@9255dc7a253b0ccc959486e2bca901246202afeb # v5
         with:
-          version: 2026.2.15
-          github_token: ${{ steps.app-auth.outputs.token }}
-          # only saving the cache in the prerequisites job
-          cache_save: false
+          path: ${{ steps.mise-cache-path.outputs.path }}
+          key: mise-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('mise*.toml', '.config/mise*.toml') }}
+          restore-keys: mise-${{ runner.os }}-${{ runner.arch }}-
+      - name: Setup mise
+        shell: bash
+        run: ./scripts/mise.sh install
+        env:
+          MISE_GITHUB_TOKEN: ${{ steps.app-auth.outputs.token }}
       - name: Install upgrade-provider
         run: go install github.com/pulumi/upgrade-provider@${{ inputs.upgradeProviderVersion || 'main' }}
         shell: bash
