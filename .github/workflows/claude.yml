@@ -115,7 +115,7 @@ jobs:
             }
           claude_args: |
             --max-turns 50
-            --allowedTools "Skill,Edit,MultiEdit,Write,Read,Glob,Grep,LS,Bash(upgrade-provider *),Bash(./scripts/upstream.sh *),Bash(git *),Bash(GIT_EDITOR=* git *),Bash(make *),Bash(gh *),Bash(mkdir *),Bash(go install *),Bash(ls *),Bash(test *),Bash(cat *),Bash(pwd),Bash(head *),Bash(tail *),Bash(tee *),Bash(rg *),Bash(grep *),Bash(sed *),Bash(awk *),Bash(find *)"
+            --allowedTools "Skill,Edit,MultiEdit,Write,Read,Glob,Grep,LS,Bash(upgrade-provider *),Bash(./scripts/upstream.sh *),Bash(git *),Bash(GIT_EDITOR=* git *),Bash(make *),Bash(gh *),Bash(mkdir *),Bash(go install *),Bash(go mod tidy *),Bash(ls *),Bash(test *),Bash(cat *),Bash(pwd),Bash(head *),Bash(tail *),Bash(tee *),Bash(rg *),Bash(grep *),Bash(sed *),Bash(awk *),Bash(find *)"
         # If the claude action fails you don't get any logs on what claude was doing
         # Uploading the artifact allows you to download the artifact from the UI
       - name: Upload Claude review output on failure
