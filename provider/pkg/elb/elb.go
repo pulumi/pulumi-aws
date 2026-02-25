@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/config"
 	elbv2 "github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2"
 	elbv2t "github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2/types"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 

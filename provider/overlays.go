@@ -15,8 +15,9 @@
 package provider
 
 import (
-	_ "embed" // Needed to support go:embed directive
 	"maps"
+
+	_ "embed" // Needed to support go:embed directive
 
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
@@ -36,7 +37,8 @@ var typeOverlays = map[string]schema.ComplexTypeSpec{}
 //go:embed pkg/overlays/examples/callbackFunction.md
 var callbackFunctionMD string
 
-// The CallbackFunction resource is an overlay based on the AWS Lambda Function resource. Properties are copied from the lambda/Function resource and additional properties/overrides are added here.
+// The CallbackFunction resource is an overlay based on the AWS Lambda Function resource. Properties are copied from
+// the lambda/Function resource and additional properties/overrides are added here.
 var callbackFunction = schema.ResourceSpec{
 	ObjectTypeSpec: schema.ObjectTypeSpec{
 		IsOverlay:                 true,
@@ -47,7 +49,8 @@ var callbackFunction = schema.ResourceSpec{
 				TypeSpec: schema.TypeSpec{
 					Type: "string",
 				},
-				Description: "The IAM role assigned to this Lambda function. Will be undefined if an ARN was provided for the role input property.",
+				Description: "The IAM role assigned to this Lambda function. Will be undefined if an ARN was provided " +
+					"for the role input property.",
 			},
 		},
 		Type: "object",
@@ -68,7 +71,9 @@ var callbackFunction = schema.ResourceSpec{
 				// 	},
 				// },
 			},
-			Description: "The execution role for the Lambda Function. The role provides the function's identity and access to AWS services and resources. Only one of `role` or `policies` can be provided. If neither is provided, the default policies will be used instead.",
+			Description: "The execution role for the Lambda Function. The role provides the function's identity and " +
+				"access to AWS services and resources. Only one of `role` or `policies` can be provided. " +
+				"If neither is provided, the default policies will be used instead.",
 		},
 		"policies": {
 			TypeSpec: schema.TypeSpec{
@@ -87,7 +92,8 @@ var callbackFunction = schema.ResourceSpec{
 					},
 				},
 			},
-			Description: "A list of IAM policy ARNs to attach to the Function. Only one of `role` or `policies` can be provided. If neither is provided, the default policies will be used instead.",
+			Description: "A list of IAM policy ARNs to attach to the Function. Only one of `role` or `policies` " +
+				"can be provided. If neither is provided, the default policies will be used instead.",
 		},
 		"runtime": {
 			TypeSpec: schema.TypeSpec{
@@ -99,27 +105,31 @@ var callbackFunction = schema.ResourceSpec{
 			TypeSpec: schema.TypeSpec{
 				Ref: "#/types/" + codePathOptionsTok,
 			},
-			Description: "Options to control which paths/packages should be included or excluded in the zip file containing the code for the AWS lambda.",
+			Description: "Options to control which paths/packages should be included or excluded in the zip file " +
+				"containing the code for the AWS lambda.",
 		},
 		"callback": {
 			TypeSpec: schema.TypeSpec{
 				Ref: "pulumi.json#/Any",
 			},
-			Description: "The Javascript function to use as the entrypoint for the AWS Lambda out of. Either callback or callbackFactory must be provided.",
+			Description: "The Javascript function to use as the entrypoint for the AWS Lambda out of. " +
+				"Either callback or callbackFactory must be provided.",
 		},
 		"callbackFactory": {
 			TypeSpec: schema.TypeSpec{
 				Ref: "pulumi.json#/Any",
 			},
-			Description: "The Javascript function that will be called to produce the callback function that is the entrypoint for the AWS Lambda. Either callback or callbackFactory must be provided.",
+			Description: "The Javascript function that will be called to produce the callback function that is " +
+				"the entrypoint for the AWS Lambda. Either callback or callbackFactory must be provided.",
 		},
 	},
 }
 
 var codePathOptions = schema.ComplexTypeSpec{
 	ObjectTypeSpec: schema.ObjectTypeSpec{
-		IsOverlay:   true,
-		Description: "Options to control which paths/packages should be included or excluded in the zip file containing the code for the AWS lambda.",
+		IsOverlay: true,
+		Description: "Options to control which paths/packages should be included or excluded in the zip file " +
+			"containing the code for the AWS lambda.",
 		Properties: map[string]schema.PropertySpec{
 			"extraIncludePaths": {
 				TypeSpec: schema.TypeSpec{
@@ -128,7 +138,8 @@ var codePathOptions = schema.ComplexTypeSpec{
 						Type: "string",
 					},
 				},
-				Description: "Local file/directory paths that should be included when producing the Assets for a serialized closure.",
+				Description: "Local file/directory paths that should be included when producing the Assets " +
+					"for a serialized closure.",
 			},
 			"extraIncludePackages": {
 				TypeSpec: schema.TypeSpec{
@@ -137,7 +148,10 @@ var codePathOptions = schema.ComplexTypeSpec{
 						Type: "string",
 					},
 				},
-				Description: "Extra packages to include when producing the Assets for a serialized closure. This can be useful if the packages are acquired in a way that the serialization code does not understand. For example, if there was some sort of module that was pulled in based off of a computed string.",
+				Description: "Extra packages to include when producing the Assets for a serialized closure. " +
+					"This can be useful if the packages are acquired in a way that the serialization code does not " +
+					"understand. For example, if there was some sort of module that was pulled in based off of a " +
+					"computed string.",
 			},
 			"extraExcludePackages": {
 				TypeSpec: schema.TypeSpec{
@@ -146,7 +160,10 @@ var codePathOptions = schema.ComplexTypeSpec{
 						Type: "string",
 					},
 				},
-				Description: "Packages to explicitly exclude from the Assets for a serialized closure. This can be used when clients want to trim down the size of a closure, and they know that some package won't ever actually be needed at runtime, but is still a dependency of some package that is being used at runtime.",
+				Description: "Packages to explicitly exclude from the Assets for a serialized closure. This can be " +
+					"used when clients want to trim down the size of a closure, and they know that some package won't " +
+					"ever actually be needed at runtime, but is still a dependency of some package that is being used " +
+					"at runtime.",
 			},
 		},
 		Type: "object",

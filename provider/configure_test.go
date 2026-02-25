@@ -21,9 +21,10 @@ import (
 	"testing"
 	"time"
 
+	"github.com/stretchr/testify/require"
+
 	testutils "github.com/pulumi/providertest/replay"
 	pfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
-	"github.com/stretchr/testify/require"
 
 	version "github.com/pulumi/pulumi-aws/provider/v7/pkg/version"
 )

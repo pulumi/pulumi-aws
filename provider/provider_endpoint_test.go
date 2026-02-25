@@ -7,10 +7,11 @@ import (
 	"testing"
 
 	structpb "github.com/golang/protobuf/ptypes/struct"
-	pfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
-	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	pfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
+	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 )
 
 func testProviderServer() (pulumirpc.ResourceProviderServer, error) {
@@ -46,9 +47,9 @@ func TestProviderEndpoints(t *testing.T) {
 			assert.Contains(t, r.Header.Get("User-Agent"), "APN/1.1 (c7qiae2l6usvzoynupds6v7hf)")
 			switch requestCount {
 			case 0:
-				w.Write([]byte(stsGetCallerIdentityResponse))
+				_, _ = w.Write([]byte(stsGetCallerIdentityResponse))
 			case 1:
-				w.Write([]byte("{}"))
+				_, _ = w.Write([]byte("{}"))
 			default:
 				t.Fatalf("Unexpected request count: %d", requestCount)
 			}
