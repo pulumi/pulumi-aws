@@ -4,10 +4,11 @@ import (
 	"context"
 	"testing"
 
+	"github.com/stretchr/testify/require"
+
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/log"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
-	"github.com/stretchr/testify/require"
 )
 
 func TestComputeEnvironmentTransformFromState(t *testing.T) {
@@ -32,7 +33,7 @@ func TestComputeEnvironmentTransformFromState(t *testing.T) {
 			}),
 		}),
 	}
-	actual, err := ComputeEnvironment("", func(ctx context.Context) tfbridge.Logger {
+	actual, err := ComputeEnvironment("", func(_ context.Context) tfbridge.Logger {
 		return testLogger{t}
 	}).TransformFromState(ctx, pm)
 	require.NoError(t, err)

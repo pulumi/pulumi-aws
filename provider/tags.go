@@ -19,6 +19,7 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	awsShim "github.com/hashicorp/terraform-provider-aws/shim"
+
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -37,8 +38,10 @@ import (
 //  1. Run `pulumi refresh --run-program` (run-program is required to get the latest provider config)
 //  2. Run `pulumi up` to apply the tags changes.
 //
-// In order to handle this scenario we add a callback function that is run prior to `Check` which sets the value of `tagsAll`.
-// This is a workaround that allows the program to have the latest `tagsAll` values without having to run `refresh` or `run-program`.
+// In order to handle this scenario we add a callback function that is run prior to `Check`
+// which sets the value of `tagsAll`.
+// This is a workaround that allows the program to have the latest `tagsAll` values without
+// having to run `refresh` or `run-program`.
 func applyTagsPreCheckCallback(
 	prov tfbridge.ProviderInfo,
 	upstreamSDKV2Provider *schema.Provider,
@@ -160,7 +163,6 @@ func mergeTags(
 			allTagProperties[pk] = resource.NewStringProperty(v.ValueString())
 		}
 		return resource.NewObjectProperty(allTagProperties), nil
-	} else {
-		return resource.NewNullProperty(), nil
 	}
+	return resource.NewNullProperty(), nil
 }

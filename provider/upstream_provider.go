@@ -21,9 +21,11 @@ import (
 	"os"
 
 	awsShim "github.com/hashicorp/terraform-provider-aws/shim"
+
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
+
 	"github.com/pulumi/pulumi-aws/provider/v7/pkg/iam"
 	"github.com/pulumi/pulumi-aws/provider/v7/pkg/rds"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 // Initialize a representation of the upstream provider.

@@ -75,18 +75,18 @@ func parameterGroupParameterSetFunc(oldSetFunc schema.SchemaSetFunc) schema.Sche
 	return func(v interface{}) int {
 		m := v.(map[string]interface{})
 		// Pretend apply_method is always "immediate" to avoid changing the hash
-		copy := make(map[string]interface{}, len(m))
+		copyMap := make(map[string]interface{}, len(m))
 		for k, v := range m {
-			copy[k] = v
+			copyMap[k] = v
 		}
-		copy["apply_method"] = "immediate"
-		return oldSetFunc(copy)
+		copyMap["apply_method"] = "immediate"
+		return oldSetFunc(copyMap)
 	}
 }
 
 // Customize the diff to pretend that no changes are happening for a parameter that changes its apply_method but not its
 // value. This makes the provider match cloud behavior better.
-func parameterGroupCustomizeDiff(ctx context.Context, diff *schema.ResourceDiff, meta interface{}) error {
+func parameterGroupCustomizeDiff(_ context.Context, diff *schema.ResourceDiff, _ interface{}) error {
 	// If the apply_method is changed, and the value is not, then clear the apply_method change to ignore it.
 	for _, changedKey := range diff.GetChangedKeysPrefix("parameter") {
 		// Surprisingly GetChangedKeysPrefix returns keys that did not actually change, so skip those.
@@ -98,7 +98,7 @@ func parameterGroupCustomizeDiff(ctx context.Context, diff *schema.ResourceDiff,
 			matchingValueKey := fmt.Sprintf("parameter.%s.value", parameterIndex)
 			if !diff.HasChange(matchingValueKey) {
 				if err := diff.Clear(changedKey); err != nil {
-					return fmt.Errorf("Failed clearing %s: %w", changedKey, err)
+					return fmt.Errorf("failed clearing %s: %w", changedKey, err)
 				}
 			}
 		}

@@ -43,7 +43,9 @@ func applyRegionPreCheckCallback(
 // It first checks if the region is set in the resource inputs (config) and then checks the region from
 // the provider config (meta)
 // This matches the behavior of the upstream AWS provider which sets the region in the interceptor
-func applyRegion(ctx context.Context, config resource.PropertyMap, meta resource.PropertyMap) (resource.PropertyMap, error) {
+func applyRegion(
+	_ context.Context, config resource.PropertyMap, meta resource.PropertyMap,
+) (resource.PropertyMap, error) {
 	ret := config.Copy()
 	if t, ok := config["region"]; ok && !t.IsNull() {
 		ret["region"] = t

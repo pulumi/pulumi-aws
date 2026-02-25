@@ -20,14 +20,16 @@ import (
 	"bytes"
 	"compress/gzip"
 	"context"
-	_ "embed"
 	"io"
 	"os"
 
-	aws "github.com/pulumi/pulumi-aws/provider/v7"
+	_ "embed"
+
 	pf "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/cmdutil"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
+
+	aws "github.com/pulumi/pulumi-aws/provider/v7"
 )
 
 //go:embed schema-embed.json

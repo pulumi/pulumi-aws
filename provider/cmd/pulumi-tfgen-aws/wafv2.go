@@ -38,8 +38,8 @@ func replaceWafV2TypesWithRecursive(pulumiPackageSpec *schema.PackageSpec) {
 		// So, we find all the `statements` properties (continue if not found).
 		var oldRef string
 		if prop, has := ts.Properties["statements"]; has {
-			contract.Assertf(prop.TypeSpec.Items != nil, "statements property must be an array")
-			oldRef = prop.TypeSpec.Items.Ref
+			contract.Assertf(prop.Items != nil, "statements property must be an array")
+			oldRef = prop.Items.Ref
 		} else {
 			continue
 		}

@@ -5,8 +5,9 @@ package main
 import (
 	"testing"
 
-	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/stretchr/testify/assert"
+
+	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
 
 func TestReplaceWafV2TypesWithRecursive(t *testing.T) {

@@ -16,7 +16,6 @@ package batch
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/info"
@@ -40,8 +39,8 @@ func ComputeEnvironment(token tokens.Type, logProvider func(context.Context) tfb
 				return pm, nil
 			}
 			replacement := resource.NewArrayProperty([]resource.PropertyValue{ec2c})
-			logProvider(ctx).Debug(fmt.Sprintf(
-				"batch.ComputeEnvironment is wrapping old computeResources.ec2Configurations state in an array"))
+			logProvider(ctx).Debug(
+				"batch.ComputeEnvironment is wrapping old computeResources.ec2Configurations state in an array")
 			cr.ObjectValue()["ec2Configuration"] = replacement
 			r["computeResources"] = cr
 			return r, nil

@@ -3,9 +3,10 @@
 package provider
 
 import (
-	_ "embed"
 	"fmt"
 	"strings"
+
+	_ "embed" // Needed to support go:embed directive
 
 	"github.com/pulumi/pulumi/pkg/v3/codegen/cgstrings"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"

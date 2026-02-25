@@ -4,9 +4,10 @@ import (
 	"context"
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
-	"github.com/stretchr/testify/assert"
 )
 
 func Test_parseAssumeRoles(t *testing.T) {
@@ -87,7 +88,7 @@ func TestHasOptionalOrRequiredNamePropertyOptimized(t *testing.T) {
 	t.Parallel()
 
 	p := Provider()
-	p.P.ResourcesMap().Range(func(key string, value shim.Resource) bool {
+	p.P.ResourcesMap().Range(func(key string, _ shim.Resource) bool {
 		actual := hasOptionalOrRequiredNameProperty(p.P, key)
 		expected := hasOptionalOrRequiredNamePropertyOptimized(p.P, key)
 		assert.Equal(t, expected, actual, "%q", key)

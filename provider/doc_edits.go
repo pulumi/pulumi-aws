@@ -31,8 +31,8 @@ func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 		fixUpCloudFrontPublicKey,
 		fixUpEcsServiceName,
 		fixUpBucketReplicationConfig,
-		fixUpWebAclExample,
-		fixUpWebAclRuleGroupAssociationExample,
+		fixUpWebACLExample,
+		fixUpWebACLRuleGroupAssociationExample,
 		// This fixes up strings such as:
 		//
 		//	name        = "terraform-kinesis-firehose-os",
@@ -52,7 +52,8 @@ func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 			`"plantimestamp()"`,
 		),
 		simpleReplace("Read more about sensitive data in state.\n\n", ""),
-		simpleReplace("In Terraform v1.12.0 and later, the `import` block can be used with the `identity` attribute. For example:\n", ""),
+		simpleReplace("In Terraform v1.12.0 and later, the `import` block can be used with the "+
+			"`identity` attribute. For example:\n", ""),
 		reReplace(`(?m)^(\s*)Terraform resource `, "${1}Resource "),
 		reReplace(`(?m)^(\s*)Terraform data source `, "${1}Data source "),
 
@@ -107,7 +108,7 @@ func targetedReplace(filePath, from, to string) tfbridge.DocsEdit {
 	fromBytes, toBytes := []byte(from), []byte(to)
 	return tfbridge.DocsEdit{
 		Path: filePath,
-		Edit: func(path string, content []byte) ([]byte, error) {
+		Edit: func(_ string, content []byte) ([]byte, error) {
 			if bytes.Contains(content, fromBytes) {
 				content = bytes.ReplaceAll(
 					content,
@@ -187,27 +188,28 @@ var fixUpEcsServiceName = tfbridge.DocsEdit{
 	},
 }
 
-var fixUpWebAclExample = tfbridge.DocsEdit{
+var fixUpWebACLExample = tfbridge.DocsEdit{
 	Path: "wafv2_web_acl.html.markdown",
-	Edit: func(path string, content []byte) ([]byte, error) {
+	Edit: func(_ string, content []byte) ([]byte, error) {
 		return tfgen.SkipSectionByHeaderContent(content, func(headerText string) bool {
 			return strings.Contains(headerText, "Example Usage")
 		})
 	},
 }
 
-var fixUpWebAclRuleGroupAssociationExample = tfbridge.DocsEdit{
+var fixUpWebACLRuleGroupAssociationExample = tfbridge.DocsEdit{
 	Path: "wafv2_web_acl_rule_group_association.html.markdown",
-	Edit: func(path string, content []byte) ([]byte, error) {
+	Edit: func(_ string, content []byte) ([]byte, error) {
 		return tfgen.SkipSectionByHeaderContent(content, func(headerText string) bool {
-			return strings.Contains(headerText, "Custom Rule Group - With Rule Action Overrides") || strings.Contains(headerText, "Custom Rule Group - CloudFront Web ACL")
+			return strings.Contains(headerText, "Custom Rule Group - With Rule Action Overrides") ||
+				strings.Contains(headerText, "Custom Rule Group - CloudFront Web ACL")
 		})
 	},
 }
 
 var fixUpBucketReplicationConfig = tfbridge.DocsEdit{
 	Path: "s3_bucket_replication_configuration.html.markdown",
-	Edit: func(path string, content []byte) ([]byte, error) {
+	Edit: func(_ string, content []byte) ([]byte, error) {
 		fromBytes := []byte(
 			"* `rule` - (Required) List of configuration blocks describing the rules managing the replication. " +
 				"[See below](#rule).\n")
@@ -315,9 +317,9 @@ func applyReplacementsDotJSON() tfbridge.DocsEdit {
 				continue
 			}
 
-			old, new := []byte(r.Old), []byte(r.New)
+			old, newVal := []byte(r.Old), []byte(r.New)
 
-			content = bytes.ReplaceAll(content, old, new)
+			content = bytes.ReplaceAll(content, old, newVal)
 		}
 
 		replacements.checkForTODOs(path, content)
@@ -413,14 +415,4 @@ func findLine(src []byte, i int) (int, int) {
 		end++
 	}
 	return start, end + 1
-}
-
-// Attempts to read the contents of a given file but returns an empty array in case of failure. This is useful for
-// overriding documentation files at generation time only.
-func maybeReadFile(filePath string) []byte {
-	fileBytes, err := os.ReadFile(filePath)
-	if err != nil {
-		return nil
-	}
-	return fileBytes
 }

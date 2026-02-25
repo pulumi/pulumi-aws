@@ -192,12 +192,17 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 	},
 	"aws:ec2/PlacementStrategy:PlacementStrategy": {
 		ObjectTypeSpec: schema.ObjectTypeSpec{
-			Type:        "string",
-			Description: "The strategy of the placement group determines how the instances are organized within the group.\nSee https://docs.aws.amazon.com/cli/latest/reference/ec2/create-placement-group.html",
+			Type: "string",
+			Description: "The strategy of the placement group determines how the instances are organized within the group.\n" +
+				"See https://docs.aws.amazon.com/cli/latest/reference/ec2/create-placement-group.html",
 		},
 		Enum: []schema.EnumValueSpec{
 			{Name: "Spread", Value: "spread", Description: "A `spread` placement group places instances on distinct hardware."},
-			{Name: "Cluster", Value: "cluster", Description: "A `cluster` placement group is a logical grouping of instances within a single\nAvailability Zone that benefit from low network latency, high network throughput."},
+			{
+				Name: "Cluster", Value: "cluster",
+				Description: "A `cluster` placement group is a logical grouping of instances within a single\n" +
+					"Availability Zone that benefit from low network latency, high network throughput.",
+			},
 		},
 	},
 	"aws:ec2/ProtocolType:ProtocolType": {
@@ -451,7 +456,8 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 						Ref:  "#/types/aws:iam/PolicyDocumentVersion:PolicyDocumentVersion",
 					},
 					// TODO: sharing types messes up converter
-					// Description: "The version of the policy language that you want to use. As a best practice, use the latest '2012-10-17' version.",
+					// Description: "The version of the policy language that you want to use.
+					// As a best practice, use the latest '2012-10-17' version.",
 				},
 				"Id": {
 					TypeSpec: schema.TypeSpec{
@@ -464,7 +470,8 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 						Type:  "array",
 						Items: &schema.TypeSpec{Ref: "#/types/aws:iam/PolicyStatement:PolicyStatement"},
 					},
-					// Description: "One or more policy statements, describing the effect, principal, action, resource, and condition.",
+					// Description: "One or more policy statements, describing the effect,
+					// principal, action, resource, and condition.",
 				},
 			},
 			Required: []string{"Version", "Statement"},
@@ -472,8 +479,9 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 	},
 	"aws:iam/PolicyDocumentVersion:PolicyDocumentVersion": {
 		ObjectTypeSpec: schema.ObjectTypeSpec{
-			Description: "The version of the policy language that you want to use. As a best practice, use the latest '2012-10-17' version.",
-			Type:        "string",
+			Description: "The version of the policy language that you want to use." +
+				" As a best practice, use the latest '2012-10-17' version.",
+			Type: "string",
 		},
 		Enum: []schema.EnumValueSpec{
 			{Name: "2012-10-17", Value: "2012-10-17"},
@@ -492,8 +500,11 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 	},
 	"aws:iam/PolicyStatement:PolicyStatement": {
 		ObjectTypeSpec: schema.ObjectTypeSpec{
-			Type:        "object",
-			Description: "The Statement element is the main element for a policy. This element is required. It can include multiple elements (see the subsequent sections in this page). The Statement element contains an array of individual statements.",
+			Type: "object",
+			Description: "The Statement element is the main element for a policy." +
+				" This element is required. It can include multiple elements" +
+				" (see the subsequent sections in this page)." +
+				" The Statement element contains an array of individual statements.",
 			Properties: map[string]schema.PropertySpec{
 				"Sid": {
 					TypeSpec: schema.TypeSpec{
@@ -517,7 +528,10 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 							{Ref: "#/types/aws:iam/FederatedPrincipal:FederatedPrincipal"},
 						},
 					},
-					Description: "Indicate the account, user, role, or federated user to which you would like to allow or deny access. If you are creating a policy to attach to a user or role, you cannot include this element. The principal is implied as that user or role.",
+					Description: "Indicate the account, user, role, or federated user to which" +
+						" you would like to allow or deny access. If you are creating a policy to attach" +
+						" to a user or role, you cannot include this element." +
+						" The principal is implied as that user or role.",
 				},
 				"NotPrincipal": {
 					TypeSpec: schema.TypeSpec{
@@ -546,7 +560,8 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 							{Type: "array", Items: &schema.TypeSpec{Type: "string"}},
 						},
 					},
-					Description: "Include a list of actions that are not covered by this policy. Required (either Action or NotAction)",
+					Description: "Include a list of actions that are not covered by this policy." +
+						" Required (either Action or NotAction)",
 				},
 				"Resource": {
 					TypeSpec: schema.TypeSpec{
@@ -597,8 +612,10 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 	},
 	"aws:iam/AWSPrincipal:AWSPrincipal": {
 		ObjectTypeSpec: schema.ObjectTypeSpec{
-			Type:        "object",
-			Description: "When you use an AWS account identifier as the principal in a policy, the permissions in the policy statement can be granted to all identities contained in that account. This includes IAM users and roles in that account.",
+			Type: "object",
+			Description: "When you use an AWS account identifier as the principal in a policy," +
+				" the permissions in the policy statement can be granted to all identities" +
+				" contained in that account. This includes IAM users and roles in that account.",
 			Properties: map[string]schema.PropertySpec{
 				"AWS": {
 					TypeSpec: schema.TypeSpec{
@@ -615,8 +632,10 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 	},
 	"aws:iam/ServicePrincipal:ServicePrincipal": {
 		ObjectTypeSpec: schema.ObjectTypeSpec{
-			Type:        "object",
-			Description: "IAM roles that can be assumed by an AWS service are called service roles. Service roles must include a trust policy. A service principal is an identifier that is used to grant permissions to a service.",
+			Type: "object",
+			Description: "IAM roles that can be assumed by an AWS service are called service roles." +
+				" Service roles must include a trust policy." +
+				" A service principal is an identifier that is used to grant permissions to a service.",
 			Properties: map[string]schema.PropertySpec{
 				"Service": {
 					TypeSpec: schema.TypeSpec{

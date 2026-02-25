@@ -1,4 +1,5 @@
 [tools]
+golangci-lint = "2.7.0"
 "vfox-pulumi:pulumi/pulumi-archive" = "0.3.6"
 "vfox-pulumi:pulumi/pulumi-tls" = "5.2.3"
 "vfox-pulumi:pulumi/pulumi-github" = "6.10.1"

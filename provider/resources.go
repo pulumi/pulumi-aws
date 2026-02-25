@@ -16,7 +16,6 @@ package provider
 
 import (
 	"context"
-	_ "embed"
 	"errors"
 	"fmt"
 	"log"
@@ -29,12 +28,11 @@ import (
 	"time"
 	"unicode"
 
+	_ "embed" // Needed to support go:embed directive
+
 	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
 	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
 	"github.com/mitchellh/go-homedir"
-	"github.com/pulumi/pulumi-aws/provider/v7/pkg/batch"
-	"github.com/pulumi/pulumi-aws/provider/v7/pkg/rds"
-	"github.com/pulumi/pulumi-aws/provider/v7/pkg/version"
 
 	pftfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
@@ -46,6 +44,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
+
+	"github.com/pulumi/pulumi-aws/provider/v7/pkg/batch"
+	"github.com/pulumi/pulumi-aws/provider/v7/pkg/rds"
+	"github.com/pulumi/pulumi-aws/provider/v7/pkg/version"
 )
 
 // all of the AWS token components used below.
@@ -220,7 +222,7 @@ const (
 	redshiftDataMod             = "RedshiftData"             // RedshiftData
 	redshiftServerlessMod       = "RedshiftServerless"       // Redshift Serverless
 	resourcegroupsMod           = "ResourceGroups"           // Resource Groups
-	resourcegroupsTaggingApiMod = "ResourceGroupsTaggingApi" // Resource Groups Tagging Api
+	resourcegroupsTaggingAPIMod = "ResourceGroupsTaggingApi" // Resource Groups Tagging Api
 	rolesAnywhereMod            = "RolesAnywhere"            // Roles Anywhere
 	route53Mod                  = "Route53"                  // Route 53 (DNS)
 	route53RecoveryControlMod   = "Route53RecoveryControl"   // Route 53 Recovery Control
@@ -462,7 +464,7 @@ var moduleMap = map[string]string{
 	"rekognition":                     rekognitionMod,
 	"resiliencehub":                   resilienceHubMod,
 	"resourcegroups":                  resourcegroupsMod,
-	"resourcegroupstaggingapi":        resourcegroupsTaggingApiMod,
+	"resourcegroupstaggingapi":        resourcegroupsTaggingAPIMod,
 	"rolesanywhere":                   rolesAnywhereMod,
 	"route53":                         route53Mod,
 	"route53domains":                  route53DomainsMod,
@@ -664,13 +666,14 @@ var expiredSSOError string
 func parseAssumeRoles(vars resource.PropertyMap) ([]awsbase.AssumeRole, error) {
 	assumeRoles := []awsbase.AssumeRole{}
 	// if we don't catch this early it will eventually error in the bridge with something like
-	// could not marshal config state: internal: Pulumi property 'assumeRole' mapped non-uniquely to Terraform attribute 'assume_role' (duplicates Pulumi key 'assumeRoles')
+	// could not marshal config state: internal: Pulumi property 'assumeRole' mapped non-uniquely to
+	// Terraform attribute 'assume_role' (duplicates Pulumi key 'assumeRoles')
 	if _, ok := vars["assumeRole"]; ok {
 		return assumeRoles, errors.New("invalid config key 'aws:assumeRole', should be 'aws:assumeRoles'")
 	}
 	if roles, ok := vars["assumeRoles"]; ok {
 		if !roles.IsArray() {
-			return assumeRoles, errors.New(fmt.Sprintf("expected aws:assumeRoles to be an array, got %s", roles.TypeString()))
+			return assumeRoles, fmt.Errorf("expected aws:assumeRoles to be an array, got %s", roles.TypeString())
 		}
 		for _, details := range roles.ArrayValue() {
 			assumeRole := awsbase.AssumeRole{
@@ -697,7 +700,7 @@ func parseAssumeRoles(vars resource.PropertyMap) ([]awsbase.AssumeRole, error) {
 	return assumeRoles, nil
 }
 
-func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error {
+func validateCredentials(vars resource.PropertyMap, _ shim.ResourceConfig) error {
 	config := &awsbase.Config{
 		AccessKey: stringValue(vars, "accessKey", []string{"AWS_ACCESS_KEY_ID"}),
 		SecretKey: stringValue(vars, "secretKey", []string{"AWS_SECRET_ACCESS_KEY"}),
@@ -737,11 +740,11 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 	}
 
 	// Only set non-default EC2MetadataServiceEnableState if requested by skipMetadataApiCheck.
-	skipMetadataApiCheck, err := boolValue(vars, "skipMetadataApiCheck",
+	skipMetadataAPICheck, err := boolValue(vars, "skipMetadataApiCheck",
 		[]string{"AWS_SKIP_METADATA_API_CHECK"})
 	contract.AssertNoErrorf(err, "Failed to parse skipMetadataApiCheck configuration")
-	if skipMetadataApiCheck != nil {
-		if !*skipMetadataApiCheck {
+	if skipMetadataAPICheck != nil {
+		if !*skipMetadataAPICheck {
 			config.EC2MetadataServiceEnableState = imds.ClientEnabled
 		} else {
 			config.EC2MetadataServiceEnableState = imds.ClientDisabled
@@ -763,7 +766,7 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 	}
 
 	if len(sharedCredentialsFilePaths) == 0 {
-		sharedCredentialsFile := "~/.aws/credentials"
+		sharedCredentialsFile := "~/.aws/credentials" //nolint:gosec // This is a file path, not a credential
 		credsPath, err := homedir.Expand(sharedCredentialsFile)
 		if err != nil {
 			return err
@@ -894,7 +897,7 @@ func deprecateRuntime(value, name string) schema.EnumValueSpec {
 }
 
 // Provider returns additional overlaid schema and metadata associated with the aws package.
-func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
+func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo { //nolint:revive
 	ctx := context.Background()
 	upstreamProvider := newUpstreamProvider(ctx)
 
@@ -1264,7 +1267,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 					"name": {
 						Default: &tfbridge.DefaultInfo{
 							From: func(res *tfbridge.PulumiResource) (interface{}, error) {
-								return resource.NewUniqueHex(string(res.URN.Name())+"_", 7, 255)
+								return resource.NewUniqueHex(res.URN.Name()+"_", 7, 255)
 							},
 						},
 					},
@@ -1327,7 +1330,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 						"ignoreFailedScailingActivities": defaultValue("ignore_failed_scaling_activities"),
 						"waitForCapacityTimeout":         defaultValue("wait_for_capacity_timeout"),
 					}
-					return func(ctx context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+					return func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
 						r := pm.Copy()
 						for k, v := range defaults {
 							if value, defined := pm[resource.PropertyKey(k)]; defined && !value.IsNull() {
@@ -1390,7 +1393,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				},
 			},
 			// Batch
-			"aws_batch_compute_environment": batch.ComputeEnvironment(awsResource(batchMod, "ComputeEnvironment"), tfbridge.GetLogger),
+			"aws_batch_compute_environment": batch.ComputeEnvironment(awsResource(batchMod, "ComputeEnvironment"), tfbridge.GetLogger), //nolint:lll
 			"aws_batch_job_definition":      {Tok: awsResource(batchMod, "JobDefinition")},
 			"aws_batch_job_queue":           {Tok: awsResource(batchMod, "JobQueue")},
 			"aws_batch_scheduling_policy":   {Tok: awsResource(batchMod, "SchedulingPolicy")},
@@ -1404,13 +1407,15 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				},
 			},
 			// Chime
-			"aws_chime_voice_connector":                         {Tok: awsResource(chimeMod, "VoiceConnector")},
-			"aws_chime_voice_connector_group":                   {Tok: awsResource(chimeMod, "VoiceConnectorGroup")},
-			"aws_chime_voice_connector_origination":             {Tok: awsResource(chimeMod, "VoiceConnectorOrigination")},
-			"aws_chime_voice_connector_termination":             {Tok: awsResource(chimeMod, "VoiceConnectorTermination")},
-			"aws_chime_voice_connector_logging":                 {Tok: awsResource(chimeMod, "VoiceConnectorLogging")},
-			"aws_chime_voice_connector_streaming":               {Tok: awsResource(chimeMod, "VoiceConnectorStreaming")},
-			"aws_chime_voice_connector_termination_credentials": {Tok: awsResource(chimeMod, "VoiceConnectorTerminationCredentials")},
+			"aws_chime_voice_connector":             {Tok: awsResource(chimeMod, "VoiceConnector")},
+			"aws_chime_voice_connector_group":       {Tok: awsResource(chimeMod, "VoiceConnectorGroup")},
+			"aws_chime_voice_connector_origination": {Tok: awsResource(chimeMod, "VoiceConnectorOrigination")},
+			"aws_chime_voice_connector_termination": {Tok: awsResource(chimeMod, "VoiceConnectorTermination")},
+			"aws_chime_voice_connector_logging":     {Tok: awsResource(chimeMod, "VoiceConnectorLogging")},
+			"aws_chime_voice_connector_streaming":   {Tok: awsResource(chimeMod, "VoiceConnectorStreaming")},
+			"aws_chime_voice_connector_termination_credentials": {
+				Tok: awsResource(chimeMod, "VoiceConnectorTerminationCredentials"),
+			},
 			// Chime SDK Media Pipelines
 			"aws_chimesdkmediapipelines_media_insights_pipeline_configuration": {
 				Tok: awsResource(chimeSDKMediaPipelinesMod, "MediaInsightsPipelineConfiguration"),
@@ -1599,19 +1604,21 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_codepipeline_webhook":            {Tok: awsResource(codepipelineMod, "Webhook")},
 
 			// Cognito
-			"aws_cognito_identity_pool":                        {Tok: awsResource(cognitoMod, "IdentityPool")},
-			"aws_cognito_identity_pool_roles_attachment":       {Tok: awsResource(cognitoMod, "IdentityPoolRoleAttachment")},
-			"aws_cognito_identity_provider":                    {Tok: awsResource(cognitoMod, "IdentityProvider")},
-			"aws_cognito_resource_server":                      {Tok: awsResource(cognitoMod, "ResourceServer")},
-			"aws_cognito_user_group":                           {Tok: awsResource(cognitoMod, "UserGroup")},
-			"aws_cognito_user_pool":                            {Tok: awsResource(cognitoMod, "UserPool")},
-			"aws_cognito_user_pool_client":                     {Tok: awsResource(cognitoMod, "UserPoolClient")},
-			"aws_cognito_user_pool_domain":                     {Tok: awsResource(cognitoMod, "UserPoolDomain")},
-			"aws_cognito_user_pool_ui_customization":           {Tok: awsResource(cognitoMod, "UserPoolUICustomization")},
-			"aws_cognito_identity_pool_provider_principal_tag": {Tok: awsResource(cognitoMod, "IdentityPoolProviderPrincipalTag")},
-			"aws_cognito_user":                                 {Tok: awsResource(cognitoMod, "User")},
-			"aws_cognito_user_in_group":                        {Tok: awsResource(cognitoMod, "UserInGroup")},
-			"aws_cognito_risk_configuration":                   {Tok: awsResource(cognitoMod, "RiskConfiguration")},
+			"aws_cognito_identity_pool":                  {Tok: awsResource(cognitoMod, "IdentityPool")},
+			"aws_cognito_identity_pool_roles_attachment": {Tok: awsResource(cognitoMod, "IdentityPoolRoleAttachment")},
+			"aws_cognito_identity_provider":              {Tok: awsResource(cognitoMod, "IdentityProvider")},
+			"aws_cognito_resource_server":                {Tok: awsResource(cognitoMod, "ResourceServer")},
+			"aws_cognito_user_group":                     {Tok: awsResource(cognitoMod, "UserGroup")},
+			"aws_cognito_user_pool":                      {Tok: awsResource(cognitoMod, "UserPool")},
+			"aws_cognito_user_pool_client":               {Tok: awsResource(cognitoMod, "UserPoolClient")},
+			"aws_cognito_user_pool_domain":               {Tok: awsResource(cognitoMod, "UserPoolDomain")},
+			"aws_cognito_user_pool_ui_customization":     {Tok: awsResource(cognitoMod, "UserPoolUICustomization")},
+			"aws_cognito_identity_pool_provider_principal_tag": {
+				Tok: awsResource(cognitoMod, "IdentityPoolProviderPrincipalTag"),
+			},
+			"aws_cognito_user":               {Tok: awsResource(cognitoMod, "User")},
+			"aws_cognito_user_in_group":      {Tok: awsResource(cognitoMod, "UserInGroup")},
+			"aws_cognito_risk_configuration": {Tok: awsResource(cognitoMod, "RiskConfiguration")},
 
 			// Comprehend
 			"aws_comprehend_document_classifier": {Tok: awsResource(comprehendMod, "DocumentClassifier")},
@@ -1740,11 +1747,13 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 					"name": {Name: "name"},
 				},
 			},
-			"aws_directory_service_log_subscription":          {Tok: awsResource(directoryserviceMod, "LogSubscription")},
-			"aws_directory_service_shared_directory":          {Tok: awsResource(directoryserviceMod, "SharedDirectory")},
-			"aws_directory_service_shared_directory_accepter": {Tok: awsResource(directoryserviceMod, "SharedDirectoryAccepter")},
-			"aws_directory_service_radius_settings":           {Tok: awsResource(directoryserviceMod, "RadiusSettings")},
-			"aws_directory_service_region":                    {Tok: awsResource(directoryserviceMod, "ServiceRegion")},
+			"aws_directory_service_log_subscription": {Tok: awsResource(directoryserviceMod, "LogSubscription")},
+			"aws_directory_service_shared_directory": {Tok: awsResource(directoryserviceMod, "SharedDirectory")},
+			"aws_directory_service_shared_directory_accepter": {
+				Tok: awsResource(directoryserviceMod, "SharedDirectoryAccepter"),
+			},
+			"aws_directory_service_radius_settings": {Tok: awsResource(directoryserviceMod, "RadiusSettings")},
+			"aws_directory_service_region":          {Tok: awsResource(directoryserviceMod, "ServiceRegion")},
 
 			"aws_directory_service_trust": {
 				Tok: awsResource(directoryserviceMod, "Trust"),
@@ -2066,8 +2075,8 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				},
 			},
 			"aws_vpc_security_group_rules_exclusive": {Tok: awsResource(ec2Mod, "VpcSecurityGroupRulesExclusive")},
-			"aws_snapshot_create_volume_permission": {Tok: awsResource(ec2Mod, "SnapshotCreateVolumePermission")},
-			"aws_spot_datafeed_subscription":        {Tok: awsResource(ec2Mod, "SpotDatafeedSubscription")},
+			"aws_snapshot_create_volume_permission":  {Tok: awsResource(ec2Mod, "SnapshotCreateVolumePermission")},
+			"aws_spot_datafeed_subscription":         {Tok: awsResource(ec2Mod, "SpotDatafeedSubscription")},
 			"aws_spot_instance_request": {
 				Tok: awsResource(ec2Mod, "SpotInstanceRequest"),
 				Docs: &tfbridge.DocInfo{
@@ -2103,32 +2112,34 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_vpc":                    {Tok: awsResource(ec2Mod, vpcMod)},
 			"aws_vpc_encryption_control": {Tok: awsResource(ec2Mod, "VpcEncryptionControl")},
 			"aws_vpc_endpoint":           {Tok: awsResource(ec2Mod, "VpcEndpoint")},
-			"aws_vpc_endpoint_connection_notification":        {Tok: awsResource(ec2Mod, "VpcEndpointConnectionNotification")},
-			"aws_vpc_endpoint_route_table_association":        {Tok: awsResource(ec2Mod, "VpcEndpointRouteTableAssociation")},
-			"aws_vpc_endpoint_service":                        {Tok: awsResource(ec2Mod, "VpcEndpointService")},
-			"aws_vpc_endpoint_service_allowed_principal":      {Tok: awsResource(ec2Mod, "VpcEndpointServiceAllowedPrinciple")},
-			"aws_vpc_endpoint_subnet_association":             {Tok: awsResource(ec2Mod, "VpcEndpointSubnetAssociation")},
-			"aws_vpc_endpoint_policy":                         {Tok: awsResource(ec2Mod, "VpcEndpointPolicy")},
-			"aws_vpc_endpoint_security_group_association":     {Tok: awsResource(ec2Mod, "SecurityGroupAssociation")},
-			"aws_vpc_ipv4_cidr_block_association":             {Tok: awsResource(ec2Mod, "VpcIpv4CidrBlockAssociation")},
-			"aws_vpc_network_performance_metric_subscription": {Tok: awsResource(ec2Mod, "VpcNetworkPerformanceMetricSubscription")},
-			"aws_vpc_route_server":                            {Tok: awsResource(vpcMod, "RouteServer")},
-			"aws_vpc_route_server_endpoint":                   {Tok: awsResource(vpcMod, "RouteServerEndpoint")},
-			"aws_vpc_route_server_peer":                       {Tok: awsResource(vpcMod, "RouteServerPeer")},
-			"aws_vpc_route_server_propagation":                {Tok: awsResource(vpcMod, "RouteServerPropagation")},
-			"aws_vpc_route_server_vpc_association":            {Tok: awsResource(vpcMod, "RouteServerVpcAssociation")},
-			"aws_vpn_concentrator":                            {Tok: awsResource(ec2Mod, "VpnConcentrator")},
-			"aws_vpn_connection":                              {Tok: awsResource(ec2Mod, "VpnConnection")},
-			"aws_vpn_connection_route":                        {Tok: awsResource(ec2Mod, "VpnConnectionRoute")},
-			"aws_vpn_gateway":                                 {Tok: awsResource(ec2Mod, "VpnGateway")},
-			"aws_vpn_gateway_attachment":                      {Tok: awsResource(ec2Mod, "VpnGatewayAttachment")},
-			"aws_vpn_gateway_route_propagation":               {Tok: awsResource(ec2Mod, "VpnGatewayRoutePropagation")},
-			"aws_ec2_traffic_mirror_filter":                   {Tok: awsResource(ec2Mod, "TrafficMirrorFilter")},
-			"aws_ec2_traffic_mirror_filter_rule":              {Tok: awsResource(ec2Mod, "TrafficMirrorFilterRule")},
-			"aws_ec2_traffic_mirror_session":                  {Tok: awsResource(ec2Mod, "TrafficMirrorSession")},
-			"aws_ec2_traffic_mirror_target":                   {Tok: awsResource(ec2Mod, "TrafficMirrorTarget")},
-			"aws_ec2_availability_zone_group":                 {Tok: awsResource(ec2Mod, "AvailabilityZoneGroup")},
-			"aws_ec2_local_gateway_route":                     {Tok: awsResource(ec2Mod, "LocalGatewayRoute")},
+			"aws_vpc_endpoint_connection_notification":    {Tok: awsResource(ec2Mod, "VpcEndpointConnectionNotification")},
+			"aws_vpc_endpoint_route_table_association":    {Tok: awsResource(ec2Mod, "VpcEndpointRouteTableAssociation")},
+			"aws_vpc_endpoint_service":                    {Tok: awsResource(ec2Mod, "VpcEndpointService")},
+			"aws_vpc_endpoint_service_allowed_principal":  {Tok: awsResource(ec2Mod, "VpcEndpointServiceAllowedPrinciple")},
+			"aws_vpc_endpoint_subnet_association":         {Tok: awsResource(ec2Mod, "VpcEndpointSubnetAssociation")},
+			"aws_vpc_endpoint_policy":                     {Tok: awsResource(ec2Mod, "VpcEndpointPolicy")},
+			"aws_vpc_endpoint_security_group_association": {Tok: awsResource(ec2Mod, "SecurityGroupAssociation")},
+			"aws_vpc_ipv4_cidr_block_association":         {Tok: awsResource(ec2Mod, "VpcIpv4CidrBlockAssociation")},
+			"aws_vpc_network_performance_metric_subscription": {
+				Tok: awsResource(ec2Mod, "VpcNetworkPerformanceMetricSubscription"),
+			},
+			"aws_vpc_route_server":                 {Tok: awsResource(vpcMod, "RouteServer")},
+			"aws_vpc_route_server_endpoint":        {Tok: awsResource(vpcMod, "RouteServerEndpoint")},
+			"aws_vpc_route_server_peer":            {Tok: awsResource(vpcMod, "RouteServerPeer")},
+			"aws_vpc_route_server_propagation":     {Tok: awsResource(vpcMod, "RouteServerPropagation")},
+			"aws_vpc_route_server_vpc_association": {Tok: awsResource(vpcMod, "RouteServerVpcAssociation")},
+			"aws_vpn_concentrator":                 {Tok: awsResource(ec2Mod, "VpnConcentrator")},
+			"aws_vpn_connection":                   {Tok: awsResource(ec2Mod, "VpnConnection")},
+			"aws_vpn_connection_route":             {Tok: awsResource(ec2Mod, "VpnConnectionRoute")},
+			"aws_vpn_gateway":                      {Tok: awsResource(ec2Mod, "VpnGateway")},
+			"aws_vpn_gateway_attachment":           {Tok: awsResource(ec2Mod, "VpnGatewayAttachment")},
+			"aws_vpn_gateway_route_propagation":    {Tok: awsResource(ec2Mod, "VpnGatewayRoutePropagation")},
+			"aws_ec2_traffic_mirror_filter":        {Tok: awsResource(ec2Mod, "TrafficMirrorFilter")},
+			"aws_ec2_traffic_mirror_filter_rule":   {Tok: awsResource(ec2Mod, "TrafficMirrorFilterRule")},
+			"aws_ec2_traffic_mirror_session":       {Tok: awsResource(ec2Mod, "TrafficMirrorSession")},
+			"aws_ec2_traffic_mirror_target":        {Tok: awsResource(ec2Mod, "TrafficMirrorTarget")},
+			"aws_ec2_availability_zone_group":      {Tok: awsResource(ec2Mod, "AvailabilityZoneGroup")},
+			"aws_ec2_local_gateway_route":          {Tok: awsResource(ec2Mod, "LocalGatewayRoute")},
 			"aws_ec2_local_gateway_route_table_vpc_association": {
 				Tok: awsResource(ec2Mod, "LocalGatewayRouteTableVpcAssociation"),
 			},
@@ -2180,18 +2191,30 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok:                 awsResource(ec2TransitGatewayMod, "VpcAttachment"),
 				DeleteBeforeReplace: true,
 			},
-			"aws_ec2_transit_gateway_vpc_attachment_accepter":      {Tok: awsResource(ec2TransitGatewayMod, "VpcAttachmentAccepter")},
-			"aws_ec2_transit_gateway_peering_attachment":           {Tok: awsResource(ec2TransitGatewayMod, "PeeringAttachment")},
-			"aws_ec2_transit_gateway_connect":                      {Tok: awsResource(ec2TransitGatewayMod, "Connect")},
-			"aws_ec2_transit_gateway_connect_peer":                 {Tok: awsResource(ec2TransitGatewayMod, "ConnectPeer")},
-			"aws_ec2_transit_gateway_multicast_domain":             {Tok: awsResource(ec2TransitGatewayMod, "MulticastDomain")},
-			"aws_ec2_transit_gateway_multicast_domain_association": {Tok: awsResource(ec2TransitGatewayMod, "MulticastDomainAssociation")},
-			"aws_ec2_transit_gateway_multicast_group_member":       {Tok: awsResource(ec2TransitGatewayMod, "MulticastGroupMember")},
-			"aws_ec2_transit_gateway_multicast_group_source":       {Tok: awsResource(ec2TransitGatewayMod, "MulticastGroupSource")},
-			"aws_ec2_transit_gateway_policy_table":                 {Tok: awsResource(ec2TransitGatewayMod, "PolicyTable")},
-			"aws_ec2_transit_gateway_policy_table_association":     {Tok: awsResource(ec2TransitGatewayMod, "PolicyTableAssociation")},
-			"aws_ec2_instance_state":                               {Tok: awsResource(ec2TransitGatewayMod, "InstanceState")},
-			"aws_ec2_instance_connect_endpoint":                    {Tok: awsResource(ec2TransitGatewayMod, "InstanceConnectEndpoint")},
+			"aws_ec2_transit_gateway_vpc_attachment_accepter": {
+				Tok: awsResource(ec2TransitGatewayMod, "VpcAttachmentAccepter"),
+			},
+			"aws_ec2_transit_gateway_peering_attachment": {
+				Tok: awsResource(ec2TransitGatewayMod, "PeeringAttachment"),
+			},
+			"aws_ec2_transit_gateway_connect":          {Tok: awsResource(ec2TransitGatewayMod, "Connect")},
+			"aws_ec2_transit_gateway_connect_peer":     {Tok: awsResource(ec2TransitGatewayMod, "ConnectPeer")},
+			"aws_ec2_transit_gateway_multicast_domain": {Tok: awsResource(ec2TransitGatewayMod, "MulticastDomain")},
+			"aws_ec2_transit_gateway_multicast_domain_association": {
+				Tok: awsResource(ec2TransitGatewayMod, "MulticastDomainAssociation"),
+			},
+			"aws_ec2_transit_gateway_multicast_group_member": {
+				Tok: awsResource(ec2TransitGatewayMod, "MulticastGroupMember"),
+			},
+			"aws_ec2_transit_gateway_multicast_group_source": {
+				Tok: awsResource(ec2TransitGatewayMod, "MulticastGroupSource"),
+			},
+			"aws_ec2_transit_gateway_policy_table": {Tok: awsResource(ec2TransitGatewayMod, "PolicyTable")},
+			"aws_ec2_transit_gateway_policy_table_association": {
+				Tok: awsResource(ec2TransitGatewayMod, "PolicyTableAssociation"),
+			},
+			"aws_ec2_instance_state":            {Tok: awsResource(ec2TransitGatewayMod, "InstanceState")},
+			"aws_ec2_instance_connect_endpoint": {Tok: awsResource(ec2TransitGatewayMod, "InstanceConnectEndpoint")},
 			// Elastic Container Registry
 			"aws_ecr_repository": {Tok: awsResource(ecrMod, "Repository")},
 			"aws_ecr_repository_policy": {
@@ -2407,7 +2430,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_fsx_ontap_volume":                  {Tok: awsResource(fsxMod, "OntapVolume")},
 			"aws_fsx_openzfs_file_system": {
 				Tok: awsResource(fsxMod, "OpenZfsFileSystem"),
-				TransformFromState: func(ctx context.Context, state resource.PropertyMap) (resource.PropertyMap, error) {
+				TransformFromState: func(_ context.Context, state resource.PropertyMap) (resource.PropertyMap, error) {
 					if val, ok := state["subnetIds"]; ok {
 						if val.IsString() {
 							state["subnetIds"] = resource.NewArrayProperty([]resource.PropertyValue{val})
@@ -2859,7 +2882,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 						Randlen:   7,
 						// KMS Key alias names must be prefixed with "alias/" - see format documentation at
 						// https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateAlias.html
-						PostTransform: func(res *tfbridge.PulumiResource, name string) (string, error) {
+						PostTransform: func(_ *tfbridge.PulumiResource, name string) (string, error) {
 							if strings.HasPrefix(name, "alias/") {
 								return name, nil
 							}
@@ -2956,29 +2979,31 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_licensemanager_grant_accepter":        {Tok: awsResource(licensemanagerMod, "LicenseGrantAccepter")},
 
 			// LightSail
-			"aws_lightsail_certificate":                          {Tok: awsResource(lightsailMod, "Certificate")},
-			"aws_lightsail_container_service_deployment_version": {Tok: awsResource(lightsailMod, "ContainerServiceDeploymentVersion")},
-			"aws_lightsail_container_service":                    {Tok: awsResource(lightsailMod, "ContainerService")},
-			"aws_lightsail_database":                             {Tok: awsResource(lightsailMod, "Database")},
-			"aws_lightsail_distribution":                         {Tok: awsResource(lightsailMod, "Distribution")},
-			"aws_lightsail_disk_attachment":                      {Tok: awsResource(lightsailMod, "Disk_attachment")},
-			"aws_lightsail_disk":                                 {Tok: awsResource(lightsailMod, "Disk")},
-			"aws_lightsail_domain_entry":                         {Tok: awsResource(lightsailMod, "DomainEntry")},
-			"aws_lightsail_domain":                               {Tok: awsResource(lightsailMod, "Domain")},
-			"aws_lightsail_instance_public_ports":                {Tok: awsResource(lightsailMod, "InstancePublicPorts")},
-			"aws_lightsail_instance":                             {Tok: awsResource(lightsailMod, "Instance")},
-			"aws_lightsail_key_pair":                             {Tok: awsResource(lightsailMod, "KeyPair")},
-			"aws_lightsail_lb_attachment":                        {Tok: awsResource(lightsailMod, "LbAttachment")},
-			"aws_lightsail_lb_certificate_attachment":            {Tok: awsResource(lightsailMod, "LbCertificateAttachment")},
-			"aws_lightsail_lb_certificate":                       {Tok: awsResource(lightsailMod, "LbCertificate")},
-			"aws_lightsail_lb_https_redirection_policy":          {Tok: awsResource(lightsailMod, "LbHttpsRedirectionPolicy")},
-			"aws_lightsail_lb_stickiness_policy":                 {Tok: awsResource(lightsailMod, "LbStickinessPolicy")},
-			"aws_lightsail_lb":                                   {Tok: awsResource(lightsailMod, "Lb")},
-			"aws_lightsail_static_ip_attachment":                 {Tok: awsResource(lightsailMod, "StaticIpAttachment")},
-			"aws_lightsail_static_ip":                            {Tok: awsResource(lightsailMod, "StaticIp")},
-			"aws_lightsail_bucket":                               {Tok: awsResource(lightsailMod, "Bucket")},
-			"aws_lightsail_bucket_access_key":                    {Tok: awsResource(lightsailMod, "BucketAccessKey")},
-			"aws_lightsail_bucket_resource_access":               {Tok: awsResource(lightsailMod, "BucketResourceAccess")},
+			"aws_lightsail_certificate": {Tok: awsResource(lightsailMod, "Certificate")},
+			"aws_lightsail_container_service_deployment_version": {
+				Tok: awsResource(lightsailMod, "ContainerServiceDeploymentVersion"),
+			},
+			"aws_lightsail_container_service":           {Tok: awsResource(lightsailMod, "ContainerService")},
+			"aws_lightsail_database":                    {Tok: awsResource(lightsailMod, "Database")},
+			"aws_lightsail_distribution":                {Tok: awsResource(lightsailMod, "Distribution")},
+			"aws_lightsail_disk_attachment":             {Tok: awsResource(lightsailMod, "Disk_attachment")},
+			"aws_lightsail_disk":                        {Tok: awsResource(lightsailMod, "Disk")},
+			"aws_lightsail_domain_entry":                {Tok: awsResource(lightsailMod, "DomainEntry")},
+			"aws_lightsail_domain":                      {Tok: awsResource(lightsailMod, "Domain")},
+			"aws_lightsail_instance_public_ports":       {Tok: awsResource(lightsailMod, "InstancePublicPorts")},
+			"aws_lightsail_instance":                    {Tok: awsResource(lightsailMod, "Instance")},
+			"aws_lightsail_key_pair":                    {Tok: awsResource(lightsailMod, "KeyPair")},
+			"aws_lightsail_lb_attachment":               {Tok: awsResource(lightsailMod, "LbAttachment")},
+			"aws_lightsail_lb_certificate_attachment":   {Tok: awsResource(lightsailMod, "LbCertificateAttachment")},
+			"aws_lightsail_lb_certificate":              {Tok: awsResource(lightsailMod, "LbCertificate")},
+			"aws_lightsail_lb_https_redirection_policy": {Tok: awsResource(lightsailMod, "LbHttpsRedirectionPolicy")},
+			"aws_lightsail_lb_stickiness_policy":        {Tok: awsResource(lightsailMod, "LbStickinessPolicy")},
+			"aws_lightsail_lb":                          {Tok: awsResource(lightsailMod, "Lb")},
+			"aws_lightsail_static_ip_attachment":        {Tok: awsResource(lightsailMod, "StaticIpAttachment")},
+			"aws_lightsail_static_ip":                   {Tok: awsResource(lightsailMod, "StaticIp")},
+			"aws_lightsail_bucket":                      {Tok: awsResource(lightsailMod, "Bucket")},
+			"aws_lightsail_bucket_access_key":           {Tok: awsResource(lightsailMod, "BucketAccessKey")},
+			"aws_lightsail_bucket_resource_access":      {Tok: awsResource(lightsailMod, "BucketResourceAccess")},
 
 			// Location
 			"aws_location_map":                 {Tok: awsResource(locationMod, "Map")},
@@ -3067,24 +3092,44 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				},
 			},
 			// Network manager
-			"aws_networkmanager_connection":                               {Tok: awsResource(networkManagerMod, "Connection")},
-			"aws_networkmanager_core_network":                             {Tok: awsResource(networkManagerMod, "CoreNetwork")},
-			"aws_networkmanager_customer_gateway_association":             {Tok: awsResource(networkManagerMod, "CustomerGatewayAssociation")},
-			"aws_networkmanager_device":                                   {Tok: awsResource(networkManagerMod, "Device")},
-			"aws_networkmanager_global_network":                           {Tok: awsResource(networkManagerMod, "GlobalNetwork")},
-			"aws_networkmanager_link":                                     {Tok: awsResource(networkManagerMod, "Link")},
-			"aws_networkmanager_link_association":                         {Tok: awsResource(networkManagerMod, "LinkAssociation")},
-			"aws_networkmanager_site_to_site_vpn_attachment":              {Tok: awsResource(networkManagerMod, "SiteToSiteVpnAttachment")},
-			"aws_networkmanager_site":                                     {Tok: awsResource(networkManagerMod, "Site")},
-			"aws_networkmanager_transit_gateway_connect_peer_association": {Tok: awsResource(networkManagerMod, "TransitGatewayConnectPeerAssociation")},
-			"aws_networkmanager_transit_gateway_registration":             {Tok: awsResource(networkManagerMod, "TransitGatewayRegistration")},
-			"aws_networkmanager_attachment_accepter":                      {Tok: awsResource(networkManagerMod, "AttachmentAccepter")},
-			"aws_networkmanager_vpc_attachment":                           {Tok: awsResource(networkManagerMod, "VpcAttachment")},
-			"aws_networkmanager_transit_gateway_peering":                  {Tok: awsResource(networkManagerMod, "TransitGatewayPeering")},
-			"aws_networkmanager_transit_gateway_route_table_attachment":   {Tok: awsResource(networkManagerMod, "TransitGatewayRouteTableAttachment")},
-			"aws_networkmanager_connect_attachment":                       {Tok: awsResource(networkManagerMod, "ConnectAttachment")},
-			"aws_networkmanager_connect_peer":                             {Tok: awsResource(networkManagerMod, "ConnectPeer")},
-			"aws_networkmanager_core_network_policy_attachment":           {Tok: awsResource(networkManagerMod, "CoreNetworkPolicyAttachment")},
+			"aws_networkmanager_connection":   {Tok: awsResource(networkManagerMod, "Connection")},
+			"aws_networkmanager_core_network": {Tok: awsResource(networkManagerMod, "CoreNetwork")},
+			"aws_networkmanager_customer_gateway_association": {
+				Tok: awsResource(networkManagerMod, "CustomerGatewayAssociation"),
+			},
+			"aws_networkmanager_device":         {Tok: awsResource(networkManagerMod, "Device")},
+			"aws_networkmanager_global_network": {Tok: awsResource(networkManagerMod, "GlobalNetwork")},
+			"aws_networkmanager_link":           {Tok: awsResource(networkManagerMod, "Link")},
+			"aws_networkmanager_link_association": {
+				Tok: awsResource(networkManagerMod, "LinkAssociation"),
+			},
+			"aws_networkmanager_site_to_site_vpn_attachment": {
+				Tok: awsResource(networkManagerMod, "SiteToSiteVpnAttachment"),
+			},
+			"aws_networkmanager_site": {Tok: awsResource(networkManagerMod, "Site")},
+			"aws_networkmanager_transit_gateway_connect_peer_association": {
+				Tok: awsResource(networkManagerMod, "TransitGatewayConnectPeerAssociation"),
+			},
+			"aws_networkmanager_transit_gateway_registration": {
+				Tok: awsResource(networkManagerMod, "TransitGatewayRegistration"),
+			},
+			"aws_networkmanager_attachment_accepter": {
+				Tok: awsResource(networkManagerMod, "AttachmentAccepter"),
+			},
+			"aws_networkmanager_vpc_attachment": {Tok: awsResource(networkManagerMod, "VpcAttachment")},
+			"aws_networkmanager_transit_gateway_peering": {
+				Tok: awsResource(networkManagerMod, "TransitGatewayPeering"),
+			},
+			"aws_networkmanager_transit_gateway_route_table_attachment": {
+				Tok: awsResource(networkManagerMod, "TransitGatewayRouteTableAttachment"),
+			},
+			"aws_networkmanager_connect_attachment": {
+				Tok: awsResource(networkManagerMod, "ConnectAttachment"),
+			},
+			"aws_networkmanager_connect_peer": {Tok: awsResource(networkManagerMod, "ConnectPeer")},
+			"aws_networkmanager_core_network_policy_attachment": {
+				Tok: awsResource(networkManagerMod, "CoreNetworkPolicyAttachment"),
+			},
 
 			// OpenSearch
 			"aws_opensearch_domain": {
@@ -3147,7 +3192,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			},
 			"aws_rds_instance_state": {
 				// Pulumi cannot call this resource InstanceState because SDKs such as the Node SDK
-				// reserve the name to an auxillary structure for the Instance resource.
+				// reserve the name to an auxiliary structure for the Instance resource.
 				Tok: awsResource(rdsMod, "InstanceDesiredState"),
 			},
 			"aws_rds_cluster_endpoint": {Tok: awsResource(rdsMod, "ClusterEndpoint")},
@@ -3183,7 +3228,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 					"identifier": {
 						Default: &tfbridge.DefaultInfo{
 							From: func(res *tfbridge.PulumiResource) (interface{}, error) {
-								name, rand, maxlen := string(res.URN.Name()), 7, 255
+								name, rand, maxlen := res.URN.Name(), 7, 255
 								if engine, ok := res.Properties["engine"]; ok && engine.IsString() {
 									if strings.Contains(strings.ToLower(engine.StringValue()), "sqlserver") {
 										// SQL Server identifiers are capped at 15 characters.
@@ -3204,12 +3249,12 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 					},
 				},
 				PreCheckCallback: func(
-					ctx context.Context, config resource.PropertyMap, meta resource.PropertyMap,
+					ctx context.Context, config resource.PropertyMap, _ resource.PropertyMap,
 				) (resource.PropertyMap, error) {
 					if name, ok := config["name"]; ok {
 						// Both `name` and `dbName` are set, so error
 						if _, ok := config["dbName"]; ok {
-							return nil, fmt.Errorf("Cannot specify both name and dbName, " +
+							return nil, fmt.Errorf("cannot specify both name and dbName, " +
 								"please set only dbName")
 						}
 						tfbridge.GetLogger(ctx).Warn(`"name" is deprecated, use "dbName" instead.`)
@@ -4205,9 +4250,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_networkfirewall_resource_policy": {
 				Tok: awsResource(networkFirewallMod, "ResourcePolicy"),
 				Docs: &tfbridge.DocInfo{
-					ImportDetails: "Using `pulumi import`, import Network Firewall Resource Policies using the `resource arn`. For example: \n" +
+					ImportDetails: "Using `pulumi import`, import Network Firewall Resource Policies using the `resource arn`. For example: \n" + //nolint:lll
 						"```sh\n" +
-						"$ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example\n" +
+						"$ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example\n" + //nolint:lll
 						"```\n",
 				},
 			},
@@ -4249,13 +4294,17 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_codestarconnections_host":       {Tok: awsResource(codestarConnectionsMod, "Host")},
 
 			// SSO Admin
-			"aws_ssoadmin_managed_policy_attachment":          {Tok: awsResource(ssoAdminMod, "ManagedPolicyAttachment")},
-			"aws_ssoadmin_permission_set":                     {Tok: awsResource(ssoAdminMod, "PermissionSet")},
-			"aws_ssoadmin_permission_set_inline_policy":       {Tok: awsResource(ssoAdminMod, "PermissionSetInlinePolicy")},
-			"aws_ssoadmin_account_assignment":                 {Tok: awsResource(ssoAdminMod, "AccountAssignment")},
-			"aws_ssoadmin_customer_managed_policy_attachment": {Tok: awsResource(ssoAdminMod, "CustomerManagedPolicyAttachment")},
-			"aws_ssoadmin_permissions_boundary_attachment":    {Tok: awsResource(ssoAdminMod, "PermissionsBoundaryAttachment")},
-			"aws_ssoadmin_instance_access_control_attributes": {Tok: awsResource(ssoAdminMod, "InstanceAccessControlAttributes")},
+			"aws_ssoadmin_managed_policy_attachment":    {Tok: awsResource(ssoAdminMod, "ManagedPolicyAttachment")},
+			"aws_ssoadmin_permission_set":               {Tok: awsResource(ssoAdminMod, "PermissionSet")},
+			"aws_ssoadmin_permission_set_inline_policy": {Tok: awsResource(ssoAdminMod, "PermissionSetInlinePolicy")},
+			"aws_ssoadmin_account_assignment":           {Tok: awsResource(ssoAdminMod, "AccountAssignment")},
+			"aws_ssoadmin_customer_managed_policy_attachment": {
+				Tok: awsResource(ssoAdminMod, "CustomerManagedPolicyAttachment"),
+			},
+			"aws_ssoadmin_permissions_boundary_attachment": {Tok: awsResource(ssoAdminMod, "PermissionsBoundaryAttachment")},
+			"aws_ssoadmin_instance_access_control_attributes": {
+				Tok: awsResource(ssoAdminMod, "InstanceAccessControlAttributes"),
+			},
 			// AMP (Managed Prometheus)
 			"aws_prometheus_workspace":                {Tok: awsResource(ampMod, "Workspace")},
 			"aws_prometheus_alert_manager_definition": {Tok: awsResource(ampMod, "AlertManagerDefinition")},
@@ -4301,13 +4350,15 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_mwaa_environment": {Tok: awsResource(mwaaMod, "Environment")},
 
 			// apprunner
-			"aws_apprunner_auto_scaling_configuration_version": {Tok: awsResource(appRunnerMod, "AutoScalingConfigurationVersion")},
-			"aws_apprunner_connection":                         {Tok: awsResource(appRunnerMod, "Connection")},
-			"aws_apprunner_custom_domain_association":          {Tok: awsResource(appRunnerMod, "CustomDomainAssociation")},
-			"aws_apprunner_service":                            {Tok: awsResource(appRunnerMod, "Service")},
-			"aws_apprunner_vpc_connector":                      {Tok: awsResource(appRunnerMod, "VpcConnector")},
-			"aws_apprunner_vpc_ingress_connection":             {Tok: awsResource(appRunnerMod, "VpcIngressConnection")},
-			"aws_apprunner_observability_configuration":        {Tok: awsResource(appRunnerMod, "ObservabilityConfiguration")},
+			"aws_apprunner_auto_scaling_configuration_version": {
+				Tok: awsResource(appRunnerMod, "AutoScalingConfigurationVersion"),
+			},
+			"aws_apprunner_connection":                  {Tok: awsResource(appRunnerMod, "Connection")},
+			"aws_apprunner_custom_domain_association":   {Tok: awsResource(appRunnerMod, "CustomDomainAssociation")},
+			"aws_apprunner_service":                     {Tok: awsResource(appRunnerMod, "Service")},
+			"aws_apprunner_vpc_connector":               {Tok: awsResource(appRunnerMod, "VpcConnector")},
+			"aws_apprunner_vpc_ingress_connection":      {Tok: awsResource(appRunnerMod, "VpcIngressConnection")},
+			"aws_apprunner_observability_configuration": {Tok: awsResource(appRunnerMod, "ObservabilityConfiguration")},
 
 			// scheduler
 			"aws_scheduler_schedule":       {Tok: awsResource(schedulerMod, "Schedule")},
@@ -4320,13 +4371,17 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_rbin_rule": {Tok: awsResource(rbinMod, "Rule")},
 
 			// vpclattice
-			"aws_vpclattice_service":                             {Tok: awsResource(vpclatticeMod, "Service")},
-			"aws_vpclattice_service_network":                     {Tok: awsResource(vpclatticeMod, "ServiceNetwork")},
-			"aws_vpclattice_service_network_service_association": {Tok: awsResource(vpclatticeMod, "ServiceNetworkServiceAssociation")},
-			"aws_vpclattice_service_network_vpc_association":     {Tok: awsResource(vpclatticeMod, "ServiceNetworkVpcAssociation")},
-			"aws_vpclattice_target_group":                        {Tok: awsResource(vpclatticeMod, "TargetGroup")},
-			"aws_vpclattice_listener":                            {Tok: awsResource(vpclatticeMod, "Listener")},
-			"aws_vpclattice_listener_rule":                       {Tok: awsResource(vpclatticeMod, "ListenerRule")},
+			"aws_vpclattice_service":         {Tok: awsResource(vpclatticeMod, "Service")},
+			"aws_vpclattice_service_network": {Tok: awsResource(vpclatticeMod, "ServiceNetwork")},
+			"aws_vpclattice_service_network_service_association": {
+				Tok: awsResource(vpclatticeMod, "ServiceNetworkServiceAssociation"),
+			},
+			"aws_vpclattice_service_network_vpc_association": {
+				Tok: awsResource(vpclatticeMod, "ServiceNetworkVpcAssociation"),
+			},
+			"aws_vpclattice_target_group":  {Tok: awsResource(vpclatticeMod, "TargetGroup")},
+			"aws_vpclattice_listener":      {Tok: awsResource(vpclatticeMod, "Listener")},
+			"aws_vpclattice_listener_rule": {Tok: awsResource(vpclatticeMod, "ListenerRule")},
 		},
 		ExtraResources: resourceOverlays,
 		ExtraTypes:     extraTypes,
@@ -4415,12 +4470,14 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			// CloudTrail
 			"aws_cloudtrail_service_account": {Tok: awsDataSource(cloudtrailMod, "getServiceAccount")},
 			// CloudWatch
-			"aws_cloudwatch_log_group":                           {Tok: awsDataSource(cloudwatchMod, "getLogGroup")},
-			"aws_cloudwatch_log_groups":                          {Tok: awsDataSource(cloudwatchMod, "getLogGroups")},
-			"aws_cloudwatch_event_source":                        {Tok: awsDataSource(cloudwatchMod, "getEventSource")},
-			"aws_cloudwatch_event_connection":                    {Tok: awsDataSource(cloudwatchMod, "getEventConnection")},
-			"aws_cloudwatch_event_bus":                           {Tok: awsDataSource(cloudwatchMod, "getEventBus")},
-			"aws_cloudwatch_log_data_protection_policy_document": {Tok: awsDataSource(cloudwatchMod, "getLogDataProtectionPolicyDocument")},
+			"aws_cloudwatch_log_group":        {Tok: awsDataSource(cloudwatchMod, "getLogGroup")},
+			"aws_cloudwatch_log_groups":       {Tok: awsDataSource(cloudwatchMod, "getLogGroups")},
+			"aws_cloudwatch_event_source":     {Tok: awsDataSource(cloudwatchMod, "getEventSource")},
+			"aws_cloudwatch_event_connection": {Tok: awsDataSource(cloudwatchMod, "getEventConnection")},
+			"aws_cloudwatch_event_bus":        {Tok: awsDataSource(cloudwatchMod, "getEventBus")},
+			"aws_cloudwatch_log_data_protection_policy_document": {
+				Tok: awsDataSource(cloudwatchMod, "getLogDataProtectionPolicyDocument"),
+			},
 			// CodeCommit
 			"aws_codecommit_repository":             {Tok: awsDataSource(codecommitMod, "getRepository")},
 			"aws_codecommit_approval_rule_template": {Tok: awsDataSource(codecommitMod, "getApprovalRuleTemplate")},
@@ -4576,10 +4633,14 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_ec2_client_vpn_endpoint": {Tok: awsDataSource(ec2ClientVpnMod, "getEndpoint")},
 
 			// EC2 Transit Gateway
-			"aws_ec2_transit_gateway":                          {Tok: awsDataSource(ec2TransitGatewayMod, "getTransitGateway")},
-			"aws_ec2_transit_gateway_attachments":              {Tok: awsDataSource(ec2TransitGatewayMod, "getAttachments")},
-			"aws_ec2_transit_gateway_route_table_associations": {Tok: awsDataSource(ec2TransitGatewayMod, "getRouteTableAssociations")},
-			"aws_ec2_transit_gateway_route_table_propagations": {Tok: awsDataSource(ec2TransitGatewayMod, "getRouteTablePropagations")},
+			"aws_ec2_transit_gateway":             {Tok: awsDataSource(ec2TransitGatewayMod, "getTransitGateway")},
+			"aws_ec2_transit_gateway_attachments": {Tok: awsDataSource(ec2TransitGatewayMod, "getAttachments")},
+			"aws_ec2_transit_gateway_route_table_associations": {
+				Tok: awsDataSource(ec2TransitGatewayMod, "getRouteTableAssociations"),
+			},
+			"aws_ec2_transit_gateway_route_table_propagations": {
+				Tok: awsDataSource(ec2TransitGatewayMod, "getRouteTablePropagations"),
+			},
 			"aws_ec2_transit_gateway_dx_gateway_attachment": {
 				Tok: awsDataSource(ec2TransitGatewayMod, "getDirectConnectGatewayAttachment"),
 			},
@@ -4837,18 +4898,26 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_redshiftserverless_credentials": {Tok: awsDataSource(redshiftServerlessMod, "getCredentials")},
 			"aws_redshiftserverless_workgroup":   {Tok: awsDataSource(redshiftServerlessMod, "getWorkgroup")},
 			// Route53
-			"aws_route53_zone":                                     {Tok: awsDataSource(route53Mod, "getZone")},
-			"aws_route53_delegation_set":                           {Tok: awsDataSource(route53Mod, "getDelegationSet")},
-			"aws_route53_resolver_firewall_config":                 {Tok: awsDataSource(route53Mod, "getResolverFirewallConfig")},
-			"aws_route53_resolver_firewall_domain_list":            {Tok: awsDataSource(route53Mod, "getResolverFirewallDomainList")},
-			"aws_route53_resolver_firewall_rule_group":             {Tok: awsDataSource(route53Mod, "getResolverFirewallRuleGroup")},
-			"aws_route53_resolver_firewall_rule_group_association": {Tok: awsDataSource(route53Mod, "getResolverFirewallRuleGroupAssociation")},
-			"aws_route53_resolver_firewall_rules":                  {Tok: awsDataSource(route53Mod, "getResolverFirewallRules")},
-			"aws_route53_resolver_rule":                            {Tok: awsDataSource(route53Mod, "getResolverRule")},
-			"aws_route53_resolver_rules":                           {Tok: awsDataSource(route53Mod, "getResolverRules")},
-			"aws_route53_resolver_endpoint":                        {Tok: awsDataSource(route53Mod, "getResolverEndpoint")},
-			"aws_route53_resolver_query_log_config":                {Tok: awsDataSource(route53Mod, "getQueryLogConfig")},
-			"aws_route53_traffic_policy_document":                  {Tok: awsDataSource(route53Mod, "getTrafficPolicyDocument")},
+			"aws_route53_zone":           {Tok: awsDataSource(route53Mod, "getZone")},
+			"aws_route53_delegation_set": {Tok: awsDataSource(route53Mod, "getDelegationSet")},
+			"aws_route53_resolver_firewall_config": {
+				Tok: awsDataSource(route53Mod, "getResolverFirewallConfig"),
+			},
+			"aws_route53_resolver_firewall_domain_list": {
+				Tok: awsDataSource(route53Mod, "getResolverFirewallDomainList"),
+			},
+			"aws_route53_resolver_firewall_rule_group": {
+				Tok: awsDataSource(route53Mod, "getResolverFirewallRuleGroup"),
+			},
+			"aws_route53_resolver_firewall_rule_group_association": {
+				Tok: awsDataSource(route53Mod, "getResolverFirewallRuleGroupAssociation"),
+			},
+			"aws_route53_resolver_firewall_rules":   {Tok: awsDataSource(route53Mod, "getResolverFirewallRules")},
+			"aws_route53_resolver_rule":             {Tok: awsDataSource(route53Mod, "getResolverRule")},
+			"aws_route53_resolver_rules":            {Tok: awsDataSource(route53Mod, "getResolverRules")},
+			"aws_route53_resolver_endpoint":         {Tok: awsDataSource(route53Mod, "getResolverEndpoint")},
+			"aws_route53_resolver_query_log_config": {Tok: awsDataSource(route53Mod, "getQueryLogConfig")},
+			"aws_route53_traffic_policy_document":   {Tok: awsDataSource(route53Mod, "getTrafficPolicyDocument")},
 			// S3
 			"aws_canonical_user_id": {Tok: awsDataSource(s3Mod, "getCanonicalUserId")},
 			"aws_s3_account_public_access_block": {
@@ -4935,11 +5004,21 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 					"children": {Name: "children"},
 				},
 			},
-			"aws_organizations_organizational_unit_child_accounts":      {Tok: awsDataSource(organizationsMod, "getOrganizationalUnitChildAccounts")},
-			"aws_organizations_organizational_unit_descendant_accounts": {Tok: awsDataSource(organizationsMod, "getOrganizationalUnitDescendantAccounts")},
-			"aws_organizations_delegated_services":                      {Tok: awsDataSource(organizationsMod, "getDelegatedServices")},
-			"aws_organizations_delegated_administrators":                {Tok: awsDataSource(organizationsMod, "getDelegatedAdministrators")},
-			"aws_organizations_resource_tags":                           {Tok: awsDataSource(organizationsMod, "getResourceTags")},
+			"aws_organizations_organizational_unit_child_accounts": {
+				Tok: awsDataSource(organizationsMod, "getOrganizationalUnitChildAccounts"),
+			},
+			"aws_organizations_organizational_unit_descendant_accounts": {
+				Tok: awsDataSource(organizationsMod, "getOrganizationalUnitDescendantAccounts"),
+			},
+			"aws_organizations_delegated_services": {
+				Tok: awsDataSource(organizationsMod, "getDelegatedServices"),
+			},
+			"aws_organizations_delegated_administrators": {
+				Tok: awsDataSource(organizationsMod, "getDelegatedAdministrators"),
+			},
+			"aws_organizations_resource_tags": {
+				Tok: awsDataSource(organizationsMod, "getResourceTags"),
+			},
 			// ElasticSearch
 			"aws_elasticsearch_domain": {Tok: awsDataSource(elasticsearchMod, "getDomain")},
 			// QLDB
@@ -4981,17 +5060,19 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_networkfirewall_firewall":        {Tok: awsDataSource(networkFirewallMod, "getFirewall")},
 			"aws_networkfirewall_resource_policy": {Tok: awsDataSource(networkFirewallMod, "getResourcePolicy")},
 			// networkmanager
-			"aws_networkmanager_connection":                   {Tok: awsDataSource(networkManagerMod, "getConnection")},
-			"aws_networkmanager_connections":                  {Tok: awsDataSource(networkManagerMod, "getConnections")},
-			"aws_networkmanager_device":                       {Tok: awsDataSource(networkManagerMod, "getDevice")},
-			"aws_networkmanager_devices":                      {Tok: awsDataSource(networkManagerMod, "getDevices")},
-			"aws_networkmanager_global_network":               {Tok: awsDataSource(networkManagerMod, "getGlobalNetwork")},
-			"aws_networkmanager_global_networks":              {Tok: awsDataSource(networkManagerMod, "getGlobalNetworks")},
-			"aws_networkmanager_link":                         {Tok: awsDataSource(networkManagerMod, "getLink")},
-			"aws_networkmanager_links":                        {Tok: awsDataSource(networkManagerMod, "getLinks")},
-			"aws_networkmanager_site":                         {Tok: awsDataSource(networkManagerMod, "getSite")},
-			"aws_networkmanager_sites":                        {Tok: awsDataSource(networkManagerMod, "getSites")},
-			"aws_networkmanager_core_network_policy_document": {Tok: awsDataSource(networkManagerMod, "getCoreNetworkPolicyDocument")},
+			"aws_networkmanager_connection":      {Tok: awsDataSource(networkManagerMod, "getConnection")},
+			"aws_networkmanager_connections":     {Tok: awsDataSource(networkManagerMod, "getConnections")},
+			"aws_networkmanager_device":          {Tok: awsDataSource(networkManagerMod, "getDevice")},
+			"aws_networkmanager_devices":         {Tok: awsDataSource(networkManagerMod, "getDevices")},
+			"aws_networkmanager_global_network":  {Tok: awsDataSource(networkManagerMod, "getGlobalNetwork")},
+			"aws_networkmanager_global_networks": {Tok: awsDataSource(networkManagerMod, "getGlobalNetworks")},
+			"aws_networkmanager_link":            {Tok: awsDataSource(networkManagerMod, "getLink")},
+			"aws_networkmanager_links":           {Tok: awsDataSource(networkManagerMod, "getLinks")},
+			"aws_networkmanager_site":            {Tok: awsDataSource(networkManagerMod, "getSite")},
+			"aws_networkmanager_sites":           {Tok: awsDataSource(networkManagerMod, "getSites")},
+			"aws_networkmanager_core_network_policy_document": {
+				Tok: awsDataSource(networkManagerMod, "getCoreNetworkPolicyDocument"),
+			},
 			// OpenSearch
 			"aws_opensearch_domain": {Tok: awsDataSource(opensearchMod, "getDomain")},
 			// Outposts
@@ -5022,16 +5103,20 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_imagebuilder_infrastructure_configuration": {
 				Tok: awsDataSource(imageBuilderMod, "getInfrastructureConfiguration"),
 			},
-			"aws_imagebuilder_image_pipeline":                {Tok: awsDataSource(imageBuilderMod, "getImagePipeline")},
-			"aws_imagebuilder_image_recipe":                  {Tok: awsDataSource(imageBuilderMod, "getImageRecipe")},
-			"aws_imagebuilder_image":                         {Tok: awsDataSource(imageBuilderMod, "getImage")},
-			"aws_imagebuilder_image_recipes":                 {Tok: awsDataSource(imageBuilderMod, "getImageRecipes")},
-			"aws_imagebuilder_components":                    {Tok: awsDataSource(imageBuilderMod, "getComponents")},
-			"aws_imagebuilder_distribution_configurations":   {Tok: awsDataSource(imageBuilderMod, "getDistributionConfigurations")},
-			"aws_imagebuilder_infrastructure_configurations": {Tok: awsDataSource(imageBuilderMod, "getInfrastructureConfigurations")},
-			"aws_imagebuilder_container_recipe":              {Tok: awsDataSource(imageBuilderMod, "getContainerRecipe")},
-			"aws_imagebuilder_container_recipes":             {Tok: awsDataSource(imageBuilderMod, "getContainerRecipes")},
-			"aws_imagebuilder_image_pipelines":               {Tok: awsDataSource(imageBuilderMod, "getImagePipelines")},
+			"aws_imagebuilder_image_pipeline": {Tok: awsDataSource(imageBuilderMod, "getImagePipeline")},
+			"aws_imagebuilder_image_recipe":   {Tok: awsDataSource(imageBuilderMod, "getImageRecipe")},
+			"aws_imagebuilder_image":          {Tok: awsDataSource(imageBuilderMod, "getImage")},
+			"aws_imagebuilder_image_recipes":  {Tok: awsDataSource(imageBuilderMod, "getImageRecipes")},
+			"aws_imagebuilder_components":     {Tok: awsDataSource(imageBuilderMod, "getComponents")},
+			"aws_imagebuilder_distribution_configurations": {
+				Tok: awsDataSource(imageBuilderMod, "getDistributionConfigurations"),
+			},
+			"aws_imagebuilder_infrastructure_configurations": {
+				Tok: awsDataSource(imageBuilderMod, "getInfrastructureConfigurations"),
+			},
+			"aws_imagebuilder_container_recipe":  {Tok: awsDataSource(imageBuilderMod, "getContainerRecipe")},
+			"aws_imagebuilder_container_recipes": {Tok: awsDataSource(imageBuilderMod, "getContainerRecipes")},
+			"aws_imagebuilder_image_pipelines":   {Tok: awsDataSource(imageBuilderMod, "getImagePipelines")},
 
 			// ses
 			"aws_ses_active_receipt_rule_set": {Tok: awsDataSource(sesMod, "getActiveReceiptRuleSet")},
@@ -5096,7 +5181,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 
 			// Resource groups tagging api
 			"aws_resourcegroupstaggingapi_resources": {
-				Tok: awsDataSource(resourcegroupsTaggingApiMod, "getResources"),
+				Tok: awsDataSource(resourcegroupsTaggingAPIMod, "getResources"),
 			},
 
 			// Service Discovery
@@ -5762,7 +5847,7 @@ func hasNonComputedTagsAndTagsAllOptimized(tfResourceName string, res shim.Resou
 	return hasNonComputedTagsAndTagsAll(tfResourceName, res)
 }
 
-func hasNonComputedTagsAndTagsAll(tfResourceName string, res shim.Resource) bool {
+func hasNonComputedTagsAndTagsAll(_ string, res shim.Resource) bool {
 	// Skip resources that don't have tags.
 	tagsF, ok := res.Schema().GetOk("tags")
 	if !ok {
@@ -5801,8 +5886,8 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	}
 
 	// Helper function that returns a ComputeID function
-	computeIDWith := func(sep string, attrs ...resource.PropertyKey) func(context.Context, resource.PropertyMap) (resource.ID, error) {
-		return func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+	computeIDWith := func(sep string, attrs ...resource.PropertyKey) func(context.Context, resource.PropertyMap) (resource.ID, error) { //nolint:lll
+		return func(_ context.Context, state resource.PropertyMap) (resource.ID, error) {
 			return attrWithSeparator(state, sep, attrs...), nil
 		}
 	}
@@ -5835,7 +5920,7 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_notifications_notification_configuration":                     computeID("arn"),
 		"aws_notifications_notification_hub":                               computeID("notificationHubRegion"),
 		"aws_notifications_event_rule":                                     computeID("arn"),
-		"aws_notifications_channel_association":                            computeIDWith("__", "notificationConfigurationArn", "arn"),
+		"aws_notifications_channel_association":                            computeIDWith("__", "notificationConfigurationArn", "arn"), //nolint:lll
 		"aws_prometheus_workspace_configuration":                           computeID("workspaceId"),
 		"aws_vpc_route_server":                                             computeID("routeServerId"),
 		"aws_vpc_route_server_propagation":                                 computeID("routeServerPropagationId"),
@@ -5848,7 +5933,7 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_cognito_log_delivery_configuration":                           computeID("userPoolId"),
 		"aws_s3_bucket_metadata_configuration":                             computeID("bucket"),
 		"aws_networkfirewall_firewall_transit_gateway_attachment_accepter": computeID("id"),
-		"aws_connect_phone_number_contact_flow_association":                computeIDWith("__", "phoneNumberId", "instanceId", "contractFlowId"),
+		"aws_connect_phone_number_contact_flow_association":                computeIDWith("__", "phoneNumberId", "instanceId", "contractFlowId"), //nolint:lll
 		"aws_quicksight_ip_restriction":                                    computeID("awsAccountId"),
 		"aws_quicksight_key_registration":                                  computeID("awsAccountId"),
 		"aws_nat_gateway_eip_association":                                  computeID("natGatewayId", "allocationId"),
@@ -5858,12 +5943,12 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_athena_capacity_reservation":                                  computeID("name"),
 		"aws_route53_records_exclusive":                                    computeID("zoneId"),
 		"aws_network_interface_permission":                                 computeID("networkInterfacePermissionId"),
-		"aws_lakeformation_opt_in":                                         computeID("principal.dataLakePrincipalIdentifier"),
+		"aws_lakeformation_opt_in":                                         computeID("principal.dataLakePrincipalIdentifier"), //nolint:lll
 		"aws_lakeformation_lf_tag_expression":                              computeIDWith("__", "catalogId", "name"),
 		"aws_rds_shard_group":                                              computeID("dbShardGroupIdentifier"),
 		"aws_macie2_organization_configuration":                            computeID("autoEnable"),
 		"aws_xray_resource_policy":                                         computeID("policyName"),
-		"aws_quicksight_role_membership":                                   computeID("awsAccountId", "namespace", "role", "memberName"),
+		"aws_quicksight_role_membership":                                   computeID("awsAccountId", "namespace", "role", "memberName"), //nolint:lll
 		"aws_cloudwatch_contributor_managed_insight_rule":                  computeID("arn"),
 		"aws_cloudwatch_contributor_insight_rule":                          computeID("name"),
 		"aws_guardduty_member_detector_feature":                            computeID("detectorId", "accountId", "name"),
@@ -5873,8 +5958,8 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_servicecatalogappregistry_attribute_group_association":        computeID("applicationId", "attributeGroupId"),
 		"aws_s3tables_table_bucket_policy":                                 computeID("tableBucketArn"),
 		"aws_s3tables_namespace":                                           computeIDWith(";", "tableBucketArn", "namespace"),
-		"aws_s3tables_table":                                               computeIDWith(";", "tableBucketArn", "namespace", "name"),
-		"aws_s3tables_table_policy":                                        computeIDWith(";", "tableBucketArn", "namespace", "name"),
+		"aws_s3tables_table":                                               computeIDWith(";", "tableBucketArn", "namespace", "name"), //nolint:lll
+		"aws_s3tables_table_policy":                                        computeIDWith(";", "tableBucketArn", "namespace", "name"), //nolint:lll
 		"aws_s3tables_table_bucket":                                        computeID("arn"),
 		"aws_rds_instance_state":                                           computeID("identifier"),
 		"aws_vpc_security_group_vpc_association":                           computeID("id"),
@@ -5884,7 +5969,7 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_iam_user_policy_attachments_exclusive":                        computeID("userName"),
 		"aws_iam_group_policy_attachments_exclusive":                       computeID("groupName"),
 		"aws_iam_role_policy_attachments_exclusive":                        computeID("roleName"),
-		"aws_backup_restore_testing_selection":                             computeIDWith(":", "name", "restoreTestingPlanName"),
+		"aws_backup_restore_testing_selection":                             computeIDWith(":", "name", "restoreTestingPlanName"), //nolint:lll
 		"aws_backup_restore_testing_plan":                                  computeID("name"),
 		"aws_iam_user_policies_exclusive":                                  computeID("userName"),
 		"aws_iam_group_policies_exclusive":                                 computeID("groupName"),
@@ -5893,22 +5978,22 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_iam_role_policies_exclusive":                                  computeID("roleName"),
 		"aws_lambda_function_recursion_config":                             computeID("functionName"),
 		"aws_datazone_asset_type":                                          computeIDWith("__", "domainIdentifier", "name"),
-		"aws_glue_catalog_table_optimizer":                                 computeIDWith("__", "catalogId", "databaseName", "tableName", "type"),
+		"aws_glue_catalog_table_optimizer":                                 computeIDWith("__", "catalogId", "databaseName", "tableName", "type"), //nolint:lll
 		"aws_pinpoint_email_template":                                      computeID("templateName"),
-		"aws_datazone_form_type":                                           computeIDWith("__", "domainIdentifier", "name", "revision"),
+		"aws_datazone_form_type":                                           computeIDWith("__", "domainIdentifier", "name", "revision"), //nolint:lll
 		"aws_bedrock_guardrail":                                            computeIDWith("__", "guardrailId", "version"),
 		"aws_chatbot_teams_channel_configuration":                          computeID("configurationName"),
 		"aws_chatbot_slack_channel_configuration":                          computeID("configurationName"),
 		"aws_rekognition_stream_processor":                                 computeID("name"),
 		"aws_vpc_endpoint_private_dns":                                     computeID("vpcEndpointId"),
 		"aws_vpc_endpoint_service_private_dns_verification":                computeID("serviceId"),
-		"aws_datazone_environment_blueprint_configuration":                 computeIDWith("__", "domainId", "environmentBlueprintId"),
+		"aws_datazone_environment_blueprint_configuration":                 computeIDWith("__", "domainId", "environmentBlueprintId"), //nolint:lll
 		"aws_lambda_runtime_management_config":                             computeIDWith("__", "functionName", "qualifier"),
 		"aws_quicksight_role_custom_permission":                            computeID("awsAccountId", "namespace", "role"),
-		"aws_wafv2_web_acl_rule_group_association":                         computeID("webAclArn", "ruleGroupArn", "ruleName"),
+		"aws_wafv2_web_acl_rule_group_association":                         computeID("webAclArn", "ruleGroupArn", "ruleName"), //nolint:lll
 		"aws_networkfirewall_vpc_endpoint_association":                     computeID("vpcEndpointAssociationArn"),
-		"aws_quicksight_custom_permissions":                                computeID("awsAccountId", "customPermissionsName"),
-		"aws_quicksight_user_custom_permission":                            computeID("awsAccountId", "namespace", "userName"),
+		"aws_quicksight_custom_permissions":                                computeID("awsAccountId", "customPermissionsName"), //nolint:lll
+		"aws_quicksight_user_custom_permission":                            computeID("awsAccountId", "namespace", "userName"), //nolint:lll
 		"aws_appsync_api":                                                  computeID("apiId"),
 		"aws_appsync_channel_namespace":                                    computeID("apiId", "name"),
 		"aws_workspacesweb_portal":                                         computeID("portalArn"),
@@ -5918,8 +6003,8 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_workspacesweb_browser_settings_association":                   computeID("browserSettingsArn", "portalArn"),
 		"aws_workspacesweb_network_settings_association":                   computeID("networkSettingsArn", "portalArn"),
 		"aws_workspacesweb_trust_store_association":                        computeID("trustStoreArn", "portalArn"),
-		"aws_workspacesweb_data_protection_settings_association":           computeID("dataProtectionSettingsArn", "portalArn"),
-		"aws_workspacesweb_user_access_logging_settings_association":       computeID("userAccessLoggingSettingsArn", "portalArn"),
+		"aws_workspacesweb_data_protection_settings_association":           computeID("dataProtectionSettingsArn", "portalArn"),    //nolint:lll
+		"aws_workspacesweb_user_access_logging_settings_association":       computeID("userAccessLoggingSettingsArn", "portalArn"), //nolint:lll
 		"aws_workspacesweb_user_settings_association":                      computeID("userSettingsArn", "portalArn"),
 		"aws_workspacesweb_session_logger_association":                     computeID("sessionLoggerArn", "portalArn"),
 		"aws_workspacesweb_ip_access_settings_association":                 computeID("ipAccessSettingsArn", "portalArn"),
