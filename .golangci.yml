@@ -15,13 +15,6 @@ linters:
       - common-false-positives
       - legacy
       - std-error-handling
-    rules:
-      - path: "_test.go"
-        linters:
-          - lll
-      - source: "^\\s*//.*https?://"
-        linters:
-          - lll
     paths:
       - schema.go
       - pulumiManifest.go

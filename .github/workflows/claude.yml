@@ -64,6 +64,11 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # only saving the cache in the prerequisites job
           cache_save: false
+      - name: Set git identity
+        run: |-
+          git config user.name "claude[bot]"
+          git config user.email "bot@pulumi.com"
+        shell: bash
       - name: Prepare local workspace
         # this runs install_plugins and upstream
         run: make prepare_local_workspace
