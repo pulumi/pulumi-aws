@@ -27,6 +27,7 @@ class VocabularyArgs:
                  vocabulary_file_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Vocabulary resource.
+
         :param pulumi.Input[_builtins.str] language_code: The language code you selected for your vocabulary.
         :param pulumi.Input[_builtins.str] vocabulary_name: The name of the Vocabulary.
                
@@ -136,6 +137,7 @@ class _VocabularyState:
                  vocabulary_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Vocabulary resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Vocabulary.
         :param pulumi.Input[_builtins.str] download_uri: Generated download URI.
         :param pulumi.Input[_builtins.str] language_code: The language code you selected for your vocabulary.
@@ -328,6 +330,7 @@ class Vocabulary(pulumi.CustomResource):
         $ pulumi import aws:transcribe/vocabulary:Vocabulary example example-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] language_code: The language code you selected for your vocabulary.
@@ -385,6 +388,7 @@ class Vocabulary(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:transcribe/vocabulary:Vocabulary example example-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VocabularyArgs args: The arguments to use to populate this resource's properties.

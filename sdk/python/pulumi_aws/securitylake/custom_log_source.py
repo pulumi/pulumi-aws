@@ -28,6 +28,7 @@ class CustomLogSourceArgs:
                  source_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomLogSource resource.
+
         :param pulumi.Input['CustomLogSourceConfigurationArgs'] configuration: The configuration for the third-party custom source.
         :param pulumi.Input[_builtins.str] source_name: Specify the name for a third-party custom source.
                This must be a Regionally unique value.
@@ -120,6 +121,7 @@ class _CustomLogSourceState:
                  source_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomLogSource resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['CustomLogSourceAttributeArgs']]] attributes: The attributes of a third-party custom source.
         :param pulumi.Input['CustomLogSourceConfigurationArgs'] configuration: The configuration for the third-party custom source.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_classes: The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
@@ -281,6 +283,7 @@ class CustomLogSource(pulumi.CustomResource):
         $ pulumi import aws:securitylake/customLogSource:CustomLogSource example example-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict']] configuration: The configuration for the third-party custom source.
@@ -333,6 +336,7 @@ class CustomLogSource(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:securitylake/customLogSource:CustomLogSource example example-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomLogSourceArgs args: The arguments to use to populate this resource's properties.

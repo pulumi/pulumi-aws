@@ -38,6 +38,7 @@ class StackSetArgs:
                  template_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a StackSet resource.
+
         :param pulumi.Input[_builtins.str] administration_role_arn: Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
         :param pulumi.Input['StackSetAutoDeploymentArgs'] auto_deployment: Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
         :param pulumi.Input[_builtins.str] call_as: Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
@@ -289,6 +290,7 @@ class _StackSetState:
                  template_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StackSet resources.
+
         :param pulumi.Input[_builtins.str] administration_role_arn: Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the StackSet.
         :param pulumi.Input['StackSetAutoDeploymentArgs'] auto_deployment: Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
@@ -667,6 +669,7 @@ class StackSet(pulumi.CustomResource):
         $ pulumi import aws:cloudformation/stackSet:StackSet example example,DELEGATED_ADMIN
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] administration_role_arn: Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
@@ -773,6 +776,7 @@ class StackSet(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudformation/stackSet:StackSet example example,DELEGATED_ADMIN
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StackSetArgs args: The arguments to use to populate this resource's properties.

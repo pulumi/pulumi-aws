@@ -30,6 +30,7 @@ class ApplicationVersionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ApplicationVersion resource.
+
         :param pulumi.Input[_builtins.str] application: Name of the Beanstalk Application the version is associated with.
         :param pulumi.Input[_builtins.str] bucket: S3 bucket that contains the Application Version source bundle.
         :param pulumi.Input[_builtins.str] key: S3 object that is the Application Version source bundle.
@@ -185,6 +186,7 @@ class _ApplicationVersionState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ApplicationVersion resources.
+
         :param pulumi.Input[_builtins.str] application: Name of the Beanstalk Application the version is associated with.
         :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS for this Elastic Beanstalk Application.
         :param pulumi.Input[_builtins.str] bucket: S3 bucket that contains the Application Version source bundle.
@@ -408,6 +410,7 @@ class ApplicationVersion(pulumi.CustomResource):
             key=default_bucket_objectv2.key)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application: Name of the Beanstalk Application the version is associated with.
@@ -462,6 +465,7 @@ class ApplicationVersion(pulumi.CustomResource):
             bucket=default.id,
             key=default_bucket_objectv2.key)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationVersionArgs args: The arguments to use to populate this resource's properties.

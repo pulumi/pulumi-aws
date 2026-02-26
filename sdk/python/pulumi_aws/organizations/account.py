@@ -29,6 +29,7 @@ class AccountArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
+
         :param pulumi.Input[_builtins.str] email: Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
         :param pulumi.Input[_builtins.bool] close_on_deletion: If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
         :param pulumi.Input[_builtins.bool] create_govcloud: Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
@@ -175,6 +176,7 @@ class _AccountState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN for this account.
         :param pulumi.Input[_builtins.bool] close_on_deletion: If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
         :param pulumi.Input[_builtins.bool] create_govcloud: Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
@@ -480,6 +482,7 @@ class Account(pulumi.CustomResource):
             role_name="myOrganizationRole")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] close_on_deletion: If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
@@ -552,6 +555,7 @@ class Account(pulumi.CustomResource):
             email="john@doe.org",
             role_name="myOrganizationRole")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

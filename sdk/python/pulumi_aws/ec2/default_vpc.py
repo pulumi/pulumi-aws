@@ -32,6 +32,7 @@ class DefaultVpcArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DefaultVpc resource.
+
         :param pulumi.Input[_builtins.bool] force_destroy: Whether destroying the resource deletes the default VPC. Default: `false`
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
         """
@@ -192,6 +193,7 @@ class _DefaultVpcState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DefaultVpc resources.
+
         :param pulumi.Input[_builtins.str] cidr_block: The primary IPv4 CIDR block for the VPC
         :param pulumi.Input[_builtins.bool] force_destroy: Whether destroying the resource deletes the default VPC. Default: `false`
         :param pulumi.Input[_builtins.str] instance_tenancy: The allowed tenancy of instances launched into the VPC
@@ -516,6 +518,7 @@ class DefaultVpc(pulumi.CustomResource):
         $ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] force_destroy: Whether destroying the resource deletes the default VPC. Default: `false`
@@ -560,6 +563,7 @@ class DefaultVpc(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DefaultVpcArgs args: The arguments to use to populate this resource's properties.

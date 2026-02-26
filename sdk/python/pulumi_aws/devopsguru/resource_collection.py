@@ -27,6 +27,7 @@ class ResourceCollectionArgs:
                  tags: Optional[pulumi.Input['ResourceCollectionTagsArgs']] = None):
         """
         The set of arguments for constructing a ResourceCollection resource.
+
         :param pulumi.Input[_builtins.str] type: Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
                
                The following arguments are optional:
@@ -102,6 +103,7 @@ class _ResourceCollectionState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourceCollection resources.
+
         :param pulumi.Input['ResourceCollectionCloudformationArgs'] cloudformation: A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ResourceCollectionTagsArgs'] tags: AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
@@ -251,6 +253,7 @@ class ResourceCollection(pulumi.CustomResource):
         $ pulumi import aws:devopsguru/resourceCollection:ResourceCollection example AWS_CLOUD_FORMATION
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ResourceCollectionCloudformationArgs', 'ResourceCollectionCloudformationArgsDict']] cloudformation: A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
@@ -336,6 +339,7 @@ class ResourceCollection(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:devopsguru/resourceCollection:ResourceCollection example AWS_CLOUD_FORMATION
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceCollectionArgs args: The arguments to use to populate this resource's properties.

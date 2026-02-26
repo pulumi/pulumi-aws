@@ -26,6 +26,7 @@ class GatewayAssociationProposalArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GatewayAssociationProposal resource.
+
         :param pulumi.Input[_builtins.str] associated_gateway_id: The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
         :param pulumi.Input[_builtins.str] dx_gateway_id: Direct Connect Gateway identifier.
         :param pulumi.Input[_builtins.str] dx_gateway_owner_account_id: AWS Account identifier of the Direct Connect Gateway's owner.
@@ -113,6 +114,7 @@ class _GatewayAssociationProposalState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GatewayAssociationProposal resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_prefixes: VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
         :param pulumi.Input[_builtins.str] associated_gateway_id: The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
         :param pulumi.Input[_builtins.str] associated_gateway_owner_account_id: The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
@@ -269,6 +271,7 @@ class GatewayAssociationProposal(pulumi.CustomResource):
         The latter case is useful when a previous proposal has been accepted and deleted by AWS.
         The `directconnect.GatewayAssociationProposal` resource will then represent a pseudo-proposal for the same Direct Connect Gateway and associated gateway. If no previous proposal is available, use a tool like [`uuidgen`](http://manpages.ubuntu.com/manpages/bionic/man1/uuidgen.1.html) to generate a new random pseudo-proposal ID.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_prefixes: VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
@@ -318,6 +321,7 @@ class GatewayAssociationProposal(pulumi.CustomResource):
 
         The latter case is useful when a previous proposal has been accepted and deleted by AWS.
         The `directconnect.GatewayAssociationProposal` resource will then represent a pseudo-proposal for the same Direct Connect Gateway and associated gateway. If no previous proposal is available, use a tool like [`uuidgen`](http://manpages.ubuntu.com/manpages/bionic/man1/uuidgen.1.html) to generate a new random pseudo-proposal ID.
+
 
         :param str resource_name: The name of the resource.
         :param GatewayAssociationProposalArgs args: The arguments to use to populate this resource's properties.

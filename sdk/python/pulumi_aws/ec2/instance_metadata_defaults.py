@@ -26,6 +26,7 @@ class InstanceMetadataDefaultsArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a InstanceMetadataDefaults resource.
+
         :param pulumi.Input[_builtins.str] http_endpoint: Whether the metadata service is available. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
         :param pulumi.Input[_builtins.int] http_put_response_hop_limit: The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`, or `-1` to indicate no preference. Default: `-1`.
         :param pulumi.Input[_builtins.str] http_tokens: Whether the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"`, `"required"`, or `"no-preference"`. Default: `"no-preference"`.
@@ -114,6 +115,7 @@ class _InstanceMetadataDefaultsState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering InstanceMetadataDefaults resources.
+
         :param pulumi.Input[_builtins.str] http_endpoint: Whether the metadata service is available. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
         :param pulumi.Input[_builtins.int] http_put_response_hop_limit: The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`, or `-1` to indicate no preference. Default: `-1`.
         :param pulumi.Input[_builtins.str] http_tokens: Whether the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"`, `"required"`, or `"no-preference"`. Default: `"no-preference"`.
@@ -223,6 +225,7 @@ class InstanceMetadataDefaults(pulumi.CustomResource):
 
         You cannot import this resource.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] http_endpoint: Whether the metadata service is available. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
@@ -255,6 +258,7 @@ class InstanceMetadataDefaults(pulumi.CustomResource):
         ## Import
 
         You cannot import this resource.
+
 
         :param str resource_name: The name of the resource.
         :param InstanceMetadataDefaultsArgs args: The arguments to use to populate this resource's properties.

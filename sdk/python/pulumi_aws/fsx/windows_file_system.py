@@ -45,6 +45,7 @@ class WindowsFileSystemArgs:
                  weekly_maintenance_start_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WindowsFileSystem resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
         :param pulumi.Input[_builtins.int] throughput_capacity: Throughput (megabytes per second) of the file system. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/performance.html).
                
@@ -415,6 +416,7 @@ class _WindowsFileSystemState:
                  weekly_maintenance_start_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WindowsFileSystem resources.
+
         :param pulumi.Input[_builtins.str] active_directory_id: The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aliases: An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the file system.
@@ -986,6 +988,7 @@ class WindowsFileSystem(pulumi.CustomResource):
         example = aws.fsx.WindowsFileSystem("example", security_group_ids=[example_aws_security_group["id"]])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] active_directory_id: The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
@@ -1103,6 +1106,7 @@ class WindowsFileSystem(pulumi.CustomResource):
 
         example = aws.fsx.WindowsFileSystem("example", security_group_ids=[example_aws_security_group["id"]])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WindowsFileSystemArgs args: The arguments to use to populate this resource's properties.

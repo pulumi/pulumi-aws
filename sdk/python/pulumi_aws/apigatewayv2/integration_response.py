@@ -28,6 +28,7 @@ class IntegrationResponseArgs:
                  template_selection_expression: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IntegrationResponse resource.
+
         :param pulumi.Input[_builtins.str] api_id: API identifier.
         :param pulumi.Input[_builtins.str] integration_id: Identifier of the `apigatewayv2.Integration`.
         :param pulumi.Input[_builtins.str] integration_response_key: Integration response key.
@@ -145,6 +146,7 @@ class _IntegrationResponseState:
                  template_selection_expression: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IntegrationResponse resources.
+
         :param pulumi.Input[_builtins.str] api_id: API identifier.
         :param pulumi.Input[_builtins.str] content_handling_strategy: How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
         :param pulumi.Input[_builtins.str] integration_id: Identifier of the `apigatewayv2.Integration`.
@@ -293,6 +295,7 @@ class IntegrationResponse(pulumi.CustomResource):
         $ pulumi import aws:apigatewayv2/integrationResponse:IntegrationResponse example aabbccddee/1122334/998877
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: API identifier.
@@ -334,6 +337,7 @@ class IntegrationResponse(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apigatewayv2/integrationResponse:IntegrationResponse example aabbccddee/1122334/998877
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationResponseArgs args: The arguments to use to populate this resource's properties.

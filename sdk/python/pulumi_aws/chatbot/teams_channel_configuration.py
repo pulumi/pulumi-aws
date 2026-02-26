@@ -37,6 +37,7 @@ class TeamsChannelConfigurationArgs:
                  user_authorization_required: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a TeamsChannelConfiguration resource.
+
         :param pulumi.Input[_builtins.str] channel_id: ID of the Microsoft Teams channel.
         :param pulumi.Input[_builtins.str] configuration_name: Name of the Microsoft Teams channel configuration.
         :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role that defines the permissions for AWS Chatbot. This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role.
@@ -266,6 +267,7 @@ class _TeamsChannelConfigurationState:
                  user_authorization_required: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering TeamsChannelConfiguration resources.
+
         :param pulumi.Input[_builtins.str] channel_id: ID of the Microsoft Teams channel.
         :param pulumi.Input[_builtins.str] channel_name: Name of the Microsoft Teams channel.
         :param pulumi.Input[_builtins.str] chat_configuration_arn: ARN of the Microsoft Teams channel configuration.
@@ -562,6 +564,7 @@ class TeamsChannelConfiguration(pulumi.CustomResource):
         $ pulumi import aws:chatbot/teamsChannelConfiguration:TeamsChannelConfiguration example 5f4f15d2-b958-522a-8333-124aa8bf0925
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] channel_id: ID of the Microsoft Teams channel.
@@ -617,6 +620,7 @@ class TeamsChannelConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:chatbot/teamsChannelConfiguration:TeamsChannelConfiguration example 5f4f15d2-b958-522a-8333-124aa8bf0925
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TeamsChannelConfigurationArgs args: The arguments to use to populate this resource's properties.

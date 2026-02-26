@@ -26,6 +26,7 @@ class AccountPublicAccessBlockArgs:
                  restrict_public_buckets: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a AccountPublicAccessBlock resource.
+
         :param pulumi.Input[_builtins.str] account_id: AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
         :param pulumi.Input[_builtins.bool] block_public_acls: Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
                * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
@@ -124,6 +125,7 @@ class _AccountPublicAccessBlockState:
                  restrict_public_buckets: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering AccountPublicAccessBlock resources.
+
         :param pulumi.Input[_builtins.str] account_id: AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
         :param pulumi.Input[_builtins.bool] block_public_acls: Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
                * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
@@ -250,6 +252,7 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
         $ pulumi import aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock example 123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
@@ -294,6 +297,7 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock example 123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountPublicAccessBlockArgs args: The arguments to use to populate this resource's properties.

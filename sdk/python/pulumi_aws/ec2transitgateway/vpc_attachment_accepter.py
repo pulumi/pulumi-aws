@@ -26,6 +26,7 @@ class VpcAttachmentAccepterArgs:
                  transit_gateway_default_route_table_propagation: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a VpcAttachmentAccepter resource.
+
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: The ID of the EC2 Transit Gateway Attachment to manage.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -122,6 +123,7 @@ class _VpcAttachmentAccepterState:
                  vpc_owner_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcAttachmentAccepter resources.
+
         :param pulumi.Input[_builtins.str] appliance_mode_support: Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
         :param pulumi.Input[_builtins.str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`.
         :param pulumi.Input[_builtins.str] ipv6_support: Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
@@ -377,6 +379,7 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
         $ pulumi import aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter example tgw-attach-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -420,6 +423,7 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter example tgw-attach-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcAttachmentAccepterArgs args: The arguments to use to populate this resource's properties.

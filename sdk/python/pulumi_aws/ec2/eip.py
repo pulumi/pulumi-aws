@@ -32,6 +32,7 @@ class EipArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Eip resource.
+
         :param pulumi.Input[_builtins.str] address: IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
         :param pulumi.Input[_builtins.str] associate_with_private_ip: User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         :param pulumi.Input[_builtins.str] customer_owned_ipv4_pool: ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
@@ -241,6 +242,7 @@ class _EipState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Eip resources.
+
         :param pulumi.Input[_builtins.str] address: IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
         :param pulumi.Input[_builtins.str] allocation_id: ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
         :param pulumi.Input[_builtins.str] associate_with_private_ip: User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
@@ -701,6 +703,7 @@ class Eip(pulumi.CustomResource):
         $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] address: IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
@@ -826,6 +829,7 @@ class Eip(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EipArgs args: The arguments to use to populate this resource's properties.

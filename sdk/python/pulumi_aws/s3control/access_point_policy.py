@@ -24,6 +24,7 @@ class AccessPointPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccessPointPolicy resource.
+
         :param pulumi.Input[_builtins.str] access_point_arn: The ARN of the access point that you want to associate with the specified policy.
         :param pulumi.Input[_builtins.str] policy: The policy that you want to apply to the specified access point.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -79,6 +80,7 @@ class _AccessPointPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccessPointPolicy resources.
+
         :param pulumi.Input[_builtins.str] access_point_arn: The ARN of the access point that you want to associate with the specified policy.
         :param pulumi.Input[_builtins.bool] has_public_access_policy: Indicates whether this access point currently has a policy that allows public access.
         :param pulumi.Input[_builtins.str] policy: The policy that you want to apply to the specified access point.
@@ -197,6 +199,7 @@ class AccessPointPolicy(pulumi.CustomResource):
         $ pulumi import aws:s3control/accessPointPolicy:AccessPointPolicy example arn:aws:s3:us-west-2:123456789012:accesspoint/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_point_arn: The ARN of the access point that you want to associate with the specified policy.
@@ -253,6 +256,7 @@ class AccessPointPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3control/accessPointPolicy:AccessPointPolicy example arn:aws:s3:us-west-2:123456789012:accesspoint/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccessPointPolicyArgs args: The arguments to use to populate this resource's properties.

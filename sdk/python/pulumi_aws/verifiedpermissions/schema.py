@@ -26,6 +26,7 @@ class SchemaArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Schema resource.
+
         :param pulumi.Input['SchemaDefinitionArgs'] definition: The definition of the schema.
         :param pulumi.Input[_builtins.str] policy_store_id: The ID of the Policy Store.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -81,6 +82,7 @@ class _SchemaState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Schema resources.
+
         :param pulumi.Input['SchemaDefinitionArgs'] definition: The definition of the schema.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespaces: (Optional) Identifies the namespaces of the entities referenced by this schema.
         :param pulumi.Input[_builtins.str] policy_store_id: The ID of the Policy Store.
@@ -186,6 +188,7 @@ class Schema(pulumi.CustomResource):
          $ pulumi import aws:verifiedpermissions/schema:Schema example DxQg2j8xvXJQ1tQCYNWj9T
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SchemaDefinitionArgs', 'SchemaDefinitionArgsDict']] definition: The definition of the schema.
@@ -229,6 +232,7 @@ class Schema(pulumi.CustomResource):
         ```sh
          $ pulumi import aws:verifiedpermissions/schema:Schema example DxQg2j8xvXJQ1tQCYNWj9T
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SchemaArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class GroupArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Group resource.
+
         :param pulumi.Input[_builtins.str] display_name: A string containing the name of the group. This value is commonly displayed when the group is referenced.
         :param pulumi.Input[_builtins.str] identity_store_id: The globally unique identifier for the identity store.
                
@@ -104,6 +105,7 @@ class _GroupState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Group resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Group.
         :param pulumi.Input[_builtins.str] description: A string containing the description of the group.
         :param pulumi.Input[_builtins.str] display_name: A string containing the name of the group. This value is commonly displayed when the group is referenced.
@@ -252,6 +254,7 @@ class Group(pulumi.CustomResource):
         $ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A string containing the description of the group.
@@ -291,6 +294,7 @@ class Group(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.

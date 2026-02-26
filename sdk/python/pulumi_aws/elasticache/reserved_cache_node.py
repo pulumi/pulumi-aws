@@ -28,6 +28,7 @@ class ReservedCacheNodeArgs:
                  timeouts: Optional[pulumi.Input['ReservedCacheNodeTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ReservedCacheNode resource.
+
         :param pulumi.Input[_builtins.str] reserved_cache_nodes_offering_id: ID of the reserved cache node offering to purchase.
                To determine an `reserved_cache_nodes_offering_id`, see the `elasticache_get_reserved_cache_node_offering` data source.
                
@@ -130,6 +131,7 @@ class _ReservedCacheNodeState:
                  usage_price: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Input properties used for looking up and filtering ReservedCacheNode resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN for the reserved cache node.
         :param pulumi.Input[_builtins.int] cache_node_count: Number of cache node instances to reserve.
                Default value is `1`.
@@ -420,6 +422,7 @@ class ReservedCacheNode(pulumi.CustomResource):
         $ pulumi import aws:elasticache/reservedCacheNode:ReservedCacheNode example CustomReservationID
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] cache_node_count: Number of cache node instances to reserve.
@@ -467,6 +470,7 @@ class ReservedCacheNode(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:elasticache/reservedCacheNode:ReservedCacheNode example CustomReservationID
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReservedCacheNodeArgs args: The arguments to use to populate this resource's properties.

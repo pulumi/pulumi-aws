@@ -22,6 +22,7 @@ class GlobalSettingsArgs:
                  global_settings: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]):
         """
         The set of arguments for constructing a GlobalSettings resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] global_settings: A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
         """
         pulumi.set(__self__, "global_settings", global_settings)
@@ -45,6 +46,7 @@ class _GlobalSettingsState:
                  global_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering GlobalSettings resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] global_settings: A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
         """
         if global_settings is not None:
@@ -97,6 +99,7 @@ class GlobalSettings(pulumi.CustomResource):
         $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] global_settings: A list of resources along with the opt-in preferences for the account. For a list of inputs, see [UpdateGlobalSettings](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGlobalSettings.html) in the AWS Backup Developer Guide.
@@ -132,6 +135,7 @@ class GlobalSettings(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GlobalSettingsArgs args: The arguments to use to populate this resource's properties.

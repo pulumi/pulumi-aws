@@ -27,6 +27,7 @@ class RepositoryPermissionsPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RepositoryPermissionsPolicy resource.
+
         :param pulumi.Input[_builtins.str] domain: The name of the domain on which to set the resource policy.
         :param pulumi.Input[_builtins.str] policy_document: A JSON policy string to be set as the access control resource policy on the provided domain.
         :param pulumi.Input[_builtins.str] repository: The name of the repository to set the resource policy on.
@@ -129,6 +130,7 @@ class _RepositoryPermissionsPolicyState:
                  resource_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RepositoryPermissionsPolicy resources.
+
         :param pulumi.Input[_builtins.str] domain: The name of the domain on which to set the resource policy.
         :param pulumi.Input[_builtins.str] domain_owner: The account number of the AWS account that owns the domain.
         :param pulumi.Input[_builtins.str] policy_document: A JSON policy string to be set as the access control resource policy on the provided domain.
@@ -295,6 +297,7 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
         $ pulumi import aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain: The name of the domain on which to set the resource policy.
@@ -354,6 +357,7 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryPermissionsPolicyArgs args: The arguments to use to populate this resource's properties.

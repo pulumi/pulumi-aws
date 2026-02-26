@@ -50,6 +50,7 @@ class TopicArgs:
                  tracing_config: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Topic resource.
+
         :param pulumi.Input[_builtins.str] application_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[_builtins.str] application_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[_builtins.int] application_success_feedback_sample_rate: Percentage of success to sample
@@ -526,6 +527,7 @@ class _TopicState:
                  tracing_config: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Topic resources.
+
         :param pulumi.Input[_builtins.str] application_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[_builtins.str] application_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[_builtins.int] application_success_feedback_sample_rate: Percentage of success to sample
@@ -1141,6 +1143,7 @@ class Topic(pulumi.CustomResource):
         $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:123456789012:my-topic
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_failure_feedback_role_arn: IAM role for failure feedback
@@ -1259,6 +1262,7 @@ class Topic(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:123456789012:my-topic
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TopicArgs args: The arguments to use to populate this resource's properties.

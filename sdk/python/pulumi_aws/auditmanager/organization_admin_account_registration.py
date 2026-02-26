@@ -23,6 +23,7 @@ class OrganizationAdminAccountRegistrationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OrganizationAdminAccountRegistration resource.
+
         :param pulumi.Input[_builtins.str] admin_account_id: Identifier for the organization administrator account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -63,6 +64,7 @@ class _OrganizationAdminAccountRegistrationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationAdminAccountRegistration resources.
+
         :param pulumi.Input[_builtins.str] admin_account_id: Identifier for the organization administrator account.
         :param pulumi.Input[_builtins.str] organization_id: Identifier for the organization.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -142,6 +144,7 @@ class OrganizationAdminAccountRegistration(pulumi.CustomResource):
         $ pulumi import aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration example 123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] admin_account_id: Identifier for the organization administrator account.
@@ -174,6 +177,7 @@ class OrganizationAdminAccountRegistration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration example 123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationAdminAccountRegistrationArgs args: The arguments to use to populate this resource's properties.

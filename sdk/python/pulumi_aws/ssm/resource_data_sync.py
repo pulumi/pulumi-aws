@@ -26,6 +26,7 @@ class ResourceDataSyncArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourceDataSync resource.
+
         :param pulumi.Input['ResourceDataSyncS3DestinationArgs'] s3_destination: Amazon S3 configuration details for the sync.
         :param pulumi.Input[_builtins.str] name: Name for the configuration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -81,6 +82,7 @@ class _ResourceDataSyncState:
                  s3_destination: Optional[pulumi.Input['ResourceDataSyncS3DestinationArgs']] = None):
         """
         Input properties used for looking up and filtering ResourceDataSync resources.
+
         :param pulumi.Input[_builtins.str] name: Name for the configuration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ResourceDataSyncS3DestinationArgs'] s3_destination: Amazon S3 configuration details for the sync.
@@ -195,6 +197,7 @@ class ResourceDataSync(pulumi.CustomResource):
         $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name for the configuration.
@@ -262,6 +265,7 @@ class ResourceDataSync(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceDataSyncArgs args: The arguments to use to populate this resource's properties.

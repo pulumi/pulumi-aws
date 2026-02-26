@@ -40,6 +40,7 @@ class RecordArgs:
                  weighted_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RecordWeightedRoutingPolicyArgs']]]] = None):
         """
         The set of arguments for constructing a Record resource.
+
         :param pulumi.Input[_builtins.str] name: The name of the record.
         :param pulumi.Input[Union[_builtins.str, 'RecordType']] type: The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `HTTPS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `SSHFP`, `SVCB`, `TLSA`, and `TXT`.
         :param pulumi.Input[_builtins.str] zone_id: The ID of the hosted zone to contain this record.
@@ -308,6 +309,7 @@ class _RecordState:
                  zone_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Record resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['RecordAliasArgs']]] aliases: An alias block. Conflicts with `ttl` & `records`.
                Documented below.
         :param pulumi.Input[_builtins.bool] allow_overwrite: Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
@@ -774,6 +776,7 @@ class Record(pulumi.CustomResource):
         $ pulumi import aws:route53/record:Record example Z4KAPRWWNC7JR_dev_NS_dev
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RecordAliasArgs', 'RecordAliasArgsDict']]]] aliases: An alias block. Conflicts with `ttl` & `records`.
@@ -980,6 +983,7 @@ class Record(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53/record:Record example Z4KAPRWWNC7JR_dev_NS_dev
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RecordArgs args: The arguments to use to populate this resource's properties.

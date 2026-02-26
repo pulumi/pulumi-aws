@@ -31,6 +31,7 @@ class AgentKnowledgeBaseArgs:
                  timeouts: Optional[pulumi.Input['AgentKnowledgeBaseTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentKnowledgeBase resource.
+
         :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs'] knowledge_base_configuration: Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role with permissions to invoke API operations on the knowledge base.
                
@@ -170,6 +171,7 @@ class _AgentKnowledgeBaseState:
                  updated_at: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AgentKnowledgeBase resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the knowledge base.
         :param pulumi.Input[_builtins.str] created_at: Time at which the knowledge base was created.
         :param pulumi.Input[_builtins.str] description: Description of the knowledge base.
@@ -582,6 +584,7 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         $ pulumi import aws:bedrock/agentKnowledgeBase:AgentKnowledgeBase example EMDPPAYPZI
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the knowledge base.
@@ -802,6 +805,7 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:bedrock/agentKnowledgeBase:AgentKnowledgeBase example EMDPPAYPZI
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AgentKnowledgeBaseArgs args: The arguments to use to populate this resource's properties.

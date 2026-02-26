@@ -32,6 +32,7 @@ class InternetMonitorArgs:
                  traffic_percentage_to_monitor: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a InternetMonitor resource.
+
         :param pulumi.Input[_builtins.str] monitor_name: The name of the monitor.
                
                The following arguments are optional:
@@ -189,6 +190,7 @@ class _InternetMonitorState:
                  traffic_percentage_to_monitor: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering InternetMonitor resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Monitor.
         :param pulumi.Input['InternetMonitorHealthEventsConfigArgs'] health_events_config: Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
         :param pulumi.Input['InternetMonitorInternetMeasurementsLogDeliveryArgs'] internet_measurements_log_delivery: Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
@@ -397,6 +399,7 @@ class InternetMonitor(pulumi.CustomResource):
         $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['InternetMonitorHealthEventsConfigArgs', 'InternetMonitorHealthEventsConfigArgsDict']] health_events_config: Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
@@ -436,6 +439,7 @@ class InternetMonitor(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InternetMonitorArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class EmailIdentityMailFromAttributesArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EmailIdentityMailFromAttributes resource.
+
         :param pulumi.Input[_builtins.str] email_identity: The verified email identity.
         :param pulumi.Input[_builtins.str] behavior_on_mx_failure: The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
         :param pulumi.Input[_builtins.str] mail_from_domain: The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
@@ -96,6 +97,7 @@ class _EmailIdentityMailFromAttributesState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailIdentityMailFromAttributes resources.
+
         :param pulumi.Input[_builtins.str] behavior_on_mx_failure: The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
         :param pulumi.Input[_builtins.str] email_identity: The verified email identity.
         :param pulumi.Input[_builtins.str] mail_from_domain: The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
@@ -196,6 +198,7 @@ class EmailIdentityMailFromAttributes(pulumi.CustomResource):
         $ pulumi import aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes example example.com
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] behavior_on_mx_failure: The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
@@ -234,6 +237,7 @@ class EmailIdentityMailFromAttributes(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes example example.com
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EmailIdentityMailFromAttributesArgs args: The arguments to use to populate this resource's properties.

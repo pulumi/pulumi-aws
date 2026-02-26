@@ -23,6 +23,7 @@ class ResourceShareAccepterArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourceShareAccepter resource.
+
         :param pulumi.Input[_builtins.str] share_arn: The ARN of the resource share.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -69,6 +70,7 @@ class _ResourceShareAccepterState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourceShareAccepter resources.
+
         :param pulumi.Input[_builtins.str] invitation_arn: The ARN of the resource share invitation.
         :param pulumi.Input[_builtins.str] receiver_account_id: The account ID of the receiver account which accepts the invitation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -250,6 +252,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
         $ pulumi import aws:ram/resourceShareAccepter:ResourceShareAccepter example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -294,6 +297,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ram/resourceShareAccepter:ResourceShareAccepter example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceShareAccepterArgs args: The arguments to use to populate this resource's properties.

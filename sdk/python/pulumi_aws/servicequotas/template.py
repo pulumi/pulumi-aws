@@ -26,6 +26,7 @@ class TemplateArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Template resource.
+
         :param pulumi.Input[_builtins.str] quota_code: Quota identifier. To find the quota code for a specific quota, use the servicequotas.ServiceQuota data source.
         :param pulumi.Input[_builtins.str] service_code: Service identifier. To find the service code value for an AWS service, use the servicequotas_get_service data source.
         :param pulumi.Input[_builtins.float] value: The new, increased value for the quota.
@@ -119,6 +120,7 @@ class _TemplateState:
                  value: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Input properties used for looking up and filtering Template resources.
+
         :param pulumi.Input[_builtins.str] aws_region: AWS Region to which the template applies.
         :param pulumi.Input[_builtins.bool] global_quota: Indicates whether the quota is global.
         :param pulumi.Input[_builtins.str] quota_code: Quota identifier. To find the quota code for a specific quota, use the servicequotas.ServiceQuota data source.
@@ -301,6 +303,7 @@ class Template(pulumi.CustomResource):
         $ pulumi import aws:servicequotas/template:Template example us-east-1,L-2ACBD22F,lambda
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_region: AWS Region to which the template applies.
@@ -342,6 +345,7 @@ class Template(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:servicequotas/template:Template example us-east-1,L-2ACBD22F,lambda
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TemplateArgs args: The arguments to use to populate this resource's properties.

@@ -40,6 +40,7 @@ class VpcIpamPoolArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpcIpamPool resource.
+
         :param pulumi.Input[_builtins.str] address_family: The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
         :param pulumi.Input[_builtins.str] ipam_scope_id: The ID of the scope in which you would like to create the IPAM pool.
         :param pulumi.Input[_builtins.int] allocation_default_netmask_length: A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
@@ -325,6 +326,7 @@ class _VpcIpamPoolState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering VpcIpamPool resources.
+
         :param pulumi.Input[_builtins.str] address_family: The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
         :param pulumi.Input[_builtins.int] allocation_default_netmask_length: A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
         :param pulumi.Input[_builtins.int] allocation_max_netmask_length: The maximum netmask length that will be required for CIDR allocations in this pool.
@@ -766,6 +768,7 @@ class VpcIpamPool(pulumi.CustomResource):
         $ pulumi import aws:ec2/vpcIpamPool:VpcIpamPool example ipam-pool-0958f95207d978e1e
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] address_family: The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
@@ -882,6 +885,7 @@ class VpcIpamPool(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/vpcIpamPool:VpcIpamPool example ipam-pool-0958f95207d978e1e
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcIpamPoolArgs args: The arguments to use to populate this resource's properties.

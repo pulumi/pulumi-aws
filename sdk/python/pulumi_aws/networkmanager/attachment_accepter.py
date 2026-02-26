@@ -23,6 +23,7 @@ class AttachmentAccepterArgs:
                  attachment_type: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a AttachmentAccepter resource.
+
         :param pulumi.Input[_builtins.str] attachment_id: ID of the attachment.
         :param pulumi.Input[_builtins.str] attachment_type: Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
         """
@@ -70,6 +71,7 @@ class _AttachmentAccepterState:
                  state: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AttachmentAccepter resources.
+
         :param pulumi.Input[_builtins.str] attachment_id: ID of the attachment.
         :param pulumi.Input[_builtins.int] attachment_policy_rule_number: Policy rule number associated with the attachment.
         :param pulumi.Input[_builtins.str] attachment_type: Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
@@ -309,6 +311,7 @@ class AttachmentAccepter(pulumi.CustomResource):
             attachment_type=example_aws_networkmanager_dx_gateway_attachment["attachmentType"])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] attachment_id: ID of the attachment.
@@ -381,6 +384,7 @@ class AttachmentAccepter(pulumi.CustomResource):
             attachment_id=example_aws_networkmanager_dx_gateway_attachment["id"],
             attachment_type=example_aws_networkmanager_dx_gateway_attachment["attachmentType"])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AttachmentAccepterArgs args: The arguments to use to populate this resource's properties.

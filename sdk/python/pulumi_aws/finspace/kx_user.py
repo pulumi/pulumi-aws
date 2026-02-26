@@ -26,6 +26,7 @@ class KxUserArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a KxUser resource.
+
         :param pulumi.Input[_builtins.str] environment_id: Unique identifier for the KX environment.
         :param pulumi.Input[_builtins.str] iam_role: IAM role ARN to be associated with the user.
                
@@ -118,6 +119,7 @@ class _KxUserState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering KxUser resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX user.
         :param pulumi.Input[_builtins.str] environment_id: Unique identifier for the KX environment.
         :param pulumi.Input[_builtins.str] iam_role: IAM role ARN to be associated with the user.
@@ -287,6 +289,7 @@ class KxUser(pulumi.CustomResource):
         $ pulumi import aws:finspace/kxUser:KxUser example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-user
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] environment_id: Unique identifier for the KX environment.
@@ -347,6 +350,7 @@ class KxUser(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:finspace/kxUser:KxUser example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-user
         ```
+
 
         :param str resource_name: The name of the resource.
         :param KxUserArgs args: The arguments to use to populate this resource's properties.

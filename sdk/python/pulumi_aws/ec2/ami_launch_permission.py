@@ -27,6 +27,7 @@ class AmiLaunchPermissionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AmiLaunchPermission resource.
+
         :param pulumi.Input[_builtins.str] image_id: ID of the AMI.
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for the launch permission.
         :param pulumi.Input[_builtins.str] group: Name of the group for the launch permission. Valid values: `"all"`.
@@ -130,6 +131,7 @@ class _AmiLaunchPermissionState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AmiLaunchPermission resources.
+
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for the launch permission.
         :param pulumi.Input[_builtins.str] group: Name of the group for the launch permission. Valid values: `"all"`.
         :param pulumi.Input[_builtins.str] image_id: ID of the AMI.
@@ -283,6 +285,7 @@ class AmiLaunchPermission(pulumi.CustomResource):
         $ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for the launch permission.
@@ -344,6 +347,7 @@ class AmiLaunchPermission(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AmiLaunchPermissionArgs args: The arguments to use to populate this resource's properties.

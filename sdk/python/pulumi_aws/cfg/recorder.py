@@ -28,6 +28,7 @@ class RecorderArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Recorder resource.
+
         :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
         :param pulumi.Input[_builtins.str] name: The name of the recorder. Defaults to `default`. Changing it recreates the resource.
         :param pulumi.Input['RecorderRecordingGroupArgs'] recording_group: Recording group - see below.
@@ -115,6 +116,7 @@ class _RecorderState:
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Recorder resources.
+
         :param pulumi.Input[_builtins.str] name: The name of the recorder. Defaults to `default`. Changing it recreates the resource.
         :param pulumi.Input['RecorderRecordingGroupArgs'] recording_group: Recording group - see below.
         :param pulumi.Input['RecorderRecordingModeArgs'] recording_mode: Recording mode - see below.
@@ -289,6 +291,7 @@ class Recorder(pulumi.CustomResource):
         $ pulumi import aws:cfg/recorder:Recorder foo example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the recorder. Defaults to `default`. Changing it recreates the resource.
@@ -386,6 +389,7 @@ class Recorder(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cfg/recorder:Recorder foo example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RecorderArgs args: The arguments to use to populate this resource's properties.

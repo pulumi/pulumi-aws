@@ -30,6 +30,7 @@ class AuthorizerArgs:
                  token_signing_public_keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Authorizer resource.
+
         :param pulumi.Input[_builtins.str] authorizer_function_arn: The ARN of the authorizer's Lambda function.
         :param pulumi.Input[_builtins.bool] enable_caching_for_http: Specifies whether the HTTP caching is enabled or not. Default: `false`.
         :param pulumi.Input[_builtins.str] name: The name of the authorizer.
@@ -183,6 +184,7 @@ class _AuthorizerState:
                  token_signing_public_keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Authorizer resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the authorizer.
         :param pulumi.Input[_builtins.str] authorizer_function_arn: The ARN of the authorizer's Lambda function.
         :param pulumi.Input[_builtins.bool] enable_caching_for_http: Specifies whether the HTTP caching is enabled or not. Default: `false`.
@@ -399,6 +401,7 @@ class Authorizer(pulumi.CustomResource):
         $ pulumi import aws:iot/authorizer:Authorizer example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authorizer_function_arn: The ARN of the authorizer's Lambda function.
@@ -448,6 +451,7 @@ class Authorizer(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iot/authorizer:Authorizer example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AuthorizerArgs args: The arguments to use to populate this resource's properties.

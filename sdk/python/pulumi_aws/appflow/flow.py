@@ -33,6 +33,7 @@ class FlowArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Flow resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]] destination_flow_configs: A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
         :param pulumi.Input['FlowSourceFlowConfigArgs'] source_flow_config: The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
         :param pulumi.Input[Sequence[pulumi.Input['FlowTaskArgs']]] tasks: A Task that Amazon AppFlow performs while transferring the data in the flow run.
@@ -200,6 +201,7 @@ class _FlowState:
                  trigger_config: Optional[pulumi.Input['FlowTriggerConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Flow resources.
+
         :param pulumi.Input[_builtins.str] arn: Flow's ARN.
         :param pulumi.Input[_builtins.str] description: Description of the flow you want to create.
         :param pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]] destination_flow_configs: A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
@@ -528,6 +530,7 @@ class Flow(pulumi.CustomResource):
         $ pulumi import aws:appflow/flow:Flow example example-flow
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the flow you want to create.
@@ -659,6 +662,7 @@ class Flow(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appflow/flow:Flow example example-flow
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FlowArgs args: The arguments to use to populate this resource's properties.

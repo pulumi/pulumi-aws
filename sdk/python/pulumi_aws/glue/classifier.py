@@ -29,6 +29,7 @@ class ClassifierArgs:
                  xml_classifier: Optional[pulumi.Input['ClassifierXmlClassifierArgs']] = None):
         """
         The set of arguments for constructing a Classifier resource.
+
         :param pulumi.Input['ClassifierCsvClassifierArgs'] csv_classifier: A classifier for CSV content. Defined below.
         :param pulumi.Input['ClassifierGrokClassifierArgs'] grok_classifier: A classifier that uses grok patterns. Defined below.
         :param pulumi.Input['ClassifierJsonClassifierArgs'] json_classifier: A classifier for JSON content. Defined below.
@@ -133,6 +134,7 @@ class _ClassifierState:
                  xml_classifier: Optional[pulumi.Input['ClassifierXmlClassifierArgs']] = None):
         """
         Input properties used for looking up and filtering Classifier resources.
+
         :param pulumi.Input['ClassifierCsvClassifierArgs'] csv_classifier: A classifier for CSV content. Defined below.
         :param pulumi.Input['ClassifierGrokClassifierArgs'] grok_classifier: A classifier that uses grok patterns. Defined below.
         :param pulumi.Input['ClassifierJsonClassifierArgs'] json_classifier: A classifier for JSON content. Defined below.
@@ -316,6 +318,7 @@ class Classifier(pulumi.CustomResource):
         $ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ClassifierCsvClassifierArgs', 'ClassifierCsvClassifierArgsDict']] csv_classifier: A classifier for CSV content. Defined below.
@@ -407,6 +410,7 @@ class Classifier(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClassifierArgs args: The arguments to use to populate this resource's properties.

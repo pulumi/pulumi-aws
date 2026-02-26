@@ -40,6 +40,7 @@ class ReplicationConfigurationTemplateArgs:
                  timeouts: Optional[pulumi.Input['ReplicationConfigurationTemplateTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ReplicationConfigurationTemplate resource.
+
         :param pulumi.Input[_builtins.bool] associate_default_security_group: Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.
         :param pulumi.Input[_builtins.int] bandwidth_throttling: Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.
         :param pulumi.Input[_builtins.bool] create_public_ip: Whether to create a Public IP for the Recovery Instance by default.
@@ -311,6 +312,7 @@ class _ReplicationConfigurationTemplateState:
                  use_dedicated_replication_server: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ReplicationConfigurationTemplate resources.
+
         :param pulumi.Input[_builtins.str] arn: Replication configuration template ARN.
         :param pulumi.Input[_builtins.bool] associate_default_security_group: Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.
         :param pulumi.Input[_builtins.bool] auto_replicate_new_disks: Whether to allow the AWS replication agent to automatically replicate newly added disks.
@@ -681,6 +683,7 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
         $ pulumi import aws:drs/replicationConfigurationTemplate:ReplicationConfigurationTemplate example templateid
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] associate_default_security_group: Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.
@@ -765,6 +768,7 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:drs/replicationConfigurationTemplate:ReplicationConfigurationTemplate example templateid
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReplicationConfigurationTemplateArgs args: The arguments to use to populate this resource's properties.

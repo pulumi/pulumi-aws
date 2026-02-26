@@ -29,6 +29,7 @@ class MemberArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Member resource.
+
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the account.
         :param pulumi.Input[_builtins.str] email: The email address for the account.
         :param pulumi.Input[_builtins.bool] invitation_disable_email_notification: Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
@@ -170,6 +171,7 @@ class _MemberState:
                  updated_at: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Member resources.
+
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the account.
         :param pulumi.Input[_builtins.str] administrator_account_id: The AWS account ID for the administrator account.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the account.
@@ -436,6 +438,7 @@ class Member(pulumi.CustomResource):
         $ pulumi import aws:macie2/member:Member example 123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the account.
@@ -479,6 +482,7 @@ class Member(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:macie2/member:Member example 123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MemberArgs args: The arguments to use to populate this resource's properties.

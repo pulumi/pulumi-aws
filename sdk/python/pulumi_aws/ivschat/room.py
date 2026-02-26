@@ -30,6 +30,7 @@ class RoomArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Room resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] logging_configuration_identifiers: List of Logging Configuration
                ARNs to attach to the room.
         :param pulumi.Input[_builtins.int] maximum_message_length: Maximum number of characters in a single
@@ -162,6 +163,7 @@ class _RoomState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Room resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Room.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] logging_configuration_identifiers: List of Logging Configuration
                ARNs to attach to the room.
@@ -348,6 +350,7 @@ class Room(pulumi.CustomResource):
         $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] logging_configuration_identifiers: List of Logging Configuration
@@ -392,6 +395,7 @@ class Room(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RoomArgs args: The arguments to use to populate this resource's properties.

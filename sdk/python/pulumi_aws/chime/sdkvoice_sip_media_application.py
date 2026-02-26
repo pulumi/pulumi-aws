@@ -28,6 +28,7 @@ class SdkvoiceSipMediaApplicationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SdkvoiceSipMediaApplication resource.
+
         :param pulumi.Input[_builtins.str] aws_region: The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
         :param pulumi.Input['SdkvoiceSipMediaApplicationEndpointsArgs'] endpoints: List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
         :param pulumi.Input[_builtins.str] name: The name of the AWS Chime SDK Voice Sip Media Application.
@@ -120,6 +121,7 @@ class _SdkvoiceSipMediaApplicationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SdkvoiceSipMediaApplication resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
         :param pulumi.Input[_builtins.str] aws_region: The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
         :param pulumi.Input['SdkvoiceSipMediaApplicationEndpointsArgs'] endpoints: List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
@@ -271,6 +273,7 @@ class SdkvoiceSipMediaApplication(pulumi.CustomResource):
         $ pulumi import aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication example abcdef123456
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_region: The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
@@ -313,6 +316,7 @@ class SdkvoiceSipMediaApplication(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication example abcdef123456
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SdkvoiceSipMediaApplicationArgs args: The arguments to use to populate this resource's properties.

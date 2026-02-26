@@ -28,6 +28,7 @@ class CentralizationRuleForOrganizationArgs:
                  timeouts: Optional[pulumi.Input['CentralizationRuleForOrganizationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a CentralizationRuleForOrganization resource.
+
         :param pulumi.Input['CentralizationRuleForOrganizationRuleArgs'] rule: Configuration block for the centralization rule. See `rule` below.
                
                The following arguments are optional:
@@ -116,6 +117,7 @@ class _CentralizationRuleForOrganizationState:
                  timeouts: Optional[pulumi.Input['CentralizationRuleForOrganizationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering CentralizationRuleForOrganization resources.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['CentralizationRuleForOrganizationRuleArgs'] rule: Configuration block for the centralization rule. See `rule` below.
                
@@ -358,6 +360,7 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
         $ pulumi import aws:observabilityadmin/centralizationRuleForOrganization:CentralizationRuleForOrganization example example-centralization-rule
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -494,6 +497,7 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:observabilityadmin/centralizationRuleForOrganization:CentralizationRuleForOrganization example example-centralization-rule
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CentralizationRuleForOrganizationArgs args: The arguments to use to populate this resource's properties.

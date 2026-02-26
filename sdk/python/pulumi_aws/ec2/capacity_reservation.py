@@ -36,6 +36,7 @@ class CapacityReservationArgs:
                  tenancy: Optional[pulumi.Input[Union[_builtins.str, 'Tenancy']]] = None):
         """
         The set of arguments for constructing a CapacityReservation resource.
+
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone in which to create the Capacity Reservation.
         :param pulumi.Input[_builtins.int] instance_count: The number of instances for which to reserve capacity.
         :param pulumi.Input[Union[_builtins.str, 'InstancePlatform']] instance_platform: The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
@@ -267,6 +268,7 @@ class _CapacityReservationState:
                  tenancy: Optional[pulumi.Input[Union[_builtins.str, 'Tenancy']]] = None):
         """
         Input properties used for looking up and filtering CapacityReservation resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the Capacity Reservation.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone in which to create the Capacity Reservation.
         :param pulumi.Input[_builtins.bool] ebs_optimized: Indicates whether the Capacity Reservation supports EBS-optimized instances.
@@ -570,6 +572,7 @@ class CapacityReservation(pulumi.CustomResource):
         $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone in which to create the Capacity Reservation.
@@ -616,6 +619,7 @@ class CapacityReservation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CapacityReservationArgs args: The arguments to use to populate this resource's properties.

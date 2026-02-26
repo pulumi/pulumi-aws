@@ -35,6 +35,7 @@ class ResolverFirewallRuleArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResolverFirewallRule resource.
+
         :param pulumi.Input[_builtins.str] action: The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule. Valid values: `ALLOW`, `BLOCK`, `ALERT`. Note: `ALLOW` is not valid for DNS Firewall Advanced rules.
         :param pulumi.Input[_builtins.str] firewall_rule_group_id: The unique identifier of the firewall rule group where you want to create the rule.
         :param pulumi.Input[_builtins.int] priority: The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
@@ -265,6 +266,7 @@ class _ResolverFirewallRuleState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResolverFirewallRule resources.
+
         :param pulumi.Input[_builtins.str] action: The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule. Valid values: `ALLOW`, `BLOCK`, `ALERT`. Note: `ALLOW` is not valid for DNS Firewall Advanced rules.
         :param pulumi.Input[_builtins.str] block_override_dns_type: The DNS record's type. This determines the format of the record value that you provided in BlockOverrideDomain. Value values: `CNAME`.
         :param pulumi.Input[_builtins.str] block_override_domain: The custom DNS record to send back in response to the query.
@@ -573,6 +575,7 @@ class ResolverFirewallRule(pulumi.CustomResource):
         $ pulumi import aws:route53/resolverFirewallRule:ResolverFirewallRule example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule. Valid values: `ALLOW`, `BLOCK`, `ALERT`. Note: `ALLOW` is not valid for DNS Firewall Advanced rules.
@@ -654,6 +657,7 @@ class ResolverFirewallRule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53/resolverFirewallRule:ResolverFirewallRule example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResolverFirewallRuleArgs args: The arguments to use to populate this resource's properties.

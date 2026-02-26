@@ -29,6 +29,7 @@ class AliasArgs:
                  routing_config: Optional[pulumi.Input['AliasRoutingConfigArgs']] = None):
         """
         The set of arguments for constructing a Alias resource.
+
         :param pulumi.Input[_builtins.str] function_name: Name or ARN of the Lambda function.
         :param pulumi.Input[_builtins.str] function_version: Lambda function version for which you are creating the alias. Pattern: `(\\$LATEST|[0-9]+)`.
         :param pulumi.Input[_builtins.str] description: Description of the alias.
@@ -137,6 +138,7 @@ class _AliasState:
                  routing_config: Optional[pulumi.Input['AliasRoutingConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Alias resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN identifying your Lambda function alias.
         :param pulumi.Input[_builtins.str] description: Description of the alias.
         :param pulumi.Input[_builtins.str] function_name: Name or ARN of the Lambda function.
@@ -355,6 +357,7 @@ class Alias(pulumi.CustomResource):
         $ pulumi import aws:lambda/alias:Alias example example/production
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the alias.
@@ -449,6 +452,7 @@ class Alias(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lambda/alias:Alias example example/production
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AliasArgs args: The arguments to use to populate this resource's properties.

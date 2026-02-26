@@ -31,6 +31,7 @@ class ContainerServiceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ContainerService resource.
+
         :param pulumi.Input[_builtins.str] power: Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
         :param pulumi.Input[_builtins.int] scale: Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
                
@@ -179,6 +180,7 @@ class _ContainerServiceState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ContainerService resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the container service.
         :param pulumi.Input[_builtins.str] availability_zone: Availability Zone. Follows the format us-east-2a (case-sensitive).
         :param pulumi.Input[_builtins.str] created_at: Date and time when the container service was created.
@@ -546,6 +548,7 @@ class ContainerService(pulumi.CustomResource):
         $ pulumi import aws:lightsail/containerService:ContainerService example container-service-1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] is_disabled: Whether to disable the container service. Defaults to `false`.
@@ -639,6 +642,7 @@ class ContainerService(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lightsail/containerService:ContainerService example container-service-1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ContainerServiceArgs args: The arguments to use to populate this resource's properties.

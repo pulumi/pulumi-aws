@@ -30,6 +30,7 @@ class MlflowTrackingServerArgs:
                  weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MlflowTrackingServer resource.
+
         :param pulumi.Input[_builtins.str] artifact_store_uri: The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
         :param pulumi.Input[_builtins.str] tracking_server_name: A unique string identifying the tracking server name. This string is part of the tracking server ARN.
@@ -182,6 +183,7 @@ class _MlflowTrackingServerState:
                  weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MlflowTrackingServer resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this MLFlow Tracking Server.
         :param pulumi.Input[_builtins.str] artifact_store_uri: The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
         :param pulumi.Input[_builtins.bool] automatic_model_registration: A list of Member Definitions that contains objects that identify the workers that make up the work team.
@@ -406,6 +408,7 @@ class MlflowTrackingServer(pulumi.CustomResource):
         $ pulumi import aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] artifact_store_uri: The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
@@ -448,6 +451,7 @@ class MlflowTrackingServer(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MlflowTrackingServerArgs args: The arguments to use to populate this resource's properties.

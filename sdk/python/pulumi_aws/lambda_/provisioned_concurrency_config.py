@@ -26,6 +26,7 @@ class ProvisionedConcurrencyConfigArgs:
                  skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ProvisionedConcurrencyConfig resource.
+
         :param pulumi.Input[_builtins.str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function.
         :param pulumi.Input[_builtins.int] provisioned_concurrent_executions: Amount of capacity to allocate. Must be greater than or equal to 1.
         :param pulumi.Input[_builtins.str] qualifier: Lambda Function version or Lambda Alias name.
@@ -115,6 +116,7 @@ class _ProvisionedConcurrencyConfigState:
                  skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ProvisionedConcurrencyConfig resources.
+
         :param pulumi.Input[_builtins.str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function.
         :param pulumi.Input[_builtins.int] provisioned_concurrent_executions: Amount of capacity to allocate. Must be greater than or equal to 1.
         :param pulumi.Input[_builtins.str] qualifier: Lambda Function version or Lambda Alias name.
@@ -248,6 +250,7 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example example,production
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function.
@@ -302,6 +305,7 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example example,production
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProvisionedConcurrencyConfigArgs args: The arguments to use to populate this resource's properties.

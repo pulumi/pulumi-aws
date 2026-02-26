@@ -29,6 +29,7 @@ class PodIdentityAssociationArgs:
                  target_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PodIdentityAssociation resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster to create the association in.
         :param pulumi.Input[_builtins.str] namespace: The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
@@ -169,6 +170,7 @@ class _PodIdentityAssociationState:
                  target_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PodIdentityAssociation resources.
+
         :param pulumi.Input[_builtins.str] association_arn: The Amazon Resource Name (ARN) of the association.
         :param pulumi.Input[_builtins.str] association_id: The ID of the association.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster to create the association in.
@@ -422,6 +424,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
         $ pulumi import aws:eks/podIdentityAssociation:PodIdentityAssociation example example,a-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster to create the association in.
@@ -491,6 +494,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:eks/podIdentityAssociation:PodIdentityAssociation example example,a-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PodIdentityAssociationArgs args: The arguments to use to populate this resource's properties.

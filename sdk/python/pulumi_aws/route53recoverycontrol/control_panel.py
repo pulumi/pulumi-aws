@@ -24,6 +24,7 @@ class ControlPanelArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ControlPanel resource.
+
         :param pulumi.Input[_builtins.str] cluster_arn: ARN of the cluster in which this control panel will reside.
         :param pulumi.Input[_builtins.str] name: Name describing the control panel.
                
@@ -88,6 +89,7 @@ class _ControlPanelState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ControlPanel resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the control panel.
         :param pulumi.Input[_builtins.str] cluster_arn: ARN of the cluster in which this control panel will reside.
         :param pulumi.Input[_builtins.bool] default_control_panel: Whether a control panel is default.
@@ -247,6 +249,7 @@ class ControlPanel(pulumi.CustomResource):
         $ pulumi import aws:route53recoverycontrol/controlPanel:ControlPanel mypanel arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_arn: ARN of the cluster in which this control panel will reside.
@@ -282,6 +285,7 @@ class ControlPanel(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53recoverycontrol/controlPanel:ControlPanel mypanel arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ControlPanelArgs args: The arguments to use to populate this resource's properties.

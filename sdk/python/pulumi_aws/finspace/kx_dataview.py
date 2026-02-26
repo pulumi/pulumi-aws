@@ -35,6 +35,7 @@ class KxDataviewArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a KxDataview resource.
+
         :param pulumi.Input[_builtins.bool] auto_update: The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
         :param pulumi.Input[_builtins.str] az_mode: The number of availability zones you want to assign per cluster. This can be one of the following:
                * `SINGLE` - Assigns one availability zone per cluster.
@@ -250,6 +251,7 @@ class _KxDataviewState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering KxDataview resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX dataview.
         :param pulumi.Input[_builtins.bool] auto_update: The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
         :param pulumi.Input[_builtins.str] availability_zone_id: The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
@@ -570,6 +572,7 @@ class KxDataview(pulumi.CustomResource):
         $ pulumi import aws:finspace/kxDataview:KxDataview example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database,my-tf-kx-dataview
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_update: The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
@@ -630,6 +633,7 @@ class KxDataview(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:finspace/kxDataview:KxDataview example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database,my-tf-kx-dataview
         ```
+
 
         :param str resource_name: The name of the resource.
         :param KxDataviewArgs args: The arguments to use to populate this resource's properties.

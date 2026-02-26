@@ -26,6 +26,7 @@ class VpnGatewayArgs:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpnGateway resource.
+
         :param pulumi.Input[_builtins.str] amazon_side_asn: The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone for the virtual private gateway.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -116,6 +117,7 @@ class _VpnGatewayState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpnGateway resources.
+
         :param pulumi.Input[_builtins.str] amazon_side_asn: The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the VPN Gateway.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone for the virtual private gateway.
@@ -260,6 +262,7 @@ class VpnGateway(pulumi.CustomResource):
         $ pulumi import aws:ec2/vpnGateway:VpnGateway testvpngateway vgw-9a4cacf3
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] amazon_side_asn: The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
@@ -297,6 +300,7 @@ class VpnGateway(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/vpnGateway:VpnGateway testvpngateway vgw-9a4cacf3
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpnGatewayArgs args: The arguments to use to populate this resource's properties.

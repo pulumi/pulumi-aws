@@ -23,6 +23,7 @@ class RetentionConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RetentionConfiguration resource.
+
         :param pulumi.Input[_builtins.int] retention_period_in_days: The number of days AWS Config stores historical information.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -63,6 +64,7 @@ class _RetentionConfigurationState:
                  retention_period_in_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering RetentionConfiguration resources.
+
         :param pulumi.Input[_builtins.str] name: The name of the retention configuration object. The object is always named **default**.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] retention_period_in_days: The number of days AWS Config stores historical information.
@@ -141,6 +143,7 @@ class RetentionConfiguration(pulumi.CustomResource):
         $ pulumi import aws:cfg/retentionConfiguration:RetentionConfiguration example default
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -172,6 +175,7 @@ class RetentionConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cfg/retentionConfiguration:RetentionConfiguration example default
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RetentionConfigurationArgs args: The arguments to use to populate this resource's properties.

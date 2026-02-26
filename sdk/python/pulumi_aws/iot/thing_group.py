@@ -28,6 +28,7 @@ class ThingGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ThingGroup resource.
+
         :param pulumi.Input[_builtins.str] name: The name of the Thing Group.
         :param pulumi.Input[_builtins.str] parent_group_name: The name of the parent Thing Group.
         :param pulumi.Input['ThingGroupPropertiesArgs'] properties: The Thing Group properties. Defined below.
@@ -120,6 +121,7 @@ class _ThingGroupState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering ThingGroup resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the Thing Group.
         :param pulumi.Input[_builtins.str] name: The name of the Thing Group.
         :param pulumi.Input[_builtins.str] parent_group_name: The name of the parent Thing Group.
@@ -297,6 +299,7 @@ class ThingGroup(pulumi.CustomResource):
         $ pulumi import aws:iot/thingGroup:ThingGroup example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the Thing Group.
@@ -345,6 +348,7 @@ class ThingGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iot/thingGroup:ThingGroup example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ThingGroupArgs args: The arguments to use to populate this resource's properties.

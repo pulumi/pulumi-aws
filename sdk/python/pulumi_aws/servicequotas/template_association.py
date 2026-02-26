@@ -23,6 +23,7 @@ class TemplateAssociationArgs:
                  skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a TemplateAssociation resource.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] skip_destroy: Skip disassociating the quota increase template upon destruction. This will remove the resource from Terraform state, but leave the remote association in place.
         """
@@ -64,6 +65,7 @@ class _TemplateAssociationState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TemplateAssociation resources.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] skip_destroy: Skip disassociating the quota increase template upon destruction. This will remove the resource from Terraform state, but leave the remote association in place.
         :param pulumi.Input[_builtins.str] status: Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
@@ -145,6 +147,7 @@ class TemplateAssociation(pulumi.CustomResource):
         $ pulumi import aws:servicequotas/templateAssociation:TemplateAssociation example 123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -179,6 +182,7 @@ class TemplateAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:servicequotas/templateAssociation:TemplateAssociation example 123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TemplateAssociationArgs args: The arguments to use to populate this resource's properties.

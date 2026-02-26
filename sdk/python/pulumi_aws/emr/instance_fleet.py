@@ -30,6 +30,7 @@ class InstanceFleetArgs:
                  target_spot_capacity: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a InstanceFleet resource.
+
         :param pulumi.Input[_builtins.str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]] instance_type_configs: Configuration block for instance fleet
         :param pulumi.Input['InstanceFleetLaunchSpecificationsArgs'] launch_specifications: Configuration block for launch specification
@@ -151,6 +152,7 @@ class _InstanceFleetState:
                  target_spot_capacity: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering InstanceFleet resources.
+
         :param pulumi.Input[_builtins.str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]] instance_type_configs: Configuration block for instance fleet
         :param pulumi.Input['InstanceFleetLaunchSpecificationsArgs'] launch_specifications: Configuration block for launch specification
@@ -366,6 +368,7 @@ class InstanceFleet(pulumi.CustomResource):
         $ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
@@ -440,6 +443,7 @@ class InstanceFleet(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InstanceFleetArgs args: The arguments to use to populate this resource's properties.

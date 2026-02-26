@@ -31,6 +31,7 @@ class BucketWebsiteConfigurationV2Args:
                  routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]]] = None):
         """
         The set of arguments for constructing a BucketWebsiteConfigurationV2 resource.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
         :param pulumi.Input['BucketWebsiteConfigurationV2ErrorDocumentArgs'] error_document: Name of the error document for the website. See below.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
@@ -174,6 +175,7 @@ class _BucketWebsiteConfigurationV2State:
                  website_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BucketWebsiteConfigurationV2 resources.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
         :param pulumi.Input['BucketWebsiteConfigurationV2ErrorDocumentArgs'] error_document: Name of the error document for the website. See below.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
@@ -438,6 +440,7 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
         $ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name,123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
@@ -540,6 +543,7 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name,123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BucketWebsiteConfigurationV2Args args: The arguments to use to populate this resource's properties.

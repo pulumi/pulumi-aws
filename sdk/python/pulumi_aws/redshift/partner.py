@@ -26,6 +26,7 @@ class PartnerArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Partner resource.
+
         :param pulumi.Input[_builtins.str] account_id: The Amazon Web Services account ID that owns the cluster.
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier of the cluster that receives data from the partner.
         :param pulumi.Input[_builtins.str] database_name: The name of the database that receives data from the partner.
@@ -112,6 +113,7 @@ class _PartnerState:
                  status_message: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Partner resources.
+
         :param pulumi.Input[_builtins.str] account_id: The Amazon Web Services account ID that owns the cluster.
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier of the cluster that receives data from the partner.
         :param pulumi.Input[_builtins.str] database_name: The name of the database that receives data from the partner.
@@ -256,6 +258,7 @@ class Partner(pulumi.CustomResource):
         $ pulumi import aws:redshift/partner:Partner example 01234567910:cluster-example-id:example:example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The Amazon Web Services account ID that owns the cluster.
@@ -293,6 +296,7 @@ class Partner(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:redshift/partner:Partner example 01234567910:cluster-example-id:example:example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PartnerArgs args: The arguments to use to populate this resource's properties.

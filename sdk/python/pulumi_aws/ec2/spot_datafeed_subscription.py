@@ -24,6 +24,7 @@ class SpotDatafeedSubscriptionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SpotDatafeedSubscription resource.
+
         :param pulumi.Input[_builtins.str] bucket: The Amazon S3 bucket in which to store the Spot instance data feed.
         :param pulumi.Input[_builtins.str] prefix: Path of folder inside bucket to place spot pricing data.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -79,6 +80,7 @@ class _SpotDatafeedSubscriptionState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpotDatafeedSubscription resources.
+
         :param pulumi.Input[_builtins.str] bucket: The Amazon S3 bucket in which to store the Spot instance data feed.
         :param pulumi.Input[_builtins.str] prefix: Path of folder inside bucket to place spot pricing data.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -163,6 +165,7 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
         $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: The Amazon S3 bucket in which to store the Spot instance data feed.
@@ -200,6 +203,7 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpotDatafeedSubscriptionArgs args: The arguments to use to populate this resource's properties.

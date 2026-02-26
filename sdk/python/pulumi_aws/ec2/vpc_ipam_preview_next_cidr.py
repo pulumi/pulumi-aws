@@ -25,6 +25,7 @@ class VpcIpamPreviewNextCidrArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcIpamPreviewNextCidr resource.
+
         :param pulumi.Input[_builtins.str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
         :param pulumi.Input[_builtins.int] netmask_length: The netmask length of the CIDR you would like to preview from the IPAM pool.
@@ -97,6 +98,7 @@ class _VpcIpamPreviewNextCidrState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcIpamPreviewNextCidr resources.
+
         :param pulumi.Input[_builtins.str] cidr: The previewed CIDR from the pool.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
         :param pulumi.Input[_builtins.str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
@@ -215,6 +217,7 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
@@ -256,6 +259,7 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
             disallowed_cidrs=["172.2.0.0/32"],
             opts = pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcIpamPreviewNextCidrArgs args: The arguments to use to populate this resource's properties.

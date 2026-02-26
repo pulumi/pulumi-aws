@@ -28,6 +28,7 @@ class JobTemplateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a JobTemplate resource.
+
         :param pulumi.Input['JobTemplateJobTemplateDataArgs'] job_template_data: The job template data which holds values of StartJobRun API request.
         :param pulumi.Input[_builtins.str] kms_key_arn: The KMS key ARN used to encrypt the job template.
         :param pulumi.Input[_builtins.str] name: The specified name of the job template.
@@ -117,6 +118,7 @@ class _JobTemplateState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering JobTemplate resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the job template.
         :param pulumi.Input['JobTemplateJobTemplateDataArgs'] job_template_data: The job template data which holds values of StartJobRun API request.
         :param pulumi.Input[_builtins.str] kms_key_arn: The KMS key ARN used to encrypt the job template.
@@ -269,6 +271,7 @@ class JobTemplate(pulumi.CustomResource):
         $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['JobTemplateJobTemplateDataArgs', 'JobTemplateJobTemplateDataArgsDict']] job_template_data: The job template data which holds values of StartJobRun API request.
@@ -314,6 +317,7 @@ class JobTemplate(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
         ```
+
 
         :param str resource_name: The name of the resource.
         :param JobTemplateArgs args: The arguments to use to populate this resource's properties.

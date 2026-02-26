@@ -23,6 +23,7 @@ class PreferencesArgs:
                  savings_estimation_mode: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Preferences resource.
+
         :param pulumi.Input[_builtins.str] member_account_discount_visibility: Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
         :param pulumi.Input[_builtins.str] savings_estimation_mode: Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
         """
@@ -63,6 +64,7 @@ class _PreferencesState:
                  savings_estimation_mode: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Preferences resources.
+
         :param pulumi.Input[_builtins.str] member_account_discount_visibility: Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
         :param pulumi.Input[_builtins.str] savings_estimation_mode: Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
         """
@@ -138,6 +140,7 @@ class Preferences(pulumi.CustomResource):
         $ pulumi import aws:costoptimizationhub/preferences:Preferences example 111222333444
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] member_account_discount_visibility: Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
@@ -181,6 +184,7 @@ class Preferences(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:costoptimizationhub/preferences:Preferences example 111222333444
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PreferencesArgs args: The arguments to use to populate this resource's properties.

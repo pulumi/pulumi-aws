@@ -26,6 +26,7 @@ class PublishingDestinationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PublishingDestination resource.
+
         :param pulumi.Input[_builtins.str] destination_arn: The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
         :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty.
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
@@ -115,6 +116,7 @@ class _PublishingDestinationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PublishingDestination resources.
+
         :param pulumi.Input[_builtins.str] destination_arn: The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
         :param pulumi.Input[_builtins.str] destination_type: Currently there is only "S3" available as destination type which is also the default value
                
@@ -291,6 +293,7 @@ class PublishingDestination(pulumi.CustomResource):
         $ pulumi import aws:guardduty/publishingDestination:PublishingDestination test a4b86f26fa42e7e7cf0d1c333ea77777:a4b86f27a0e464e4a7e0516d242f1234
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] destination_arn: The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
@@ -388,6 +391,7 @@ class PublishingDestination(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:guardduty/publishingDestination:PublishingDestination test a4b86f26fa42e7e7cf0d1c333ea77777:a4b86f27a0e464e4a7e0516d242f1234
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PublishingDestinationArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class UserLoginProfileArgs:
                  pgp_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserLoginProfile resource.
+
         :param pulumi.Input[_builtins.str] user: The IAM user's name.
         :param pulumi.Input[_builtins.int] password_length: The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
         :param pulumi.Input[_builtins.bool] password_reset_required: Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
@@ -99,6 +100,7 @@ class _UserLoginProfileState:
                  user: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserLoginProfile resources.
+
         :param pulumi.Input[_builtins.str] encrypted_password: The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
         :param pulumi.Input[_builtins.str] key_fingerprint: The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
         :param pulumi.Input[_builtins.str] password: The plain text password, only available when `pgp_key` is not provided.
@@ -256,6 +258,7 @@ class UserLoginProfile(pulumi.CustomResource):
         example = aws.iam.UserLoginProfile("example")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] password_length: The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
@@ -306,6 +309,7 @@ class UserLoginProfile(pulumi.CustomResource):
 
         example = aws.iam.UserLoginProfile("example")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserLoginProfileArgs args: The arguments to use to populate this resource's properties.

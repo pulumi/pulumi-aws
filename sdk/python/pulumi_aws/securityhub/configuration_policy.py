@@ -27,6 +27,7 @@ class ConfigurationPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConfigurationPolicy resource.
+
         :param pulumi.Input['ConfigurationPolicyConfigurationPolicyArgs'] configuration_policy: Defines how Security Hub is configured. See below.
         :param pulumi.Input[_builtins.str] description: The description of the configuration policy.
         :param pulumi.Input[_builtins.str] name: The name of the configuration policy.
@@ -99,6 +100,7 @@ class _ConfigurationPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConfigurationPolicy resources.
+
         :param pulumi.Input['ConfigurationPolicyConfigurationPolicyArgs'] configuration_policy: Defines how Security Hub is configured. See below.
         :param pulumi.Input[_builtins.str] description: The description of the configuration policy.
         :param pulumi.Input[_builtins.str] name: The name of the configuration policy.
@@ -300,6 +302,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
         $ pulumi import aws:securityhub/configurationPolicy:ConfigurationPolicy example "00000000-1111-2222-3333-444444444444"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ConfigurationPolicyConfigurationPolicyArgs', 'ConfigurationPolicyConfigurationPolicyArgsDict']] configuration_policy: Defines how Security Hub is configured. See below.
@@ -428,6 +431,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:securityhub/configurationPolicy:ConfigurationPolicy example "00000000-1111-2222-3333-444444444444"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConfigurationPolicyArgs args: The arguments to use to populate this resource's properties.

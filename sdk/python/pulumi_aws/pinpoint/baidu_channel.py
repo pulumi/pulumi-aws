@@ -26,6 +26,7 @@ class BaiduChannelArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BaiduChannel resource.
+
         :param pulumi.Input[_builtins.str] api_key: Platform credential API key from Baidu.
         :param pulumi.Input[_builtins.str] application_id: The application ID.
         :param pulumi.Input[_builtins.str] secret_key: Platform credential Secret key from Baidu.
@@ -111,6 +112,7 @@ class _BaiduChannelState:
                  secret_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BaiduChannel resources.
+
         :param pulumi.Input[_builtins.str] api_key: Platform credential API key from Baidu.
         :param pulumi.Input[_builtins.str] application_id: The application ID.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
@@ -226,6 +228,7 @@ class BaiduChannel(pulumi.CustomResource):
         $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_key: Platform credential API key from Baidu.
@@ -264,6 +267,7 @@ class BaiduChannel(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BaiduChannelArgs args: The arguments to use to populate this resource's properties.

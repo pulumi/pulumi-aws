@@ -22,6 +22,7 @@ class DelegationSetArgs:
                  reference_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DelegationSet resource.
+
         :param pulumi.Input[_builtins.str] reference_name: This is a reference name used in Caller Reference
                (helpful for identifying single delegation set amongst others)
         """
@@ -50,6 +51,7 @@ class _DelegationSetState:
                  reference_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DelegationSet resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Delegation Set.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] name_servers: A list of authoritative name servers for the hosted zone
                (effectively a list of NS records).
@@ -136,6 +138,7 @@ class DelegationSet(pulumi.CustomResource):
         $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] reference_name: This is a reference name used in Caller Reference
@@ -172,6 +175,7 @@ class DelegationSet(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DelegationSetArgs args: The arguments to use to populate this resource's properties.

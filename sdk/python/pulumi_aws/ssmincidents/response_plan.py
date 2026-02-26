@@ -32,6 +32,7 @@ class ResponsePlanArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResponsePlan resource.
+
         :param pulumi.Input['ResponsePlanIncidentTemplateArgs'] incident_template: The `incident_template` configuration block is required and supports the following arguments:
         :param pulumi.Input['ResponsePlanActionArgs'] action: The actions that the response plan starts at the beginning of an incident.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] chat_channels: The Chatbot chat channel used for collaboration during an incident.
@@ -185,6 +186,7 @@ class _ResponsePlanState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ResponsePlan resources.
+
         :param pulumi.Input['ResponsePlanActionArgs'] action: The actions that the response plan starts at the beginning of an incident.
         :param pulumi.Input[_builtins.str] arn: The ARN of the response plan.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] chat_channels: The Chatbot chat channel used for collaboration during an incident.
@@ -468,6 +470,7 @@ class ResponsePlan(pulumi.CustomResource):
         $ pulumi import aws:ssmincidents/responsePlan:ResponsePlan responsePlanName ARNValue
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ResponsePlanActionArgs', 'ResponsePlanActionArgsDict']] action: The actions that the response plan starts at the beginning of an incident.
@@ -584,6 +587,7 @@ class ResponsePlan(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ssmincidents/responsePlan:ResponsePlan responsePlanName ARNValue
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResponsePlanArgs args: The arguments to use to populate this resource's properties.

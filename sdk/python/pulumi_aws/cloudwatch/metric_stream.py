@@ -34,6 +34,7 @@ class MetricStreamArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MetricStream resource.
+
         :param pulumi.Input[_builtins.str] firehose_arn: ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
         :param pulumi.Input[_builtins.str] output_format: Output format for the stream. Possible values are `json`, `opentelemetry0.7`, and `opentelemetry1.0`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
                
@@ -224,6 +225,7 @@ class _MetricStreamState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering MetricStream resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the metric stream.
         :param pulumi.Input[_builtins.str] creation_date: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was created.
         :param pulumi.Input[Sequence[pulumi.Input['MetricStreamExcludeFilterArgs']]] exclude_filters: List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
@@ -624,6 +626,7 @@ class MetricStream(pulumi.CustomResource):
         $ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamExcludeFilterArgs', 'MetricStreamExcludeFilterArgsDict']]]] exclude_filters: List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
@@ -780,6 +783,7 @@ class MetricStream(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MetricStreamArgs args: The arguments to use to populate this resource's properties.

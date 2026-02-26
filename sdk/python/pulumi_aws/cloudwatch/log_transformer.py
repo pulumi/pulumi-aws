@@ -26,6 +26,7 @@ class LogTransformerArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogTransformer resource.
+
         :param pulumi.Input[_builtins.str] log_group_arn: Log group ARN to set the transformer for.
         :param pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigArgs']]] transformer_configs: Specifies the configuration of the transformer. You must include at least one configuration, and 20 at most. See `transformer_config` below for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -80,6 +81,7 @@ class _LogTransformerState:
                  transformer_configs: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigArgs']]]] = None):
         """
         Input properties used for looking up and filtering LogTransformer resources.
+
         :param pulumi.Input[_builtins.str] log_group_arn: Log group ARN to set the transformer for.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigArgs']]] transformer_configs: Specifies the configuration of the transformer. You must include at least one configuration, and 20 at most. See `transformer_config` below for details.
@@ -165,6 +167,7 @@ class LogTransformer(pulumi.CustomResource):
         $ pulumi import aws:cloudwatch/logTransformer:LogTransformer example arn:aws:logs:us-west-2:123456789012:log-group:example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] log_group_arn: Log group ARN to set the transformer for.
@@ -203,6 +206,7 @@ class LogTransformer(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudwatch/logTransformer:LogTransformer example arn:aws:logs:us-west-2:123456789012:log-group:example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LogTransformerArgs args: The arguments to use to populate this resource's properties.

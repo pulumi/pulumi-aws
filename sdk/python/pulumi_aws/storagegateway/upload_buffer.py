@@ -25,6 +25,7 @@ class UploadBufferArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UploadBuffer resource.
+
         :param pulumi.Input[_builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
         :param pulumi.Input[_builtins.str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         :param pulumi.Input[_builtins.str] disk_path: Local disk path. For example, `/dev/nvme1n1`.
@@ -96,6 +97,7 @@ class _UploadBufferState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UploadBuffer resources.
+
         :param pulumi.Input[_builtins.str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         :param pulumi.Input[_builtins.str] disk_path: Local disk path. For example, `/dev/nvme1n1`.
         :param pulumi.Input[_builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
@@ -211,6 +213,7 @@ class UploadBuffer(pulumi.CustomResource):
         $ pulumi import aws:storagegateway/uploadBuffer:UploadBuffer example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
@@ -264,6 +267,7 @@ class UploadBuffer(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:storagegateway/uploadBuffer:UploadBuffer example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UploadBufferArgs args: The arguments to use to populate this resource's properties.

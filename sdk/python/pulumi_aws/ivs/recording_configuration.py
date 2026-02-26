@@ -29,6 +29,7 @@ class RecordingConfigurationArgs:
                  thumbnail_configuration: Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs']] = None):
         """
         The set of arguments for constructing a RecordingConfiguration resource.
+
         :param pulumi.Input['RecordingConfigurationDestinationConfigurationArgs'] destination_configuration: Object containing destination configuration for where recorded video will be stored.
         :param pulumi.Input[_builtins.str] name: Recording Configuration name.
         :param pulumi.Input[_builtins.int] recording_reconnect_window_seconds: If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
@@ -135,6 +136,7 @@ class _RecordingConfigurationState:
                  thumbnail_configuration: Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering RecordingConfiguration resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Recording Configuration.
         :param pulumi.Input['RecordingConfigurationDestinationConfigurationArgs'] destination_configuration: Object containing destination configuration for where recorded video will be stored.
         :param pulumi.Input[_builtins.str] name: Recording Configuration name.
@@ -320,6 +322,7 @@ class RecordingConfiguration(pulumi.CustomResource):
         $ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RecordingConfigurationDestinationConfigurationArgs', 'RecordingConfigurationDestinationConfigurationArgsDict']] destination_configuration: Object containing destination configuration for where recorded video will be stored.
@@ -368,6 +371,7 @@ class RecordingConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RecordingConfigurationArgs args: The arguments to use to populate this resource's properties.

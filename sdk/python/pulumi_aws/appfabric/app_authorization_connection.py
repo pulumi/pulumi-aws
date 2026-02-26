@@ -28,6 +28,7 @@ class AppAuthorizationConnectionArgs:
                  timeouts: Optional[pulumi.Input['AppAuthorizationConnectionTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AppAuthorizationConnection resource.
+
         :param pulumi.Input[_builtins.str] app_authorization_arn: The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
         :param pulumi.Input[_builtins.str] app_bundle_arn: The Amazon Resource Name (ARN) of the app bundle to use for the request.
         :param pulumi.Input['AppAuthorizationConnectionAuthRequestArgs'] auth_request: Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
@@ -112,6 +113,7 @@ class _AppAuthorizationConnectionState:
                  timeouts: Optional[pulumi.Input['AppAuthorizationConnectionTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AppAuthorizationConnection resources.
+
         :param pulumi.Input[_builtins.str] app: The name of the application.
         :param pulumi.Input[_builtins.str] app_authorization_arn: The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
         :param pulumi.Input[_builtins.str] app_bundle_arn: The Amazon Resource Name (ARN) of the app bundle to use for the request.
@@ -244,6 +246,7 @@ class AppAuthorizationConnection(pulumi.CustomResource):
             app_bundle_arn=arn)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_authorization_arn: The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
@@ -272,6 +275,7 @@ class AppAuthorizationConnection(pulumi.CustomResource):
             app_authorization_arn=test["arn"],
             app_bundle_arn=arn)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AppAuthorizationConnectionArgs args: The arguments to use to populate this resource's properties.

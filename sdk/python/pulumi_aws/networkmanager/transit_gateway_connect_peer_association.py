@@ -25,6 +25,7 @@ class TransitGatewayConnectPeerAssociationArgs:
                  link_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TransitGatewayConnectPeerAssociation resource.
+
         :param pulumi.Input[_builtins.str] device_id: ID of the device.
         :param pulumi.Input[_builtins.str] global_network_id: ID of the global network.
         :param pulumi.Input[_builtins.str] transit_gateway_connect_peer_arn: ARN of the Connect peer.
@@ -98,6 +99,7 @@ class _TransitGatewayConnectPeerAssociationState:
                  transit_gateway_connect_peer_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TransitGatewayConnectPeerAssociation resources.
+
         :param pulumi.Input[_builtins.str] device_id: ID of the device.
         :param pulumi.Input[_builtins.str] global_network_id: ID of the global network.
         :param pulumi.Input[_builtins.str] link_id: ID of the link.
@@ -199,6 +201,7 @@ class TransitGatewayConnectPeerAssociation(pulumi.CustomResource):
         $ pulumi import aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway-connect-peer/tgw-connect-peer-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] device_id: ID of the device.
@@ -236,6 +239,7 @@ class TransitGatewayConnectPeerAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway-connect-peer/tgw-connect-peer-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayConnectPeerAssociationArgs args: The arguments to use to populate this resource's properties.

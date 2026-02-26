@@ -28,6 +28,7 @@ class ProfilingGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ProfilingGroup resource.
+
         :param pulumi.Input['ProfilingGroupAgentOrchestrationConfigArgs'] agent_orchestration_config: Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
         :param pulumi.Input[_builtins.str] compute_platform: Compute platform of the profiling group.
         :param pulumi.Input[_builtins.str] name: Name of the profiling group.
@@ -121,6 +122,7 @@ class _ProfilingGroupState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ProfilingGroup resources.
+
         :param pulumi.Input['ProfilingGroupAgentOrchestrationConfigArgs'] agent_orchestration_config: Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
         :param pulumi.Input[_builtins.str] arn: ARN of the profiling group.
         :param pulumi.Input[_builtins.str] compute_platform: Compute platform of the profiling group.
@@ -272,6 +274,7 @@ class ProfilingGroup(pulumi.CustomResource):
         $ pulumi import aws:codeguruprofiler/profilingGroup:ProfilingGroup example profiling_group-name-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ProfilingGroupAgentOrchestrationConfigArgs', 'ProfilingGroupAgentOrchestrationConfigArgsDict']] agent_orchestration_config: Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
@@ -314,6 +317,7 @@ class ProfilingGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:codeguruprofiler/profilingGroup:ProfilingGroup example profiling_group-name-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProfilingGroupArgs args: The arguments to use to populate this resource's properties.

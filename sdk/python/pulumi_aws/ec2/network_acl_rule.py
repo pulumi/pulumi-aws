@@ -33,6 +33,7 @@ class NetworkAclRuleArgs:
                  to_port: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a NetworkAclRule resource.
+
         :param pulumi.Input[_builtins.str] network_acl_id: The ID of the network ACL.
         :param pulumi.Input[_builtins.str] protocol: The protocol. A value of -1 means all protocols.
         :param pulumi.Input[_builtins.str] rule_action: Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
@@ -241,6 +242,7 @@ class _NetworkAclRuleState:
                  to_port: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering NetworkAclRule resources.
+
         :param pulumi.Input[_builtins.str] cidr_block: The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
         :param pulumi.Input[_builtins.bool] egress: Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
         :param pulumi.Input[_builtins.int] from_port: The from port to match.
@@ -502,6 +504,7 @@ class NetworkAclRule(pulumi.CustomResource):
         $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cidr_block: The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
@@ -575,6 +578,7 @@ class NetworkAclRule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkAclRuleArgs args: The arguments to use to populate this resource's properties.

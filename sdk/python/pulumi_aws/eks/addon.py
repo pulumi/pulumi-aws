@@ -34,6 +34,7 @@ class AddonArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Addon resource.
+
         :param pulumi.Input[_builtins.str] addon_name: Name of the EKS add-on. The name must match one of
                the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
@@ -248,6 +249,7 @@ class _AddonState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Addon resources.
+
         :param pulumi.Input[_builtins.str] addon_name: Name of the EKS add-on. The name must match one of
                the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         :param pulumi.Input[_builtins.str] addon_version: The version of the EKS add-on. The version must
@@ -595,6 +597,7 @@ class Addon(pulumi.CustomResource):
         $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] addon_name: Name of the EKS add-on. The name must match one of
@@ -701,6 +704,7 @@ class Addon(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AddonArgs args: The arguments to use to populate this resource's properties.

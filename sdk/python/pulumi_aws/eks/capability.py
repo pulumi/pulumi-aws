@@ -32,6 +32,7 @@ class CapabilityArgs:
                  timeouts: Optional[pulumi.Input['CapabilityTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Capability resource.
+
         :param pulumi.Input[_builtins.str] capability_name: Name of the capability. Must be unique within the cluster.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS cluster.
         :param pulumi.Input[_builtins.str] delete_propagation_policy: Delete propagation policy for the capability. Valid values: `RETAIN`.
@@ -178,6 +179,7 @@ class _CapabilityState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Capability resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the capability.
         :param pulumi.Input[_builtins.str] capability_name: Name of the capability. Must be unique within the cluster.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS cluster.
@@ -409,6 +411,7 @@ class Capability(pulumi.CustomResource):
         $ pulumi import aws:eks/capability:Capability example my-cluster,my-capability
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] capability_name: Name of the capability. Must be unique within the cluster.
@@ -461,6 +464,7 @@ class Capability(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:eks/capability:Capability example my-cluster,my-capability
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CapabilityArgs args: The arguments to use to populate this resource's properties.

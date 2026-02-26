@@ -29,6 +29,7 @@ class ProjectArgs:
                  timeouts: Optional[pulumi.Input['ProjectTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Project resource.
+
         :param pulumi.Input[_builtins.str] auto_update: Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
         :param pulumi.Input[_builtins.str] feature: Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
         :param pulumi.Input[_builtins.str] name: Desired name of the project.
@@ -135,6 +136,7 @@ class _ProjectState:
                  timeouts: Optional[pulumi.Input['ProjectTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Project resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Project.
         :param pulumi.Input[_builtins.str] auto_update: Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
         :param pulumi.Input[_builtins.str] feature: Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
@@ -307,6 +309,7 @@ class Project(pulumi.CustomResource):
         $ pulumi import aws:rekognition/project:Project example project-id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auto_update: Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
@@ -358,6 +361,7 @@ class Project(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:rekognition/project:Project example project-id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.

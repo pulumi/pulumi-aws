@@ -30,6 +30,7 @@ class PolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Policy resource.
+
         :param pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']] policy: Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
         :param pulumi.Input[_builtins.int] delay_after_policy_creation_in_ms: Number of ms to wait between creating the policy and setting its version as default. May be required in environments with very high S3 IO loads.
         :param pulumi.Input[_builtins.str] description: Description of the IAM policy.
@@ -153,6 +154,7 @@ class _PolicyState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Policy resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this policy.
         :param pulumi.Input[_builtins.int] attachment_count: Number of entities (users, groups, and roles) that the policy is attached to.
         :param pulumi.Input[_builtins.int] delay_after_policy_creation_in_ms: Number of ms to wait between creating the policy and setting its version as default. May be required in environments with very high S3 IO loads.
@@ -375,6 +377,7 @@ class Policy(pulumi.CustomResource):
         $ pulumi import aws:iam/policy:Policy administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] delay_after_policy_creation_in_ms: Number of ms to wait between creating the policy and setting its version as default. May be required in environments with very high S3 IO loads.
@@ -430,6 +433,7 @@ class Policy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iam/policy:Policy administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.

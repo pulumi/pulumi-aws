@@ -26,6 +26,7 @@ class TablePolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TablePolicy resource.
+
         :param pulumi.Input[_builtins.str] namespace: Name of the namespace for this table.
                Must be between 1 and 255 characters in length.
                Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
@@ -119,6 +120,7 @@ class _TablePolicyState:
                  table_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TablePolicy resources.
+
         :param pulumi.Input[_builtins.str] name: Name of the table.
                Must be between 1 and 255 characters in length.
                Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
@@ -232,6 +234,7 @@ class TablePolicy(pulumi.CustomResource):
         $ pulumi import aws:s3tables/tablePolicy:TablePolicy example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace;example-table'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the table.
@@ -264,6 +267,7 @@ class TablePolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3tables/tablePolicy:TablePolicy example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace;example-table'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TablePolicyArgs args: The arguments to use to populate this resource's properties.

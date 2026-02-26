@@ -32,6 +32,7 @@ class V2modelsBotLocaleArgs:
                  voice_settings: Optional[pulumi.Input['V2modelsBotLocaleVoiceSettingsArgs']] = None):
         """
         The set of arguments for constructing a V2modelsBotLocale resource.
+
         :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot to create the locale for.
         :param pulumi.Input[_builtins.str] bot_version: Version of the bot to create the locale for. This can only be the draft version of the bot.
         :param pulumi.Input[_builtins.str] locale_id: Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
@@ -180,6 +181,7 @@ class _V2modelsBotLocaleState:
                  voice_settings: Optional[pulumi.Input['V2modelsBotLocaleVoiceSettingsArgs']] = None):
         """
         Input properties used for looking up and filtering V2modelsBotLocale resources.
+
         :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot to create the locale for.
         :param pulumi.Input[_builtins.str] bot_version: Version of the bot to create the locale for. This can only be the draft version of the bot.
         :param pulumi.Input[_builtins.str] description: Description of the bot locale. Use this to help identify the bot locale in lists.
@@ -377,6 +379,7 @@ class V2modelsBotLocale(pulumi.CustomResource):
         $ pulumi import aws:lex/v2modelsBotLocale:V2modelsBotLocale example en_US,abcd-12345678,1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot to create the locale for.
@@ -438,6 +441,7 @@ class V2modelsBotLocale(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lex/v2modelsBotLocale:V2modelsBotLocale example en_US,abcd-12345678,1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param V2modelsBotLocaleArgs args: The arguments to use to populate this resource's properties.

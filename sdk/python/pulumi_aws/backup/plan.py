@@ -29,6 +29,7 @@ class PlanArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Plan resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['PlanRuleArgs']]] rules: A rule object that specifies a scheduled task that is used to back up a selection of resources.
         :param pulumi.Input[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]] advanced_backup_settings: An object that specifies backup options for each resource type.
         :param pulumi.Input[_builtins.str] name: The display name of a backup plan.
@@ -135,6 +136,7 @@ class _PlanState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Plan resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]] advanced_backup_settings: An object that specifies backup options for each resource type.
         :param pulumi.Input[_builtins.str] arn: The ARN of the backup plan.
         :param pulumi.Input[_builtins.str] name: The display name of a backup plan.
@@ -321,6 +323,7 @@ class Plan(pulumi.CustomResource):
         $ pulumi import aws:backup/plan:Plan test <id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PlanAdvancedBackupSettingArgs', 'PlanAdvancedBackupSettingArgsDict']]]] advanced_backup_settings: An object that specifies backup options for each resource type.
@@ -370,6 +373,7 @@ class Plan(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:backup/plan:Plan test <id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PlanArgs args: The arguments to use to populate this resource's properties.

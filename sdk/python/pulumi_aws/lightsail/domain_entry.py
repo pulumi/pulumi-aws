@@ -27,6 +27,7 @@ class DomainEntryArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DomainEntry resource.
+
         :param pulumi.Input[_builtins.str] domain_name: Name of the Lightsail domain in which to create the entry.
         :param pulumi.Input[_builtins.str] target: Target of the domain entry.
         :param pulumi.Input[_builtins.str] type: Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
@@ -132,6 +133,7 @@ class _DomainEntryState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DomainEntry resources.
+
         :param pulumi.Input[_builtins.str] domain_name: Name of the Lightsail domain in which to create the entry.
         :param pulumi.Input[_builtins.bool] is_alias: Whether the entry should be an alias. Default: `false`.
         :param pulumi.Input[_builtins.str] name: Name of the entry record.
@@ -269,6 +271,7 @@ class DomainEntry(pulumi.CustomResource):
         $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,example.com,A,127.0.0.1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_name: Name of the Lightsail domain in which to create the entry.
@@ -312,6 +315,7 @@ class DomainEntry(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,example.com,A,127.0.0.1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DomainEntryArgs args: The arguments to use to populate this resource's properties.

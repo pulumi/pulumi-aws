@@ -56,6 +56,7 @@ class ClusterArgs:
                  visible_to_all_users: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+
         :param pulumi.Input[_builtins.str] release_label: Release label for the Amazon EMR release.
         :param pulumi.Input[_builtins.str] service_role: IAM role that will be assumed by the Amazon EMR service to access AWS resources.
                
@@ -648,6 +649,7 @@ class _ClusterState:
                  visible_to_all_users: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
+
         :param pulumi.Input[_builtins.str] additional_info: JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applications: A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
         :param pulumi.Input[_builtins.str] arn: ARN of the cluster.
@@ -1572,6 +1574,7 @@ class Cluster(pulumi.CustomResource):
         example = aws.emr.Cluster("example")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] additional_info: JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
@@ -1916,6 +1919,7 @@ class Cluster(pulumi.CustomResource):
 
         example = aws.emr.Cluster("example")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

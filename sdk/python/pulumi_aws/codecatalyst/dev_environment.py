@@ -32,6 +32,7 @@ class DevEnvironmentArgs:
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]] = None):
         """
         The set of arguments for constructing a DevEnvironment resource.
+
         :param pulumi.Input['DevEnvironmentIdesArgs'] ides: Information about the integrated development environment (IDE) configured for a Dev Environment.
         :param pulumi.Input[_builtins.str] instance_type: The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
                
@@ -179,6 +180,7 @@ class _DevEnvironmentState:
                  space_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DevEnvironment resources.
+
         :param pulumi.Input['DevEnvironmentIdesArgs'] ides: Information about the integrated development environment (IDE) configured for a Dev Environment.
         :param pulumi.Input[_builtins.int] inactivity_timeout_minutes: The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
         :param pulumi.Input[_builtins.str] instance_type: The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
@@ -361,6 +363,7 @@ class DevEnvironment(pulumi.CustomResource):
             }])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DevEnvironmentIdesArgs', 'DevEnvironmentIdesArgsDict']] ides: Information about the integrated development environment (IDE) configured for a Dev Environment.
@@ -407,6 +410,7 @@ class DevEnvironment(pulumi.CustomResource):
                 "branch_name": "main",
             }])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DevEnvironmentArgs args: The arguments to use to populate this resource's properties.

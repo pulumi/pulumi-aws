@@ -30,6 +30,7 @@ class LinkArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Link resource.
+
         :param pulumi.Input['LinkBandwidthArgs'] bandwidth: Upload speed and download speed in Mbps. See below.
         :param pulumi.Input[_builtins.str] global_network_id: ID of the global network.
         :param pulumi.Input[_builtins.str] site_id: ID of the site.
@@ -153,6 +154,7 @@ class _LinkState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Link resources.
+
         :param pulumi.Input[_builtins.str] arn: Link ARN.
         :param pulumi.Input['LinkBandwidthArgs'] bandwidth: Upload speed and download speed in Mbps. See below.
         :param pulumi.Input[_builtins.str] description: Description of the link.
@@ -336,6 +338,7 @@ class Link(pulumi.CustomResource):
         $ pulumi import aws:networkmanager/link:Link example arn:aws:networkmanager::123456789012:link/global-network-0d47f6t230mz46dy4/link-444555aaabbb11223
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['LinkBandwidthArgs', 'LinkBandwidthArgsDict']] bandwidth: Upload speed and download speed in Mbps. See below.
@@ -380,6 +383,7 @@ class Link(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:networkmanager/link:Link example arn:aws:networkmanager::123456789012:link/global-network-0d47f6t230mz46dy4/link-444555aaabbb11223
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LinkArgs args: The arguments to use to populate this resource's properties.

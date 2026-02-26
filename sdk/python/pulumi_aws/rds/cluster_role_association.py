@@ -25,6 +25,7 @@ class ClusterRoleAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClusterRoleAssociation resource.
+
         :param pulumi.Input[_builtins.str] db_cluster_identifier: DB Cluster Identifier to associate with the IAM Role.
         :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
         :param pulumi.Input[_builtins.str] feature_name: Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
@@ -95,6 +96,7 @@ class _ClusterRoleAssociationState:
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterRoleAssociation resources.
+
         :param pulumi.Input[_builtins.str] db_cluster_identifier: DB Cluster Identifier to associate with the IAM Role.
         :param pulumi.Input[_builtins.str] feature_name: Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -195,6 +197,7 @@ class ClusterRoleAssociation(pulumi.CustomResource):
         $ pulumi import aws:rds/clusterRoleAssociation:ClusterRoleAssociation example my-db-cluster,arn:aws:iam::123456789012:role/my-role
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] db_cluster_identifier: DB Cluster Identifier to associate with the IAM Role.
@@ -233,6 +236,7 @@ class ClusterRoleAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:rds/clusterRoleAssociation:ClusterRoleAssociation example my-db-cluster,arn:aws:iam::123456789012:role/my-role
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterRoleAssociationArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class ServerlessSecurityPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerlessSecurityPolicy resource.
+
         :param pulumi.Input[_builtins.str] policy: JSON policy document to use as the content for the new policy
         :param pulumi.Input[_builtins.str] type: Type of security policy. One of `encryption` or `network`.
                
@@ -117,6 +118,7 @@ class _ServerlessSecurityPolicyState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerlessSecurityPolicy resources.
+
         :param pulumi.Input[_builtins.str] description: Description of the policy. Typically used to store information about the permissions defined in the policy.
         :param pulumi.Input[_builtins.str] name: Name of the policy.
         :param pulumi.Input[_builtins.str] policy: JSON policy document to use as the content for the new policy
@@ -397,6 +399,7 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         $ pulumi import aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy example example/encryption
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the policy. Typically used to store information about the permissions defined in the policy.
@@ -583,6 +586,7 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy example example/encryption
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerlessSecurityPolicyArgs args: The arguments to use to populate this resource's properties.

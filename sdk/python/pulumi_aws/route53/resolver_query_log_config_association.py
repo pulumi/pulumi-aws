@@ -24,6 +24,7 @@ class ResolverQueryLogConfigAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResolverQueryLogConfigAssociation resource.
+
         :param pulumi.Input[_builtins.str] resolver_query_log_config_id: The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
         :param pulumi.Input[_builtins.str] resource_id: The ID of a VPC that you want this query logging configuration to log queries for.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _ResolverQueryLogConfigAssociationState:
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResolverQueryLogConfigAssociation resources.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resolver_query_log_config_id: The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
         :param pulumi.Input[_builtins.str] resource_id: The ID of a VPC that you want this query logging configuration to log queries for.
@@ -158,6 +160,7 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
         $ pulumi import aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation example rqlca-b320624fef3c4d70
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -191,6 +194,7 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation example rqlca-b320624fef3c4d70
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResolverQueryLogConfigAssociationArgs args: The arguments to use to populate this resource's properties.

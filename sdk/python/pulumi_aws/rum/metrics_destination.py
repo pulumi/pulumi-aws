@@ -26,6 +26,7 @@ class MetricsDestinationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MetricsDestination resource.
+
         :param pulumi.Input[_builtins.str] app_monitor_name: The name of the CloudWatch RUM app monitor that will send the metrics.
         :param pulumi.Input[_builtins.str] destination: Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
         :param pulumi.Input[_builtins.str] destination_arn: Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
@@ -112,6 +113,7 @@ class _MetricsDestinationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MetricsDestination resources.
+
         :param pulumi.Input[_builtins.str] app_monitor_name: The name of the CloudWatch RUM app monitor that will send the metrics.
         :param pulumi.Input[_builtins.str] destination: Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
         :param pulumi.Input[_builtins.str] destination_arn: Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
@@ -224,6 +226,7 @@ class MetricsDestination(pulumi.CustomResource):
         $ pulumi import aws:rum/metricsDestination:MetricsDestination example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_monitor_name: The name of the CloudWatch RUM app monitor that will send the metrics.
@@ -259,6 +262,7 @@ class MetricsDestination(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:rum/metricsDestination:MetricsDestination example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MetricsDestinationArgs args: The arguments to use to populate this resource's properties.

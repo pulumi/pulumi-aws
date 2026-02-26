@@ -44,6 +44,7 @@ class KxClusterArgs:
                  tickerplant_log_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a KxCluster resource.
+
         :param pulumi.Input[_builtins.str] az_mode: The number of availability zones you want to assign per cluster. This can be one of the following:
                * SINGLE - Assigns one availability zone per cluster.
                * MULTI - Assigns all the availability zones per cluster.
@@ -407,6 +408,7 @@ class _KxClusterState:
                  vpc_configuration: Optional[pulumi.Input['KxClusterVpcConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering KxCluster resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX cluster.
         :param pulumi.Input['KxClusterAutoScalingConfigurationArgs'] auto_scaling_configuration: Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
         :param pulumi.Input[_builtins.str] availability_zone_id: The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
@@ -906,6 +908,7 @@ class KxCluster(pulumi.CustomResource):
         $ pulumi import aws:finspace/kxCluster:KxCluster example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-cluster
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['KxClusterAutoScalingConfigurationArgs', 'KxClusterAutoScalingConfigurationArgsDict']] auto_scaling_configuration: Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
@@ -997,6 +1000,7 @@ class KxCluster(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:finspace/kxCluster:KxCluster example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-cluster
         ```
+
 
         :param str resource_name: The name of the resource.
         :param KxClusterArgs args: The arguments to use to populate this resource's properties.

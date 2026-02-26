@@ -25,6 +25,7 @@ class ApplicationAssignmentArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApplicationAssignment resource.
+
         :param pulumi.Input[_builtins.str] application_arn: ARN of the application.
         :param pulumi.Input[_builtins.str] principal_id: An identifier for an object in IAM Identity Center, such as a user or group.
         :param pulumi.Input[_builtins.str] principal_type: Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
@@ -94,6 +95,7 @@ class _ApplicationAssignmentState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApplicationAssignment resources.
+
         :param pulumi.Input[_builtins.str] application_arn: ARN of the application.
         :param pulumi.Input[_builtins.str] principal_id: An identifier for an object in IAM Identity Center, such as a user or group.
         :param pulumi.Input[_builtins.str] principal_type: Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
@@ -205,6 +207,7 @@ class ApplicationAssignment(pulumi.CustomResource):
         $ pulumi import aws:ssoadmin/applicationAssignment:ApplicationAssignment example arn:aws:sso::123456789012:application/id-12345678,abcd1234,USER
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_arn: ARN of the application.
@@ -254,6 +257,7 @@ class ApplicationAssignment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ssoadmin/applicationAssignment:ApplicationAssignment example arn:aws:sso::123456789012:application/id-12345678,abcd1234,USER
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationAssignmentArgs args: The arguments to use to populate this resource's properties.

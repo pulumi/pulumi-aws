@@ -29,6 +29,7 @@ class FunctionEventInvokeConfigArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FunctionEventInvokeConfig resource.
+
         :param pulumi.Input[_builtins.str] function_name: Name or ARN of the Lambda Function, omitting any version or alias qualifier.
                
                The following arguments are optional:
@@ -136,6 +137,7 @@ class _FunctionEventInvokeConfigState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FunctionEventInvokeConfig resources.
+
         :param pulumi.Input['FunctionEventInvokeConfigDestinationConfigArgs'] destination_config: Configuration block with destination configuration. See below.
         :param pulumi.Input[_builtins.str] function_name: Name or ARN of the Lambda Function, omitting any version or alias qualifier.
                
@@ -420,6 +422,7 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example example:production
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['FunctionEventInvokeConfigDestinationConfigArgs', 'FunctionEventInvokeConfigDestinationConfigArgsDict']] destination_config: Configuration block with destination configuration. See below.
@@ -610,6 +613,7 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example example:production
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FunctionEventInvokeConfigArgs args: The arguments to use to populate this resource's properties.

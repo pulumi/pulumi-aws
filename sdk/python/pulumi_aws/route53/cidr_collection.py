@@ -22,6 +22,7 @@ class CidrCollectionArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CidrCollection resource.
+
         :param pulumi.Input[_builtins.str] name: Unique name for the CIDR collection.
         """
         if name is not None:
@@ -48,6 +49,7 @@ class _CidrCollectionState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CidrCollection resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the CIDR collection.
         :param pulumi.Input[_builtins.str] name: Unique name for the CIDR collection.
         :param pulumi.Input[_builtins.int] version: The lastest version of the CIDR collection.
@@ -124,6 +126,7 @@ class CidrCollection(pulumi.CustomResource):
         $ pulumi import aws:route53/cidrCollection:CidrCollection example 9ac32814-3e67-0932-6048-8d779cc6f511
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Unique name for the CIDR collection.
@@ -153,6 +156,7 @@ class CidrCollection(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53/cidrCollection:CidrCollection example 9ac32814-3e67-0932-6048-8d779cc6f511
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CidrCollectionArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class MulticastGroupSourceArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MulticastGroupSource resource.
+
         :param pulumi.Input[_builtins.str] group_ip_address: The IP address assigned to the transit gateway multicast group.
         :param pulumi.Input[_builtins.str] network_interface_id: The group members' network interface ID to register with the transit gateway multicast group.
         :param pulumi.Input[_builtins.str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
@@ -94,6 +95,7 @@ class _MulticastGroupSourceState:
                  transit_gateway_multicast_domain_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MulticastGroupSource resources.
+
         :param pulumi.Input[_builtins.str] group_ip_address: The IP address assigned to the transit gateway multicast group.
         :param pulumi.Input[_builtins.str] network_interface_id: The group members' network interface ID to register with the transit gateway multicast group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -184,6 +186,7 @@ class MulticastGroupSource(pulumi.CustomResource):
             transit_gateway_multicast_domain_id=example_aws_ec2_transit_gateway_multicast_domain["id"])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] group_ip_address: The IP address assigned to the transit gateway multicast group.
@@ -212,6 +215,7 @@ class MulticastGroupSource(pulumi.CustomResource):
             network_interface_id=example_aws_network_interface["id"],
             transit_gateway_multicast_domain_id=example_aws_ec2_transit_gateway_multicast_domain["id"])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MulticastGroupSourceArgs args: The arguments to use to populate this resource's properties.

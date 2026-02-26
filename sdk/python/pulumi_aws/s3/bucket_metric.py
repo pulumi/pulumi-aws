@@ -27,6 +27,7 @@ class BucketMetricArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BucketMetric resource.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket to put metric configuration.
         :param pulumi.Input['BucketMetricFilterArgs'] filter: [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         :param pulumi.Input[_builtins.str] name: Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
@@ -98,6 +99,7 @@ class _BucketMetricState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BucketMetric resources.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket to put metric configuration.
         :param pulumi.Input['BucketMetricFilterArgs'] filter: [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         :param pulumi.Input[_builtins.str] name: Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
@@ -240,6 +242,7 @@ class BucketMetric(pulumi.CustomResource):
         $ pulumi import aws:s3/bucketMetric:BucketMetric my-bucket-entire-bucket my-bucket:EntireBucket
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket to put metric configuration.
@@ -320,6 +323,7 @@ class BucketMetric(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/bucketMetric:BucketMetric my-bucket-entire-bucket my-bucket:EntireBucket
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BucketMetricArgs args: The arguments to use to populate this resource's properties.

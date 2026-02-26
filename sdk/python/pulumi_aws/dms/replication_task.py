@@ -34,6 +34,7 @@ class ReplicationTaskArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReplicationTask resource.
+
         :param pulumi.Input[_builtins.str] migration_type: Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
         :param pulumi.Input[_builtins.str] replication_instance_arn: ARN of the replication instance.
         :param pulumi.Input[_builtins.str] replication_task_id: Replication task identifier which must contain from 1 to 255 alphanumeric characters or hyphens, first character must be a letter, cannot end with a hyphen, and cannot contain two consecutive hyphens.
@@ -247,6 +248,7 @@ class _ReplicationTaskState:
                  target_endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ReplicationTask resources.
+
         :param pulumi.Input[_builtins.str] cdc_start_position: Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
         :param pulumi.Input[_builtins.str] cdc_start_time: RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
         :param pulumi.Input[_builtins.str] migration_type: Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
@@ -544,6 +546,7 @@ class ReplicationTask(pulumi.CustomResource):
         $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cdc_start_position: Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
@@ -599,6 +602,7 @@ class ReplicationTask(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReplicationTaskArgs args: The arguments to use to populate this resource's properties.

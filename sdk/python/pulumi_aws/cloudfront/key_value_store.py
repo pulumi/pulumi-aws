@@ -26,6 +26,7 @@ class KeyValueStoreArgs:
                  timeouts: Optional[pulumi.Input['KeyValueStoreTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a KeyValueStore resource.
+
         :param pulumi.Input[_builtins.str] comment: Comment.
         :param pulumi.Input[_builtins.str] name: Unique name for your CloudFront KeyValueStore.
                
@@ -85,6 +86,7 @@ class _KeyValueStoreState:
                  timeouts: Optional[pulumi.Input['KeyValueStoreTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering KeyValueStore resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
         :param pulumi.Input[_builtins.str] comment: Comment.
         :param pulumi.Input[_builtins.str] etag: ETag hash of the KeyValueStore.
@@ -218,6 +220,7 @@ class KeyValueStore(pulumi.CustomResource):
         $ pulumi import aws:cloudfront/keyValueStore:KeyValueStore example example_store
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Comment.
@@ -264,6 +267,7 @@ class KeyValueStore(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudfront/keyValueStore:KeyValueStore example example_store
         ```
+
 
         :param str resource_name: The name of the resource.
         :param KeyValueStoreArgs args: The arguments to use to populate this resource's properties.

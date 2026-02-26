@@ -28,6 +28,7 @@ class PartitionIndexArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PartitionIndex resource.
+
         :param pulumi.Input[_builtins.str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         :param pulumi.Input['PartitionIndexPartitionIndexArgs'] partition_index: Configuration block for a partition index. See `partition_index` below.
         :param pulumi.Input[_builtins.str] table_name: Name of the table. For Hive compatibility, this must be entirely lowercase.
@@ -113,6 +114,7 @@ class _PartitionIndexState:
                  table_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PartitionIndex resources.
+
         :param pulumi.Input[_builtins.str] catalog_id: The catalog ID where the table resides.
         :param pulumi.Input[_builtins.str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         :param pulumi.Input['PartitionIndexPartitionIndexArgs'] partition_index: Configuration block for a partition index. See `partition_index` below.
@@ -296,6 +298,7 @@ class PartitionIndex(pulumi.CustomResource):
         $ pulumi import aws:glue/partitionIndex:PartitionIndex example 123456789012:MyDatabase:MyTable:index-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: The catalog ID where the table resides.
@@ -402,6 +405,7 @@ class PartitionIndex(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:glue/partitionIndex:PartitionIndex example 123456789012:MyDatabase:MyTable:index-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PartitionIndexArgs args: The arguments to use to populate this resource's properties.

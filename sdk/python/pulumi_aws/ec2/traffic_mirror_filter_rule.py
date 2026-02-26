@@ -34,6 +34,7 @@ class TrafficMirrorFilterRuleArgs:
                  source_port_range: Optional[pulumi.Input['TrafficMirrorFilterRuleSourcePortRangeArgs']] = None):
         """
         The set of arguments for constructing a TrafficMirrorFilterRule resource.
+
         :param pulumi.Input[_builtins.str] destination_cidr_block: Destination CIDR block to assign to the Traffic Mirror rule.
         :param pulumi.Input[_builtins.str] rule_action: Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
         :param pulumi.Input[_builtins.int] rule_number: Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
@@ -217,6 +218,7 @@ class _TrafficMirrorFilterRuleState:
                  traffic_mirror_filter_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TrafficMirrorFilterRule resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the traffic mirror filter rule.
         :param pulumi.Input[_builtins.str] description: Description of the traffic mirror filter rule.
         :param pulumi.Input[_builtins.str] destination_cidr_block: Destination CIDR block to assign to the Traffic Mirror rule.
@@ -472,6 +474,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
         $ pulumi import aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule rule tmf-0fbb93ddf38198f64:tmfr-05a458f06445d0aee
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the traffic mirror filter rule.
@@ -543,6 +546,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule rule tmf-0fbb93ddf38198f64:tmfr-05a458f06445d0aee
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TrafficMirrorFilterRuleArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class LbCertificateArgs:
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LbCertificate resource.
+
         :param pulumi.Input[_builtins.str] lb_name: Load balancer name where you want to create the SSL/TLS certificate.
         :param pulumi.Input[_builtins.str] domain_name: Domain name (e.g., example.com) for your SSL/TLS certificate.
         :param pulumi.Input[_builtins.str] name: SSL/TLS certificate name.
@@ -123,6 +124,7 @@ class _LbCertificateState:
                  support_code: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LbCertificate resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the lightsail certificate.
         :param pulumi.Input[_builtins.str] created_at: Timestamp when the instance was created.
         :param pulumi.Input[_builtins.str] domain_name: Domain name (e.g., example.com) for your SSL/TLS certificate.
@@ -309,6 +311,7 @@ class LbCertificate(pulumi.CustomResource):
         $ pulumi import aws:lightsail/lbCertificate:LbCertificate example example-load-balancer,example-load-balancer-certificate
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_name: Domain name (e.g., example.com) for your SSL/TLS certificate.
@@ -356,6 +359,7 @@ class LbCertificate(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lightsail/lbCertificate:LbCertificate example example-load-balancer,example-load-balancer-certificate
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LbCertificateArgs args: The arguments to use to populate this resource's properties.

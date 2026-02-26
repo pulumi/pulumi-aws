@@ -24,6 +24,7 @@ class VpnConnectionRouteInitArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpnConnectionRoute resource.
+
         :param pulumi.Input[_builtins.str] destination_cidr_block: The CIDR block associated with the local subnet of the customer network.
         :param pulumi.Input[_builtins.str] vpn_connection_id: The ID of the VPN connection.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _VpnConnectionRouteState:
                  vpn_connection_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpnConnectionRoute resources.
+
         :param pulumi.Input[_builtins.str] destination_cidr_block: The CIDR block associated with the local subnet of the customer network.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] vpn_connection_id: The ID of the VPN connection.
@@ -161,6 +163,7 @@ class VpnConnectionRoute(pulumi.CustomResource):
             vpn_connection_id=main.id)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] destination_cidr_block: The CIDR block associated with the local subnet of the customer network.
@@ -197,6 +200,7 @@ class VpnConnectionRoute(pulumi.CustomResource):
             destination_cidr_block="192.168.10.0/24",
             vpn_connection_id=main.id)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpnConnectionRouteInitArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class ScopeArgs:
                  timeouts: Optional[pulumi.Input['ScopeTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Scope resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ScopeTargetArgs']]] targets: The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
                
                The following arguments are optional:
@@ -101,6 +102,7 @@ class _ScopeState:
                  timeouts: Optional[pulumi.Input['ScopeTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Scope resources.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] scope_arn: The Amazon Resource Name (ARN) of the scope.
         :param pulumi.Input[_builtins.str] scope_id: The identifier for the scope that includes the resources you want to get data results for.
@@ -255,6 +257,7 @@ class Scope(pulumi.CustomResource):
         $ pulumi import aws:networkflowmonitor/scope:Scope example example-scope-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -303,6 +306,7 @@ class Scope(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:networkflowmonitor/scope:Scope example example-scope-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ScopeArgs args: The arguments to use to populate this resource's properties.

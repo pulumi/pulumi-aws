@@ -29,6 +29,7 @@ class ConnectAttachmentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConnectAttachment resource.
+
         :param pulumi.Input[_builtins.str] core_network_id: ID of a core network where you want to create the attachment.
         :param pulumi.Input[_builtins.str] edge_location: Region where the edge is located.
         :param pulumi.Input['ConnectAttachmentOptionsArgs'] options: Options block. See options for more information.
@@ -143,6 +144,7 @@ class _ConnectAttachmentState:
                  transport_attachment_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConnectAttachment resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the attachment.
         :param pulumi.Input[_builtins.str] attachment_id: ID of the attachment.
         :param pulumi.Input[_builtins.int] attachment_policy_rule_number: Policy rule number associated with the attachment.
@@ -463,6 +465,7 @@ class ConnectAttachment(pulumi.CustomResource):
         $ pulumi import aws:networkmanager/connectAttachment:ConnectAttachment example attachment-0f8fa60d2238d1bd8
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] core_network_id: ID of a core network where you want to create the attachment.
@@ -539,6 +542,7 @@ class ConnectAttachment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:networkmanager/connectAttachment:ConnectAttachment example attachment-0f8fa60d2238d1bd8
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConnectAttachmentArgs args: The arguments to use to populate this resource's properties.

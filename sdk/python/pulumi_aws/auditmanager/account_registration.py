@@ -25,6 +25,7 @@ class AccountRegistrationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccountRegistration resource.
+
         :param pulumi.Input[_builtins.str] delegated_admin_account: Identifier for the delegated administrator account.
         :param pulumi.Input[_builtins.bool] deregister_on_destroy: Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
         :param pulumi.Input[_builtins.str] kms_key: KMS key identifier.
@@ -98,6 +99,7 @@ class _AccountRegistrationState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountRegistration resources.
+
         :param pulumi.Input[_builtins.str] delegated_admin_account: Identifier for the delegated administrator account.
         :param pulumi.Input[_builtins.bool] deregister_on_destroy: Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
         :param pulumi.Input[_builtins.str] kms_key: KMS key identifier.
@@ -218,6 +220,7 @@ class AccountRegistration(pulumi.CustomResource):
         $ pulumi import aws:auditmanager/accountRegistration:AccountRegistration example us-east-1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] delegated_admin_account: Identifier for the delegated administrator account.
@@ -261,6 +264,7 @@ class AccountRegistration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:auditmanager/accountRegistration:AccountRegistration example us-east-1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountRegistrationArgs args: The arguments to use to populate this resource's properties.

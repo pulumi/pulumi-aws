@@ -30,6 +30,7 @@ class TrustArgs:
                  trust_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Trust resource.
+
         :param pulumi.Input[_builtins.str] directory_id: ID of the Directory.
         :param pulumi.Input[_builtins.str] remote_domain_name: Fully qualified domain name of the remote Directory.
         :param pulumi.Input[_builtins.str] trust_direction: The direction of the Trust relationship.
@@ -201,6 +202,7 @@ class _TrustState:
                  trust_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Trust resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] conditional_forwarder_ip_addrs: Set of IPv4 addresses for the DNS server associated with the remote Directory.
                Can contain between 1 and 4 values.
         :param pulumi.Input[_builtins.str] created_date_time: Date and time when the Trust was created.
@@ -521,6 +523,7 @@ class Trust(pulumi.CustomResource):
         $ pulumi import aws:directoryservice/trust:Trust example d-926724cf57/directory.example.com
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] conditional_forwarder_ip_addrs: Set of IPv4 addresses for the DNS server associated with the remote Directory.
@@ -618,6 +621,7 @@ class Trust(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:directoryservice/trust:Trust example d-926724cf57/directory.example.com
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TrustArgs args: The arguments to use to populate this resource's properties.

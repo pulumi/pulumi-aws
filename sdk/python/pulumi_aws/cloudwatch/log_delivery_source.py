@@ -26,6 +26,7 @@ class LogDeliverySourceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LogDeliverySource resource.
+
         :param pulumi.Input[_builtins.str] log_type: The type of log that the source is sending. For Amazon Bedrock, the valid value is `APPLICATION_LOGS`. For Amazon CodeWhisperer, the valid value is `EVENT_LOGS`. For IAM Identity Center, the valid value is `ERROR_LOGS`. For Amazon WorkMail, the valid values are `ACCESS_CONTROL_LOGS`, `AUTHENTICATION_LOGS`, `WORKMAIL_AVAILABILITY_PROVIDER_LOGS`, and `WORKMAIL_MAILBOX_ACCESS_LOGS`.
         :param pulumi.Input[_builtins.str] resource_arn: The ARN of the AWS resource that is generating and sending logs.
         :param pulumi.Input[_builtins.str] name: The name for this delivery source.
@@ -115,6 +116,7 @@ class _LogDeliverySourceState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LogDeliverySource resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the delivery source.
         :param pulumi.Input[_builtins.str] log_type: The type of log that the source is sending. For Amazon Bedrock, the valid value is `APPLICATION_LOGS`. For Amazon CodeWhisperer, the valid value is `EVENT_LOGS`. For IAM Identity Center, the valid value is `ERROR_LOGS`. For Amazon WorkMail, the valid values are `ACCESS_CONTROL_LOGS`, `AUTHENTICATION_LOGS`, `WORKMAIL_AVAILABILITY_PROVIDER_LOGS`, and `WORKMAIL_MAILBOX_ACCESS_LOGS`.
         :param pulumi.Input[_builtins.str] name: The name for this delivery source.
@@ -275,6 +277,7 @@ class LogDeliverySource(pulumi.CustomResource):
         $ pulumi import aws:cloudwatch/logDeliverySource:LogDeliverySource example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] log_type: The type of log that the source is sending. For Amazon Bedrock, the valid value is `APPLICATION_LOGS`. For Amazon CodeWhisperer, the valid value is `EVENT_LOGS`. For IAM Identity Center, the valid value is `ERROR_LOGS`. For Amazon WorkMail, the valid values are `ACCESS_CONTROL_LOGS`, `AUTHENTICATION_LOGS`, `WORKMAIL_AVAILABILITY_PROVIDER_LOGS`, and `WORKMAIL_MAILBOX_ACCESS_LOGS`.
@@ -313,6 +316,7 @@ class LogDeliverySource(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudwatch/logDeliverySource:LogDeliverySource example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LogDeliverySourceArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class CatalogTableOptimizerArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CatalogTableOptimizer resource.
+
         :param pulumi.Input[_builtins.str] catalog_id: The Catalog ID of the table.
         :param pulumi.Input['CatalogTableOptimizerConfigurationArgs'] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
         :param pulumi.Input[_builtins.str] database_name: The name of the database in the catalog in which the table resides.
@@ -128,6 +129,7 @@ class _CatalogTableOptimizerState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CatalogTableOptimizer resources.
+
         :param pulumi.Input[_builtins.str] catalog_id: The Catalog ID of the table.
         :param pulumi.Input['CatalogTableOptimizerConfigurationArgs'] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
         :param pulumi.Input[_builtins.str] database_name: The name of the database in the catalog in which the table resides.
@@ -311,6 +313,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
         $ pulumi import aws:glue/catalogTableOptimizer:CatalogTableOptimizer example 123456789012,example_database,example_table,compaction
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: The Catalog ID of the table.
@@ -402,6 +405,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:glue/catalogTableOptimizer:CatalogTableOptimizer example 123456789012,example_database,example_table,compaction
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CatalogTableOptimizerArgs args: The arguments to use to populate this resource's properties.

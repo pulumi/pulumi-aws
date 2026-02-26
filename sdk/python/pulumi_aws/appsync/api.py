@@ -28,6 +28,7 @@ class ApiArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Api resource.
+
         :param pulumi.Input['ApiEventConfigArgs'] event_config: Configuration for the Event API. See Event Config below.
         :param pulumi.Input[_builtins.str] name: Name of the Event API.
                
@@ -125,6 +126,7 @@ class _ApiState:
                  xray_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Api resources.
+
         :param pulumi.Input[_builtins.str] api_arn: ARN of the Event API.
         :param pulumi.Input[_builtins.str] api_id: ID of the Event API.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] dns: DNS configuration for the Event API.
@@ -400,6 +402,7 @@ class Api(pulumi.CustomResource):
         $ pulumi import aws:appsync/api:Api example example-api-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']] event_config: Configuration for the Event API. See Event Config below.
@@ -510,6 +513,7 @@ class Api(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appsync/api:Api example example-api-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApiArgs args: The arguments to use to populate this resource's properties.

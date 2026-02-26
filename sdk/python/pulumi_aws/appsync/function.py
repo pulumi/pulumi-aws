@@ -35,6 +35,7 @@ class FunctionArgs:
                  sync_config: Optional[pulumi.Input['FunctionSyncConfigArgs']] = None):
         """
         The set of arguments for constructing a Function resource.
+
         :param pulumi.Input[_builtins.str] api_id: ID of the associated AppSync API.
         :param pulumi.Input[_builtins.str] data_source: Function data source name.
         :param pulumi.Input[_builtins.str] code: The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
@@ -235,6 +236,7 @@ class _FunctionState:
                  sync_config: Optional[pulumi.Input['FunctionSyncConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Function resources.
+
         :param pulumi.Input[_builtins.str] api_id: ID of the associated AppSync API.
         :param pulumi.Input[_builtins.str] arn: ARN of the Function object.
         :param pulumi.Input[_builtins.str] code: The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
@@ -551,6 +553,7 @@ class Function(pulumi.CustomResource):
         $ pulumi import aws:appsync/function:Function example xxxxx-yyyyy
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: ID of the associated AppSync API.
@@ -655,6 +658,7 @@ class Function(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appsync/function:Function example xxxxx-yyyyy
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FunctionArgs args: The arguments to use to populate this resource's properties.

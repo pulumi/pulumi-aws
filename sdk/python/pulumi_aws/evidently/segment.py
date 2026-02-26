@@ -26,6 +26,7 @@ class SegmentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Segment resource.
+
         :param pulumi.Input[_builtins.str] pattern: The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
         :param pulumi.Input[_builtins.str] description: Specifies the description of the segment.
         :param pulumi.Input[_builtins.str] name: A name for the segment.
@@ -119,6 +120,7 @@ class _SegmentState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Segment resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the segment.
         :param pulumi.Input[_builtins.str] created_time: The date and time that the segment is created.
         :param pulumi.Input[_builtins.str] description: Specifies the description of the segment.
@@ -361,6 +363,7 @@ class Segment(pulumi.CustomResource):
         $ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Specifies the description of the segment.
@@ -436,6 +439,7 @@ class Segment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SegmentArgs args: The arguments to use to populate this resource's properties.

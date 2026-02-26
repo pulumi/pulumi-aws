@@ -29,6 +29,7 @@ class ManagedPrefixListArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ManagedPrefixList resource.
+
         :param pulumi.Input[_builtins.str] address_family: Address family (`IPv4` or `IPv6`) of this prefix list.
         :param pulumi.Input[_builtins.int] max_entries: Maximum number of entries that this prefix list can contain.
         :param pulumi.Input[Sequence[pulumi.Input['ManagedPrefixListEntryArgs']]] entries: Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
@@ -135,6 +136,7 @@ class _ManagedPrefixListState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering ManagedPrefixList resources.
+
         :param pulumi.Input[_builtins.str] address_family: Address family (`IPv4` or `IPv6`) of this prefix list.
         :param pulumi.Input[_builtins.str] arn: ARN of the prefix list.
         :param pulumi.Input[Sequence[pulumi.Input['ManagedPrefixListEntryArgs']]] entries: Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
@@ -351,6 +353,7 @@ class ManagedPrefixList(pulumi.CustomResource):
         $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] address_family: Address family (`IPv4` or `IPv6`) of this prefix list.
@@ -415,6 +418,7 @@ class ManagedPrefixList(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedPrefixListArgs args: The arguments to use to populate this resource's properties.

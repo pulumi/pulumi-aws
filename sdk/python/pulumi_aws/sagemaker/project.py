@@ -28,6 +28,7 @@ class ProjectArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Project resource.
+
         :param pulumi.Input[_builtins.str] project_name: The name of the Project.
         :param pulumi.Input['ProjectServiceCatalogProvisioningDetailsArgs'] service_catalog_provisioning_details: The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
         :param pulumi.Input[_builtins.str] project_description: A description for the project.
@@ -117,6 +118,7 @@ class _ProjectState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Project resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Project.
         :param pulumi.Input[_builtins.str] project_description: A description for the project.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
@@ -278,6 +280,7 @@ class Project(pulumi.CustomResource):
         $ pulumi import aws:sagemaker/project:Project example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] project_description: A description for the project.
@@ -317,6 +320,7 @@ class Project(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sagemaker/project:Project example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class CertificateAuthorityCertificateArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CertificateAuthorityCertificate resource.
+
         :param pulumi.Input[_builtins.str] certificate: PEM-encoded certificate for the Certificate Authority.
         :param pulumi.Input[_builtins.str] certificate_authority_arn: ARN of the Certificate Authority.
         :param pulumi.Input[_builtins.str] certificate_chain: PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
@@ -95,6 +96,7 @@ class _CertificateAuthorityCertificateState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CertificateAuthorityCertificate resources.
+
         :param pulumi.Input[_builtins.str] certificate: PEM-encoded certificate for the Certificate Authority.
         :param pulumi.Input[_builtins.str] certificate_authority_arn: ARN of the Certificate Authority.
         :param pulumi.Input[_builtins.str] certificate_chain: PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
@@ -241,6 +243,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         root_certificate = aws.acmpca.Certificate("root")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate: PEM-encoded certificate for the Certificate Authority.
@@ -325,6 +328,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         root_certificate_authority_certificate = aws.acmpca.CertificateAuthorityCertificate("root")
         root_certificate = aws.acmpca.Certificate("root")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CertificateAuthorityCertificateArgs args: The arguments to use to populate this resource's properties.

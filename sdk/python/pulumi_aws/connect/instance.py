@@ -33,6 +33,7 @@ class InstanceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Instance resource.
+
         :param pulumi.Input[_builtins.str] identity_management_type: Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
         :param pulumi.Input[_builtins.bool] inbound_calls_enabled: Specifies whether inbound calls are enabled.
         :param pulumi.Input[_builtins.bool] outbound_calls_enabled: Specifies whether outbound calls are enabled.
@@ -237,6 +238,7 @@ class _InstanceState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Instance resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the instance.
         :param pulumi.Input[_builtins.bool] auto_resolve_best_voices_enabled: Specifies whether auto resolve best voices is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] contact_flow_logs_enabled: Specifies whether contact flow logs are enabled. Defaults to `false`.
@@ -584,6 +586,7 @@ class Instance(pulumi.CustomResource):
         $ pulumi import aws:connect/instance:Instance example f1288a1f-6193-445a-b47e-af739b2
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_resolve_best_voices_enabled: Specifies whether auto resolve best voices is enabled. Defaults to `true`.
@@ -673,6 +676,7 @@ class Instance(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:connect/instance:Instance example f1288a1f-6193-445a-b47e-af739b2
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class IpRestrictionArgs:
                  vpc_id_restriction_rule_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IpRestriction resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Whether IP rules are turned on.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ip_restriction_rule_map: Map of allowed IPv4 CIDR ranges and descriptions.
@@ -130,6 +131,7 @@ class _IpRestrictionState:
                  vpc_id_restriction_rule_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering IpRestriction resources.
+
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.bool] enabled: Whether IP rules are turned on.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ip_restriction_rule_map: Map of allowed IPv4 CIDR ranges and descriptions.
@@ -265,6 +267,7 @@ class IpRestriction(pulumi.CustomResource):
         $ pulumi import aws:quicksight/ipRestriction:IpRestriction example "012345678901"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
@@ -308,6 +311,7 @@ class IpRestriction(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:quicksight/ipRestriction:IpRestriction example "012345678901"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IpRestrictionArgs args: The arguments to use to populate this resource's properties.

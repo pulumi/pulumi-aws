@@ -25,6 +25,7 @@ class IdentityPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IdentityPolicy resource.
+
         :param pulumi.Input[_builtins.str] identity: Name or Amazon Resource Name (ARN) of the SES Identity.
         :param pulumi.Input[_builtins.str] policy: JSON string of the policy.
         :param pulumi.Input[_builtins.str] name: Name of the policy.
@@ -95,6 +96,7 @@ class _IdentityPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IdentityPolicy resources.
+
         :param pulumi.Input[_builtins.str] identity: Name or Amazon Resource Name (ARN) of the SES Identity.
         :param pulumi.Input[_builtins.str] name: Name of the policy.
         :param pulumi.Input[_builtins.str] policy: JSON string of the policy.
@@ -204,6 +206,7 @@ class IdentityPolicy(pulumi.CustomResource):
         $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] identity: Name or Amazon Resource Name (ARN) of the SES Identity.
@@ -251,6 +254,7 @@ class IdentityPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IdentityPolicyArgs args: The arguments to use to populate this resource's properties.

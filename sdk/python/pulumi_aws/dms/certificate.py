@@ -26,6 +26,7 @@ class CertificateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Certificate resource.
+
         :param pulumi.Input[_builtins.str] certificate_id: The certificate identifier.
         :param pulumi.Input[_builtins.str] certificate_pem: The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
         :param pulumi.Input[_builtins.str] certificate_wallet: The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
@@ -115,6 +116,7 @@ class _CertificateState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
+
         :param pulumi.Input[_builtins.str] certificate_arn: The Amazon Resource Name (ARN) for the certificate.
         :param pulumi.Input[_builtins.str] certificate_id: The certificate identifier.
         :param pulumi.Input[_builtins.str] certificate_pem: The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
@@ -261,6 +263,7 @@ class Certificate(pulumi.CustomResource):
         $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_id: The certificate identifier.
@@ -300,6 +303,7 @@ class Certificate(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

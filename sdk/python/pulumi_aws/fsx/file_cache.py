@@ -34,6 +34,7 @@ class FileCacheArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FileCache resource.
+
         :param pulumi.Input[_builtins.str] file_cache_type: The type of cache that you're creating. The only supported value is `LUSTRE`.
         :param pulumi.Input[_builtins.str] file_cache_type_version: The version for the type of cache that you're creating. The only supported value is `2.12`.
         :param pulumi.Input[_builtins.int] storage_capacity: The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
@@ -228,6 +229,7 @@ class _FileCacheState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FileCache resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) for the resource.
         :param pulumi.Input[_builtins.bool] copy_tags_to_data_repository_associations: A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_repository_association_ids: A list of IDs of data repository associations that are associated with this cache.
@@ -580,6 +582,7 @@ class FileCache(pulumi.CustomResource):
         $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] copy_tags_to_data_repository_associations: A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
@@ -650,6 +653,7 @@ class FileCache(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FileCacheArgs args: The arguments to use to populate this resource's properties.

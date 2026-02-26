@@ -27,6 +27,7 @@ class MeshArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Mesh resource.
+
         :param pulumi.Input[_builtins.str] name: Name to use for the service mesh. Must be between 1 and 255 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['MeshSpecArgs'] spec: Service mesh specification to apply.
@@ -105,6 +106,7 @@ class _MeshState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Mesh resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the service mesh.
         :param pulumi.Input[_builtins.str] created_date: Creation date of the service mesh.
         :param pulumi.Input[_builtins.str] last_updated_date: Last update date of the service mesh.
@@ -306,6 +308,7 @@ class Mesh(pulumi.CustomResource):
         $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name to use for the service mesh. Must be between 1 and 255 characters in length.
@@ -355,6 +358,7 @@ class Mesh(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MeshArgs args: The arguments to use to populate this resource's properties.

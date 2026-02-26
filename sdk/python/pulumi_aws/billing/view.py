@@ -29,6 +29,7 @@ class ViewArgs:
                  timeouts: Optional[pulumi.Input['ViewTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a View resource.
+
         :param pulumi.Input['ViewDataFilterExpressionArgs'] data_filter_expression: Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
         :param pulumi.Input[_builtins.str] description: Description of the custom billing view.
         :param pulumi.Input[_builtins.str] name: Name of the custom billing view to be created.
@@ -143,6 +144,7 @@ class _ViewState:
                  view_definition_last_updated_at: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering View resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the View.
         :param pulumi.Input[_builtins.str] billing_view_type: Type of billing group. Valid values are PRIMARY|BILLING_GROUP|CUSTOM.
         :param pulumi.Input[_builtins.str] created_at: Timestamp when the billing view was created.
@@ -424,6 +426,7 @@ class View(pulumi.CustomResource):
         $ pulumi import aws:billing/view:View example arn:aws:billing::123456789012:billing-view/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ViewDataFilterExpressionArgs', 'ViewDataFilterExpressionArgsDict']] data_filter_expression: Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
@@ -464,6 +467,7 @@ class View(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:billing/view:View example arn:aws:billing::123456789012:billing-view/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ViewArgs args: The arguments to use to populate this resource's properties.

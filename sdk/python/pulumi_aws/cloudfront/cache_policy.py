@@ -29,6 +29,7 @@ class CachePolicyArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CachePolicy resource.
+
         :param pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs'] parameters_in_cache_key_and_forwarded_to_origin: Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
         :param pulumi.Input[_builtins.str] comment: Description for the cache policy.
         :param pulumi.Input[_builtins.int] default_ttl: Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
@@ -134,6 +135,7 @@ class _CachePolicyState:
                  parameters_in_cache_key_and_forwarded_to_origin: Optional[pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs']] = None):
         """
         Input properties used for looking up and filtering CachePolicy resources.
+
         :param pulumi.Input[_builtins.str] arn: The cache policy ARN.
         :param pulumi.Input[_builtins.str] comment: Description for the cache policy.
         :param pulumi.Input[_builtins.int] default_ttl: Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
@@ -315,6 +317,7 @@ class CachePolicy(pulumi.CustomResource):
         $ pulumi import aws:cloudfront/cachePolicy:CachePolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f6
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Description for the cache policy.
@@ -374,6 +377,7 @@ class CachePolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudfront/cachePolicy:CachePolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f6
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CachePolicyArgs args: The arguments to use to populate this resource's properties.

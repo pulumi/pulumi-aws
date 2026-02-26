@@ -29,6 +29,7 @@ class CloudFormationTypeArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CloudFormationType resource.
+
         :param pulumi.Input[_builtins.str] schema_handler_package: URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
         :param pulumi.Input[_builtins.str] type_name: CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
         :param pulumi.Input[_builtins.str] execution_role_arn: Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
@@ -143,6 +144,7 @@ class _CloudFormationTypeState:
                  visibility: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CloudFormationType resources.
+
         :param pulumi.Input[_builtins.str] arn: (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `type_arn`.
         :param pulumi.Input[_builtins.str] default_version_id: Identifier of the CloudFormation Type default version.
         :param pulumi.Input[_builtins.str] deprecated_status: Deprecation status of the version.
@@ -440,6 +442,7 @@ class CloudFormationType(pulumi.CustomResource):
         $ pulumi import aws:cloudformation/cloudFormationType:CloudFormationType example arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] execution_role_arn: Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
@@ -465,6 +468,7 @@ class CloudFormationType(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudformation/cloudFormationType:CloudFormationType example arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CloudFormationTypeArgs args: The arguments to use to populate this resource's properties.

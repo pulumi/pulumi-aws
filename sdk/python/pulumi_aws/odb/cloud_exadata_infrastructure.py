@@ -36,6 +36,7 @@ class CloudExadataInfrastructureArgs:
                  timeouts: Optional[pulumi.Input['CloudExadataInfrastructureTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a CloudExadataInfrastructure resource.
+
         :param pulumi.Input[_builtins.str] availability_zone_id: The AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
                
                The following arguments are optional:
@@ -276,6 +277,7 @@ class _CloudExadataInfrastructureState:
                  total_storage_size_in_gbs: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CloudExadataInfrastructure resources.
+
         :param pulumi.Input[_builtins.int] activated_storage_count: The number of storage servers requested for the Exadata infrastructure.
         :param pulumi.Input[_builtins.int] additional_storage_count: The number of storage servers requested for the Exadata infrastructure.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Exadata infrastructure.
@@ -923,6 +925,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
         $ pulumi import aws:odb/cloudExadataInfrastructure:CloudExadataInfrastructure example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability_zone: The name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
@@ -958,6 +961,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:odb/cloudExadataInfrastructure:CloudExadataInfrastructure example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CloudExadataInfrastructureArgs args: The arguments to use to populate this resource's properties.

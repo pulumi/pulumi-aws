@@ -35,6 +35,7 @@ class IndexArgs:
                  user_token_configurations: Optional[pulumi.Input['IndexUserTokenConfigurationsArgs']] = None):
         """
         The set of arguments for constructing a Index resource.
+
         :param pulumi.Input[_builtins.str] role_arn: An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
         :param pulumi.Input['IndexCapacityUnitsArgs'] capacity_units: A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         :param pulumi.Input[_builtins.str] description: The description of the Index.
@@ -243,6 +244,7 @@ class _IndexState:
                  user_token_configurations: Optional[pulumi.Input['IndexUserTokenConfigurationsArgs']] = None):
         """
         Input properties used for looking up and filtering Index resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Index.
         :param pulumi.Input['IndexCapacityUnitsArgs'] capacity_units: A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         :param pulumi.Input[_builtins.str] created_at: The Unix datetime that the index was created.
@@ -1129,6 +1131,7 @@ class Index(pulumi.CustomResource):
         $ pulumi import aws:kendra/index:Index example 12345678-1234-5678-9123-123456789123
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['IndexCapacityUnitsArgs', 'IndexCapacityUnitsArgsDict']] capacity_units: A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
@@ -1727,6 +1730,7 @@ class Index(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:kendra/index:Index example 12345678-1234-5678-9123-123456789123
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IndexArgs args: The arguments to use to populate this resource's properties.

@@ -31,6 +31,7 @@ class AppAuthorizationArgs:
                  timeouts: Optional[pulumi.Input['AppAuthorizationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AppAuthorization resource.
+
         :param pulumi.Input[_builtins.str] app: The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
         :param pulumi.Input[_builtins.str] app_bundle_arn: The Amazon Resource Name (ARN) of the app bundle to use for the request.
         :param pulumi.Input[_builtins.str] auth_type: The authorization type for the app authorization valid values are oauth2 and apiKey.
@@ -162,6 +163,7 @@ class _AppAuthorizationState:
                  updated_at: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AppAuthorization resources.
+
         :param pulumi.Input[_builtins.str] app: The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
         :param pulumi.Input[_builtins.str] app_bundle_arn: The Amazon Resource Name (ARN) of the app bundle to use for the request.
         :param pulumi.Input[_builtins.str] arn: ARN of the App Authorization. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
@@ -398,6 +400,7 @@ class AppAuthorization(pulumi.CustomResource):
             }])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app: The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
@@ -439,6 +442,7 @@ class AppAuthorization(pulumi.CustomResource):
                 "tenant_identifier": "example",
             }])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AppAuthorizationArgs args: The arguments to use to populate this resource's properties.

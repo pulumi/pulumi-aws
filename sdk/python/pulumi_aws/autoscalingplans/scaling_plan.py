@@ -27,6 +27,7 @@ class ScalingPlanArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScalingPlan resource.
+
         :param pulumi.Input['ScalingPlanApplicationSourceArgs'] application_source: CloudFormation stack or set of tags. You can create one scaling plan per application source.
         :param pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]] scaling_instructions: Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
         :param pulumi.Input[_builtins.str] name: Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
@@ -98,6 +99,7 @@ class _ScalingPlanState:
                  scaling_plan_version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering ScalingPlan resources.
+
         :param pulumi.Input['ScalingPlanApplicationSourceArgs'] application_source: CloudFormation stack or set of tags. You can create one scaling plan per application source.
         :param pulumi.Input[_builtins.str] name: Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -297,6 +299,7 @@ class ScalingPlan(pulumi.CustomResource):
         $ pulumi import aws:autoscalingplans/scalingPlan:ScalingPlan example MyScale1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ScalingPlanApplicationSourceArgs', 'ScalingPlanApplicationSourceArgsDict']] application_source: CloudFormation stack or set of tags. You can create one scaling plan per application source.
@@ -419,6 +422,7 @@ class ScalingPlan(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:autoscalingplans/scalingPlan:ScalingPlan example MyScale1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ScalingPlanArgs args: The arguments to use to populate this resource's properties.

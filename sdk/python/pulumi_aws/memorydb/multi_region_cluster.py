@@ -35,6 +35,7 @@ class MultiRegionClusterArgs:
                  update_strategy: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MultiRegionCluster resource.
+
         :param pulumi.Input[_builtins.str] multi_region_cluster_name_suffix: A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
         :param pulumi.Input[_builtins.str] node_type: The node type to be used for the multi-region cluster.
                
@@ -233,6 +234,7 @@ class _MultiRegionClusterState:
                  update_strategy: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MultiRegionCluster resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the multi-region cluster.
         :param pulumi.Input[_builtins.str] description: description for the multi-region cluster.
         :param pulumi.Input[_builtins.str] engine: The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
@@ -521,6 +523,7 @@ class MultiRegionCluster(pulumi.CustomResource):
         $ pulumi import aws:memorydb/multiRegionCluster:MultiRegionCluster example virxk-example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: description for the multi-region cluster.
@@ -575,6 +578,7 @@ class MultiRegionCluster(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:memorydb/multiRegionCluster:MultiRegionCluster example virxk-example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MultiRegionClusterArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class ConnectArgs:
                  transit_gateway_default_route_table_propagation: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Connect resource.
+
         :param pulumi.Input[_builtins.str] transit_gateway_id: Identifier of EC2 Transit Gateway.
         :param pulumi.Input[_builtins.str] transport_attachment_id: The underlaying VPC attachment
         :param pulumi.Input[_builtins.str] protocol: The tunnel protocol. Valid values: `gre`. Default is `gre`.
@@ -147,6 +148,7 @@ class _ConnectState:
                  transport_attachment_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Connect resources.
+
         :param pulumi.Input[_builtins.str] protocol: The tunnel protocol. Valid values: `gre`. Default is `gre`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -310,6 +312,7 @@ class Connect(pulumi.CustomResource):
         $ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] protocol: The tunnel protocol. Valid values: `gre`. Default is `gre`.
@@ -351,6 +354,7 @@ class Connect(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConnectArgs args: The arguments to use to populate this resource's properties.

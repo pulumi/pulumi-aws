@@ -37,6 +37,7 @@ class PatchBaselineArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PatchBaseline resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRuleArgs']]] approval_rules: Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] approved_patches: List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
         :param pulumi.Input[_builtins.str] approved_patches_compliance_level: Compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
@@ -276,6 +277,7 @@ class _PatchBaselineState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering PatchBaseline resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRuleArgs']]] approval_rules: Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] approved_patches: List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
         :param pulumi.Input[_builtins.str] approved_patches_compliance_level: Compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
@@ -746,6 +748,7 @@ class PatchBaseline(pulumi.CustomResource):
         $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PatchBaselineApprovalRuleArgs', 'PatchBaselineApprovalRuleArgsDict']]]] approval_rules: Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
@@ -957,6 +960,7 @@ class PatchBaseline(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PatchBaselineArgs args: The arguments to use to populate this resource's properties.

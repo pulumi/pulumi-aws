@@ -31,6 +31,7 @@ class GlobalClusterArgs:
                  storage_encrypted: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a GlobalCluster resource.
+
         :param pulumi.Input[_builtins.str] global_cluster_identifier: The global cluster identifier.
         :param pulumi.Input[_builtins.str] database_name: Name for an automatically created database on cluster creation.
         :param pulumi.Input[_builtins.bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
@@ -172,6 +173,7 @@ class _GlobalClusterState:
                  storage_encrypted: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering GlobalCluster resources.
+
         :param pulumi.Input[_builtins.str] arn: Global Cluster Amazon Resource Name (ARN)
         :param pulumi.Input[_builtins.str] database_name: Name for an automatically created database on cluster creation.
         :param pulumi.Input[_builtins.bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
@@ -442,6 +444,7 @@ class GlobalCluster(pulumi.CustomResource):
         example = aws.docdb.GlobalCluster("example")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] database_name: Name for an automatically created database on cluster creation.
@@ -533,6 +536,7 @@ class GlobalCluster(pulumi.CustomResource):
 
         example = aws.docdb.GlobalCluster("example")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GlobalClusterArgs args: The arguments to use to populate this resource's properties.

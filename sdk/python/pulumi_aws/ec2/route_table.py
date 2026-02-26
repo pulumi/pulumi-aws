@@ -28,6 +28,7 @@ class RouteTableArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RouteTable resource.
+
         :param pulumi.Input[_builtins.str] vpc_id: The VPC ID.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] propagating_vgws: A list of virtual gateways for propagation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -124,6 +125,7 @@ class _RouteTableState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RouteTable resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the route table.
         :param pulumi.Input[_builtins.str] owner_id: The ID of the AWS account that owns the route table.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] propagating_vgws: A list of virtual gateways for propagation.
@@ -379,6 +381,7 @@ class RouteTable(pulumi.CustomResource):
         $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] propagating_vgws: A list of virtual gateways for propagation.
@@ -509,6 +512,7 @@ class RouteTable(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RouteTableArgs args: The arguments to use to populate this resource's properties.

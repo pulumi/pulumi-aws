@@ -34,6 +34,7 @@ class LabelingJobArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LabelingJob resource.
+
         :param pulumi.Input['LabelingJobHumanTaskConfigArgs'] human_task_config: Configuration information required for human workers to complete a labeling task. Fields are documented below.
         :param pulumi.Input['LabelingJobInputConfigArgs'] input_config: Input data for the labeling job. Fields are documented below.
         :param pulumi.Input[_builtins.str] label_attribute_name: Attribute name to use for the label in the output manifest file.
@@ -218,6 +219,7 @@ class _LabelingJobState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LabelingJob resources.
+
         :param pulumi.Input[_builtins.str] failure_reason: If the job failed, the reason that it failed.
         :param pulumi.Input['LabelingJobHumanTaskConfigArgs'] human_task_config: Configuration information required for human workers to complete a labeling task. Fields are documented below.
         :param pulumi.Input['LabelingJobInputConfigArgs'] input_config: Input data for the labeling job. Fields are documented below.
@@ -545,6 +547,7 @@ class LabelingJob(pulumi.CustomResource):
         $ pulumi import aws:sagemaker/labelingJob:LabelingJob example my-labeling-job
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['LabelingJobHumanTaskConfigArgs', 'LabelingJobHumanTaskConfigArgsDict']] human_task_config: Configuration information required for human workers to complete a labeling task. Fields are documented below.
@@ -615,6 +618,7 @@ class LabelingJob(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sagemaker/labelingJob:LabelingJob example my-labeling-job
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LabelingJobArgs args: The arguments to use to populate this resource's properties.

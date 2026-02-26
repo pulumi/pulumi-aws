@@ -26,6 +26,7 @@ class ClusterActivityStreamArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClusterActivityStream resource.
+
         :param pulumi.Input[_builtins.str] kms_key_id: The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
         :param pulumi.Input[_builtins.str] mode: Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
         :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the DB cluster.
@@ -118,6 +119,7 @@ class _ClusterActivityStreamState:
                  resource_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterActivityStream resources.
+
         :param pulumi.Input[_builtins.bool] engine_native_audit_fields_included: Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
                
                For more detailed documentation about each argument, refer to
@@ -283,6 +285,7 @@ class ClusterActivityStream(pulumi.CustomResource):
         [2]: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartActivityStream.html
         [3]: https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] engine_native_audit_fields_included: Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
@@ -353,6 +356,7 @@ class ClusterActivityStream(pulumi.CustomResource):
         [1]: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html
         [2]: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartActivityStream.html
         [3]: https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html
+
 
         :param str resource_name: The name of the resource.
         :param ClusterActivityStreamArgs args: The arguments to use to populate this resource's properties.

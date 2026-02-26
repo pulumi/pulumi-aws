@@ -27,6 +27,7 @@ class AuthorizationRuleArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AuthorizationRule resource.
+
         :param pulumi.Input[_builtins.str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
         :param pulumi.Input[_builtins.str] target_network_cidr: The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
         :param pulumi.Input[_builtins.str] access_group_id: The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
@@ -129,6 +130,7 @@ class _AuthorizationRuleState:
                  target_network_cidr: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AuthorizationRule resources.
+
         :param pulumi.Input[_builtins.str] access_group_id: The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
         :param pulumi.Input[_builtins.bool] authorize_all_groups: Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
         :param pulumi.Input[_builtins.str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
@@ -269,6 +271,7 @@ class AuthorizationRule(pulumi.CustomResource):
         $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_group_id: The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
@@ -317,6 +320,7 @@ class AuthorizationRule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AuthorizationRuleArgs args: The arguments to use to populate this resource's properties.

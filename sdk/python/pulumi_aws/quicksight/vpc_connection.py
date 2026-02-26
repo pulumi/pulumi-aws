@@ -33,6 +33,7 @@ class VpcConnectionArgs:
                  timeouts: Optional[pulumi.Input['VpcConnectionTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a VpcConnection resource.
+
         :param pulumi.Input[_builtins.str] role_arn: The IAM role to associate with the VPC connection.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of security group IDs for the VPC connection.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of subnet IDs for the VPC connection.
@@ -200,6 +201,7 @@ class _VpcConnectionState:
                  vpc_connection_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcConnection resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the VPC connection.
         :param pulumi.Input[_builtins.str] availability_status: The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
@@ -474,6 +476,7 @@ class VpcConnection(pulumi.CustomResource):
         $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
@@ -552,6 +555,7 @@ class VpcConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcConnectionArgs args: The arguments to use to populate this resource's properties.

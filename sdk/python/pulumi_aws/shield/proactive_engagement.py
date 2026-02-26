@@ -25,6 +25,7 @@ class ProactiveEngagementArgs:
                  enabled: pulumi.Input[_builtins.bool]):
         """
         The set of arguments for constructing a ProactiveEngagement resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ProactiveEngagementEmergencyContactArgs']]] emergency_contacts: One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
         :param pulumi.Input[_builtins.bool] enabled: Boolean value indicating if Proactive Engagement should be enabled or not.
         """
@@ -63,6 +64,7 @@ class _ProactiveEngagementState:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ProactiveEngagement resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['ProactiveEngagementEmergencyContactArgs']]] emergency_contacts: One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
         :param pulumi.Input[_builtins.bool] enabled: Boolean value indicating if Proactive Engagement should be enabled or not.
         """
@@ -164,6 +166,7 @@ class ProactiveEngagement(pulumi.CustomResource):
         $ pulumi import aws:shield/proactiveEngagement:ProactiveEngagement example 123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProactiveEngagementEmergencyContactArgs', 'ProactiveEngagementEmergencyContactArgsDict']]]] emergency_contacts: One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
@@ -233,6 +236,7 @@ class ProactiveEngagement(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:shield/proactiveEngagement:ProactiveEngagement example 123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProactiveEngagementArgs args: The arguments to use to populate this resource's properties.

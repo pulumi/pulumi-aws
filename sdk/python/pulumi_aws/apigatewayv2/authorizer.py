@@ -34,6 +34,7 @@ class AuthorizerArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Authorizer resource.
+
         :param pulumi.Input[_builtins.str] api_id: API identifier.
         :param pulumi.Input[_builtins.str] authorizer_type: Authorizer type. Valid values: `JWT`, `REQUEST`.
                Specify `REQUEST` for a Lambda function using incoming request parameters.
@@ -240,6 +241,7 @@ class _AuthorizerState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Authorizer resources.
+
         :param pulumi.Input[_builtins.str] api_id: API identifier.
         :param pulumi.Input[_builtins.str] authorizer_credentials_arn: Required credentials as an IAM role for API Gateway to invoke the authorizer.
                Supported only for `REQUEST` authorizers.
@@ -493,6 +495,7 @@ class Authorizer(pulumi.CustomResource):
         $ pulumi import aws:apigatewayv2/authorizer:Authorizer example aabbccddee/1122334
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: API identifier.
@@ -567,6 +570,7 @@ class Authorizer(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apigatewayv2/authorizer:Authorizer example aabbccddee/1122334
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AuthorizerArgs args: The arguments to use to populate this resource's properties.

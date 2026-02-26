@@ -24,6 +24,7 @@ class CarrierGatewayArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CarrierGateway resource.
+
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to associate with the carrier gateway.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -82,6 +83,7 @@ class _CarrierGatewayState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CarrierGateway resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the carrier gateway.
         :param pulumi.Input[_builtins.str] owner_id: The AWS account ID of the owner of the carrier gateway.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -209,6 +211,7 @@ class CarrierGateway(pulumi.CustomResource):
         $ pulumi import aws:ec2/carrierGateway:CarrierGateway example cgw-12345
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -244,6 +247,7 @@ class CarrierGateway(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/carrierGateway:CarrierGateway example cgw-12345
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CarrierGatewayArgs args: The arguments to use to populate this resource's properties.

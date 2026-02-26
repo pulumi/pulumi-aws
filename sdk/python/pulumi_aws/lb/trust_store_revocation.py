@@ -26,6 +26,7 @@ class TrustStoreRevocationArgs:
                  revocations_s3_object_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TrustStoreRevocation resource.
+
         :param pulumi.Input[_builtins.str] revocations_s3_bucket: S3 Bucket name holding the client certificate CA bundle.
         :param pulumi.Input[_builtins.str] revocations_s3_key: S3 object key holding the client certificate CA bundle.
         :param pulumi.Input[_builtins.str] trust_store_arn: Trust Store ARN.
@@ -112,6 +113,7 @@ class _TrustStoreRevocationState:
                  trust_store_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TrustStoreRevocation resources.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] revocation_id: AWS assigned RevocationId, (number).
         :param pulumi.Input[_builtins.str] revocations_s3_bucket: S3 Bucket name holding the client certificate CA bundle.
@@ -246,6 +248,7 @@ class TrustStoreRevocation(pulumi.CustomResource):
         $ pulumi import aws:lb/trustStoreRevocation:TrustStoreRevocation example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314,6
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -288,6 +291,7 @@ class TrustStoreRevocation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lb/trustStoreRevocation:TrustStoreRevocation example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314,6
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TrustStoreRevocationArgs args: The arguments to use to populate this resource's properties.

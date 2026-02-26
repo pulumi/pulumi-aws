@@ -25,6 +25,7 @@ class ThingArgs:
                  thing_type_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Thing resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: Map of attributes of the thing.
         :param pulumi.Input[_builtins.str] name: The name of the thing.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -100,6 +101,7 @@ class _ThingState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Thing resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the thing.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: Map of attributes of the thing.
         :param pulumi.Input[_builtins.str] default_client_id: The default client ID.
@@ -243,6 +245,7 @@ class Thing(pulumi.CustomResource):
         $ pulumi import aws:iot/thing:Thing example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: Map of attributes of the thing.
@@ -279,6 +282,7 @@ class Thing(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iot/thing:Thing example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ThingArgs args: The arguments to use to populate this resource's properties.

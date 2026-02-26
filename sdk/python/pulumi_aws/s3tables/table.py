@@ -32,6 +32,7 @@ class TableArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Table resource.
+
         :param pulumi.Input[_builtins.str] format: Format of the table.
                Must be `ICEBERG`.
         :param pulumi.Input[_builtins.str] namespace: Name of the namespace for this table.
@@ -214,6 +215,7 @@ class _TableState:
                  warehouse_location: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Table resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the table.
         :param pulumi.Input[_builtins.str] created_at: Date and time when the namespace was created.
         :param pulumi.Input[_builtins.str] created_by: Account ID of the account that created the namespace.
@@ -632,6 +634,7 @@ class Table(pulumi.CustomResource):
         $ pulumi import aws:s3tables/table:Table example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace;example-table'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TableEncryptionConfigurationArgs', 'TableEncryptionConfigurationArgsDict']] encryption_configuration: A single table bucket encryption configuration object.
@@ -735,6 +738,7 @@ class Table(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3tables/table:Table example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace;example-table'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.

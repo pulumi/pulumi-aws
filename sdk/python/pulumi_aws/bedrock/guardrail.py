@@ -37,6 +37,7 @@ class GuardrailArgs:
                  word_policy_config: Optional[pulumi.Input['GuardrailWordPolicyConfigArgs']] = None):
         """
         The set of arguments for constructing a Guardrail resource.
+
         :param pulumi.Input[_builtins.str] blocked_input_messaging: Message to return when the guardrail blocks a prompt.
         :param pulumi.Input[_builtins.str] blocked_outputs_messaging: Message to return when the guardrail blocks a model response.
         :param pulumi.Input['GuardrailContentPolicyConfigArgs'] content_policy_config: Content policy config for a guardrail. See Content Policy Config for more information.
@@ -269,6 +270,7 @@ class _GuardrailState:
                  word_policy_config: Optional[pulumi.Input['GuardrailWordPolicyConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Guardrail resources.
+
         :param pulumi.Input[_builtins.str] blocked_input_messaging: Message to return when the guardrail blocks a prompt.
         :param pulumi.Input[_builtins.str] blocked_outputs_messaging: Message to return when the guardrail blocks a model response.
         :param pulumi.Input['GuardrailContentPolicyConfigArgs'] content_policy_config: Content policy config for a guardrail. See Content Policy Config for more information.
@@ -660,6 +662,7 @@ class Guardrail(pulumi.CustomResource):
         $ pulumi import aws:bedrock/guardrail:Guardrail example guardrail-id-12345678,DRAFT
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] blocked_input_messaging: Message to return when the guardrail blocks a prompt.
@@ -757,6 +760,7 @@ class Guardrail(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:bedrock/guardrail:Guardrail example guardrail-id-12345678,DRAFT
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GuardrailArgs args: The arguments to use to populate this resource's properties.

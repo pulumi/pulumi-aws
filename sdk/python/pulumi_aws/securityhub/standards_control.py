@@ -25,6 +25,7 @@ class StandardsControlArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a StandardsControl resource.
+
         :param pulumi.Input[_builtins.str] control_status: The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
         :param pulumi.Input[_builtins.str] standards_control_arn: The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
         :param pulumi.Input[_builtins.str] disabled_reason: A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
@@ -102,6 +103,7 @@ class _StandardsControlState:
                  title: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StandardsControl resources.
+
         :param pulumi.Input[_builtins.str] control_id: The identifier of the security standard control.
         :param pulumi.Input[_builtins.str] control_status: The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
         :param pulumi.Input[_builtins.str] control_status_updated_at: The date and time that the status of the security standard control was most recently updated.
@@ -304,6 +306,7 @@ class StandardsControl(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[cis_aws_foundations_benchmark]))
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] control_status: The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
@@ -339,6 +342,7 @@ class StandardsControl(pulumi.CustomResource):
             disabled_reason="We handle password policies within Okta",
             opts = pulumi.ResourceOptions(depends_on=[cis_aws_foundations_benchmark]))
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StandardsControlArgs args: The arguments to use to populate this resource's properties.

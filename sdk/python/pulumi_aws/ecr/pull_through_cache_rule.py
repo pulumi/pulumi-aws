@@ -27,6 +27,7 @@ class PullThroughCacheRuleArgs:
                  upstream_repository_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PullThroughCacheRule resource.
+
         :param pulumi.Input[_builtins.str] ecr_repository_prefix: The repository name prefix to use when caching images from the source registry. Use `ROOT` as the prefix to apply a template to all repositories in your registry that don't have an associated pull through cache rule.
         :param pulumi.Input[_builtins.str] upstream_registry_url: The registry URL of the upstream registry to use as the source.
         :param pulumi.Input[_builtins.str] credential_arn: ARN of the Secret which will be used to authenticate against the registry.
@@ -130,6 +131,7 @@ class _PullThroughCacheRuleState:
                  upstream_repository_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PullThroughCacheRule resources.
+
         :param pulumi.Input[_builtins.str] credential_arn: ARN of the Secret which will be used to authenticate against the registry.
         :param pulumi.Input[_builtins.str] custom_role_arn: The ARN of the IAM role associated with the pull through cache rule. Must be specified if the upstream registry is a cross-account ECR private registry. See [AWS Document - Setting up permissions for cross-account ECR to ECR PTC](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private.html).
         :param pulumi.Input[_builtins.str] ecr_repository_prefix: The repository name prefix to use when caching images from the source registry. Use `ROOT` as the prefix to apply a template to all repositories in your registry that don't have an associated pull through cache rule.
@@ -277,6 +279,7 @@ class PullThroughCacheRule(pulumi.CustomResource):
         $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] credential_arn: ARN of the Secret which will be used to authenticate against the registry.
@@ -317,6 +320,7 @@ class PullThroughCacheRule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PullThroughCacheRuleArgs args: The arguments to use to populate this resource's properties.

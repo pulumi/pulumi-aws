@@ -30,6 +30,7 @@ class BucketLoggingInitArgs:
                  target_object_key_format: Optional[pulumi.Input['BucketLoggingTargetObjectKeyFormatArgs']] = None):
         """
         The set of arguments for constructing a BucketLogging resource.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[_builtins.str] target_bucket: Name of the bucket where you want Amazon S3 to store server access logs.
         :param pulumi.Input[_builtins.str] target_prefix: Prefix for all log object keys.
@@ -151,6 +152,7 @@ class _BucketLoggingState:
                  target_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BucketLogging resources.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -375,6 +377,7 @@ class BucketLogging(pulumi.CustomResource):
         $ pulumi import aws:s3/bucketLogging:BucketLogging example bucket-name,123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
@@ -488,6 +491,7 @@ class BucketLogging(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/bucketLogging:BucketLogging example bucket-name,123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BucketLoggingInitArgs args: The arguments to use to populate this resource's properties.

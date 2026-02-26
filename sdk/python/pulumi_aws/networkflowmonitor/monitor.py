@@ -30,6 +30,7 @@ class MonitorArgs:
                  timeouts: Optional[pulumi.Input['MonitorTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Monitor resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['MonitorLocalResourceArgs']]] local_resources: The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
         :param pulumi.Input[_builtins.str] monitor_name: The name of the monitor. Cannot be changed after creation.
         :param pulumi.Input[_builtins.str] scope_arn: The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
@@ -149,6 +150,7 @@ class _MonitorState:
                  timeouts: Optional[pulumi.Input['MonitorTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Monitor resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['MonitorLocalResourceArgs']]] local_resources: The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
         :param pulumi.Input[_builtins.str] monitor_arn: The Amazon Resource Name (ARN) of the monitor.
         :param pulumi.Input[_builtins.str] monitor_name: The name of the monitor. Cannot be changed after creation.
@@ -341,6 +343,7 @@ class Monitor(pulumi.CustomResource):
         $ pulumi import aws:networkflowmonitor/monitor:Monitor example example-monitor
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorLocalResourceArgs', 'MonitorLocalResourceArgsDict']]]] local_resources: The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
@@ -397,6 +400,7 @@ class Monitor(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:networkflowmonitor/monitor:Monitor example example-monitor
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MonitorArgs args: The arguments to use to populate this resource's properties.

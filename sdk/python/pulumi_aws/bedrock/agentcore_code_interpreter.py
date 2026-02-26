@@ -30,6 +30,7 @@ class AgentcoreCodeInterpreterArgs:
                  timeouts: Optional[pulumi.Input['AgentcoreCodeInterpreterTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentcoreCodeInterpreter resource.
+
         :param pulumi.Input['AgentcoreCodeInterpreterNetworkConfigurationArgs'] network_configuration: Network configuration for the code interpreter. See `network_configuration` below.
                
                The following arguments are optional:
@@ -152,6 +153,7 @@ class _AgentcoreCodeInterpreterState:
                  timeouts: Optional[pulumi.Input['AgentcoreCodeInterpreterTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AgentcoreCodeInterpreter resources.
+
         :param pulumi.Input[_builtins.str] code_interpreter_arn: ARN of the Code Interpreter.
         :param pulumi.Input[_builtins.str] code_interpreter_id: Unique identifier of the Code Interpreter.
         :param pulumi.Input[_builtins.str] description: Description of the code interpreter.
@@ -372,6 +374,7 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
         $ pulumi import aws:bedrock/agentcoreCodeInterpreter:AgentcoreCodeInterpreter example CODEINTERPRETER1234567890
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the code interpreter.
@@ -441,6 +444,7 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:bedrock/agentcoreCodeInterpreter:AgentcoreCodeInterpreter example CODEINTERPRETER1234567890
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AgentcoreCodeInterpreterArgs args: The arguments to use to populate this resource's properties.

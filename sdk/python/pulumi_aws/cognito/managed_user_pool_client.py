@@ -47,6 +47,7 @@ class ManagedUserPoolClientArgs:
                  write_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ManagedUserPoolClient resource.
+
         :param pulumi.Input[_builtins.str] user_pool_id: User pool that the client belongs to.
         :param pulumi.Input[_builtins.int] access_token_validity: Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_oauth_flows: List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
@@ -444,6 +445,7 @@ class _ManagedUserPoolClientState:
                  write_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ManagedUserPoolClient resources.
+
         :param pulumi.Input[_builtins.int] access_token_validity: Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_oauth_flows: List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[_builtins.bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
@@ -902,6 +904,7 @@ class ManagedUserPoolClient(pulumi.CustomResource):
         $ pulumi import aws:cognito/managedUserPoolClient:ManagedUserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] access_token_validity: Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
@@ -966,6 +969,7 @@ class ManagedUserPoolClient(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cognito/managedUserPoolClient:ManagedUserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedUserPoolClientArgs args: The arguments to use to populate this resource's properties.

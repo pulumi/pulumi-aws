@@ -28,6 +28,7 @@ class AccessEntryArgs:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccessEntry resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[_builtins.str] principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
                
@@ -154,6 +155,7 @@ class _AccessEntryState:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccessEntry resources.
+
         :param pulumi.Input[_builtins.str] access_entry_arn: Amazon Resource Name (ARN) of the Access Entry.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[_builtins.str] created_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
@@ -367,6 +369,7 @@ class AccessEntry(pulumi.CustomResource):
         $ pulumi import aws:eks/accessEntry:AccessEntry my_eks_access_entry my_cluster_name:my_principal_arn
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
@@ -411,6 +414,7 @@ class AccessEntry(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:eks/accessEntry:AccessEntry my_eks_access_entry my_cluster_name:my_principal_arn
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccessEntryArgs args: The arguments to use to populate this resource's properties.

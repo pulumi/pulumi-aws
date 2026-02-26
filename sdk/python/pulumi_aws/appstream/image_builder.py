@@ -37,6 +37,7 @@ class ImageBuilderArgs:
                  vpc_config: Optional[pulumi.Input['ImageBuilderVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a ImageBuilder resource.
+
         :param pulumi.Input[_builtins.str] instance_type: Instance type to use when launching the image builder.
         :param pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]] access_endpoints: Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
         :param pulumi.Input[_builtins.str] appstream_agent_version: Version of the AppStream 2.0 agent to use for this image builder.
@@ -276,6 +277,7 @@ class _ImageBuilderState:
                  vpc_config: Optional[pulumi.Input['ImageBuilderVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering ImageBuilder resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]] access_endpoints: Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
         :param pulumi.Input[_builtins.str] appstream_agent_version: Version of the AppStream 2.0 agent to use for this image builder.
         :param pulumi.Input[_builtins.str] arn: ARN of the appstream image builder.
@@ -606,6 +608,7 @@ class ImageBuilder(pulumi.CustomResource):
         $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageBuilderAccessEndpointArgs', 'ImageBuilderAccessEndpointArgsDict']]]] access_endpoints: Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
@@ -662,6 +665,7 @@ class ImageBuilder(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ImageBuilderArgs args: The arguments to use to populate this resource's properties.

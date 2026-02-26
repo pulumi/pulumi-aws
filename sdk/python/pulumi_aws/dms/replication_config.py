@@ -35,6 +35,7 @@ class ReplicationConfigArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReplicationConfig resource.
+
         :param pulumi.Input['ReplicationConfigComputeConfigArgs'] compute_config: Configuration block for provisioning an DMS Serverless replication.
         :param pulumi.Input[_builtins.str] replication_config_identifier: Unique identifier that you want to use to create the config.
         :param pulumi.Input[_builtins.str] replication_type: The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
@@ -231,6 +232,7 @@ class _ReplicationConfigState:
                  target_endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ReplicationConfig resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) for the serverless replication config.
         :param pulumi.Input['ReplicationConfigComputeConfigArgs'] compute_config: Configuration block for provisioning an DMS Serverless replication.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -507,6 +509,7 @@ class ReplicationConfig(pulumi.CustomResource):
         $ pulumi import aws:dms/replicationConfig:ReplicationConfig example arn:aws:dms:us-east-1:123456789012:replication-config:UX6OL6MHMMJKFFOXE3H7LLJCMEKBDUG4ZV7DRSI
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ReplicationConfigComputeConfigArgs', 'ReplicationConfigComputeConfigArgsDict']] compute_config: Configuration block for provisioning an DMS Serverless replication.
@@ -571,6 +574,7 @@ class ReplicationConfig(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:dms/replicationConfig:ReplicationConfig example arn:aws:dms:us-east-1:123456789012:replication-config:UX6OL6MHMMJKFFOXE3H7LLJCMEKBDUG4ZV7DRSI
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReplicationConfigArgs args: The arguments to use to populate this resource's properties.

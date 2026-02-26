@@ -32,6 +32,7 @@ class HostedTransitVirtualInterfaceArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a HostedTransitVirtualInterface resource.
+
         :param pulumi.Input[_builtins.str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
         :param pulumi.Input[_builtins.int] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         :param pulumi.Input[_builtins.str] connection_id: The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
@@ -215,6 +216,7 @@ class _HostedTransitVirtualInterfaceState:
                  vlan: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering HostedTransitVirtualInterface resources.
+
         :param pulumi.Input[_builtins.str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
         :param pulumi.Input[_builtins.str] amazon_address: The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
         :param pulumi.Input[_builtins.str] arn: The ARN of the virtual interface.
@@ -484,6 +486,7 @@ class HostedTransitVirtualInterface(pulumi.CustomResource):
         $ pulumi import aws:directconnect/hostedTransitVirtualInterface:HostedTransitVirtualInterface test dxvif-33cc44dd
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
@@ -530,6 +533,7 @@ class HostedTransitVirtualInterface(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:directconnect/hostedTransitVirtualInterface:HostedTransitVirtualInterface test dxvif-33cc44dd
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HostedTransitVirtualInterfaceArgs args: The arguments to use to populate this resource's properties.

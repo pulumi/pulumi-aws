@@ -30,6 +30,7 @@ class RestoreTestingPlanArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RestoreTestingPlan resource.
+
         :param pulumi.Input['RestoreTestingPlanRecoveryPointSelectionArgs'] recovery_point_selection: Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
         :param pulumi.Input[_builtins.str] schedule_expression: The schedule expression for the restore testing plan.
         :param pulumi.Input[_builtins.str] name: The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
@@ -146,6 +147,7 @@ class _RestoreTestingPlanState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RestoreTestingPlan resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Restore Testing Plan.
         :param pulumi.Input[_builtins.str] name: The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
         :param pulumi.Input['RestoreTestingPlanRecoveryPointSelectionArgs'] recovery_point_selection: Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
@@ -323,6 +325,7 @@ class RestoreTestingPlan(pulumi.CustomResource):
         $ pulumi import aws:backup/restoreTestingPlan:RestoreTestingPlan example my_testing_plan
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
@@ -366,6 +369,7 @@ class RestoreTestingPlan(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:backup/restoreTestingPlan:RestoreTestingPlan example my_testing_plan
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RestoreTestingPlanArgs args: The arguments to use to populate this resource's properties.

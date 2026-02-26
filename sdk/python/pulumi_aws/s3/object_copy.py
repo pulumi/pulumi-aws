@@ -64,6 +64,7 @@ class ObjectCopyArgs:
                  website_redirect: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ObjectCopy resource.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket to put the file in.
         :param pulumi.Input[_builtins.str] key: Name of the object once it is in the bucket.
         :param pulumi.Input[_builtins.str] source: Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
@@ -734,6 +735,7 @@ class _ObjectCopyState:
                  website_redirect: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ObjectCopy resources.
+
         :param pulumi.Input[_builtins.str] acl: [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
         :param pulumi.Input[_builtins.str] arn: ARN of the object.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket to put the file in.
@@ -1631,6 +1633,7 @@ class ObjectCopy(pulumi.CustomResource):
             })
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] acl: [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
@@ -1720,6 +1723,7 @@ class ObjectCopy(pulumi.CustomResource):
                 },
             })
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ObjectCopyArgs args: The arguments to use to populate this resource's properties.

@@ -31,6 +31,7 @@ class ApnsSandboxChannelArgs:
                  token_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApnsSandboxChannel resource.
+
         :param pulumi.Input[_builtins.str] application_id: The application ID.
         :param pulumi.Input[_builtins.str] bundle_id: The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
         :param pulumi.Input[_builtins.str] certificate: The pem encoded TLS Certificate from Apple.
@@ -216,6 +217,7 @@ class _ApnsSandboxChannelState:
                  token_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApnsSandboxChannel resources.
+
         :param pulumi.Input[_builtins.str] application_id: The application ID.
         :param pulumi.Input[_builtins.str] bundle_id: The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
         :param pulumi.Input[_builtins.str] certificate: The pem encoded TLS Certificate from Apple.
@@ -430,6 +432,7 @@ class ApnsSandboxChannel(pulumi.CustomResource):
         $ pulumi import aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel apns_sandbox application-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: The application ID.
@@ -483,6 +486,7 @@ class ApnsSandboxChannel(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel apns_sandbox application-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApnsSandboxChannelArgs args: The arguments to use to populate this resource's properties.

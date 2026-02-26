@@ -29,6 +29,7 @@ class EventSubscriptionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EventSubscription resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_categories: List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
         :param pulumi.Input[_builtins.str] sns_topic_arn: SNS topic arn to send events on.
         :param pulumi.Input[_builtins.str] source_type: Type of source for events. Valid values: `replication-instance` or `replication-task`
@@ -164,6 +165,7 @@ class _EventSubscriptionState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering EventSubscription resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DMS Event Subscription.
         :param pulumi.Input[_builtins.bool] enabled: Whether the event subscription should be enabled.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_categories: List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
@@ -364,6 +366,7 @@ class EventSubscription(pulumi.CustomResource):
         $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Whether the event subscription should be enabled.
@@ -412,6 +415,7 @@ class EventSubscription(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventSubscriptionArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class UserGroupArgs:
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserGroup resource.
+
         :param pulumi.Input[_builtins.str] user_pool_id: The user pool ID.
         :param pulumi.Input[_builtins.str] description: The description of the user group.
         :param pulumi.Input[_builtins.str] name: The name of the user group.
@@ -130,6 +131,7 @@ class _UserGroupState:
                  user_pool_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserGroup resources.
+
         :param pulumi.Input[_builtins.str] description: The description of the user group.
         :param pulumi.Input[_builtins.str] name: The name of the user group.
         :param pulumi.Input[_builtins.int] precedence: The precedence of the user group.
@@ -285,6 +287,7 @@ class UserGroup(pulumi.CustomResource):
         $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the user group.
@@ -348,6 +351,7 @@ class UserGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserGroupArgs args: The arguments to use to populate this resource's properties.

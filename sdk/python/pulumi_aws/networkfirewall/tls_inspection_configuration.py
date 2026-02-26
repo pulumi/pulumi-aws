@@ -30,6 +30,7 @@ class TlsInspectionConfigurationArgs:
                  timeouts: Optional[pulumi.Input['TlsInspectionConfigurationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a TlsInspectionConfiguration resource.
+
         :param pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs'] tls_inspection_configuration: TLS inspection configuration block. Detailed below.
                
                The following arguments are optional:
@@ -152,6 +153,7 @@ class _TlsInspectionConfigurationState:
                  update_token: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TlsInspectionConfiguration resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the TLS Inspection Configuration.
         :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationCertificateAuthorityArgs']]] certificate_authorities: Certificate Manager certificate block. See Certificate Authority below for details.
         :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationCertificateArgs']]] certificates: List of certificate blocks describing certificates associated with the TLS inspection configuration. See Certificates below for details.
@@ -602,6 +604,7 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
         $ pulumi import aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration example arn:aws:network-firewall::<region>:<account_id>:tls-configuration/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the TLS inspection configuration.
@@ -848,6 +851,7 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration example arn:aws:network-firewall::<region>:<account_id>:tls-configuration/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TlsInspectionConfigurationArgs args: The arguments to use to populate this resource's properties.

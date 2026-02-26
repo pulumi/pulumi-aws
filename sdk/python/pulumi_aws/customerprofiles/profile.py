@@ -46,6 +46,7 @@ class ProfileArgs:
                  shipping_address: Optional[pulumi.Input['ProfileShippingAddressArgs']] = None):
         """
         The set of arguments for constructing a Profile resource.
+
         :param pulumi.Input[_builtins.str] domain_name: The name of your Customer Profile domain. It must be unique for your AWS account.
                
                The following arguments are optional:
@@ -425,6 +426,7 @@ class _ProfileState:
                  shipping_address: Optional[pulumi.Input['ProfileShippingAddressArgs']] = None):
         """
         Input properties used for looking up and filtering Profile resources.
+
         :param pulumi.Input[_builtins.str] account_number: A unique account number that you have given to the customer.
         :param pulumi.Input[_builtins.str] additional_information: Any additional information relevant to the customer’s profile.
         :param pulumi.Input['ProfileAddressArgs'] address: A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
@@ -829,6 +831,7 @@ class Profile(pulumi.CustomResource):
         $ pulumi import aws:customerprofiles/profile:Profile example domain-name/5f2f473dfbe841eb8d05cfc2a4c926df
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_number: A unique account number that you have given to the customer.
@@ -884,6 +887,7 @@ class Profile(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:customerprofiles/profile:Profile example domain-name/5f2f473dfbe841eb8d05cfc2a4c926df
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProfileArgs args: The arguments to use to populate this resource's properties.

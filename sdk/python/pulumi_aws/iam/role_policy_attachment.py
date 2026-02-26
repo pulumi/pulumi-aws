@@ -23,6 +23,7 @@ class RolePolicyAttachmentArgs:
                  role: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a RolePolicyAttachment resource.
+
         :param pulumi.Input[_builtins.str] policy_arn: The ARN of the policy you want to apply
         :param pulumi.Input[_builtins.str] role: The name of the IAM role to which the policy should be applied
         """
@@ -61,6 +62,7 @@ class _RolePolicyAttachmentState:
                  role: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RolePolicyAttachment resources.
+
         :param pulumi.Input[_builtins.str] policy_arn: The ARN of the policy you want to apply
         :param pulumi.Input[_builtins.str] role: The name of the IAM role to which the policy should be applied
         """
@@ -160,6 +162,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
         $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment example test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy_arn: The ARN of the policy you want to apply
@@ -227,6 +230,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment example test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RolePolicyAttachmentArgs args: The arguments to use to populate this resource's properties.

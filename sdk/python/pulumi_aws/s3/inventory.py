@@ -32,6 +32,7 @@ class InventoryArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Inventory resource.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the source bucket that inventory lists the objects for.
         :param pulumi.Input['InventoryDestinationArgs'] destination: Contains information about where to publish the inventory results (documented below).
         :param pulumi.Input[_builtins.str] included_object_versions: Object versions to include in the inventory list. Valid values: `All`, `Current`.
@@ -180,6 +181,7 @@ class _InventoryState:
                  schedule: Optional[pulumi.Input['InventoryScheduleArgs']] = None):
         """
         Input properties used for looking up and filtering Inventory resources.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the source bucket that inventory lists the objects for.
         :param pulumi.Input['InventoryDestinationArgs'] destination: Contains information about where to publish the inventory results (documented below).
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the inventory is enabled or disabled.
@@ -399,6 +401,7 @@ class Inventory(pulumi.CustomResource):
         $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the source bucket that inventory lists the objects for.
@@ -481,6 +484,7 @@ class Inventory(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InventoryArgs args: The arguments to use to populate this resource's properties.

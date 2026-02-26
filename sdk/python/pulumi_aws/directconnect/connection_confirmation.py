@@ -23,6 +23,7 @@ class ConnectionConfirmationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConnectionConfirmation resource.
+
         :param pulumi.Input[_builtins.str] connection_id: The ID of the hosted connection.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -62,6 +63,7 @@ class _ConnectionConfirmationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConnectionConfirmation resources.
+
         :param pulumi.Input[_builtins.str] connection_id: The ID of the hosted connection.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -116,6 +118,7 @@ class ConnectionConfirmation(pulumi.CustomResource):
         confirmation = aws.directconnect.ConnectionConfirmation("confirmation", connection_id="dxcon-ffabc123")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connection_id: The ID of the hosted connection.
@@ -138,6 +141,7 @@ class ConnectionConfirmation(pulumi.CustomResource):
 
         confirmation = aws.directconnect.ConnectionConfirmation("confirmation", connection_id="dxcon-ffabc123")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConnectionConfirmationArgs args: The arguments to use to populate this resource's properties.

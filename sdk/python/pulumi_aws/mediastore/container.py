@@ -24,6 +24,7 @@ class ContainerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Container resource.
+
         :param pulumi.Input[_builtins.str] name: The name of the container. Must contain alphanumeric characters or underscores.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -83,6 +84,7 @@ class _ContainerState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Container resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the container.
         :param pulumi.Input[_builtins.str] endpoint: The DNS endpoint of the container.
         :param pulumi.Input[_builtins.str] name: The name of the container. Must contain alphanumeric characters or underscores.
@@ -208,6 +210,7 @@ class Container(pulumi.CustomResource):
         $ pulumi import aws:mediastore/container:Container example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the container. Must contain alphanumeric characters or underscores.
@@ -241,6 +244,7 @@ class Container(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:mediastore/container:Container example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ContainerArgs args: The arguments to use to populate this resource's properties.

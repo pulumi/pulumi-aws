@@ -32,6 +32,7 @@ class IntegrationArgs:
                  timeouts: Optional[pulumi.Input['IntegrationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Integration resource.
+
         :param pulumi.Input[_builtins.str] integration_name: Name of the integration.
         :param pulumi.Input[_builtins.str] source_arn: ARN of the database to use as the source for replication.
         :param pulumi.Input[_builtins.str] target_arn: ARN of the Redshift data warehouse to use as the target for replication.
@@ -203,6 +204,7 @@ class _IntegrationState:
                  timeouts: Optional[pulumi.Input['IntegrationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Integration resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Set of non-secret key–value pairs that contains additional contextual information about the data.
                For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
                You can only include this parameter if you specify the `kms_key_id` parameter.
@@ -491,6 +493,7 @@ class Integration(pulumi.CustomResource):
         $ pulumi import aws:rds/integration:Integration example arn:aws:rds:us-west-2:123456789012:integration:abcdefgh-0000-1111-2222-123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Set of non-secret key–value pairs that contains additional contextual information about the data.
@@ -603,6 +606,7 @@ class Integration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:rds/integration:Integration example arn:aws:rds:us-west-2:123456789012:integration:abcdefgh-0000-1111-2222-123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationArgs args: The arguments to use to populate this resource's properties.

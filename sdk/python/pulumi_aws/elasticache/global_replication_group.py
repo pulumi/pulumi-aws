@@ -33,6 +33,7 @@ class GlobalReplicationGroupArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GlobalReplicationGroup resource.
+
         :param pulumi.Input[_builtins.str] global_replication_group_id_suffix: The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
         :param pulumi.Input[_builtins.str] primary_replication_group_id: The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
         :param pulumi.Input[_builtins.bool] automatic_failover_enabled: Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
@@ -243,6 +244,7 @@ class _GlobalReplicationGroupState:
                  transit_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering GlobalReplicationGroup resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the ElastiCache Global Replication Group.
         :param pulumi.Input[_builtins.bool] at_rest_encryption_enabled: A flag that indicate whether the encryption at rest is enabled.
         :param pulumi.Input[_builtins.bool] auth_token_enabled: A flag that indicate whether AuthToken (password) is enabled.
@@ -644,6 +646,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         $ pulumi import aws:elasticache/globalReplicationGroup:GlobalReplicationGroup my_global_replication_group okuqm-global-replication-group-1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] automatic_failover_enabled: Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
@@ -753,6 +756,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:elasticache/globalReplicationGroup:GlobalReplicationGroup my_global_replication_group okuqm-global-replication-group-1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GlobalReplicationGroupArgs args: The arguments to use to populate this resource's properties.

@@ -31,6 +31,7 @@ class ApplicationArgs:
                  timeouts: Optional[pulumi.Input['ApplicationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Application resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationAppConfigArgs']]] app_configs: Configuration block(s) for OpenSearch application settings. See App Config below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationDataSourceArgs']]] data_sources: Configuration block(s) for data sources to link to the OpenSearch application. See Data Source below.
         :param pulumi.Input['ApplicationIamIdentityCenterOptionsArgs'] iam_identity_center_options: Configuration block for integrating AWS IAM Identity Center with the OpenSearch application. See IAM Identity Center Options below.
@@ -166,6 +167,7 @@ class _ApplicationState:
                  timeouts: Optional[pulumi.Input['ApplicationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Application resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationAppConfigArgs']]] app_configs: Configuration block(s) for OpenSearch application settings. See App Config below.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the OpenSearch application.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationDataSourceArgs']]] data_sources: Configuration block(s) for data sources to link to the OpenSearch application. See Data Source below.
@@ -514,6 +516,7 @@ class Application(pulumi.CustomResource):
         $ pulumi import aws:opensearch/application:Application example app-1234567890abcdef0
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict']]]] app_configs: Configuration block(s) for OpenSearch application settings. See App Config below.
@@ -698,6 +701,7 @@ class Application(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:opensearch/application:Application example app-1234567890abcdef0
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

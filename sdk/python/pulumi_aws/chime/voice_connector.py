@@ -26,6 +26,7 @@ class VoiceConnectorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VoiceConnector resource.
+
         :param pulumi.Input[_builtins.bool] require_encryption: When enabled, requires encryption for the Amazon Chime Voice Connector.
                
                The following arguments are optional:
@@ -120,6 +121,7 @@ class _VoiceConnectorState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering VoiceConnector resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
         :param pulumi.Input[_builtins.str] aws_region: The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
         :param pulumi.Input[_builtins.str] name: The name of the Amazon Chime Voice Connector.
@@ -282,6 +284,7 @@ class VoiceConnector(pulumi.CustomResource):
         $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_region: The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
@@ -320,6 +323,7 @@ class VoiceConnector(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VoiceConnectorArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class LaunchArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Launch resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['LaunchGroupArgs']]] groups: One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
         :param pulumi.Input[_builtins.str] project: The name or ARN of the project that is to contain the new launch.
         :param pulumi.Input[_builtins.str] description: Specifies the description of the launch.
@@ -190,6 +191,7 @@ class _LaunchState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Launch resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the launch.
         :param pulumi.Input[_builtins.str] created_time: The date and time that the launch is created.
         :param pulumi.Input[_builtins.str] description: Specifies the description of the launch.
@@ -731,6 +733,7 @@ class Launch(pulumi.CustomResource):
         $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Specifies the description of the launch.
@@ -1015,6 +1018,7 @@ class Launch(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LaunchArgs args: The arguments to use to populate this resource's properties.

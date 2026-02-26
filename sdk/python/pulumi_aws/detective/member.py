@@ -27,6 +27,7 @@ class MemberArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Member resource.
+
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for the account.
         :param pulumi.Input[_builtins.str] email_address: Email address for the account.
         :param pulumi.Input[_builtins.str] graph_arn: ARN of the behavior graph to invite the member accounts to contribute their data to.
@@ -134,6 +135,7 @@ class _MemberState:
                  volume_usage_in_bytes: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Member resources.
+
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for the account.
         :param pulumi.Input[_builtins.str] administrator_id: AWS account ID for the administrator account.
         :param pulumi.Input[_builtins.bool] disable_email_notification: If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
@@ -352,6 +354,7 @@ class Member(pulumi.CustomResource):
         $ pulumi import aws:detective/member:Member example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d/123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for the account.
@@ -392,6 +395,7 @@ class Member(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:detective/member:Member example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d/123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MemberArgs args: The arguments to use to populate this resource's properties.

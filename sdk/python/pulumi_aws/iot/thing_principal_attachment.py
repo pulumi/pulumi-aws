@@ -25,6 +25,7 @@ class ThingPrincipalAttachmentArgs:
                  thing_principal_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ThingPrincipalAttachment resource.
+
         :param pulumi.Input[_builtins.str] principal: The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
         :param pulumi.Input[_builtins.str] thing: The name of the thing.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -95,6 +96,7 @@ class _ThingPrincipalAttachmentState:
                  thing_principal_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ThingPrincipalAttachment resources.
+
         :param pulumi.Input[_builtins.str] principal: The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] thing: The name of the thing.
@@ -188,6 +190,7 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
             thing=example.name)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] principal: The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
@@ -219,6 +222,7 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
             principal=cert.arn,
             thing=example.name)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ThingPrincipalAttachmentArgs args: The arguments to use to populate this resource's properties.

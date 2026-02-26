@@ -30,6 +30,7 @@ class AgentPromptArgs:
                  variants: Optional[pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantArgs']]]] = None):
         """
         The set of arguments for constructing a AgentPrompt resource.
+
         :param pulumi.Input[_builtins.str] customer_encryption_key_arn: Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
         :param pulumi.Input[_builtins.str] default_variant: Name of the default variant for your prompt.
         :param pulumi.Input[_builtins.str] description: Description of the prompt.
@@ -159,6 +160,7 @@ class _AgentPromptState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AgentPrompt resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the prompt.
         :param pulumi.Input[_builtins.str] created_at: Time at which the prompt was created.
         :param pulumi.Input[_builtins.str] customer_encryption_key_arn: Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
@@ -419,6 +421,7 @@ class AgentPrompt(pulumi.CustomResource):
         $ pulumi import aws:bedrock/agentPrompt:AgentPrompt example 1A2BC3DEFG
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] customer_encryption_key_arn: Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
@@ -495,6 +498,7 @@ class AgentPrompt(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:bedrock/agentPrompt:AgentPrompt example 1A2BC3DEFG
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AgentPromptArgs args: The arguments to use to populate this resource's properties.

@@ -35,6 +35,7 @@ class ImageArgs:
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input['ImageWorkflowArgs']]]] = None):
         """
         The set of arguments for constructing a Image resource.
+
         :param pulumi.Input[_builtins.str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
                
                The following arguments are optional:
@@ -246,6 +247,7 @@ class _ImageState:
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input['ImageWorkflowArgs']]]] = None):
         """
         Input properties used for looking up and filtering Image resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the image.
         :param pulumi.Input[_builtins.str] container_recipe_arn: Amazon Resource Name (ARN) of the container recipe.
         :param pulumi.Input[_builtins.str] date_created: Date the image was created.
@@ -601,6 +603,7 @@ class Image(pulumi.CustomResource):
         $ pulumi import aws:imagebuilder/image:Image example arn:aws:imagebuilder:us-east-1:123456789012:image/example/1.0.0/1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] container_recipe_arn: Amazon Resource Name (ARN) of the container recipe.
@@ -652,6 +655,7 @@ class Image(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:imagebuilder/image:Image example arn:aws:imagebuilder:us-east-1:123456789012:image/example/1.0.0/1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ImageArgs args: The arguments to use to populate this resource's properties.

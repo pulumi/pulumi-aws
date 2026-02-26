@@ -28,6 +28,7 @@ class PolicyStoreArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PolicyStore resource.
+
         :param pulumi.Input['PolicyStoreValidationSettingsArgs'] validation_settings: Validation settings for the policy store.
         :param pulumi.Input[_builtins.str] deletion_protection: Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
         :param pulumi.Input[_builtins.str] description: A description of the Policy Store.
@@ -118,6 +119,7 @@ class _PolicyStoreState:
                  validation_settings: Optional[pulumi.Input['PolicyStoreValidationSettingsArgs']] = None):
         """
         Input properties used for looking up and filtering PolicyStore resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the Policy Store.
         :param pulumi.Input[_builtins.str] deletion_protection: Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
         :param pulumi.Input[_builtins.str] description: A description of the Policy Store.
@@ -277,6 +279,7 @@ class PolicyStore(pulumi.CustomResource):
          $ pulumi import aws:verifiedpermissions/policyStore:PolicyStore example DxQg2j8xvXJQ1tQCYNWj9T
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] deletion_protection: Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
@@ -314,6 +317,7 @@ class PolicyStore(pulumi.CustomResource):
         ```sh
          $ pulumi import aws:verifiedpermissions/policyStore:PolicyStore example DxQg2j8xvXJQ1tQCYNWj9T
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyStoreArgs args: The arguments to use to populate this resource's properties.

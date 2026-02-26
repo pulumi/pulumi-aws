@@ -26,6 +26,7 @@ class SubnetCidrReservationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SubnetCidrReservation resource.
+
         :param pulumi.Input[_builtins.str] cidr_block: The CIDR block for the reservation.
         :param pulumi.Input[_builtins.str] reservation_type: The type of reservation to create. Valid values: `explicit`, `prefix`
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet to create the reservation for.
@@ -112,6 +113,7 @@ class _SubnetCidrReservationState:
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SubnetCidrReservation resources.
+
         :param pulumi.Input[_builtins.str] cidr_block: The CIDR block for the reservation.
         :param pulumi.Input[_builtins.str] description: A brief description of the reservation.
         :param pulumi.Input[_builtins.str] owner_id: ID of the AWS account that owns this CIDR reservation.
@@ -240,6 +242,7 @@ class SubnetCidrReservation(pulumi.CustomResource):
         $ pulumi import aws:ec2/subnetCidrReservation:SubnetCidrReservation example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cidr_block: The CIDR block for the reservation.
@@ -276,6 +279,7 @@ class SubnetCidrReservation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/subnetCidrReservation:SubnetCidrReservation example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SubnetCidrReservationArgs args: The arguments to use to populate this resource's properties.

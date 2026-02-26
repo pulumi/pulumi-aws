@@ -29,6 +29,7 @@ class PermissionArgs:
                  timeouts: Optional[pulumi.Input['PermissionTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Permission resource.
+
         :param pulumi.Input[_builtins.str] policy_template: A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
         :param pulumi.Input[_builtins.str] resource_type: Specifies the name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
@@ -132,6 +133,7 @@ class _PermissionState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Permission resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the permission.
         :param pulumi.Input[_builtins.bool] default_version: Specifies whether the version of the managed permission used by this resource share is the default version for this managed permission.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
@@ -352,6 +354,7 @@ class Permission(pulumi.CustomResource):
         $ pulumi import aws:ram/permission:Permission example arn:aws:ram:us-west-1:123456789012:permission/test-permission
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
@@ -408,6 +411,7 @@ class Permission(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ram/permission:Permission example arn:aws:ram:us-west-1:123456789012:permission/test-permission
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PermissionArgs args: The arguments to use to populate this resource's properties.

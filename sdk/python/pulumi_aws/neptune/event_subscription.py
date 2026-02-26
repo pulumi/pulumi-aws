@@ -30,6 +30,7 @@ class EventSubscriptionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EventSubscription resource.
+
         :param pulumi.Input[_builtins.str] sns_topic_arn: The ARN of the SNS topic to send events to.
         :param pulumi.Input[_builtins.bool] enabled: A boolean flag to enable/disable the subscription. Defaults to true.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_categories: A list of event categories for a `source_type` that you want to subscribe to. Run `aws neptune describe-event-categories` to find all the event categories.
@@ -184,6 +185,7 @@ class _EventSubscriptionState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering EventSubscription resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of the Neptune event notification subscription.
         :param pulumi.Input[_builtins.str] customer_aws_id: The AWS customer account associated with the Neptune event notification subscription.
         :param pulumi.Input[_builtins.bool] enabled: A boolean flag to enable/disable the subscription. Defaults to true.
@@ -436,6 +438,7 @@ class EventSubscription(pulumi.CustomResource):
         $ pulumi import aws:neptune/eventSubscription:EventSubscription example my-event-subscription
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: A boolean flag to enable/disable the subscription. Defaults to true.
@@ -506,6 +509,7 @@ class EventSubscription(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:neptune/eventSubscription:EventSubscription example my-event-subscription
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventSubscriptionArgs args: The arguments to use to populate this resource's properties.

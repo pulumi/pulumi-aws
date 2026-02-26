@@ -28,6 +28,7 @@ class ReservedInstanceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReservedInstance resource.
+
         :param pulumi.Input[_builtins.str] offering_id: ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `rds_get_reserved_instance_offering` data source.
                
                The following arguments are optional:
@@ -133,6 +134,7 @@ class _ReservedInstanceState:
                  usage_price: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Input properties used for looking up and filtering ReservedInstance resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN for the reserved DB instance.
         :param pulumi.Input[_builtins.str] currency_code: Currency code for the reserved DB instance.
         :param pulumi.Input[_builtins.str] db_instance_class: DB instance class for the reserved DB instance.
@@ -469,6 +471,7 @@ class ReservedInstance(pulumi.CustomResource):
         $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] instance_count: Number of instances to reserve. Default value is `1`.
@@ -516,6 +519,7 @@ class ReservedInstance(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReservedInstanceArgs args: The arguments to use to populate this resource's properties.

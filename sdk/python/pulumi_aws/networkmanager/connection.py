@@ -28,6 +28,7 @@ class ConnectionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Connection resource.
+
         :param pulumi.Input[_builtins.str] connected_device_id: ID of the second device in the connection.
         :param pulumi.Input[_builtins.str] device_id: ID of the first device in the connection.
         :param pulumi.Input[_builtins.str] global_network_id: ID of the global network.
@@ -151,6 +152,7 @@ class _ConnectionState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Connection resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the connection.
         :param pulumi.Input[_builtins.str] connected_device_id: ID of the second device in the connection.
         :param pulumi.Input[_builtins.str] connected_link_id: ID of the link for the second device.
@@ -332,6 +334,7 @@ class Connection(pulumi.CustomResource):
         $ pulumi import aws:networkmanager/connection:Connection example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/connection-07f6fd08867abc123
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connected_device_id: ID of the second device in the connection.
@@ -374,6 +377,7 @@ class Connection(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:networkmanager/connection:Connection example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/connection-07f6fd08867abc123
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConnectionArgs args: The arguments to use to populate this resource's properties.

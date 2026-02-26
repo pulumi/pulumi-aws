@@ -25,6 +25,7 @@ class ModelPackageGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ModelPackageGroup resource.
+
         :param pulumi.Input[_builtins.str] model_package_group_name: The name of the model group.
         :param pulumi.Input[_builtins.str] model_package_group_description: A description for the model group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -98,6 +99,7 @@ class _ModelPackageGroupState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ModelPackageGroup resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
         :param pulumi.Input[_builtins.str] model_package_group_description: A description for the model group.
         :param pulumi.Input[_builtins.str] model_package_group_name: The name of the model group.
@@ -224,6 +226,7 @@ class ModelPackageGroup(pulumi.CustomResource):
         $ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] model_package_group_description: A description for the model group.
@@ -258,6 +261,7 @@ class ModelPackageGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ModelPackageGroupArgs args: The arguments to use to populate this resource's properties.

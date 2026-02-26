@@ -26,6 +26,7 @@ class RecordsExclusiveArgs:
                  timeouts: Optional[pulumi.Input['RecordsExclusiveTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a RecordsExclusive resource.
+
         :param pulumi.Input[_builtins.str] zone_id: ID of the hosted zone containing the resource record sets.
                
                The following arguments are optional:
@@ -83,6 +84,7 @@ class _RecordsExclusiveState:
                  zone_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RecordsExclusive resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['RecordsExclusiveResourceRecordSetArgs']]] resource_record_sets: A list of all resource record sets associated with the hosted zone.
                See `resource_record_set` below.
         :param pulumi.Input[_builtins.str] zone_id: ID of the hosted zone containing the resource record sets.
@@ -201,6 +203,7 @@ class RecordsExclusive(pulumi.CustomResource):
         $ pulumi import aws:route53/recordsExclusive:RecordsExclusive example ABCD1234
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RecordsExclusiveResourceRecordSetArgs', 'RecordsExclusiveResourceRecordSetArgsDict']]]] resource_record_sets: A list of all resource record sets associated with the hosted zone.
@@ -272,6 +275,7 @@ class RecordsExclusive(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53/recordsExclusive:RecordsExclusive example ABCD1234
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RecordsExclusiveArgs args: The arguments to use to populate this resource's properties.

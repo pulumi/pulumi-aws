@@ -28,6 +28,7 @@ class ConnectionFunctionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConnectionFunction resource.
+
         :param pulumi.Input[_builtins.str] connection_function_code: Code for the connection function. Maximum length is 40960 characters.
         :param pulumi.Input['ConnectionFunctionConnectionFunctionConfigArgs'] connection_function_config: Configuration information for the connection function. See `connection_function_config` below.
         :param pulumi.Input[_builtins.str] name: Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.
@@ -123,6 +124,7 @@ class _ConnectionFunctionState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ConnectionFunction resources.
+
         :param pulumi.Input[_builtins.str] connection_function_arn: ARN of the connection function.
         :param pulumi.Input[_builtins.str] connection_function_code: Code for the connection function. Maximum length is 40960 characters.
         :param pulumi.Input['ConnectionFunctionConnectionFunctionConfigArgs'] connection_function_config: Configuration information for the connection function. See `connection_function_config` below.
@@ -376,6 +378,7 @@ class ConnectionFunction(pulumi.CustomResource):
         $ pulumi import aws:cloudfront/connectionFunction:ConnectionFunction example E1PA6795UKMFR9
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connection_function_code: Code for the connection function. Maximum length is 40960 characters.
@@ -475,6 +478,7 @@ class ConnectionFunction(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudfront/connectionFunction:ConnectionFunction example E1PA6795UKMFR9
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConnectionFunctionArgs args: The arguments to use to populate this resource's properties.

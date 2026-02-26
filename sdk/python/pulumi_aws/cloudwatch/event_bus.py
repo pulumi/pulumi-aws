@@ -31,6 +31,7 @@ class EventBusArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EventBus resource.
+
         :param pulumi.Input['EventBusDeadLetterConfigArgs'] dead_letter_config: Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
         :param pulumi.Input[_builtins.str] description: Event bus description.
         :param pulumi.Input[_builtins.str] event_source_name: Partner event source that the new event bus will be matched with. Must match `name`.
@@ -173,6 +174,7 @@ class _EventBusState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering EventBus resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the event bus.
         :param pulumi.Input['EventBusDeadLetterConfigArgs'] dead_letter_config: Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
         :param pulumi.Input[_builtins.str] description: Event bus description.
@@ -581,6 +583,7 @@ class EventBus(pulumi.CustomResource):
         $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EventBusDeadLetterConfigArgs', 'EventBusDeadLetterConfigArgsDict']] dead_letter_config: Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
@@ -835,6 +838,7 @@ class EventBus(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventBusArgs args: The arguments to use to populate this resource's properties.

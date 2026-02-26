@@ -30,6 +30,7 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group.
                
                The following arguments are optional:
@@ -187,6 +188,7 @@ class _ApplicationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Application resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Application.
         :param pulumi.Input[_builtins.bool] auto_config_enabled: Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
         :param pulumi.Input[_builtins.bool] auto_create: Configures all of the resources in the resource group by applying the recommended configurations.
@@ -407,6 +409,7 @@ class Application(pulumi.CustomResource):
         $ pulumi import aws:applicationinsights/application:Application some some-application
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_config_enabled: Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
@@ -458,6 +461,7 @@ class Application(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:applicationinsights/application:Application some some-application
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

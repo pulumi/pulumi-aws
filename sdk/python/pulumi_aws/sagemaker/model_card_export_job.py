@@ -29,6 +29,7 @@ class ModelCardExportJobArgs:
                  timeouts: Optional[pulumi.Input['ModelCardExportJobTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ModelCardExportJob resource.
+
         :param pulumi.Input[_builtins.str] model_card_export_job_name: Name of the model card export job.
         :param pulumi.Input[_builtins.str] model_card_name: Name of the model card.
         :param pulumi.Input['ModelCardExportJobOutputConfigArgs'] output_config: Export output details. Fields are documented below.
@@ -124,6 +125,7 @@ class _ModelCardExportJobState:
                  timeouts: Optional[pulumi.Input['ModelCardExportJobTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ModelCardExportJob resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['ModelCardExportJobExportArtifactArgs']]] export_artifacts: Exported model card artifacts.
         :param pulumi.Input[_builtins.str] model_card_export_job_arn: The Amazon Resource Name (ARN) of the model card export job.
         :param pulumi.Input[_builtins.str] model_card_export_job_name: Name of the model card export job.
@@ -279,6 +281,7 @@ class ModelCardExportJob(pulumi.CustomResource):
         $ pulumi import aws:sagemaker/modelCardExportJob:ModelCardExportJob example arn:aws:sagemaker:us-west-2:123456789012:model-card/my-model-card/export-job/my-model-card-export-job
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] model_card_export_job_name: Name of the model card export job.
@@ -318,6 +321,7 @@ class ModelCardExportJob(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sagemaker/modelCardExportJob:ModelCardExportJob example arn:aws:sagemaker:us-west-2:123456789012:model-card/my-model-card/export-job/my-model-card-export-job
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ModelCardExportJobArgs args: The arguments to use to populate this resource's properties.

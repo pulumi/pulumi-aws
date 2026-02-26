@@ -32,6 +32,7 @@ class StackInstancesArgs:
                  retain_stacks: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a StackInstances resource.
+
         :param pulumi.Input[_builtins.str] stack_set_name: Name of the stack set.
                
                The following arguments are optional:
@@ -189,6 +190,7 @@ class _StackInstancesState:
                  stack_set_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StackInstances resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts: Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deployment_targets`, but not both.
         :param pulumi.Input[_builtins.str] call_as: Whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
         :param pulumi.Input['StackInstancesDeploymentTargetsArgs'] deployment_targets: AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deployment_targets below.
@@ -473,6 +475,7 @@ class StackInstances(pulumi.CustomResource):
         $ pulumi import aws:cloudformation/stackInstances:StackInstances example example,SELF,OU
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts: Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deployment_targets`, but not both.
@@ -588,6 +591,7 @@ class StackInstances(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudformation/stackInstances:StackInstances example example,SELF,OU
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StackInstancesArgs args: The arguments to use to populate this resource's properties.

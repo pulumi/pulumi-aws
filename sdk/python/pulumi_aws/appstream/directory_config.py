@@ -28,6 +28,7 @@ class DirectoryConfigArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DirectoryConfig resource.
+
         :param pulumi.Input[_builtins.str] directory_name: Fully qualified name of the directory.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] organizational_unit_distinguished_names: Distinguished names of the organizational units for computer accounts.
         :param pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs'] service_account_credentials: Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
@@ -114,6 +115,7 @@ class _DirectoryConfigState:
                  service_account_credentials: Optional[pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs']] = None):
         """
         Input properties used for looking up and filtering DirectoryConfig resources.
+
         :param pulumi.Input['DirectoryConfigCertificateBasedAuthPropertiesArgs'] certificate_based_auth_properties: Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificate_based_auth_properties` below.
         :param pulumi.Input[_builtins.str] created_time: Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
         :param pulumi.Input[_builtins.str] directory_name: Fully qualified name of the directory.
@@ -249,6 +251,7 @@ class DirectoryConfig(pulumi.CustomResource):
         $ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DirectoryConfigCertificateBasedAuthPropertiesArgs', 'DirectoryConfigCertificateBasedAuthPropertiesArgsDict']] certificate_based_auth_properties: Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificate_based_auth_properties` below.
@@ -292,6 +295,7 @@ class DirectoryConfig(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DirectoryConfigArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class ProvisioningArtifactArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProvisioningArtifact resource.
+
         :param pulumi.Input[_builtins.str] product_id: Identifier of the product.
         :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
         :param pulumi.Input[_builtins.bool] active: Whether the product version is active. Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact. Default is `true`.
@@ -221,6 +222,7 @@ class _ProvisioningArtifactState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProvisioningArtifact resources.
+
         :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
         :param pulumi.Input[_builtins.bool] active: Whether the product version is active. Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact. Default is `true`.
         :param pulumi.Input[_builtins.str] created_time: Time when the provisioning artifact was created.
@@ -473,6 +475,7 @@ class ProvisioningArtifact(pulumi.CustomResource):
         $ pulumi import aws:servicecatalog/provisioningArtifact:ProvisioningArtifact example pa-ij2b6lusy6dec:prod-el3an0rma3
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
@@ -526,6 +529,7 @@ class ProvisioningArtifact(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:servicecatalog/provisioningArtifact:ProvisioningArtifact example pa-ij2b6lusy6dec:prod-el3an0rma3
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProvisioningArtifactArgs args: The arguments to use to populate this resource's properties.

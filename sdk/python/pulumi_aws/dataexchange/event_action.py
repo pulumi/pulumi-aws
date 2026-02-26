@@ -26,6 +26,7 @@ class EventActionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventAction resource.
+
         :param pulumi.Input['EventActionActionArgs'] action: Describes the action to take.
                Described in `action` Configuration Block below.
         :param pulumi.Input['EventActionEventArgs'] event: Describes the event that triggers the `action`.
@@ -87,6 +88,7 @@ class _EventActionState:
                  updated_at: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventAction resources.
+
         :param pulumi.Input['EventActionActionArgs'] action: Describes the action to take.
                Described in `action` Configuration Block below.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the event action.
@@ -231,6 +233,7 @@ class EventAction(pulumi.CustomResource):
         $ pulumi import aws:dataexchange/eventAction:EventAction example example-event-action-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EventActionActionArgs', 'EventActionActionArgsDict']] action: Describes the action to take.
@@ -281,6 +284,7 @@ class EventAction(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:dataexchange/eventAction:EventAction example example-event-action-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventActionArgs args: The arguments to use to populate this resource's properties.

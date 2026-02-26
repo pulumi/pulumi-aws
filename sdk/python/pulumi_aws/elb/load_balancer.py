@@ -41,6 +41,7 @@ class LoadBalancerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LoadBalancer resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerListenerArgs']]] listeners: A list of listener blocks. Listeners documented below.
         :param pulumi.Input['LoadBalancerAccessLogsArgs'] access_logs: An Access Logs block. Access Logs documented below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: The AZ's to serve traffic in.
@@ -355,6 +356,7 @@ class _LoadBalancerState:
                  zone_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LoadBalancer resources.
+
         :param pulumi.Input['LoadBalancerAccessLogsArgs'] access_logs: An Access Logs block. Access Logs documented below.
         :param pulumi.Input[_builtins.str] arn: The ARN of the ELB
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: The AZ's to serve traffic in.
@@ -825,6 +827,7 @@ class LoadBalancer(pulumi.CustomResource):
         $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['LoadBalancerAccessLogsArgs', 'LoadBalancerAccessLogsArgsDict']] access_logs: An Access Logs block. Access Logs documented below.
@@ -937,6 +940,7 @@ class LoadBalancer(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LoadBalancerArgs args: The arguments to use to populate this resource's properties.

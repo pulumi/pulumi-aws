@@ -27,6 +27,7 @@ class RouteServerPropagationArgs:
                  timeouts: Optional[pulumi.Input['RouteServerPropagationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a RouteServerPropagation resource.
+
         :param pulumi.Input[_builtins.str] route_server_id: The unique identifier for the route server to be associated.
         :param pulumi.Input[_builtins.str] route_table_id: The ID of the route table to which route server will propagate routes.
                
@@ -97,6 +98,7 @@ class _RouteServerPropagationState:
                  timeouts: Optional[pulumi.Input['RouteServerPropagationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering RouteServerPropagation resources.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] route_server_id: The unique identifier for the route server to be associated.
         :param pulumi.Input[_builtins.str] route_table_id: The ID of the route table to which route server will propagate routes.
@@ -195,6 +197,7 @@ class RouteServerPropagation(pulumi.CustomResource):
         $ pulumi import aws:vpc/routeServerPropagation:RouteServerPropagation example rs-12345678,rtb-656c65616e6f72
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -232,6 +235,7 @@ class RouteServerPropagation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:vpc/routeServerPropagation:RouteServerPropagation example rs-12345678,rtb-656c65616e6f72
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RouteServerPropagationArgs args: The arguments to use to populate this resource's properties.

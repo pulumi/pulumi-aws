@@ -36,6 +36,7 @@ class AgentcoreGatewayArgs:
                  timeouts: Optional[pulumi.Input['AgentcoreGatewayTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentcoreGateway resource.
+
         :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizer_configuration` block is required.
         :param pulumi.Input[_builtins.str] protocol_type: Protocol type for the gateway. Valid values: `MCP`.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that the gateway assumes to access AWS services.
@@ -254,6 +255,7 @@ class _AgentcoreGatewayState:
                  workload_identity_details: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayWorkloadIdentityDetailArgs']]]] = None):
         """
         Input properties used for looking up and filtering AgentcoreGateway resources.
+
         :param pulumi.Input['AgentcoreGatewayAuthorizerConfigurationArgs'] authorizer_configuration: Configuration for request authorization. Required when `authorizer_type` is set to `CUSTOM_JWT`. See `authorizer_configuration` below.
         :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizer_configuration` block is required.
         :param pulumi.Input[_builtins.str] description: Description of the gateway.
@@ -663,6 +665,7 @@ class AgentcoreGateway(pulumi.CustomResource):
         $ pulumi import aws:bedrock/agentcoreGateway:AgentcoreGateway example GATEWAY1234567890
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AgentcoreGatewayAuthorizerConfigurationArgs', 'AgentcoreGatewayAuthorizerConfigurationArgsDict']] authorizer_configuration: Configuration for request authorization. Required when `authorizer_type` is set to `CUSTOM_JWT`. See `authorizer_configuration` below.
@@ -801,6 +804,7 @@ class AgentcoreGateway(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:bedrock/agentcoreGateway:AgentcoreGateway example GATEWAY1234567890
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AgentcoreGatewayArgs args: The arguments to use to populate this resource's properties.

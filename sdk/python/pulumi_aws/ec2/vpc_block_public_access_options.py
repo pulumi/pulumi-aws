@@ -26,6 +26,7 @@ class VpcBlockPublicAccessOptionsArgs:
                  timeouts: Optional[pulumi.Input['VpcBlockPublicAccessOptionsTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a VpcBlockPublicAccessOptions resource.
+
         :param pulumi.Input[_builtins.str] internet_gateway_block_mode: Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -79,6 +80,7 @@ class _VpcBlockPublicAccessOptionsState:
                  timeouts: Optional[pulumi.Input['VpcBlockPublicAccessOptionsTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering VpcBlockPublicAccessOptions resources.
+
         :param pulumi.Input[_builtins.str] aws_account_id: The AWS account id to which these options apply.
         :param pulumi.Input[_builtins.str] aws_region: The AWS region to which these options apply.
         :param pulumi.Input[_builtins.str] internet_gateway_block_mode: Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
@@ -185,6 +187,7 @@ class VpcBlockPublicAccessOptions(pulumi.CustomResource):
         $ pulumi import aws:ec2/vpcBlockPublicAccessOptions:VpcBlockPublicAccessOptions example us-east-1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] internet_gateway_block_mode: Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
@@ -217,6 +220,7 @@ class VpcBlockPublicAccessOptions(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/vpcBlockPublicAccessOptions:VpcBlockPublicAccessOptions example us-east-1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcBlockPublicAccessOptionsArgs args: The arguments to use to populate this resource's properties.

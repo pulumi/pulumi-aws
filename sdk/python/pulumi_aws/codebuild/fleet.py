@@ -35,6 +35,7 @@ class FleetArgs:
                  vpc_configs: Optional[pulumi.Input[Sequence[pulumi.Input['FleetVpcConfigArgs']]]] = None):
         """
         The set of arguments for constructing a Fleet resource.
+
         :param pulumi.Input[_builtins.int] base_capacity: Number of machines allocated to the ﬂeet.
         :param pulumi.Input[_builtins.str] compute_type: Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
         :param pulumi.Input[_builtins.str] environment_type: Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
@@ -241,6 +242,7 @@ class _FleetState:
                  vpc_configs: Optional[pulumi.Input[Sequence[pulumi.Input['FleetVpcConfigArgs']]]] = None):
         """
         Input properties used for looking up and filtering Fleet resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Fleet.
         :param pulumi.Input[_builtins.int] base_capacity: Number of machines allocated to the ﬂeet.
         :param pulumi.Input['FleetComputeConfigurationArgs'] compute_configuration: The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
@@ -566,6 +568,7 @@ class Fleet(pulumi.CustomResource):
         $ pulumi import aws:codebuild/fleet:Fleet name fleet-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] base_capacity: Number of machines allocated to the ﬂeet.
@@ -636,6 +639,7 @@ class Fleet(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:codebuild/fleet:Fleet name fleet-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FleetArgs args: The arguments to use to populate this resource's properties.

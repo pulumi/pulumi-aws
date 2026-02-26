@@ -33,6 +33,7 @@ class IdentityPoolArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IdentityPool resource.
+
         :param pulumi.Input[_builtins.str] identity_pool_name: The Cognito Identity Pool name.
         :param pulumi.Input[_builtins.bool] allow_classic_flow: Enables or disables the classic / basic authentication flow. Default is `false`.
         :param pulumi.Input[_builtins.bool] allow_unauthenticated_identities: Whether the identity pool supports unauthenticated logins or not.
@@ -204,6 +205,7 @@ class _IdentityPoolState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering IdentityPool resources.
+
         :param pulumi.Input[_builtins.bool] allow_classic_flow: Enables or disables the classic / basic authentication flow. Default is `false`.
         :param pulumi.Input[_builtins.bool] allow_unauthenticated_identities: Whether the identity pool supports unauthenticated logins or not.
         :param pulumi.Input[_builtins.str] arn: The ARN of the identity pool.
@@ -451,6 +453,7 @@ class IdentityPool(pulumi.CustomResource):
         $ pulumi import aws:cognito/identityPool:IdentityPool mypool us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_classic_flow: Enables or disables the classic / basic authentication flow. Default is `false`.
@@ -515,6 +518,7 @@ class IdentityPool(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cognito/identityPool:IdentityPool mypool us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IdentityPoolArgs args: The arguments to use to populate this resource's properties.

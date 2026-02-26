@@ -28,6 +28,7 @@ class ApiKeyArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiKey resource.
+
         :param pulumi.Input[_builtins.str] customer_id: An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
         :param pulumi.Input[_builtins.str] description: API key description. Defaults to "Managed by Pulumi".
         :param pulumi.Input[_builtins.bool] enabled: Whether the API key can be used by callers. Defaults to `true`.
@@ -154,6 +155,7 @@ class _ApiKeyState:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiKey resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN
         :param pulumi.Input[_builtins.str] created_date: Creation date of the API key
         :param pulumi.Input[_builtins.str] customer_id: An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
@@ -360,6 +362,7 @@ class ApiKey(pulumi.CustomResource):
         $ pulumi import aws:apigateway/apiKey:ApiKey example 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] customer_id: An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
@@ -397,6 +400,7 @@ class ApiKey(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apigateway/apiKey:ApiKey example 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApiKeyArgs args: The arguments to use to populate this resource's properties.

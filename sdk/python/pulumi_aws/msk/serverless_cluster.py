@@ -28,6 +28,7 @@ class ServerlessClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServerlessCluster resource.
+
         :param pulumi.Input['ServerlessClusterClientAuthenticationArgs'] client_authentication: Specifies client authentication information for the serverless cluster. See below.
         :param pulumi.Input[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]] vpc_configs: VPC configuration information. See below.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the serverless cluster.
@@ -118,6 +119,7 @@ class _ServerlessClusterState:
                  vpc_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]]] = None):
         """
         Input properties used for looking up and filtering ServerlessCluster resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the serverless cluster.
         :param pulumi.Input[_builtins.str] bootstrap_brokers_sasl_iam: One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input['ServerlessClusterClientAuthenticationArgs'] client_authentication: Specifies client authentication information for the serverless cluster. See below.
@@ -302,6 +304,7 @@ class ServerlessCluster(pulumi.CustomResource):
         $ pulumi import aws:msk/serverlessCluster:ServerlessCluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServerlessClusterClientAuthenticationArgs', 'ServerlessClusterClientAuthenticationArgsDict']] client_authentication: Specifies client authentication information for the serverless cluster. See below.
@@ -349,6 +352,7 @@ class ServerlessCluster(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:msk/serverlessCluster:ServerlessCluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerlessClusterArgs args: The arguments to use to populate this resource's properties.

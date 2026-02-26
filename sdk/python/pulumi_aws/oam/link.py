@@ -29,6 +29,7 @@ class LinkArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Link resource.
+
         :param pulumi.Input[_builtins.str] label_template: Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_types: Types of data that the source account shares with the monitoring account.
         :param pulumi.Input[_builtins.str] sink_identifier: Identifier of the sink to use to create this link.
@@ -139,6 +140,7 @@ class _LinkState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Link resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the link.
         :param pulumi.Input[_builtins.str] label: Label that is assigned to this link.
         :param pulumi.Input[_builtins.str] label_template: Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
@@ -389,6 +391,7 @@ class Link(pulumi.CustomResource):
         $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] label_template: Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
@@ -474,6 +477,7 @@ class Link(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LinkArgs args: The arguments to use to populate this resource's properties.

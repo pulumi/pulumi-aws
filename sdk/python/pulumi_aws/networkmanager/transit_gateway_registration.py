@@ -23,6 +23,7 @@ class TransitGatewayRegistrationArgs:
                  transit_gateway_arn: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a TransitGatewayRegistration resource.
+
         :param pulumi.Input[_builtins.str] global_network_id: ID of the Global Network to register to.
         :param pulumi.Input[_builtins.str] transit_gateway_arn: ARN of the Transit Gateway to register.
         """
@@ -61,6 +62,7 @@ class _TransitGatewayRegistrationState:
                  transit_gateway_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TransitGatewayRegistration resources.
+
         :param pulumi.Input[_builtins.str] global_network_id: ID of the Global Network to register to.
         :param pulumi.Input[_builtins.str] transit_gateway_arn: ARN of the Transit Gateway to register.
         """
@@ -127,6 +129,7 @@ class TransitGatewayRegistration(pulumi.CustomResource):
         $ pulumi import aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway/tgw-123abc05e04123abc
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] global_network_id: ID of the Global Network to register to.
@@ -161,6 +164,7 @@ class TransitGatewayRegistration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway/tgw-123abc05e04123abc
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayRegistrationArgs args: The arguments to use to populate this resource's properties.

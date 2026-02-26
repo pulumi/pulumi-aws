@@ -35,6 +35,7 @@ class DataLakeSettingsArgs:
                  trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DataLakeSettings resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles).
         :param pulumi.Input[_builtins.bool] allow_external_data_filtering: Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
         :param pulumi.Input[_builtins.bool] allow_full_table_external_data_access: Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
@@ -239,6 +240,7 @@ class _DataLakeSettingsState:
                  trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DataLakeSettings resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles).
         :param pulumi.Input[_builtins.bool] allow_external_data_filtering: Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
         :param pulumi.Input[_builtins.bool] allow_full_table_external_data_access: Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
@@ -532,6 +534,7 @@ class DataLakeSettings(pulumi.CustomResource):
         })
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles).
@@ -641,6 +644,7 @@ class DataLakeSettings(pulumi.CustomResource):
             "CROSS_ACCOUNT_VERSION": "3",
         })
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataLakeSettingsArgs args: The arguments to use to populate this resource's properties.

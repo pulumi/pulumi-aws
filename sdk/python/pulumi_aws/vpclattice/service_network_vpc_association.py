@@ -30,6 +30,7 @@ class ServiceNetworkVpcAssociationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServiceNetworkVpcAssociation resource.
+
         :param pulumi.Input[_builtins.str] service_network_identifier: The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] vpc_identifier: The ID of the VPC.
@@ -154,6 +155,7 @@ class _ServiceNetworkVpcAssociationState:
                  vpc_identifier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceNetworkVpcAssociation resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the Association.
         :param pulumi.Input[_builtins.str] created_by: The account that created the association.
         :param pulumi.Input['ServiceNetworkVpcAssociationDnsOptionsArgs'] dns_options: Configuration block for DNS option. See `dns_options` block below for details.
@@ -363,6 +365,7 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
         $ pulumi import aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation example snsa-05e2474658a88f6ba
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceNetworkVpcAssociationDnsOptionsArgs', 'ServiceNetworkVpcAssociationDnsOptionsArgsDict']] dns_options: Configuration block for DNS option. See `dns_options` block below for details.
@@ -404,6 +407,7 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation example snsa-05e2474658a88f6ba
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceNetworkVpcAssociationArgs args: The arguments to use to populate this resource's properties.

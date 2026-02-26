@@ -31,6 +31,7 @@ class FormTypeArgs:
                  timeouts: Optional[pulumi.Input['FormTypeTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a FormType resource.
+
         :param pulumi.Input[_builtins.str] domain_identifier: Identifier of the domain.
         :param pulumi.Input['FormTypeModelArgs'] model: Object of the model of the form type that contains the following attributes.
         :param pulumi.Input[_builtins.str] owning_project_identifier: Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
@@ -166,6 +167,7 @@ class _FormTypeState:
                  timeouts: Optional[pulumi.Input['FormTypeTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering FormType resources.
+
         :param pulumi.Input[_builtins.str] created_at: Creation time of the Form Type.
         :param pulumi.Input[_builtins.str] created_by: Creator of the Form Type.
         :param pulumi.Input[_builtins.str] description: Description of form type. Must have a length of between 1 and 2048 characters.
@@ -481,6 +483,7 @@ class FormType(pulumi.CustomResource):
         $ pulumi import aws:datazone/formType:FormType example domain_identifier,name,revision
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of form type. Must have a length of between 1 and 2048 characters.
@@ -591,6 +594,7 @@ class FormType(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:datazone/formType:FormType example domain_identifier,name,revision
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FormTypeArgs args: The arguments to use to populate this resource's properties.

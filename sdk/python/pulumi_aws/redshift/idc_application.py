@@ -33,6 +33,7 @@ class IdcApplicationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IdcApplication resource.
+
         :param pulumi.Input[_builtins.str] iam_role_arn: IAM role ARN for the Amazon Redshift IAM Identity Center application instance.
         :param pulumi.Input[_builtins.str] idc_display_name: Display name for the Amazon Redshift IAM Identity Center application instance.
         :param pulumi.Input[_builtins.str] idc_instance_arn: ARN of the IAM Identity Center instance where Amazon Redshift creates a new managed application.
@@ -196,6 +197,7 @@ class _IdcApplicationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering IdcApplication resources.
+
         :param pulumi.Input[_builtins.str] application_type: Type of application being created. Valid values are `None` or `Lakehouse`.
         :param pulumi.Input['IdcApplicationAuthorizedTokenIssuerArgs'] authorized_token_issuer: Token issuer list for the Amazon Redshift IAM Identity Center application instance. Refer to the authorized_token_issuer documentation for more details.
         :param pulumi.Input[_builtins.str] iam_role_arn: IAM role ARN for the Amazon Redshift IAM Identity Center application instance.
@@ -428,6 +430,7 @@ class IdcApplication(pulumi.CustomResource):
         $ pulumi import aws:redshift/idcApplication:IdcApplication example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_type: Type of application being created. Valid values are `None` or `Lakehouse`.
@@ -470,6 +473,7 @@ class IdcApplication(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:redshift/idcApplication:IdcApplication example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IdcApplicationArgs args: The arguments to use to populate this resource's properties.

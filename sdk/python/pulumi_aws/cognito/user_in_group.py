@@ -25,6 +25,7 @@ class UserInGroupArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserInGroup resource.
+
         :param pulumi.Input[_builtins.str] group_name: The name of the group to which the user is to be added.
         :param pulumi.Input[_builtins.str] user_pool_id: The user pool ID of the user and group.
         :param pulumi.Input[_builtins.str] username: The username of the user to be added to the group.
@@ -94,6 +95,7 @@ class _UserInGroupState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserInGroup resources.
+
         :param pulumi.Input[_builtins.str] group_name: The name of the group to which the user is to be added.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] user_pool_id: The user pool ID of the user and group.
@@ -206,6 +208,7 @@ class UserInGroup(pulumi.CustomResource):
         $ pulumi import aws:cognito/userInGroup:UserInGroup example us-east-1_vG78M4goG,example-group,example-user
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] group_name: The name of the group to which the user is to be added.
@@ -256,6 +259,7 @@ class UserInGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cognito/userInGroup:UserInGroup example us-east-1_vG78M4goG,example-group,example-user
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserInGroupArgs args: The arguments to use to populate this resource's properties.

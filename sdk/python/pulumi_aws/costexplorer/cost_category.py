@@ -30,6 +30,7 @@ class CostCategoryArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CostCategory resource.
+
         :param pulumi.Input[_builtins.str] rule_version: Rule schema version in this particular Cost Category.
                
                The following arguments are optional:
@@ -155,6 +156,7 @@ class _CostCategoryState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CostCategory resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the cost category.
         :param pulumi.Input[_builtins.str] default_value: Default value for the cost category.
         :param pulumi.Input[_builtins.str] effective_end: Effective end data of your Cost Category.
@@ -386,6 +388,7 @@ class CostCategory(pulumi.CustomResource):
         $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] default_value: Default value for the cost category.
@@ -463,6 +466,7 @@ class CostCategory(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CostCategoryArgs args: The arguments to use to populate this resource's properties.

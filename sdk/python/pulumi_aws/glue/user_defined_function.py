@@ -31,6 +31,7 @@ class UserDefinedFunctionArgs:
                  resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]] = None):
         """
         The set of arguments for constructing a UserDefinedFunction resource.
+
         :param pulumi.Input[_builtins.str] class_name: The Java class that contains the function code.
         :param pulumi.Input[_builtins.str] database_name: The name of the Database to create the Function.
         :param pulumi.Input[_builtins.str] owner_name: The owner of the function.
@@ -165,6 +166,7 @@ class _UserDefinedFunctionState:
                  resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]] = None):
         """
         Input properties used for looking up and filtering UserDefinedFunction resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the Glue User Defined Function.
         :param pulumi.Input[_builtins.str] catalog_id: ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
         :param pulumi.Input[_builtins.str] class_name: The Java class that contains the function code.
@@ -364,6 +366,7 @@ class UserDefinedFunction(pulumi.CustomResource):
         $ pulumi import aws:glue/userDefinedFunction:UserDefinedFunction func 123456789012:my_database:my_func
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
@@ -411,6 +414,7 @@ class UserDefinedFunction(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:glue/userDefinedFunction:UserDefinedFunction func 123456789012:my_database:my_func
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserDefinedFunctionArgs args: The arguments to use to populate this resource's properties.

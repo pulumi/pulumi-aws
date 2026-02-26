@@ -37,6 +37,7 @@ class DevEndpointArgs:
                  worker_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DevEndpoint resource.
+
         :param pulumi.Input[_builtins.str] role_arn: The IAM role for this endpoint.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] arguments: A map of arguments used to configure the endpoint.
         :param pulumi.Input[_builtins.str] extra_jars_s3_path: Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
@@ -310,6 +311,7 @@ class _DevEndpointState:
                  zeppelin_remote_spark_interpreter_port: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering DevEndpoint resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] arguments: A map of arguments used to configure the endpoint.
         :param pulumi.Input[_builtins.str] arn: The ARN of the endpoint.
         :param pulumi.Input[_builtins.str] availability_zone: The AWS availability zone where this endpoint is located.
@@ -763,6 +765,7 @@ class DevEndpoint(pulumi.CustomResource):
         $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] arguments: A map of arguments used to configure the endpoint.
@@ -824,6 +827,7 @@ class DevEndpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DevEndpointArgs args: The arguments to use to populate this resource's properties.

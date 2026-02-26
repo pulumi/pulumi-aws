@@ -30,6 +30,7 @@ class IamPolicyAssignmentArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IamPolicyAssignment resource.
+
         :param pulumi.Input[_builtins.str] assignment_name: Name of the assignment.
         :param pulumi.Input[_builtins.str] assignment_status: Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
                
@@ -153,6 +154,7 @@ class _IamPolicyAssignmentState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IamPolicyAssignment resources.
+
         :param pulumi.Input[_builtins.str] assignment_id: Assignment ID.
         :param pulumi.Input[_builtins.str] assignment_name: Name of the assignment.
         :param pulumi.Input[_builtins.str] assignment_status: Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
@@ -322,6 +324,7 @@ class IamPolicyAssignment(pulumi.CustomResource):
         $ pulumi import aws:quicksight/iamPolicyAssignment:IamPolicyAssignment example 123456789012,default,example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] assignment_name: Name of the assignment.
@@ -367,6 +370,7 @@ class IamPolicyAssignment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:quicksight/iamPolicyAssignment:IamPolicyAssignment example 123456789012,default,example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IamPolicyAssignmentArgs args: The arguments to use to populate this resource's properties.

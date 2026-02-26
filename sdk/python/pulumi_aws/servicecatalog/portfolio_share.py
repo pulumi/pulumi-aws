@@ -29,6 +29,7 @@ class PortfolioShareArgs:
                  wait_for_acceptance: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a PortfolioShare resource.
+
         :param pulumi.Input[_builtins.str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[_builtins.str] principal_id: Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
         :param pulumi.Input[_builtins.str] type: Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
@@ -167,6 +168,7 @@ class _PortfolioShareState:
                  wait_for_acceptance: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering PortfolioShare resources.
+
         :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[_builtins.bool] accepted: Whether the shared portfolio is imported by the recipient account. If the recipient is organizational, the share is automatically imported, and the field is always set to true.
         :param pulumi.Input[_builtins.str] portfolio_id: Portfolio identifier.
@@ -357,6 +359,7 @@ class PortfolioShare(pulumi.CustomResource):
         $ pulumi import aws:servicecatalog/portfolioShare:PortfolioShare example port-12344321:ACCOUNT:123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -408,6 +411,7 @@ class PortfolioShare(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:servicecatalog/portfolioShare:PortfolioShare example port-12344321:ACCOUNT:123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PortfolioShareArgs args: The arguments to use to populate this resource's properties.

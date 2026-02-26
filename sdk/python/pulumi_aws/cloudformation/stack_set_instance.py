@@ -32,6 +32,7 @@ class StackSetInstanceArgs:
                  stack_set_instance_region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a StackSetInstance resource.
+
         :param pulumi.Input[_builtins.str] stack_set_name: Name of the StackSet.
         :param pulumi.Input[_builtins.str] account_id: Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
         :param pulumi.Input[_builtins.str] call_as: Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
@@ -190,6 +191,7 @@ class _StackSetInstanceState:
                  stack_set_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StackSetInstance resources.
+
         :param pulumi.Input[_builtins.str] account_id: Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
         :param pulumi.Input[_builtins.str] call_as: Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
         :param pulumi.Input['StackSetInstanceDeploymentTargetsArgs'] deployment_targets: AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
@@ -486,6 +488,7 @@ class StackSetInstance(pulumi.CustomResource):
         $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1,DELEGATED_ADMIN
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
@@ -596,6 +599,7 @@ class StackSetInstance(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1,DELEGATED_ADMIN
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StackSetInstanceArgs args: The arguments to use to populate this resource's properties.

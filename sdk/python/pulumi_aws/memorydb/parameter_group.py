@@ -30,6 +30,7 @@ class ParameterGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ParameterGroup resource.
+
         :param pulumi.Input[_builtins.str] family: The engine version that the parameter group can be used with.
                
                The following arguments are optional:
@@ -155,6 +156,7 @@ class _ParameterGroupState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ParameterGroup resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the parameter group.
         :param pulumi.Input[_builtins.str] description: Description for the parameter group. Defaults to `"Managed by Pulumi"`.
         :param pulumi.Input[_builtins.str] family: The engine version that the parameter group can be used with.
@@ -339,6 +341,7 @@ class ParameterGroup(pulumi.CustomResource):
         $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description for the parameter group. Defaults to `"Managed by Pulumi"`.
@@ -384,6 +387,7 @@ class ParameterGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ParameterGroupArgs args: The arguments to use to populate this resource's properties.

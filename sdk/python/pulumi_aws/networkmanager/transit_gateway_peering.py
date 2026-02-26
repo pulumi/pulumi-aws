@@ -24,6 +24,7 @@ class TransitGatewayPeeringArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TransitGatewayPeering resource.
+
         :param pulumi.Input[_builtins.str] core_network_id: ID of a core network.
         :param pulumi.Input[_builtins.str] transit_gateway_arn: ARN of the transit gateway for the peering request.
                
@@ -90,6 +91,7 @@ class _TransitGatewayPeeringState:
                  transit_gateway_peering_attachment_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TransitGatewayPeering resources.
+
         :param pulumi.Input[_builtins.str] arn: Peering ARN.
         :param pulumi.Input[_builtins.str] core_network_arn: ARN of the core network.
         :param pulumi.Input[_builtins.str] core_network_id: ID of a core network.
@@ -298,6 +300,7 @@ class TransitGatewayPeering(pulumi.CustomResource):
         $ pulumi import aws:networkmanager/transitGatewayPeering:TransitGatewayPeering example peering-444555aaabbb11223
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] core_network_id: ID of a core network.
@@ -337,6 +340,7 @@ class TransitGatewayPeering(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:networkmanager/transitGatewayPeering:TransitGatewayPeering example peering-444555aaabbb11223
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayPeeringArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class CustomRoutingAcceleratorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CustomRoutingAccelerator resource.
+
         :param pulumi.Input['CustomRoutingAcceleratorAttributesArgs'] attributes: The attributes of the accelerator. Fields documented below.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         :param pulumi.Input[_builtins.str] ip_address_type: The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.
@@ -138,6 +139,7 @@ class _CustomRoutingAcceleratorState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CustomRoutingAccelerator resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the custom accelerator.
         :param pulumi.Input['CustomRoutingAcceleratorAttributesArgs'] attributes: The attributes of the accelerator. Fields documented below.
         :param pulumi.Input[_builtins.str] dns_name: The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
@@ -358,6 +360,7 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
         $ pulumi import aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CustomRoutingAcceleratorAttributesArgs', 'CustomRoutingAcceleratorAttributesArgsDict']] attributes: The attributes of the accelerator. Fields documented below.
@@ -407,6 +410,7 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomRoutingAcceleratorArgs args: The arguments to use to populate this resource's properties.

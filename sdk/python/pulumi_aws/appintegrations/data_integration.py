@@ -30,6 +30,7 @@ class DataIntegrationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DataIntegration resource.
+
         :param pulumi.Input[_builtins.str] kms_key: Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
         :param pulumi.Input['DataIntegrationScheduleConfigArgs'] schedule_config: A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
         :param pulumi.Input[_builtins.str] source_uri: Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
@@ -149,6 +150,7 @@ class _DataIntegrationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DataIntegration resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Data Integration.
         :param pulumi.Input[_builtins.str] description: Specifies the description of the Data Integration.
         :param pulumi.Input[_builtins.str] kms_key: Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
@@ -333,6 +335,7 @@ class DataIntegration(pulumi.CustomResource):
         $ pulumi import aws:appintegrations/dataIntegration:DataIntegration example 12345678-1234-1234-1234-123456789123
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Specifies the description of the Data Integration.
@@ -380,6 +383,7 @@ class DataIntegration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appintegrations/dataIntegration:DataIntegration example 12345678-1234-1234-1234-123456789123
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataIntegrationArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class KeySigningKeyArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a KeySigningKey resource.
+
         :param pulumi.Input[_builtins.str] hosted_zone_id: Identifier of the Route 53 Hosted Zone.
         :param pulumi.Input[_builtins.str] key_management_service_arn: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
         :param pulumi.Input[_builtins.str] name: Name of the key-signing key (KSK). Must be unique for each key-signing key in the same hosted zone.
@@ -109,6 +110,7 @@ class _KeySigningKeyState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering KeySigningKey resources.
+
         :param pulumi.Input[_builtins.str] digest_algorithm_mnemonic: A string used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
         :param pulumi.Input[_builtins.int] digest_algorithm_type: An integer used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
         :param pulumi.Input[_builtins.str] digest_value: A cryptographic digest of a DNSKEY resource record (RR). DNSKEY records are used to publish the public key that resolvers can use to verify DNSSEC signatures that are used to secure certain kinds of information provided by the DNS system.
@@ -418,6 +420,7 @@ class KeySigningKey(pulumi.CustomResource):
         $ pulumi import aws:route53/keySigningKey:KeySigningKey example Z1D633PJN98FT9,example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] hosted_zone_id: Identifier of the Route 53 Hosted Zone.
@@ -513,6 +516,7 @@ class KeySigningKey(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53/keySigningKey:KeySigningKey example Z1D633PJN98FT9,example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param KeySigningKeyArgs args: The arguments to use to populate this resource's properties.

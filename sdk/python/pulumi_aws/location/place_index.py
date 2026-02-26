@@ -29,6 +29,7 @@ class PlaceIndexArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PlaceIndex resource.
+
         :param pulumi.Input[_builtins.str] data_source: Specifies the geospatial data provider for the new place index.
         :param pulumi.Input[_builtins.str] index_name: The name of the place index resource.
                
@@ -139,6 +140,7 @@ class _PlaceIndexState:
                  update_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PlaceIndex resources.
+
         :param pulumi.Input[_builtins.str] create_time: The timestamp for when the place index resource was created in ISO 8601 format.
         :param pulumi.Input[_builtins.str] data_source: Specifies the geospatial data provider for the new place index.
         :param pulumi.Input['PlaceIndexDataSourceConfigurationArgs'] data_source_configuration: Configuration block with the data storage option chosen for requesting Places. Detailed below.
@@ -331,6 +333,7 @@ class PlaceIndex(pulumi.CustomResource):
         $ pulumi import aws:location/placeIndex:PlaceIndex example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_source: Specifies the geospatial data provider for the new place index.
@@ -369,6 +372,7 @@ class PlaceIndex(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:location/placeIndex:PlaceIndex example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PlaceIndexArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class SessionLoggerAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SessionLoggerAssociation resource.
+
         :param pulumi.Input[_builtins.str] portal_arn: ARN of the web portal.
         :param pulumi.Input[_builtins.str] session_logger_arn: ARN of the session logger.
                
@@ -82,6 +83,7 @@ class _SessionLoggerAssociationState:
                  session_logger_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SessionLoggerAssociation resources.
+
         :param pulumi.Input[_builtins.str] portal_arn: ARN of the web portal.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] session_logger_arn: ARN of the session logger.
@@ -197,6 +199,7 @@ class SessionLoggerAssociation(pulumi.CustomResource):
         $ pulumi import aws:workspacesweb/sessionLoggerAssociation:SessionLoggerAssociation example arn:aws:workspaces-web:us-west-2:123456789012:sessionLogger/session_logger-id-12345678,arn:aws:workspaces-web:us-west-2:123456789012:portal/portal-id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] portal_arn: ARN of the web portal.
@@ -263,6 +266,7 @@ class SessionLoggerAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:workspacesweb/sessionLoggerAssociation:SessionLoggerAssociation example arn:aws:workspaces-web:us-west-2:123456789012:sessionLogger/session_logger-id-12345678,arn:aws:workspaces-web:us-west-2:123456789012:portal/portal-id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SessionLoggerAssociationArgs args: The arguments to use to populate this resource's properties.

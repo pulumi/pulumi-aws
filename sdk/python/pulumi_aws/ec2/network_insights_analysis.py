@@ -28,6 +28,7 @@ class NetworkInsightsAnalysisArgs:
                  wait_for_completion: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a NetworkInsightsAnalysis resource.
+
         :param pulumi.Input[_builtins.str] network_insights_path_id: ID of the Network Insights Path to run an analysis on.
                
                The following arguments are optional:
@@ -130,6 +131,7 @@ class _NetworkInsightsAnalysisState:
                  warning_message: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkInsightsAnalysis resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisAlternatePathHintArgs']]] alternate_path_hints: Potential intermediate components of a feasible path. Described below.
         :param pulumi.Input[_builtins.str] arn: ARN of the Network Insights Analysis.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationArgs']]] explanations: Explanation codes for an unreachable path. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Explanation.html) for details.
@@ -413,6 +415,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         $ pulumi import aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis test nia-0462085c957f11a55
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] filter_in_arns: A list of ARNs for resources the path must traverse.
@@ -452,6 +455,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis test nia-0462085c957f11a55
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkInsightsAnalysisArgs args: The arguments to use to populate this resource's properties.

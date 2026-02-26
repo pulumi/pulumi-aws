@@ -40,6 +40,7 @@ class VpcEndpointArgs:
                  vpc_endpoint_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcEndpoint resource.
+
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC in which the endpoint will be used.
         :param pulumi.Input[_builtins.bool] auto_accept: Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
         :param pulumi.Input['VpcEndpointDnsOptionsArgs'] dns_options: The DNS options for the endpoint. See dns_options below.
@@ -332,6 +333,7 @@ class _VpcEndpointState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcEndpoint resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the VPC endpoint.
         :param pulumi.Input[_builtins.bool] auto_accept: Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_blocks: The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
@@ -936,6 +938,7 @@ class VpcEndpoint(pulumi.CustomResource):
         $ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint example vpce-3ecf2a57
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_accept: Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
@@ -1146,6 +1149,7 @@ class VpcEndpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint example vpce-3ecf2a57
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcEndpointArgs args: The arguments to use to populate this resource's properties.

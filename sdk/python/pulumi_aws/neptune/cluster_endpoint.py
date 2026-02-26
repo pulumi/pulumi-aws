@@ -28,6 +28,7 @@ class ClusterEndpointArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ClusterEndpoint resource.
+
         :param pulumi.Input[_builtins.str] cluster_endpoint_identifier: The identifier of the endpoint.
         :param pulumi.Input[_builtins.str] cluster_identifier: The DB cluster identifier of the DB cluster associated with the endpoint.
         :param pulumi.Input[_builtins.str] endpoint_type: The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
@@ -148,6 +149,7 @@ class _ClusterEndpointState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ClusterEndpoint resources.
+
         :param pulumi.Input[_builtins.str] arn: The Neptune Cluster Endpoint Amazon Resource Name (ARN).
         :param pulumi.Input[_builtins.str] cluster_endpoint_identifier: The identifier of the endpoint.
         :param pulumi.Input[_builtins.str] cluster_identifier: The DB cluster identifier of the DB cluster associated with the endpoint.
@@ -338,6 +340,7 @@ class ClusterEndpoint(pulumi.CustomResource):
         $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_endpoint_identifier: The identifier of the endpoint.
@@ -376,6 +379,7 @@ class ClusterEndpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterEndpointArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class PolicyAttachmentArgs:
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PolicyAttachment resource.
+
         :param pulumi.Input[_builtins.str] policy_arn: ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups: Group(s) the policy should be applied to.
         :param pulumi.Input[_builtins.str] name: Name of the attachment. This cannot be an empty string.
@@ -113,6 +114,7 @@ class _PolicyAttachmentState:
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering PolicyAttachment resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups: Group(s) the policy should be applied to.
         :param pulumi.Input[_builtins.str] name: Name of the attachment. This cannot be an empty string.
         :param pulumi.Input[_builtins.str] policy_arn: ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
@@ -250,6 +252,7 @@ class PolicyAttachment(pulumi.CustomResource):
             policy_arn=policy_policy.arn)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups: Group(s) the policy should be applied to.
@@ -310,6 +313,7 @@ class PolicyAttachment(pulumi.CustomResource):
             groups=[group.name],
             policy_arn=policy_policy.arn)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyAttachmentArgs args: The arguments to use to populate this resource's properties.

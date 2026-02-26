@@ -29,6 +29,7 @@ class VpcDhcpOptionsArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpcDhcpOptions resource.
+
         :param pulumi.Input[_builtins.str] domain_name: the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domain_name_servers: List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
         :param pulumi.Input[_builtins.str] ipv6_address_preferred_lease_time: How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
@@ -168,6 +169,7 @@ class _VpcDhcpOptionsState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering VpcDhcpOptions resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the DHCP Options Set.
         :param pulumi.Input[_builtins.str] domain_name: the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domain_name_servers: List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
@@ -405,6 +407,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
         $ pulumi import aws:ec2/vpcDhcpOptions:VpcDhcpOptions my_options dopt-d9070ebb
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_name: the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
@@ -475,6 +478,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/vpcDhcpOptions:VpcDhcpOptions my_options dopt-d9070ebb
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcDhcpOptionsArgs args: The arguments to use to populate this resource's properties.

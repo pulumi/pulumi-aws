@@ -26,6 +26,7 @@ class InstancePublicPortsArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a InstancePublicPorts resource.
+
         :param pulumi.Input[_builtins.str] instance_name: Name of the instance for which to open ports.
         :param pulumi.Input[Sequence[pulumi.Input['InstancePublicPortsPortInfoArgs']]] port_infos: Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
                
@@ -84,6 +85,7 @@ class _InstancePublicPortsState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering InstancePublicPorts resources.
+
         :param pulumi.Input[_builtins.str] instance_name: Name of the instance for which to open ports.
         :param pulumi.Input[Sequence[pulumi.Input['InstancePublicPortsPortInfoArgs']]] port_infos: Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
                
@@ -186,6 +188,7 @@ class InstancePublicPorts(pulumi.CustomResource):
             ])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] instance_name: Name of the instance for which to open ports.
@@ -239,6 +242,7 @@ class InstancePublicPorts(pulumi.CustomResource):
                 },
             ])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InstancePublicPortsArgs args: The arguments to use to populate this resource's properties.

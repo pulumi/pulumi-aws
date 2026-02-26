@@ -36,6 +36,7 @@ class VpcEncryptionControlArgs:
                  vpc_peering_exclusion: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcEncryptionControl resource.
+
         :param pulumi.Input[_builtins.str] mode: Mode to enable for VPC Encryption Control.
                Valid values are `monitor` or `enforce`.
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC the VPC Encryption Control is linked to.
@@ -304,6 +305,7 @@ class _VpcEncryptionControlState:
                  vpc_peering_exclusion: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcEncryptionControl resources.
+
         :param pulumi.Input[_builtins.str] egress_only_internet_gateway_exclusion: Whether to exclude Egress-Only Internet Gateways from encryption enforcement.
                Valid values are `disable` or `enable`.
                Default is `disable`.
@@ -661,6 +663,7 @@ class VpcEncryptionControl(pulumi.CustomResource):
         $ pulumi import aws:ec2/vpcEncryptionControl:VpcEncryptionControl example vpcec-12345678901234567
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] egress_only_internet_gateway_exclusion: Whether to exclude Egress-Only Internet Gateways from encryption enforcement.
@@ -733,6 +736,7 @@ class VpcEncryptionControl(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/vpcEncryptionControl:VpcEncryptionControl example vpcec-12345678901234567
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcEncryptionControlArgs args: The arguments to use to populate this resource's properties.

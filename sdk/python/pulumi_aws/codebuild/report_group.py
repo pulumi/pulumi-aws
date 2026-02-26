@@ -29,6 +29,7 @@ class ReportGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReportGroup resource.
+
         :param pulumi.Input['ReportGroupExportConfigArgs'] export_config: Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
         :param pulumi.Input[_builtins.str] type: The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
         :param pulumi.Input[_builtins.bool] delete_reports: If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
@@ -134,6 +135,7 @@ class _ReportGroupState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ReportGroup resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of Report Group.
         :param pulumi.Input[_builtins.str] created: The date and time this Report Group was created.
         :param pulumi.Input[_builtins.bool] delete_reports: If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
@@ -339,6 +341,7 @@ class ReportGroup(pulumi.CustomResource):
         $ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] delete_reports: If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
@@ -407,6 +410,7 @@ class ReportGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReportGroupArgs args: The arguments to use to populate this resource's properties.

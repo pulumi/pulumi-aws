@@ -24,6 +24,7 @@ class InstanceTrustProviderAttachmentArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a InstanceTrustProviderAttachment resource.
+
         :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: The ID of the Verified Access instance to attach the Trust Provider to.
         :param pulumi.Input[_builtins.str] verifiedaccess_trust_provider_id: The ID of the Verified Access trust provider.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _InstanceTrustProviderAttachmentState:
                  verifiedaccess_trust_provider_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering InstanceTrustProviderAttachment resources.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: The ID of the Verified Access instance to attach the Trust Provider to.
         :param pulumi.Input[_builtins.str] verifiedaccess_trust_provider_id: The ID of the Verified Access trust provider.
@@ -166,6 +168,7 @@ class InstanceTrustProviderAttachment(pulumi.CustomResource):
         $ pulumi import aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment example vai-1234567890abcdef0/vatp-8012925589
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -207,6 +210,7 @@ class InstanceTrustProviderAttachment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment example vai-1234567890abcdef0/vatp-8012925589
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InstanceTrustProviderAttachmentArgs args: The arguments to use to populate this resource's properties.

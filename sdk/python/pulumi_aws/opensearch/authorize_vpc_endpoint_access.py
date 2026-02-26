@@ -26,6 +26,7 @@ class AuthorizeVpcEndpointAccessArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AuthorizeVpcEndpointAccess resource.
+
         :param pulumi.Input[_builtins.str] account: AWS account ID to grant access to.
         :param pulumi.Input[_builtins.str] domain_name: Name of OpenSearch Service domain to provide access to.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -81,6 +82,7 @@ class _AuthorizeVpcEndpointAccessState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AuthorizeVpcEndpointAccess resources.
+
         :param pulumi.Input[_builtins.str] account: AWS account ID to grant access to.
         :param pulumi.Input[Sequence[pulumi.Input['AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs']]] authorized_principals: Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
         :param pulumi.Input[_builtins.str] domain_name: Name of OpenSearch Service domain to provide access to.
@@ -179,6 +181,7 @@ class AuthorizeVpcEndpointAccess(pulumi.CustomResource):
         $ pulumi import aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess example authorize_vpc_endpoint_access-id-12345678,123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account: AWS account ID to grant access to.
@@ -215,6 +218,7 @@ class AuthorizeVpcEndpointAccess(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess example authorize_vpc_endpoint_access-id-12345678,123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AuthorizeVpcEndpointAccessArgs args: The arguments to use to populate this resource's properties.

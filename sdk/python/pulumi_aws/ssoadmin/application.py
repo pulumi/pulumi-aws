@@ -32,6 +32,7 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
+
         :param pulumi.Input[_builtins.str] application_provider_arn: ARN of the application provider.
         :param pulumi.Input[_builtins.str] instance_arn: ARN of the instance of IAM Identity Center.
         :param pulumi.Input[_builtins.str] client_token: A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
@@ -190,6 +191,7 @@ class _ApplicationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Application resources.
+
         :param pulumi.Input[_builtins.str] application_account: AWS account ID.
         :param pulumi.Input[_builtins.str] application_arn: (**Deprecated** Reference `arn` instead) ARN of the application.
         :param pulumi.Input[_builtins.str] application_provider_arn: ARN of the application provider.
@@ -468,6 +470,7 @@ class Application(pulumi.CustomResource):
         $ pulumi import aws:ssoadmin/application:Application example arn:aws:sso::123456789012:application/id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_provider_arn: ARN of the application provider.
@@ -543,6 +546,7 @@ class Application(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ssoadmin/application:Application example arn:aws:sso::123456789012:application/id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

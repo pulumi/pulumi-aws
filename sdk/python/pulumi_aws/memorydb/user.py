@@ -28,6 +28,7 @@ class UserArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a User resource.
+
         :param pulumi.Input[_builtins.str] access_string: Access permissions string used for this user.
         :param pulumi.Input['UserAuthenticationModeArgs'] authentication_mode: Denotes the user's authentication properties. Detailed below.
         :param pulumi.Input[_builtins.str] user_name: Name of the MemoryDB user. Up to 40 characters.
@@ -120,6 +121,7 @@ class _UserState:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering User resources.
+
         :param pulumi.Input[_builtins.str] access_string: Access permissions string used for this user.
         :param pulumi.Input[_builtins.str] arn: ARN of the user.
         :param pulumi.Input['UserAuthenticationModeArgs'] authentication_mode: Denotes the user's authentication properties. Detailed below.
@@ -292,6 +294,7 @@ class User(pulumi.CustomResource):
 
         The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_string: Access permissions string used for this user.
@@ -340,6 +343,7 @@ class User(pulumi.CustomResource):
         ```
 
         The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
+
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

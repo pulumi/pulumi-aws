@@ -25,6 +25,7 @@ class EmailIdentityPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EmailIdentityPolicy resource.
+
         :param pulumi.Input[_builtins.str] email_identity: The email identity.
         :param pulumi.Input[_builtins.str] policy: The text of the policy in JSON format.
         :param pulumi.Input[_builtins.str] policy_name: The name of the policy.
@@ -94,6 +95,7 @@ class _EmailIdentityPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailIdentityPolicy resources.
+
         :param pulumi.Input[_builtins.str] email_identity: The email identity.
         :param pulumi.Input[_builtins.str] policy: The text of the policy in JSON format.
         :param pulumi.Input[_builtins.str] policy_name: The name of the policy.
@@ -215,6 +217,7 @@ class EmailIdentityPolicy(pulumi.CustomResource):
         $ pulumi import aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy example example_email_identity|example_policy_name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] email_identity: The email identity.
@@ -274,6 +277,7 @@ class EmailIdentityPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy example example_email_identity|example_policy_name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EmailIdentityPolicyArgs args: The arguments to use to populate this resource's properties.

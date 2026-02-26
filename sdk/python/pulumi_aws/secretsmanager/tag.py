@@ -25,6 +25,7 @@ class TagArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Tag resource.
+
         :param pulumi.Input[_builtins.str] key: Tag name.
         :param pulumi.Input[_builtins.str] secret_id: ID of the AWS Secrets Manager secret to tag.
         :param pulumi.Input[_builtins.str] value: Tag value.
@@ -94,6 +95,7 @@ class _TagState:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Tag resources.
+
         :param pulumi.Input[_builtins.str] key: Tag name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] secret_id: ID of the AWS Secrets Manager secret to tag.
@@ -196,6 +198,7 @@ class Tag(pulumi.CustomResource):
         $ pulumi import aws:secretsmanager/tag:Tag example arn:aws:secretsmanager:us-east-1:123456789012:example-secret,ExampleKey
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] key: Tag name.
@@ -236,6 +239,7 @@ class Tag(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:secretsmanager/tag:Tag example arn:aws:secretsmanager:us-east-1:123456789012:example-secret,ExampleKey
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TagArgs args: The arguments to use to populate this resource's properties.

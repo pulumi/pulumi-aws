@@ -32,6 +32,7 @@ class ScheduledActionArgs:
                  start_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScheduledAction resource.
+
         :param pulumi.Input[_builtins.str] iam_role: The IAM role to assume to run the scheduled action.
         :param pulumi.Input[_builtins.str] schedule: The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
         :param pulumi.Input['ScheduledActionTargetActionArgs'] target_action: Target action. Documented below.
@@ -181,6 +182,7 @@ class _ScheduledActionState:
                  target_action: Optional[pulumi.Input['ScheduledActionTargetActionArgs']] = None):
         """
         Input properties used for looking up and filtering ScheduledAction resources.
+
         :param pulumi.Input[_builtins.str] description: The description of the scheduled action.
         :param pulumi.Input[_builtins.bool] enable: Whether to enable the scheduled action. Default is `true` .
         :param pulumi.Input[_builtins.str] end_time: The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
@@ -409,6 +411,7 @@ class ScheduledAction(pulumi.CustomResource):
         $ pulumi import aws:redshift/scheduledAction:ScheduledAction example tf-redshift-scheduled-action
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the scheduled action.
@@ -500,6 +503,7 @@ class ScheduledAction(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:redshift/scheduledAction:ScheduledAction example tf-redshift-scheduled-action
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ScheduledActionArgs args: The arguments to use to populate this resource's properties.

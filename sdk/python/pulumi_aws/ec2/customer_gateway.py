@@ -29,6 +29,7 @@ class CustomerGatewayArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CustomerGateway resource.
+
         :param pulumi.Input[_builtins.str] type: The type of customer gateway. The only type AWS
                supports at this time is "ipsec.1".
         :param pulumi.Input[_builtins.str] bgp_asn: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
@@ -168,6 +169,7 @@ class _CustomerGatewayState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomerGateway resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the customer gateway.
         :param pulumi.Input[_builtins.str] bgp_asn: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
         :param pulumi.Input[_builtins.str] bgp_asn_extended: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
@@ -364,6 +366,7 @@ class CustomerGateway(pulumi.CustomResource):
         $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bgp_asn: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
@@ -407,6 +410,7 @@ class CustomerGateway(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomerGatewayArgs args: The arguments to use to populate this resource's properties.

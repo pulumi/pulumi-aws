@@ -24,6 +24,7 @@ class NetworkSettingsAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkSettingsAssociation resource.
+
         :param pulumi.Input[_builtins.str] network_settings_arn: ARN of the network settings to associate with the portal. Forces replacement if changed.
         :param pulumi.Input[_builtins.str] portal_arn: ARN of the portal to associate with the network settings. Forces replacement if changed.
                
@@ -82,6 +83,7 @@ class _NetworkSettingsAssociationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkSettingsAssociation resources.
+
         :param pulumi.Input[_builtins.str] network_settings_arn: ARN of the network settings to associate with the portal. Forces replacement if changed.
         :param pulumi.Input[_builtins.str] portal_arn: ARN of the portal to associate with the network settings. Forces replacement if changed.
                
@@ -201,6 +203,7 @@ class NetworkSettingsAssociation(pulumi.CustomResource):
             portal_arn=example_portal.portal_arn)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] network_settings_arn: ARN of the network settings to associate with the portal. Forces replacement if changed.
@@ -271,6 +274,7 @@ class NetworkSettingsAssociation(pulumi.CustomResource):
             network_settings_arn=example_network_settings.network_settings_arn,
             portal_arn=example_portal.portal_arn)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkSettingsAssociationArgs args: The arguments to use to populate this resource's properties.

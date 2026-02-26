@@ -27,6 +27,7 @@ class SecurityGroupVpcAssociationArgs:
                  timeouts: Optional[pulumi.Input['SecurityGroupVpcAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a SecurityGroupVpcAssociation resource.
+
         :param pulumi.Input[_builtins.str] security_group_id: The ID of the security group.
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to make the association with.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -94,6 +95,7 @@ class _SecurityGroupVpcAssociationState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SecurityGroupVpcAssociation resources.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] security_group_id: The ID of the security group.
         :param pulumi.Input[_builtins.str] state: State of the VPC association. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroupVpcAssociation.html) for possible values.
@@ -213,6 +215,7 @@ class SecurityGroupVpcAssociation(pulumi.CustomResource):
         $ pulumi import aws:vpc/securityGroupVpcAssociation:SecurityGroupVpcAssociation example sg-12345,vpc-67890
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -258,6 +261,7 @@ class SecurityGroupVpcAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:vpc/securityGroupVpcAssociation:SecurityGroupVpcAssociation example sg-12345,vpc-67890
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecurityGroupVpcAssociationArgs args: The arguments to use to populate this resource's properties.

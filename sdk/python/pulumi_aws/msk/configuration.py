@@ -26,6 +26,7 @@ class ConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Configuration resource.
+
         :param pulumi.Input[_builtins.str] server_properties: Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
         :param pulumi.Input[_builtins.str] description: Description of the configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] kafka_versions: List of Apache Kafka versions which can use this configuration.
@@ -115,6 +116,7 @@ class _ConfigurationState:
                  server_properties: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Configuration resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the configuration.
         :param pulumi.Input[_builtins.str] description: Description of the configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] kafka_versions: List of Apache Kafka versions which can use this configuration.
@@ -260,6 +262,7 @@ class Configuration(pulumi.CustomResource):
         $ pulumi import aws:msk/configuration:Configuration example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the configuration.
@@ -298,6 +301,7 @@ class Configuration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:msk/configuration:Configuration example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConfigurationArgs args: The arguments to use to populate this resource's properties.

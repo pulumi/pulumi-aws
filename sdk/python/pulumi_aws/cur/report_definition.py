@@ -33,6 +33,7 @@ class ReportDefinitionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReportDefinition resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_schema_elements: A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
         :param pulumi.Input[_builtins.str] compression: Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
         :param pulumi.Input[_builtins.str] format: Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
@@ -227,6 +228,7 @@ class _ReportDefinitionState:
                  time_unit: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ReportDefinition resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_artifacts: A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_schema_elements: A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the cur report.
@@ -496,6 +498,7 @@ class ReportDefinition(pulumi.CustomResource):
         $ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_artifacts: A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.
@@ -553,6 +556,7 @@ class ReportDefinition(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReportDefinitionArgs args: The arguments to use to populate this resource's properties.

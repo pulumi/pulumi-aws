@@ -27,6 +27,7 @@ class KxScalingGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a KxScalingGroup resource.
+
         :param pulumi.Input[_builtins.str] availability_zone_id: The availability zone identifiers for the requested regions.
         :param pulumi.Input[_builtins.str] environment_id: A unique identifier for the kdb environment, where you want to create the scaling group.
         :param pulumi.Input[_builtins.str] host_type: The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
@@ -139,6 +140,7 @@ class _KxScalingGroupState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering KxScalingGroup resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX Scaling Group.
         :param pulumi.Input[_builtins.str] availability_zone_id: The availability zone identifiers for the requested regions.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] clusters: The list of Managed kdb clusters that are currently active in the given scaling group.
@@ -396,6 +398,7 @@ class KxScalingGroup(pulumi.CustomResource):
         $ pulumi import aws:finspace/kxScalingGroup:KxScalingGroup example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-scalinggroup
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability_zone_id: The availability zone identifiers for the requested regions.
@@ -438,6 +441,7 @@ class KxScalingGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:finspace/kxScalingGroup:KxScalingGroup example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-scalinggroup
         ```
+
 
         :param str resource_name: The name of the resource.
         :param KxScalingGroupArgs args: The arguments to use to populate this resource's properties.

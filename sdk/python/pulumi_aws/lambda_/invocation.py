@@ -29,6 +29,7 @@ class InvocationArgs:
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Invocation resource.
+
         :param pulumi.Input[_builtins.str] function_name: Name of the Lambda function.
         :param pulumi.Input[_builtins.str] input: JSON payload to the Lambda function.
                
@@ -164,6 +165,7 @@ class _InvocationState:
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Invocation resources.
+
         :param pulumi.Input[_builtins.str] function_name: Name of the Lambda function.
         :param pulumi.Input[_builtins.str] input: JSON payload to the Lambda function.
                
@@ -422,6 +424,7 @@ class Invocation(pulumi.CustomResource):
         Because it is not possible to retrieve previous invocations, during the next update Pulumi will update the resource calling again the function.
         To compute the `result_hash`, it is necessary to hash it with the standard `md5` hash function.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] function_name: Name of the Lambda function.
@@ -544,6 +547,7 @@ class Invocation(pulumi.CustomResource):
 
         Because it is not possible to retrieve previous invocations, during the next update Pulumi will update the resource calling again the function.
         To compute the `result_hash`, it is necessary to hash it with the standard `md5` hash function.
+
 
         :param str resource_name: The name of the resource.
         :param InvocationArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class PhoneNumberContactFlowAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PhoneNumberContactFlowAssociation resource.
+
         :param pulumi.Input[_builtins.str] contact_flow_id: Contact flow ID.
         :param pulumi.Input[_builtins.str] instance_id: Amazon Connect instance ID.
         :param pulumi.Input[_builtins.str] phone_number_id: Phone number ID.
@@ -94,6 +95,7 @@ class _PhoneNumberContactFlowAssociationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PhoneNumberContactFlowAssociation resources.
+
         :param pulumi.Input[_builtins.str] contact_flow_id: Contact flow ID.
         :param pulumi.Input[_builtins.str] instance_id: Amazon Connect instance ID.
         :param pulumi.Input[_builtins.str] phone_number_id: Phone number ID.
@@ -191,6 +193,7 @@ class PhoneNumberContactFlowAssociation(pulumi.CustomResource):
         $ pulumi import aws:connect/phoneNumberContactFlowAssociation:PhoneNumberContactFlowAssociation example 36727a4c-4683-4e49-880c-3347c61110a4,fa6c1691-e2eb-4487-bdb9-1aaed6268ebd,c4acdc79-395e-4280-a294-9062f56b07bb
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] contact_flow_id: Contact flow ID.
@@ -226,6 +229,7 @@ class PhoneNumberContactFlowAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:connect/phoneNumberContactFlowAssociation:PhoneNumberContactFlowAssociation example 36727a4c-4683-4e49-880c-3347c61110a4,fa6c1691-e2eb-4487-bdb9-1aaed6268ebd,c4acdc79-395e-4280-a294-9062f56b07bb
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PhoneNumberContactFlowAssociationArgs args: The arguments to use to populate this resource's properties.

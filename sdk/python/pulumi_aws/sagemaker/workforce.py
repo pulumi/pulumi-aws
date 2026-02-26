@@ -29,6 +29,7 @@ class WorkforceArgs:
                  workforce_vpc_config: Optional[pulumi.Input['WorkforceWorkforceVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Workforce resource.
+
         :param pulumi.Input[_builtins.str] workforce_name: The name of the Workforce (must be unique).
         :param pulumi.Input['WorkforceCognitoConfigArgs'] cognito_config: Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
         :param pulumi.Input['WorkforceOidcConfigArgs'] oidc_config: Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
@@ -134,6 +135,7 @@ class _WorkforceState:
                  workforce_vpc_config: Optional[pulumi.Input['WorkforceWorkforceVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Workforce resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
         :param pulumi.Input['WorkforceCognitoConfigArgs'] cognito_config: Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
         :param pulumi.Input['WorkforceOidcConfigArgs'] oidc_config: Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
@@ -325,6 +327,7 @@ class Workforce(pulumi.CustomResource):
         $ pulumi import aws:sagemaker/workforce:Workforce example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['WorkforceCognitoConfigArgs', 'WorkforceCognitoConfigArgsDict']] cognito_config: Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
@@ -394,6 +397,7 @@ class Workforce(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sagemaker/workforce:Workforce example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkforceArgs args: The arguments to use to populate this resource's properties.

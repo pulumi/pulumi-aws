@@ -26,6 +26,7 @@ class InstanceLoggingConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a InstanceLoggingConfiguration resource.
+
         :param pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs'] access_logs: A block that specifies the configuration options for Verified Access instances. Detailed below.
         :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: The ID of the Verified Access instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -80,6 +81,7 @@ class _InstanceLoggingConfigurationState:
                  verifiedaccess_instance_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering InstanceLoggingConfiguration resources.
+
         :param pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs'] access_logs: A block that specifies the configuration options for Verified Access instances. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: The ID of the Verified Access instance.
@@ -250,6 +252,7 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         $ pulumi import aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration example vai-1234567890abcdef0
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['InstanceLoggingConfigurationAccessLogsArgs', 'InstanceLoggingConfigurationAccessLogsArgsDict']] access_logs: A block that specifies the configuration options for Verified Access instances. Detailed below.
@@ -373,6 +376,7 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration example vai-1234567890abcdef0
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InstanceLoggingConfigurationArgs args: The arguments to use to populate this resource's properties.

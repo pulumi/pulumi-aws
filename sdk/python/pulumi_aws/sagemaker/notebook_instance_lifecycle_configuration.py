@@ -26,6 +26,7 @@ class NotebookInstanceLifecycleConfigurationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NotebookInstanceLifecycleConfiguration resource.
+
         :param pulumi.Input[_builtins.str] name: The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] on_create: A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
         :param pulumi.Input[_builtins.str] on_start: A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
@@ -116,6 +117,7 @@ class _NotebookInstanceLifecycleConfigurationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NotebookInstanceLifecycleConfiguration resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
         :param pulumi.Input[_builtins.str] name: The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] on_create: A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
@@ -262,6 +264,7 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
         $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
@@ -301,6 +304,7 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NotebookInstanceLifecycleConfigurationArgs args: The arguments to use to populate this resource's properties.

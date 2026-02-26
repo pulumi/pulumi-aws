@@ -28,6 +28,7 @@ class VectorsVectorBucketArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VectorsVectorBucket resource.
+
         :param pulumi.Input[_builtins.str] vector_bucket_name: Name of the vector bucket.
                
                The following arguments are optional:
@@ -122,6 +123,7 @@ class _VectorsVectorBucketState:
                  vector_bucket_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VectorsVectorBucket resources.
+
         :param pulumi.Input[_builtins.str] creation_time: Date and time when the vector bucket was created.
         :param pulumi.Input[Sequence[pulumi.Input['VectorsVectorBucketEncryptionConfigurationArgs']]] encryption_configurations: Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
         :param pulumi.Input[_builtins.bool] force_destroy: Boolean that indicates all indexes and vectors should be deleted from the vector bucket *when the vector bucket is destroyed* so that the vector bucket can be destroyed without error. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the vector bucket or destroying the vector bucket, this flag will not work.
@@ -297,6 +299,7 @@ class VectorsVectorBucket(pulumi.CustomResource):
         $ pulumi import aws:s3/vectorsVectorBucket:VectorsVectorBucket example arn:aws:s3vectors:us-west-2:123456789012:bucket/example-bucket
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VectorsVectorBucketEncryptionConfigurationArgs', 'VectorsVectorBucketEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
@@ -348,6 +351,7 @@ class VectorsVectorBucket(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/vectorsVectorBucket:VectorsVectorBucket example arn:aws:s3vectors:us-west-2:123456789012:bucket/example-bucket
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VectorsVectorBucketArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class TrackerAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TrackerAssociation resource.
+
         :param pulumi.Input[_builtins.str] consumer_arn: The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
         :param pulumi.Input[_builtins.str] tracker_name: The name of the tracker resource to be associated with a geofence collection.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _TrackerAssociationState:
                  tracker_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TrackerAssociation resources.
+
         :param pulumi.Input[_builtins.str] consumer_arn: The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] tracker_name: The name of the tracker resource to be associated with a geofence collection.
@@ -160,6 +162,7 @@ class TrackerAssociation(pulumi.CustomResource):
         $ pulumi import aws:location/trackerAssociation:TrackerAssociation example "tracker_name|consumer_arn"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] consumer_arn: The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
@@ -195,6 +198,7 @@ class TrackerAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:location/trackerAssociation:TrackerAssociation example "tracker_name|consumer_arn"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TrackerAssociationArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class PermissionArgs:
                  source_account: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Permission resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
         :param pulumi.Input[_builtins.str] certificate_authority_arn: ARN of the CA that grants the permissions.
         :param pulumi.Input[_builtins.str] principal: AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
@@ -112,6 +113,7 @@ class _PermissionState:
                  source_account: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Permission resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
         :param pulumi.Input[_builtins.str] certificate_authority_arn: ARN of the CA that grants the permissions.
         :param pulumi.Input[_builtins.str] policy: IAM policy that is associated with the permission.
@@ -244,6 +246,7 @@ class Permission(pulumi.CustomResource):
             principal="acm.amazonaws.com")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
@@ -284,6 +287,7 @@ class Permission(pulumi.CustomResource):
             ],
             principal="acm.amazonaws.com")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PermissionArgs args: The arguments to use to populate this resource's properties.

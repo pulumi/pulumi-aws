@@ -30,6 +30,7 @@ class RouteArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Route resource.
+
         :param pulumi.Input[_builtins.str] mesh_name: Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
         :param pulumi.Input['RouteSpecArgs'] spec: Route specification to apply.
         :param pulumi.Input[_builtins.str] virtual_router_name: Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
@@ -152,6 +153,7 @@ class _RouteState:
                  virtual_router_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Route resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the route.
         :param pulumi.Input[_builtins.str] created_date: Creation date of the route.
         :param pulumi.Input[_builtins.str] last_updated_date: Last update date of the route.
@@ -481,6 +483,7 @@ class Route(pulumi.CustomResource):
         $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] mesh_name: Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
@@ -628,6 +631,7 @@ class Route(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RouteArgs args: The arguments to use to populate this resource's properties.

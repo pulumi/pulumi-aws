@@ -23,6 +23,7 @@ class MemberAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MemberAssociation resource.
+
         :param pulumi.Input[_builtins.str] account_id: ID of the account to associate
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -65,6 +66,7 @@ class _MemberAssociationState:
                  updated_at: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MemberAssociation resources.
+
         :param pulumi.Input[_builtins.str] account_id: ID of the account to associate
         :param pulumi.Input[_builtins.str] delegated_admin_account_id: Account ID of the delegated administrator account
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -174,6 +176,7 @@ class MemberAssociation(pulumi.CustomResource):
         $ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: ID of the account to associate
@@ -206,6 +209,7 @@ class MemberAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MemberAssociationArgs args: The arguments to use to populate this resource's properties.

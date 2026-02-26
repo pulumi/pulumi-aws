@@ -26,6 +26,7 @@ class RouteArgs:
                  transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Route resource.
+
         :param pulumi.Input[_builtins.str] destination_cidr_block: IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
         :param pulumi.Input[_builtins.str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
         :param pulumi.Input[_builtins.bool] blackhole: Indicates whether to drop traffic that matches this route (default to `false`).
@@ -112,6 +113,7 @@ class _RouteState:
                  transit_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Route resources.
+
         :param pulumi.Input[_builtins.bool] blackhole: Indicates whether to drop traffic that matches this route (default to `false`).
         :param pulumi.Input[_builtins.str] destination_cidr_block: IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -239,6 +241,7 @@ class Route(pulumi.CustomResource):
         $ pulumi import aws:ec2transitgateway/route:Route example tgw-rtb-12345678_0.0.0.0/0
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] blackhole: Indicates whether to drop traffic that matches this route (default to `false`).
@@ -289,6 +292,7 @@ class Route(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2transitgateway/route:Route example tgw-rtb-12345678_0.0.0.0/0
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RouteArgs args: The arguments to use to populate this resource's properties.

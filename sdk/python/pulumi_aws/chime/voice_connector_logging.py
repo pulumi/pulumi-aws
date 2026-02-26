@@ -25,6 +25,7 @@ class VoiceConnectorLoggingArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VoiceConnectorLogging resource.
+
         :param pulumi.Input[_builtins.str] voice_connector_id: The Amazon Chime Voice Connector ID.
         :param pulumi.Input[_builtins.bool] enable_media_metric_logs: When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
         :param pulumi.Input[_builtins.bool] enable_sip_logs: When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
@@ -96,6 +97,7 @@ class _VoiceConnectorLoggingState:
                  voice_connector_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VoiceConnectorLogging resources.
+
         :param pulumi.Input[_builtins.bool] enable_media_metric_logs: When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
         :param pulumi.Input[_builtins.bool] enable_sip_logs: When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -196,6 +198,7 @@ class VoiceConnectorLogging(pulumi.CustomResource):
         $ pulumi import aws:chime/voiceConnectorLogging:VoiceConnectorLogging default abcdef1ghij2klmno3pqr4
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enable_media_metric_logs: When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
@@ -234,6 +237,7 @@ class VoiceConnectorLogging(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:chime/voiceConnectorLogging:VoiceConnectorLogging default abcdef1ghij2klmno3pqr4
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VoiceConnectorLoggingArgs args: The arguments to use to populate this resource's properties.

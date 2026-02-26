@@ -29,6 +29,7 @@ class RouteServerPeerArgs:
                  timeouts: Optional[pulumi.Input['RouteServerPeerTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a RouteServerPeer resource.
+
         :param pulumi.Input['RouteServerPeerBgpOptionsArgs'] bgp_options: The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
         :param pulumi.Input[_builtins.str] peer_address: The IPv4 address of the peer device.
         :param pulumi.Input[_builtins.str] route_server_endpoint_id: The ID of the route server endpoint for which to create a peer.
@@ -138,6 +139,7 @@ class _RouteServerPeerState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RouteServerPeer resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the route server peer.
         :param pulumi.Input['RouteServerPeerBgpOptionsArgs'] bgp_options: The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
         :param pulumi.Input[_builtins.str] endpoint_eni_address: The IP address of the Elastic network interface for the route server endpoint.
@@ -431,6 +433,7 @@ class RouteServerPeer(pulumi.CustomResource):
         $ pulumi import aws:vpc/routeServerPeer:RouteServerPeer example rsp-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RouteServerPeerBgpOptionsArgs', 'RouteServerPeerBgpOptionsArgsDict']] bgp_options: The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
@@ -513,6 +516,7 @@ class RouteServerPeer(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:vpc/routeServerPeer:RouteServerPeer example rsp-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RouteServerPeerArgs args: The arguments to use to populate this resource's properties.

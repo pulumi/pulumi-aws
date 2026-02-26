@@ -28,6 +28,7 @@ class CapacityBlockReservationArgs:
                  timeouts: Optional[pulumi.Input['CapacityBlockReservationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a CapacityBlockReservation resource.
+
         :param pulumi.Input[_builtins.str] capacity_block_offering_id: The Capacity Block Reservation ID.
         :param pulumi.Input[_builtins.str] instance_platform: The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -124,6 +125,7 @@ class _CapacityBlockReservationState:
                  timeouts: Optional[pulumi.Input['CapacityBlockReservationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering CapacityBlockReservation resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the reservation.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone in which to create the Capacity Block Reservation.
         :param pulumi.Input[_builtins.str] capacity_block_offering_id: The Capacity Block Reservation ID.
@@ -446,6 +448,7 @@ class CapacityBlockReservation(pulumi.CustomResource):
             })
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] capacity_block_offering_id: The Capacity Block Reservation ID.
@@ -484,6 +487,7 @@ class CapacityBlockReservation(pulumi.CustomResource):
                 "Environment": "dev",
             })
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CapacityBlockReservationArgs args: The arguments to use to populate this resource's properties.

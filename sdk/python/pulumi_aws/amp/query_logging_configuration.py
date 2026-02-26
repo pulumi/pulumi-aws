@@ -27,6 +27,7 @@ class QueryLoggingConfigurationArgs:
                  timeouts: Optional[pulumi.Input['QueryLoggingConfigurationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a QueryLoggingConfiguration resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['QueryLoggingConfigurationDestinationArgs']]] destinations: Configuration block for the logging destinations. See `destinations`.
         :param pulumi.Input[_builtins.str] workspace_id: The ID of the AMP workspace for which to configure query logging.
                
@@ -97,6 +98,7 @@ class _QueryLoggingConfigurationState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering QueryLoggingConfiguration resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['QueryLoggingConfigurationDestinationArgs']]] destinations: Configuration block for the logging destinations. See `destinations`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] workspace_id: The ID of the AMP workspace for which to configure query logging.
@@ -194,6 +196,7 @@ class QueryLoggingConfiguration(pulumi.CustomResource):
             }])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['QueryLoggingConfigurationDestinationArgs', 'QueryLoggingConfigurationDestinationArgsDict']]]] destinations: Configuration block for the logging destinations. See `destinations`.
@@ -230,6 +233,7 @@ class QueryLoggingConfiguration(pulumi.CustomResource):
                 },
             }])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param QueryLoggingConfigurationArgs args: The arguments to use to populate this resource's properties.

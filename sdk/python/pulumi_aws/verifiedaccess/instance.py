@@ -28,6 +28,7 @@ class InstanceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Instance resource.
+
         :param pulumi.Input[_builtins.str] cidr_endpoints_custom_subdomain: The custom subdomain for the CIDR endpoints.
         :param pulumi.Input[_builtins.str] description: A description for the AWS Verified Access Instance.
         :param pulumi.Input[_builtins.bool] fips_enabled: Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
@@ -121,6 +122,7 @@ class _InstanceState:
                  verified_access_trust_providers: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceVerifiedAccessTrustProviderArgs']]]] = None):
         """
         Input properties used for looking up and filtering Instance resources.
+
         :param pulumi.Input[_builtins.str] cidr_endpoints_custom_subdomain: The custom subdomain for the CIDR endpoints.
         :param pulumi.Input[_builtins.str] creation_time: The time that the Verified Access Instance was created.
         :param pulumi.Input[_builtins.str] description: A description for the AWS Verified Access Instance.
@@ -322,6 +324,7 @@ class Instance(pulumi.CustomResource):
         $ pulumi import aws:verifiedaccess/instance:Instance example vai-1234567890abcdef0
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cidr_endpoints_custom_subdomain: The custom subdomain for the CIDR endpoints.
@@ -379,6 +382,7 @@ class Instance(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:verifiedaccess/instance:Instance example vai-1234567890abcdef0
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.

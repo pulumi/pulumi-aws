@@ -24,6 +24,7 @@ class PolicyTableAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PolicyTableAssociation resource.
+
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[_builtins.str] transit_gateway_policy_table_id: Identifier of EC2 Transit Gateway Policy Table.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -80,6 +81,7 @@ class _PolicyTableAssociationState:
                  transit_gateway_policy_table_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PolicyTableAssociation resources.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_id: Identifier of the resource
         :param pulumi.Input[_builtins.str] resource_type: Type of the resource
@@ -190,6 +192,7 @@ class PolicyTableAssociation(pulumi.CustomResource):
         $ pulumi import aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -223,6 +226,7 @@ class PolicyTableAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyTableAssociationArgs args: The arguments to use to populate this resource's properties.

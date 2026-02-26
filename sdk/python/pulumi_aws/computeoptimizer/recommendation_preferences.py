@@ -33,6 +33,7 @@ class RecommendationPreferencesArgs:
                  utilization_preferences: Optional[pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesUtilizationPreferenceArgs']]]] = None):
         """
         The set of arguments for constructing a RecommendationPreferences resource.
+
         :param pulumi.Input[_builtins.str] resource_type: The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
         :param pulumi.Input['RecommendationPreferencesScopeArgs'] scope: The scope of the recommendation preferences. See Scope below.
         :param pulumi.Input[_builtins.str] enhanced_infrastructure_metrics: The status of the enhanced infrastructure metrics recommendation preference. Valid values: `Active`, `Inactive`.
@@ -199,6 +200,7 @@ class _RecommendationPreferencesState:
                  utilization_preferences: Optional[pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesUtilizationPreferenceArgs']]]] = None):
         """
         Input properties used for looking up and filtering RecommendationPreferences resources.
+
         :param pulumi.Input[_builtins.str] enhanced_infrastructure_metrics: The status of the enhanced infrastructure metrics recommendation preference. Valid values: `Active`, `Inactive`.
         :param pulumi.Input['RecommendationPreferencesExternalMetricsPreferenceArgs'] external_metrics_preference: The provider of the external metrics recommendation preference. See External Metrics Preference below.
         :param pulumi.Input[_builtins.str] inferred_workload_types: The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
@@ -422,6 +424,7 @@ class RecommendationPreferences(pulumi.CustomResource):
         $ pulumi import aws:computeoptimizer/recommendationPreferences:RecommendationPreferences example Ec2Instance,AccountId,123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] enhanced_infrastructure_metrics: The status of the enhanced infrastructure metrics recommendation preference. Valid values: `Active`, `Inactive`.
@@ -493,6 +496,7 @@ class RecommendationPreferences(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:computeoptimizer/recommendationPreferences:RecommendationPreferences example Ec2Instance,AccountId,123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RecommendationPreferencesArgs args: The arguments to use to populate this resource's properties.

@@ -50,6 +50,7 @@ class ClusterArgs:
                  tls_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+
         :param pulumi.Input[_builtins.str] acl_name: The name of the Access Control List to associate with the cluster.
         :param pulumi.Input[_builtins.str] node_type: The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
                
@@ -497,6 +498,7 @@ class _ClusterState:
                  tls_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
+
         :param pulumi.Input[_builtins.str] acl_name: The name of the Access Control List to associate with the cluster.
         :param pulumi.Input[_builtins.str] arn: The ARN of the cluster.
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
@@ -1045,6 +1047,7 @@ class Cluster(pulumi.CustomResource):
         $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] acl_name: The name of the Access Control List to associate with the cluster.
@@ -1113,6 +1116,7 @@ class Cluster(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

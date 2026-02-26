@@ -24,6 +24,7 @@ class ConnectionAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConnectionAssociation resource.
+
         :param pulumi.Input[_builtins.str] connection_id: The ID of the connection.
         :param pulumi.Input[_builtins.str] lag_id: The ID of the LAG with which to associate the connection.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _ConnectionAssociationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConnectionAssociation resources.
+
         :param pulumi.Input[_builtins.str] connection_id: The ID of the connection.
         :param pulumi.Input[_builtins.str] lag_id: The ID of the LAG with which to associate the connection.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -158,6 +160,7 @@ class ConnectionAssociation(pulumi.CustomResource):
             lag_id=example_link_aggregation_group.id)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connection_id: The ID of the connection.
@@ -191,6 +194,7 @@ class ConnectionAssociation(pulumi.CustomResource):
             connection_id=example.id,
             lag_id=example_link_aggregation_group.id)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConnectionAssociationArgs args: The arguments to use to populate this resource's properties.

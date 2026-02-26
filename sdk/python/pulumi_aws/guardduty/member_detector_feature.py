@@ -29,6 +29,7 @@ class MemberDetectorFeatureArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MemberDetectorFeature resource.
+
         :param pulumi.Input[_builtins.str] account_id: Member account ID to be updated.
         :param pulumi.Input[_builtins.str] detector_id: Amazon GuardDuty detector ID.
         :param pulumi.Input[_builtins.str] status: The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
@@ -130,6 +131,7 @@ class _MemberDetectorFeatureState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MemberDetectorFeature resources.
+
         :param pulumi.Input[_builtins.str] account_id: Member account ID to be updated.
         :param pulumi.Input[Sequence[pulumi.Input['MemberDetectorFeatureAdditionalConfigurationArgs']]] additional_configurations: Additional feature configuration block. See below.
         :param pulumi.Input[_builtins.str] detector_id: Amazon GuardDuty detector ID.
@@ -280,6 +282,7 @@ class MemberDetectorFeature(pulumi.CustomResource):
             }])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Member account ID to be updated.
@@ -338,6 +341,7 @@ class MemberDetectorFeature(pulumi.CustomResource):
                 "status": "ENABLED",
             }])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MemberDetectorFeatureArgs args: The arguments to use to populate this resource's properties.

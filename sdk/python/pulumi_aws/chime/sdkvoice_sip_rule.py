@@ -29,6 +29,7 @@ class SdkvoiceSipRuleArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SdkvoiceSipRule resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['SdkvoiceSipRuleTargetApplicationArgs']]] target_applications: List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `target_applications`.
         :param pulumi.Input[_builtins.str] trigger_type: The type of trigger assigned to the SIP rule in `trigger_value`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
         :param pulumi.Input[_builtins.str] trigger_value: If `trigger_type` is `RequestUriHostname`, the value can be the outbound host name of an Amazon Chime Voice Connector. If `trigger_type` is `ToPhoneNumber`, the value can be a customer-owned phone number in the E164 format. The Sip Media Application specified in the Sip Rule is triggered if the request URI in an incoming SIP request matches the `RequestUriHostname`, or if the "To" header in the incoming SIP request matches the `ToPhoneNumber` value.
@@ -134,6 +135,7 @@ class _SdkvoiceSipRuleState:
                  trigger_value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SdkvoiceSipRule resources.
+
         :param pulumi.Input[_builtins.bool] disabled: Enables or disables a rule. You must disable rules before you can delete them.
         :param pulumi.Input[_builtins.str] name: The name of the SIP rule.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -274,6 +276,7 @@ class SdkvoiceSipRule(pulumi.CustomResource):
         $ pulumi import aws:chime/sdkvoiceSipRule:SdkvoiceSipRule example abcdef123456
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] disabled: Enables or disables a rule. You must disable rules before you can delete them.
@@ -320,6 +323,7 @@ class SdkvoiceSipRule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:chime/sdkvoiceSipRule:SdkvoiceSipRule example abcdef123456
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SdkvoiceSipRuleArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class ContactChannelArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ContactChannel resource.
+
         :param pulumi.Input[_builtins.str] contact_id: Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
         :param pulumi.Input['ContactChannelDeliveryAddressArgs'] delivery_address: Block that contains contact engagement details. See details below.
         :param pulumi.Input[_builtins.str] type: Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
@@ -115,6 +116,7 @@ class _ContactChannelState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ContactChannel resources.
+
         :param pulumi.Input[_builtins.str] activation_status: Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the contact channel.
         :param pulumi.Input[_builtins.str] contact_id: Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
@@ -289,6 +291,7 @@ class ContactChannel(pulumi.CustomResource):
         $ pulumi import aws:ssmcontacts/contactChannel:ContactChannel example arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] contact_id: Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
@@ -356,6 +359,7 @@ class ContactChannel(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ssmcontacts/contactChannel:ContactChannel example arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ContactChannelArgs args: The arguments to use to populate this resource's properties.

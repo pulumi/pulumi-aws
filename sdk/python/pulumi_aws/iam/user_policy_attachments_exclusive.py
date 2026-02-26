@@ -23,6 +23,7 @@ class UserPolicyAttachmentsExclusiveArgs:
                  user_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a UserPolicyAttachmentsExclusive resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policy_arns: A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
         :param pulumi.Input[_builtins.str] user_name: IAM user name.
         """
@@ -61,6 +62,7 @@ class _UserPolicyAttachmentsExclusiveState:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserPolicyAttachmentsExclusive resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policy_arns: A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
         :param pulumi.Input[_builtins.str] user_name: IAM user name.
         """
@@ -146,6 +148,7 @@ class UserPolicyAttachmentsExclusive(pulumi.CustomResource):
         $ pulumi import aws:iam/userPolicyAttachmentsExclusive:UserPolicyAttachmentsExclusive example MyUser
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policy_arns: A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
@@ -199,6 +202,7 @@ class UserPolicyAttachmentsExclusive(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iam/userPolicyAttachmentsExclusive:UserPolicyAttachmentsExclusive example MyUser
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserPolicyAttachmentsExclusiveArgs args: The arguments to use to populate this resource's properties.

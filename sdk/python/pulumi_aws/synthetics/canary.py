@@ -42,6 +42,7 @@ class CanaryArgs:
                  zip_file: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Canary resource.
+
         :param pulumi.Input[_builtins.str] artifact_s3_location: Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
         :param pulumi.Input[_builtins.str] handler: Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
@@ -359,6 +360,7 @@ class _CanaryState:
                  zip_file: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Canary resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Canary.
         :param pulumi.Input['CanaryArtifactConfigArgs'] artifact_config: configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
         :param pulumi.Input[_builtins.str] artifact_s3_location: Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
@@ -798,6 +800,7 @@ class Canary(pulumi.CustomResource):
         $ pulumi import aws:synthetics/canary:Canary some some-canary
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CanaryArtifactConfigArgs', 'CanaryArtifactConfigArgsDict']] artifact_config: configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
@@ -858,6 +861,7 @@ class Canary(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:synthetics/canary:Canary some some-canary
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CanaryArgs args: The arguments to use to populate this resource's properties.

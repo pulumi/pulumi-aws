@@ -26,6 +26,7 @@ class DomainSamlOptionsArgs:
                  saml_options: Optional[pulumi.Input['DomainSamlOptionsSamlOptionsArgs']] = None):
         """
         The set of arguments for constructing a DomainSamlOptions resource.
+
         :param pulumi.Input[_builtins.str] domain_name: Name of the domain.
                
                The following arguments are optional:
@@ -85,6 +86,7 @@ class _DomainSamlOptionsState:
                  saml_options: Optional[pulumi.Input['DomainSamlOptionsSamlOptionsArgs']] = None):
         """
         Input properties used for looking up and filtering DomainSamlOptions resources.
+
         :param pulumi.Input[_builtins.str] domain_name: Name of the domain.
                
                The following arguments are optional:
@@ -190,6 +192,7 @@ class DomainSamlOptions(pulumi.CustomResource):
         $ pulumi import aws:opensearch/domainSamlOptions:DomainSamlOptions example domain_name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_name: Name of the domain.
@@ -246,6 +249,7 @@ class DomainSamlOptions(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:opensearch/domainSamlOptions:DomainSamlOptions example domain_name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DomainSamlOptionsArgs args: The arguments to use to populate this resource's properties.

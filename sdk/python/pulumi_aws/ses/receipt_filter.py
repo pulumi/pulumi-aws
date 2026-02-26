@@ -25,6 +25,7 @@ class ReceiptFilterArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReceiptFilter resource.
+
         :param pulumi.Input[_builtins.str] cidr: The IP address or address range to filter, in CIDR notation
         :param pulumi.Input[_builtins.str] policy: Block or Allow
         :param pulumi.Input[_builtins.str] name: The name of the filter
@@ -96,6 +97,7 @@ class _ReceiptFilterState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ReceiptFilter resources.
+
         :param pulumi.Input[_builtins.str] arn: The SES receipt filter ARN.
         :param pulumi.Input[_builtins.str] cidr: The IP address or address range to filter, in CIDR notation
         :param pulumi.Input[_builtins.str] name: The name of the filter
@@ -208,6 +210,7 @@ class ReceiptFilter(pulumi.CustomResource):
         $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cidr: The IP address or address range to filter, in CIDR notation
@@ -243,6 +246,7 @@ class ReceiptFilter(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReceiptFilterArgs args: The arguments to use to populate this resource's properties.

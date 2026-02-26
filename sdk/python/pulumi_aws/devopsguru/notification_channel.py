@@ -26,6 +26,7 @@ class NotificationChannelArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NotificationChannel resource.
+
         :param pulumi.Input['NotificationChannelSnsArgs'] sns: SNS noficiation channel configurations. See the `sns` argument reference below.
                
                The following arguments are optional:
@@ -85,6 +86,7 @@ class _NotificationChannelState:
                  sns: Optional[pulumi.Input['NotificationChannelSnsArgs']] = None):
         """
         Input properties used for looking up and filtering NotificationChannel resources.
+
         :param pulumi.Input['NotificationChannelFiltersArgs'] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['NotificationChannelSnsArgs'] sns: SNS noficiation channel configurations. See the `sns` argument reference below.
@@ -187,6 +189,7 @@ class NotificationChannel(pulumi.CustomResource):
         $ pulumi import aws:devopsguru/notificationChannel:NotificationChannel example id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['NotificationChannelFiltersArgs', 'NotificationChannelFiltersArgsDict']] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
@@ -240,6 +243,7 @@ class NotificationChannel(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:devopsguru/notificationChannel:NotificationChannel example id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NotificationChannelArgs args: The arguments to use to populate this resource's properties.

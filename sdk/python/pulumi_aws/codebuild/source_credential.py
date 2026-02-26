@@ -26,6 +26,7 @@ class SourceCredentialArgs:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SourceCredential resource.
+
         :param pulumi.Input[_builtins.str] auth_type: The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
                repository. Valid values are `BASIC_AUTH`,
                `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
@@ -122,6 +123,7 @@ class _SourceCredentialState:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SourceCredential resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of Source Credential.
         :param pulumi.Input[_builtins.str] auth_type: The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
                repository. Valid values are `BASIC_AUTH`,
@@ -296,6 +298,7 @@ class SourceCredential(pulumi.CustomResource):
         $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auth_type: The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
@@ -373,6 +376,7 @@ class SourceCredential(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SourceCredentialArgs args: The arguments to use to populate this resource's properties.

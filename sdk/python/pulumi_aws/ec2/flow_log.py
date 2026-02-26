@@ -39,6 +39,7 @@ class FlowLogArgs:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FlowLog resource.
+
         :param pulumi.Input[_builtins.str] deliver_cross_account_role: ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
         :param pulumi.Input['FlowLogDestinationOptionsArgs'] destination_options: Describes the destination options for a flow log. More details below.
         :param pulumi.Input[_builtins.str] eni_id: Elastic Network Interface ID to attach to.
@@ -313,6 +314,7 @@ class _FlowLogState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FlowLog resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Flow Log.
         :param pulumi.Input[_builtins.str] deliver_cross_account_role: ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
         :param pulumi.Input['FlowLogDestinationOptionsArgs'] destination_options: Describes the destination options for a flow log. More details below.
@@ -801,6 +803,7 @@ class FlowLog(pulumi.CustomResource):
         $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] deliver_cross_account_role: ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
@@ -1013,6 +1016,7 @@ class FlowLog(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FlowLogArgs args: The arguments to use to populate this resource's properties.

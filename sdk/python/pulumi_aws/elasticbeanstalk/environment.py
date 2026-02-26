@@ -37,6 +37,7 @@ class EnvironmentArgs:
                  wait_for_ready_timeout: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Environment resource.
+
         :param pulumi.Input[_builtins.str] application: Name of the application that contains the version
                to be deployed
         :param pulumi.Input[_builtins.str] cname_prefix: Prefix to use for the fully qualified DNS name of
@@ -311,6 +312,7 @@ class _EnvironmentState:
                  wait_for_ready_timeout: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Environment resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentAllSettingArgs']]] all_settings: List of all option settings configured in this Environment. These
                are a combination of default settings and their overrides from `setting` in
                the configuration.
@@ -812,6 +814,7 @@ class Environment(pulumi.CustomResource):
         $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application: Name of the application that contains the version
@@ -920,6 +923,7 @@ class Environment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.

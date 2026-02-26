@@ -35,6 +35,7 @@ class SamplingRuleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SamplingRule resource.
+
         :param pulumi.Input[_builtins.float] fixed_rate: The percentage of matching requests to instrument, after the reservoir is exhausted.
         :param pulumi.Input[_builtins.str] host: Matches the hostname from a request URL.
         :param pulumi.Input[_builtins.str] http_method: Matches the HTTP method of a request.
@@ -259,6 +260,7 @@ class _SamplingRuleState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering SamplingRule resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the sampling rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: Matches attributes derived from the request.
         :param pulumi.Input[_builtins.float] fixed_rate: The percentage of matching requests to instrument, after the reservoir is exhausted.
@@ -557,6 +559,7 @@ class SamplingRule(pulumi.CustomResource):
         $ pulumi import aws:xray/samplingRule:SamplingRule example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: Matches attributes derived from the request.
@@ -613,6 +616,7 @@ class SamplingRule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:xray/samplingRule:SamplingRule example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SamplingRuleArgs args: The arguments to use to populate this resource's properties.

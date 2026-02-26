@@ -96,6 +96,7 @@ class InstanceArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Instance resource.
+
         :param pulumi.Input[Union[_builtins.str, 'InstanceType']] instance_class: The instance type of the RDS instance.
         :param pulumi.Input[_builtins.int] allocated_storage: The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
         :param pulumi.Input[_builtins.bool] allow_major_version_upgrade: Indicates that major version
@@ -1432,6 +1433,7 @@ class _InstanceState:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Instance resources.
+
         :param pulumi.Input[_builtins.str] address: Specifies the DNS address of the DB instance.
         :param pulumi.Input[_builtins.int] allocated_storage: The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
         :param pulumi.Input[_builtins.bool] allow_major_version_upgrade: Indicates that major version
@@ -3202,6 +3204,7 @@ class Instance(pulumi.CustomResource):
         $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] allocated_storage: The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
@@ -3617,6 +3620,7 @@ class Instance(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
+
         :param pulumi.Input[_builtins.str] compute_platform: The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
         :param pulumi.Input[_builtins.str] name: The name of the application.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -102,6 +103,7 @@ class _ApplicationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Application resources.
+
         :param pulumi.Input[_builtins.str] application_id: The application ID.
         :param pulumi.Input[_builtins.str] arn: The ARN of the CodeDeploy application.
         :param pulumi.Input[_builtins.str] compute_platform: The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
@@ -297,6 +299,7 @@ class Application(pulumi.CustomResource):
         $ pulumi import aws:codedeploy/application:Application example my-application
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] compute_platform: The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
@@ -355,6 +358,7 @@ class Application(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:codedeploy/application:Application example my-application
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

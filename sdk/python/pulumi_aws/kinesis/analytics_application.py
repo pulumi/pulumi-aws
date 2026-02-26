@@ -33,6 +33,7 @@ class AnalyticsApplicationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AnalyticsApplication resource.
+
         :param pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch log stream options to monitor application errors.
                See CloudWatch Logging Options below for more details.
         :param pulumi.Input[_builtins.str] code: SQL Code to transform input data, and generate output.
@@ -213,6 +214,7 @@ class _AnalyticsApplicationState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering AnalyticsApplication resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the Kinesis Analytics Appliation.
         :param pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch log stream options to monitor application errors.
                See CloudWatch Logging Options below for more details.
@@ -600,6 +602,7 @@ class AnalyticsApplication(pulumi.CustomResource):
         $ pulumi import aws:kinesis/analyticsApplication:AnalyticsApplication example arn:aws:kinesisanalytics:us-west-2:1234567890:application/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AnalyticsApplicationCloudwatchLoggingOptionsArgs', 'AnalyticsApplicationCloudwatchLoggingOptionsArgsDict']] cloudwatch_logging_options: The CloudWatch log stream options to monitor application errors.
@@ -742,6 +745,7 @@ class AnalyticsApplication(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:kinesis/analyticsApplication:AnalyticsApplication example arn:aws:kinesisanalytics:us-west-2:1234567890:application/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AnalyticsApplicationArgs args: The arguments to use to populate this resource's properties.

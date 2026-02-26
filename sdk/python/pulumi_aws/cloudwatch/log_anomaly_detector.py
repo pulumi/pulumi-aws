@@ -30,6 +30,7 @@ class LogAnomalyDetectorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LogAnomalyDetector resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_group_arn_lists: Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
                
                The following arguments are optional:
@@ -178,6 +179,7 @@ class _LogAnomalyDetectorState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LogAnomalyDetector resources.
+
         :param pulumi.Input[_builtins.int] anomaly_visibility_time: Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomaly_visibility_time`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
         :param pulumi.Input[_builtins.str] arn: ARN of the log anomaly detector that you just created.
         :param pulumi.Input[_builtins.str] detector_name: Name for this anomaly detector.
@@ -384,6 +386,7 @@ class LogAnomalyDetector(pulumi.CustomResource):
         $ pulumi import aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector example log_anomaly_detector-arn-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] anomaly_visibility_time: Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomaly_visibility_time`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
@@ -431,6 +434,7 @@ class LogAnomalyDetector(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector example log_anomaly_detector-arn-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LogAnomalyDetectorArgs args: The arguments to use to populate this resource's properties.

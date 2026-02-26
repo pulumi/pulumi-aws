@@ -30,6 +30,7 @@ class LogDeliveryArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LogDelivery resource.
+
         :param pulumi.Input[_builtins.str] delivery_destination_arn: The ARN of the delivery destination to use for this delivery.
         :param pulumi.Input[_builtins.str] delivery_source_name: The name of the delivery source to use for this delivery.
         :param pulumi.Input[_builtins.str] field_delimiter: The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
@@ -150,6 +151,7 @@ class _LogDeliveryState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LogDelivery resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the delivery.
         :param pulumi.Input[_builtins.str] delivery_destination_arn: The ARN of the delivery destination to use for this delivery.
         :param pulumi.Input[_builtins.str] delivery_source_name: The name of the delivery source to use for this delivery.
@@ -331,6 +333,7 @@ class LogDelivery(pulumi.CustomResource):
         $ pulumi import aws:cloudwatch/logDelivery:LogDelivery example jsoGVi4Zq8VlYp9n
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] delivery_destination_arn: The ARN of the delivery destination to use for this delivery.
@@ -375,6 +378,7 @@ class LogDelivery(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudwatch/logDelivery:LogDelivery example jsoGVi4Zq8VlYp9n
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LogDeliveryArgs args: The arguments to use to populate this resource's properties.

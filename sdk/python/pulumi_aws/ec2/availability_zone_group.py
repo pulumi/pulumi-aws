@@ -24,6 +24,7 @@ class AvailabilityZoneGroupArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AvailabilityZoneGroup resource.
+
         :param pulumi.Input[_builtins.str] group_name: Name of the Availability Zone Group.
         :param pulumi.Input[_builtins.str] opt_in_status: Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _AvailabilityZoneGroupState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AvailabilityZoneGroup resources.
+
         :param pulumi.Input[_builtins.str] group_name: Name of the Availability Zone Group.
         :param pulumi.Input[_builtins.str] opt_in_status: Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -160,6 +162,7 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
         $ pulumi import aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup example us-west-2-lax-1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] group_name: Name of the Availability Zone Group.
@@ -195,6 +198,7 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup example us-west-2-lax-1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AvailabilityZoneGroupArgs args: The arguments to use to populate this resource's properties.

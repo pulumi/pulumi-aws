@@ -29,6 +29,7 @@ class DeploymentConfigArgs:
                  zonal_config: Optional[pulumi.Input['DeploymentConfigZonalConfigArgs']] = None):
         """
         The set of arguments for constructing a DeploymentConfig resource.
+
         :param pulumi.Input[_builtins.str] compute_platform: The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         :param pulumi.Input[_builtins.str] deployment_config_name: The name of the deployment config.
         :param pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs'] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
@@ -135,6 +136,7 @@ class _DeploymentConfigState:
                  zonal_config: Optional[pulumi.Input['DeploymentConfigZonalConfigArgs']] = None):
         """
         Input properties used for looking up and filtering DeploymentConfig resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the deployment config.
         :param pulumi.Input[_builtins.str] compute_platform: The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         :param pulumi.Input[_builtins.str] deployment_config_id: The AWS Assigned deployment config id
@@ -352,6 +354,7 @@ class DeploymentConfig(pulumi.CustomResource):
         $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] compute_platform: The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
@@ -447,6 +450,7 @@ class DeploymentConfig(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DeploymentConfigArgs args: The arguments to use to populate this resource's properties.

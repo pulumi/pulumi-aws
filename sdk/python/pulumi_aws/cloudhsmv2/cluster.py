@@ -29,6 +29,7 @@ class ClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+
         :param pulumi.Input[_builtins.str] hsm_type: The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The IDs of subnets in which cluster will operate.
         :param pulumi.Input[_builtins.str] mode: The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
@@ -137,6 +138,7 @@ class _ClusterState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['ClusterClusterCertificateArgs']]] cluster_certificates: The list of cluster certificates.
         :param pulumi.Input[_builtins.str] cluster_id: The id of the CloudHSM cluster.
         :param pulumi.Input[_builtins.str] cluster_state: The state of the CloudHSM cluster.
@@ -385,6 +387,7 @@ class Cluster(pulumi.CustomResource):
         $ pulumi import aws:cloudhsmv2/cluster:Cluster test_cluster cluster-aeb282a201
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] hsm_type: The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
@@ -451,6 +454,7 @@ class Cluster(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudhsmv2/cluster:Cluster test_cluster cluster-aeb282a201
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

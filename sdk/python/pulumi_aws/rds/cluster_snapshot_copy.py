@@ -33,6 +33,7 @@ class ClusterSnapshotCopyArgs:
                  timeouts: Optional[pulumi.Input['ClusterSnapshotCopyTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ClusterSnapshotCopy resource.
+
         :param pulumi.Input[_builtins.str] source_db_cluster_snapshot_identifier: Identifier of the source snapshot.
         :param pulumi.Input[_builtins.str] target_db_cluster_snapshot_identifier: Identifier for the snapshot.
                
@@ -209,6 +210,7 @@ class _ClusterSnapshotCopyState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterSnapshotCopy resources.
+
         :param pulumi.Input[_builtins.int] allocated_storage: Specifies the allocated storage size in gigabytes (GB).
         :param pulumi.Input[_builtins.bool] copy_tags: Whether to copy existing tags. Defaults to `false`.
         :param pulumi.Input[_builtins.str] db_cluster_snapshot_arn: The Amazon Resource Name (ARN) for the DB cluster snapshot.
@@ -557,6 +559,7 @@ class ClusterSnapshotCopy(pulumi.CustomResource):
         $ pulumi import aws:rds/clusterSnapshotCopy:ClusterSnapshotCopy example my-snapshot
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] copy_tags: Whether to copy existing tags. Defaults to `false`.
@@ -608,6 +611,7 @@ class ClusterSnapshotCopy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:rds/clusterSnapshotCopy:ClusterSnapshotCopy example my-snapshot
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterSnapshotCopyArgs args: The arguments to use to populate this resource's properties.

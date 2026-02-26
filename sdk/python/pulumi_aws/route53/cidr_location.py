@@ -24,6 +24,7 @@ class CidrLocationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CidrLocation resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_blocks: CIDR blocks for the location.
         :param pulumi.Input[_builtins.str] cidr_collection_id: The ID of the CIDR collection to update.
         :param pulumi.Input[_builtins.str] name: Name for the CIDR location.
@@ -78,6 +79,7 @@ class _CidrLocationState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CidrLocation resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_blocks: CIDR blocks for the location.
         :param pulumi.Input[_builtins.str] cidr_collection_id: The ID of the CIDR collection to update.
         :param pulumi.Input[_builtins.str] name: Name for the CIDR location.
@@ -163,6 +165,7 @@ class CidrLocation(pulumi.CustomResource):
         $ pulumi import aws:route53/cidrLocation:CidrLocation example 9ac32814-3e67-0932-6048-8d779cc6f511,office
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_blocks: CIDR blocks for the location.
@@ -201,6 +204,7 @@ class CidrLocation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53/cidrLocation:CidrLocation example 9ac32814-3e67-0932-6048-8d779cc6f511,office
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CidrLocationArgs args: The arguments to use to populate this resource's properties.

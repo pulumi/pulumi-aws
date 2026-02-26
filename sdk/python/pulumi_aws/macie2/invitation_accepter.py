@@ -23,6 +23,7 @@ class InvitationAccepterArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a InvitationAccepter resource.
+
         :param pulumi.Input[_builtins.str] administrator_account_id: The AWS account ID for the account that sent the invitation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -63,6 +64,7 @@ class _InvitationAccepterState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering InvitationAccepter resources.
+
         :param pulumi.Input[_builtins.str] administrator_account_id: The AWS account ID for the account that sent the invitation.
         :param pulumi.Input[_builtins.str] invitation_id: The unique identifier for the invitation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -149,6 +151,7 @@ class InvitationAccepter(pulumi.CustomResource):
         $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] administrator_account_id: The AWS account ID for the account that sent the invitation.
@@ -188,6 +191,7 @@ class InvitationAccepter(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InvitationAccepterArgs args: The arguments to use to populate this resource's properties.

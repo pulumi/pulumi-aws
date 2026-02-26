@@ -24,6 +24,7 @@ class EventBusPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventBusPolicy resource.
+
         :param pulumi.Input[_builtins.str] policy: The text of the policy.
         :param pulumi.Input[_builtins.str] event_bus_name: The name of the event bus to set the permissions on.
                If you omit this, the permissions are set on the `default` event bus.
@@ -81,6 +82,7 @@ class _EventBusPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventBusPolicy resources.
+
         :param pulumi.Input[_builtins.str] event_bus_name: The name of the event bus to set the permissions on.
                If you omit this, the permissions are set on the `default` event bus.
         :param pulumi.Input[_builtins.str] policy: The text of the policy.
@@ -259,6 +261,7 @@ class EventBusPolicy(pulumi.CustomResource):
         $ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy DevAccountAccess example-event-bus
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] event_bus_name: The name of the event bus to set the permissions on.
@@ -389,6 +392,7 @@ class EventBusPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy DevAccountAccess example-event-bus
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventBusPolicyArgs args: The arguments to use to populate this resource's properties.

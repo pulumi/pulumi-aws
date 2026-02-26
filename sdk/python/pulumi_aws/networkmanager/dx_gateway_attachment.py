@@ -29,6 +29,7 @@ class DxGatewayAttachmentArgs:
                  timeouts: Optional[pulumi.Input['DxGatewayAttachmentTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a DxGatewayAttachment resource.
+
         :param pulumi.Input[_builtins.str] core_network_id: ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
         :param pulumi.Input[_builtins.str] direct_connect_gateway_arn: ARN of the Direct Connect gateway attachment.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] edge_locations: One or more core network edge locations to associate with the Direct Connect gateway attachment.
@@ -138,6 +139,7 @@ class _DxGatewayAttachmentState:
                  timeouts: Optional[pulumi.Input['DxGatewayAttachmentTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering DxGatewayAttachment resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the attachment.
         :param pulumi.Input[_builtins.int] attachment_policy_rule_number: Policy rule number associated with the attachment.
         :param pulumi.Input[_builtins.str] attachment_type: Type of attachment.
@@ -391,6 +393,7 @@ class DxGatewayAttachment(pulumi.CustomResource):
         $ pulumi import aws:networkmanager/dxGatewayAttachment:DxGatewayAttachment example attachment-1a2b3c4d5e6f7g
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] core_network_id: ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
@@ -433,6 +436,7 @@ class DxGatewayAttachment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:networkmanager/dxGatewayAttachment:DxGatewayAttachment example attachment-1a2b3c4d5e6f7g
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DxGatewayAttachmentArgs args: The arguments to use to populate this resource's properties.

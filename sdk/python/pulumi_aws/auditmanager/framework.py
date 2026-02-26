@@ -29,6 +29,7 @@ class FrameworkArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Framework resource.
+
         :param pulumi.Input[_builtins.str] compliance_type: Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
         :param pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetArgs']]] control_sets: Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
                
@@ -140,6 +141,7 @@ class _FrameworkState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Framework resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the framework.
                * `control_sets[*].id` - Unique identifier for the framework control set.
         :param pulumi.Input[_builtins.str] compliance_type: Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
@@ -327,6 +329,7 @@ class Framework(pulumi.CustomResource):
         $ pulumi import aws:auditmanager/framework:Framework example abc123-de45
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] compliance_type: Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
@@ -377,6 +380,7 @@ class Framework(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:auditmanager/framework:Framework example abc123-de45
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FrameworkArgs args: The arguments to use to populate this resource's properties.

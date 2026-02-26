@@ -43,6 +43,7 @@ class OntapVolumeArgs:
                  volume_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OntapVolume resource.
+
         :param pulumi.Input[_builtins.str] storage_virtual_machine_id: Specifies the storage virtual machine in which to create the volume.
                
                The following arguments are optional:
@@ -379,6 +380,7 @@ class _OntapVolumeState:
                  volume_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OntapVolume resources.
+
         :param pulumi.Input['OntapVolumeAggregateConfigurationArgs'] aggregate_configuration: The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the volune.
         :param pulumi.Input[_builtins.bool] bypass_snaplock_enterprise_retention: Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
@@ -836,6 +838,7 @@ class OntapVolume(pulumi.CustomResource):
         $ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['OntapVolumeAggregateConfigurationArgs', 'OntapVolumeAggregateConfigurationArgsDict']] aggregate_configuration: The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
@@ -914,6 +917,7 @@ class OntapVolume(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OntapVolumeArgs args: The arguments to use to populate this resource's properties.

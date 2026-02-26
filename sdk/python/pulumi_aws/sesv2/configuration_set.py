@@ -32,6 +32,7 @@ class ConfigurationSetArgs:
                  vdm_options: Optional[pulumi.Input['ConfigurationSetVdmOptionsArgs']] = None):
         """
         The set of arguments for constructing a ConfigurationSet resource.
+
         :param pulumi.Input[_builtins.str] configuration_set_name: The name of the configuration set.
         :param pulumi.Input['ConfigurationSetDeliveryOptionsArgs'] delivery_options: An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `delivery_options` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -185,6 +186,7 @@ class _ConfigurationSetState:
                  vdm_options: Optional[pulumi.Input['ConfigurationSetVdmOptionsArgs']] = None):
         """
         Input properties used for looking up and filtering ConfigurationSet resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Configuration Set.
         :param pulumi.Input[_builtins.str] configuration_set_name: The name of the configuration set.
         :param pulumi.Input['ConfigurationSetDeliveryOptionsArgs'] delivery_options: An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `delivery_options` Block for details.
@@ -408,6 +410,7 @@ class ConfigurationSet(pulumi.CustomResource):
         $ pulumi import aws:sesv2/configurationSet:ConfigurationSet example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] configuration_set_name: The name of the configuration set.
@@ -468,6 +471,7 @@ class ConfigurationSet(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sesv2/configurationSet:ConfigurationSet example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConfigurationSetArgs args: The arguments to use to populate this resource's properties.

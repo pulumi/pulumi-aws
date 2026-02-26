@@ -25,6 +25,7 @@ class PolicyTemplateArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PolicyTemplate resource.
+
         :param pulumi.Input[_builtins.str] policy_store_id: The ID of the Policy Store.
         :param pulumi.Input[_builtins.str] statement: Defines the content of the statement, written in Cedar policy language.
                
@@ -101,6 +102,7 @@ class _PolicyTemplateState:
                  statement: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PolicyTemplate resources.
+
         :param pulumi.Input[_builtins.str] created_date: The date the Policy Store was created.
         :param pulumi.Input[_builtins.str] description: Provides a description for the policy template.
         :param pulumi.Input[_builtins.str] policy_store_id: The ID of the Policy Store.
@@ -233,6 +235,7 @@ class PolicyTemplate(pulumi.CustomResource):
         $ pulumi import aws:verifiedpermissions/policyTemplate:PolicyTemplate example policyStoreId:policyTemplateId
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Provides a description for the policy template.
@@ -271,6 +274,7 @@ class PolicyTemplate(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:verifiedpermissions/policyTemplate:PolicyTemplate example policyStoreId:policyTemplateId
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyTemplateArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class BucketAbacArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BucketAbac resource.
+
         :param pulumi.Input['BucketAbacAbacStatusArgs'] abac_status: ABAC status configuration. See `abac_status` Block for details.
                
                The following arguments are optional:
@@ -105,6 +106,7 @@ class _BucketAbacState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BucketAbac resources.
+
         :param pulumi.Input['BucketAbacAbacStatusArgs'] abac_status: ABAC status configuration. See `abac_status` Block for details.
                
                The following arguments are optional:
@@ -225,6 +227,7 @@ class BucketAbac(pulumi.CustomResource):
         $ pulumi import aws:s3/bucketAbac:BucketAbac example bucket-name,123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['BucketAbacAbacStatusArgs', 'BucketAbacAbacStatusArgsDict']] abac_status: ABAC status configuration. See `abac_status` Block for details.
@@ -277,6 +280,7 @@ class BucketAbac(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/bucketAbac:BucketAbac example bucket-name,123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BucketAbacArgs args: The arguments to use to populate this resource's properties.

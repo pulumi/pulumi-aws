@@ -24,6 +24,7 @@ class ModelPackageGroupPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ModelPackageGroupPolicy resource.
+
         :param pulumi.Input[_builtins.str] model_package_group_name: The name of the model package group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -74,6 +75,7 @@ class _ModelPackageGroupPolicyState:
                  resource_policy: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ModelPackageGroupPolicy resources.
+
         :param pulumi.Input[_builtins.str] model_package_group_name: The name of the model package group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -168,6 +170,7 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
         $ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] model_package_group_name: The name of the model package group.
@@ -218,6 +221,7 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ModelPackageGroupPolicyArgs args: The arguments to use to populate this resource's properties.

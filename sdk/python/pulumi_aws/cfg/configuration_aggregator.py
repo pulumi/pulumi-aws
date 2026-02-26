@@ -28,6 +28,7 @@ class ConfigurationAggregatorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConfigurationAggregator resource.
+
         :param pulumi.Input['ConfigurationAggregatorAccountAggregationSourceArgs'] account_aggregation_source: The account(s) to aggregate config data from as documented below.
         :param pulumi.Input[_builtins.str] name: The name of the configuration aggregator.
         :param pulumi.Input['ConfigurationAggregatorOrganizationAggregationSourceArgs'] organization_aggregation_source: The organization to aggregate config data from as documented below.
@@ -122,6 +123,7 @@ class _ConfigurationAggregatorState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ConfigurationAggregator resources.
+
         :param pulumi.Input['ConfigurationAggregatorAccountAggregationSourceArgs'] account_aggregation_source: The account(s) to aggregate config data from as documented below.
         :param pulumi.Input[_builtins.str] arn: The ARN of the aggregator
         :param pulumi.Input[_builtins.str] name: The name of the configuration aggregator.
@@ -302,6 +304,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
         $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ConfigurationAggregatorAccountAggregationSourceArgs', 'ConfigurationAggregatorAccountAggregationSourceArgsDict']] account_aggregation_source: The account(s) to aggregate config data from as documented below.
@@ -373,6 +376,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConfigurationAggregatorArgs args: The arguments to use to populate this resource's properties.

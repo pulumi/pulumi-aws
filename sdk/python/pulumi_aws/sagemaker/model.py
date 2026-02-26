@@ -32,6 +32,7 @@ class ModelArgs:
                  vpc_config: Optional[pulumi.Input['ModelVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Model resource.
+
         :param pulumi.Input[_builtins.str] execution_role_arn: A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
         :param pulumi.Input[Sequence[pulumi.Input['ModelContainerArgs']]] containers: Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
         :param pulumi.Input[_builtins.bool] enable_network_isolation: Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
@@ -185,6 +186,7 @@ class _ModelState:
                  vpc_config: Optional[pulumi.Input['ModelVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Model resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) assigned by AWS to this model.
         :param pulumi.Input[Sequence[pulumi.Input['ModelContainerArgs']]] containers: Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
         :param pulumi.Input[_builtins.bool] enable_network_isolation: Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
@@ -405,6 +407,7 @@ class Model(pulumi.CustomResource):
         $ pulumi import aws:sagemaker/model:Model example model-foo
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ModelContainerArgs', 'ModelContainerArgsDict']]]] containers: Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
@@ -458,6 +461,7 @@ class Model(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sagemaker/model:Model example model-foo
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ModelArgs args: The arguments to use to populate this resource's properties.

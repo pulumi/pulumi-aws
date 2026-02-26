@@ -26,6 +26,7 @@ class AdmChannelArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AdmChannel resource.
+
         :param pulumi.Input[_builtins.str] application_id: The application ID.
         :param pulumi.Input[_builtins.str] client_id: Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
         :param pulumi.Input[_builtins.str] client_secret: Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
@@ -111,6 +112,7 @@ class _AdmChannelState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AdmChannel resources.
+
         :param pulumi.Input[_builtins.str] application_id: The application ID.
         :param pulumi.Input[_builtins.str] client_id: Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
         :param pulumi.Input[_builtins.str] client_secret: Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
@@ -227,6 +229,7 @@ class AdmChannel(pulumi.CustomResource):
         $ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: The application ID.
@@ -266,6 +269,7 @@ class AdmChannel(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AdmChannelArgs args: The arguments to use to populate this resource's properties.

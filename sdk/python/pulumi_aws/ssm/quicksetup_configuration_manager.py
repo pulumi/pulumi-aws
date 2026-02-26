@@ -29,6 +29,7 @@ class QuicksetupConfigurationManagerArgs:
                  timeouts: Optional[pulumi.Input['QuicksetupConfigurationManagerTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a QuicksetupConfigurationManager resource.
+
         :param pulumi.Input['QuicksetupConfigurationManagerConfigurationDefinitionArgs'] configuration_definition: Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
         :param pulumi.Input[_builtins.str] description: Description of the configuration manager.
         :param pulumi.Input[_builtins.str] name: Configuration manager name.
@@ -135,6 +136,7 @@ class _QuicksetupConfigurationManagerState:
                  timeouts: Optional[pulumi.Input['QuicksetupConfigurationManagerTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering QuicksetupConfigurationManager resources.
+
         :param pulumi.Input['QuicksetupConfigurationManagerConfigurationDefinitionArgs'] configuration_definition: Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
         :param pulumi.Input[_builtins.str] description: Description of the configuration manager.
         :param pulumi.Input[_builtins.str] manager_arn: ARN of the Configuration Manager.
@@ -343,6 +345,7 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
         $ pulumi import aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager example arn:aws:ssm-quicksetup:us-east-1:012345678901:configuration-manager/abcd-1234
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['QuicksetupConfigurationManagerConfigurationDefinitionArgs', 'QuicksetupConfigurationManagerConfigurationDefinitionArgsDict']] configuration_definition: Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
@@ -415,6 +418,7 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager example arn:aws:ssm-quicksetup:us-east-1:012345678901:configuration-manager/abcd-1234
         ```
+
 
         :param str resource_name: The name of the resource.
         :param QuicksetupConfigurationManagerArgs args: The arguments to use to populate this resource's properties.

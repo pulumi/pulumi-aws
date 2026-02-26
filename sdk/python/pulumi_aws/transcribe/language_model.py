@@ -29,6 +29,7 @@ class LanguageModelArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LanguageModel resource.
+
         :param pulumi.Input[_builtins.str] base_model_name: Name of reference base model.
         :param pulumi.Input['LanguageModelInputDataConfigArgs'] input_data_config: The input data config for the LanguageModel. See Input Data Config for more details.
         :param pulumi.Input[_builtins.str] language_code: The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
@@ -127,6 +128,7 @@ class _LanguageModelState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LanguageModel resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the LanguageModel.
         :param pulumi.Input[_builtins.str] base_model_name: Name of reference base model.
         :param pulumi.Input['LanguageModelInputDataConfigArgs'] input_data_config: The input data config for the LanguageModel. See Input Data Config for more details.
@@ -321,6 +323,7 @@ class LanguageModel(pulumi.CustomResource):
         $ pulumi import aws:transcribe/languageModel:LanguageModel example example-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] base_model_name: Name of reference base model.
@@ -400,6 +403,7 @@ class LanguageModel(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:transcribe/languageModel:LanguageModel example example-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LanguageModelArgs args: The arguments to use to populate this resource's properties.

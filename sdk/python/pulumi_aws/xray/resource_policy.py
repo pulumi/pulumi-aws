@@ -26,6 +26,7 @@ class ResourcePolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourcePolicy resource.
+
         :param pulumi.Input[_builtins.str] policy_document: JSON string of the resource policy or resource policy document, which can be up to 5kb in size.
                
                The following arguments are optional:
@@ -117,6 +118,7 @@ class _ResourcePolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourcePolicy resources.
+
         :param pulumi.Input[_builtins.bool] bypass_policy_lockout_check: Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
         :param pulumi.Input[_builtins.str] last_updated_time: When the policy was last updated, in Unix time seconds.
         :param pulumi.Input[_builtins.str] policy_document: JSON string of the resource policy or resource policy document, which can be up to 5kb in size.
@@ -251,6 +253,7 @@ class ResourcePolicy(pulumi.CustomResource):
         $ pulumi import aws:xray/resourcePolicy:ResourcePolicy example resource_policy-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] bypass_policy_lockout_check: Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
@@ -291,6 +294,7 @@ class ResourcePolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:xray/resourcePolicy:ResourcePolicy example resource_policy-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.

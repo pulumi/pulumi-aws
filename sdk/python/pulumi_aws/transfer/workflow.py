@@ -28,6 +28,7 @@ class WorkflowArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Workflow resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]] steps: Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
         :param pulumi.Input[_builtins.str] description: A textual description for the workflow.
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowOnExceptionStepArgs']]] on_exception_steps: Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
@@ -117,6 +118,7 @@ class _WorkflowState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Workflow resources.
+
         :param pulumi.Input[_builtins.str] arn: The Workflow ARN.
         :param pulumi.Input[_builtins.str] description: A textual description for the workflow.
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowOnExceptionStepArgs']]] on_exception_steps: Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
@@ -295,6 +297,7 @@ class Workflow(pulumi.CustomResource):
         $ pulumi import aws:transfer/workflow:Workflow example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A textual description for the workflow.
@@ -366,6 +369,7 @@ class Workflow(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:transfer/workflow:Workflow example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkflowArgs args: The arguments to use to populate this resource's properties.

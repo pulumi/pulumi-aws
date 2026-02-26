@@ -26,6 +26,7 @@ class VpcNetworkPerformanceMetricSubscriptionArgs:
                  statistic: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcNetworkPerformanceMetricSubscription resource.
+
         :param pulumi.Input[_builtins.str] destination: The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
         :param pulumi.Input[_builtins.str] source: The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
         :param pulumi.Input[_builtins.str] metric: The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
@@ -113,6 +114,7 @@ class _VpcNetworkPerformanceMetricSubscriptionState:
                  statistic: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcNetworkPerformanceMetricSubscription resources.
+
         :param pulumi.Input[_builtins.str] destination: The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
         :param pulumi.Input[_builtins.str] metric: The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
         :param pulumi.Input[_builtins.str] period: The data aggregation time for the subscription.
@@ -232,6 +234,7 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
             destination="us-west-1")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] destination: The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
@@ -259,6 +262,7 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
             source="us-east-1",
             destination="us-west-1")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcNetworkPerformanceMetricSubscriptionArgs args: The arguments to use to populate this resource's properties.

@@ -35,6 +35,7 @@ class VolumeArgs:
                  volume_initialization_rate: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Volume resource.
+
         :param pulumi.Input[_builtins.str] availability_zone: Availability zone where the EBS volume will exist.
         :param pulumi.Input[_builtins.bool] encrypted: If true, the disk will be encrypted.
         :param pulumi.Input[_builtins.bool] final_snapshot: If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
@@ -277,6 +278,7 @@ class _VolumeState:
                  volume_initialization_rate: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Volume resources.
+
         :param pulumi.Input[_builtins.str] arn: Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
         :param pulumi.Input[_builtins.str] availability_zone: Availability zone where the EBS volume will exist.
         :param pulumi.Input[_builtins.str] create_time: Timestamp when volume creation was initiated.
@@ -589,6 +591,7 @@ class Volume(pulumi.CustomResource):
         $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability_zone: Availability zone where the EBS volume will exist.
@@ -640,6 +643,7 @@ class Volume(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VolumeArgs args: The arguments to use to populate this resource's properties.

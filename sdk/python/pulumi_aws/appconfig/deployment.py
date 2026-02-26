@@ -30,6 +30,7 @@ class DeploymentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Deployment resource.
+
         :param pulumi.Input[_builtins.str] application_id: Application ID. Must be between 4 and 7 characters in length.
         :param pulumi.Input[_builtins.str] configuration_profile_id: Configuration profile ID. Must be between 4 and 7 characters in length.
         :param pulumi.Input[_builtins.str] configuration_version: Configuration version to deploy. Can be at most 1024 characters.
@@ -182,6 +183,7 @@ class _DeploymentState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Deployment resources.
+
         :param pulumi.Input[_builtins.str] application_id: Application ID. Must be between 4 and 7 characters in length.
         :param pulumi.Input[_builtins.str] arn: ARN of the AppConfig Deployment.
         :param pulumi.Input[_builtins.str] configuration_profile_id: Configuration profile ID. Must be between 4 and 7 characters in length.
@@ -441,6 +443,7 @@ class Deployment(pulumi.CustomResource):
         $ pulumi import aws:appconfig/deployment:Deployment example 71abcde/11xxxxx/1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: Application ID. Must be between 4 and 7 characters in length.
@@ -488,6 +491,7 @@ class Deployment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appconfig/deployment:Deployment example 71abcde/11xxxxx/1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.

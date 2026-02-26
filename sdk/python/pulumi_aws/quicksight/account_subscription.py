@@ -41,6 +41,7 @@ class AccountSubscriptionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccountSubscription resource.
+
         :param pulumi.Input[_builtins.str] account_name: Name of your Amazon QuickSight account. This name is unique over all of AWS, and it appears only when users sign in.
         :param pulumi.Input[_builtins.str] authentication_method: Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
         :param pulumi.Input[_builtins.str] edition: Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
@@ -370,6 +371,7 @@ class _AccountSubscriptionState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountSubscription resources.
+
         :param pulumi.Input[_builtins.str] account_name: Name of your Amazon QuickSight account. This name is unique over all of AWS, and it appears only when users sign in.
         :param pulumi.Input[_builtins.str] account_subscription_status: Status of the Amazon QuickSight account's subscription.
         :param pulumi.Input[_builtins.str] active_directory_name: Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
@@ -745,6 +747,7 @@ class AccountSubscription(pulumi.CustomResource):
         $ pulumi import aws:quicksight/accountSubscription:AccountSubscription example "012345678901"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: Name of your Amazon QuickSight account. This name is unique over all of AWS, and it appears only when users sign in.
@@ -801,6 +804,7 @@ class AccountSubscription(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:quicksight/accountSubscription:AccountSubscription example "012345678901"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountSubscriptionArgs args: The arguments to use to populate this resource's properties.

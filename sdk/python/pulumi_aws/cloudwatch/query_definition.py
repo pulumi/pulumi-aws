@@ -25,6 +25,7 @@ class QueryDefinitionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a QueryDefinition resource.
+
         :param pulumi.Input[_builtins.str] query_string: The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_group_names: Specific log groups to use with the query.
         :param pulumi.Input[_builtins.str] name: The name of the query.
@@ -97,6 +98,7 @@ class _QueryDefinitionState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering QueryDefinition resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_group_names: Specific log groups to use with the query.
         :param pulumi.Input[_builtins.str] name: The name of the query.
         :param pulumi.Input[_builtins.str] query_definition_id: The query definition ID.
@@ -215,6 +217,7 @@ class QueryDefinition(pulumi.CustomResource):
         $ pulumi import aws:cloudwatch/queryDefinition:QueryDefinition example arn:aws:logs:us-west-2:123456789012:query-definition:269951d7-6f75-496d-9d7b-6b7a5486bdbd
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_group_names: Specific log groups to use with the query.
@@ -256,6 +259,7 @@ class QueryDefinition(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudwatch/queryDefinition:QueryDefinition example arn:aws:logs:us-west-2:123456789012:query-definition:269951d7-6f75-496d-9d7b-6b7a5486bdbd
         ```
+
 
         :param str resource_name: The name of the resource.
         :param QueryDefinitionArgs args: The arguments to use to populate this resource's properties.

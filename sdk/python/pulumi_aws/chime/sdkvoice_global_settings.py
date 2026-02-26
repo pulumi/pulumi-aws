@@ -24,6 +24,7 @@ class SdkvoiceGlobalSettingsArgs:
                  voice_connector: pulumi.Input['SdkvoiceGlobalSettingsVoiceConnectorArgs']):
         """
         The set of arguments for constructing a SdkvoiceGlobalSettings resource.
+
         :param pulumi.Input['SdkvoiceGlobalSettingsVoiceConnectorArgs'] voice_connector: The Voice Connector settings. See voice_connector.
         """
         pulumi.set(__self__, "voice_connector", voice_connector)
@@ -47,6 +48,7 @@ class _SdkvoiceGlobalSettingsState:
                  voice_connector: Optional[pulumi.Input['SdkvoiceGlobalSettingsVoiceConnectorArgs']] = None):
         """
         Input properties used for looking up and filtering SdkvoiceGlobalSettings resources.
+
         :param pulumi.Input['SdkvoiceGlobalSettingsVoiceConnectorArgs'] voice_connector: The Voice Connector settings. See voice_connector.
         """
         if voice_connector is not None:
@@ -97,6 +99,7 @@ class SdkvoiceGlobalSettings(pulumi.CustomResource):
         $ pulumi import aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings example 123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SdkvoiceGlobalSettingsVoiceConnectorArgs', 'SdkvoiceGlobalSettingsVoiceConnectorArgsDict']] voice_connector: The Voice Connector settings. See voice_connector.
@@ -130,6 +133,7 @@ class SdkvoiceGlobalSettings(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings example 123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SdkvoiceGlobalSettingsArgs args: The arguments to use to populate this resource's properties.

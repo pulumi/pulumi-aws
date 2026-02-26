@@ -25,6 +25,7 @@ class DocumentationVersionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DocumentationVersion resource.
+
         :param pulumi.Input[_builtins.str] rest_api_id: ID of the associated Rest API
         :param pulumi.Input[_builtins.str] version: Version identifier of the API documentation snapshot.
         :param pulumi.Input[_builtins.str] description: Description of the API documentation version.
@@ -95,6 +96,7 @@ class _DocumentationVersionState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DocumentationVersion resources.
+
         :param pulumi.Input[_builtins.str] description: Description of the API documentation version.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] rest_api_id: ID of the associated Rest API
@@ -200,6 +202,7 @@ class DocumentationVersion(pulumi.CustomResource):
         $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the API documentation version.
@@ -243,6 +246,7 @@ class DocumentationVersion(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DocumentationVersionArgs args: The arguments to use to populate this resource's properties.

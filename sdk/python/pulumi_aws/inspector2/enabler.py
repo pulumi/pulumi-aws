@@ -24,6 +24,7 @@ class EnablerArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Enabler resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] account_ids: Set of account IDs.
                Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_types: Type of resources to scan.
@@ -84,6 +85,7 @@ class _EnablerState:
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Enabler resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] account_ids: Set of account IDs.
                Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -189,6 +191,7 @@ class Enabler(pulumi.CustomResource):
         $ pulumi import aws:inspector2/enabler:Enabler example 123456789012:234567890123-EC2:ECR
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] account_ids: Set of account IDs.
@@ -244,6 +247,7 @@ class Enabler(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:inspector2/enabler:Enabler example 123456789012:234567890123-EC2:ECR
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnablerArgs args: The arguments to use to populate this resource's properties.

@@ -34,6 +34,7 @@ class DistributionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Distribution resource.
+
         :param pulumi.Input[_builtins.str] bundle_id: Bundle ID to use for the distribution.
         :param pulumi.Input['DistributionDefaultCacheBehaviorArgs'] default_cache_behavior: Default cache behavior of the distribution. See below.
         :param pulumi.Input['DistributionOriginArgs'] origin: Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
@@ -229,6 +230,7 @@ class _DistributionState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Distribution resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alternative_domain_names: Alternate domain names of the distribution.
         :param pulumi.Input[_builtins.str] arn: ARN of the distribution.
         :param pulumi.Input[_builtins.str] bundle_id: Bundle ID to use for the distribution.
@@ -693,6 +695,7 @@ class Distribution(pulumi.CustomResource):
         $ pulumi import aws:lightsail/distribution:Distribution example example-distribution
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bundle_id: Bundle ID to use for the distribution.
@@ -836,6 +839,7 @@ class Distribution(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lightsail/distribution:Distribution example example-distribution
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DistributionArgs args: The arguments to use to populate this resource's properties.

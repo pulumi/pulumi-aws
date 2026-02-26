@@ -45,6 +45,7 @@ class BrokerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Broker resource.
+
         :param pulumi.Input[_builtins.str] engine_type: Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
         :param pulumi.Input[_builtins.str] engine_version: Version of the broker engine.
         :param pulumi.Input[_builtins.str] host_instance_type: Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
@@ -409,6 +410,7 @@ class _BrokerState:
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]]] = None):
         """
         Input properties used for looking up and filtering Broker resources.
+
         :param pulumi.Input[_builtins.bool] apply_immediately: Whether to apply broker modifications immediately. Default is `false`.
         :param pulumi.Input[_builtins.str] arn: ARN of the broker.
         :param pulumi.Input[_builtins.str] authentication_strategy: Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
@@ -951,6 +953,7 @@ class Broker(pulumi.CustomResource):
         $ pulumi import aws:mq/broker:Broker example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] apply_immediately: Whether to apply broker modifications immediately. Default is `false`.
@@ -1099,6 +1102,7 @@ class Broker(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:mq/broker:Broker example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BrokerArgs args: The arguments to use to populate this resource's properties.

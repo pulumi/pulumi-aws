@@ -27,6 +27,7 @@ class OptInArgs:
                  resource_datas: Optional[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataArgs']]]] = None):
         """
         The set of arguments for constructing a OptIn resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['OptInConditionArgs']]] conditions: Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
         :param pulumi.Input[Sequence[pulumi.Input['OptInPrincipalArgs']]] principals: Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -101,6 +102,7 @@ class _OptInState:
                  resource_datas: Optional[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataArgs']]]] = None):
         """
         Input properties used for looking up and filtering OptIn resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['OptInConditionArgs']]] conditions: Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
         :param pulumi.Input[_builtins.str] last_modified: Last modified date and time of the record.
         :param pulumi.Input[Sequence[pulumi.Input['OptInPrincipalArgs']]] principals: Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
@@ -215,6 +217,7 @@ class OptIn(pulumi.CustomResource):
         example = aws.lakeformation.OptIn("example")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OptInConditionArgs', 'OptInConditionArgsDict']]]] conditions: Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
@@ -241,6 +244,7 @@ class OptIn(pulumi.CustomResource):
 
         example = aws.lakeformation.OptIn("example")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OptInArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class LogDataProtectionPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogDataProtectionPolicy resource.
+
         :param pulumi.Input[_builtins.str] log_group_name: The name of the log group under which the log stream is to be created.
         :param pulumi.Input[_builtins.str] policy_document: Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _LogDataProtectionPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogDataProtectionPolicy resources.
+
         :param pulumi.Input[_builtins.str] log_group_name: The name of the log group under which the log stream is to be created.
         :param pulumi.Input[_builtins.str] policy_document: Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -190,6 +192,7 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
         $ pulumi import aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy example my-log-group
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] log_group_name: The name of the log group under which the log stream is to be created.
@@ -255,6 +258,7 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy example my-log-group
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LogDataProtectionPolicyArgs args: The arguments to use to populate this resource's properties.

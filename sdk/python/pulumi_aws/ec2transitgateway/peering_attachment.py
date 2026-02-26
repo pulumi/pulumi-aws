@@ -30,6 +30,7 @@ class PeeringAttachmentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PeeringAttachment resource.
+
         :param pulumi.Input[_builtins.str] peer_region: Region of EC2 Transit Gateway to peer with.
         :param pulumi.Input[_builtins.str] peer_transit_gateway_id: Identifier of EC2 Transit Gateway to peer with.
         :param pulumi.Input[_builtins.str] transit_gateway_id: Identifier of EC2 Transit Gateway.
@@ -150,6 +151,7 @@ class _PeeringAttachmentState:
                  transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PeeringAttachment resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the attachment.
         :param pulumi.Input['PeeringAttachmentOptionsArgs'] options: Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
         :param pulumi.Input[_builtins.str] peer_account_id: Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
@@ -348,6 +350,7 @@ class PeeringAttachment(pulumi.CustomResource):
         $ pulumi import aws:ec2transitgateway/peeringAttachment:PeeringAttachment example tgw-attach-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['PeeringAttachmentOptionsArgs', 'PeeringAttachmentOptionsArgsDict']] options: Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
@@ -398,6 +401,7 @@ class PeeringAttachment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2transitgateway/peeringAttachment:PeeringAttachment example tgw-attach-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PeeringAttachmentArgs args: The arguments to use to populate this resource's properties.

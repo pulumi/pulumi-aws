@@ -26,6 +26,7 @@ class DomainNameAccessAssociationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DomainNameAccessAssociation resource.
+
         :param pulumi.Input[_builtins.str] access_association_source: The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
         :param pulumi.Input[_builtins.str] access_association_source_type: The type of the domain name access association source. Valid values are `VPCE`.
         :param pulumi.Input[_builtins.str] domain_name_arn: The ARN of the domain name.
@@ -113,6 +114,7 @@ class _DomainNameAccessAssociationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DomainNameAccessAssociation resources.
+
         :param pulumi.Input[_builtins.str] access_association_source: The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
         :param pulumi.Input[_builtins.str] access_association_source_type: The type of the domain name access association source. Valid values are `VPCE`.
         :param pulumi.Input[_builtins.str] arn: ARN of the domain name access association.
@@ -262,6 +264,7 @@ class DomainNameAccessAssociation(pulumi.CustomResource):
         $ pulumi import aws:apigateway/domainNameAccessAssociation:DomainNameAccessAssociation example arn:aws:apigateway:us-west-2:123456789012:/domainnameaccessassociations/domainname/12qmzgp2.9m7ilski.test+hykg7a12e7/vpcesource/vpce-05de3f8f82740a748
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_association_source: The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
@@ -304,6 +307,7 @@ class DomainNameAccessAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apigateway/domainNameAccessAssociation:DomainNameAccessAssociation example arn:aws:apigateway:us-west-2:123456789012:/domainnameaccessassociations/domainname/12qmzgp2.9m7ilski.test+hykg7a12e7/vpcesource/vpce-05de3f8f82740a748
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DomainNameAccessAssociationArgs args: The arguments to use to populate this resource's properties.

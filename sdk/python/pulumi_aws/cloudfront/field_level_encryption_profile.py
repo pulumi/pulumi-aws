@@ -26,6 +26,7 @@ class FieldLevelEncryptionProfileArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FieldLevelEncryptionProfile resource.
+
         :param pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesArgs'] encryption_entities: The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
         :param pulumi.Input[_builtins.str] comment: An optional comment about the Field Level Encryption Profile.
         :param pulumi.Input[_builtins.str] name: The name of the Field Level Encryption Profile.
@@ -84,6 +85,7 @@ class _FieldLevelEncryptionProfileState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FieldLevelEncryptionProfile resources.
+
         :param pulumi.Input[_builtins.str] arn: The Field Level Encryption Profile ARN.
         :param pulumi.Input[_builtins.str] caller_reference: Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
         :param pulumi.Input[_builtins.str] comment: An optional comment about the Field Level Encryption Profile.
@@ -223,6 +225,7 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
         $ pulumi import aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile profile K3D5EWEUDCCXON
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: An optional comment about the Field Level Encryption Profile.
@@ -270,6 +273,7 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile profile K3D5EWEUDCCXON
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FieldLevelEncryptionProfileArgs args: The arguments to use to populate this resource's properties.

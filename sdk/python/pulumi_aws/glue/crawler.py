@@ -46,6 +46,7 @@ class CrawlerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Crawler resource.
+
         :param pulumi.Input[_builtins.str] database_name: Glue database where results are written.
         :param pulumi.Input[_builtins.str] role: The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]] catalog_targets: List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
@@ -426,6 +427,7 @@ class _CrawlerState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Crawler resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the crawler
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]] catalog_targets: List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] classifiers: List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
@@ -968,6 +970,7 @@ class Crawler(pulumi.CustomResource):
         $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerCatalogTargetArgs', 'CrawlerCatalogTargetArgsDict']]]] catalog_targets: List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
@@ -1131,6 +1134,7 @@ class Crawler(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CrawlerArgs args: The arguments to use to populate this resource's properties.

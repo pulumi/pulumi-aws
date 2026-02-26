@@ -31,6 +31,7 @@ class RadiusSettingsArgs:
                  use_same_username: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a RadiusSettings resource.
+
         :param pulumi.Input[_builtins.str] authentication_protocol: The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
         :param pulumi.Input[_builtins.str] directory_id: The identifier of the directory for which you want to manager RADIUS settings.
         :param pulumi.Input[_builtins.str] display_label: Display label.
@@ -191,6 +192,7 @@ class _RadiusSettingsState:
                  use_same_username: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering RadiusSettings resources.
+
         :param pulumi.Input[_builtins.str] authentication_protocol: The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
         :param pulumi.Input[_builtins.str] directory_id: The identifier of the directory for which you want to manager RADIUS settings.
         :param pulumi.Input[_builtins.str] display_label: Display label.
@@ -389,6 +391,7 @@ class RadiusSettings(pulumi.CustomResource):
         $ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authentication_protocol: The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
@@ -435,6 +438,7 @@ class RadiusSettings(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RadiusSettingsArgs args: The arguments to use to populate this resource's properties.

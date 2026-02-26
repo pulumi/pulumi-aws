@@ -45,6 +45,7 @@ class _VpcIpamOrganizationAdminAccountState:
                  service_principal: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcIpamOrganizationAdminAccount resources.
+
         :param pulumi.Input[_builtins.str] arn: The Organizations ARN for the delegate account.
         :param pulumi.Input[_builtins.str] email: The Organizations email for the delegate account.
         :param pulumi.Input[_builtins.str] name: The Organizations name for the delegate account.
@@ -150,6 +151,7 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
         $ pulumi import aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount example 12345678901
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -181,6 +183,7 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount example 12345678901
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcIpamOrganizationAdminAccountArgs args: The arguments to use to populate this resource's properties.

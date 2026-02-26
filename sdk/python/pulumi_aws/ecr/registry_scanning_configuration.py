@@ -26,6 +26,7 @@ class RegistryScanningConfigurationArgs:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRuleArgs']]]] = None):
         """
         The set of arguments for constructing a RegistryScanningConfiguration resource.
+
         :param pulumi.Input[_builtins.str] scan_type: the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRuleArgs']]] rules: One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
@@ -82,6 +83,7 @@ class _RegistryScanningConfigurationState:
                  scan_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RegistryScanningConfiguration resources.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] registry_id: The registry ID the scanning configuration applies to.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRuleArgs']]] rules: One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
@@ -211,6 +213,7 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
         $ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -278,6 +281,7 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RegistryScanningConfigurationArgs args: The arguments to use to populate this resource's properties.

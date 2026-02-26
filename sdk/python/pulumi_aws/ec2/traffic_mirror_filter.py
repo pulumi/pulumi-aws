@@ -25,6 +25,7 @@ class TrafficMirrorFilterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TrafficMirrorFilter resource.
+
         :param pulumi.Input[_builtins.str] description: A description of the filter.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_services: List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -99,6 +100,7 @@ class _TrafficMirrorFilterState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering TrafficMirrorFilter resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the traffic mirror filter.
         :param pulumi.Input[_builtins.str] description: A description of the filter.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_services: List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
@@ -228,6 +230,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
         $ pulumi import aws:ec2/trafficMirrorFilter:TrafficMirrorFilter foo tmf-0fbb93ddf38198f64
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the filter.
@@ -265,6 +268,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/trafficMirrorFilter:TrafficMirrorFilter foo tmf-0fbb93ddf38198f64
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TrafficMirrorFilterArgs args: The arguments to use to populate this resource's properties.

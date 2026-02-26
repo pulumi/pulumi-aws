@@ -24,6 +24,7 @@ class RecoveryGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RecoveryGroup resource.
+
         :param pulumi.Input[_builtins.str] recovery_group_name: A unique name describing the recovery group.
                
                The following arguments are optional:
@@ -85,6 +86,7 @@ class _RecoveryGroupState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RecoveryGroup resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the recovery group
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cells: List of cell arns to add as nested fault domains within this recovery group
         :param pulumi.Input[_builtins.str] recovery_group_name: A unique name describing the recovery group.
@@ -197,6 +199,7 @@ class RecoveryGroup(pulumi.CustomResource):
         $ pulumi import aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup my-high-availability-app my-high-availability-app
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cells: List of cell arns to add as nested fault domains within this recovery group
@@ -230,6 +233,7 @@ class RecoveryGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup my-high-availability-app my-high-availability-app
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RecoveryGroupArgs args: The arguments to use to populate this resource's properties.

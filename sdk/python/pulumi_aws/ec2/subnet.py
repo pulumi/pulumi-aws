@@ -43,6 +43,7 @@ class SubnetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Subnet resource.
+
         :param pulumi.Input[_builtins.str] vpc_id: The VPC ID.
         :param pulumi.Input[_builtins.bool] assign_ipv6_address_on_creation: Specify true to indicate
                that network interfaces created in the specified subnet should be
@@ -412,6 +413,7 @@ class _SubnetState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Subnet resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the subnet.
         :param pulumi.Input[_builtins.bool] assign_ipv6_address_on_creation: Specify true to indicate
                that network interfaces created in the specified subnet should be
@@ -940,6 +942,7 @@ class Subnet(pulumi.CustomResource):
         $ pulumi import aws:ec2/subnet:Subnet example subnet-9d4a7b6c
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] assign_ipv6_address_on_creation: Specify true to indicate
@@ -1073,6 +1076,7 @@ class Subnet(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/subnet:Subnet example subnet-9d4a7b6c
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SubnetArgs args: The arguments to use to populate this resource's properties.

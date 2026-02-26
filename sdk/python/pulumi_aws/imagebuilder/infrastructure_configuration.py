@@ -38,6 +38,7 @@ class InfrastructureConfigurationArgs:
                  terminate_instance_on_failure: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a InfrastructureConfiguration resource.
+
         :param pulumi.Input[_builtins.str] instance_profile_name: Name of IAM Instance Profile.
         :param pulumi.Input[_builtins.str] description: Description for the configuration.
         :param pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs'] instance_metadata_options: Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
@@ -293,6 +294,7 @@ class _InfrastructureConfigurationState:
                  terminate_instance_on_failure: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering InfrastructureConfiguration resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the configuration.
         :param pulumi.Input[_builtins.str] date_created: Date when the configuration was created.
         :param pulumi.Input[_builtins.str] date_updated: Date when the configuration was updated.
@@ -654,6 +656,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description for the configuration.
@@ -726,6 +729,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InfrastructureConfigurationArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class MacsecKeyAssociationArgs:
                  secret_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MacsecKeyAssociation resource.
+
         :param pulumi.Input[_builtins.str] connection_id: The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
         :param pulumi.Input[_builtins.str] cak: The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
         :param pulumi.Input[_builtins.str] ckn: The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
@@ -119,6 +120,7 @@ class _MacsecKeyAssociationState:
                  state: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MacsecKeyAssociation resources.
+
         :param pulumi.Input[_builtins.str] cak: The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
         :param pulumi.Input[_builtins.str] ckn: The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
         :param pulumi.Input[_builtins.str] connection_id: The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
@@ -279,6 +281,7 @@ class MacsecKeyAssociation(pulumi.CustomResource):
             secret_arn=example_get_secret.arn)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cak: The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
@@ -330,6 +333,7 @@ class MacsecKeyAssociation(pulumi.CustomResource):
             connection_id=example.id,
             secret_arn=example_get_secret.arn)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MacsecKeyAssociationArgs args: The arguments to use to populate this resource's properties.

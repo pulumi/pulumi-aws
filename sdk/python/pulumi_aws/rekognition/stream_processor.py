@@ -35,6 +35,7 @@ class StreamProcessorArgs:
                  timeouts: Optional[pulumi.Input['StreamProcessorTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a StreamProcessor resource.
+
         :param pulumi.Input['StreamProcessorInputArgs'] input: Input video stream. See `input`.
         :param pulumi.Input['StreamProcessorOutputArgs'] output: Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
@@ -234,6 +235,7 @@ class _StreamProcessorState:
                  timeouts: Optional[pulumi.Input['StreamProcessorTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering StreamProcessor resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Stream Processor.
         :param pulumi.Input['StreamProcessorDataSharingPreferenceArgs'] data_sharing_preference: See `data_sharing_preference`.
         :param pulumi.Input['StreamProcessorInputArgs'] input: Input video stream. See `input`.
@@ -673,6 +675,7 @@ class StreamProcessor(pulumi.CustomResource):
         $ pulumi import aws:rekognition/streamProcessor:StreamProcessor example my-stream
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['StreamProcessorDataSharingPreferenceArgs', 'StreamProcessorDataSharingPreferenceArgsDict']] data_sharing_preference: See `data_sharing_preference`.
@@ -880,6 +883,7 @@ class StreamProcessor(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:rekognition/streamProcessor:StreamProcessor example my-stream
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StreamProcessorArgs args: The arguments to use to populate this resource's properties.

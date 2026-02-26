@@ -29,6 +29,7 @@ class VirtualServiceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualService resource.
+
         :param pulumi.Input[_builtins.str] mesh_name: Name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
         :param pulumi.Input['VirtualServiceSpecArgs'] spec: Virtual service specification to apply.
         :param pulumi.Input[_builtins.str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
@@ -136,6 +137,7 @@ class _VirtualServiceState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering VirtualService resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the virtual service.
         :param pulumi.Input[_builtins.str] created_date: Creation date of the virtual service.
         :param pulumi.Input[_builtins.str] last_updated_date: Last update date of the virtual service.
@@ -366,6 +368,7 @@ class VirtualService(pulumi.CustomResource):
         $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] mesh_name: Name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
@@ -429,6 +432,7 @@ class VirtualService(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualServiceArgs args: The arguments to use to populate this resource's properties.

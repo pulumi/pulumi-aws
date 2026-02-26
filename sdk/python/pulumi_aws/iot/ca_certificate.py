@@ -31,6 +31,7 @@ class CaCertificateArgs:
                  verification_certificate_pem: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CaCertificate resource.
+
         :param pulumi.Input[_builtins.bool] active: Boolean flag to indicate if the certificate should be active for device authentication.
         :param pulumi.Input[_builtins.bool] allow_auto_registration: Boolean flag to indicate if the certificate should be active for device regisration.
         :param pulumi.Input[_builtins.str] ca_certificate_pem: PEM encoded CA certificate.
@@ -171,6 +172,7 @@ class _CaCertificateState:
                  verification_certificate_pem: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CaCertificate resources.
+
         :param pulumi.Input[_builtins.bool] active: Boolean flag to indicate if the certificate should be active for device authentication.
         :param pulumi.Input[_builtins.bool] allow_auto_registration: Boolean flag to indicate if the certificate should be active for device regisration.
         :param pulumi.Input[_builtins.str] arn: The ARN of the created CA certificate.
@@ -434,6 +436,7 @@ class CaCertificate(pulumi.CustomResource):
             allow_auto_registration=True)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] active: Boolean flag to indicate if the certificate should be active for device authentication.
@@ -499,6 +502,7 @@ class CaCertificate(pulumi.CustomResource):
             verification_certificate_pem=verification_locally_signed_cert.cert_pem,
             allow_auto_registration=True)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CaCertificateArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class DrtAccessRoleArnAssociationArgs:
                  timeouts: Optional[pulumi.Input['DrtAccessRoleArnAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a DrtAccessRoleArnAssociation resource.
+
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
         """
         pulumi.set(__self__, "role_arn", role_arn)
@@ -60,6 +61,7 @@ class _DrtAccessRoleArnAssociationState:
                  timeouts: Optional[pulumi.Input['DrtAccessRoleArnAssociationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering DrtAccessRoleArnAssociation resources.
+
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
         """
         if role_arn is not None:
@@ -138,6 +140,7 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
         $ pulumi import aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation example 123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
@@ -187,6 +190,7 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation example 123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DrtAccessRoleArnAssociationArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class DeploymentArgs:
                  timeouts: Optional[pulumi.Input['DeploymentTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Deployment resource.
+
         :param pulumi.Input[_builtins.str] application_id: Application to deploy.
         :param pulumi.Input[_builtins.int] application_version: Version to application to deploy
         :param pulumi.Input[_builtins.str] environment_id: Environment to deploy application to.
@@ -139,6 +140,7 @@ class _DeploymentState:
                  timeouts: Optional[pulumi.Input['DeploymentTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Deployment resources.
+
         :param pulumi.Input[_builtins.str] application_id: Application to deploy.
         :param pulumi.Input[_builtins.int] application_version: Version to application to deploy
         :param pulumi.Input[_builtins.str] environment_id: Environment to deploy application to.
@@ -290,6 +292,7 @@ class Deployment(pulumi.CustomResource):
         $ pulumi import aws:m2/deployment:Deployment example APPLICATION-ID,DEPLOYMENT-ID
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: Application to deploy.
@@ -329,6 +332,7 @@ class Deployment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:m2/deployment:Deployment example APPLICATION-ID,DEPLOYMENT-ID
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.

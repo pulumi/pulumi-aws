@@ -28,6 +28,7 @@ class GuardrailVersionArgs:
                  timeouts: Optional[pulumi.Input['GuardrailVersionTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a GuardrailVersion resource.
+
         :param pulumi.Input[_builtins.str] guardrail_arn: Guardrail ARN.
                
                The following arguments are optional:
@@ -116,6 +117,7 @@ class _GuardrailVersionState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GuardrailVersion resources.
+
         :param pulumi.Input[_builtins.str] description: Description of the Guardrail version.
         :param pulumi.Input[_builtins.str] guardrail_arn: Guardrail ARN.
                
@@ -246,6 +248,7 @@ class GuardrailVersion(pulumi.CustomResource):
         $ pulumi import aws:bedrock/guardrailVersion:GuardrailVersion example arn:aws:bedrock:us-west-2:123456789012:guardrail-id-12345678,1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the Guardrail version.
@@ -285,6 +288,7 @@ class GuardrailVersion(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:bedrock/guardrailVersion:GuardrailVersion example arn:aws:bedrock:us-west-2:123456789012:guardrail-id-12345678,1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GuardrailVersionArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class NatGatewayEipAssociationArgs:
                  timeouts: Optional[pulumi.Input['NatGatewayEipAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a NatGatewayEipAssociation resource.
+
         :param pulumi.Input[_builtins.str] allocation_id: The ID of the Elastic IP Allocation to associate with the NAT Gateway.
         :param pulumi.Input[_builtins.str] nat_gateway_id: The ID of the NAT Gateway to associate the Elastic IP Allocation to.
                
@@ -98,6 +99,7 @@ class _NatGatewayEipAssociationState:
                  timeouts: Optional[pulumi.Input['NatGatewayEipAssociationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering NatGatewayEipAssociation resources.
+
         :param pulumi.Input[_builtins.str] allocation_id: The ID of the Elastic IP Allocation to associate with the NAT Gateway.
         :param pulumi.Input[_builtins.str] nat_gateway_id: The ID of the NAT Gateway to associate the Elastic IP Allocation to.
                
@@ -209,6 +211,7 @@ class NatGatewayEipAssociation(pulumi.CustomResource):
         $ pulumi import aws:ec2/natGatewayEipAssociation:NatGatewayEipAssociation example nat-1234567890abcdef1,eipalloc-1234567890abcdef1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allocation_id: The ID of the Elastic IP Allocation to associate with the NAT Gateway.
@@ -248,6 +251,7 @@ class NatGatewayEipAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/natGatewayEipAssociation:NatGatewayEipAssociation example nat-1234567890abcdef1,eipalloc-1234567890abcdef1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NatGatewayEipAssociationArgs args: The arguments to use to populate this resource's properties.

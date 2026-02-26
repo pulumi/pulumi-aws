@@ -78,6 +78,7 @@ class SpotInstanceRequestArgs:
                  wait_for_fulfillment: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SpotInstanceRequest resource.
+
         :param pulumi.Input[_builtins.str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         :param pulumi.Input[_builtins.bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[_builtins.str] availability_zone: AZ to start the instance in.
@@ -999,6 +1000,7 @@ class _SpotInstanceRequestState:
                  wait_for_fulfillment: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SpotInstanceRequest resources.
+
         :param pulumi.Input[_builtins.str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         :param pulumi.Input[_builtins.bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[_builtins.str] availability_zone: AZ to start the instance in.
@@ -2143,6 +2145,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             })
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
@@ -2257,6 +2260,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
                 "Name": "CheapWorker",
             })
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpotInstanceRequestArgs args: The arguments to use to populate this resource's properties.

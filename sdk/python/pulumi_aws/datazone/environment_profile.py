@@ -32,6 +32,7 @@ class EnvironmentProfileArgs:
                  user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentProfileUserParameterArgs']]]] = None):
         """
         The set of arguments for constructing a EnvironmentProfile resource.
+
         :param pulumi.Input[_builtins.str] aws_account_region: Desired region for environment profile.
         :param pulumi.Input[_builtins.str] domain_identifier: Domain Identifier for environment profile.
         :param pulumi.Input[_builtins.str] environment_blueprint_identifier: ID of the blueprint which the environment will be created with.
@@ -183,6 +184,7 @@ class _EnvironmentProfileState:
                  user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentProfileUserParameterArgs']]]] = None):
         """
         Input properties used for looking up and filtering EnvironmentProfile resources.
+
         :param pulumi.Input[_builtins.str] aws_account_id: Id of the AWS account being used.
         :param pulumi.Input[_builtins.str] aws_account_region: Desired region for environment profile.
         :param pulumi.Input[_builtins.str] created_at: Creation time of environment profile.
@@ -479,6 +481,7 @@ class EnvironmentProfile(pulumi.CustomResource):
         $ pulumi import aws:datazone/environmentProfile:EnvironmentProfile example environment_profile-id-12345678,domain-id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: Id of the AWS account being used.
@@ -593,6 +596,7 @@ class EnvironmentProfile(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:datazone/environmentProfile:EnvironmentProfile example environment_profile-id-12345678,domain-id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentProfileArgs args: The arguments to use to populate this resource's properties.

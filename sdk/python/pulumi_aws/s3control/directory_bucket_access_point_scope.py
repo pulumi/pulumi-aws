@@ -27,6 +27,7 @@ class DirectoryBucketAccessPointScopeArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DirectoryBucketAccessPointScope resource.
+
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID that owns the specified access point.
         :param pulumi.Input['DirectoryBucketAccessPointScopeScopeArgs'] scope: . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
         :param pulumi.Input[_builtins.str] name: The name of the access point that you want to apply the scope to.
@@ -97,6 +98,7 @@ class _DirectoryBucketAccessPointScopeState:
                  scope: Optional[pulumi.Input['DirectoryBucketAccessPointScopeScopeArgs']] = None):
         """
         Input properties used for looking up and filtering DirectoryBucketAccessPointScope resources.
+
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID that owns the specified access point.
         :param pulumi.Input[_builtins.str] name: The name of the access point that you want to apply the scope to.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -220,6 +222,7 @@ class DirectoryBucketAccessPointScope(pulumi.CustomResource):
         $ pulumi import aws:s3control/directoryBucketAccessPointScope:DirectoryBucketAccessPointScope example example--zoneid--xa-s3,123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID that owns the specified access point.
@@ -281,6 +284,7 @@ class DirectoryBucketAccessPointScope(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3control/directoryBucketAccessPointScope:DirectoryBucketAccessPointScope example example--zoneid--xa-s3,123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DirectoryBucketAccessPointScopeArgs args: The arguments to use to populate this resource's properties.

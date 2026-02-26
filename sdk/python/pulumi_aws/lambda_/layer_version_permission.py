@@ -29,6 +29,7 @@ class LayerVersionPermissionArgs:
                  skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LayerVersionPermission resource.
+
         :param pulumi.Input[_builtins.str] action: Action that will be allowed. `lambda:GetLayerVersion` is the standard value for layer access.
         :param pulumi.Input[_builtins.str] layer_name: Name or ARN of the Lambda Layer.
         :param pulumi.Input[_builtins.str] principal: AWS account ID that should be able to use your Lambda Layer. Use `*` to share with all AWS accounts.
@@ -166,6 +167,7 @@ class _LayerVersionPermissionState:
                  version_number: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering LayerVersionPermission resources.
+
         :param pulumi.Input[_builtins.str] action: Action that will be allowed. `lambda:GetLayerVersion` is the standard value for layer access.
         :param pulumi.Input[_builtins.str] layer_name: Name or ARN of the Lambda Layer.
         :param pulumi.Input[_builtins.str] organization_id: AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organization_id` is provided.
@@ -435,6 +437,7 @@ class LayerVersionPermission(pulumi.CustomResource):
         $ pulumi import aws:lambda/layerVersionPermission:LayerVersionPermission example arn:aws:lambda:us-west-2:123456789012:layer:shared_utilities,1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: Action that will be allowed. `lambda:GetLayerVersion` is the standard value for layer access.
@@ -550,6 +553,7 @@ class LayerVersionPermission(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lambda/layerVersionPermission:LayerVersionPermission example arn:aws:lambda:us-west-2:123456789012:layer:shared_utilities,1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LayerVersionPermissionArgs args: The arguments to use to populate this resource's properties.

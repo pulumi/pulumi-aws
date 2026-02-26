@@ -25,6 +25,7 @@ class MonitorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Monitor resource.
+
         :param pulumi.Input[_builtins.str] monitor_name: The name of the monitor.
                
                The following arguments are optional:
@@ -102,6 +103,7 @@ class _MonitorState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Monitor resources.
+
         :param pulumi.Input[_builtins.int] aggregation_period: The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either 30 or 60.
         :param pulumi.Input[_builtins.str] arn: The ARN of the monitor.
         :param pulumi.Input[_builtins.str] monitor_name: The name of the monitor.
@@ -234,6 +236,7 @@ class Monitor(pulumi.CustomResource):
         $ pulumi import aws:networkmonitor/monitor:Monitor example monitor-7786087912324693644
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] aggregation_period: The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either 30 or 60.
@@ -272,6 +275,7 @@ class Monitor(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:networkmonitor/monitor:Monitor example monitor-7786087912324693644
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MonitorArgs args: The arguments to use to populate this resource's properties.

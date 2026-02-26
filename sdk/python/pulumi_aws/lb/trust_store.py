@@ -28,6 +28,7 @@ class TrustStoreArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TrustStore resource.
+
         :param pulumi.Input[_builtins.str] ca_certificates_bundle_s3_bucket: S3 Bucket name holding the client certificate CA bundle.
         :param pulumi.Input[_builtins.str] ca_certificates_bundle_s3_key: S3 object key holding the client certificate CA bundle.
         :param pulumi.Input[_builtins.str] ca_certificates_bundle_s3_object_version: Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
@@ -149,6 +150,7 @@ class _TrustStoreState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering TrustStore resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Trust Store (matches `id`).
         :param pulumi.Input[_builtins.str] arn_suffix: ARN suffix for use with CloudWatch Metrics.
         :param pulumi.Input[_builtins.str] ca_certificates_bundle_s3_bucket: S3 Bucket name holding the client certificate CA bundle.
@@ -357,6 +359,7 @@ class TrustStore(pulumi.CustomResource):
         $ pulumi import aws:lb/trustStore:TrustStore example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ca_certificates_bundle_s3_bucket: S3 Bucket name holding the client certificate CA bundle.
@@ -413,6 +416,7 @@ class TrustStore(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lb/trustStore:TrustStore example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TrustStoreArgs args: The arguments to use to populate this resource's properties.

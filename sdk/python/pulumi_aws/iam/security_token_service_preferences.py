@@ -22,6 +22,7 @@ class SecurityTokenServicePreferencesArgs:
                  global_endpoint_token_version: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a SecurityTokenServicePreferences resource.
+
         :param pulumi.Input[_builtins.str] global_endpoint_token_version: The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
         """
         pulumi.set(__self__, "global_endpoint_token_version", global_endpoint_token_version)
@@ -45,6 +46,7 @@ class _SecurityTokenServicePreferencesState:
                  global_endpoint_token_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SecurityTokenServicePreferences resources.
+
         :param pulumi.Input[_builtins.str] global_endpoint_token_version: The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
         """
         if global_endpoint_token_version is not None:
@@ -83,6 +85,7 @@ class SecurityTokenServicePreferences(pulumi.CustomResource):
         example = aws.iam.SecurityTokenServicePreferences("example", global_endpoint_token_version="v2Token")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] global_endpoint_token_version: The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
@@ -104,6 +107,7 @@ class SecurityTokenServicePreferences(pulumi.CustomResource):
 
         example = aws.iam.SecurityTokenServicePreferences("example", global_endpoint_token_version="v2Token")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecurityTokenServicePreferencesArgs args: The arguments to use to populate this resource's properties.

@@ -35,6 +35,7 @@ class RoleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Role resource.
+
         :param pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']] assume_role_policy: Policy that grants an entity permission to assume the role.
                
                > **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `iam.Policy` resource.  However, it _can_ use an `iam_get_policy_document` data source. See the example above of how this works.
@@ -230,6 +231,7 @@ class _RoleState:
                  unique_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Role resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) specifying the role.
         :param pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']] assume_role_policy: Policy that grants an entity permission to assume the role.
                
@@ -670,6 +672,7 @@ class Role(pulumi.CustomResource):
         $ pulumi import aws:iam/role:Role example developer_name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] assume_role_policy: Policy that grants an entity permission to assume the role.
@@ -879,6 +882,7 @@ class Role(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iam/role:Role example developer_name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RoleArgs args: The arguments to use to populate this resource's properties.

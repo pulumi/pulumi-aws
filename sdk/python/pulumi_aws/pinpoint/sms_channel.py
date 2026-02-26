@@ -26,6 +26,7 @@ class SmsChannelArgs:
                  short_code: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SmsChannel resource.
+
         :param pulumi.Input[_builtins.str] application_id: ID of the application.
         :param pulumi.Input[_builtins.bool] enabled: Whether the channel is enabled or disabled. By default, it is set to `true`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -115,6 +116,7 @@ class _SmsChannelState:
                  transactional_messages_per_second: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering SmsChannel resources.
+
         :param pulumi.Input[_builtins.str] application_id: ID of the application.
         :param pulumi.Input[_builtins.bool] enabled: Whether the channel is enabled or disabled. By default, it is set to `true`.
         :param pulumi.Input[_builtins.int] promotional_messages_per_second: Maximum number of promotional messages that can be sent per second.
@@ -256,6 +258,7 @@ class SmsChannel(pulumi.CustomResource):
         $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: ID of the application.
@@ -290,6 +293,7 @@ class SmsChannel(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SmsChannelArgs args: The arguments to use to populate this resource's properties.

@@ -101,6 +101,7 @@ class LifecyclePolicyDocumentArgs:
                  rules: pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyRuleArgs']]]):
         """
         Represents an ECR lifecycle policy document.
+
         :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyRuleArgs']]] rules: The rules that comprise the lifecycle policy.
         """
         pulumi.set(__self__, "rules", rules)
@@ -148,6 +149,7 @@ class LifecyclePolicyRuleArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Represents a rule in an ECR lifecycle policy.
+
         :param pulumi.Input['LifecyclePolicyActionArgs'] action: The action to take when the rule is triggered.
         :param pulumi.Input[_builtins.int] rule_priority: The priority of the rule, must be unique within the policy.
         :param pulumi.Input['LifecyclePolicySelectionArgs'] selection: The selection criteria for the rule.
@@ -243,6 +245,7 @@ class LifecyclePolicySelectionArgs:
                  tag_prefix_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Represents selection criteria for an ECR lifecycle policy rule.
+
         :param pulumi.Input[_builtins.int] count_number: The count number to use with the count type.
         :param pulumi.Input['LifecyclePolicyCountType'] count_type: The type of count to perform. Either 'imageCountMoreThan' or 'sinceImagePushed'.
         :param pulumi.Input['LifecyclePolicyTagStatus'] tag_status: The tag status of the image. Either 'tagged', 'untagged', or 'any'.

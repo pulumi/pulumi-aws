@@ -28,6 +28,7 @@ class ConnectPeerArgs:
                  transit_gateway_address: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConnectPeer resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] inside_cidr_blocks: The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)
         :param pulumi.Input[_builtins.str] peer_address: The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transit_gateway_address`
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: The Transit Gateway Connect
@@ -149,6 +150,7 @@ class _ConnectPeerState:
                  transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConnectPeer resources.
+
         :param pulumi.Input[_builtins.str] arn: EC2 Transit Gateway Connect Peer ARN
         :param pulumi.Input[_builtins.str] bgp_asn: The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
         :param pulumi.Input[_builtins.str] bgp_peer_address: The IP address assigned to customer device, which is used as BGP IP address.
@@ -357,6 +359,7 @@ class ConnectPeer(pulumi.CustomResource):
         $ pulumi import aws:ec2transitgateway/connectPeer:ConnectPeer example tgw-connect-peer-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bgp_asn: The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
@@ -398,6 +401,7 @@ class ConnectPeer(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2transitgateway/connectPeer:ConnectPeer example tgw-connect-peer-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConnectPeerArgs args: The arguments to use to populate this resource's properties.

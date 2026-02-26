@@ -81,6 +81,7 @@ class VpnConnectionArgs:
                  vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpnConnection resource.
+
         :param pulumi.Input[_builtins.str] customer_gateway_id: The ID of the customer gateway.
         :param pulumi.Input[_builtins.str] type: The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
         :param pulumi.Input[_builtins.bool] enable_acceleration: Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
@@ -1034,6 +1035,7 @@ class _VpnConnectionState:
                  vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpnConnection resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the VPN Connection.
         :param pulumi.Input[_builtins.str] core_network_arn: The ARN of the core network.
         :param pulumi.Input[_builtins.str] core_network_attachment_arn: The ARN of the core network attachment.
@@ -2347,6 +2349,7 @@ class VpnConnection(pulumi.CustomResource):
         $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] customer_gateway_id: The ID of the customer gateway.
@@ -2503,6 +2506,7 @@ class VpnConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpnConnectionArgs args: The arguments to use to populate this resource's properties.

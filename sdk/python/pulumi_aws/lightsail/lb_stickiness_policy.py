@@ -25,6 +25,7 @@ class LbStickinessPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LbStickinessPolicy resource.
+
         :param pulumi.Input[_builtins.int] cookie_duration: Cookie duration in seconds. This determines the length of the session stickiness.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable session stickiness for the load balancer.
         :param pulumi.Input[_builtins.str] lb_name: Name of the load balancer to which you want to enable session stickiness.
@@ -98,6 +99,7 @@ class _LbStickinessPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LbStickinessPolicy resources.
+
         :param pulumi.Input[_builtins.int] cookie_duration: Cookie duration in seconds. This determines the length of the session stickiness.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable session stickiness for the load balancer.
         :param pulumi.Input[_builtins.str] lb_name: Name of the load balancer to which you want to enable session stickiness.
@@ -208,6 +210,7 @@ class LbStickinessPolicy(pulumi.CustomResource):
         $ pulumi import aws:lightsail/lbStickinessPolicy:LbStickinessPolicy example example-load-balancer
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] cookie_duration: Cookie duration in seconds. This determines the length of the session stickiness.
@@ -254,6 +257,7 @@ class LbStickinessPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lightsail/lbStickinessPolicy:LbStickinessPolicy example example-load-balancer
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LbStickinessPolicyArgs args: The arguments to use to populate this resource's properties.

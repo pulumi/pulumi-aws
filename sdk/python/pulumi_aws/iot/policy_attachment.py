@@ -24,6 +24,7 @@ class PolicyAttachmentArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PolicyAttachment resource.
+
         :param pulumi.Input[_builtins.str] policy: The name of the policy to attach.
         :param pulumi.Input[_builtins.str] target: The identity to which the policy is attached.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _PolicyAttachmentState:
                  target: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PolicyAttachment resources.
+
         :param pulumi.Input[_builtins.str] policy: The name of the policy to attach.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] target: The identity to which the policy is attached.
@@ -162,6 +164,7 @@ class PolicyAttachment(pulumi.CustomResource):
             target=cert.arn)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy: The name of the policy to attach.
@@ -199,6 +202,7 @@ class PolicyAttachment(pulumi.CustomResource):
             policy=pubsub_policy.name,
             target=cert.arn)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyAttachmentArgs args: The arguments to use to populate this resource's properties.

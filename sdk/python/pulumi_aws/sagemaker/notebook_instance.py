@@ -39,6 +39,7 @@ class NotebookInstanceArgs:
                  volume_size: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a NotebookInstance resource.
+
         :param pulumi.Input[_builtins.str] instance_type: The name of ML compute instance type.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_code_repositories: An array of up to three Git repositories to associate with the notebook instance.
@@ -307,6 +308,7 @@ class _NotebookInstanceState:
                  volume_size: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering NotebookInstance resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_code_repositories: An array of up to three Git repositories to associate with the notebook instance.
                These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
@@ -684,6 +686,7 @@ class NotebookInstance(pulumi.CustomResource):
         $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_code_repositories: An array of up to three Git repositories to associate with the notebook instance.
@@ -758,6 +761,7 @@ class NotebookInstance(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NotebookInstanceArgs args: The arguments to use to populate this resource's properties.

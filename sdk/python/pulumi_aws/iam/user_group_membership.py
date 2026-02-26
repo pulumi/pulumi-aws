@@ -23,6 +23,7 @@ class UserGroupMembershipArgs:
                  user: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a UserGroupMembership resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups: A list of IAM Groups to add the user to
         :param pulumi.Input[_builtins.str] user: The name of the IAM User to add to groups
         """
@@ -61,6 +62,7 @@ class _UserGroupMembershipState:
                  user: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserGroupMembership resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups: A list of IAM Groups to add the user to
         :param pulumi.Input[_builtins.str] user: The name of the IAM User to add to groups
         """
@@ -140,6 +142,7 @@ class UserGroupMembership(pulumi.CustomResource):
         $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups: A list of IAM Groups to add the user to
@@ -187,6 +190,7 @@ class UserGroupMembership(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserGroupMembershipArgs args: The arguments to use to populate this resource's properties.

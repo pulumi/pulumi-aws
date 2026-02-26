@@ -35,6 +35,7 @@ class TaskArgs:
                  task_report_config: Optional[pulumi.Input['TaskTaskReportConfigArgs']] = None):
         """
         The set of arguments for constructing a Task resource.
+
         :param pulumi.Input[_builtins.str] destination_location_arn: Amazon Resource Name (ARN) of destination DataSync Location.
         :param pulumi.Input[_builtins.str] source_location_arn: Amazon Resource Name (ARN) of source DataSync Location.
         :param pulumi.Input[_builtins.str] cloudwatch_log_group_arn: Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
@@ -239,6 +240,7 @@ class _TaskState:
                  task_report_config: Optional[pulumi.Input['TaskTaskReportConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Task resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Task.
         :param pulumi.Input[_builtins.str] cloudwatch_log_group_arn: Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
         :param pulumi.Input[_builtins.str] destination_location_arn: Amazon Resource Name (ARN) of destination DataSync Location.
@@ -561,6 +563,7 @@ class Task(pulumi.CustomResource):
         $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cloudwatch_log_group_arn: Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
@@ -669,6 +672,7 @@ class Task(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TaskArgs args: The arguments to use to populate this resource's properties.

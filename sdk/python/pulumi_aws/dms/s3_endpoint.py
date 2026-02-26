@@ -70,6 +70,7 @@ class S3EndpointArgs:
                  use_task_start_time_for_full_load_timestamp: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a S3Endpoint resource.
+
         :param pulumi.Input[_builtins.str] bucket_name: S3 bucket name.
         :param pulumi.Input[_builtins.str] endpoint_id: Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
         :param pulumi.Input[_builtins.str] endpoint_type: Type of endpoint. Valid values are `source`, `target`.
@@ -867,6 +868,7 @@ class _S3EndpointState:
                  use_task_start_time_for_full_load_timestamp: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering S3Endpoint resources.
+
         :param pulumi.Input[_builtins.bool] add_column_name: Whether to add column name information to the .csv output file. Default is `false`.
         :param pulumi.Input[_builtins.bool] add_trailing_padding_character: Whether to add padding. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[_builtins.str] bucket_folder: S3 object prefix.
@@ -1832,6 +1834,7 @@ class S3Endpoint(pulumi.CustomResource):
         $ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] add_column_name: Whether to add column name information to the .csv output file. Default is `false`.
@@ -1983,6 +1986,7 @@ class S3Endpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
         ```
+
 
         :param str resource_name: The name of the resource.
         :param S3EndpointArgs args: The arguments to use to populate this resource's properties.

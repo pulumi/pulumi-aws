@@ -26,6 +26,7 @@ class FolderMembershipArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FolderMembership resource.
+
         :param pulumi.Input[_builtins.str] folder_id: Identifier for the folder.
         :param pulumi.Input[_builtins.str] member_id: ID of the asset (the dashboard, analysis, or dataset).
         :param pulumi.Input[_builtins.str] member_type: Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
@@ -115,6 +116,7 @@ class _FolderMembershipState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FolderMembership resources.
+
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] folder_id: Identifier for the folder.
         :param pulumi.Input[_builtins.str] member_id: ID of the asset (the dashboard, analysis, or dataset).
@@ -234,6 +236,7 @@ class FolderMembership(pulumi.CustomResource):
         $ pulumi import aws:quicksight/folderMembership:FolderMembership example 123456789012,example-folder,DATASET,example-dataset
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
@@ -274,6 +277,7 @@ class FolderMembership(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:quicksight/folderMembership:FolderMembership example 123456789012,example-folder,DATASET,example-dataset
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FolderMembershipArgs args: The arguments to use to populate this resource's properties.

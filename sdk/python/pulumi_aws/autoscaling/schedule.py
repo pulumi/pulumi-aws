@@ -31,6 +31,7 @@ class ScheduleArgs:
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Schedule resource.
+
         :param pulumi.Input[_builtins.str] autoscaling_group_name: The name of the Auto Scaling group.
         :param pulumi.Input[_builtins.str] scheduled_action_name: The name of this scaling action.
                
@@ -206,6 +207,7 @@ class _ScheduleState:
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Schedule resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to the autoscaling schedule.
         :param pulumi.Input[_builtins.str] autoscaling_group_name: The name of the Auto Scaling group.
         :param pulumi.Input[_builtins.int] desired_capacity: The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don't want to change the desired capacity at the scheduled time. Defaults to `0`.
@@ -435,6 +437,7 @@ class Schedule(pulumi.CustomResource):
         $ pulumi import aws:autoscaling/schedule:Schedule resource-name auto-scaling-group-name/scheduled-action-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] autoscaling_group_name: The name of the Auto Scaling group.
@@ -493,6 +496,7 @@ class Schedule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:autoscaling/schedule:Schedule resource-name auto-scaling-group-name/scheduled-action-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ScheduleArgs args: The arguments to use to populate this resource's properties.

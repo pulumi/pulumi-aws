@@ -37,6 +37,7 @@ class PolicyArgs:
                  target_tracking_configuration: Optional[pulumi.Input['PolicyTargetTrackingConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Policy resource.
+
         :param pulumi.Input[_builtins.str] autoscaling_group_name: Name of the autoscaling group.
         :param pulumi.Input[_builtins.str] adjustment_type: Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
         :param pulumi.Input[_builtins.int] cooldown: Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
@@ -351,6 +352,7 @@ class _PolicyState:
                  target_tracking_configuration: Optional[pulumi.Input['PolicyTargetTrackingConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering Policy resources.
+
         :param pulumi.Input[_builtins.str] adjustment_type: Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
         :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to the scaling policy.
         :param pulumi.Input[_builtins.str] autoscaling_group_name: Name of the autoscaling group.
@@ -865,6 +867,7 @@ class Policy(pulumi.CustomResource):
         $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] adjustment_type: Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
@@ -1111,6 +1114,7 @@ class Policy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.

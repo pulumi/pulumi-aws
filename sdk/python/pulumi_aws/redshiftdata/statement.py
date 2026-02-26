@@ -33,6 +33,7 @@ class StatementArgs:
                  workgroup_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Statement resource.
+
         :param pulumi.Input[_builtins.str] database: The name of the database.
         :param pulumi.Input[_builtins.str] sql: The SQL statement text to run.
                
@@ -199,6 +200,7 @@ class _StatementState:
                  workgroup_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Statement resources.
+
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
         :param pulumi.Input[_builtins.str] database: The name of the database.
         :param pulumi.Input[_builtins.str] db_user: The database user name.
@@ -407,6 +409,7 @@ class Statement(pulumi.CustomResource):
         $ pulumi import aws:redshiftdata/statement:Statement example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
@@ -464,6 +467,7 @@ class Statement(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:redshiftdata/statement:Statement example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StatementArgs args: The arguments to use to populate this resource's properties.

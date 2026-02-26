@@ -26,6 +26,7 @@ class WorkerConfigurationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a WorkerConfiguration resource.
+
         :param pulumi.Input[_builtins.str] properties_file_content: Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
                
                The following arguments are optional:
@@ -120,6 +121,7 @@ class _WorkerConfigurationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering WorkerConfiguration resources.
+
         :param pulumi.Input[_builtins.str] arn: the Amazon Resource Name (ARN) of the worker configuration.
         :param pulumi.Input[_builtins.str] description: A summary description of the worker configuration.
         :param pulumi.Input[_builtins.int] latest_revision: an ID of the latest successfully created revision of the worker configuration.
@@ -285,6 +287,7 @@ class WorkerConfiguration(pulumi.CustomResource):
         $ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example 'arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A summary description of the worker configuration.
@@ -326,6 +329,7 @@ class WorkerConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example 'arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkerConfigurationArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class HsmConfigurationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a HsmConfiguration resource.
+
         :param pulumi.Input[_builtins.str] description: A text description of the HSM configuration to be created.
         :param pulumi.Input[_builtins.str] hsm_configuration_identifier: The identifier to be assigned to the new Amazon Redshift HSM configuration.
         :param pulumi.Input[_builtins.str] hsm_ip_address: The IP address that the Amazon Redshift cluster must use to access the HSM.
@@ -161,6 +162,7 @@ class _HsmConfigurationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering HsmConfiguration resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Hsm Client Certificate.
         :param pulumi.Input[_builtins.str] description: A text description of the HSM configuration to be created.
         :param pulumi.Input[_builtins.str] hsm_configuration_identifier: The identifier to be assigned to the new Amazon Redshift HSM configuration.
@@ -355,6 +357,7 @@ class HsmConfiguration(pulumi.CustomResource):
         $ pulumi import aws:redshift/hsmConfiguration:HsmConfiguration example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A text description of the HSM configuration to be created.
@@ -397,6 +400,7 @@ class HsmConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:redshift/hsmConfiguration:HsmConfiguration example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HsmConfigurationArgs args: The arguments to use to populate this resource's properties.

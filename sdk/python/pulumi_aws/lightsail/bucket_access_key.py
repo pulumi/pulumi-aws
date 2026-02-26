@@ -23,6 +23,7 @@ class BucketAccessKeyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BucketAccessKey resource.
+
         :param pulumi.Input[_builtins.str] bucket_name: Name of the bucket that the access key will belong to and grant access to.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -66,6 +67,7 @@ class _BucketAccessKeyState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BucketAccessKey resources.
+
         :param pulumi.Input[_builtins.str] access_key_id: Access key ID.
         :param pulumi.Input[_builtins.str] bucket_name: Name of the bucket that the access key will belong to and grant access to.
         :param pulumi.Input[_builtins.str] created_at: Date and time when the access key was created.
@@ -191,6 +193,7 @@ class BucketAccessKey(pulumi.CustomResource):
         $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey example example-bucket,AKIAIOSFODNN7EXAMPLE
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket_name: Name of the bucket that the access key will belong to and grant access to.
@@ -224,6 +227,7 @@ class BucketAccessKey(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey example example-bucket,AKIAIOSFODNN7EXAMPLE
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BucketAccessKeyArgs args: The arguments to use to populate this resource's properties.

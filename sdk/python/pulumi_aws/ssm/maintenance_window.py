@@ -34,6 +34,7 @@ class MaintenanceWindowArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MaintenanceWindow resource.
+
         :param pulumi.Input[_builtins.int] cutoff: The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
         :param pulumi.Input[_builtins.int] duration: The duration of the Maintenance Window in hours.
         :param pulumi.Input[_builtins.str] schedule: The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
@@ -248,6 +249,7 @@ class _MaintenanceWindowState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering MaintenanceWindow resources.
+
         :param pulumi.Input[_builtins.bool] allow_unassociated_targets: Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
         :param pulumi.Input[_builtins.int] cutoff: The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
         :param pulumi.Input[_builtins.str] description: A description for the maintenance window.
@@ -516,6 +518,7 @@ class MaintenanceWindow(pulumi.CustomResource):
         $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow example mw-0123456789
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_unassociated_targets: Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
@@ -572,6 +575,7 @@ class MaintenanceWindow(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow example mw-0123456789
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MaintenanceWindowArgs args: The arguments to use to populate this resource's properties.

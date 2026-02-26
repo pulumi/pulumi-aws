@@ -23,6 +23,7 @@ class ManagedNotificationAdditionalChannelAssociationArgs:
                  managed_notification_arn: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ManagedNotificationAdditionalChannelAssociation resource.
+
         :param pulumi.Input[_builtins.str] channel_arn: ARN of the channel to associate with the managed notification.
         :param pulumi.Input[_builtins.str] managed_notification_arn: ARN of the managed notification to associate the channel with.
         """
@@ -61,6 +62,7 @@ class _ManagedNotificationAdditionalChannelAssociationState:
                  managed_notification_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedNotificationAdditionalChannelAssociation resources.
+
         :param pulumi.Input[_builtins.str] channel_arn: ARN of the channel to associate with the managed notification.
         :param pulumi.Input[_builtins.str] managed_notification_arn: ARN of the managed notification to associate the channel with.
         """
@@ -130,6 +132,7 @@ class ManagedNotificationAdditionalChannelAssociation(pulumi.CustomResource):
         $ pulumi import aws:notifications/managedNotificationAdditionalChannelAssociation:ManagedNotificationAdditionalChannelAssociation example arn:aws:notifications::123456789012:managed-notification-configuration/category/AWS-Health/sub-category/Security,arn:aws:notificationscontacts:us-west-2:123456789012:emailcontact:example-contact
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] channel_arn: ARN of the channel to associate with the managed notification.
@@ -167,6 +170,7 @@ class ManagedNotificationAdditionalChannelAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:notifications/managedNotificationAdditionalChannelAssociation:ManagedNotificationAdditionalChannelAssociation example arn:aws:notifications::123456789012:managed-notification-configuration/category/AWS-Health/sub-category/Security,arn:aws:notificationscontacts:us-west-2:123456789012:emailcontact:example-contact
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedNotificationAdditionalChannelAssociationArgs args: The arguments to use to populate this resource's properties.

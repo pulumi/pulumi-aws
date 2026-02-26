@@ -31,6 +31,7 @@ class StoredIscsiVolumeArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a StoredIscsiVolume resource.
+
         :param pulumi.Input[_builtins.str] disk_id: The unique identifier for the gateway local disk that is configured as a stored volume.
         :param pulumi.Input[_builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
         :param pulumi.Input[_builtins.str] network_interface_id: The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
@@ -205,6 +206,7 @@ class _StoredIscsiVolumeState:
                  volume_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StoredIscsiVolume resources.
+
         :param pulumi.Input[_builtins.str] arn: Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         :param pulumi.Input[_builtins.bool] chap_enabled: Whether mutual CHAP is enabled for the iSCSI target.
         :param pulumi.Input[_builtins.str] disk_id: The unique identifier for the gateway local disk that is configured as a stored volume.
@@ -584,6 +586,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
         $ pulumi import aws:storagegateway/storedIscsiVolume:StoredIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] disk_id: The unique identifier for the gateway local disk that is configured as a stored volume.
@@ -646,6 +649,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:storagegateway/storedIscsiVolume:StoredIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StoredIscsiVolumeArgs args: The arguments to use to populate this resource's properties.

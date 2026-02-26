@@ -28,6 +28,7 @@ class SdkvoiceVoiceProfileDomainArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SdkvoiceVoiceProfileDomain resource.
+
         :param pulumi.Input['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: Configuration for server side encryption.
         :param pulumi.Input[_builtins.str] description: Description of Voice Profile Domain.
         :param pulumi.Input[_builtins.str] name: Name of Voice Profile Domain.
@@ -113,6 +114,7 @@ class _SdkvoiceVoiceProfileDomainState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SdkvoiceVoiceProfileDomain resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Voice Profile Domain.
         :param pulumi.Input[_builtins.str] description: Description of Voice Profile Domain.
         :param pulumi.Input[_builtins.str] name: Name of Voice Profile Domain.
@@ -258,6 +260,7 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
         $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of Voice Profile Domain.
@@ -303,6 +306,7 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SdkvoiceVoiceProfileDomainArgs args: The arguments to use to populate this resource's properties.

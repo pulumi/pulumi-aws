@@ -24,6 +24,7 @@ class CellArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cell resource.
+
         :param pulumi.Input[_builtins.str] cell_name: Unique name describing the cell.
                
                The following arguments are optional:
@@ -86,6 +87,7 @@ class _CellState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Cell resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the cell
         :param pulumi.Input[_builtins.str] cell_name: Unique name describing the cell.
                
@@ -213,6 +215,7 @@ class Cell(pulumi.CustomResource):
         $ pulumi import aws:route53recoveryreadiness/cell:Cell us-west-2-failover-cell us-west-2-failover-cell
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cell_name: Unique name describing the cell.
@@ -246,6 +249,7 @@ class Cell(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53recoveryreadiness/cell:Cell us-west-2-failover-cell us-west-2-failover-cell
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CellArgs args: The arguments to use to populate this resource's properties.

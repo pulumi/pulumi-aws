@@ -32,6 +32,7 @@ class ThemeArgs:
                  version_description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Theme resource.
+
         :param pulumi.Input[_builtins.str] base_theme_id: The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
         :param pulumi.Input[_builtins.str] theme_id: Identifier of the theme.
                
@@ -192,6 +193,7 @@ class _ThemeState:
                  version_number: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Theme resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the theme.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] base_theme_id: The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
@@ -486,6 +488,7 @@ class Theme(pulumi.CustomResource):
         $ pulumi import aws:quicksight/theme:Theme example 123456789012,example-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
@@ -551,6 +554,7 @@ class Theme(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:quicksight/theme:Theme example 123456789012,example-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ThemeArgs args: The arguments to use to populate this resource's properties.

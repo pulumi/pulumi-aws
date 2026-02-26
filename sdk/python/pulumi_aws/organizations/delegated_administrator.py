@@ -23,6 +23,7 @@ class DelegatedAdministratorArgs:
                  service_principal: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a DelegatedAdministrator resource.
+
         :param pulumi.Input[_builtins.str] account_id: The account ID number of the member account in the organization to register as a delegated administrator.
         :param pulumi.Input[_builtins.str] service_principal: The service principal of the AWS service for which you want to make the member account a delegated administrator.
         """
@@ -68,6 +69,7 @@ class _DelegatedAdministratorState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DelegatedAdministrator resources.
+
         :param pulumi.Input[_builtins.str] account_id: The account ID number of the member account in the organization to register as a delegated administrator.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the delegated administrator's account.
         :param pulumi.Input[_builtins.str] delegation_enabled_date: The date when the account was made a delegated administrator.
@@ -248,6 +250,7 @@ class DelegatedAdministrator(pulumi.CustomResource):
         $ pulumi import aws:organizations/delegatedAdministrator:DelegatedAdministrator example 123456789012/config.amazonaws.com
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The account ID number of the member account in the organization to register as a delegated administrator.
@@ -291,6 +294,7 @@ class DelegatedAdministrator(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:organizations/delegatedAdministrator:DelegatedAdministrator example 123456789012/config.amazonaws.com
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DelegatedAdministratorArgs args: The arguments to use to populate this resource's properties.

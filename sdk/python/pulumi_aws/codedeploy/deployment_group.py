@@ -42,6 +42,7 @@ class DeploymentGroupArgs:
                  trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a DeploymentGroup resource.
+
         :param pulumi.Input[_builtins.str] app_name: The name of the application.
         :param pulumi.Input[_builtins.str] deployment_group_name: The name of the deployment group.
         :param pulumi.Input[_builtins.str] service_role_arn: The service role ARN that allows deployments.
@@ -355,6 +356,7 @@ class _DeploymentGroupState:
                  trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigurationArgs']]]] = None):
         """
         Input properties used for looking up and filtering DeploymentGroup resources.
+
         :param pulumi.Input['DeploymentGroupAlarmConfigurationArgs'] alarm_configuration: Configuration block of alarms associated with the deployment group (documented below).
         :param pulumi.Input[_builtins.str] app_name: The name of the application.
         :param pulumi.Input[_builtins.str] arn: The ARN of the CodeDeploy deployment group.
@@ -886,6 +888,7 @@ class DeploymentGroup(pulumi.CustomResource):
 
         [1]: http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DeploymentGroupAlarmConfigurationArgs', 'DeploymentGroupAlarmConfigurationArgsDict']] alarm_configuration: Configuration block of alarms associated with the deployment group (documented below).
@@ -1070,6 +1073,7 @@ class DeploymentGroup(pulumi.CustomResource):
         ```
 
         [1]: http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html
+
 
         :param str resource_name: The name of the resource.
         :param DeploymentGroupArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class ProfilesAssociationArgs:
                  timeouts: Optional[pulumi.Input['ProfilesAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ProfilesAssociation resource.
+
         :param pulumi.Input[_builtins.str] profile_id: ID of the profile associated with the VPC.
         :param pulumi.Input[_builtins.str] resource_id: Resource ID of the VPC the profile to be associated with.
         :param pulumi.Input[_builtins.str] name: Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\\\-_' ']+)`.
@@ -132,6 +133,7 @@ class _ProfilesAssociationState:
                  timeouts: Optional[pulumi.Input['ProfilesAssociationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ProfilesAssociation resources.
+
         :param pulumi.Input[_builtins.str] name: Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\\\-_' ']+)`.
         :param pulumi.Input[_builtins.str] profile_id: ID of the profile associated with the VPC.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -331,6 +333,7 @@ class ProfilesAssociation(pulumi.CustomResource):
         $ pulumi import aws:route53/profilesAssociation:ProfilesAssociation example rpa-id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\\\-_' ']+)`.
@@ -374,6 +377,7 @@ class ProfilesAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53/profilesAssociation:ProfilesAssociation example rpa-id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProfilesAssociationArgs args: The arguments to use to populate this resource's properties.

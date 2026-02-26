@@ -24,6 +24,7 @@ class RedriveAllowPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RedriveAllowPolicy resource.
+
         :param pulumi.Input[_builtins.str] queue_url: The URL of the SQS Queue to which to attach the policy
         :param pulumi.Input[_builtins.str] redrive_allow_policy: The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _RedriveAllowPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RedriveAllowPolicy resources.
+
         :param pulumi.Input[_builtins.str] queue_url: The URL of the SQS Queue to which to attach the policy
         :param pulumi.Input[_builtins.str] redrive_allow_policy: The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -169,6 +171,7 @@ class RedriveAllowPolicy(pulumi.CustomResource):
         $ pulumi import aws:sqs/redriveAllowPolicy:RedriveAllowPolicy test https://queue.amazonaws.com/123456789012/myqueue
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] queue_url: The URL of the SQS Queue to which to attach the policy
@@ -213,6 +216,7 @@ class RedriveAllowPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sqs/redriveAllowPolicy:RedriveAllowPolicy test https://queue.amazonaws.com/123456789012/myqueue
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RedriveAllowPolicyArgs args: The arguments to use to populate this resource's properties.

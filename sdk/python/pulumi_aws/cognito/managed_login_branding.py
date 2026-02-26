@@ -29,6 +29,7 @@ class ManagedLoginBrandingArgs:
                  use_cognito_provided_values: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ManagedLoginBranding resource.
+
         :param pulumi.Input[_builtins.str] client_id: App client that the branding style is for.
         :param pulumi.Input[_builtins.str] user_pool_id: User pool the client belongs to.
                
@@ -137,6 +138,7 @@ class _ManagedLoginBrandingState:
                  user_pool_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedLoginBranding resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['ManagedLoginBrandingAssetArgs']]] assets: Image files to apply to roles like backgrounds, logos, and icons. See details below.
         :param pulumi.Input[_builtins.str] client_id: App client that the branding style is for.
         :param pulumi.Input[_builtins.str] managed_login_branding_id: ID of the managed login branding style.
@@ -322,6 +324,7 @@ class ManagedLoginBranding(pulumi.CustomResource):
         $ pulumi import aws:cognito/managedLoginBranding:ManagedLoginBranding example us-west-2_rSss9Zltr,06c6ae7b-1e66-46d2-87a9-1203ea3307bd
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetArgs', 'ManagedLoginBrandingAssetArgsDict']]]] assets: Image files to apply to roles like backgrounds, logos, and icons. See details below.
@@ -383,6 +386,7 @@ class ManagedLoginBranding(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cognito/managedLoginBranding:ManagedLoginBranding example us-west-2_rSss9Zltr,06c6ae7b-1e66-46d2-87a9-1203ea3307bd
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedLoginBrandingArgs args: The arguments to use to populate this resource's properties.

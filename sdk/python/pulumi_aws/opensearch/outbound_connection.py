@@ -30,6 +30,7 @@ class OutboundConnectionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OutboundConnection resource.
+
         :param pulumi.Input[_builtins.str] connection_alias: Specifies the connection alias that will be used by the customer for this connection.
         :param pulumi.Input['OutboundConnectionLocalDomainInfoArgs'] local_domain_info: Configuration block for the local Opensearch domain.
         :param pulumi.Input['OutboundConnectionRemoteDomainInfoArgs'] remote_domain_info: Configuration block for the remote Opensearch domain.
@@ -148,6 +149,7 @@ class _OutboundConnectionState:
                  remote_domain_info: Optional[pulumi.Input['OutboundConnectionRemoteDomainInfoArgs']] = None):
         """
         Input properties used for looking up and filtering OutboundConnection resources.
+
         :param pulumi.Input[_builtins.bool] accept_connection: Accepts the connection.
         :param pulumi.Input[_builtins.str] connection_alias: Specifies the connection alias that will be used by the customer for this connection.
         :param pulumi.Input[_builtins.str] connection_mode: Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
@@ -321,6 +323,7 @@ class OutboundConnection(pulumi.CustomResource):
         $ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] accept_connection: Accepts the connection.
@@ -372,6 +375,7 @@ class OutboundConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OutboundConnectionArgs args: The arguments to use to populate this resource's properties.

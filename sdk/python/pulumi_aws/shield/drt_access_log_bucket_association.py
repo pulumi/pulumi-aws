@@ -26,6 +26,7 @@ class DrtAccessLogBucketAssociationArgs:
                  timeouts: Optional[pulumi.Input['DrtAccessLogBucketAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a DrtAccessLogBucketAssociation resource.
+
         :param pulumi.Input[_builtins.str] log_bucket: The Amazon S3 bucket that contains the logs that you want to share.
         :param pulumi.Input[_builtins.str] role_arn_association_id: The ID of the Role Arn association used for allowing Shield DRT Access.
         """
@@ -76,6 +77,7 @@ class _DrtAccessLogBucketAssociationState:
                  timeouts: Optional[pulumi.Input['DrtAccessLogBucketAssociationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering DrtAccessLogBucketAssociation resources.
+
         :param pulumi.Input[_builtins.str] log_bucket: The Amazon S3 bucket that contains the logs that you want to share.
         :param pulumi.Input[_builtins.str] role_arn_association_id: The ID of the Role Arn association used for allowing Shield DRT Access.
         """
@@ -156,6 +158,7 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
         $ pulumi import aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation example example-bucket
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] log_bucket: The Amazon S3 bucket that contains the logs that you want to share.
@@ -192,6 +195,7 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation example example-bucket
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DrtAccessLogBucketAssociationArgs args: The arguments to use to populate this resource's properties.

@@ -35,6 +35,7 @@ class TableArgs:
                  ttl: Optional[pulumi.Input['TableTtlArgs']] = None):
         """
         The set of arguments for constructing a Table resource.
+
         :param pulumi.Input[_builtins.str] keyspace_name: The name of the keyspace that the table is going to be created in.
         :param pulumi.Input['TableSchemaDefinitionArgs'] schema_definition: Describes the schema of the table.
         :param pulumi.Input[_builtins.str] table_name: The name of the table.
@@ -238,6 +239,7 @@ class _TableState:
                  ttl: Optional[pulumi.Input['TableTtlArgs']] = None):
         """
         Input properties used for looking up and filtering Table resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the table.
         :param pulumi.Input['TableCapacitySpecificationArgs'] capacity_specification: Specifies the read/write throughput capacity mode for the table.
         :param pulumi.Input['TableClientSideTimestampsArgs'] client_side_timestamps: Enables client-side timestamps for the table. By default, the setting is disabled.
@@ -507,6 +509,7 @@ class Table(pulumi.CustomResource):
         $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TableCapacitySpecificationArgs', 'TableCapacitySpecificationArgsDict']] capacity_specification: Specifies the read/write throughput capacity mode for the table.
@@ -562,6 +565,7 @@ class Table(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.

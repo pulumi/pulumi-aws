@@ -34,6 +34,7 @@ class SnapshotImportArgs:
                  temporary_restore_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a SnapshotImport resource.
+
         :param pulumi.Input['SnapshotImportDiskContainerArgs'] disk_container: Information about the disk container. Detailed below.
         :param pulumi.Input['SnapshotImportClientDataArgs'] client_data: The client-specific data. Detailed below.
         :param pulumi.Input[_builtins.str] description: The description string for the import snapshot task.
@@ -225,6 +226,7 @@ class _SnapshotImportState:
                  volume_size: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering SnapshotImport resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the EBS Snapshot.
         :param pulumi.Input['SnapshotImportClientDataArgs'] client_data: The client-specific data. Detailed below.
         :param pulumi.Input[_builtins.str] data_encryption_key_id: The data encryption key identifier for the snapshot.
@@ -546,6 +548,7 @@ class SnapshotImport(pulumi.CustomResource):
             })
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SnapshotImportClientDataArgs', 'SnapshotImportClientDataArgsDict']] client_data: The client-specific data. Detailed below.
@@ -588,6 +591,7 @@ class SnapshotImport(pulumi.CustomResource):
                 "Name": "HelloWorld",
             })
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SnapshotImportArgs args: The arguments to use to populate this resource's properties.

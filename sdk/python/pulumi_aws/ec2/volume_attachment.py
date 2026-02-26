@@ -28,6 +28,7 @@ class VolumeAttachmentArgs:
                  stop_instance_before_detaching: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a VolumeAttachment resource.
+
         :param pulumi.Input[_builtins.str] device_name: The device name to expose to the instance (for
                example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
         :param pulumi.Input[_builtins.str] instance_id: ID of the Instance to attach to
@@ -163,6 +164,7 @@ class _VolumeAttachmentState:
                  volume_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VolumeAttachment resources.
+
         :param pulumi.Input[_builtins.str] device_name: The device name to expose to the instance (for
                example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
         :param pulumi.Input[_builtins.bool] force_detach: Set to `true` if you want to force the
@@ -343,6 +345,7 @@ class VolumeAttachment(pulumi.CustomResource):
         [2]: https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names
         [3]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] device_name: The device name to expose to the instance (for
@@ -407,6 +410,7 @@ class VolumeAttachment(pulumi.CustomResource):
         [1]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names
         [2]: https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names
         [3]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html
+
 
         :param str resource_name: The name of the resource.
         :param VolumeAttachmentArgs args: The arguments to use to populate this resource's properties.

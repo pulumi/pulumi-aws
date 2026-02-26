@@ -24,6 +24,7 @@ class HsmClientCertificateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a HsmClientCertificate resource.
+
         :param pulumi.Input[_builtins.str] hsm_client_certificate_identifier: The identifier of the HSM client certificate.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -82,6 +83,7 @@ class _HsmClientCertificateState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering HsmClientCertificate resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Hsm Client Certificate.
         :param pulumi.Input[_builtins.str] hsm_client_certificate_identifier: The identifier of the HSM client certificate.
         :param pulumi.Input[_builtins.str] hsm_client_certificate_public_key: The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
@@ -205,6 +207,7 @@ class HsmClientCertificate(pulumi.CustomResource):
         $ pulumi import aws:redshift/hsmClientCertificate:HsmClientCertificate test example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] hsm_client_certificate_identifier: The identifier of the HSM client certificate.
@@ -236,6 +239,7 @@ class HsmClientCertificate(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:redshift/hsmClientCertificate:HsmClientCertificate test example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HsmClientCertificateArgs args: The arguments to use to populate this resource's properties.

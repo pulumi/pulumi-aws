@@ -31,6 +31,7 @@ class FolderArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Folder resource.
+
         :param pulumi.Input[_builtins.str] folder_id: Identifier for the folder.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] folder_type: The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
@@ -175,6 +176,7 @@ class _FolderState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Folder resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the folder.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] created_time: The time that the folder was created.
@@ -455,6 +457,7 @@ class Folder(pulumi.CustomResource):
         $ pulumi import aws:quicksight/folder:Folder example 123456789012,example-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
@@ -536,6 +539,7 @@ class Folder(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:quicksight/folder:Folder example 123456789012,example-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FolderArgs args: The arguments to use to populate this resource's properties.

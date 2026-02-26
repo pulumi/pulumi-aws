@@ -25,6 +25,7 @@ class DiscovererArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Discoverer resource.
+
         :param pulumi.Input[_builtins.str] source_arn: The ARN of the event bus to discover event schemas on.
         :param pulumi.Input[_builtins.str] description: The description of the discoverer. Maximum of 256 characters.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -98,6 +99,7 @@ class _DiscovererState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Discoverer resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the discoverer.
         :param pulumi.Input[_builtins.str] description: The description of the discoverer. Maximum of 256 characters.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -227,6 +229,7 @@ class Discoverer(pulumi.CustomResource):
         $ pulumi import aws:schemas/discoverer:Discoverer test 123
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the discoverer. Maximum of 256 characters.
@@ -264,6 +267,7 @@ class Discoverer(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:schemas/discoverer:Discoverer test 123
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DiscovererArgs args: The arguments to use to populate this resource's properties.

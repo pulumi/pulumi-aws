@@ -42,6 +42,7 @@ class ReplicationInstanceArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReplicationInstance resource.
+
         :param pulumi.Input[_builtins.str] replication_instance_class: The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         :param pulumi.Input[_builtins.str] replication_instance_id: The replication instance identifier. This parameter is stored as a lowercase string.
         :param pulumi.Input[_builtins.int] allocated_storage: The amount of storage (in gigabytes) to be initially allocated for the replication instance.
@@ -356,6 +357,7 @@ class _ReplicationInstanceState:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ReplicationInstance resources.
+
         :param pulumi.Input[_builtins.int] allocated_storage: The amount of storage (in gigabytes) to be initially allocated for the replication instance.
         :param pulumi.Input[_builtins.bool] allow_major_version_upgrade: Indicates that major version upgrades are allowed.
         :param pulumi.Input[_builtins.bool] apply_immediately: Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
@@ -805,6 +807,7 @@ class ReplicationInstance(pulumi.CustomResource):
         $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] allocated_storage: The amount of storage (in gigabytes) to be initially allocated for the replication instance.
@@ -907,6 +910,7 @@ class ReplicationInstance(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReplicationInstanceArgs args: The arguments to use to populate this resource's properties.

@@ -23,6 +23,7 @@ class CoreNetworkPolicyAttachmentArgs:
                  policy_document: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a CoreNetworkPolicyAttachment resource.
+
         :param pulumi.Input[_builtins.str] core_network_id: ID of the core network that a policy will be attached to and made `LIVE`.
         :param pulumi.Input[_builtins.str] policy_document: Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
         """
@@ -62,6 +63,7 @@ class _CoreNetworkPolicyAttachmentState:
                  state: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CoreNetworkPolicyAttachment resources.
+
         :param pulumi.Input[_builtins.str] core_network_id: ID of the core network that a policy will be attached to and made `LIVE`.
         :param pulumi.Input[_builtins.str] policy_document: Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
         :param pulumi.Input[_builtins.str] state: Current state of a core network.
@@ -377,6 +379,7 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
         $ pulumi import aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment example core-network-0d47f6t230mz46dy4
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] core_network_id: ID of the core network that a policy will be attached to and made `LIVE`.
@@ -645,6 +648,7 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment example core-network-0d47f6t230mz46dy4
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CoreNetworkPolicyAttachmentArgs args: The arguments to use to populate this resource's properties.

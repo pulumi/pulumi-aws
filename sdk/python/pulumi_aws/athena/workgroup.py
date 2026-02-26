@@ -30,6 +30,7 @@ class WorkgroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Workgroup resource.
+
         :param pulumi.Input['WorkgroupConfigurationArgs'] configuration: Configuration block with various settings for the workgroup. Documented below.
         :param pulumi.Input[_builtins.str] description: Description of the workgroup.
         :param pulumi.Input[_builtins.bool] force_destroy: Option to delete the workgroup and its contents even if the workgroup contains any named queries.
@@ -152,6 +153,7 @@ class _WorkgroupState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Workgroup resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the workgroup
         :param pulumi.Input['WorkgroupConfigurationArgs'] configuration: Configuration block with various settings for the workgroup. Documented below.
         :param pulumi.Input[_builtins.str] description: Description of the workgroup.
@@ -336,6 +338,7 @@ class Workgroup(pulumi.CustomResource):
         $ pulumi import aws:athena/workgroup:Workgroup example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['WorkgroupConfigurationArgs', 'WorkgroupConfigurationArgsDict']] configuration: Configuration block with various settings for the workgroup. Documented below.
@@ -383,6 +386,7 @@ class Workgroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:athena/workgroup:Workgroup example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkgroupArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class UserAccessLoggingSettingsAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserAccessLoggingSettingsAssociation resource.
+
         :param pulumi.Input[_builtins.str] portal_arn: ARN of the portal to associate with the user access logging settings. Forces replacement if changed.
                
                The following arguments are optional:
@@ -82,6 +83,7 @@ class _UserAccessLoggingSettingsAssociationState:
                  user_access_logging_settings_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserAccessLoggingSettingsAssociation resources.
+
         :param pulumi.Input[_builtins.str] portal_arn: ARN of the portal to associate with the user access logging settings. Forces replacement if changed.
                
                The following arguments are optional:
@@ -165,6 +167,7 @@ class UserAccessLoggingSettingsAssociation(pulumi.CustomResource):
             portal_arn=example.portal_arn)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] portal_arn: ARN of the portal to associate with the user access logging settings. Forces replacement if changed.
@@ -199,6 +202,7 @@ class UserAccessLoggingSettingsAssociation(pulumi.CustomResource):
             user_access_logging_settings_arn=example_user_access_logging_settings.user_access_logging_settings_arn,
             portal_arn=example.portal_arn)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserAccessLoggingSettingsAssociationArgs args: The arguments to use to populate this resource's properties.

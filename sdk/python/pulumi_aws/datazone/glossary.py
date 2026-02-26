@@ -27,6 +27,7 @@ class GlossaryArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Glossary resource.
+
         :param pulumi.Input[_builtins.str] owning_project_identifier: ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
                
                The following arguments are optional:
@@ -129,6 +130,7 @@ class _GlossaryState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Glossary resources.
+
         :param pulumi.Input[_builtins.str] description: Description of the glossary. Must have a length between 0 and 4096.
         :param pulumi.Input[_builtins.str] name: Name of the glossary. Must have length between 1 and 256.
         :param pulumi.Input[_builtins.str] owning_project_identifier: ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
@@ -328,6 +330,7 @@ class Glossary(pulumi.CustomResource):
         $ pulumi import aws:datazone/glossary:Glossary example domain-id,glossary-id,owning-project-identifier
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the glossary. Must have a length between 0 and 4096.
@@ -436,6 +439,7 @@ class Glossary(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:datazone/glossary:Glossary example domain-id,glossary-id,owning-project-identifier
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GlossaryArgs args: The arguments to use to populate this resource's properties.

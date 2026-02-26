@@ -24,6 +24,7 @@ class EndpointPrivateDnsArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EndpointPrivateDns resource.
+
         :param pulumi.Input[_builtins.bool] private_dns_enabled: Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
         :param pulumi.Input[_builtins.str] vpc_endpoint_id: VPC endpoint identifier.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _EndpointPrivateDnsState:
                  vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EndpointPrivateDns resources.
+
         :param pulumi.Input[_builtins.bool] private_dns_enabled: Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] vpc_endpoint_id: VPC endpoint identifier.
@@ -163,6 +165,7 @@ class EndpointPrivateDns(pulumi.CustomResource):
         $ pulumi import aws:vpc/endpointPrivateDns:EndpointPrivateDns example vpce-abcd-1234
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] private_dns_enabled: Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
@@ -201,6 +204,7 @@ class EndpointPrivateDns(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:vpc/endpointPrivateDns:EndpointPrivateDns example vpce-abcd-1234
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EndpointPrivateDnsArgs args: The arguments to use to populate this resource's properties.

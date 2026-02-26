@@ -31,6 +31,7 @@ class FindingsFilterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FindingsFilter resource.
+
         :param pulumi.Input[_builtins.str] action: The action to perform on findings that meet the filter criteria (`finding_criteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
         :param pulumi.Input['FindingsFilterFindingCriteriaArgs'] finding_criteria: The criteria to use to filter findings.
         :param pulumi.Input[_builtins.str] description: A custom description of the filter. The description can contain as many as 512 characters.
@@ -167,6 +168,7 @@ class _FindingsFilterState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering FindingsFilter resources.
+
         :param pulumi.Input[_builtins.str] action: The action to perform on findings that meet the filter criteria (`finding_criteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Findings Filter.
         :param pulumi.Input[_builtins.str] description: A custom description of the filter. The description can contain as many as 512 characters.
@@ -367,6 +369,7 @@ class FindingsFilter(pulumi.CustomResource):
         $ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: The action to perform on findings that meet the filter criteria (`finding_criteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
@@ -415,6 +418,7 @@ class FindingsFilter(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FindingsFilterArgs args: The arguments to use to populate this resource's properties.

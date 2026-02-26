@@ -26,6 +26,7 @@ class ProxyDefaultTargetGroupArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProxyDefaultTargetGroup resource.
+
         :param pulumi.Input[_builtins.str] db_proxy_name: Name of the RDS DB Proxy.
         :param pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArgs'] connection_pool_config: The settings that determine the size and behavior of the connection pool for the target group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -83,6 +84,7 @@ class _ProxyDefaultTargetGroupState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProxyDefaultTargetGroup resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) representing the target group.
         :param pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArgs'] connection_pool_config: The settings that determine the size and behavior of the connection pool for the target group.
         :param pulumi.Input[_builtins.str] db_proxy_name: Name of the RDS DB Proxy.
@@ -186,6 +188,7 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
         $ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ProxyDefaultTargetGroupConnectionPoolConfigArgs', 'ProxyDefaultTargetGroupConnectionPoolConfigArgsDict']] connection_pool_config: The settings that determine the size and behavior of the connection pool for the target group.
@@ -212,6 +215,7 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProxyDefaultTargetGroupArgs args: The arguments to use to populate this resource's properties.

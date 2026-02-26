@@ -27,6 +27,7 @@ class AlternativeContactArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AlternativeContact resource.
+
         :param pulumi.Input[_builtins.str] alternate_contact_type: Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
         :param pulumi.Input[_builtins.str] email_address: An email address for the alternate contact.
         :param pulumi.Input[_builtins.str] phone_number: Phone number for the alternate contact.
@@ -127,6 +128,7 @@ class _AlternativeContactState:
                  title: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AlternativeContact resources.
+
         :param pulumi.Input[_builtins.str] account_id: ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
         :param pulumi.Input[_builtins.str] alternate_contact_type: Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
         :param pulumi.Input[_builtins.str] email_address: An email address for the alternate contact.
@@ -268,6 +270,7 @@ class AlternativeContact(pulumi.CustomResource):
         $ pulumi import aws:account/alternativeContact:AlternativeContact operations 1234567890/OPERATIONS
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
@@ -317,6 +320,7 @@ class AlternativeContact(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:account/alternativeContact:AlternativeContact operations 1234567890/OPERATIONS
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AlternativeContactArgs args: The arguments to use to populate this resource's properties.

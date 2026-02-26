@@ -29,6 +29,7 @@ class DomainArgs:
                  scaling_parameters: Optional[pulumi.Input['DomainScalingParametersArgs']] = None):
         """
         The set of arguments for constructing a Domain resource.
+
         :param pulumi.Input['DomainEndpointOptionsArgs'] endpoint_options: Domain endpoint options. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['DomainIndexFieldArgs']]] index_fields: The index fields for documents added to the domain. Documented below.
         :param pulumi.Input[_builtins.bool] multi_az: Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
@@ -137,6 +138,7 @@ class _DomainState:
                  search_service_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Domain resources.
+
         :param pulumi.Input[_builtins.str] arn: The domain's ARN.
         :param pulumi.Input[_builtins.str] document_service_endpoint: The service endpoint for updating documents in a search domain.
         :param pulumi.Input[_builtins.str] domain_id: An internally generated unique identifier for the domain.
@@ -349,6 +351,7 @@ class Domain(pulumi.CustomResource):
         $ pulumi import aws:cloudsearch/domain:Domain example example-domain
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict']] endpoint_options: Domain endpoint options. Documented below.
@@ -409,6 +412,7 @@ class Domain(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudsearch/domain:Domain example example-domain
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.

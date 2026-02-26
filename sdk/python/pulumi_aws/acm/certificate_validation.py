@@ -24,6 +24,7 @@ class CertificateValidationArgs:
                  validation_record_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CertificateValidation resource.
+
         :param pulumi.Input[_builtins.str] certificate_arn: ARN of the certificate that is being validated.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] validation_record_fqdns: List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
@@ -79,6 +80,7 @@ class _CertificateValidationState:
                  validation_record_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CertificateValidation resources.
+
         :param pulumi.Input[_builtins.str] certificate_arn: ARN of the certificate that is being validated.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] validation_record_fqdns: List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
@@ -236,6 +238,7 @@ class CertificateValidation(pulumi.CustomResource):
         example_certificate_validation = aws.acm.CertificateValidation("example", certificate_arn=example.arn)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_arn: ARN of the certificate that is being validated.
@@ -346,6 +349,7 @@ class CertificateValidation(pulumi.CustomResource):
             validation_method="EMAIL")
         example_certificate_validation = aws.acm.CertificateValidation("example", certificate_arn=example.arn)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CertificateValidationArgs args: The arguments to use to populate this resource's properties.

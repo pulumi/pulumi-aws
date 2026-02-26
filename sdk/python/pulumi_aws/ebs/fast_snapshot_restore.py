@@ -27,6 +27,7 @@ class FastSnapshotRestoreArgs:
                  timeouts: Optional[pulumi.Input['FastSnapshotRestoreTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a FastSnapshotRestore resource.
+
         :param pulumi.Input[_builtins.str] availability_zone: Availability zone in which to enable fast snapshot restores.
         :param pulumi.Input[_builtins.str] snapshot_id: ID of the snapshot.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -94,6 +95,7 @@ class _FastSnapshotRestoreState:
                  timeouts: Optional[pulumi.Input['FastSnapshotRestoreTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering FastSnapshotRestore resources.
+
         :param pulumi.Input[_builtins.str] availability_zone: Availability zone in which to enable fast snapshot restores.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] snapshot_id: ID of the snapshot.
@@ -203,6 +205,7 @@ class FastSnapshotRestore(pulumi.CustomResource):
         $ pulumi import aws:ebs/fastSnapshotRestore:FastSnapshotRestore example us-west-2a,snap-abcdef123456
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability_zone: Availability zone in which to enable fast snapshot restores.
@@ -238,6 +241,7 @@ class FastSnapshotRestore(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ebs/fastSnapshotRestore:FastSnapshotRestore example us-west-2a,snap-abcdef123456
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FastSnapshotRestoreArgs args: The arguments to use to populate this resource's properties.

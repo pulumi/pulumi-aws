@@ -24,6 +24,7 @@ class AttachmentRoutingPolicyLabelArgs:
                  routing_policy_label: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a AttachmentRoutingPolicyLabel resource.
+
         :param pulumi.Input[_builtins.str] attachment_id: The ID of the attachment to apply the routing policy label to.
         :param pulumi.Input[_builtins.str] core_network_id: The ID of the core network containing the attachment.
         :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the attachment.
@@ -77,6 +78,7 @@ class _AttachmentRoutingPolicyLabelState:
                  routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AttachmentRoutingPolicyLabel resources.
+
         :param pulumi.Input[_builtins.str] attachment_id: The ID of the attachment to apply the routing policy label to.
         :param pulumi.Input[_builtins.str] core_network_id: The ID of the core network containing the attachment.
         :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the attachment.
@@ -158,6 +160,7 @@ class AttachmentRoutingPolicyLabel(pulumi.CustomResource):
         $ pulumi import aws:networkmanager/attachmentRoutingPolicyLabel:AttachmentRoutingPolicyLabel example core-network-0fab1c1e1e1e1e1e1,attachment-0fab2c2e2e2e2e2e2
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] attachment_id: The ID of the attachment to apply the routing policy label to.
@@ -192,6 +195,7 @@ class AttachmentRoutingPolicyLabel(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:networkmanager/attachmentRoutingPolicyLabel:AttachmentRoutingPolicyLabel example core-network-0fab1c1e1e1e1e1e1,attachment-0fab2c2e2e2e2e2e2
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AttachmentRoutingPolicyLabelArgs args: The arguments to use to populate this resource's properties.

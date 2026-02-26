@@ -24,6 +24,7 @@ class VpcDhcpOptionsAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcDhcpOptionsAssociation resource.
+
         :param pulumi.Input[_builtins.str] dhcp_options_id: The ID of the DHCP Options Set to associate to the VPC.
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to which we would like to associate a DHCP Options Set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _VpcDhcpOptionsAssociationState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcDhcpOptionsAssociation resources.
+
         :param pulumi.Input[_builtins.str] dhcp_options_id: The ID of the DHCP Options Set to associate to the VPC.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to which we would like to associate a DHCP Options Set.
@@ -163,6 +165,7 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
         $ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dhcp_options_id: The ID of the DHCP Options Set to associate to the VPC.
@@ -201,6 +204,7 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcDhcpOptionsAssociationArgs args: The arguments to use to populate this resource's properties.

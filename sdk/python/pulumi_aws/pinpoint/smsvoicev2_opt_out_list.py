@@ -24,6 +24,7 @@ class Smsvoicev2OptOutListArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Smsvoicev2OptOutList resource.
+
         :param pulumi.Input[_builtins.str] name: The name of the opt-out list.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -82,6 +83,7 @@ class _Smsvoicev2OptOutListState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Smsvoicev2OptOutList resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the opt-out list.
         :param pulumi.Input[_builtins.str] name: The name of the opt-out list.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -190,6 +192,7 @@ class Smsvoicev2OptOutList(pulumi.CustomResource):
         $ pulumi import aws:pinpoint/smsvoicev2OptOutList:Smsvoicev2OptOutList example example-opt-out-list
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the opt-out list.
@@ -221,6 +224,7 @@ class Smsvoicev2OptOutList(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:pinpoint/smsvoicev2OptOutList:Smsvoicev2OptOutList example example-opt-out-list
         ```
+
 
         :param str resource_name: The name of the resource.
         :param Smsvoicev2OptOutListArgs args: The arguments to use to populate this resource's properties.

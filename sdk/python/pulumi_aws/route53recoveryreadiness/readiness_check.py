@@ -24,6 +24,7 @@ class ReadinessCheckArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReadinessCheck resource.
+
         :param pulumi.Input[_builtins.str] readiness_check_name: Unique name describing the readiness check.
         :param pulumi.Input[_builtins.str] resource_set_name: Name describing the resource set that will be monitored for readiness.
                
@@ -84,6 +85,7 @@ class _ReadinessCheckState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ReadinessCheck resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the readiness_check
         :param pulumi.Input[_builtins.str] readiness_check_name: Unique name describing the readiness check.
         :param pulumi.Input[_builtins.str] resource_set_name: Name describing the resource set that will be monitored for readiness.
@@ -198,6 +200,7 @@ class ReadinessCheck(pulumi.CustomResource):
         $ pulumi import aws:route53recoveryreadiness/readinessCheck:ReadinessCheck my-cw-alarm-check example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] readiness_check_name: Unique name describing the readiness check.
@@ -233,6 +236,7 @@ class ReadinessCheck(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53recoveryreadiness/readinessCheck:ReadinessCheck my-cw-alarm-check example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReadinessCheckArgs args: The arguments to use to populate this resource's properties.

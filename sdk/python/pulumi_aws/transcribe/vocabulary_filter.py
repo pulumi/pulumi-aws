@@ -27,6 +27,7 @@ class VocabularyFilterArgs:
                  words: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VocabularyFilter resource.
+
         :param pulumi.Input[_builtins.str] language_code: The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
         :param pulumi.Input[_builtins.str] vocabulary_filter_name: The name of the VocabularyFilter.
                
@@ -136,6 +137,7 @@ class _VocabularyFilterState:
                  words: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering VocabularyFilter resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the VocabularyFilter.
         :param pulumi.Input[_builtins.str] download_uri: Generated download URI.
         :param pulumi.Input[_builtins.str] language_code: The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
@@ -319,6 +321,7 @@ class VocabularyFilter(pulumi.CustomResource):
         $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] language_code: The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
@@ -367,6 +370,7 @@ class VocabularyFilter(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VocabularyFilterArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class RouteResponseArgs:
                  response_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RouteResponse resource.
+
         :param pulumi.Input[_builtins.str] api_id: API identifier.
         :param pulumi.Input[_builtins.str] route_id: Identifier of the `apigatewayv2.Route`.
         :param pulumi.Input[_builtins.str] route_response_key: Route response key.
@@ -128,6 +129,7 @@ class _RouteResponseState:
                  route_response_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RouteResponse resources.
+
         :param pulumi.Input[_builtins.str] api_id: API identifier.
         :param pulumi.Input[_builtins.str] model_selection_expression: The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -266,6 +268,7 @@ class RouteResponse(pulumi.CustomResource):
         $ pulumi import aws:apigatewayv2/routeResponse:RouteResponse example aabbccddee/1122334/998877
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: API identifier.
@@ -312,6 +315,7 @@ class RouteResponse(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apigatewayv2/routeResponse:RouteResponse example aabbccddee/1122334/998877
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RouteResponseArgs args: The arguments to use to populate this resource's properties.

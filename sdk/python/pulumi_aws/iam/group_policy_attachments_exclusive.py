@@ -23,6 +23,7 @@ class GroupPolicyAttachmentsExclusiveArgs:
                  policy_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The set of arguments for constructing a GroupPolicyAttachmentsExclusive resource.
+
         :param pulumi.Input[_builtins.str] group_name: IAM group name.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policy_arns: A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
         """
@@ -61,6 +62,7 @@ class _GroupPolicyAttachmentsExclusiveState:
                  policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering GroupPolicyAttachmentsExclusive resources.
+
         :param pulumi.Input[_builtins.str] group_name: IAM group name.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policy_arns: A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
         """
@@ -146,6 +148,7 @@ class GroupPolicyAttachmentsExclusive(pulumi.CustomResource):
         $ pulumi import aws:iam/groupPolicyAttachmentsExclusive:GroupPolicyAttachmentsExclusive example MyGroup
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] group_name: IAM group name.
@@ -199,6 +202,7 @@ class GroupPolicyAttachmentsExclusive(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iam/groupPolicyAttachmentsExclusive:GroupPolicyAttachmentsExclusive example MyGroup
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GroupPolicyAttachmentsExclusiveArgs args: The arguments to use to populate this resource's properties.

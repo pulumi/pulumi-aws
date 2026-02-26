@@ -27,6 +27,7 @@ class EipDomainNameArgs:
                  timeouts: Optional[pulumi.Input['EipDomainNameTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a EipDomainName resource.
+
         :param pulumi.Input[_builtins.str] allocation_id: The allocation ID.
         :param pulumi.Input[_builtins.str] domain_name: The domain name to modify for the IP address.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -94,6 +95,7 @@ class _EipDomainNameState:
                  timeouts: Optional[pulumi.Input['EipDomainNameTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering EipDomainName resources.
+
         :param pulumi.Input[_builtins.str] allocation_id: The allocation ID.
         :param pulumi.Input[_builtins.str] domain_name: The domain name to modify for the IP address.
         :param pulumi.Input[_builtins.str] ptr_record: The DNS pointer (PTR) record for the IP address.
@@ -199,6 +201,7 @@ class EipDomainName(pulumi.CustomResource):
             domain_name=example_record.fqdn)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allocation_id: The allocation ID.
@@ -230,6 +233,7 @@ class EipDomainName(pulumi.CustomResource):
             allocation_id=example.allocation_id,
             domain_name=example_record.fqdn)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EipDomainNameArgs args: The arguments to use to populate this resource's properties.

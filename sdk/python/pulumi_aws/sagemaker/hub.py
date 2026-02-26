@@ -30,6 +30,7 @@ class HubArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Hub resource.
+
         :param pulumi.Input[_builtins.str] hub_description: A description of the hub.
         :param pulumi.Input[_builtins.str] hub_name: The name of the hub.
         :param pulumi.Input[_builtins.str] hub_display_name: The display name of the hub.
@@ -150,6 +151,7 @@ class _HubState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Hub resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Hub.
         :param pulumi.Input[_builtins.str] hub_description: A description of the hub.
         :param pulumi.Input[_builtins.str] hub_display_name: The display name of the hub.
@@ -326,6 +328,7 @@ class Hub(pulumi.CustomResource):
         $ pulumi import aws:sagemaker/hub:Hub test_hub my-code-repo
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] hub_description: A description of the hub.
@@ -365,6 +368,7 @@ class Hub(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sagemaker/hub:Hub test_hub my-code-repo
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HubArgs args: The arguments to use to populate this resource's properties.

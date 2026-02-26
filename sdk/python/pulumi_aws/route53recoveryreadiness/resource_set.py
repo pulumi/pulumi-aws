@@ -27,6 +27,7 @@ class ResourceSetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResourceSet resource.
+
         :param pulumi.Input[_builtins.str] resource_set_name: Unique name describing the resource set.
         :param pulumi.Input[_builtins.str] resource_set_type: Type of the resources in the resource set.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArgs']]] resources: List of resources to add to this resource set. See below.
@@ -102,6 +103,7 @@ class _ResourceSetState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ResourceSet resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the resource set
                * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
         :param pulumi.Input[_builtins.str] resource_set_name: Unique name describing the resource set.
@@ -237,6 +239,7 @@ class ResourceSet(pulumi.CustomResource):
         $ pulumi import aws:route53recoveryreadiness/resourceSet:ResourceSet my-cw-alarm-set example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] resource_set_name: Unique name describing the resource set.
@@ -276,6 +279,7 @@ class ResourceSet(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53recoveryreadiness/resourceSet:ResourceSet my-cw-alarm-set example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceSetArgs args: The arguments to use to populate this resource's properties.

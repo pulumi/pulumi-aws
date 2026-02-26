@@ -28,6 +28,7 @@ class VaultArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Vault resource.
+
         :param pulumi.Input[_builtins.str] access_policy: The policy document. This is a JSON formatted string.
                The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
         :param pulumi.Input[_builtins.str] name: The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
@@ -121,6 +122,7 @@ class _VaultState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Vault resources.
+
         :param pulumi.Input[_builtins.str] access_policy: The policy document. This is a JSON formatted string.
                The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
         :param pulumi.Input[_builtins.str] arn: The ARN of the vault.
@@ -306,6 +308,7 @@ class Vault(pulumi.CustomResource):
         $ pulumi import aws:glacier/vault:Vault archive my_archive
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_policy: The policy document. This is a JSON formatted string.
@@ -368,6 +371,7 @@ class Vault(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:glacier/vault:Vault archive my_archive
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VaultArgs args: The arguments to use to populate this resource's properties.

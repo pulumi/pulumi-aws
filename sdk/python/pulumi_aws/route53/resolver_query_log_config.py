@@ -25,6 +25,7 @@ class ResolverQueryLogConfigArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResolverQueryLogConfig resource.
+
         :param pulumi.Input[_builtins.str] destination_arn: The ARN of the resource that you want Route 53 Resolver to send query logs.
                You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
         :param pulumi.Input[_builtins.str] name: The name of the Route 53 Resolver query logging configuration.
@@ -102,6 +103,7 @@ class _ResolverQueryLogConfigState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ResolverQueryLogConfig resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
         :param pulumi.Input[_builtins.str] destination_arn: The ARN of the resource that you want Route 53 Resolver to send query logs.
                You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
@@ -267,6 +269,7 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
         $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] destination_arn: The ARN of the resource that you want Route 53 Resolver to send query logs.
@@ -305,6 +308,7 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResolverQueryLogConfigArgs args: The arguments to use to populate this resource's properties.

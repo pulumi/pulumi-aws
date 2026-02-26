@@ -39,6 +39,7 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
+
         :param pulumi.Input[_builtins.str] release_label: The EMR release version associated with the application.
         :param pulumi.Input[_builtins.str] type: The type of application you want to start, such as `spark` or `hive`.
         :param pulumi.Input[_builtins.str] architecture: The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
@@ -303,6 +304,7 @@ class _ApplicationState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Application resources.
+
         :param pulumi.Input[_builtins.str] architecture: The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
         :param pulumi.Input[_builtins.str] arn: ARN of the cluster.
         :param pulumi.Input['ApplicationAutoStartConfigurationArgs'] auto_start_configuration: The configuration for an application to automatically start on job submission.
@@ -729,6 +731,7 @@ class Application(pulumi.CustomResource):
         $ pulumi import aws:emrserverless/application:Application example id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] architecture: The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
@@ -883,6 +886,7 @@ class Application(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:emrserverless/application:Application example id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

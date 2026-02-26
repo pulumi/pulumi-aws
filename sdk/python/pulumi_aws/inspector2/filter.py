@@ -30,6 +30,7 @@ class FilterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Filter resource.
+
         :param pulumi.Input[_builtins.str] action: Action to be applied to the findings that maatch the filter. Possible values are `NONE` and `SUPPRESS`
         :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaArgs']]] filter_criterias: Details on the filter criteria. Documented below.
                
@@ -154,6 +155,7 @@ class _FilterState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Filter resources.
+
         :param pulumi.Input[_builtins.str] action: Action to be applied to the findings that maatch the filter. Possible values are `NONE` and `SUPPRESS`
         :param pulumi.Input[_builtins.str] arn: ARN of the Filter.
         :param pulumi.Input[_builtins.str] description: Description
@@ -340,6 +342,7 @@ class Filter(pulumi.CustomResource):
         $ pulumi import aws:inspector2/filter:Filter example "arn:aws:inspector2:us-east-1:111222333444:owner/111222333444/filter/abcdefgh12345678"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: Action to be applied to the findings that maatch the filter. Possible values are `NONE` and `SUPPRESS`
@@ -387,6 +390,7 @@ class Filter(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:inspector2/filter:Filter example "arn:aws:inspector2:us-east-1:111222333444:owner/111222333444/filter/abcdefgh12345678"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FilterArgs args: The arguments to use to populate this resource's properties.

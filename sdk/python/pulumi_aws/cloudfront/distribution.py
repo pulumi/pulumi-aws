@@ -47,6 +47,7 @@ class DistributionArgs:
                  web_acl_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Distribution resource.
+
         :param pulumi.Input['DistributionDefaultCacheBehaviorArgs'] default_cache_behavior: Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
         :param pulumi.Input[_builtins.bool] enabled: Whether the distribution is enabled to accept end user requests for content.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]] origins: One or more origins for this distribution (multiples allowed).
@@ -446,6 +447,7 @@ class _DistributionState:
                  web_acl_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Distribution resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aliases: Extra CNAMEs (alternate domain names), if any, for this distribution.
         :param pulumi.Input[_builtins.str] anycast_ip_list_id: ID of the Anycast static IP list that is associated with the distribution.
         :param pulumi.Input[_builtins.str] arn: ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
@@ -1400,6 +1402,7 @@ class Distribution(pulumi.CustomResource):
         $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aliases: Extra CNAMEs (alternate domain names), if any, for this distribution.
@@ -1812,6 +1815,7 @@ class Distribution(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DistributionArgs args: The arguments to use to populate this resource's properties.

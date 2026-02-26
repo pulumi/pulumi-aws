@@ -26,6 +26,7 @@ class ContactArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Contact resource.
+
         :param pulumi.Input[_builtins.str] alias: A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
         :param pulumi.Input[_builtins.str] type: The type of contact engaged. A single contact is type PERSONAL and an escalation
                plan is type ESCALATION.
@@ -120,6 +121,7 @@ class _ContactState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Contact resources.
+
         :param pulumi.Input[_builtins.str] alias: A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the contact or escalation plan.
         :param pulumi.Input[_builtins.str] display_name: Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
@@ -295,6 +297,7 @@ class Contact(pulumi.CustomResource):
         $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
@@ -360,6 +363,7 @@ class Contact(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ContactArgs args: The arguments to use to populate this resource's properties.

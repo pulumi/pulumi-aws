@@ -29,6 +29,7 @@ class CustomPluginArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CustomPlugin resource.
+
         :param pulumi.Input[_builtins.str] content_type: The type of the plugin file. Allowed values are `ZIP` and `JAR`.
         :param pulumi.Input['CustomPluginLocationArgs'] location: Information about the location of a custom plugin. See `location` Block for details.
         :param pulumi.Input[_builtins.str] description: A summary description of the custom plugin.
@@ -135,6 +136,7 @@ class _CustomPluginState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CustomPlugin resources.
+
         :param pulumi.Input[_builtins.str] arn: the Amazon Resource Name (ARN) of the custom plugin.
         :param pulumi.Input[_builtins.str] content_type: The type of the plugin file. Allowed values are `ZIP` and `JAR`.
         :param pulumi.Input[_builtins.str] description: A summary description of the custom plugin.
@@ -336,6 +338,7 @@ class CustomPlugin(pulumi.CustomResource):
         $ pulumi import aws:mskconnect/customPlugin:CustomPlugin example 'arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content_type: The type of the plugin file. Allowed values are `ZIP` and `JAR`.
@@ -385,6 +388,7 @@ class CustomPlugin(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:mskconnect/customPlugin:CustomPlugin example 'arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomPluginArgs args: The arguments to use to populate this resource's properties.

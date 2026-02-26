@@ -26,6 +26,7 @@ class AnomalyMonitorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AnomalyMonitor resource.
+
         :param pulumi.Input[_builtins.str] monitor_type: The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
         :param pulumi.Input[_builtins.str] monitor_dimension: The dimensions to evaluate. Valid values: `SERVICE`.
         :param pulumi.Input[_builtins.str] monitor_specification: A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
@@ -115,6 +116,7 @@ class _AnomalyMonitorState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AnomalyMonitor resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the anomaly monitor.
         :param pulumi.Input[_builtins.str] monitor_dimension: The dimensions to evaluate. Valid values: `SERVICE`.
         :param pulumi.Input[_builtins.str] monitor_specification: A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
@@ -292,6 +294,7 @@ class AnomalyMonitor(pulumi.CustomResource):
         $ pulumi import aws:costexplorer/anomalyMonitor:AnomalyMonitor example costAnomalyMonitorARN
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] monitor_dimension: The dimensions to evaluate. Valid values: `SERVICE`.
@@ -362,6 +365,7 @@ class AnomalyMonitor(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:costexplorer/anomalyMonitor:AnomalyMonitor example costAnomalyMonitorARN
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AnomalyMonitorArgs args: The arguments to use to populate this resource's properties.

@@ -39,6 +39,7 @@ class MultitenantDistributionArgs:
                  web_acl_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MultitenantDistribution resource.
+
         :param pulumi.Input[_builtins.str] comment: Any comments you want to include about the distribution.
         :param pulumi.Input['MultitenantDistributionDefaultCacheBehaviorArgs'] default_cache_behavior: Default cache behavior for this distribution. See Default Cache Behavior below.
         :param pulumi.Input[_builtins.bool] enabled: Whether the distribution is enabled to accept end user requests for content.
@@ -303,6 +304,7 @@ class _MultitenantDistributionState:
                  web_acl_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MultitenantDistribution resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionActiveTrustedKeyGroupArgs']]] active_trusted_key_groups: List of key groups that CloudFront can use to validate signed URLs or signed cookies. See Active Trusted Key Groups below.
         :param pulumi.Input[_builtins.str] arn: ARN for the distribution.
         :param pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionCacheBehaviorArgs']]] cache_behaviors: Ordered list of cache behaviors resource for this distribution. See Cache Behavior below.
@@ -808,6 +810,7 @@ class MultitenantDistribution(pulumi.CustomResource):
         $ pulumi import aws:cloudfront/multitenantDistribution:MultitenantDistribution distribution E74FTE3AEXAMPLE
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MultitenantDistributionActiveTrustedKeyGroupArgs', 'MultitenantDistributionActiveTrustedKeyGroupArgsDict']]]] active_trusted_key_groups: List of key groups that CloudFront can use to validate signed URLs or signed cookies. See Active Trusted Key Groups below.
@@ -939,6 +942,7 @@ class MultitenantDistribution(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudfront/multitenantDistribution:MultitenantDistribution distribution E74FTE3AEXAMPLE
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MultitenantDistributionArgs args: The arguments to use to populate this resource's properties.

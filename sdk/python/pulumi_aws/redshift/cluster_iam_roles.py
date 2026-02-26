@@ -25,6 +25,7 @@ class ClusterIamRolesArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClusterIamRoles resource.
+
         :param pulumi.Input[_builtins.str] cluster_identifier: The name of the Redshift Cluster IAM Roles.
         :param pulumi.Input[_builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iam_role_arns: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
@@ -96,6 +97,7 @@ class _ClusterIamRolesState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterIamRoles resources.
+
         :param pulumi.Input[_builtins.str] cluster_identifier: The name of the Redshift Cluster IAM Roles.
         :param pulumi.Input[_builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iam_role_arns: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
@@ -194,6 +196,7 @@ class ClusterIamRoles(pulumi.CustomResource):
         $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_identifier: The name of the Redshift Cluster IAM Roles.
@@ -230,6 +233,7 @@ class ClusterIamRoles(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterIamRolesArgs args: The arguments to use to populate this resource's properties.

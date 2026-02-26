@@ -28,6 +28,7 @@ class PlacementGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PlacementGroup resource.
+
         :param pulumi.Input[Union[_builtins.str, 'PlacementStrategy']] strategy: The placement strategy. Can be `cluster`, `partition` or `spread`.
         :param pulumi.Input[_builtins.str] name: The name of the placement group.
         :param pulumi.Input[_builtins.int] partition_count: The number of partitions to create in the
@@ -140,6 +141,7 @@ class _PlacementGroupState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering PlacementGroup resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the placement group.
         :param pulumi.Input[_builtins.str] name: The name of the placement group.
         :param pulumi.Input[_builtins.int] partition_count: The number of partitions to create in the
@@ -320,6 +322,7 @@ class PlacementGroup(pulumi.CustomResource):
         $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the placement group.
@@ -360,6 +363,7 @@ class PlacementGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PlacementGroupArgs args: The arguments to use to populate this resource's properties.

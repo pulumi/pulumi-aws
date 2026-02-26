@@ -30,6 +30,7 @@ class AccountPasswordPolicyArgs:
                  require_uppercase_characters: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a AccountPasswordPolicy resource.
+
         :param pulumi.Input[_builtins.bool] allow_users_to_change_password: Whether to allow users to change their own password
         :param pulumi.Input[_builtins.bool] hard_expiry: Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
         :param pulumi.Input[_builtins.int] max_password_age: The number of days that an user password is valid.
@@ -183,6 +184,7 @@ class _AccountPasswordPolicyState:
                  require_uppercase_characters: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering AccountPasswordPolicy resources.
+
         :param pulumi.Input[_builtins.bool] allow_users_to_change_password: Whether to allow users to change their own password
         :param pulumi.Input[_builtins.bool] expire_passwords: Indicates whether passwords in the account expire. Returns `true` if `max_password_age` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
         :param pulumi.Input[_builtins.bool] hard_expiry: Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
@@ -382,6 +384,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
         $ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_users_to_change_password: Whether to allow users to change their own password
@@ -429,6 +432,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountPasswordPolicyArgs args: The arguments to use to populate this resource's properties.

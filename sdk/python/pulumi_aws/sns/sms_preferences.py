@@ -28,6 +28,7 @@ class SmsPreferencesArgs:
                  usage_report_s3_bucket: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SmsPreferences resource.
+
         :param pulumi.Input[_builtins.str] default_sender_id: A string, such as your business brand, that is displayed as the sender on the receiving device.
         :param pulumi.Input[_builtins.str] default_sms_type: The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
         :param pulumi.Input[_builtins.str] delivery_status_iam_role_arn: The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
@@ -148,6 +149,7 @@ class _SmsPreferencesState:
                  usage_report_s3_bucket: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SmsPreferences resources.
+
         :param pulumi.Input[_builtins.str] default_sender_id: A string, such as your business brand, that is displayed as the sender on the receiving device.
         :param pulumi.Input[_builtins.str] default_sms_type: The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
         :param pulumi.Input[_builtins.str] delivery_status_iam_role_arn: The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
@@ -286,6 +288,7 @@ class SmsPreferences(pulumi.CustomResource):
 
         You cannot import the SMS preferences.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] default_sender_id: A string, such as your business brand, that is displayed as the sender on the receiving device.
@@ -317,6 +320,7 @@ class SmsPreferences(pulumi.CustomResource):
         ## Import
 
         You cannot import the SMS preferences.
+
 
         :param str resource_name: The name of the resource.
         :param SmsPreferencesArgs args: The arguments to use to populate this resource's properties.

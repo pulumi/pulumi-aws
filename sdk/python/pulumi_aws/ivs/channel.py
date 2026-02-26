@@ -28,6 +28,7 @@ class ChannelArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Channel resource.
+
         :param pulumi.Input[_builtins.bool] authorized: If `true`, channel is private (enabled for playback authorization).
         :param pulumi.Input[_builtins.str] latency_mode: Channel latency mode. Valid values: `NORMAL`, `LOW`.
         :param pulumi.Input[_builtins.str] name: Channel name.
@@ -152,6 +153,7 @@ class _ChannelState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Channel resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Channel.
         :param pulumi.Input[_builtins.bool] authorized: If `true`, channel is private (enabled for playback authorization).
         :param pulumi.Input[_builtins.str] ingest_endpoint: Channel ingest endpoint, part of the definition of an ingest server, used when setting up streaming software.
@@ -362,6 +364,7 @@ class Channel(pulumi.CustomResource):
         $ pulumi import aws:ivs/channel:Channel example arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] authorized: If `true`, channel is private (enabled for playback authorization).
@@ -405,6 +408,7 @@ class Channel(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ivs/channel:Channel example arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ChannelArgs args: The arguments to use to populate this resource's properties.

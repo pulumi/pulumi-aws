@@ -37,6 +37,7 @@ class ResolverArgs:
                  sync_config: Optional[pulumi.Input['ResolverSyncConfigArgs']] = None):
         """
         The set of arguments for constructing a Resolver resource.
+
         :param pulumi.Input[_builtins.str] api_id: API ID for the GraphQL API.
         :param pulumi.Input[_builtins.str] field: Field name from the schema defined in the GraphQL API.
         :param pulumi.Input[_builtins.str] type: Type name from the schema defined in the GraphQL API.
@@ -267,6 +268,7 @@ class _ResolverState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Resolver resources.
+
         :param pulumi.Input[_builtins.str] api_id: API ID for the GraphQL API.
         :param pulumi.Input[_builtins.str] arn: ARN
         :param pulumi.Input['ResolverCachingConfigArgs'] caching_config: The Caching Config. See Caching Config.
@@ -628,6 +630,7 @@ class Resolver(pulumi.CustomResource):
         $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: API ID for the GraphQL API.
@@ -762,6 +765,7 @@ class Resolver(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResolverArgs args: The arguments to use to populate this resource's properties.

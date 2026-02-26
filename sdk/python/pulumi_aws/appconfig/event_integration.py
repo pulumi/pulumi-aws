@@ -29,6 +29,7 @@ class EventIntegrationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EventIntegration resource.
+
         :param pulumi.Input['EventIntegrationEventFilterArgs'] event_filter: Block that defines the configuration information for the event filter. The Event Filter block is documented below.
         :param pulumi.Input[_builtins.str] eventbridge_bus: EventBridge bus.
         :param pulumi.Input[_builtins.str] description: Description of the Event Integration.
@@ -133,6 +134,7 @@ class _EventIntegrationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering EventIntegration resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Event Integration.
         :param pulumi.Input[_builtins.str] description: Description of the Event Integration.
         :param pulumi.Input['EventIntegrationEventFilterArgs'] event_filter: Block that defines the configuration information for the event filter. The Event Filter block is documented below.
@@ -298,6 +300,7 @@ class EventIntegration(pulumi.CustomResource):
         $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the Event Integration.
@@ -341,6 +344,7 @@ class EventIntegration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventIntegrationArgs args: The arguments to use to populate this resource's properties.

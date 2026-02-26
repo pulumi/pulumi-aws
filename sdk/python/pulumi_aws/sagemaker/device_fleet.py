@@ -30,6 +30,7 @@ class DeviceFleetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DeviceFleet resource.
+
         :param pulumi.Input[_builtins.str] device_fleet_name: The name of the Device Fleet (must be unique).
         :param pulumi.Input['DeviceFleetOutputConfigArgs'] output_config: Specifies details about the repository. see Output Config details below.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
@@ -150,6 +151,7 @@ class _DeviceFleetState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DeviceFleet resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
         :param pulumi.Input[_builtins.str] description: A description of the fleet.
         :param pulumi.Input[_builtins.str] device_fleet_name: The name of the Device Fleet (must be unique).
@@ -340,6 +342,7 @@ class DeviceFleet(pulumi.CustomResource):
         $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the fleet.
@@ -382,6 +385,7 @@ class DeviceFleet(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DeviceFleetArgs args: The arguments to use to populate this resource's properties.

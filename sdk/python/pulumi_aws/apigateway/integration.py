@@ -43,6 +43,7 @@ class IntegrationArgs:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Integration resource.
+
         :param pulumi.Input[_builtins.str] http_method: HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
                when calling the associated resource.
         :param pulumi.Input[_builtins.str] resource_id: API resource ID.
@@ -385,6 +386,7 @@ class _IntegrationState:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Integration resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cache_key_parameters: List of cache key parameters for the integration.
         :param pulumi.Input[_builtins.str] cache_namespace: Integration's cache namespace.
         :param pulumi.Input[_builtins.str] connection_id: ID of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
@@ -964,6 +966,7 @@ class Integration(pulumi.CustomResource):
         $ pulumi import aws:apigateway/integration:Integration example 12345abcde/67890fghij/GET
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cache_key_parameters: List of cache key parameters for the integration.
@@ -1232,6 +1235,7 @@ class Integration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apigateway/integration:Integration example 12345abcde/67890fghij/GET
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationArgs args: The arguments to use to populate this resource's properties.

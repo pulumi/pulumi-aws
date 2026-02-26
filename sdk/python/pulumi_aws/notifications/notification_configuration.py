@@ -25,6 +25,7 @@ class NotificationConfigurationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NotificationConfiguration resource.
+
         :param pulumi.Input[_builtins.str] description: Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
                maximum length of 256.
         :param pulumi.Input[_builtins.str] aggregation_duration: Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
@@ -114,6 +115,7 @@ class _NotificationConfigurationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NotificationConfiguration resources.
+
         :param pulumi.Input[_builtins.str] aggregation_duration: Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
                aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don't aggregate
                notifications). Default: `NONE`.
@@ -280,6 +282,7 @@ class NotificationConfiguration(pulumi.CustomResource):
         $ pulumi import aws:notifications/notificationConfiguration:NotificationConfiguration example arn:aws:notifications::123456789012:configuration/abcdef1234567890abcdef1234567890
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aggregation_duration: Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
@@ -344,6 +347,7 @@ class NotificationConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:notifications/notificationConfiguration:NotificationConfiguration example arn:aws:notifications::123456789012:configuration/abcdef1234567890abcdef1234567890
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NotificationConfigurationArgs args: The arguments to use to populate this resource's properties.

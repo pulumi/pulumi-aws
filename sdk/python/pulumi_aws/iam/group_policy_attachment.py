@@ -23,6 +23,7 @@ class GroupPolicyAttachmentArgs:
                  policy_arn: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a GroupPolicyAttachment resource.
+
         :param pulumi.Input[_builtins.str] group: The group the policy should be applied to
         :param pulumi.Input[_builtins.str] policy_arn: The ARN of the policy you want to apply
         """
@@ -61,6 +62,7 @@ class _GroupPolicyAttachmentState:
                  policy_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GroupPolicyAttachment resources.
+
         :param pulumi.Input[_builtins.str] group: The group the policy should be applied to
         :param pulumi.Input[_builtins.str] policy_arn: The ARN of the policy you want to apply
         """
@@ -132,6 +134,7 @@ class GroupPolicyAttachment(pulumi.CustomResource):
         $ pulumi import aws:iam/groupPolicyAttachment:GroupPolicyAttachment test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] group: The group the policy should be applied to
@@ -171,6 +174,7 @@ class GroupPolicyAttachment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iam/groupPolicyAttachment:GroupPolicyAttachment test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GroupPolicyAttachmentArgs args: The arguments to use to populate this resource's properties.

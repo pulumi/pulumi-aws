@@ -26,6 +26,7 @@ class GlobalTableArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GlobalTable resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]] replicas: Underlying DynamoDB Table. At least 1 replica must be defined. See below.
         :param pulumi.Input[_builtins.str] name: The name of the global table. Must match underlying DynamoDB Table names in all regions.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -82,6 +83,7 @@ class _GlobalTableState:
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]]] = None):
         """
         Input properties used for looking up and filtering GlobalTable resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the DynamoDB Global Table
         :param pulumi.Input[_builtins.str] name: The name of the global table. Must match underlying DynamoDB Table names in all regions.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -214,6 +216,7 @@ class GlobalTable(pulumi.CustomResource):
         $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the global table. Must match underlying DynamoDB Table names in all regions.
@@ -284,6 +287,7 @@ class GlobalTable(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GlobalTableArgs args: The arguments to use to populate this resource's properties.

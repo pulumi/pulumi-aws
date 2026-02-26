@@ -23,6 +23,7 @@ class ProtectionHealthCheckAssociationArgs:
                  shield_protection_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ProtectionHealthCheckAssociation resource.
+
         :param pulumi.Input[_builtins.str] health_check_arn: The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
         :param pulumi.Input[_builtins.str] shield_protection_id: The ID of the protected resource.
         """
@@ -61,6 +62,7 @@ class _ProtectionHealthCheckAssociationState:
                  shield_protection_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProtectionHealthCheckAssociation resources.
+
         :param pulumi.Input[_builtins.str] health_check_arn: The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
         :param pulumi.Input[_builtins.str] shield_protection_id: The ID of the protected resource.
         """
@@ -151,6 +153,7 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
         $ pulumi import aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation example ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] health_check_arn: The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
@@ -209,6 +212,7 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation example ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProtectionHealthCheckAssociationArgs args: The arguments to use to populate this resource's properties.

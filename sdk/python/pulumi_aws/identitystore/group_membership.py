@@ -25,6 +25,7 @@ class GroupMembershipArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GroupMembership resource.
+
         :param pulumi.Input[_builtins.str] group_id: The identifier for a group in the Identity Store.
         :param pulumi.Input[_builtins.str] identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
         :param pulumi.Input[_builtins.str] member_id: The identifier for a user in the Identity Store.
@@ -95,6 +96,7 @@ class _GroupMembershipState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GroupMembership resources.
+
         :param pulumi.Input[_builtins.str] group_id: The identifier for a group in the Identity Store.
         :param pulumi.Input[_builtins.str] identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
         :param pulumi.Input[_builtins.str] member_id: The identifier for a user in the Identity Store.
@@ -220,6 +222,7 @@ class GroupMembership(pulumi.CustomResource):
         $ pulumi import aws:identitystore/groupMembership:GroupMembership example d-0000000000/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] group_id: The identifier for a group in the Identity Store.
@@ -268,6 +271,7 @@ class GroupMembership(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:identitystore/groupMembership:GroupMembership example d-0000000000/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GroupMembershipArgs args: The arguments to use to populate this resource's properties.

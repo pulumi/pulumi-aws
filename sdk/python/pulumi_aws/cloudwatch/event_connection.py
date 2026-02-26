@@ -30,6 +30,7 @@ class EventConnectionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventConnection resource.
+
         :param pulumi.Input['EventConnectionAuthParametersArgs'] auth_parameters: Parameters used for authorization. A maximum of 1 are allowed. Documented below.
         :param pulumi.Input[_builtins.str] authorization_type: Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
         :param pulumi.Input[_builtins.str] description: Description for the connection. Maximum of 512 characters.
@@ -150,6 +151,7 @@ class _EventConnectionState:
                  secret_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventConnection resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the connection.
         :param pulumi.Input['EventConnectionAuthParametersArgs'] auth_parameters: Parameters used for authorization. A maximum of 1 are allowed. Documented below.
         :param pulumi.Input[_builtins.str] authorization_type: Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
@@ -493,6 +495,7 @@ class EventConnection(pulumi.CustomResource):
         $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EventConnectionAuthParametersArgs', 'EventConnectionAuthParametersArgsDict']] auth_parameters: Parameters used for authorization. A maximum of 1 are allowed. Documented below.
@@ -699,6 +702,7 @@ class EventConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventConnectionArgs args: The arguments to use to populate this resource's properties.

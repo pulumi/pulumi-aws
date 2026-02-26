@@ -26,6 +26,7 @@ class RoleAliasArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RoleAlias resource.
+
         :param pulumi.Input[_builtins.str] alias: The name of the role alias.
         :param pulumi.Input[_builtins.str] role_arn: The identity of the role to which the alias refers.
         :param pulumi.Input[_builtins.int] credential_duration: The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
@@ -114,6 +115,7 @@ class _RoleAliasState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RoleAlias resources.
+
         :param pulumi.Input[_builtins.str] alias: The name of the role alias.
         :param pulumi.Input[_builtins.str] arn: The ARN assigned by AWS to this role alias.
         :param pulumi.Input[_builtins.int] credential_duration: The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
@@ -247,6 +249,7 @@ class RoleAlias(pulumi.CustomResource):
         $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: The name of the role alias.
@@ -273,6 +276,7 @@ class RoleAlias(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RoleAliasArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class WebAppArgs:
                  web_app_units: Optional[pulumi.Input[Sequence[pulumi.Input['WebAppWebAppUnitArgs']]]] = None):
         """
         The set of arguments for constructing a WebApp resource.
+
         :param pulumi.Input['WebAppIdentityProviderDetailsArgs'] identity_provider_details: Block for details of the identity provider to use with the web app. See Identity provider details below.
                
                The following arguments are optional:
@@ -158,6 +159,7 @@ class _WebAppState:
                  web_app_units: Optional[pulumi.Input[Sequence[pulumi.Input['WebAppWebAppUnitArgs']]]] = None):
         """
         Input properties used for looking up and filtering WebApp resources.
+
         :param pulumi.Input[_builtins.str] access_endpoint: URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `access_endpoint` must not be provided.
         :param pulumi.Input[_builtins.str] arn: ARN of the Web App.
         :param pulumi.Input['WebAppEndpointDetailsArgs'] endpoint_details: Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
@@ -412,6 +414,7 @@ class WebApp(pulumi.CustomResource):
         $ pulumi import aws:transfer/webApp:WebApp example web_app-id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_endpoint: URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `access_endpoint` must not be provided.
@@ -515,6 +518,7 @@ class WebApp(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:transfer/webApp:WebApp example web_app-id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WebAppArgs args: The arguments to use to populate this resource's properties.

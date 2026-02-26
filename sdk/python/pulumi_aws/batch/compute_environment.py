@@ -33,6 +33,7 @@ class ComputeEnvironmentArgs:
                  update_policy: Optional[pulumi.Input['ComputeEnvironmentUpdatePolicyArgs']] = None):
         """
         The set of arguments for constructing a ComputeEnvironment resource.
+
         :param pulumi.Input[_builtins.str] type: The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
         :param pulumi.Input['ComputeEnvironmentComputeResourcesArgs'] compute_resources: Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
         :param pulumi.Input['ComputeEnvironmentEksConfigurationArgs'] eks_configuration: Details for the Amazon EKS cluster that supports the compute environment. See details below.
@@ -205,6 +206,7 @@ class _ComputeEnvironmentState:
                  update_policy: Optional[pulumi.Input['ComputeEnvironmentUpdatePolicyArgs']] = None):
         """
         Input properties used for looking up and filtering ComputeEnvironment resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the compute environment.
         :param pulumi.Input['ComputeEnvironmentComputeResourcesArgs'] compute_resources: Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
         :param pulumi.Input[_builtins.str] ecs_cluster_arn: The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
@@ -592,6 +594,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         [2]: http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html
         [3]: http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ComputeEnvironmentComputeResourcesArgs', 'ComputeEnvironmentComputeResourcesArgsDict']] compute_resources: Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
@@ -752,6 +755,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         [1]: http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html
         [2]: http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html
         [3]: http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html
+
 
         :param str resource_name: The name of the resource.
         :param ComputeEnvironmentArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class MailFromArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MailFrom resource.
+
         :param pulumi.Input[_builtins.str] domain: Verified domain name or email identity to generate DKIM tokens for.
         :param pulumi.Input[_builtins.str] mail_from_domain: Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
                
@@ -99,6 +100,7 @@ class _MailFromState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MailFrom resources.
+
         :param pulumi.Input[_builtins.str] behavior_on_mx_failure: The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
         :param pulumi.Input[_builtins.str] domain: Verified domain name or email identity to generate DKIM tokens for.
         :param pulumi.Input[_builtins.str] mail_from_domain: Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
@@ -232,6 +234,7 @@ class MailFrom(pulumi.CustomResource):
         $ pulumi import aws:ses/mailFrom:MailFrom example example.com
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] behavior_on_mx_failure: The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
@@ -301,6 +304,7 @@ class MailFrom(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ses/mailFrom:MailFrom example example.com
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MailFromArgs args: The arguments to use to populate this resource's properties.

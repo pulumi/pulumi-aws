@@ -25,6 +25,7 @@ class PolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Policy resource.
+
         :param pulumi.Input[_builtins.str] policy: The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
         :param pulumi.Input[_builtins.str] name: The name of the policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -99,6 +100,7 @@ class _PolicyState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Policy resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN assigned by AWS to this policy.
         :param pulumi.Input[_builtins.str] default_version_id: The default version of this policy.
         :param pulumi.Input[_builtins.str] name: The name of the policy.
@@ -250,6 +252,7 @@ class Policy(pulumi.CustomResource):
         $ pulumi import aws:iot/policy:Policy pubsub PubSubToAnyTopic
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the policy.
@@ -294,6 +297,7 @@ class Policy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iot/policy:Policy pubsub PubSubToAnyTopic
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.

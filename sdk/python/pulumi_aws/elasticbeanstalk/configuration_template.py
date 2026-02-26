@@ -30,6 +30,7 @@ class ConfigurationTemplateArgs:
                  solution_stack_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConfigurationTemplate resource.
+
         :param pulumi.Input[_builtins.str] application: name of the application to associate with this configuration template
         :param pulumi.Input[_builtins.str] description: Short description of the Template
         :param pulumi.Input[_builtins.str] environment_id: The ID of the environment used with this configuration template
@@ -155,6 +156,7 @@ class _ConfigurationTemplateState:
                  solution_stack_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConfigurationTemplate resources.
+
         :param pulumi.Input[_builtins.str] application: name of the application to associate with this configuration template
         :param pulumi.Input[_builtins.str] description: Short description of the Template
         :param pulumi.Input[_builtins.str] environment_id: The ID of the environment used with this configuration template
@@ -312,6 +314,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
         * `value` - (Required) Value for the configuration option
         * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application: name of the application to associate with this configuration template
@@ -359,6 +362,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
         * `name` - (Required) Name of the configuration option
         * `value` - (Required) Value for the configuration option
         * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+
 
         :param str resource_name: The name of the resource.
         :param ConfigurationTemplateArgs args: The arguments to use to populate this resource's properties.

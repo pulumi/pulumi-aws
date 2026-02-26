@@ -28,6 +28,7 @@ class PipelineDefinitionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PipelineDefinition resource.
+
         :param pulumi.Input[_builtins.str] pipeline_id: ID of the pipeline.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectArgs']]] pipeline_objects: Configuration block for the objects that define the pipeline. See below
                
@@ -118,6 +119,7 @@ class _PipelineDefinitionState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PipelineDefinition resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectArgs']]] parameter_objects: Configuration block for the parameter objects used in the pipeline definition. See below
         :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterValueArgs']]] parameter_values: Configuration block for the parameter values used in the pipeline definition. See below
         :param pulumi.Input[_builtins.str] pipeline_id: ID of the pipeline.
@@ -288,6 +290,7 @@ class PipelineDefinition(pulumi.CustomResource):
         $ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionParameterObjectArgs', 'PipelineDefinitionParameterObjectArgsDict']]]] parameter_objects: Configuration block for the parameter objects used in the pipeline definition. See below
@@ -379,6 +382,7 @@ class PipelineDefinition(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PipelineDefinitionArgs args: The arguments to use to populate this resource's properties.

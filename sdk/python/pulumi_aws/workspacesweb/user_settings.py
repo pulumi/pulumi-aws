@@ -37,6 +37,7 @@ class UserSettingsArgs:
                  toolbar_configuration: Optional[pulumi.Input['UserSettingsToolbarConfigurationArgs']] = None):
         """
         The set of arguments for constructing a UserSettings resource.
+
         :param pulumi.Input[_builtins.str] copy_allowed: Specifies whether the user can copy text from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
         :param pulumi.Input[_builtins.str] download_allowed: Specifies whether the user can download files from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
         :param pulumi.Input[_builtins.str] paste_allowed: Specifies whether the user can paste text from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
@@ -271,6 +272,7 @@ class _UserSettingsState:
                  user_settings_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserSettings resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the user settings.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_portal_arns: List of web portal ARNs to associate with the user settings.
         :param pulumi.Input['UserSettingsCookieSynchronizationConfigurationArgs'] cookie_synchronization_configuration: Configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser. Detailed below.
@@ -648,6 +650,7 @@ class UserSettings(pulumi.CustomResource):
         $ pulumi import aws:workspacesweb/userSettings:UserSettings example arn:aws:workspacesweb:us-west-2:123456789012:usersettings/abcdef12345
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the user settings.
@@ -766,6 +769,7 @@ class UserSettings(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:workspacesweb/userSettings:UserSettings example arn:aws:workspacesweb:us-west-2:123456789012:usersettings/abcdef12345
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserSettingsArgs args: The arguments to use to populate this resource's properties.

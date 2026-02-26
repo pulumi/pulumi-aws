@@ -28,6 +28,7 @@ class UserHierarchyGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a UserHierarchyGroup resource.
+
         :param pulumi.Input[_builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[_builtins.str] name: The name of the user hierarchy group. Must not be more than 100 characters.
         :param pulumi.Input[_builtins.str] parent_group_id: The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
@@ -122,6 +123,7 @@ class _UserHierarchyGroupState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering UserHierarchyGroup resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the hierarchy group.
         :param pulumi.Input[_builtins.str] hierarchy_group_id: The identifier for the hierarchy group.
         :param pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathArgs']]] hierarchy_paths: A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
@@ -340,6 +342,7 @@ class UserHierarchyGroup(pulumi.CustomResource):
         $ pulumi import aws:connect/userHierarchyGroup:UserHierarchyGroup example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
@@ -405,6 +408,7 @@ class UserHierarchyGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:connect/userHierarchyGroup:UserHierarchyGroup example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserHierarchyGroupArgs args: The arguments to use to populate this resource's properties.

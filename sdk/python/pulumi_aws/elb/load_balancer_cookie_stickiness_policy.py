@@ -26,6 +26,7 @@ class LoadBalancerCookieStickinessPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LoadBalancerCookieStickinessPolicy resource.
+
         :param pulumi.Input[_builtins.int] lb_port: The load balancer port to which the policy
                should be applied. This must be an active listener on the load
                balancer.
@@ -120,6 +121,7 @@ class _LoadBalancerCookieStickinessPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LoadBalancerCookieStickinessPolicy resources.
+
         :param pulumi.Input[_builtins.int] cookie_expiration_period: The time period after which
                the session cookie should be considered stale, expressed in seconds.
         :param pulumi.Input[_builtins.int] lb_port: The load balancer port to which the policy
@@ -243,6 +245,7 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
             cookie_expiration_period=600)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] cookie_expiration_period: The time period after which
@@ -285,6 +288,7 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
             lb_port=80,
             cookie_expiration_period=600)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LoadBalancerCookieStickinessPolicyArgs args: The arguments to use to populate this resource's properties.

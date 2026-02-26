@@ -28,6 +28,7 @@ class MultiplexProgramArgs:
                  timeouts: Optional[pulumi.Input['MultiplexProgramTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a MultiplexProgram resource.
+
         :param pulumi.Input[_builtins.str] multiplex_id: Multiplex ID.
         :param pulumi.Input[_builtins.str] program_name: Unique program name.
         :param pulumi.Input['MultiplexProgramMultiplexProgramSettingsArgs'] multiplex_program_settings: MultiplexProgram settings. See Multiplex Program Settings for more details.
@@ -114,6 +115,7 @@ class _MultiplexProgramState:
                  timeouts: Optional[pulumi.Input['MultiplexProgramTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering MultiplexProgram resources.
+
         :param pulumi.Input[_builtins.str] multiplex_id: Multiplex ID.
         :param pulumi.Input['MultiplexProgramMultiplexProgramSettingsArgs'] multiplex_program_settings: MultiplexProgram settings. See Multiplex Program Settings for more details.
                
@@ -252,6 +254,7 @@ class MultiplexProgram(pulumi.CustomResource):
         $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] multiplex_id: Multiplex ID.
@@ -314,6 +317,7 @@ class MultiplexProgram(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MultiplexProgramArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class AlertManagerDefinitionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AlertManagerDefinition resource.
+
         :param pulumi.Input[_builtins.str] definition: the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
         :param pulumi.Input[_builtins.str] workspace_id: ID of the prometheus workspace the alert manager definition should be linked to
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _AlertManagerDefinitionState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AlertManagerDefinition resources.
+
         :param pulumi.Input[_builtins.str] definition: the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] workspace_id: ID of the prometheus workspace the alert manager definition should be linked to
@@ -164,6 +166,7 @@ class AlertManagerDefinition(pulumi.CustomResource):
         $ pulumi import aws:amp/alertManagerDefinition:AlertManagerDefinition demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] definition: the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
@@ -203,6 +206,7 @@ class AlertManagerDefinition(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:amp/alertManagerDefinition:AlertManagerDefinition demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AlertManagerDefinitionArgs args: The arguments to use to populate this resource's properties.

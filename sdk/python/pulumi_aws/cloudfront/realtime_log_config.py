@@ -27,6 +27,7 @@ class RealtimeLogConfigArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RealtimeLogConfig resource.
+
         :param pulumi.Input['RealtimeLogConfigEndpointArgs'] endpoint: The Amazon Kinesis data streams where real-time log data is sent.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fields: The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
         :param pulumi.Input[_builtins.int] sampling_rate: The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
@@ -97,6 +98,7 @@ class _RealtimeLogConfigState:
                  sampling_rate: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering RealtimeLogConfig resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
         :param pulumi.Input['RealtimeLogConfigEndpointArgs'] endpoint: The Amazon Kinesis data streams where real-time log data is sent.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fields: The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
@@ -251,6 +253,7 @@ class RealtimeLogConfig(pulumi.CustomResource):
         $ pulumi import aws:cloudfront/realtimeLogConfig:RealtimeLogConfig example arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RealtimeLogConfigEndpointArgs', 'RealtimeLogConfigEndpointArgsDict']] endpoint: The Amazon Kinesis data streams where real-time log data is sent.
@@ -328,6 +331,7 @@ class RealtimeLogConfig(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudfront/realtimeLogConfig:RealtimeLogConfig example arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RealtimeLogConfigArgs args: The arguments to use to populate this resource's properties.

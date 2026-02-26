@@ -24,6 +24,7 @@ class DataProtectionPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataProtectionPolicy resource.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the SNS topic
         :param pulumi.Input[_builtins.str] policy: The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _DataProtectionPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataProtectionPolicy resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the SNS topic
         :param pulumi.Input[_builtins.str] policy: The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -179,6 +181,7 @@ class DataProtectionPolicy(pulumi.CustomResource):
         $ pulumi import aws:sns/dataProtectionPolicy:DataProtectionPolicy example arn:aws:sns:us-west-2:123456789012:example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The ARN of the SNS topic
@@ -233,6 +236,7 @@ class DataProtectionPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sns/dataProtectionPolicy:DataProtectionPolicy example arn:aws:sns:us-west-2:123456789012:example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataProtectionPolicyArgs args: The arguments to use to populate this resource's properties.

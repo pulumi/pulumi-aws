@@ -25,6 +25,7 @@ class AliasArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Alias resource.
+
         :param pulumi.Input[_builtins.str] target_key_id: Identifier for the key for which the alias is for, can be either an ARN or key_id.
         :param pulumi.Input[_builtins.str] name: The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
         :param pulumi.Input[_builtins.str] name_prefix: Creates an unique alias beginning with the specified prefix.
@@ -100,6 +101,7 @@ class _AliasState:
                  target_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Alias resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the key alias.
         :param pulumi.Input[_builtins.str] name: The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
         :param pulumi.Input[_builtins.str] name_prefix: Creates an unique alias beginning with the specified prefix.
@@ -242,6 +244,7 @@ class Alias(pulumi.CustomResource):
         $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
@@ -291,6 +294,7 @@ class Alias(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AliasArgs args: The arguments to use to populate this resource's properties.

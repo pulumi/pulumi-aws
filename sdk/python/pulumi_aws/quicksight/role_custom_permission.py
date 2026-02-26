@@ -26,6 +26,7 @@ class RoleCustomPermissionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RoleCustomPermission resource.
+
         :param pulumi.Input[_builtins.str] custom_permissions_name: Custom permissions profile name.
         :param pulumi.Input[_builtins.str] role: Role. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
                
@@ -116,6 +117,7 @@ class _RoleCustomPermissionState:
                  role: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RoleCustomPermission resources.
+
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] custom_permissions_name: Custom permissions profile name.
         :param pulumi.Input[_builtins.str] namespace: Namespace containing the role. Defaults to `default`.
@@ -232,6 +234,7 @@ class RoleCustomPermission(pulumi.CustomResource):
         $ pulumi import aws:quicksight/roleCustomPermission:RoleCustomPermission example 012345678901,default,READER
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
@@ -269,6 +272,7 @@ class RoleCustomPermission(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:quicksight/roleCustomPermission:RoleCustomPermission example 012345678901,default,READER
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RoleCustomPermissionArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class CertificateArgs:
                  template_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
+
         :param pulumi.Input[_builtins.str] certificate_authority_arn: ARN of the certificate authority.
         :param pulumi.Input[_builtins.str] certificate_signing_request: Certificate Signing Request in PEM format.
         :param pulumi.Input[_builtins.str] signing_algorithm: Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
@@ -151,6 +152,7 @@ class _CertificateState:
                  validity: Optional[pulumi.Input['CertificateValidityArgs']] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
+
         :param pulumi.Input[_builtins.str] api_passthrough: Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
         :param pulumi.Input[_builtins.str] arn: ARN of the certificate.
         :param pulumi.Input[_builtins.str] certificate: PEM-encoded certificate value.
@@ -376,6 +378,7 @@ class Certificate(pulumi.CustomResource):
         $ pulumi import aws:acmpca/certificate:Certificate cert arn:aws:acm-pca:eu-west-1:675225743824:certificate-authority/08319ede-83g9-1400-8f21-c7d12b2b6edb/certificate/a4e9c2aa4bcfab625g1b9136464cd3a
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_passthrough: Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
@@ -448,6 +451,7 @@ class Certificate(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:acmpca/certificate:Certificate cert arn:aws:acm-pca:eu-west-1:675225743824:certificate-authority/08319ede-83g9-1400-8f21-c7d12b2b6edb/certificate/a4e9c2aa4bcfab625g1b9136464cd3a
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

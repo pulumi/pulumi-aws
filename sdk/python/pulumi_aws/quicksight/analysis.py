@@ -33,6 +33,7 @@ class AnalysisArgs:
                  theme_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Analysis resource.
+
         :param pulumi.Input[_builtins.str] analysis_id: Identifier for the analysis.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] name: Display name for the analysis.
@@ -210,6 +211,7 @@ class _AnalysisState:
                  theme_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Analysis resources.
+
         :param pulumi.Input[_builtins.str] analysis_id: Identifier for the analysis.
         :param pulumi.Input[_builtins.str] arn: ARN of the analysis.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
@@ -559,6 +561,7 @@ class Analysis(pulumi.CustomResource):
         $ pulumi import aws:quicksight/analysis:Analysis example 123456789012,example-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] analysis_id: Identifier for the analysis.
@@ -668,6 +671,7 @@ class Analysis(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:quicksight/analysis:Analysis example 123456789012,example-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AnalysisArgs args: The arguments to use to populate this resource's properties.

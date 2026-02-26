@@ -25,6 +25,7 @@ class AuthPolicyArgs:
                  state: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AuthPolicy resource.
+
         :param pulumi.Input[_builtins.str] policy: The auth policy. The policy string in JSON must not contain newlines or blank lines.
         :param pulumi.Input[_builtins.str] resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -95,6 +96,7 @@ class _AuthPolicyState:
                  state: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AuthPolicy resources.
+
         :param pulumi.Input[_builtins.str] policy: The auth policy. The policy string in JSON must not contain newlines or blank lines.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
@@ -211,6 +213,7 @@ class AuthPolicy(pulumi.CustomResource):
         $ pulumi import aws:vpclattice/authPolicy:AuthPolicy example abcd-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy: The auth policy. The policy string in JSON must not contain newlines or blank lines.
@@ -265,6 +268,7 @@ class AuthPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:vpclattice/authPolicy:AuthPolicy example abcd-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AuthPolicyArgs args: The arguments to use to populate this resource's properties.

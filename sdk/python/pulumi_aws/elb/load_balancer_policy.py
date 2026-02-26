@@ -28,6 +28,7 @@ class LoadBalancerPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LoadBalancerPolicy resource.
+
         :param pulumi.Input[_builtins.str] load_balancer_name: The load balancer on which the policy is defined.
         :param pulumi.Input[_builtins.str] policy_name: The name of the load balancer policy.
         :param pulumi.Input[_builtins.str] policy_type_name: The policy type.
@@ -113,6 +114,7 @@ class _LoadBalancerPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LoadBalancerPolicy resources.
+
         :param pulumi.Input[_builtins.str] load_balancer_name: The load balancer on which the policy is defined.
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]] policy_attributes: Policy attribute to apply to the policy.
         :param pulumi.Input[_builtins.str] policy_name: The name of the load balancer policy.
@@ -274,6 +276,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
             policy_names=[wu_tang_ssl.policy_name])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] load_balancer_name: The load balancer on which the policy is defined.
@@ -358,6 +361,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
             load_balancer_port=443,
             policy_names=[wu_tang_ssl.policy_name])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LoadBalancerPolicyArgs args: The arguments to use to populate this resource's properties.

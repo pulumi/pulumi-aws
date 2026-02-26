@@ -27,6 +27,7 @@ class BucketServerSideEncryptionConfigurationInitArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BucketServerSideEncryptionConfiguration resource.
+
         :param pulumi.Input[_builtins.str] bucket: ID (name) of the bucket.
         :param pulumi.Input[Sequence[pulumi.Input['BucketServerSideEncryptionConfigurationRuleArgs']]] rules: Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
@@ -101,6 +102,7 @@ class _BucketServerSideEncryptionConfigurationState:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketServerSideEncryptionConfigurationRuleArgs']]]] = None):
         """
         Input properties used for looking up and filtering BucketServerSideEncryptionConfiguration resources.
+
         :param pulumi.Input[_builtins.str] bucket: ID (name) of the bucket.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -257,6 +259,7 @@ class BucketServerSideEncryptionConfiguration(pulumi.CustomResource):
         $ pulumi import aws:s3/bucketServerSideEncryptionConfiguration:BucketServerSideEncryptionConfiguration example bucket-name,123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: ID (name) of the bucket.
@@ -347,6 +350,7 @@ class BucketServerSideEncryptionConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/bucketServerSideEncryptionConfiguration:BucketServerSideEncryptionConfiguration example bucket-name,123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BucketServerSideEncryptionConfigurationInitArgs args: The arguments to use to populate this resource's properties.

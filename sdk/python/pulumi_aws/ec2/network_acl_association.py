@@ -24,6 +24,7 @@ class NetworkAclAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkAclAssociation resource.
+
         :param pulumi.Input[_builtins.str] network_acl_id: The ID of the network ACL.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the associated Subnet.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _NetworkAclAssociationState:
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkAclAssociation resources.
+
         :param pulumi.Input[_builtins.str] network_acl_id: The ID of the network ACL.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the associated Subnet.
@@ -162,6 +164,7 @@ class NetworkAclAssociation(pulumi.CustomResource):
         $ pulumi import aws:ec2/networkAclAssociation:NetworkAclAssociation main aclassoc-02baf37f20966b3e6
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] network_acl_id: The ID of the network ACL.
@@ -199,6 +202,7 @@ class NetworkAclAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/networkAclAssociation:NetworkAclAssociation main aclassoc-02baf37f20966b3e6
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkAclAssociationArgs args: The arguments to use to populate this resource's properties.

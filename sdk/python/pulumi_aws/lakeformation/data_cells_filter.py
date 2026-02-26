@@ -26,6 +26,7 @@ class DataCellsFilterArgs:
                  timeouts: Optional[pulumi.Input['DataCellsFilterTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a DataCellsFilter resource.
+
         :param pulumi.Input['DataCellsFilterTableDataArgs'] table_data: Information about the data cells filter. See Table Data below for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -77,6 +78,7 @@ class _DataCellsFilterState:
                  timeouts: Optional[pulumi.Input['DataCellsFilterTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering DataCellsFilter resources.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DataCellsFilterTableDataArgs'] table_data: Information about the data cells filter. See Table Data below for details.
         """
@@ -232,6 +234,7 @@ class DataCellsFilter(pulumi.CustomResource):
         $ pulumi import aws:lakeformation/dataCellsFilter:DataCellsFilter example database_name,name,table_catalog_id,table_name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -343,6 +346,7 @@ class DataCellsFilter(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lakeformation/dataCellsFilter:DataCellsFilter example database_name,name,table_catalog_id,table_name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataCellsFilterArgs args: The arguments to use to populate this resource's properties.

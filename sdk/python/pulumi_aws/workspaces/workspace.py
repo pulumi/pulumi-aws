@@ -32,6 +32,7 @@ class WorkspaceArgs:
                  workspace_properties: Optional[pulumi.Input['WorkspaceWorkspacePropertiesArgs']] = None):
         """
         The set of arguments for constructing a Workspace resource.
+
         :param pulumi.Input[_builtins.str] bundle_id: The ID of the bundle for the WorkSpace.
         :param pulumi.Input[_builtins.str] directory_id: The ID of the directory for the WorkSpace.
         :param pulumi.Input[_builtins.str] user_name: The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
@@ -185,6 +186,7 @@ class _WorkspaceState:
                  workspace_properties: Optional[pulumi.Input['WorkspaceWorkspacePropertiesArgs']] = None):
         """
         Input properties used for looking up and filtering Workspace resources.
+
         :param pulumi.Input[_builtins.str] bundle_id: The ID of the bundle for the WorkSpace.
         :param pulumi.Input[_builtins.str] computer_name: The name of the WorkSpace, as seen by the operating system.
         :param pulumi.Input[_builtins.str] directory_id: The ID of the directory for the WorkSpace.
@@ -439,6 +441,7 @@ class Workspace(pulumi.CustomResource):
         $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bundle_id: The ID of the bundle for the WorkSpace.
@@ -496,6 +499,7 @@ class Workspace(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

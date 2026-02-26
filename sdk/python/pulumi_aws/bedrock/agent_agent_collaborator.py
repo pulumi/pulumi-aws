@@ -32,6 +32,7 @@ class AgentAgentCollaboratorArgs:
                  timeouts: Optional[pulumi.Input['AgentAgentCollaboratorTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentAgentCollaborator resource.
+
         :param pulumi.Input[_builtins.str] agent_id: ID if the agent to associate the collaborator.
         :param pulumi.Input[_builtins.str] collaboration_instruction: Instruction to give the collaborator.
         :param pulumi.Input[_builtins.str] collaborator_name: Name of this collaborator.
@@ -173,6 +174,7 @@ class _AgentAgentCollaboratorState:
                  timeouts: Optional[pulumi.Input['AgentAgentCollaboratorTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AgentAgentCollaborator resources.
+
         :param pulumi.Input[_builtins.str] agent_id: ID if the agent to associate the collaborator.
         :param pulumi.Input[_builtins.str] collaboration_instruction: Instruction to give the collaborator.
         :param pulumi.Input[_builtins.str] collaborator_id: ID of the Agent Collaborator.
@@ -425,6 +427,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
         $ pulumi import aws:bedrock/agentAgentCollaborator:AgentAgentCollaborator example 9LSJO0BFI8,DRAFT,AG3TN4RQIY
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_id: ID if the agent to associate the collaborator.
@@ -532,6 +535,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:bedrock/agentAgentCollaborator:AgentAgentCollaborator example 9LSJO0BFI8,DRAFT,AG3TN4RQIY
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AgentAgentCollaboratorArgs args: The arguments to use to populate this resource's properties.

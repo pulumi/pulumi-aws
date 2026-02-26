@@ -25,6 +25,7 @@ class KinesisStreamingDestinationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a KinesisStreamingDestination resource.
+
         :param pulumi.Input[_builtins.str] stream_arn: The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
         :param pulumi.Input[_builtins.str] table_name: The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
         :param pulumi.Input[_builtins.str] approximate_creation_date_time_precision: Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
@@ -95,6 +96,7 @@ class _KinesisStreamingDestinationState:
                  table_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering KinesisStreamingDestination resources.
+
         :param pulumi.Input[_builtins.str] approximate_creation_date_time_precision: Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] stream_arn: The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
@@ -202,6 +204,7 @@ class KinesisStreamingDestination(pulumi.CustomResource):
         $ pulumi import aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination example example,arn:aws:kinesis:us-east-1:111122223333:exampleStreamName
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] approximate_creation_date_time_precision: Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
@@ -247,6 +250,7 @@ class KinesisStreamingDestination(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination example example,arn:aws:kinesis:us-east-1:111122223333:exampleStreamName
         ```
+
 
         :param str resource_name: The name of the resource.
         :param KinesisStreamingDestinationArgs args: The arguments to use to populate this resource's properties.

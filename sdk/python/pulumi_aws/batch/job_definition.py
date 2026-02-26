@@ -38,6 +38,7 @@ class JobDefinitionArgs:
                  timeout: Optional[pulumi.Input['JobDefinitionTimeoutArgs']] = None):
         """
         The set of arguments for constructing a JobDefinition resource.
+
         :param pulumi.Input[_builtins.str] type: Type of job definition. Must be `container` or `multinode`.
                
                The following arguments are optional:
@@ -293,6 +294,7 @@ class _JobDefinitionState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering JobDefinition resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the job definition, includes revision (`:#`).
         :param pulumi.Input[_builtins.str] arn_prefix: ARN without the revision number.
         :param pulumi.Input[_builtins.str] container_properties: Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
@@ -879,6 +881,7 @@ class JobDefinition(pulumi.CustomResource):
         $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] container_properties: Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
@@ -1176,6 +1179,7 @@ class JobDefinition(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
         ```
+
 
         :param str resource_name: The name of the resource.
         :param JobDefinitionArgs args: The arguments to use to populate this resource's properties.

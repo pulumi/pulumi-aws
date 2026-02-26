@@ -29,6 +29,7 @@ class VoiceConnectorStreamingArgs:
                  streaming_notification_targets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VoiceConnectorStreaming resource.
+
         :param pulumi.Input[_builtins.int] data_retention: The retention period, in hours, for the Amazon Kinesis data.
         :param pulumi.Input[_builtins.str] voice_connector_id: The Amazon Chime Voice Connector ID.
         :param pulumi.Input[_builtins.bool] disabled: When true, media streaming to Amazon Kinesis is turned off. Default: `false`
@@ -131,6 +132,7 @@ class _VoiceConnectorStreamingState:
                  voice_connector_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VoiceConnectorStreaming resources.
+
         :param pulumi.Input[_builtins.int] data_retention: The retention period, in hours, for the Amazon Kinesis data.
         :param pulumi.Input[_builtins.bool] disabled: When true, media streaming to Amazon Kinesis is turned off. Default: `false`
         :param pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArgs'] media_insights_configuration: The media insights configuration. See `media_insights_configuration`.
@@ -316,6 +318,7 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
         $ pulumi import aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming default abcdef1ghij2klmno3pqr4
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] data_retention: The retention period, in hours, for the Amazon Kinesis data.
@@ -409,6 +412,7 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming default abcdef1ghij2klmno3pqr4
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VoiceConnectorStreamingArgs args: The arguments to use to populate this resource's properties.

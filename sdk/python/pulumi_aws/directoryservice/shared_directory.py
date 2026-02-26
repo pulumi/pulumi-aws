@@ -28,6 +28,7 @@ class SharedDirectoryArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SharedDirectory resource.
+
         :param pulumi.Input[_builtins.str] directory_id: Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
         :param pulumi.Input['SharedDirectoryTargetArgs'] target: Identifier for the directory consumer account with whom the directory is to be shared. See below.
                
@@ -119,6 +120,7 @@ class _SharedDirectoryState:
                  target: Optional[pulumi.Input['SharedDirectoryTargetArgs']] = None):
         """
         Input properties used for looking up and filtering SharedDirectory resources.
+
         :param pulumi.Input[_builtins.str] directory_id: Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
         :param pulumi.Input[_builtins.str] method: Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
         :param pulumi.Input[_builtins.str] notes: Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
@@ -262,6 +264,7 @@ class SharedDirectory(pulumi.CustomResource):
         $ pulumi import aws:directoryservice/sharedDirectory:SharedDirectory example d-1234567890/d-9267633ece
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] directory_id: Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
@@ -311,6 +314,7 @@ class SharedDirectory(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:directoryservice/sharedDirectory:SharedDirectory example d-1234567890/d-9267633ece
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SharedDirectoryArgs args: The arguments to use to populate this resource's properties.

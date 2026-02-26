@@ -48,6 +48,7 @@ class ProjectArgs:
                  vpc_config: Optional[pulumi.Input['ProjectVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Project resource.
+
         :param pulumi.Input['ProjectArtifactsArgs'] artifacts: Configuration block. Detailed below.
         :param pulumi.Input['ProjectEnvironmentArgs'] environment: Configuration block. Detailed below.
         :param pulumi.Input[_builtins.str] service_role: Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
@@ -490,6 +491,7 @@ class _ProjectState:
                  vpc_config: Optional[pulumi.Input['ProjectVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Project resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the CodeBuild project.
         :param pulumi.Input['ProjectArtifactsArgs'] artifacts: Configuration block. Detailed below.
         :param pulumi.Input[_builtins.int] auto_retry_limit: Specify a maximum number of additional automatic retries after a failed build.
@@ -1229,6 +1231,7 @@ class Project(pulumi.CustomResource):
         $ pulumi import aws:codebuild/project:Project name project-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict']] artifacts: Configuration block. Detailed below.
@@ -1512,6 +1515,7 @@ class Project(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:codebuild/project:Project name project-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.

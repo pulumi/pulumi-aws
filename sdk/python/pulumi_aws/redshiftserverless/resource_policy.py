@@ -24,6 +24,7 @@ class ResourcePolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourcePolicy resource.
+
         :param pulumi.Input[_builtins.str] policy: The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
         :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _ResourcePolicyState:
                  resource_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourcePolicy resources.
+
         :param pulumi.Input[_builtins.str] policy: The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
@@ -169,6 +171,7 @@ class ResourcePolicy(pulumi.CustomResource):
         $ pulumi import aws:redshiftserverless/resourcePolicy:ResourcePolicy example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy: The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
@@ -213,6 +216,7 @@ class ResourcePolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:redshiftserverless/resourcePolicy:ResourcePolicy example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.

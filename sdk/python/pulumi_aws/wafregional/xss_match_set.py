@@ -26,6 +26,7 @@ class XssMatchSetArgs:
                  xss_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input['XssMatchSetXssMatchTupleArgs']]]] = None):
         """
         The set of arguments for constructing a XssMatchSet resource.
+
         :param pulumi.Input[_builtins.str] name: The name of the set
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['XssMatchSetXssMatchTupleArgs']]] xss_match_tuples: The parts of web requests that you want to inspect for cross-site scripting attacks.
@@ -82,6 +83,7 @@ class _XssMatchSetState:
                  xss_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input['XssMatchSetXssMatchTupleArgs']]]] = None):
         """
         Input properties used for looking up and filtering XssMatchSet resources.
+
         :param pulumi.Input[_builtins.str] name: The name of the set
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['XssMatchSetXssMatchTupleArgs']]] xss_match_tuples: The parts of web requests that you want to inspect for cross-site scripting attacks.
@@ -175,6 +177,7 @@ class XssMatchSet(pulumi.CustomResource):
         $ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the set
@@ -221,6 +224,7 @@ class XssMatchSet(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde
         ```
+
 
         :param str resource_name: The name of the resource.
         :param XssMatchSetArgs args: The arguments to use to populate this resource's properties.

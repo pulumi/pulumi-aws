@@ -29,6 +29,7 @@ class ExtensionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Extension resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ExtensionActionPointArgs']]] action_points: The action points defined in the extension. Detailed below.
         :param pulumi.Input[_builtins.str] description: Information about the extension.
         :param pulumi.Input[_builtins.str] name: A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
@@ -135,6 +136,7 @@ class _ExtensionState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Extension resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['ExtensionActionPointArgs']]] action_points: The action points defined in the extension. Detailed below.
         :param pulumi.Input[_builtins.str] arn: ARN of the AppConfig Extension.
         :param pulumi.Input[_builtins.str] description: Information about the extension.
@@ -326,6 +328,7 @@ class Extension(pulumi.CustomResource):
         $ pulumi import aws:appconfig/extension:Extension example 71rxuzt
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExtensionActionPointArgs', 'ExtensionActionPointArgsDict']]]] action_points: The action points defined in the extension. Detailed below.
@@ -384,6 +387,7 @@ class Extension(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appconfig/extension:Extension example 71rxuzt
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExtensionArgs args: The arguments to use to populate this resource's properties.

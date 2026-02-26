@@ -29,6 +29,7 @@ class RiskConfigurationArgs:
                  risk_exception_configuration: Optional[pulumi.Input['RiskConfigurationRiskExceptionConfigurationArgs']] = None):
         """
         The set of arguments for constructing a RiskConfiguration resource.
+
         :param pulumi.Input[_builtins.str] user_pool_id: The user pool ID.
         :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationArgs'] account_takeover_risk_configuration: The account takeover risk configuration. See details below.
         :param pulumi.Input[_builtins.str] client_id: The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
@@ -132,6 +133,7 @@ class _RiskConfigurationState:
                  user_pool_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RiskConfiguration resources.
+
         :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationArgs'] account_takeover_risk_configuration: The account takeover risk configuration. See details below.
         :param pulumi.Input[_builtins.str] client_id: The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
         :param pulumi.Input['RiskConfigurationCompromisedCredentialsRiskConfigurationArgs'] compromised_credentials_risk_configuration: The compromised credentials risk configuration. See details below.
@@ -272,6 +274,7 @@ class RiskConfiguration(pulumi.CustomResource):
         $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example:example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RiskConfigurationAccountTakeoverRiskConfigurationArgs', 'RiskConfigurationAccountTakeoverRiskConfigurationArgsDict']] account_takeover_risk_configuration: The account takeover risk configuration. See details below.
@@ -320,6 +323,7 @@ class RiskConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example:example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RiskConfigurationArgs args: The arguments to use to populate this resource's properties.

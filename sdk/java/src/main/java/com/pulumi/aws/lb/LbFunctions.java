@@ -738,7 +738,7 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var listenerArn = config.get("listenerArn");
+     *         final var listenerArn = config.require("listenerArn");
      *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
      *             .arn(listenerArn)
      *             .build());
@@ -795,7 +795,7 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var listenerArn = config.get("listenerArn");
+     *         final var listenerArn = config.require("listenerArn");
      *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
      *             .arn(listenerArn)
      *             .build());
@@ -852,7 +852,7 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var listenerArn = config.get("listenerArn");
+     *         final var listenerArn = config.require("listenerArn");
      *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
      *             .arn(listenerArn)
      *             .build());
@@ -909,7 +909,7 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var listenerArn = config.get("listenerArn");
+     *         final var listenerArn = config.require("listenerArn");
      *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
      *             .arn(listenerArn)
      *             .build());
@@ -966,7 +966,7 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var listenerArn = config.get("listenerArn");
+     *         final var listenerArn = config.require("listenerArn");
      *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
      *             .arn(listenerArn)
      *             .build());
@@ -1023,7 +1023,7 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var listenerArn = config.get("listenerArn");
+     *         final var listenerArn = config.require("listenerArn");
      *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
      *             .arn(listenerArn)
      *             .build());
@@ -1080,7 +1080,7 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var listenerArn = config.get("listenerArn");
+     *         final var listenerArn = config.require("listenerArn");
      *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
      *             .arn(listenerArn)
      *             .build());
@@ -1134,7 +1134,7 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbRuleArn = config.get("lbRuleArn");
+     *         final var lbRuleArn = config.require("lbRuleArn");
      *         final var example = LbFunctions.getListenerRule(GetListenerRuleArgs.builder()
      *             .arn(lbRuleArn)
      *             .build());
@@ -1169,8 +1169,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbListenerArn = config.get("lbListenerArn");
-     *         final var lbRulePriority = config.get("lbRulePriority");
+     *         final var lbListenerArn = config.require("lbListenerArn");
+     *         final var lbRulePriority = config.require("lbRulePriority");
      *         final var example = LbFunctions.getListenerRule(GetListenerRuleArgs.builder()
      *             .listenerArn(lbListenerArn)
      *             .priority(lbRulePriority)
@@ -1215,7 +1215,7 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbRuleArn = config.get("lbRuleArn");
+     *         final var lbRuleArn = config.require("lbRuleArn");
      *         final var example = LbFunctions.getListenerRule(GetListenerRuleArgs.builder()
      *             .arn(lbRuleArn)
      *             .build());
@@ -1250,8 +1250,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbListenerArn = config.get("lbListenerArn");
-     *         final var lbRulePriority = config.get("lbRulePriority");
+     *         final var lbListenerArn = config.require("lbListenerArn");
+     *         final var lbRulePriority = config.require("lbRulePriority");
      *         final var example = LbFunctions.getListenerRule(GetListenerRuleArgs.builder()
      *             .listenerArn(lbListenerArn)
      *             .priority(lbRulePriority)
@@ -1296,7 +1296,7 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbRuleArn = config.get("lbRuleArn");
+     *         final var lbRuleArn = config.require("lbRuleArn");
      *         final var example = LbFunctions.getListenerRule(GetListenerRuleArgs.builder()
      *             .arn(lbRuleArn)
      *             .build());
@@ -1331,8 +1331,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbListenerArn = config.get("lbListenerArn");
-     *         final var lbRulePriority = config.get("lbRulePriority");
+     *         final var lbListenerArn = config.require("lbListenerArn");
+     *         final var lbRulePriority = config.require("lbRulePriority");
      *         final var example = LbFunctions.getListenerRule(GetListenerRuleArgs.builder()
      *             .listenerArn(lbListenerArn)
      *             .priority(lbRulePriority)
@@ -1377,7 +1377,7 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbRuleArn = config.get("lbRuleArn");
+     *         final var lbRuleArn = config.require("lbRuleArn");
      *         final var example = LbFunctions.getListenerRule(GetListenerRuleArgs.builder()
      *             .arn(lbRuleArn)
      *             .build());
@@ -1412,8 +1412,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbListenerArn = config.get("lbListenerArn");
-     *         final var lbRulePriority = config.get("lbRulePriority");
+     *         final var lbListenerArn = config.require("lbListenerArn");
+     *         final var lbRulePriority = config.require("lbRulePriority");
      *         final var example = LbFunctions.getListenerRule(GetListenerRuleArgs.builder()
      *             .listenerArn(lbListenerArn)
      *             .priority(lbRulePriority)
@@ -1458,7 +1458,7 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbRuleArn = config.get("lbRuleArn");
+     *         final var lbRuleArn = config.require("lbRuleArn");
      *         final var example = LbFunctions.getListenerRule(GetListenerRuleArgs.builder()
      *             .arn(lbRuleArn)
      *             .build());
@@ -1493,8 +1493,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbListenerArn = config.get("lbListenerArn");
-     *         final var lbRulePriority = config.get("lbRulePriority");
+     *         final var lbListenerArn = config.require("lbListenerArn");
+     *         final var lbRulePriority = config.require("lbRulePriority");
      *         final var example = LbFunctions.getListenerRule(GetListenerRuleArgs.builder()
      *             .listenerArn(lbListenerArn)
      *             .priority(lbRulePriority)
@@ -1539,7 +1539,7 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbRuleArn = config.get("lbRuleArn");
+     *         final var lbRuleArn = config.require("lbRuleArn");
      *         final var example = LbFunctions.getListenerRule(GetListenerRuleArgs.builder()
      *             .arn(lbRuleArn)
      *             .build());
@@ -1574,8 +1574,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbListenerArn = config.get("lbListenerArn");
-     *         final var lbRulePriority = config.get("lbRulePriority");
+     *         final var lbListenerArn = config.require("lbListenerArn");
+     *         final var lbRulePriority = config.require("lbRulePriority");
      *         final var example = LbFunctions.getListenerRule(GetListenerRuleArgs.builder()
      *             .listenerArn(lbListenerArn)
      *             .priority(lbRulePriority)
@@ -1620,7 +1620,7 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbRuleArn = config.get("lbRuleArn");
+     *         final var lbRuleArn = config.require("lbRuleArn");
      *         final var example = LbFunctions.getListenerRule(GetListenerRuleArgs.builder()
      *             .arn(lbRuleArn)
      *             .build());
@@ -1655,8 +1655,8 @@ public final class LbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var lbListenerArn = config.get("lbListenerArn");
-     *         final var lbRulePriority = config.get("lbRulePriority");
+     *         final var lbListenerArn = config.require("lbListenerArn");
+     *         final var lbRulePriority = config.require("lbRulePriority");
      *         final var example = LbFunctions.getListenerRule(GetListenerRuleArgs.builder()
      *             .listenerArn(lbListenerArn)
      *             .priority(lbRulePriority)

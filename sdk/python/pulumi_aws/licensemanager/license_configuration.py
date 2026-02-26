@@ -29,6 +29,7 @@ class LicenseConfigurationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LicenseConfiguration resource.
+
         :param pulumi.Input[_builtins.str] license_counting_type: Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
         :param pulumi.Input[_builtins.str] description: Description of the license configuration.
         :param pulumi.Input[_builtins.int] license_count: Number of licenses managed by the license configuration.
@@ -167,6 +168,7 @@ class _LicenseConfigurationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LicenseConfiguration resources.
+
         :param pulumi.Input[_builtins.str] arn: The license configuration ARN.
         :param pulumi.Input[_builtins.str] description: Description of the license configuration.
         :param pulumi.Input[_builtins.int] license_count: Number of licenses managed by the license configuration.
@@ -393,6 +395,7 @@ class LicenseConfiguration(pulumi.CustomResource):
         $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the license configuration.
@@ -452,6 +455,7 @@ class LicenseConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LicenseConfigurationArgs args: The arguments to use to populate this resource's properties.

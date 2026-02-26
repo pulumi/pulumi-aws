@@ -30,6 +30,7 @@ class DeliveryChannelArgs:
                  sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DeliveryChannel resource.
+
         :param pulumi.Input[_builtins.str] s3_bucket_name: The name of the S3 bucket used to store the configuration history.
         :param pulumi.Input[_builtins.str] name: The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -149,6 +150,7 @@ class _DeliveryChannelState:
                  sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DeliveryChannel resources.
+
         :param pulumi.Input[_builtins.str] name: The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] s3_bucket_name: The name of the S3 bucket used to store the configuration history.
@@ -325,6 +327,7 @@ class DeliveryChannel(pulumi.CustomResource):
         $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
@@ -394,6 +397,7 @@ class DeliveryChannel(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DeliveryChannelArgs args: The arguments to use to populate this resource's properties.

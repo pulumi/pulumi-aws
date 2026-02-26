@@ -25,6 +25,7 @@ class ManagedPrefixListEntryInitArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedPrefixListEntry resource.
+
         :param pulumi.Input[_builtins.str] cidr: CIDR block of this entry.
         :param pulumi.Input[_builtins.str] prefix_list_id: The ID of the prefix list.
         :param pulumi.Input[_builtins.str] description: Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
@@ -95,6 +96,7 @@ class _ManagedPrefixListEntryState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedPrefixListEntry resources.
+
         :param pulumi.Input[_builtins.str] cidr: CIDR block of this entry.
         :param pulumi.Input[_builtins.str] description: Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
         :param pulumi.Input[_builtins.str] prefix_list_id: The ID of the prefix list.
@@ -205,6 +207,7 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
         $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cidr: CIDR block of this entry.
@@ -253,6 +256,7 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedPrefixListEntryInitArgs args: The arguments to use to populate this resource's properties.

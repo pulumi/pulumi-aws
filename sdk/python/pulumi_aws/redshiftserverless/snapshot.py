@@ -25,6 +25,7 @@ class SnapshotArgs:
                  retention_period: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Snapshot resource.
+
         :param pulumi.Input[_builtins.str] namespace_name: The namespace to create a snapshot for.
         :param pulumi.Input[_builtins.str] snapshot_name: The name of the snapshot.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -102,6 +103,7 @@ class _SnapshotState:
                  snapshot_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Snapshot resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts_with_provisioned_restore_accesses: All of the Amazon Web Services accounts that have access to restore a snapshot to a provisioned cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts_with_restore_accesses: All of the Amazon Web Services accounts that have access to restore a snapshot to a namespace.
         :param pulumi.Input[_builtins.str] admin_username: The username of the database within a snapshot.
@@ -303,6 +305,7 @@ class Snapshot(pulumi.CustomResource):
         $ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] namespace_name: The namespace to create a snapshot for.
@@ -337,6 +340,7 @@ class Snapshot(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SnapshotArgs args: The arguments to use to populate this resource's properties.

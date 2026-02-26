@@ -30,6 +30,7 @@ class TableArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Table resource.
+
         :param pulumi.Input[_builtins.str] database_name: The name of the Timestream database.
         :param pulumi.Input[_builtins.str] table_name: The name of the Timestream table.
         :param pulumi.Input['TableMagneticStoreWritePropertiesArgs'] magnetic_store_write_properties: Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
@@ -150,6 +151,7 @@ class _TableState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Table resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN that uniquely identifies this table.
         :param pulumi.Input[_builtins.str] database_name: The name of the Timestream database.
         :param pulumi.Input['TableMagneticStoreWritePropertiesArgs'] magnetic_store_write_properties: Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
@@ -362,6 +364,7 @@ class Table(pulumi.CustomResource):
         $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] database_name: The name of the Timestream database.
@@ -437,6 +440,7 @@ class Table(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.

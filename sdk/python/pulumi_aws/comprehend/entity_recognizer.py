@@ -34,6 +34,7 @@ class EntityRecognizerArgs:
                  vpc_config: Optional[pulumi.Input['EntityRecognizerVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a EntityRecognizer resource.
+
         :param pulumi.Input[_builtins.str] data_access_role_arn: The ARN for an IAM Role which allows Comprehend to read the training and testing data.
         :param pulumi.Input['EntityRecognizerInputDataConfigArgs'] input_data_config: Configuration for the training and testing data.
                See the `input_data_config` Configuration Block section below.
@@ -249,6 +250,7 @@ class _EntityRecognizerState:
                  vpc_config: Optional[pulumi.Input['EntityRecognizerVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering EntityRecognizer resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Entity Recognizer version.
         :param pulumi.Input[_builtins.str] data_access_role_arn: The ARN for an IAM Role which allows Comprehend to read the training and testing data.
         :param pulumi.Input['EntityRecognizerInputDataConfigArgs'] input_data_config: Configuration for the training and testing data.
@@ -547,6 +549,7 @@ class EntityRecognizer(pulumi.CustomResource):
         $ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_access_role_arn: The ARN for an IAM Role which allows Comprehend to read the training and testing data.
@@ -632,6 +635,7 @@ class EntityRecognizer(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EntityRecognizerArgs args: The arguments to use to populate this resource's properties.

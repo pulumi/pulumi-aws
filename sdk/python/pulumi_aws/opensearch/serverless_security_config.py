@@ -28,6 +28,7 @@ class ServerlessSecurityConfigArgs:
                  saml_options: Optional[pulumi.Input['ServerlessSecurityConfigSamlOptionsArgs']] = None):
         """
         The set of arguments for constructing a ServerlessSecurityConfig resource.
+
         :param pulumi.Input[_builtins.str] type: Type of configuration. Must be `saml`.
                
                The following arguments are optional:
@@ -120,6 +121,7 @@ class _ServerlessSecurityConfigState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerlessSecurityConfig resources.
+
         :param pulumi.Input[_builtins.str] config_version: Version of the configuration.
         :param pulumi.Input[_builtins.str] description: Description of the security configuration.
         :param pulumi.Input[_builtins.str] name: Name of the policy.
@@ -242,6 +244,7 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
         $ pulumi import aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig example saml/123456789012/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the security configuration.
@@ -270,6 +273,7 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig example saml/123456789012/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerlessSecurityConfigArgs args: The arguments to use to populate this resource's properties.

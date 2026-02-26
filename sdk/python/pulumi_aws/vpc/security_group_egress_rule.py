@@ -32,6 +32,7 @@ class SecurityGroupEgressRuleArgs:
                  to_port: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a SecurityGroupEgressRule resource.
+
         :param pulumi.Input[_builtins.str] ip_protocol: The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ip_protocol` is set to `-1`, it translates to all protocols, all port ranges, and `from_port` and `to_port` values should not be defined.
         :param pulumi.Input[_builtins.str] security_group_id: The ID of the security group.
         :param pulumi.Input[_builtins.str] cidr_ipv4: The destination IPv4 CIDR range.
@@ -221,6 +222,7 @@ class _SecurityGroupEgressRuleState:
                  to_port: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering SecurityGroupEgressRule resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the security group rule.
         :param pulumi.Input[_builtins.str] cidr_ipv4: The destination IPv4 CIDR range.
         :param pulumi.Input[_builtins.str] cidr_ipv6: The destination IPv6 CIDR range.
@@ -498,6 +500,7 @@ class SecurityGroupEgressRule(pulumi.CustomResource):
         $ pulumi import aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule example sgr-02108b27edd666983
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cidr_ipv4: The destination IPv4 CIDR range.
@@ -561,6 +564,7 @@ class SecurityGroupEgressRule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule example sgr-02108b27edd666983
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecurityGroupEgressRuleArgs args: The arguments to use to populate this resource's properties.

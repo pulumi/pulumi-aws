@@ -24,6 +24,7 @@ class LbHttpsRedirectionPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LbHttpsRedirectionPolicy resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
         :param pulumi.Input[_builtins.str] lb_name: Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
                
@@ -82,6 +83,7 @@ class _LbHttpsRedirectionPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LbHttpsRedirectionPolicy resources.
+
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
         :param pulumi.Input[_builtins.str] lb_name: Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
                
@@ -182,6 +184,7 @@ class LbHttpsRedirectionPolicy(pulumi.CustomResource):
         $ pulumi import aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy example example-load-balancer
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable HTTP to HTTPS redirection. `true` to activate HTTP to HTTPS redirection or `false` to deactivate HTTP to HTTPS redirection.
@@ -233,6 +236,7 @@ class LbHttpsRedirectionPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy example example-load-balancer
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LbHttpsRedirectionPolicyArgs args: The arguments to use to populate this resource's properties.

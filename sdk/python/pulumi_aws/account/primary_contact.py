@@ -34,6 +34,7 @@ class PrimaryContactArgs:
                  website_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrimaryContact resource.
+
         :param pulumi.Input[_builtins.str] address_line1: The first line of the primary contact address.
         :param pulumi.Input[_builtins.str] city: The city of the primary contact address.
         :param pulumi.Input[_builtins.str] country_code: The ISO-3166 two-letter country code for the primary contact address.
@@ -244,6 +245,7 @@ class _PrimaryContactState:
                  website_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PrimaryContact resources.
+
         :param pulumi.Input[_builtins.str] account_id: The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
         :param pulumi.Input[_builtins.str] address_line1: The first line of the primary contact address.
         :param pulumi.Input[_builtins.str] address_line2: The second line of the primary contact address, if any.
@@ -492,6 +494,7 @@ class PrimaryContact(pulumi.CustomResource):
         $ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
@@ -543,6 +546,7 @@ class PrimaryContact(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PrimaryContactArgs args: The arguments to use to populate this resource's properties.

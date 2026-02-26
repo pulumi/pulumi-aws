@@ -32,6 +32,7 @@ class ProvisioningTemplateArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProvisioningTemplate resource.
+
         :param pulumi.Input[_builtins.str] provisioning_role_arn: The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
         :param pulumi.Input[_builtins.str] template_body: The JSON formatted contents of the fleet provisioning template.
         :param pulumi.Input[_builtins.str] description: The description of the fleet provisioning template.
@@ -185,6 +186,7 @@ class _ProvisioningTemplateState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProvisioningTemplate resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN that identifies the provisioning template.
         :param pulumi.Input[_builtins.int] default_version_id: The default version of the fleet provisioning template.
         :param pulumi.Input[_builtins.str] description: The description of the fleet provisioning template.
@@ -454,6 +456,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
         $ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the fleet provisioning template.
@@ -541,6 +544,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProvisioningTemplateArgs args: The arguments to use to populate this resource's properties.

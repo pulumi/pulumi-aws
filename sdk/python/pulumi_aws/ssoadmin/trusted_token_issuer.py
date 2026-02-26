@@ -30,6 +30,7 @@ class TrustedTokenIssuerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TrustedTokenIssuer resource.
+
         :param pulumi.Input[_builtins.str] instance_arn: ARN of the instance of IAM Identity Center.
         :param pulumi.Input['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs'] trusted_token_issuer_configuration: A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
         :param pulumi.Input[_builtins.str] trusted_token_issuer_type: Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
@@ -153,6 +154,7 @@ class _TrustedTokenIssuerState:
                  trusted_token_issuer_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TrustedTokenIssuer resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the trusted token issuer.
         :param pulumi.Input[_builtins.str] client_token: A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
         :param pulumi.Input[_builtins.str] instance_arn: ARN of the instance of IAM Identity Center.
@@ -343,6 +345,7 @@ class TrustedTokenIssuer(pulumi.CustomResource):
         $ pulumi import aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer example arn:aws:sso::123456789012:trustedTokenIssuer/ssoins-lu1ye3gew4mbc7ju/tti-2657c556-9707-11ee-b9d1-0242ac120002
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] client_token: A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
@@ -394,6 +397,7 @@ class TrustedTokenIssuer(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer example arn:aws:sso::123456789012:trustedTokenIssuer/ssoins-lu1ye3gew4mbc7ju/tti-2657c556-9707-11ee-b9d1-0242ac120002
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TrustedTokenIssuerArgs args: The arguments to use to populate this resource's properties.

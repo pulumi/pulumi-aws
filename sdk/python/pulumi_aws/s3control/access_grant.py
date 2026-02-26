@@ -31,6 +31,7 @@ class AccessGrantArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AccessGrant resource.
+
         :param pulumi.Input[_builtins.str] access_grants_location_id: The ID of the S3 Access Grants location to with the access grant is giving access.
         :param pulumi.Input['AccessGrantGranteeArgs'] grantee: See Grantee below for more details.
         :param pulumi.Input[_builtins.str] permission: The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
@@ -168,6 +169,7 @@ class _AccessGrantState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AccessGrant resources.
+
         :param pulumi.Input[_builtins.str] access_grant_arn: Amazon Resource Name (ARN) of the S3 Access Grant.
         :param pulumi.Input[_builtins.str] access_grant_id: Unique ID of the S3 Access Grant.
         :param pulumi.Input['AccessGrantAccessGrantsLocationConfigurationArgs'] access_grants_location_configuration: See Location Configuration below for more details.
@@ -402,6 +404,7 @@ class AccessGrant(pulumi.CustomResource):
         $ pulumi import aws:s3control/accessGrant:AccessGrant example 123456789012,04549c5e-2f3c-4a07-824d-2cafe720aa22
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AccessGrantAccessGrantsLocationConfigurationArgs', 'AccessGrantAccessGrantsLocationConfigurationArgsDict']] access_grants_location_configuration: See Location Configuration below for more details.
@@ -454,6 +457,7 @@ class AccessGrant(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3control/accessGrant:AccessGrant example 123456789012,04549c5e-2f3c-4a07-824d-2cafe720aa22
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccessGrantArgs args: The arguments to use to populate this resource's properties.

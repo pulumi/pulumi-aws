@@ -26,6 +26,7 @@ class ReplicationSetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReplicationSet resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]] region: The replication set's Regions. Use `regions` instead.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]] regions: The replication set's Regions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -116,6 +117,7 @@ class _ReplicationSetState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ReplicationSet resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the replication set.
         :param pulumi.Input[_builtins.str] created_by: The ARN of the user who created the replication set.
         :param pulumi.Input[_builtins.bool] deletion_protected: If `true`, the last region in a replication set cannot be deleted.
@@ -372,6 +374,7 @@ class ReplicationSet(pulumi.CustomResource):
         $ pulumi import aws:ssmincidents/replicationSet:ReplicationSet replicationSetName import
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]] region: The replication set's Regions. Use `regions` instead.
@@ -473,6 +476,7 @@ class ReplicationSet(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ssmincidents/replicationSet:ReplicationSet replicationSetName import
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReplicationSetArgs args: The arguments to use to populate this resource's properties.

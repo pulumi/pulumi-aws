@@ -26,6 +26,7 @@ class BlockPublicAccessConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BlockPublicAccessConfiguration resource.
+
         :param pulumi.Input[_builtins.bool] block_public_security_group_rules: Enable or disable EMR Block Public Access.
                
                The following arguments are optional:
@@ -85,6 +86,7 @@ class _BlockPublicAccessConfigurationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BlockPublicAccessConfiguration resources.
+
         :param pulumi.Input[_builtins.bool] block_public_security_group_rules: Enable or disable EMR Block Public Access.
                
                The following arguments are optional:
@@ -220,6 +222,7 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
         $ pulumi import aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration example current
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] block_public_security_group_rules: Enable or disable EMR Block Public Access.
@@ -306,6 +309,7 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration example current
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BlockPublicAccessConfigurationArgs args: The arguments to use to populate this resource's properties.

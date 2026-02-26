@@ -23,6 +23,7 @@ class PullTimeUpdateExclusionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PullTimeUpdateExclusion resource.
+
         :param pulumi.Input[_builtins.str] principal_arn: ARN of the IAM principal to exclude from having image pull times recorded.
                
                The following arguments are optional:
@@ -66,6 +67,7 @@ class _PullTimeUpdateExclusionState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PullTimeUpdateExclusion resources.
+
         :param pulumi.Input[_builtins.str] principal_arn: ARN of the IAM principal to exclude from having image pull times recorded.
                
                The following arguments are optional:
@@ -190,6 +192,7 @@ class PullTimeUpdateExclusion(pulumi.CustomResource):
         $ pulumi import aws:ecr/pullTimeUpdateExclusion:PullTimeUpdateExclusion example arn:aws:iam::123456789012:role/example-role
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] principal_arn: ARN of the IAM principal to exclude from having image pull times recorded.
@@ -280,6 +283,7 @@ class PullTimeUpdateExclusion(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ecr/pullTimeUpdateExclusion:PullTimeUpdateExclusion example arn:aws:iam::123456789012:role/example-role
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PullTimeUpdateExclusionArgs args: The arguments to use to populate this resource's properties.

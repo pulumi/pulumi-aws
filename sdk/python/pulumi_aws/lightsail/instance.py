@@ -33,6 +33,7 @@ class InstanceArgs:
                  user_data: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Instance resource.
+
         :param pulumi.Input[_builtins.str] availability_zone: Availability Zone in which to create your instance. A list of available zones can be obtained using the AWS CLI command: [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
         :param pulumi.Input[_builtins.str] blueprint_id: ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
         :param pulumi.Input[_builtins.str] bundle_id: Bundle of specification information. A list of available bundle IDs can be obtained using the AWS CLI command: [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
@@ -212,6 +213,7 @@ class _InstanceState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Instance resources.
+
         :param pulumi.Input['InstanceAddOnArgs'] add_on: Add-on configuration for the instance. See below.
         :param pulumi.Input[_builtins.str] arn: ARN of the Lightsail instance (matches `id`).
         :param pulumi.Input[_builtins.str] availability_zone: Availability Zone in which to create your instance. A list of available zones can be obtained using the AWS CLI command: [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
@@ -605,6 +607,7 @@ class Instance(pulumi.CustomResource):
         $ pulumi import aws:lightsail/instance:Instance example 'example'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict']] add_on: Add-on configuration for the instance. See below.
@@ -694,6 +697,7 @@ class Instance(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lightsail/instance:Instance example 'example'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.

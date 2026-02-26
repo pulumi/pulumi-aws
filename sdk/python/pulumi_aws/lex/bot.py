@@ -38,6 +38,7 @@ class BotArgs:
                  voice_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Bot resource.
+
         :param pulumi.Input['BotAbortStatementArgs'] abort_statement: The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
         :param pulumi.Input[_builtins.bool] child_directed: By specifying true, you confirm that your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. For more information see the [Amazon Lex FAQ](https://aws.amazon.com/lex/faqs#data-security) and the [Amazon Lex PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-childDirected).
         :param pulumi.Input[Sequence[pulumi.Input['BotIntentArgs']]] intents: A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
@@ -290,6 +291,7 @@ class _BotState:
                  voice_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Bot resources.
+
         :param pulumi.Input['BotAbortStatementArgs'] abort_statement: The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
         :param pulumi.Input[_builtins.str] checksum: Checksum identifying the version of the bot that was created. The checksum is not
                included as an argument because the resource will add it automatically when updating the bot.
@@ -695,6 +697,7 @@ class Bot(pulumi.CustomResource):
         $ pulumi import aws:lex/bot:Bot order_flowers_bot OrderFlowers
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['BotAbortStatementArgs', 'BotAbortStatementArgsDict']] abort_statement: The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
@@ -764,6 +767,7 @@ class Bot(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lex/bot:Bot order_flowers_bot OrderFlowers
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BotArgs args: The arguments to use to populate this resource's properties.

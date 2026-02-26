@@ -30,6 +30,7 @@ class ConfiguredTableArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConfiguredTable resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_columns: The columns of the references table which will be included in the configured table.
         :param pulumi.Input[_builtins.str] analysis_method: The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
         :param pulumi.Input['ConfiguredTableTableReferenceArgs'] table_reference: A reference to the AWS Glue table which will be used to create the configured table.
@@ -155,6 +156,7 @@ class _ConfiguredTableState:
                  update_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConfiguredTable resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_columns: The columns of the references table which will be included in the configured table.
         :param pulumi.Input[_builtins.str] analysis_method: The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
         :param pulumi.Input[_builtins.str] arn: The ARN of the configured table.
@@ -385,6 +387,7 @@ class ConfiguredTable(pulumi.CustomResource):
         $ pulumi import aws:cleanrooms/configuredTable:ConfiguredTable table 1234abcd-12ab-34cd-56ef-1234567890ab
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_columns: The columns of the references table which will be included in the configured table.
@@ -450,6 +453,7 @@ class ConfiguredTable(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cleanrooms/configuredTable:ConfiguredTable table 1234abcd-12ab-34cd-56ef-1234567890ab
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConfiguredTableArgs args: The arguments to use to populate this resource's properties.

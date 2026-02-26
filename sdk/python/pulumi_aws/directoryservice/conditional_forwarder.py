@@ -25,6 +25,7 @@ class ConditionalForwarderArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConditionalForwarder resource.
+
         :param pulumi.Input[_builtins.str] directory_id: ID of directory.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_ips: A list of forwarder IP addresses.
         :param pulumi.Input[_builtins.str] remote_domain_name: The fully qualified domain name of the remote domain for which forwarders will be used.
@@ -94,6 +95,7 @@ class _ConditionalForwarderState:
                  remote_domain_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConditionalForwarder resources.
+
         :param pulumi.Input[_builtins.str] directory_id: ID of directory.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_ips: A list of forwarder IP addresses.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -194,6 +196,7 @@ class ConditionalForwarder(pulumi.CustomResource):
         $ pulumi import aws:directoryservice/conditionalForwarder:ConditionalForwarder example d-1234567890:example.com
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] directory_id: ID of directory.
@@ -232,6 +235,7 @@ class ConditionalForwarder(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:directoryservice/conditionalForwarder:ConditionalForwarder example d-1234567890:example.com
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConditionalForwarderArgs args: The arguments to use to populate this resource's properties.

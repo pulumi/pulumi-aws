@@ -31,6 +31,7 @@ class OrganizationConformancePackArgs:
                  template_s3_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OrganizationConformancePack resource.
+
         :param pulumi.Input[_builtins.str] delivery_s3_bucket: Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.
         :param pulumi.Input[_builtins.str] delivery_s3_key_prefix: The prefix for the Amazon S3 bucket. Maximum length of 1024.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_accounts: Set of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack. Maximum of 1000 accounts.
@@ -168,6 +169,7 @@ class _OrganizationConformancePackState:
                  template_s3_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationConformancePack resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the organization conformance pack.
         :param pulumi.Input[_builtins.str] delivery_s3_bucket: Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.
         :param pulumi.Input[_builtins.str] delivery_s3_key_prefix: The prefix for the Amazon S3 bucket. Maximum length of 1024.
@@ -404,6 +406,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
         $ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] delivery_s3_bucket: Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.
@@ -503,6 +506,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationConformancePackArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class ServiceActionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceAction resource.
+
         :param pulumi.Input['ServiceActionDefinitionArgs'] definition: Self-service action definition configuration block. Detailed below.
         :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
         :param pulumi.Input[_builtins.str] description: Self-service action description.
@@ -119,6 +120,7 @@ class _ServiceActionState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceAction resources.
+
         :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
         :param pulumi.Input['ServiceActionDefinitionArgs'] definition: Self-service action definition configuration block. Detailed below.
         :param pulumi.Input[_builtins.str] description: Self-service action description.
@@ -240,6 +242,7 @@ class ServiceAction(pulumi.CustomResource):
         $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
@@ -282,6 +285,7 @@ class ServiceAction(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceActionArgs args: The arguments to use to populate this resource's properties.

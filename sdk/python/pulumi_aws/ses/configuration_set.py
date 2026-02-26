@@ -29,6 +29,7 @@ class ConfigurationSetArgs:
                  tracking_options: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']] = None):
         """
         The set of arguments for constructing a ConfigurationSet resource.
+
         :param pulumi.Input['ConfigurationSetDeliveryOptionsArgs'] delivery_options: Whether messages that use the configuration set are required to use TLS. See below.
         :param pulumi.Input[_builtins.str] name: Name of the configuration set.
                
@@ -139,6 +140,7 @@ class _ConfigurationSetState:
                  tracking_options: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']] = None):
         """
         Input properties used for looking up and filtering ConfigurationSet resources.
+
         :param pulumi.Input[_builtins.str] arn: SES configuration set ARN.
         :param pulumi.Input['ConfigurationSetDeliveryOptionsArgs'] delivery_options: Whether messages that use the configuration set are required to use TLS. See below.
         :param pulumi.Input[_builtins.str] last_fresh_start: Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
@@ -327,6 +329,7 @@ class ConfigurationSet(pulumi.CustomResource):
         $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ConfigurationSetDeliveryOptionsArgs', 'ConfigurationSetDeliveryOptionsArgsDict']] delivery_options: Whether messages that use the configuration set are required to use TLS. See below.
@@ -391,6 +394,7 @@ class ConfigurationSet(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConfigurationSetArgs args: The arguments to use to populate this resource's properties.

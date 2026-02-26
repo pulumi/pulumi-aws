@@ -28,6 +28,7 @@ class VoiceConnectorTerminationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VoiceConnectorTermination resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] calling_regions: The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_allow_lists: The IP addresses allowed to make calls, in CIDR format.
         :param pulumi.Input[_builtins.str] voice_connector_id: The Amazon Chime Voice Connector ID.
@@ -145,6 +146,7 @@ class _VoiceConnectorTerminationState:
                  voice_connector_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VoiceConnectorTermination resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] calling_regions: The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_allow_lists: The IP addresses allowed to make calls, in CIDR format.
         :param pulumi.Input[_builtins.int] cps_limit: The limit on calls per second. Max value based on account service quota. Default value of `1`.
@@ -298,6 +300,7 @@ class VoiceConnectorTermination(pulumi.CustomResource):
         $ pulumi import aws:chime/voiceConnectorTermination:VoiceConnectorTermination default abcdef1ghij2klmno3pqr4
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] calling_regions: The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
@@ -344,6 +347,7 @@ class VoiceConnectorTermination(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:chime/voiceConnectorTermination:VoiceConnectorTermination default abcdef1ghij2klmno3pqr4
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VoiceConnectorTerminationArgs args: The arguments to use to populate this resource's properties.

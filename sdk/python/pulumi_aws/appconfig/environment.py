@@ -29,6 +29,7 @@ class EnvironmentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Environment resource.
+
         :param pulumi.Input[_builtins.str] application_id: AppConfig application ID. Must be between 4 and 7 characters in length.
         :param pulumi.Input[_builtins.str] description: Description of the environment. Can be at most 1024 characters.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]] monitors: Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
@@ -136,6 +137,7 @@ class _EnvironmentState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Environment resources.
+
         :param pulumi.Input[_builtins.str] application_id: AppConfig application ID. Must be between 4 and 7 characters in length.
         :param pulumi.Input[_builtins.str] arn: ARN of the AppConfig Environment.
         :param pulumi.Input[_builtins.str] description: Description of the environment. Can be at most 1024 characters.
@@ -340,6 +342,7 @@ class Environment(pulumi.CustomResource):
         $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: AppConfig application ID. Must be between 4 and 7 characters in length.
@@ -390,6 +393,7 @@ class Environment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.

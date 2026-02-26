@@ -23,6 +23,7 @@ class QueryLogArgs:
                  zone_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a QueryLog resource.
+
         :param pulumi.Input[_builtins.str] cloudwatch_log_group_arn: CloudWatch log group ARN to send query logs.
         :param pulumi.Input[_builtins.str] zone_id: Route53 hosted zone ID to enable query logs.
         """
@@ -62,6 +63,7 @@ class _QueryLogState:
                  zone_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering QueryLog resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Query Logging Config.
         :param pulumi.Input[_builtins.str] cloudwatch_log_group_arn: CloudWatch log group ARN to send query logs.
         :param pulumi.Input[_builtins.str] zone_id: Route53 hosted zone ID to enable query logs.
@@ -169,6 +171,7 @@ class QueryLog(pulumi.CustomResource):
         $ pulumi import aws:route53/queryLog:QueryLog example_com xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cloudwatch_log_group_arn: CloudWatch log group ARN to send query logs.
@@ -229,6 +232,7 @@ class QueryLog(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53/queryLog:QueryLog example_com xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         ```
+
 
         :param str resource_name: The name of the resource.
         :param QueryLogArgs args: The arguments to use to populate this resource's properties.

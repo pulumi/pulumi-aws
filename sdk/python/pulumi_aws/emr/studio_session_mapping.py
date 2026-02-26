@@ -27,6 +27,7 @@ class StudioSessionMappingArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a StudioSessionMapping resource.
+
         :param pulumi.Input[_builtins.str] identity_type: Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.
         :param pulumi.Input[_builtins.str] session_policy_arn: The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
         :param pulumi.Input[_builtins.str] studio_id: The ID of the Amazon EMR Studio to which the user or group will be mapped.
@@ -128,6 +129,7 @@ class _StudioSessionMappingState:
                  studio_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StudioSessionMapping resources.
+
         :param pulumi.Input[_builtins.str] identity_id: The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
         :param pulumi.Input[_builtins.str] identity_name: The name of the user or group from the Amazon Web Services SSO Identity Store.
         :param pulumi.Input[_builtins.str] identity_type: Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.
@@ -258,6 +260,7 @@ class StudioSessionMapping(pulumi.CustomResource):
         $ pulumi import aws:emr/studioSessionMapping:StudioSessionMapping example es-xxxxx:USER:xxxxx-xxx-xxx
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] identity_id: The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
@@ -296,6 +299,7 @@ class StudioSessionMapping(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:emr/studioSessionMapping:StudioSessionMapping example es-xxxxx:USER:xxxxx-xxx-xxx
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StudioSessionMappingArgs args: The arguments to use to populate this resource's properties.

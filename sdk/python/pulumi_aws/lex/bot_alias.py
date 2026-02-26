@@ -29,6 +29,7 @@ class BotAliasArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BotAlias resource.
+
         :param pulumi.Input[_builtins.str] bot_name: The name of the bot.
         :param pulumi.Input[_builtins.str] bot_version: The version of the bot.
         :param pulumi.Input['BotAliasConversationLogsArgs'] conversation_logs: The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
@@ -135,6 +136,7 @@ class _BotAliasState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BotAlias resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the bot alias.
         :param pulumi.Input[_builtins.str] bot_name: The name of the bot.
         :param pulumi.Input[_builtins.str] bot_version: The version of the bot.
@@ -326,6 +328,7 @@ class BotAlias(pulumi.CustomResource):
         $ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bot_name: The name of the bot.
@@ -365,6 +368,7 @@ class BotAlias(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BotAliasArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class IPSetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IPSet resource.
+
         :param pulumi.Input[_builtins.bool] activate: Specifies whether GuardDuty is to start using the uploaded IPSet.
         :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty.
         :param pulumi.Input[_builtins.str] format: The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
@@ -146,6 +147,7 @@ class _IPSetState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering IPSet resources.
+
         :param pulumi.Input[_builtins.bool] activate: Specifies whether GuardDuty is to start using the uploaded IPSet.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the GuardDuty IPSet.
         :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty.
@@ -338,6 +340,7 @@ class IPSet(pulumi.CustomResource):
         $ pulumi import aws:guardduty/iPSet:IPSet MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] activate: Specifies whether GuardDuty is to start using the uploaded IPSet.
@@ -393,6 +396,7 @@ class IPSet(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:guardduty/iPSet:IPSet MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IPSetArgs args: The arguments to use to populate this resource's properties.

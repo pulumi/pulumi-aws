@@ -25,6 +25,7 @@ class SshKeyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SshKey resource.
+
         :param pulumi.Input[_builtins.str] body: The public key portion of an SSH key pair.
         :param pulumi.Input[_builtins.str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
         :param pulumi.Input[_builtins.str] user_name: The name of the user account that is assigned to one or more servers.
@@ -95,6 +96,7 @@ class _SshKeyState:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SshKey resources.
+
         :param pulumi.Input[_builtins.str] body: The public key portion of an SSH key pair.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
@@ -241,6 +243,7 @@ class SshKey(pulumi.CustomResource):
         $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] body: The public key portion of an SSH key pair.
@@ -314,6 +317,7 @@ class SshKey(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SshKeyArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class TrackerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Tracker resource.
+
         :param pulumi.Input[_builtins.str] tracker_name: The name of the tracker resource.
                
                The following arguments are optional:
@@ -138,6 +139,7 @@ class _TrackerState:
                  update_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Tracker resources.
+
         :param pulumi.Input[_builtins.str] create_time: The timestamp for when the tracker resource was created in ISO 8601 format.
         :param pulumi.Input[_builtins.str] description: The optional description for the tracker resource.
         :param pulumi.Input[_builtins.str] kms_key_id: A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
@@ -328,6 +330,7 @@ class Tracker(pulumi.CustomResource):
         $ pulumi import aws:location/tracker:Tracker example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The optional description for the tracker resource.
@@ -364,6 +367,7 @@ class Tracker(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:location/tracker:Tracker example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TrackerArgs args: The arguments to use to populate this resource's properties.

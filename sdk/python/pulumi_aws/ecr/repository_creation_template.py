@@ -34,6 +34,7 @@ class RepositoryCreationTemplateArgs:
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RepositoryCreationTemplate resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applied_fors: Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
         :param pulumi.Input[_builtins.str] prefix: The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
         :param pulumi.Input[_builtins.str] custom_role_arn: A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
@@ -217,6 +218,7 @@ class _RepositoryCreationTemplateState:
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RepositoryCreationTemplate resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applied_fors: Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
         :param pulumi.Input[_builtins.str] custom_role_arn: A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
         :param pulumi.Input[_builtins.str] description: The description for this template.
@@ -492,6 +494,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
         $ pulumi import aws:ecr/repositoryCreationTemplate:RepositoryCreationTemplate example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applied_fors: Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
@@ -585,6 +588,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ecr/repositoryCreationTemplate:RepositoryCreationTemplate example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryCreationTemplateArgs args: The arguments to use to populate this resource's properties.

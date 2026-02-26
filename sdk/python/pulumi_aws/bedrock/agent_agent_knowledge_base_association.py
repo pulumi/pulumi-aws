@@ -30,6 +30,7 @@ class AgentAgentKnowledgeBaseAssociationArgs:
                  timeouts: Optional[pulumi.Input['AgentAgentKnowledgeBaseAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentAgentKnowledgeBaseAssociation resource.
+
         :param pulumi.Input[_builtins.str] agent_id: Unique identifier of the agent with which you want to associate the knowledge base.
         :param pulumi.Input[_builtins.str] description: Description of what the agent should use the knowledge base for.
         :param pulumi.Input[_builtins.str] knowledge_base_id: Unique identifier of the knowledge base to associate with the agent.
@@ -146,6 +147,7 @@ class _AgentAgentKnowledgeBaseAssociationState:
                  timeouts: Optional[pulumi.Input['AgentAgentKnowledgeBaseAssociationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AgentAgentKnowledgeBaseAssociation resources.
+
         :param pulumi.Input[_builtins.str] agent_id: Unique identifier of the agent with which you want to associate the knowledge base.
         :param pulumi.Input[_builtins.str] agent_version: Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
         :param pulumi.Input[_builtins.str] description: Description of what the agent should use the knowledge base for.
@@ -294,6 +296,7 @@ class AgentAgentKnowledgeBaseAssociation(pulumi.CustomResource):
         $ pulumi import aws:bedrock/agentAgentKnowledgeBaseAssociation:AgentAgentKnowledgeBaseAssociation example GGRRAED6JP,DRAFT,EMDPPAYPZI
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_id: Unique identifier of the agent with which you want to associate the knowledge base.
@@ -336,6 +339,7 @@ class AgentAgentKnowledgeBaseAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:bedrock/agentAgentKnowledgeBaseAssociation:AgentAgentKnowledgeBaseAssociation example GGRRAED6JP,DRAFT,EMDPPAYPZI
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AgentAgentKnowledgeBaseAssociationArgs args: The arguments to use to populate this resource's properties.

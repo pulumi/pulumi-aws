@@ -43,6 +43,7 @@ class BucketV2Args:
                  websites: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2WebsiteArgs']]]] = None):
         """
         The set of arguments for constructing a BucketV2 resource.
+
         :param pulumi.Input[_builtins.str] acceleration_status: Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. This provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketAccelerateConfiguration` instead.
         :param pulumi.Input[_builtins.str] acl: The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAcl` instead.
@@ -464,6 +465,7 @@ class _BucketV2State:
                  websites: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2WebsiteArgs']]]] = None):
         """
         Input properties used for looking up and filtering BucketV2 resources.
+
         :param pulumi.Input[_builtins.str] acceleration_status: Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. This provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketAccelerateConfiguration` instead.
         :param pulumi.Input[_builtins.str] acl: The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAcl` instead.
@@ -1042,6 +1044,7 @@ class BucketV2(pulumi.CustomResource):
         $ pulumi import aws:s3/bucketV2:BucketV2 example bucket-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] acceleration_status: Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. This provider will only perform drift detection if a configuration value is provided.
@@ -1131,6 +1134,7 @@ class BucketV2(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/bucketV2:BucketV2 example bucket-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BucketV2Args args: The arguments to use to populate this resource's properties.

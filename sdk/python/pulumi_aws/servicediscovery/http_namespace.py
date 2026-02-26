@@ -25,6 +25,7 @@ class HttpNamespaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a HttpNamespace resource.
+
         :param pulumi.Input[_builtins.str] description: The description that you specify for the namespace when you create it.
         :param pulumi.Input[_builtins.str] name: The name of the http namespace.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -100,6 +101,7 @@ class _HttpNamespaceState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering HttpNamespace resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN that Amazon Route 53 assigns to the namespace when you create it.
         :param pulumi.Input[_builtins.str] description: The description that you specify for the namespace when you create it.
         :param pulumi.Input[_builtins.str] http_name: The name of an HTTP namespace.
@@ -239,6 +241,7 @@ class HttpNamespace(pulumi.CustomResource):
         $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description that you specify for the namespace when you create it.
@@ -271,6 +274,7 @@ class HttpNamespace(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HttpNamespaceArgs args: The arguments to use to populate this resource's properties.

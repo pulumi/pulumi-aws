@@ -26,6 +26,7 @@ class ApplicationLayerAutomaticResponseArgs:
                  timeouts: Optional[pulumi.Input['ApplicationLayerAutomaticResponseTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ApplicationLayerAutomaticResponse resource.
+
         :param pulumi.Input[_builtins.str] action: One of `COUNT` or `BLOCK`
         :param pulumi.Input[_builtins.str] resource_arn: ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
         """
@@ -76,6 +77,7 @@ class _ApplicationLayerAutomaticResponseState:
                  timeouts: Optional[pulumi.Input['ApplicationLayerAutomaticResponseTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ApplicationLayerAutomaticResponse resources.
+
         :param pulumi.Input[_builtins.str] action: One of `COUNT` or `BLOCK`
         :param pulumi.Input[_builtins.str] resource_arn: ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
         """
@@ -152,6 +154,7 @@ class ApplicationLayerAutomaticResponse(pulumi.CustomResource):
             action="COUNT")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: One of `COUNT` or `BLOCK`
@@ -184,6 +187,7 @@ class ApplicationLayerAutomaticResponse(pulumi.CustomResource):
             resource_arn=f"arn:{current_get_partition.partition}:cloudfront:{current_get_caller_identity.account_id}:distribution/{distribution_id}",
             action="COUNT")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationLayerAutomaticResponseArgs args: The arguments to use to populate this resource's properties.

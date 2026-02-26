@@ -34,6 +34,7 @@ class DomainArgs:
                  timeouts: Optional[pulumi.Input['DomainTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Domain resource.
+
         :param pulumi.Input[_builtins.str] domain_execution_role: ARN of the role used by DataZone to configure the Domain.
                
                The following arguments are optional:
@@ -217,6 +218,7 @@ class _DomainState:
                  timeouts: Optional[pulumi.Input['DomainTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Domain resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Domain.
         :param pulumi.Input[_builtins.str] description: Description of the Domain.
         :param pulumi.Input[_builtins.str] domain_execution_role: ARN of the role used by DataZone to configure the Domain.
@@ -592,6 +594,7 @@ class Domain(pulumi.CustomResource):
         $ pulumi import aws:datazone/domain:Domain example domain-id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the Domain.
@@ -744,6 +747,7 @@ class Domain(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:datazone/domain:Domain example domain-id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.

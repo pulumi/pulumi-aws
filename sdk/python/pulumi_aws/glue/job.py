@@ -46,6 +46,7 @@ class JobArgs:
                  worker_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Job resource.
+
         :param pulumi.Input['JobCommandArgs'] command: The command of the job. Defined below.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role associated with this job.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] connections: The list of connections used for this job.
@@ -422,6 +423,7 @@ class _JobState:
                  worker_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Job resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of Glue Job
         :param pulumi.Input['JobCommandArgs'] command: The command of the job. Defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] connections: The list of connections used for this job.
@@ -1023,6 +1025,7 @@ class Job(pulumi.CustomResource):
         $ pulumi import aws:glue/job:Job MyJob MyJob
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['JobCommandArgs', 'JobCommandArgsDict']] command: The command of the job. Defined below.
@@ -1247,6 +1250,7 @@ class Job(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:glue/job:Job MyJob MyJob
         ```
+
 
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.

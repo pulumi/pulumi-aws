@@ -29,6 +29,7 @@ class VpcBlockPublicAccessExclusionArgs:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcBlockPublicAccessExclusion resource.
+
         :param pulumi.Input[_builtins.str] internet_gateway_exclusion_mode: Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
                
                The following arguments are optional:
@@ -134,6 +135,7 @@ class _VpcBlockPublicAccessExclusionState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcBlockPublicAccessExclusion resources.
+
         :param pulumi.Input[_builtins.str] internet_gateway_exclusion_mode: Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
                
                The following arguments are optional:
@@ -310,6 +312,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
         $ pulumi import aws:ec2/vpcBlockPublicAccessExclusion:VpcBlockPublicAccessExclusion example vpcbpa-exclude-1234abcd
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] internet_gateway_exclusion_mode: Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
@@ -365,6 +368,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/vpcBlockPublicAccessExclusion:VpcBlockPublicAccessExclusion example vpcbpa-exclude-1234abcd
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcBlockPublicAccessExclusionArgs args: The arguments to use to populate this resource's properties.

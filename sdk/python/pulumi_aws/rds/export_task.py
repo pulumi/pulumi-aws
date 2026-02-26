@@ -32,6 +32,7 @@ class ExportTaskArgs:
                  timeouts: Optional[pulumi.Input['ExportTaskTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ExportTask resource.
+
         :param pulumi.Input[_builtins.str] export_task_identifier: Unique identifier for the snapshot export task.
         :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role to use for writing to the Amazon S3 bucket.
         :param pulumi.Input[_builtins.str] kms_key_id: ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
@@ -187,6 +188,7 @@ class _ExportTaskState:
                  warning_message: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ExportTask resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] export_onlies: Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
         :param pulumi.Input[_builtins.str] export_task_identifier: Unique identifier for the snapshot export task.
         :param pulumi.Input[_builtins.str] failure_cause: Reason the export failed, if it failed.
@@ -566,6 +568,7 @@ class ExportTask(pulumi.CustomResource):
         $ pulumi import aws:rds/exportTask:ExportTask example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] export_onlies: Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
@@ -689,6 +692,7 @@ class ExportTask(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:rds/exportTask:ExportTask example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExportTaskArgs args: The arguments to use to populate this resource's properties.

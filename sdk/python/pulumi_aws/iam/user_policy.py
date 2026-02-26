@@ -27,6 +27,7 @@ class UserPolicyArgs:
                  name_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserPolicy resource.
+
         :param pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[_builtins.str] user: IAM user to which to attach this policy.
         :param pulumi.Input[_builtins.str] name: The name of the policy. If omitted, the provider will assign a random, unique name.
@@ -97,6 +98,7 @@ class _UserPolicyState:
                  user: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserPolicy resources.
+
         :param pulumi.Input[_builtins.str] name: The name of the policy. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']] policy: The policy document. This is a JSON formatted string.
@@ -208,6 +210,7 @@ class UserPolicy(pulumi.CustomResource):
         $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the policy. If omitted, the provider will assign a random, unique name.
@@ -257,6 +260,7 @@ class UserPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserPolicyArgs args: The arguments to use to populate this resource's properties.

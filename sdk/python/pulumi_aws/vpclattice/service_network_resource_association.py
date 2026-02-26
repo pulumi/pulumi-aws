@@ -29,6 +29,7 @@ class ServiceNetworkResourceAssociationArgs:
                  timeouts: Optional[pulumi.Input['ServiceNetworkResourceAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ServiceNetworkResourceAssociation resource.
+
         :param pulumi.Input[_builtins.str] resource_configuration_identifier: Identifier of Resource Configuration to associate to the Service Network.
         :param pulumi.Input[_builtins.str] service_network_identifier: Identifier of the Service Network to associate the Resource to.
                
@@ -134,6 +135,7 @@ class _ServiceNetworkResourceAssociationState:
                  timeouts: Optional[pulumi.Input['ServiceNetworkResourceAssociationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ServiceNetworkResourceAssociation resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Service Network Resource Association.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceNetworkResourceAssociationDnsEntryArgs']]] dns_entries: DNS entry of the association in the service network.
         :param pulumi.Input[_builtins.bool] private_dns_enabled: Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resource_configuration_identifier` must have a custom domain name or a group domain for private DNS.
@@ -312,6 +314,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
         $ pulumi import aws:vpclattice/serviceNetworkResourceAssociation:ServiceNetworkResourceAssociation example snra-1234567890abcef12
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] private_dns_enabled: Boolean indicating whether private DNS is enabled for the service network resource association. Defaults to `false`. When set to `true`, the resource configuration identified by `resource_configuration_identifier` must have a custom domain name or a group domain for private DNS.
@@ -354,6 +357,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:vpclattice/serviceNetworkResourceAssociation:ServiceNetworkResourceAssociation example snra-1234567890abcef12
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceNetworkResourceAssociationArgs args: The arguments to use to populate this resource's properties.

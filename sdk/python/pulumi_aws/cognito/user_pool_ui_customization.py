@@ -26,6 +26,7 @@ class UserPoolUICustomizationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserPoolUICustomization resource.
+
         :param pulumi.Input[_builtins.str] user_pool_id: The user pool ID for the user pool.
         :param pulumi.Input[_builtins.str] client_id: The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
         :param pulumi.Input[_builtins.str] css: The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
@@ -117,6 +118,7 @@ class _UserPoolUICustomizationState:
                  user_pool_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserPoolUICustomization resources.
+
         :param pulumi.Input[_builtins.str] client_id: The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
         :param pulumi.Input[_builtins.str] creation_date: The creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
         :param pulumi.Input[_builtins.str] css: The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
@@ -320,6 +322,7 @@ class UserPoolUICustomization(pulumi.CustomResource):
         $ pulumi import aws:cognito/userPoolUICustomization:UserPoolUICustomization example us-west-2_ZCTarbt5C,12bu4fuk3mlgqa2rtrujgp6egq
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] client_id: The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
@@ -386,6 +389,7 @@ class UserPoolUICustomization(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cognito/userPoolUICustomization:UserPoolUICustomization example us-west-2_ZCTarbt5C,12bu4fuk3mlgqa2rtrujgp6egq
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserPoolUICustomizationArgs args: The arguments to use to populate this resource's properties.

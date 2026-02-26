@@ -25,6 +25,7 @@ class VpnConcentratorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpnConcentrator resource.
+
         :param pulumi.Input[_builtins.str] transit_gateway_id: ID of the transit gateway to attach the VPN concentrator to.
                
                The following arguments are optional:
@@ -102,6 +103,7 @@ class _VpnConcentratorState:
                  vpn_concentrator_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpnConcentrator resources.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -255,6 +257,7 @@ class VpnConcentrator(pulumi.CustomResource):
         $ pulumi import aws:ec2/vpnConcentrator:VpnConcentrator example vcn-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -299,6 +302,7 @@ class VpnConcentrator(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/vpnConcentrator:VpnConcentrator example vcn-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpnConcentratorArgs args: The arguments to use to populate this resource's properties.

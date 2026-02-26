@@ -26,6 +26,7 @@ class TargetGroupAttachmentArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TargetGroupAttachment resource.
+
         :param pulumi.Input['TargetGroupAttachmentTargetArgs'] target: The target.
         :param pulumi.Input[_builtins.str] target_group_identifier: The ID or Amazon Resource Name (ARN) of the target group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -80,6 +81,7 @@ class _TargetGroupAttachmentState:
                  target_group_identifier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TargetGroupAttachment resources.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['TargetGroupAttachmentTargetArgs'] target: The target.
         :param pulumi.Input[_builtins.str] target_group_identifier: The ID or Amazon Resource Name (ARN) of the target group.
@@ -157,6 +159,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
             })
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -187,6 +190,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
                 "port": 80,
             })
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TargetGroupAttachmentArgs args: The arguments to use to populate this resource's properties.

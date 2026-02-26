@@ -24,6 +24,7 @@ class TenantResourceAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TenantResourceAssociation resource.
+
         :param pulumi.Input[_builtins.str] resource_arn: ARN of the SES resource to associate with the tenant.
                
                The following arguments are optional:
@@ -82,6 +83,7 @@ class _TenantResourceAssociationState:
                  tenant_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TenantResourceAssociation resources.
+
         :param pulumi.Input[_builtins.str] region: AWS region for SESv2 operations. If not specified, the default provider region is used.
         :param pulumi.Input[_builtins.str] resource_arn: ARN of the SES resource to associate with the tenant.
                
@@ -168,6 +170,7 @@ class TenantResourceAssociation(pulumi.CustomResource):
         $ pulumi import aws:sesv2/tenantResourceAssociation:TenantResourceAssociation example "example-tenant|arn:aws:ses:us-east-1:123456789012:configuration-set/example"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: AWS region for SESv2 operations. If not specified, the default provider region is used.
@@ -205,6 +208,7 @@ class TenantResourceAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sesv2/tenantResourceAssociation:TenantResourceAssociation example "example-tenant|arn:aws:ses:us-east-1:123456789012:configuration-set/example"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TenantResourceAssociationArgs args: The arguments to use to populate this resource's properties.

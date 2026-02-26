@@ -27,6 +27,7 @@ class AliasArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Alias resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['AliasRoutingConfigurationArgs']]] routing_configurations: The StateMachine alias' route configuration settings. Fields documented below
         :param pulumi.Input[_builtins.str] description: Description of the alias.
         :param pulumi.Input[_builtins.str] name: Name for the alias you are creating.
@@ -100,6 +101,7 @@ class _AliasState:
                  routing_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AliasRoutingConfigurationArgs']]]] = None):
         """
         Input properties used for looking up and filtering Alias resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) identifying your state machine alias.
         :param pulumi.Input[_builtins.str] creation_date: The date the state machine alias was created.
         :param pulumi.Input[_builtins.str] description: Description of the alias.
@@ -243,6 +245,7 @@ class Alias(pulumi.CustomResource):
         $ pulumi import aws:sfn/alias:Alias foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the alias.
@@ -294,6 +297,7 @@ class Alias(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sfn/alias:Alias foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AliasArgs args: The arguments to use to populate this resource's properties.

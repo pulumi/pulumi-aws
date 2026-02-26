@@ -24,6 +24,7 @@ class VirtualMfaDeviceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualMfaDevice resource.
+
         :param pulumi.Input[_builtins.str] virtual_mfa_device_name: Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
         :param pulumi.Input[_builtins.str] path: Path for the virtual MFA device.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -86,6 +87,7 @@ class _VirtualMfaDeviceState:
                  virtual_mfa_device_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualMfaDevice resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
         :param pulumi.Input[_builtins.str] base32_string_seed: Base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.
         :param pulumi.Input[_builtins.str] enable_date: Date and time when the virtual MFA device was enabled.
@@ -276,6 +278,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
         $ pulumi import aws:iam/virtualMfaDevice:VirtualMfaDevice example arn:aws:iam::123456789012:mfa/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] path: Path for the virtual MFA device.
@@ -314,6 +317,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iam/virtualMfaDevice:VirtualMfaDevice example arn:aws:iam::123456789012:mfa/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualMfaDeviceArgs args: The arguments to use to populate this resource's properties.

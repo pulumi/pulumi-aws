@@ -25,6 +25,7 @@ class VaultNotificationsArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VaultNotifications resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] backup_vault_events: An array of events that indicate the status of jobs to back up resources to the backup vault.
         :param pulumi.Input[_builtins.str] backup_vault_name: Name of the backup vault to add notifications for.
         :param pulumi.Input[_builtins.str] sns_topic_arn: The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
@@ -95,6 +96,7 @@ class _VaultNotificationsState:
                  sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VaultNotifications resources.
+
         :param pulumi.Input[_builtins.str] backup_vault_arn: The ARN of the vault.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] backup_vault_events: An array of events that indicate the status of jobs to back up resources to the backup vault.
         :param pulumi.Input[_builtins.str] backup_vault_name: Name of the backup vault to add notifications for.
@@ -225,6 +227,7 @@ class VaultNotifications(pulumi.CustomResource):
         $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] backup_vault_events: An array of events that indicate the status of jobs to back up resources to the backup vault.
@@ -278,6 +281,7 @@ class VaultNotifications(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VaultNotificationsArgs args: The arguments to use to populate this resource's properties.

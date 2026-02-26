@@ -28,6 +28,7 @@ class UserArgs:
                  send_email_notification: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a User resource.
+
         :param pulumi.Input[_builtins.str] authentication_type: Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
         :param pulumi.Input[_builtins.str] user_name: Email address of the user.
                
@@ -152,6 +153,7 @@ class _UserState:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering User resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the appstream user.
         :param pulumi.Input[_builtins.str] authentication_type: Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
         :param pulumi.Input[_builtins.str] created_time: Date and time, in UTC and extended RFC 3339 format, when the user was created.
@@ -332,6 +334,7 @@ class User(pulumi.CustomResource):
         $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authentication_type: Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
@@ -373,6 +376,7 @@ class User(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

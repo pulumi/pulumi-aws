@@ -25,6 +25,7 @@ class ClassificationExportConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClassificationExportConfiguration resource.
+
         :param pulumi.Input['ClassificationExportConfigurationS3DestinationArgs'] s3_destination: Configuration block for a S3 Destination. Defined below
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -64,6 +65,7 @@ class _ClassificationExportConfigurationState:
                  s3_destination: Optional[pulumi.Input['ClassificationExportConfigurationS3DestinationArgs']] = None):
         """
         Input properties used for looking up and filtering ClassificationExportConfiguration resources.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ClassificationExportConfigurationS3DestinationArgs'] s3_destination: Configuration block for a S3 Destination. Defined below
         """
@@ -132,6 +134,7 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
         $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example us-west-2
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -168,6 +171,7 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example us-west-2
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClassificationExportConfigurationArgs args: The arguments to use to populate this resource's properties.

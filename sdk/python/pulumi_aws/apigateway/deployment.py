@@ -26,6 +26,7 @@ class DeploymentArgs:
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Deployment resource.
+
         :param pulumi.Input[_builtins.str] rest_api: REST API identifier.
         :param pulumi.Input[_builtins.str] description: Description of the deployment.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -114,6 +115,7 @@ class _DeploymentState:
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Deployment resources.
+
         :param pulumi.Input[_builtins.str] created_date: Creation date of the deployment
         :param pulumi.Input[_builtins.str] description: Description of the deployment.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -241,6 +243,7 @@ class Deployment(pulumi.CustomResource):
 
         The `triggers` argument cannot be imported.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the deployment.
@@ -276,6 +279,7 @@ class Deployment(pulumi.CustomResource):
         The `variables` arguments cannot be imported. Use the `apigateway.Stage` resource to import and manage stages.
 
         The `triggers` argument cannot be imported.
+
 
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.

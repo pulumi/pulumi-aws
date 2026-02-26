@@ -23,6 +23,7 @@ class CostAllocationTagArgs:
                  tag_key: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a CostAllocationTag resource.
+
         :param pulumi.Input[_builtins.str] status: The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
         :param pulumi.Input[_builtins.str] tag_key: The key for the cost allocation tag.
         """
@@ -62,6 +63,7 @@ class _CostAllocationTagState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CostAllocationTag resources.
+
         :param pulumi.Input[_builtins.str] status: The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
         :param pulumi.Input[_builtins.str] tag_key: The key for the cost allocation tag.
         :param pulumi.Input[_builtins.str] type: The type of cost allocation tag.
@@ -141,6 +143,7 @@ class CostAllocationTag(pulumi.CustomResource):
         $ pulumi import aws:costexplorer/costAllocationTag:CostAllocationTag example key
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] status: The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
@@ -173,6 +176,7 @@ class CostAllocationTag(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:costexplorer/costAllocationTag:CostAllocationTag example key
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CostAllocationTagArgs args: The arguments to use to populate this resource's properties.

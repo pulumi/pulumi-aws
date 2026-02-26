@@ -29,6 +29,7 @@ class SslNegotiationPolicyArgs:
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SslNegotiationPolicy resource.
+
         :param pulumi.Input[_builtins.int] lb_port: The load balancer port to which the policy
                should be applied. This must be an active listener on the load
                balancer.
@@ -145,6 +146,7 @@ class _SslNegotiationPolicyState:
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SslNegotiationPolicy resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['SslNegotiationPolicyAttributeArgs']]] attributes: An SSL Negotiation policy attribute. Each has two properties:
         :param pulumi.Input[_builtins.int] lb_port: The load balancer port to which the policy
                should be applied. This must be an active listener on the load
@@ -320,6 +322,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
             ])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SslNegotiationPolicyAttributeArgs', 'SslNegotiationPolicyAttributeArgsDict']]]] attributes: An SSL Negotiation policy attribute. Each has two properties:
@@ -396,6 +399,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
                 },
             ])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SslNegotiationPolicyArgs args: The arguments to use to populate this resource's properties.

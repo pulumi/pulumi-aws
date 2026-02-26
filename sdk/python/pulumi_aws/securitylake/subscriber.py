@@ -31,6 +31,7 @@ class SubscriberArgs:
                  timeouts: Optional[pulumi.Input['SubscriberTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Subscriber resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]] sources: The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
         :param pulumi.Input['SubscriberSubscriberIdentityArgs'] subscriber_identity: The AWS identity used to access your data. See `subscriber_identity` Block below.
         :param pulumi.Input[_builtins.str] access_type: The Amazon S3 or Lake Formation access type.
@@ -169,6 +170,7 @@ class _SubscriberState:
                  timeouts: Optional[pulumi.Input['SubscriberTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Subscriber resources.
+
         :param pulumi.Input[_builtins.str] access_type: The Amazon S3 or Lake Formation access type.
         :param pulumi.Input[_builtins.str] arn: ARN of the Data Lake.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -490,6 +492,7 @@ class Subscriber(pulumi.CustomResource):
         $ pulumi import aws:securitylake/subscriber:Subscriber example 9f3bfe79-d543-474d-a93c-f3846805d208
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_type: The Amazon S3 or Lake Formation access type.
@@ -572,6 +575,7 @@ class Subscriber(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:securitylake/subscriber:Subscriber example 9f3bfe79-d543-474d-a93c-f3846805d208
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SubscriberArgs args: The arguments to use to populate this resource's properties.

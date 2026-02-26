@@ -25,6 +25,7 @@ class PermissionSetInlinePolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PermissionSetInlinePolicy resource.
+
         :param pulumi.Input[_builtins.str] inline_policy: The IAM inline policy to attach to a Permission Set.
         :param pulumi.Input[_builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[_builtins.str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
@@ -94,6 +95,7 @@ class _PermissionSetInlinePolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PermissionSetInlinePolicy resources.
+
         :param pulumi.Input[_builtins.str] inline_policy: The IAM inline policy to attach to a Permission Set.
         :param pulumi.Input[_builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[_builtins.str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
@@ -208,6 +210,7 @@ class PermissionSetInlinePolicy(pulumi.CustomResource):
         $ pulumi import aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] inline_policy: The IAM inline policy to attach to a Permission Set.
@@ -260,6 +263,7 @@ class PermissionSetInlinePolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PermissionSetInlinePolicyArgs args: The arguments to use to populate this resource's properties.

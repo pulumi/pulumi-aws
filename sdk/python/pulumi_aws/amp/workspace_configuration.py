@@ -28,6 +28,7 @@ class WorkspaceConfigurationArgs:
                  timeouts: Optional[pulumi.Input['WorkspaceConfigurationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a WorkspaceConfiguration resource.
+
         :param pulumi.Input[_builtins.str] workspace_id: ID of the workspace to configure.
                
                The following arguments are optional:
@@ -115,6 +116,7 @@ class _WorkspaceConfigurationState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceConfiguration resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetArgs']]] limits_per_label_sets: Configuration block for setting limits on metrics with specific label sets. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] retention_period_in_days: Number of days to retain metric data in the workspace.
@@ -269,6 +271,7 @@ class WorkspaceConfiguration(pulumi.CustomResource):
         $ pulumi import aws:amp/workspaceConfiguration:WorkspaceConfiguration example ws-12345678-abcd-1234-abcd-123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceConfigurationLimitsPerLabelSetArgs', 'WorkspaceConfigurationLimitsPerLabelSetArgsDict']]]] limits_per_label_sets: Configuration block for setting limits on metrics with specific label sets. Detailed below.
@@ -347,6 +350,7 @@ class WorkspaceConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:amp/workspaceConfiguration:WorkspaceConfiguration example ws-12345678-abcd-1234-abcd-123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceConfigurationArgs args: The arguments to use to populate this resource's properties.

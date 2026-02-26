@@ -25,6 +25,7 @@ class AppregistryApplicationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AppregistryApplication resource.
+
         :param pulumi.Input[_builtins.str] description: Description of the application.
         :param pulumi.Input[_builtins.str] name: Name of the application. The name must be unique within an AWS region.
                
@@ -104,6 +105,7 @@ class _AppregistryApplicationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AppregistryApplication resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] application_tag: A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
         :param pulumi.Input[_builtins.str] arn: ARN (Amazon Resource Name) of the application.
         :param pulumi.Input[_builtins.str] description: Description of the application.
@@ -263,6 +265,7 @@ class AppregistryApplication(pulumi.CustomResource):
         $ pulumi import aws:servicecatalog/appregistryApplication:AppregistryApplication example application-id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the application.
@@ -313,6 +316,7 @@ class AppregistryApplication(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:servicecatalog/appregistryApplication:AppregistryApplication example application-id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AppregistryApplicationArgs args: The arguments to use to populate this resource's properties.

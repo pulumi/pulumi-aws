@@ -26,6 +26,7 @@ class TableItemArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TableItem resource.
+
         :param pulumi.Input[_builtins.str] hash_key: Hash key to use for lookups and identification of the item
         :param pulumi.Input[_builtins.str] item: JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         :param pulumi.Input[_builtins.str] table_name: Name or ARN of the table to contain the item.
@@ -115,6 +116,7 @@ class _TableItemState:
                  table_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TableItem resources.
+
         :param pulumi.Input[_builtins.str] hash_key: Hash key to use for lookups and identification of the item
         :param pulumi.Input[_builtins.str] item: JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         :param pulumi.Input[_builtins.str] range_key: Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
@@ -247,6 +249,7 @@ class TableItem(pulumi.CustomResource):
 
         You cannot import DynamoDB table items.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] hash_key: Hash key to use for lookups and identification of the item
@@ -300,6 +303,7 @@ class TableItem(pulumi.CustomResource):
         ## Import
 
         You cannot import DynamoDB table items.
+
 
         :param str resource_name: The name of the resource.
         :param TableItemArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class HumanTaskUIArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a HumanTaskUI resource.
+
         :param pulumi.Input[_builtins.str] human_task_ui_name: The name of the Human Task UI.
         :param pulumi.Input['HumanTaskUIUiTemplateArgs'] ui_template: The Liquid template for the worker user interface. See UI Template below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -99,6 +100,7 @@ class _HumanTaskUIState:
                  ui_template: Optional[pulumi.Input['HumanTaskUIUiTemplateArgs']] = None):
         """
         Input properties used for looking up and filtering HumanTaskUI resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
         :param pulumi.Input[_builtins.str] human_task_ui_name: The name of the Human Task UI.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -228,6 +230,7 @@ class HumanTaskUI(pulumi.CustomResource):
         $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] human_task_ui_name: The name of the Human Task UI.
@@ -265,6 +268,7 @@ class HumanTaskUI(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HumanTaskUIArgs args: The arguments to use to populate this resource's properties.

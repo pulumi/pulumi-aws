@@ -34,6 +34,7 @@ class V2modelsBotArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a V2modelsBot resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsBotDataPrivacyArgs']]] data_privacies: Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `data_privacy`
         :param pulumi.Input[_builtins.int] idle_session_ttl_in_seconds: Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
         :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that has permission to access the bot.
@@ -217,6 +218,7 @@ class _V2modelsBotState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering V2modelsBot resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsBotDataPrivacyArgs']]] data_privacies: Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `data_privacy`
         :param pulumi.Input[_builtins.str] description: Description of the bot. It appears in lists to help you identify a particular bot.
         :param pulumi.Input[_builtins.int] idle_session_ttl_in_seconds: Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
@@ -475,6 +477,7 @@ class V2modelsBot(pulumi.CustomResource):
         $ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsBotDataPrivacyArgs', 'V2modelsBotDataPrivacyArgsDict']]]] data_privacies: Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `data_privacy`
@@ -545,6 +548,7 @@ class V2modelsBot(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param V2modelsBotArgs args: The arguments to use to populate this resource's properties.

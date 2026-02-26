@@ -24,6 +24,7 @@ class RoutingControlArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RoutingControl resource.
+
         :param pulumi.Input[_builtins.str] cluster_arn: ARN of the cluster in which this routing control will reside.
         :param pulumi.Input[_builtins.str] control_panel_arn: ARN of the control panel in which this routing control will reside.
         :param pulumi.Input[_builtins.str] name: The name describing the routing control.
@@ -85,6 +86,7 @@ class _RoutingControlState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RoutingControl resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the routing control.
         :param pulumi.Input[_builtins.str] cluster_arn: ARN of the cluster in which this routing control will reside.
         :param pulumi.Input[_builtins.str] control_panel_arn: ARN of the control panel in which this routing control will reside.
@@ -209,6 +211,7 @@ class RoutingControl(pulumi.CustomResource):
         $ pulumi import aws:route53recoverycontrol/routingControl:RoutingControl mycontrol arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8/routingcontrol/d5d90e587870494b
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_arn: ARN of the cluster in which this routing control will reside.
@@ -254,6 +257,7 @@ class RoutingControl(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53recoverycontrol/routingControl:RoutingControl mycontrol arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8/routingcontrol/d5d90e587870494b
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RoutingControlArgs args: The arguments to use to populate this resource's properties.

@@ -33,6 +33,7 @@ class DatabaseArgs:
                  workgroup: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Database resource.
+
         :param pulumi.Input['DatabaseAclConfigurationArgs'] acl_configuration: That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         :param pulumi.Input[_builtins.str] bucket: Name of S3 bucket to save the results of the query execution.
         :param pulumi.Input[_builtins.str] comment: Description of the database.
@@ -201,6 +202,7 @@ class _DatabaseState:
                  workgroup: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Database resources.
+
         :param pulumi.Input['DatabaseAclConfigurationArgs'] acl_configuration: That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         :param pulumi.Input[_builtins.str] bucket: Name of S3 bucket to save the results of the query execution.
         :param pulumi.Input[_builtins.str] comment: Description of the database.
@@ -405,6 +407,7 @@ class Database(pulumi.CustomResource):
             bucket=example_aws_s3_bucket["id"])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DatabaseAclConfigurationArgs', 'DatabaseAclConfigurationArgsDict']] acl_configuration: That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
@@ -457,6 +460,7 @@ class Database(pulumi.CustomResource):
             name="database_name",
             bucket=example_aws_s3_bucket["id"])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.

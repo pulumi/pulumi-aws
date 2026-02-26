@@ -42,6 +42,7 @@ class LaunchConfigurationArgs:
                  user_data_base64: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LaunchConfiguration resource.
+
         :param pulumi.Input[_builtins.str] image_id: The EC2 image ID to launch.
         :param pulumi.Input[_builtins.str] instance_type: The size of instance to launch.
                
@@ -357,6 +358,7 @@ class _LaunchConfigurationState:
                  user_data_base64: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LaunchConfiguration resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of the launch configuration.
         :param pulumi.Input[_builtins.bool] associate_public_ip_address: Associate a public ip address with an instance in a VPC.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEbsBlockDeviceArgs']]] ebs_block_devices: Additional EBS block devices to attach to the instance. See Block Devices below for details.
@@ -729,6 +731,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf pulumi-lg-123456
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] associate_public_ip_address: Associate a public ip address with an instance in a VPC.
@@ -797,6 +800,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf pulumi-lg-123456
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LaunchConfigurationArgs args: The arguments to use to populate this resource's properties.

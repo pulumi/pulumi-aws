@@ -37,6 +37,7 @@ class DatabaseArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Database resource.
+
         :param pulumi.Input[_builtins.str] blueprint_id: Blueprint ID for your database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
         :param pulumi.Input[_builtins.str] bundle_id: Bundle ID for your database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
         :param pulumi.Input[_builtins.str] master_database_name: Name of the master database created when the Lightsail database resource is created.
@@ -312,6 +313,7 @@ class _DatabaseState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Database resources.
+
         :param pulumi.Input[_builtins.bool] apply_immediately: Whether to apply changes immediately. When false, applies changes during the preferred maintenance window. Some changes may cause an outage.
         :param pulumi.Input[_builtins.str] arn: ARN of the database (matches `id`).
         :param pulumi.Input[_builtins.str] availability_zone: Availability Zone in which to create your database. Use the us-east-2a case-sensitive format.
@@ -931,6 +933,7 @@ class Database(pulumi.CustomResource):
         $ pulumi import aws:lightsail/database:Database example example-database
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] apply_immediately: Whether to apply changes immediately. When false, applies changes during the preferred maintenance window. Some changes may cause an outage.
@@ -1111,6 +1114,7 @@ class Database(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lightsail/database:Database example example-database
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.

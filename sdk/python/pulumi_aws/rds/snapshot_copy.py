@@ -32,6 +32,7 @@ class SnapshotCopyArgs:
                  target_custom_availability_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SnapshotCopy resource.
+
         :param pulumi.Input[_builtins.str] source_db_snapshot_identifier: Snapshot identifier of the source snapshot.
         :param pulumi.Input[_builtins.str] target_db_snapshot_identifier: The Identifier for the snapshot.
         :param pulumi.Input[_builtins.bool] copy_tags: Whether to copy existing tags. Defaults to `false`.
@@ -228,6 +229,7 @@ class _SnapshotCopyState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SnapshotCopy resources.
+
         :param pulumi.Input[_builtins.int] allocated_storage: Specifies the allocated storage size in gigabytes (GB).
         :param pulumi.Input[_builtins.str] availability_zone: Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
         :param pulumi.Input[_builtins.bool] copy_tags: Whether to copy existing tags. Defaults to `false`.
@@ -652,6 +654,7 @@ class SnapshotCopy(pulumi.CustomResource):
         $ pulumi import aws:rds/snapshotCopy:SnapshotCopy example my-snapshot
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] copy_tags: Whether to copy existing tags. Defaults to `false`.
@@ -707,6 +710,7 @@ class SnapshotCopy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:rds/snapshotCopy:SnapshotCopy example my-snapshot
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SnapshotCopyArgs args: The arguments to use to populate this resource's properties.

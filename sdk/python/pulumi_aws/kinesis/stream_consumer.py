@@ -25,6 +25,7 @@ class StreamConsumerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a StreamConsumer resource.
+
         :param pulumi.Input[_builtins.str] stream_arn: Amazon Resource Name (ARN) of the data stream the consumer is registered with.
         :param pulumi.Input[_builtins.str] name: Name of the stream consumer.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -95,6 +96,7 @@ class _StreamConsumerState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering StreamConsumer resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the stream consumer.
         :param pulumi.Input[_builtins.str] creation_timestamp: Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
         :param pulumi.Input[_builtins.str] name: Name of the stream consumer.
@@ -237,6 +239,7 @@ class StreamConsumer(pulumi.CustomResource):
 
         [1]: https://docs.aws.amazon.com/streams/latest/dev/enhanced-consumers.html
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the stream consumer.
@@ -279,6 +282,7 @@ class StreamConsumer(pulumi.CustomResource):
         ```
 
         [1]: https://docs.aws.amazon.com/streams/latest/dev/enhanced-consumers.html
+
 
         :param str resource_name: The name of the resource.
         :param StreamConsumerArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class ClusterPeeringArgs:
                  timeouts: Optional[pulumi.Input['ClusterPeeringTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ClusterPeering resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] clusters: List of DSQL Cluster ARNs to be peered to this cluster.
         :param pulumi.Input[_builtins.str] identifier: DSQL Cluster Identifier.
         :param pulumi.Input[_builtins.str] witness_region: Witness region for a multi-region cluster.
@@ -109,6 +110,7 @@ class _ClusterPeeringState:
                  witness_region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterPeering resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] clusters: List of DSQL Cluster ARNs to be peered to this cluster.
         :param pulumi.Input[_builtins.str] identifier: DSQL Cluster Identifier.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -230,6 +232,7 @@ class ClusterPeering(pulumi.CustomResource):
         $ pulumi import aws:dsql/clusterPeering:ClusterPeering example cluster-id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] clusters: List of DSQL Cluster ARNs to be peered to this cluster.
@@ -277,6 +280,7 @@ class ClusterPeering(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:dsql/clusterPeering:ClusterPeering example cluster-id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterPeeringArgs args: The arguments to use to populate this resource's properties.

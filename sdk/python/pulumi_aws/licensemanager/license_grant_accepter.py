@@ -23,6 +23,7 @@ class LicenseGrantAccepterArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LicenseGrantAccepter resource.
+
         :param pulumi.Input[_builtins.str] grant_arn: The ARN of the grant to accept.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -70,6 +71,7 @@ class _LicenseGrantAccepterState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LicenseGrantAccepter resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_operations: A list of the allowed operations for the grant.
         :param pulumi.Input[_builtins.str] grant_arn: The ARN of the grant to accept.
         :param pulumi.Input[_builtins.str] home_region: The home region for the license.
@@ -252,6 +254,7 @@ class LicenseGrantAccepter(pulumi.CustomResource):
         $ pulumi import aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter test arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] grant_arn: The ARN of the grant to accept.
@@ -282,6 +285,7 @@ class LicenseGrantAccepter(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter test arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LicenseGrantAccepterArgs args: The arguments to use to populate this resource's properties.

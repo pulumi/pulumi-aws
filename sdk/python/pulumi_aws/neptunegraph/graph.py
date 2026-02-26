@@ -34,6 +34,7 @@ class GraphArgs:
                  vector_search_configuration: Optional[pulumi.Input['GraphVectorSearchConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Graph resource.
+
         :param pulumi.Input[_builtins.int] provisioned_memory: The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
                
                The following arguments are optional:
@@ -220,6 +221,7 @@ class _GraphState:
                  vector_search_configuration: Optional[pulumi.Input['GraphVectorSearchConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering Graph resources.
+
         :param pulumi.Input[_builtins.str] arn: (String) Graph resource ARN
         :param pulumi.Input[_builtins.bool] deletion_protection: Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
         :param pulumi.Input[_builtins.str] endpoint: (String) The connection endpoint for the graph. For example: `g-12a3bcdef4.us-east-1.neptune-graph.amazonaws.com`
@@ -489,6 +491,7 @@ class Graph(pulumi.CustomResource):
         $ pulumi import aws:neptunegraph/graph:Graph example "graph_id"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] deletion_protection: Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
@@ -547,6 +550,7 @@ class Graph(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:neptunegraph/graph:Graph example "graph_id"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GraphArgs args: The arguments to use to populate this resource's properties.

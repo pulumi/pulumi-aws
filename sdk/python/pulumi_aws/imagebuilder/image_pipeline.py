@@ -39,6 +39,7 @@ class ImagePipelineArgs:
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowArgs']]]] = None):
         """
         The set of arguments for constructing a ImagePipeline resource.
+
         :param pulumi.Input[_builtins.str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
         :param pulumi.Input[_builtins.str] container_recipe_arn: Amazon Resource Name (ARN) of the container recipe.
         :param pulumi.Input[_builtins.str] description: Description of the image pipeline.
@@ -313,6 +314,7 @@ class _ImagePipelineState:
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowArgs']]]] = None):
         """
         Input properties used for looking up and filtering ImagePipeline resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the image pipeline.
         :param pulumi.Input[_builtins.str] container_recipe_arn: Amazon Resource Name (ARN) of the container recipe.
         :param pulumi.Input[_builtins.str] date_created: Date the image pipeline was created.
@@ -703,6 +705,7 @@ class ImagePipeline(pulumi.CustomResource):
         $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] container_recipe_arn: Amazon Resource Name (ARN) of the container recipe.
@@ -744,6 +747,7 @@ class ImagePipeline(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ImagePipelineArgs args: The arguments to use to populate this resource's properties.

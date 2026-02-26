@@ -31,6 +31,7 @@ class AssessmentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Assessment resource.
+
         :param pulumi.Input[_builtins.str] framework_id: Unique identifier of the framework the assessment will be created from.
         :param pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]] roles: List of roles for the assessment. See `roles` below.
         :param pulumi.Input['AssessmentAssessmentReportsDestinationArgs'] assessment_reports_destination: Assessment report storage destination configuration. See `assessment_reports_destination` below.
@@ -173,6 +174,7 @@ class _AssessmentState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Assessment resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the assessment.
         :param pulumi.Input['AssessmentAssessmentReportsDestinationArgs'] assessment_reports_destination: Assessment report storage destination configuration. See `assessment_reports_destination` below.
         :param pulumi.Input[_builtins.str] description: Description of the assessment.
@@ -411,6 +413,7 @@ class Assessment(pulumi.CustomResource):
         $ pulumi import aws:auditmanager/assessment:Assessment example abc123-de45
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AssessmentAssessmentReportsDestinationArgs', 'AssessmentAssessmentReportsDestinationArgsDict']] assessment_reports_destination: Assessment report storage destination configuration. See `assessment_reports_destination` below.
@@ -469,6 +472,7 @@ class Assessment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:auditmanager/assessment:Assessment example abc123-de45
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AssessmentArgs args: The arguments to use to populate this resource's properties.

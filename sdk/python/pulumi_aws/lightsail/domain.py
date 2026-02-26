@@ -23,6 +23,7 @@ class DomainArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Domain resource.
+
         :param pulumi.Input[_builtins.str] domain_name: Name of the Lightsail domain to manage.
                
                The following arguments are optional:
@@ -67,6 +68,7 @@ class _DomainState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Domain resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Lightsail domain.
         :param pulumi.Input[_builtins.str] domain_name: Name of the Lightsail domain to manage.
                
@@ -144,6 +146,7 @@ class Domain(pulumi.CustomResource):
         example = aws.lightsail.Domain("example", domain_name="example.com")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_name: Name of the Lightsail domain to manage.
@@ -172,6 +175,7 @@ class Domain(pulumi.CustomResource):
 
         example = aws.lightsail.Domain("example", domain_name="example.com")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.

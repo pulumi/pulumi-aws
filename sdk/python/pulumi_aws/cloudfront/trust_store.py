@@ -27,6 +27,7 @@ class TrustStoreArgs:
                  timeouts: Optional[pulumi.Input['TrustStoreTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a TrustStore resource.
+
         :param pulumi.Input['TrustStoreCaCertificatesBundleSourceArgs'] ca_certificates_bundle_source: Configuration block for the CA certificates bundle source. See `ca_certificates_bundle_source` below.
                
                The following arguments are optional:
@@ -102,6 +103,7 @@ class _TrustStoreState:
                  timeouts: Optional[pulumi.Input['TrustStoreTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering TrustStore resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the trust store.
         :param pulumi.Input['TrustStoreCaCertificatesBundleSourceArgs'] ca_certificates_bundle_source: Configuration block for the CA certificates bundle source. See `ca_certificates_bundle_source` below.
                
@@ -284,6 +286,7 @@ class TrustStore(pulumi.CustomResource):
         $ pulumi import aws:cloudfront/trustStore:TrustStore example ts_12abcXYZhA4Q6RS6tuvW5Xy0ZZZ
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TrustStoreCaCertificatesBundleSourceArgs', 'TrustStoreCaCertificatesBundleSourceArgsDict']] ca_certificates_bundle_source: Configuration block for the CA certificates bundle source. See `ca_certificates_bundle_source` below.
@@ -345,6 +348,7 @@ class TrustStore(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudfront/trustStore:TrustStore example ts_12abcXYZhA4Q6RS6tuvW5Xy0ZZZ
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TrustStoreArgs args: The arguments to use to populate this resource's properties.

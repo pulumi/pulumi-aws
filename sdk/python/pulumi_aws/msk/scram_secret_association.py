@@ -24,6 +24,7 @@ class ScramSecretAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScramSecretAssociation resource.
+
         :param pulumi.Input[_builtins.str] cluster_arn: Amazon Resource Name (ARN) of the MSK cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secret_arn_lists: List of AWS Secrets Manager secret ARNs.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _ScramSecretAssociationState:
                  secret_arn_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ScramSecretAssociation resources.
+
         :param pulumi.Input[_builtins.str] cluster_arn: Amazon Resource Name (ARN) of the MSK cluster.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secret_arn_lists: List of AWS Secrets Manager secret ARNs.
@@ -202,6 +204,7 @@ class ScramSecretAssociation(pulumi.CustomResource):
         $ pulumi import aws:msk/scramSecretAssociation:ScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_arn: Amazon Resource Name (ARN) of the MSK cluster.
@@ -279,6 +282,7 @@ class ScramSecretAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:msk/scramSecretAssociation:ScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ScramSecretAssociationArgs args: The arguments to use to populate this resource's properties.

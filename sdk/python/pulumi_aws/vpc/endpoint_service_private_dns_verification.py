@@ -27,6 +27,7 @@ class EndpointServicePrivateDnsVerificationArgs:
                  wait_for_verification: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a EndpointServicePrivateDnsVerification resource.
+
         :param pulumi.Input[_builtins.str] service_id: ID of the endpoint service.
                
                The following arguments are optional:
@@ -98,6 +99,7 @@ class _EndpointServicePrivateDnsVerificationState:
                  wait_for_verification: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering EndpointServicePrivateDnsVerification resources.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] service_id: ID of the endpoint service.
                
@@ -196,6 +198,7 @@ class EndpointServicePrivateDnsVerification(pulumi.CustomResource):
 
         You cannot import this resource.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -233,6 +236,7 @@ class EndpointServicePrivateDnsVerification(pulumi.CustomResource):
         ## Import
 
         You cannot import this resource.
+
 
         :param str resource_name: The name of the resource.
         :param EndpointServicePrivateDnsVerificationArgs args: The arguments to use to populate this resource's properties.

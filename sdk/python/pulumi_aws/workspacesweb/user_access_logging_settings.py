@@ -24,6 +24,7 @@ class UserAccessLoggingSettingsArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a UserAccessLoggingSettings resource.
+
         :param pulumi.Input[_builtins.str] kinesis_stream_arn: ARN of the Kinesis stream.
                
                The following arguments are optional:
@@ -86,6 +87,7 @@ class _UserAccessLoggingSettingsState:
                  user_access_logging_settings_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserAccessLoggingSettings resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_portal_arns: List of web portal ARNs that this user access logging settings resource is associated with.
         :param pulumi.Input[_builtins.str] kinesis_stream_arn: ARN of the Kinesis stream.
                
@@ -235,6 +237,7 @@ class UserAccessLoggingSettings(pulumi.CustomResource):
         $ pulumi import aws:workspacesweb/userAccessLoggingSettings:UserAccessLoggingSettings example arn:aws:workspaces-web:us-west-2:123456789012:userAccessLoggingSettings/abcdef12345
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] kinesis_stream_arn: ARN of the Kinesis stream.
@@ -290,6 +293,7 @@ class UserAccessLoggingSettings(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:workspacesweb/userAccessLoggingSettings:UserAccessLoggingSettings example arn:aws:workspaces-web:us-west-2:123456789012:userAccessLoggingSettings/abcdef12345
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserAccessLoggingSettingsArgs args: The arguments to use to populate this resource's properties.

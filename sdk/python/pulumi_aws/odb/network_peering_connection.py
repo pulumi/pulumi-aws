@@ -30,6 +30,7 @@ class NetworkPeeringConnectionArgs:
                  timeouts: Optional[pulumi.Input['NetworkPeeringConnectionTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a NetworkPeeringConnection resource.
+
         :param pulumi.Input[_builtins.str] display_name: Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
                
                The following arguments are optional:
@@ -156,6 +157,7 @@ class _NetworkPeeringConnectionState:
                  timeouts: Optional[pulumi.Input['NetworkPeeringConnectionTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering NetworkPeeringConnection resources.
+
         :param pulumi.Input[_builtins.str] created_at: Created time of the ODB network peering connection.
         :param pulumi.Input[_builtins.str] display_name: Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
                
@@ -424,6 +426,7 @@ class NetworkPeeringConnection(pulumi.CustomResource):
         $ pulumi import aws:odb/networkPeeringConnection:NetworkPeeringConnection example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
@@ -470,6 +473,7 @@ class NetworkPeeringConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:odb/networkPeeringConnection:NetworkPeeringConnection example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkPeeringConnectionArgs args: The arguments to use to populate this resource's properties.

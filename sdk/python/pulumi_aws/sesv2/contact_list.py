@@ -28,6 +28,7 @@ class ContactListArgs:
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input['ContactListTopicArgs']]]] = None):
         """
         The set of arguments for constructing a ContactList resource.
+
         :param pulumi.Input[_builtins.str] contact_list_name: Name of the contact list.
                
                The following arguments are optional:
@@ -123,6 +124,7 @@ class _ContactListState:
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input['ContactListTopicArgs']]]] = None):
         """
         Input properties used for looking up and filtering ContactList resources.
+
         :param pulumi.Input[_builtins.str] contact_list_name: Name of the contact list.
                
                The following arguments are optional:
@@ -308,6 +310,7 @@ class ContactList(pulumi.CustomResource):
         $ pulumi import aws:sesv2/contactList:ContactList example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] contact_list_name: Name of the contact list.
@@ -362,6 +365,7 @@ class ContactList(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sesv2/contactList:ContactList example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ContactListArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class EndpointArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
+
         :param pulumi.Input[_builtins.str] endpoint_config_name: The name of the endpoint configuration to use.
         :param pulumi.Input['EndpointDeploymentConfigArgs'] deployment_config: The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
         :param pulumi.Input[_builtins.str] name: The name of the endpoint. If omitted, the provider will assign a random, unique name.
@@ -117,6 +118,7 @@ class _EndpointState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Endpoint resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
         :param pulumi.Input['EndpointDeploymentConfigArgs'] deployment_config: The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
         :param pulumi.Input[_builtins.str] endpoint_config_name: The name of the endpoint configuration to use.
@@ -264,6 +266,7 @@ class Endpoint(pulumi.CustomResource):
         $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EndpointDeploymentConfigArgs', 'EndpointDeploymentConfigArgsDict']] deployment_config: The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
@@ -304,6 +307,7 @@ class Endpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EndpointArgs args: The arguments to use to populate this resource's properties.

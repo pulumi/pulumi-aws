@@ -34,6 +34,7 @@ class InputArgs:
                  vpc: Optional[pulumi.Input['InputVpcArgs']] = None):
         """
         The set of arguments for constructing a Input resource.
+
         :param pulumi.Input[_builtins.str] type: The different types of inputs that AWS Elemental MediaLive supports.
                
                The following arguments are optional:
@@ -227,6 +228,7 @@ class _InputState:
                  vpc: Optional[pulumi.Input['InputVpcArgs']] = None):
         """
         Input properties used for looking up and filtering Input resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Input.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] attached_channels: Channels attached to Input.
         :param pulumi.Input[Sequence[pulumi.Input['InputDestinationArgs']]] destinations: Destination settings for PUSH type inputs. See Destinations for more details.
@@ -538,6 +540,7 @@ class Input(pulumi.CustomResource):
         $ pulumi import aws:medialive/input:Input example 12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InputDestinationArgs', 'InputDestinationArgsDict']]]] destinations: Destination settings for PUSH type inputs. See Destinations for more details.
@@ -594,6 +597,7 @@ class Input(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:medialive/input:Input example 12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InputArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class SigningCertificateArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SigningCertificate resource.
+
         :param pulumi.Input[_builtins.str] certificate_body: The contents of the signing certificate in PEM-encoded format.
         :param pulumi.Input[_builtins.str] user_name: The name of the user the signing certificate is for.
         :param pulumi.Input[_builtins.str] status: The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
@@ -79,6 +80,7 @@ class _SigningCertificateState:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SigningCertificate resources.
+
         :param pulumi.Input[_builtins.str] certificate_body: The contents of the signing certificate in PEM-encoded format.
         :param pulumi.Input[_builtins.str] certificate_id: The ID for the signing certificate.
         :param pulumi.Input[_builtins.str] status: The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
@@ -192,6 +194,7 @@ class SigningCertificate(pulumi.CustomResource):
         $ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_body: The contents of the signing certificate in PEM-encoded format.
@@ -243,6 +246,7 @@ class SigningCertificate(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SigningCertificateArgs args: The arguments to use to populate this resource's properties.

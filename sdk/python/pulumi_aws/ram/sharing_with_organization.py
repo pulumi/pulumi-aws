@@ -54,6 +54,7 @@ class SharingWithOrganization(pulumi.CustomResource):
         $ pulumi import aws:ram/sharingWithOrganization:SharingWithOrganization example 123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -84,6 +85,7 @@ class SharingWithOrganization(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ram/sharingWithOrganization:SharingWithOrganization example 123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SharingWithOrganizationArgs args: The arguments to use to populate this resource's properties.

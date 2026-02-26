@@ -24,6 +24,7 @@ class IpAccessSettingsAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IpAccessSettingsAssociation resource.
+
         :param pulumi.Input[_builtins.str] ip_access_settings_arn: ARN of the IP access settings to associate with the portal. Forces replacement if changed.
         :param pulumi.Input[_builtins.str] portal_arn: ARN of the portal to associate with the IP access settings. Forces replacement if changed.
                
@@ -82,6 +83,7 @@ class _IpAccessSettingsAssociationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IpAccessSettingsAssociation resources.
+
         :param pulumi.Input[_builtins.str] ip_access_settings_arn: ARN of the IP access settings to associate with the portal. Forces replacement if changed.
         :param pulumi.Input[_builtins.str] portal_arn: ARN of the portal to associate with the IP access settings. Forces replacement if changed.
                
@@ -166,6 +168,7 @@ class IpAccessSettingsAssociation(pulumi.CustomResource):
             portal_arn=example.portal_arn)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ip_access_settings_arn: ARN of the IP access settings to associate with the portal. Forces replacement if changed.
@@ -201,6 +204,7 @@ class IpAccessSettingsAssociation(pulumi.CustomResource):
             ip_access_settings_arn=example_ip_access_settings.ip_access_settings_arn,
             portal_arn=example.portal_arn)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IpAccessSettingsAssociationArgs args: The arguments to use to populate this resource's properties.

@@ -38,6 +38,7 @@ class ExpressGatewayServiceArgs:
                  wait_for_steady_state: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ExpressGatewayService resource.
+
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
         :param pulumi.Input[_builtins.str] infrastructure_role_arn: ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
                
@@ -276,6 +277,7 @@ class _ExpressGatewayServiceState:
                  wait_for_steady_state: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ExpressGatewayService resources.
+
         :param pulumi.Input[_builtins.str] cluster: Name or ARN of the ECS cluster. Defaults to `default`.
         :param pulumi.Input[_builtins.str] cpu: Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
         :param pulumi.Input[_builtins.str] current_deployment: ARN of the current deployment.
@@ -628,6 +630,7 @@ class ExpressGatewayService(pulumi.CustomResource):
         $ pulumi import aws:ecs/expressGatewayService:ExpressGatewayService example arn:aws:ecs:us-west-2:123456789012:service/my-cluster/my-express-gateway-service
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster: Name or ARN of the ECS cluster. Defaults to `default`.
@@ -688,6 +691,7 @@ class ExpressGatewayService(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ecs/expressGatewayService:ExpressGatewayService example arn:aws:ecs:us-west-2:123456789012:service/my-cluster/my-express-gateway-service
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExpressGatewayServiceArgs args: The arguments to use to populate this resource's properties.

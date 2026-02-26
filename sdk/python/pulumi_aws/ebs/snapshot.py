@@ -29,6 +29,7 @@ class SnapshotArgs:
                  temporary_restore_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Snapshot resource.
+
         :param pulumi.Input[_builtins.str] volume_id: The Volume ID of which to make a snapshot.
         :param pulumi.Input[_builtins.str] description: A description of what the snapshot is.
         :param pulumi.Input[_builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
@@ -172,6 +173,7 @@ class _SnapshotState:
                  volume_size: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Snapshot resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the EBS Snapshot.
         :param pulumi.Input[_builtins.str] data_encryption_key_id: The data encryption key identifier for the snapshot.
         :param pulumi.Input[_builtins.str] description: A description of what the snapshot is.
@@ -460,6 +462,7 @@ class Snapshot(pulumi.CustomResource):
         $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of what the snapshot is.
@@ -506,6 +509,7 @@ class Snapshot(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SnapshotArgs args: The arguments to use to populate this resource's properties.

@@ -61,6 +61,7 @@ class LaunchTemplateArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LaunchTemplate resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateBlockDeviceMappingArgs']]] block_device_mappings: Specify volumes to attach to the instance besides the volumes specified by the AMI.
                See Block Devices below for details.
         :param pulumi.Input['LaunchTemplateCapacityReservationSpecificationArgs'] capacity_reservation_specification: Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
@@ -694,6 +695,7 @@ class _LaunchTemplateState:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LaunchTemplate resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the launch template.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateBlockDeviceMappingArgs']]] block_device_mappings: Specify volumes to attach to the instance besides the volumes specified by the AMI.
                See Block Devices below for details.
@@ -1382,6 +1384,7 @@ class LaunchTemplate(pulumi.CustomResource):
         $ pulumi import aws:ec2/launchTemplate:LaunchTemplate web lt-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateBlockDeviceMappingArgs', 'LaunchTemplateBlockDeviceMappingArgsDict']]]] block_device_mappings: Specify volumes to attach to the instance besides the volumes specified by the AMI.
@@ -1447,6 +1450,7 @@ class LaunchTemplate(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/launchTemplate:LaunchTemplate web lt-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LaunchTemplateArgs args: The arguments to use to populate this resource's properties.

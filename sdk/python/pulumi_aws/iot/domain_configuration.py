@@ -35,6 +35,7 @@ class DomainConfigurationArgs:
                  validation_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DomainConfiguration resource.
+
         :param pulumi.Input[_builtins.str] application_protocol: An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
         :param pulumi.Input[_builtins.str] authentication_type: An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
         :param pulumi.Input['DomainConfigurationAuthorizerConfigArgs'] authorizer_config: An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
@@ -238,6 +239,7 @@ class _DomainConfigurationState:
                  validation_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DomainConfiguration resources.
+
         :param pulumi.Input[_builtins.str] application_protocol: An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
         :param pulumi.Input[_builtins.str] arn: The ARN of the domain configuration.
         :param pulumi.Input[_builtins.str] authentication_type: An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
@@ -509,6 +511,7 @@ class DomainConfiguration(pulumi.CustomResource):
         $ pulumi import aws:iot/domainConfiguration:DomainConfiguration example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_protocol: An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
@@ -553,6 +556,7 @@ class DomainConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iot/domainConfiguration:DomainConfiguration example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DomainConfigurationArgs args: The arguments to use to populate this resource's properties.

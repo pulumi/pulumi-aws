@@ -26,6 +26,7 @@ class KeyPairArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a KeyPair resource.
+
         :param pulumi.Input[_builtins.str] public_key: The public key material.
         :param pulumi.Input[_builtins.str] key_name: The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
         :param pulumi.Input[_builtins.str] key_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `key_name`. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
@@ -118,6 +119,7 @@ class _KeyPairState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering KeyPair resources.
+
         :param pulumi.Input[_builtins.str] arn: The key pair ARN.
         :param pulumi.Input[_builtins.str] fingerprint: The MD5 public key fingerprint as specified in section 4 of RFC 4716.
         :param pulumi.Input[_builtins.str] key_name: The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
@@ -315,6 +317,7 @@ class KeyPair(pulumi.CustomResource):
 
         > **NOTE:** The AWS API does not include the public key in the response, so `pulumi up` will attempt to replace the key pair. There is currently no supported workaround for this limitation.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] key_name: The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
@@ -360,6 +363,7 @@ class KeyPair(pulumi.CustomResource):
         ```
 
         > **NOTE:** The AWS API does not include the public key in the response, so `pulumi up` will attempt to replace the key pair. There is currently no supported workaround for this limitation.
+
 
         :param str resource_name: The name of the resource.
         :param KeyPairArgs args: The arguments to use to populate this resource's properties.

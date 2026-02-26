@@ -34,6 +34,7 @@ class TopicSubscriptionArgs:
                  subscription_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TopicSubscription resource.
+
         :param pulumi.Input[_builtins.str] endpoint: Endpoint to send data to. The contents vary with the protocol. See details below.
         :param pulumi.Input[_builtins.str] protocol: Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
         :param pulumi.Input[_builtins.str] topic: ARN of the SNS topic to subscribe to.
@@ -255,6 +256,7 @@ class _TopicSubscriptionState:
                  topic: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TopicSubscription resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the subscription.
         :param pulumi.Input[_builtins.int] confirmation_timeout_in_minutes: Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
         :param pulumi.Input[_builtins.bool] confirmation_was_authenticated: Whether the subscription confirmation request was authenticated.
@@ -731,6 +733,7 @@ class TopicSubscription(pulumi.CustomResource):
         $ pulumi import aws:sns/topicSubscription:TopicSubscription user_updates_sqs_target arn:aws:sns:us-west-2:123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] confirmation_timeout_in_minutes: Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
@@ -948,6 +951,7 @@ class TopicSubscription(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sns/topicSubscription:TopicSubscription user_updates_sqs_target arn:aws:sns:us-west-2:123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TopicSubscriptionArgs args: The arguments to use to populate this resource's properties.

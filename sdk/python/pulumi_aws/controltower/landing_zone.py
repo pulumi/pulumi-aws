@@ -27,6 +27,7 @@ class LandingZoneArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LandingZone resource.
+
         :param pulumi.Input[_builtins.str] manifest_json: The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
         :param pulumi.Input[_builtins.str] version: The landing zone version.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -101,6 +102,7 @@ class _LandingZoneState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LandingZone resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the landing zone.
         :param pulumi.Input[Sequence[pulumi.Input['LandingZoneDriftStatusArgs']]] drift_statuses: The drift status summary of the landing zone.
         :param pulumi.Input[_builtins.str] latest_available_version: The latest available version of the landing zone.
@@ -247,6 +249,7 @@ class LandingZone(pulumi.CustomResource):
         $ pulumi import aws:controltower/landingZone:LandingZone example 1A2B3C4D5E6F7G8H
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] manifest_json: The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
@@ -271,6 +274,7 @@ class LandingZone(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:controltower/landingZone:LandingZone example 1A2B3C4D5E6F7G8H
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LandingZoneArgs args: The arguments to use to populate this resource's properties.

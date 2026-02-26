@@ -24,6 +24,7 @@ class TrustStoreAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TrustStoreAssociation resource.
+
         :param pulumi.Input[_builtins.str] portal_arn: ARN of the portal to associate with the trust store. Forces replacement if changed.
                
                The following arguments are optional:
@@ -82,6 +83,7 @@ class _TrustStoreAssociationState:
                  trust_store_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TrustStoreAssociation resources.
+
         :param pulumi.Input[_builtins.str] portal_arn: ARN of the portal to associate with the trust store. Forces replacement if changed.
                
                The following arguments are optional:
@@ -171,6 +173,7 @@ class TrustStoreAssociation(pulumi.CustomResource):
         $ pulumi import aws:workspacesweb/trustStoreAssociation:TrustStoreAssociation example arn:aws:workspaces-web:us-west-2:123456789012:trustStore/trust_store-id-12345678,arn:aws:workspaces-web:us-west-2:123456789012:portal/portal-id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] portal_arn: ARN of the portal to associate with the trust store. Forces replacement if changed.
@@ -211,6 +214,7 @@ class TrustStoreAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:workspacesweb/trustStoreAssociation:TrustStoreAssociation example arn:aws:workspaces-web:us-west-2:123456789012:trustStore/trust_store-id-12345678,arn:aws:workspaces-web:us-west-2:123456789012:portal/portal-id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TrustStoreAssociationArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class ResolverFirewallDomainListArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResolverFirewallDomainList resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domains: A array of domains for the firewall domain list.
         :param pulumi.Input[_builtins.str] name: A name that lets you identify the domain list, to manage and use it.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -99,6 +100,7 @@ class _ResolverFirewallDomainListState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ResolverFirewallDomainList resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN (Amazon Resource Name) of the domain list.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domains: A array of domains for the firewall domain list.
         :param pulumi.Input[_builtins.str] name: A name that lets you identify the domain list, to manage and use it.
@@ -223,6 +225,7 @@ class ResolverFirewallDomainList(pulumi.CustomResource):
         $ pulumi import aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList example rslvr-fdl-0123456789abcdef
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domains: A array of domains for the firewall domain list.
@@ -255,6 +258,7 @@ class ResolverFirewallDomainList(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList example rslvr-fdl-0123456789abcdef
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResolverFirewallDomainListArgs args: The arguments to use to populate this resource's properties.

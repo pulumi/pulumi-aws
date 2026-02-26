@@ -35,6 +35,7 @@ class ClassificationJobArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ClassificationJob resource.
+
         :param pulumi.Input[_builtins.str] job_type: The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `schedule_frequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `schedule_frequency` property to define the recurrence pattern for the job.
         :param pulumi.Input['ClassificationJobS3JobDefinitionArgs'] s3_job_definition: The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] custom_data_identifier_ids: The custom data identifiers to use for data analysis and classification.
@@ -238,6 +239,7 @@ class _ClassificationJobState:
                  user_paused_details: Optional[pulumi.Input[Sequence[pulumi.Input['ClassificationJobUserPausedDetailArgs']]]] = None):
         """
         Input properties used for looking up and filtering ClassificationJob resources.
+
         :param pulumi.Input[_builtins.str] created_at: The date and time, in UTC and extended RFC 3339 format, when the job was created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] custom_data_identifier_ids: The custom data identifiers to use for data analysis and classification.
         :param pulumi.Input[_builtins.str] description: A custom description of the job. The description can contain as many as 200 characters.
@@ -537,6 +539,7 @@ class ClassificationJob(pulumi.CustomResource):
         $ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] custom_data_identifier_ids: The custom data identifiers to use for data analysis and classification.
@@ -587,6 +590,7 @@ class ClassificationJob(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClassificationJobArgs args: The arguments to use to populate this resource's properties.

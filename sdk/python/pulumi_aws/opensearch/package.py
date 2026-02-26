@@ -29,6 +29,7 @@ class PackageArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Package resource.
+
         :param pulumi.Input[_builtins.str] package_name: Unique name for the package.
         :param pulumi.Input['PackagePackageSourceArgs'] package_source: Configuration block for the package source options.
         :param pulumi.Input[_builtins.str] package_type: The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
@@ -132,6 +133,7 @@ class _PackageState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Package resources.
+
         :param pulumi.Input[_builtins.str] available_package_version: The current version of the package.
         :param pulumi.Input[_builtins.str] engine_version: Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
         :param pulumi.Input[_builtins.str] package_description: Description of the package.
@@ -299,6 +301,7 @@ class Package(pulumi.CustomResource):
         $ pulumi import aws:opensearch/package:Package example package-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] engine_version: Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
@@ -348,6 +351,7 @@ class Package(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:opensearch/package:Package example package-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PackageArgs args: The arguments to use to populate this resource's properties.

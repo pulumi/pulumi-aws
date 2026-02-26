@@ -45,6 +45,7 @@ class NetworkInterfaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkInterface resource.
+
         :param pulumi.Input[_builtins.str] subnet_id: Subnet ID to create the ENI in.
                
                The following arguments are optional:
@@ -410,6 +411,7 @@ class _NetworkInterfaceState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NetworkInterface resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the network interface.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]] attachments: Configuration block to define the attachment of the ENI. See Attachment below for more details!
         :param pulumi.Input[_builtins.str] description: Description for the network interface.
@@ -902,6 +904,7 @@ class NetworkInterface(pulumi.CustomResource):
         $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceAttachmentArgs', 'NetworkInterfaceAttachmentArgsDict']]]] attachments: Configuration block to define the attachment of the ENI. See Attachment below for more details!
@@ -977,6 +980,7 @@ class NetworkInterface(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceArgs args: The arguments to use to populate this resource's properties.

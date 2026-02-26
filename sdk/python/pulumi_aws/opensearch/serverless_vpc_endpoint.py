@@ -29,6 +29,7 @@ class ServerlessVpcEndpointArgs:
                  timeouts: Optional[pulumi.Input['ServerlessVpcEndpointTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ServerlessVpcEndpoint resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: One or more subnet IDs from which you'll access OpenSearch Serverless. Up to 6 subnets can be provided.
         :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC from which you'll access OpenSearch Serverless.
                
@@ -131,6 +132,7 @@ class _ServerlessVpcEndpointState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerlessVpcEndpoint resources.
+
         :param pulumi.Input[_builtins.str] name: Name of the interface endpoint.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
@@ -262,6 +264,7 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
         $ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the interface endpoint.
@@ -302,6 +305,7 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerlessVpcEndpointArgs args: The arguments to use to populate this resource's properties.

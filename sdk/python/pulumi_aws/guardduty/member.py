@@ -28,6 +28,7 @@ class MemberArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Member resource.
+
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for member account.
         :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty account where you want to create member accounts.
         :param pulumi.Input[_builtins.str] email: Email address for member account.
@@ -146,6 +147,7 @@ class _MemberState:
                  relationship_status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Member resources.
+
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for member account.
         :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty account where you want to create member accounts.
         :param pulumi.Input[_builtins.bool] disable_email_notification: Boolean whether an email notification is sent to the accounts. Defaults to `false`.
@@ -310,6 +312,7 @@ class Member(pulumi.CustomResource):
         $ pulumi import aws:guardduty/member:Member MyMember 00b00fd5aecc0ab60a708659477e9617:123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for member account.
@@ -352,6 +355,7 @@ class Member(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:guardduty/member:Member MyMember 00b00fd5aecc0ab60a708659477e9617:123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MemberArgs args: The arguments to use to populate this resource's properties.

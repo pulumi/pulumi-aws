@@ -26,6 +26,7 @@ class ListenerPolicyArgs:
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ListenerPolicy resource.
+
         :param pulumi.Input[_builtins.str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[_builtins.int] load_balancer_port: The load balancer listener port to apply the policy to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policy_names: List of Policy Names to apply to the backend server.
@@ -112,6 +113,7 @@ class _ListenerPolicyState:
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ListenerPolicy resources.
+
         :param pulumi.Input[_builtins.str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[_builtins.int] load_balancer_port: The load balancer listener port to apply the policy to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policy_names: List of Policy Names to apply to the backend server.
@@ -283,6 +285,7 @@ class ListenerPolicy(pulumi.CustomResource):
 
         This example shows how to add a [Predefined Security Policy for ELBs](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-policy-table.html)
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] load_balancer_name: The load balancer to attach the policy to.
@@ -377,6 +380,7 @@ class ListenerPolicy(pulumi.CustomResource):
         ```
 
         This example shows how to add a [Predefined Security Policy for ELBs](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-policy-table.html)
+
 
         :param str resource_name: The name of the resource.
         :param ListenerPolicyArgs args: The arguments to use to populate this resource's properties.

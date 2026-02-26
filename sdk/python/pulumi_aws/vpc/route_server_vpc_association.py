@@ -27,6 +27,7 @@ class RouteServerVpcAssociationArgs:
                  timeouts: Optional[pulumi.Input['RouteServerVpcAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a RouteServerVpcAssociation resource.
+
         :param pulumi.Input[_builtins.str] route_server_id: The unique identifier for the route server to be associated.
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to associate with the route server.
                
@@ -97,6 +98,7 @@ class _RouteServerVpcAssociationState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RouteServerVpcAssociation resources.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] route_server_id: The unique identifier for the route server to be associated.
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to associate with the route server.
@@ -195,6 +197,7 @@ class RouteServerVpcAssociation(pulumi.CustomResource):
         $ pulumi import aws:vpc/routeServerVpcAssociation:RouteServerVpcAssociation example rs-12345678,vpc-0f001273ec18911b1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -232,6 +235,7 @@ class RouteServerVpcAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:vpc/routeServerVpcAssociation:RouteServerVpcAssociation example rs-12345678,vpc-0f001273ec18911b1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RouteServerVpcAssociationArgs args: The arguments to use to populate this resource's properties.

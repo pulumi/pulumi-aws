@@ -24,6 +24,7 @@ class LbAttachmentArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LbAttachment resource.
+
         :param pulumi.Input[_builtins.str] instance_name: Name of the instance to attach to the load balancer.
         :param pulumi.Input[_builtins.str] lb_name: Name of the Lightsail load balancer.
                
@@ -82,6 +83,7 @@ class _LbAttachmentState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LbAttachment resources.
+
         :param pulumi.Input[_builtins.str] instance_name: Name of the instance to attach to the load balancer.
         :param pulumi.Input[_builtins.str] lb_name: Name of the Lightsail load balancer.
                
@@ -183,6 +185,7 @@ class LbAttachment(pulumi.CustomResource):
         $ pulumi import aws:lightsail/lbAttachment:LbAttachment example example-load-balancer,example-instance
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] instance_name: Name of the instance to attach to the load balancer.
@@ -235,6 +238,7 @@ class LbAttachment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lightsail/lbAttachment:LbAttachment example example-load-balancer,example-instance
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LbAttachmentArgs args: The arguments to use to populate this resource's properties.

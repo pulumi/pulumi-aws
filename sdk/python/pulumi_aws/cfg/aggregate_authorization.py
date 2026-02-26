@@ -25,6 +25,7 @@ class AggregateAuthorizationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AggregateAuthorization resource.
+
         :param pulumi.Input[_builtins.str] account_id: Account ID.
         :param pulumi.Input[_builtins.str] authorized_aws_region: The region authorized to collect aggregated data.
         :param pulumi.Input[_builtins.str] region: The region authorized to collect aggregated data. Use `authorized_aws_region` instead.
@@ -102,6 +103,7 @@ class _AggregateAuthorizationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AggregateAuthorization resources.
+
         :param pulumi.Input[_builtins.str] account_id: Account ID.
         :param pulumi.Input[_builtins.str] arn: The ARN of the authorization
         :param pulumi.Input[_builtins.str] authorized_aws_region: The region authorized to collect aggregated data.
@@ -232,6 +234,7 @@ class AggregateAuthorization(pulumi.CustomResource):
         $ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Account ID.
@@ -266,6 +269,7 @@ class AggregateAuthorization(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AggregateAuthorizationArgs args: The arguments to use to populate this resource's properties.

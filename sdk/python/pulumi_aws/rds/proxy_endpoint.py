@@ -28,6 +28,7 @@ class ProxyEndpointArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ProxyEndpoint resource.
+
         :param pulumi.Input[_builtins.str] db_proxy_endpoint_name: The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
         :param pulumi.Input[_builtins.str] db_proxy_name: The name of the DB proxy associated with the DB proxy endpoint that you create.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_subnet_ids: One or more VPC subnet IDs to associate with the new proxy.
@@ -150,6 +151,7 @@ class _ProxyEndpointState:
                  vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ProxyEndpoint resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) for the proxy endpoint.
         :param pulumi.Input[_builtins.str] db_proxy_endpoint_name: The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
         :param pulumi.Input[_builtins.str] db_proxy_name: The name of the DB proxy associated with the DB proxy endpoint that you create.
@@ -367,6 +369,7 @@ class ProxyEndpoint(pulumi.CustomResource):
         $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] db_proxy_endpoint_name: The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
@@ -406,6 +409,7 @@ class ProxyEndpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProxyEndpointArgs args: The arguments to use to populate this resource's properties.

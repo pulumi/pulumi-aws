@@ -27,6 +27,7 @@ class ModelArgs:
                  schema: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Model resource.
+
         :param pulumi.Input[_builtins.str] content_type: Content type of the model
         :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API
         :param pulumi.Input[_builtins.str] description: Description of the model
@@ -129,6 +130,7 @@ class _ModelState:
                  schema: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Model resources.
+
         :param pulumi.Input[_builtins.str] content_type: Content type of the model
         :param pulumi.Input[_builtins.str] description: Description of the model
         :param pulumi.Input[_builtins.str] name: Name of the model
@@ -266,6 +268,7 @@ class Model(pulumi.CustomResource):
         $ pulumi import aws:apigateway/model:Model example 12345abcde/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content_type: Content type of the model
@@ -311,6 +314,7 @@ class Model(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apigateway/model:Model example 12345abcde/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ModelArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class ServiceSpecificCredentialArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceSpecificCredential resource.
+
         :param pulumi.Input[_builtins.str] service_name: The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials. Supported services are `codecommit.amazonaws.com`, `bedrock.amazonaws.com`, and `cassandra.amazonaws.com`.
         :param pulumi.Input[_builtins.str] user_name: The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service.
         :param pulumi.Input[_builtins.int] credential_age_days: The number of days until the service specific credential expires. This field is only valid for Bedrock API keys and must be between 1 and 36600 (approximately 100 years). When not specified, the credential will not expire.
@@ -102,6 +103,7 @@ class _ServiceSpecificCredentialState:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceSpecificCredential resources.
+
         :param pulumi.Input[_builtins.str] create_date: The date and time, in RFC3339 format, when the service-specific credential was created.
         :param pulumi.Input[_builtins.int] credential_age_days: The number of days until the service specific credential expires. This field is only valid for Bedrock API keys and must be between 1 and 36600 (approximately 100 years). When not specified, the credential will not expire.
         :param pulumi.Input[_builtins.str] expiration_date: The date and time, in RFC3339 format, when the service specific credential expires. This field is only present for Bedrock API keys that were created with an expiration period.
@@ -319,6 +321,7 @@ class ServiceSpecificCredential(pulumi.CustomResource):
         $ pulumi import aws:iam/serviceSpecificCredential:ServiceSpecificCredential default `codecommit.amazonaws.com:example:some-id`
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] credential_age_days: The number of days until the service specific credential expires. This field is only valid for Bedrock API keys and must be between 1 and 36600 (approximately 100 years). When not specified, the credential will not expire.
@@ -369,6 +372,7 @@ class ServiceSpecificCredential(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iam/serviceSpecificCredential:ServiceSpecificCredential default `codecommit.amazonaws.com:example:some-id`
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceSpecificCredentialArgs args: The arguments to use to populate this resource's properties.

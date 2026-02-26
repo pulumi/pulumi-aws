@@ -26,6 +26,7 @@ class UserPoolDomainArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserPoolDomain resource.
+
         :param pulumi.Input[_builtins.str] domain: For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
         :param pulumi.Input[_builtins.str] user_pool_id: The user pool ID.
         :param pulumi.Input[_builtins.str] certificate_arn: The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
@@ -118,6 +119,7 @@ class _UserPoolDomainState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserPoolDomain resources.
+
         :param pulumi.Input[_builtins.str] aws_account_id: The AWS account ID for the user pool owner.
         :param pulumi.Input[_builtins.str] certificate_arn: The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
         :param pulumi.Input[_builtins.str] cloudfront_distribution: The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
@@ -346,6 +348,7 @@ class UserPoolDomain(pulumi.CustomResource):
         $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_arn: The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
@@ -407,6 +410,7 @@ class UserPoolDomain(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserPoolDomainArgs args: The arguments to use to populate this resource's properties.

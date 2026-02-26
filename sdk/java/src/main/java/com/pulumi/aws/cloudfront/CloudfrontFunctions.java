@@ -1403,7 +1403,7 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var functionName = config.get("functionName");
+     *         final var functionName = config.require("functionName");
      *         final var existing = CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
      *             .name(functionName)
      *             .stage("LIVE")
@@ -1446,7 +1446,7 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var functionName = config.get("functionName");
+     *         final var functionName = config.require("functionName");
      *         final var existing = CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
      *             .name(functionName)
      *             .stage("LIVE")
@@ -1489,7 +1489,7 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var functionName = config.get("functionName");
+     *         final var functionName = config.require("functionName");
      *         final var existing = CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
      *             .name(functionName)
      *             .stage("LIVE")
@@ -1532,7 +1532,7 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var functionName = config.get("functionName");
+     *         final var functionName = config.require("functionName");
      *         final var existing = CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
      *             .name(functionName)
      *             .stage("LIVE")
@@ -1575,7 +1575,7 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var functionName = config.get("functionName");
+     *         final var functionName = config.require("functionName");
      *         final var existing = CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
      *             .name(functionName)
      *             .stage("LIVE")

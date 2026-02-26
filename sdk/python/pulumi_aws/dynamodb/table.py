@@ -50,6 +50,7 @@ class TableArgs:
                  write_capacity: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Table resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['TableAttributeArgs']]] attributes: Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
         :param pulumi.Input[_builtins.str] billing_mode: Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Enables deletion protection for table. Defaults to `false`.
@@ -506,6 +507,7 @@ class _TableState:
                  write_capacity: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Table resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the table
         :param pulumi.Input[Sequence[pulumi.Input['TableAttributeArgs']]] attributes: Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
         :param pulumi.Input[_builtins.str] billing_mode: Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
@@ -1340,6 +1342,7 @@ class Table(pulumi.CustomResource):
         $ pulumi import aws:dynamodb/table:Table basic-dynamodb-table GameScores
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableAttributeArgs', 'TableAttributeArgsDict']]]] attributes: Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
@@ -1701,6 +1704,7 @@ class Table(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:dynamodb/table:Table basic-dynamodb-table GameScores
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.

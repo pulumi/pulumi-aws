@@ -32,6 +32,7 @@ class TargetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Target resource.
+
         :param pulumi.Input[_builtins.int] max_capacity: Max capacity of the scalable target.
         :param pulumi.Input[_builtins.int] min_capacity: Min capacity of the scalable target.
         :param pulumi.Input[_builtins.str] resource_id: Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
@@ -181,6 +182,7 @@ class _TargetState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Target resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the scalable target.
         :param pulumi.Input[_builtins.int] max_capacity: Max capacity of the scalable target.
         :param pulumi.Input[_builtins.int] min_capacity: Min capacity of the scalable target.
@@ -466,6 +468,7 @@ class Target(pulumi.CustomResource):
         $ pulumi import aws:appautoscaling/target:Target test-target service-namespace/resource-id/scalable-dimension
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] max_capacity: Max capacity of the scalable target.
@@ -584,6 +587,7 @@ class Target(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appautoscaling/target:Target test-target service-namespace/resource-id/scalable-dimension
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TargetArgs args: The arguments to use to populate this resource's properties.
