@@ -238,6 +238,7 @@ provider: bin/$(PROVIDER)
 # To create a release ready binary, you should use `make provider`.
 provider_no_deps:
 	$(call build_provider_cmd,$(shell go env GOOS),$(shell go env GOARCH),$(WORKING_DIR)/bin/$(PROVIDER))
+# Traditional approach: Provider depends on schema (schema must exist first)
 bin/$(PROVIDER): .make/schema
 	$(call build_provider_cmd,$(shell go env GOOS),$(shell go env GOARCH),$(WORKING_DIR)/bin/$(PROVIDER))
 .PHONY: provider provider_no_deps
@@ -256,7 +257,7 @@ test_provider:
 .PHONY: test_provider
 
 tfgen: schema
-schema: .make/schema 
+schema: .make/schema
 # This does actually have dependencies, but we're keeping it around for backwards compatibility for now
 tfgen_no_deps: .make/schema
 .make/schema: export PULUMI_HOME := $(WORKING_DIR)/.pulumi
@@ -264,6 +265,7 @@ tfgen_no_deps: .make/schema
 .make/schema: export PULUMI_CONVERT_EXAMPLES_CACHE_DIR := $(WORKING_DIR)/.pulumi/examples-cache
 .make/schema: export PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION := $(PULUMI_CONVERT)
 .make/schema: export PULUMI_MISSING_DOCS_ERROR := $(PULUMI_MISSING_DOCS_ERROR)
+# Traditional approach: Use codegen binary for schema generation
 .make/schema: bin/$(CODEGEN) .make/mise_install .make/upstream
 .make/schema: | mise_env
 	$(WORKING_DIR)/bin/$(CODEGEN) schema --out provider/cmd/$(PROVIDER)
