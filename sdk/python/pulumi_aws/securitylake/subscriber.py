@@ -170,7 +170,7 @@ class _SubscriberState:
         """
         Input properties used for looking up and filtering Subscriber resources.
         :param pulumi.Input[_builtins.str] access_type: The Amazon S3 or Lake Formation access type.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Data Lake.
+        :param pulumi.Input[_builtins.str] arn: The ARN of the subscriber.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_share_arn: The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
         :param pulumi.Input[_builtins.str] resource_share_name: The name of the resource share.
@@ -234,7 +234,7 @@ class _SubscriberState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ARN of the Data Lake.
+        The ARN of the subscriber.
         """
         return pulumi.get(self, "arn")
 
@@ -659,7 +659,7 @@ class Subscriber(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_type: The Amazon S3 or Lake Formation access type.
-        :param pulumi.Input[_builtins.str] arn: ARN of the Data Lake.
+        :param pulumi.Input[_builtins.str] arn: The ARN of the subscriber.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_share_arn: The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
         :param pulumi.Input[_builtins.str] resource_share_name: The name of the resource share.
@@ -708,7 +708,7 @@ class Subscriber(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        ARN of the Data Lake.
+        The ARN of the subscriber.
         """
         return pulumi.get(self, "arn")
 

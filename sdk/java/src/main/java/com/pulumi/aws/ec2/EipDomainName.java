@@ -67,6 +67,14 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ## Import
+ * 
+ * Using `pulumi import`, import a static reverse DNS record to an Elastic IP addresses using their association IDs. For example:
+ * 
+ * ```sh
+ * $ pulumi import aws:ec2/eipDomainName:EipDomainName test eipassoc-ab12c345
+ * ```
+ * 
  */
 @ResourceType(type="aws:ec2/eipDomainName:EipDomainName")
 public class EipDomainName extends com.pulumi.resources.CustomResource {

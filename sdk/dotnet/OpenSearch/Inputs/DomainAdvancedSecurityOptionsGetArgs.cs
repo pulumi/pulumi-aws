@@ -31,6 +31,12 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         public Input<bool>? InternalUserDatabaseEnabled { get; set; }
 
         /// <summary>
+        /// Configuration block for JWT authentication. Requires OpenSearch 2.11 or later. Detailed below.
+        /// </summary>
+        [Input("jwtOptions")]
+        public Input<Inputs.DomainAdvancedSecurityOptionsJwtOptionsGetArgs>? JwtOptions { get; set; }
+
+        /// <summary>
         /// Configuration block for the main user. Detailed below.
         /// </summary>
         [Input("masterUserOptions")]

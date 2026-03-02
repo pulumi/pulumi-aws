@@ -82,7 +82,13 @@ export class AppMonitor extends pulumi.CustomResource {
      * The name of the log group where the copies are stored.
      */
     declare public /*out*/ readonly cwLogGroup: pulumi.Output<string>;
+    /**
+     * The top-level internet domain name for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
+     */
     declare public readonly domain: pulumi.Output<string | undefined>;
+    /**
+     * A list of internet domain names for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
+     */
     declare public readonly domainLists: pulumi.Output<string[] | undefined>;
     /**
      * The name of the log stream.
@@ -174,7 +180,13 @@ export interface AppMonitorState {
      * The name of the log group where the copies are stored.
      */
     cwLogGroup?: pulumi.Input<string>;
+    /**
+     * The top-level internet domain name for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
+     */
     domain?: pulumi.Input<string>;
+    /**
+     * A list of internet domain names for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
+     */
     domainLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the log stream.
@@ -210,7 +222,13 @@ export interface AppMonitorArgs {
      * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
      */
     cwLogEnabled?: pulumi.Input<boolean>;
+    /**
+     * The top-level internet domain name for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
+     */
     domain?: pulumi.Input<string>;
+    /**
+     * A list of internet domain names for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
+     */
     domainLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the log stream.

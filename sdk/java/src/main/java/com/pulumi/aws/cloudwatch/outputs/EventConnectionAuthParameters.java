@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudwatch.outputs;
 
 import com.pulumi.aws.cloudwatch.outputs.EventConnectionAuthParametersApiKey;
 import com.pulumi.aws.cloudwatch.outputs.EventConnectionAuthParametersBasic;
+import com.pulumi.aws.cloudwatch.outputs.EventConnectionAuthParametersConnectivityParameters;
 import com.pulumi.aws.cloudwatch.outputs.EventConnectionAuthParametersInvocationHttpParameters;
 import com.pulumi.aws.cloudwatch.outputs.EventConnectionAuthParametersOauth;
 import com.pulumi.core.annotations.CustomType;
@@ -24,6 +25,11 @@ public final class EventConnectionAuthParameters {
      * 
      */
     private @Nullable EventConnectionAuthParametersBasic basic;
+    /**
+     * @return Parameters used for `oauth` with private API. Documented below.
+     * 
+     */
+    private @Nullable EventConnectionAuthParametersConnectivityParameters connectivityParameters;
     /**
      * @return Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
      * 
@@ -51,6 +57,13 @@ public final class EventConnectionAuthParameters {
         return Optional.ofNullable(this.basic);
     }
     /**
+     * @return Parameters used for `oauth` with private API. Documented below.
+     * 
+     */
+    public Optional<EventConnectionAuthParametersConnectivityParameters> connectivityParameters() {
+        return Optional.ofNullable(this.connectivityParameters);
+    }
+    /**
      * @return Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
      * 
      */
@@ -76,6 +89,7 @@ public final class EventConnectionAuthParameters {
     public static final class Builder {
         private @Nullable EventConnectionAuthParametersApiKey apiKey;
         private @Nullable EventConnectionAuthParametersBasic basic;
+        private @Nullable EventConnectionAuthParametersConnectivityParameters connectivityParameters;
         private @Nullable EventConnectionAuthParametersInvocationHttpParameters invocationHttpParameters;
         private @Nullable EventConnectionAuthParametersOauth oauth;
         public Builder() {}
@@ -83,6 +97,7 @@ public final class EventConnectionAuthParameters {
     	      Objects.requireNonNull(defaults);
     	      this.apiKey = defaults.apiKey;
     	      this.basic = defaults.basic;
+    	      this.connectivityParameters = defaults.connectivityParameters;
     	      this.invocationHttpParameters = defaults.invocationHttpParameters;
     	      this.oauth = defaults.oauth;
         }
@@ -97,6 +112,12 @@ public final class EventConnectionAuthParameters {
         public Builder basic(@Nullable EventConnectionAuthParametersBasic basic) {
 
             this.basic = basic;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder connectivityParameters(@Nullable EventConnectionAuthParametersConnectivityParameters connectivityParameters) {
+
+            this.connectivityParameters = connectivityParameters;
             return this;
         }
         @CustomType.Setter
@@ -115,6 +136,7 @@ public final class EventConnectionAuthParameters {
             final var _resultValue = new EventConnectionAuthParameters();
             _resultValue.apiKey = apiKey;
             _resultValue.basic = basic;
+            _resultValue.connectivityParameters = connectivityParameters;
             _resultValue.invocationHttpParameters = invocationHttpParameters;
             _resultValue.oauth = oauth;
             return _resultValue;

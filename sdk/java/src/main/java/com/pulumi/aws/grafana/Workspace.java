@@ -252,6 +252,20 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.grafanaVersion;
     }
     /**
+     * The ARN of the AWS KMS key for encrypting workspace data.
+     * 
+     */
+    @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
+    private Output<String> kmsKeyId;
+
+    /**
+     * @return The ARN of the AWS KMS key for encrypting workspace data.
+     * 
+     */
+    public Output<String> kmsKeyId() {
+        return this.kmsKeyId;
+    }
+    /**
      * The Grafana workspace name.
      * 
      */

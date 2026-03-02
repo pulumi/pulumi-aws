@@ -196,6 +196,10 @@ namespace Pulumi.Aws.Grafana
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The ID or ARN of the AWS KMS key for encrypting workspace data.
+        /// </summary>
+        public readonly string KmsKeyId;
+        /// <summary>
         /// Last updated date of the Grafana workspace.
         /// </summary>
         public readonly string LastUpdatedDate;
@@ -259,6 +263,8 @@ namespace Pulumi.Aws.Grafana
 
             string id,
 
+            string kmsKeyId,
+
             string lastUpdatedDate,
 
             string name,
@@ -294,6 +300,7 @@ namespace Pulumi.Aws.Grafana
             Endpoint = endpoint;
             GrafanaVersion = grafanaVersion;
             Id = id;
+            KmsKeyId = kmsKeyId;
             LastUpdatedDate = lastUpdatedDate;
             Name = name;
             NotificationDestinations = notificationDestinations;

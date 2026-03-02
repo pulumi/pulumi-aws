@@ -100,9 +100,13 @@ type AgentcoreApiKeyCredentialProvider struct {
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// **Standard API Key (choose one approach):**
-	Region pulumi.StringOutput `pulumi:"region"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewAgentcoreApiKeyCredentialProvider registers a new resource with the given unique name, arguments, and options.
@@ -164,9 +168,13 @@ type agentcoreApiKeyCredentialProviderState struct {
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// **Standard API Key (choose one approach):**
-	Region *string `pulumi:"region"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type AgentcoreApiKeyCredentialProviderState struct {
@@ -188,9 +196,13 @@ type AgentcoreApiKeyCredentialProviderState struct {
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// **Standard API Key (choose one approach):**
-	Region pulumi.StringPtrInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (AgentcoreApiKeyCredentialProviderState) ElementType() reflect.Type {
@@ -212,9 +224,11 @@ type agentcoreApiKeyCredentialProviderArgs struct {
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// **Standard API Key (choose one approach):**
-	Region *string `pulumi:"region"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AgentcoreApiKeyCredentialProvider resource.
@@ -233,9 +247,11 @@ type AgentcoreApiKeyCredentialProviderArgs struct {
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// **Standard API Key (choose one approach):**
-	Region pulumi.StringPtrInput
+	Tags pulumi.StringMapInput
 }
 
 func (AgentcoreApiKeyCredentialProviderArgs) ElementType() reflect.Type {
@@ -363,10 +379,20 @@ func (o AgentcoreApiKeyCredentialProviderOutput) Name() pulumi.StringOutput {
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-//
-// **Standard API Key (choose one approach):**
 func (o AgentcoreApiKeyCredentialProviderOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreApiKeyCredentialProvider) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// **Standard API Key (choose one approach):**
+func (o AgentcoreApiKeyCredentialProviderOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AgentcoreApiKeyCredentialProvider) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+func (o AgentcoreApiKeyCredentialProviderOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AgentcoreApiKeyCredentialProvider) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 type AgentcoreApiKeyCredentialProviderArrayOutput struct{ *pulumi.OutputState }

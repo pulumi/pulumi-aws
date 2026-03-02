@@ -266,9 +266,10 @@ import (
 //							pulumi.String("read"),
 //							pulumi.String("write"),
 //						},
+//						GrantType:        pulumi.String("authorization_code"),
+//						DefaultReturnUrl: pulumi.String("https://myapp.example.com/callback"),
 //						CustomParameters: pulumi.StringMap{
 //							"client_type": pulumi.String("confidential"),
-//							"grant_type":  pulumi.String("authorization_code"),
 //						},
 //					},
 //				},
@@ -406,6 +407,53 @@ import (
 //
 // ```
 //
+// ### MCP Server Target with Header Propagation
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := bedrock.NewAgentcoreGatewayTarget(ctx, "mcp_with_headers", &bedrock.AgentcoreGatewayTargetArgs{
+//				Name:              pulumi.String("mcp-target-with-headers"),
+//				GatewayIdentifier: pulumi.Any(example.GatewayId),
+//				Description:       pulumi.String("MCP server target with header propagation"),
+//				TargetConfiguration: &bedrock.AgentcoreGatewayTargetTargetConfigurationArgs{
+//					Mcp: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpArgs{
+//						McpServer: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs{
+//							Endpoint: pulumi.String("https://example.com/mcp"),
+//						},
+//					},
+//				},
+//				MetadataConfiguration: &bedrock.AgentcoreGatewayTargetMetadataConfigurationArgs{
+//					AllowedRequestHeaders: pulumi.StringArray{
+//						pulumi.String("x-correlation-id"),
+//						pulumi.String("x-tenant-id"),
+//					},
+//					AllowedResponseHeaders: pulumi.StringArray{
+//						pulumi.String("x-rate-limit-remaining"),
+//					},
+//					AllowedQueryParameters: pulumi.StringArray{
+//						pulumi.String("version"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Bedrock AgentCore Gateway Target using the gateway identifier and target ID separated by a comma. For example:
@@ -422,6 +470,8 @@ type AgentcoreGatewayTarget struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Identifier of the gateway that this target belongs to.
 	GatewayIdentifier pulumi.StringOutput `pulumi:"gatewayIdentifier"`
+	// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+	MetadataConfiguration AgentcoreGatewayTargetMetadataConfigurationPtrOutput `pulumi:"metadataConfiguration"`
 	// Name of the gateway target.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
@@ -477,6 +527,8 @@ type agentcoreGatewayTargetState struct {
 	Description *string `pulumi:"description"`
 	// Identifier of the gateway that this target belongs to.
 	GatewayIdentifier *string `pulumi:"gatewayIdentifier"`
+	// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+	MetadataConfiguration *AgentcoreGatewayTargetMetadataConfiguration `pulumi:"metadataConfiguration"`
 	// Name of the gateway target.
 	Name *string `pulumi:"name"`
 	// AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
@@ -497,6 +549,8 @@ type AgentcoreGatewayTargetState struct {
 	Description pulumi.StringPtrInput
 	// Identifier of the gateway that this target belongs to.
 	GatewayIdentifier pulumi.StringPtrInput
+	// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+	MetadataConfiguration AgentcoreGatewayTargetMetadataConfigurationPtrInput
 	// Name of the gateway target.
 	Name pulumi.StringPtrInput
 	// AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
@@ -521,6 +575,8 @@ type agentcoreGatewayTargetArgs struct {
 	Description *string `pulumi:"description"`
 	// Identifier of the gateway that this target belongs to.
 	GatewayIdentifier string `pulumi:"gatewayIdentifier"`
+	// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+	MetadataConfiguration *AgentcoreGatewayTargetMetadataConfiguration `pulumi:"metadataConfiguration"`
 	// Name of the gateway target.
 	Name *string `pulumi:"name"`
 	// AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
@@ -540,6 +596,8 @@ type AgentcoreGatewayTargetArgs struct {
 	Description pulumi.StringPtrInput
 	// Identifier of the gateway that this target belongs to.
 	GatewayIdentifier pulumi.StringInput
+	// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+	MetadataConfiguration AgentcoreGatewayTargetMetadataConfigurationPtrInput
 	// Name of the gateway target.
 	Name pulumi.StringPtrInput
 	// AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
@@ -653,6 +711,13 @@ func (o AgentcoreGatewayTargetOutput) Description() pulumi.StringPtrOutput {
 // Identifier of the gateway that this target belongs to.
 func (o AgentcoreGatewayTargetOutput) GatewayIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTarget) pulumi.StringOutput { return v.GatewayIdentifier }).(pulumi.StringOutput)
+}
+
+// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+func (o AgentcoreGatewayTargetOutput) MetadataConfiguration() AgentcoreGatewayTargetMetadataConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTarget) AgentcoreGatewayTargetMetadataConfigurationPtrOutput {
+		return v.MetadataConfiguration
+	}).(AgentcoreGatewayTargetMetadataConfigurationPtrOutput)
 }
 
 // Name of the gateway target.

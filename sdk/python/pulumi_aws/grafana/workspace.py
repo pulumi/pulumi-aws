@@ -28,6 +28,7 @@ class WorkspaceArgs:
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  grafana_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_access_control: Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']] = None,
                  notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -49,6 +50,7 @@ class WorkspaceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
         :param pulumi.Input[_builtins.str] description: The workspace description.
         :param pulumi.Input[_builtins.str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
+        :param pulumi.Input[_builtins.str] kms_key_id: The ARN of the AWS KMS key for encrypting workspace data.
         :param pulumi.Input[_builtins.str] name: The Grafana workspace name.
         :param pulumi.Input['WorkspaceNetworkAccessControlArgs'] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notification_destinations: The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
@@ -71,6 +73,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "description", description)
         if grafana_version is not None:
             pulumi.set(__self__, "grafana_version", grafana_version)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_access_control is not None:
@@ -177,6 +181,18 @@ class WorkspaceArgs:
     @grafana_version.setter
     def grafana_version(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "grafana_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARN of the AWS KMS key for encrypting workspace data.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -310,6 +326,7 @@ class _WorkspaceState:
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  grafana_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_access_control: Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']] = None,
                  notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -333,6 +350,7 @@ class _WorkspaceState:
         :param pulumi.Input[_builtins.str] description: The workspace description.
         :param pulumi.Input[_builtins.str] endpoint: The endpoint of the Grafana workspace.
         :param pulumi.Input[_builtins.str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
+        :param pulumi.Input[_builtins.str] kms_key_id: The ARN of the AWS KMS key for encrypting workspace data.
         :param pulumi.Input[_builtins.str] name: The Grafana workspace name.
         :param pulumi.Input['WorkspaceNetworkAccessControlArgs'] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notification_destinations: The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
@@ -364,6 +382,8 @@ class _WorkspaceState:
             pulumi.set(__self__, "endpoint", endpoint)
         if grafana_version is not None:
             pulumi.set(__self__, "grafana_version", grafana_version)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_access_control is not None:
@@ -486,6 +506,18 @@ class _WorkspaceState:
     @grafana_version.setter
     def grafana_version(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "grafana_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARN of the AWS KMS key for encrypting workspace data.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -655,6 +687,7 @@ class Workspace(pulumi.CustomResource):
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  grafana_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_access_control: Optional[pulumi.Input[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict']]] = None,
                  notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -741,6 +774,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
         :param pulumi.Input[_builtins.str] description: The workspace description.
         :param pulumi.Input[_builtins.str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
+        :param pulumi.Input[_builtins.str] kms_key_id: The ARN of the AWS KMS key for encrypting workspace data.
         :param pulumi.Input[_builtins.str] name: The Grafana workspace name.
         :param pulumi.Input[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict']] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notification_destinations: The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
@@ -848,6 +882,7 @@ class Workspace(pulumi.CustomResource):
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  grafana_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_access_control: Optional[pulumi.Input[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict']]] = None,
                  notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -878,6 +913,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["data_sources"] = data_sources
             __props__.__dict__["description"] = description
             __props__.__dict__["grafana_version"] = grafana_version
+            __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["name"] = name
             __props__.__dict__["network_access_control"] = network_access_control
             __props__.__dict__["notification_destinations"] = notification_destinations
@@ -913,6 +949,7 @@ class Workspace(pulumi.CustomResource):
             description: Optional[pulumi.Input[_builtins.str]] = None,
             endpoint: Optional[pulumi.Input[_builtins.str]] = None,
             grafana_version: Optional[pulumi.Input[_builtins.str]] = None,
+            kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             network_access_control: Optional[pulumi.Input[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict']]] = None,
             notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -941,6 +978,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The workspace description.
         :param pulumi.Input[_builtins.str] endpoint: The endpoint of the Grafana workspace.
         :param pulumi.Input[_builtins.str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
+        :param pulumi.Input[_builtins.str] kms_key_id: The ARN of the AWS KMS key for encrypting workspace data.
         :param pulumi.Input[_builtins.str] name: The Grafana workspace name.
         :param pulumi.Input[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict']] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notification_destinations: The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
@@ -968,6 +1006,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["grafana_version"] = grafana_version
+        __props__.__dict__["kms_key_id"] = kms_key_id
         __props__.__dict__["name"] = name
         __props__.__dict__["network_access_control"] = network_access_control
         __props__.__dict__["notification_destinations"] = notification_destinations
@@ -1046,6 +1085,14 @@ class Workspace(pulumi.CustomResource):
         Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
         """
         return pulumi.get(self, "grafana_version")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The ARN of the AWS KMS key for encrypting workspace data.
+        """
+        return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter

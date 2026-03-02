@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.ecs.outputs;
 
+import com.pulumi.aws.ecs.outputs.ServiceServiceConnectConfigurationAccessLogConfiguration;
 import com.pulumi.aws.ecs.outputs.ServiceServiceConnectConfigurationLogConfiguration;
 import com.pulumi.aws.ecs.outputs.ServiceServiceConnectConfigurationService;
 import com.pulumi.core.annotations.CustomType;
@@ -16,6 +17,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceServiceConnectConfiguration {
+    /**
+     * @return Configuration for Service Connect access logs. See below.
+     * 
+     */
+    private @Nullable ServiceServiceConnectConfigurationAccessLogConfiguration accessLogConfiguration;
     /**
      * @return Whether to use Service Connect with this service.
      * 
@@ -38,6 +44,13 @@ public final class ServiceServiceConnectConfiguration {
     private @Nullable List<ServiceServiceConnectConfigurationService> services;
 
     private ServiceServiceConnectConfiguration() {}
+    /**
+     * @return Configuration for Service Connect access logs. See below.
+     * 
+     */
+    public Optional<ServiceServiceConnectConfigurationAccessLogConfiguration> accessLogConfiguration() {
+        return Optional.ofNullable(this.accessLogConfiguration);
+    }
     /**
      * @return Whether to use Service Connect with this service.
      * 
@@ -76,6 +89,7 @@ public final class ServiceServiceConnectConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable ServiceServiceConnectConfigurationAccessLogConfiguration accessLogConfiguration;
         private Boolean enabled;
         private @Nullable ServiceServiceConnectConfigurationLogConfiguration logConfiguration;
         private @Nullable String namespace;
@@ -83,12 +97,19 @@ public final class ServiceServiceConnectConfiguration {
         public Builder() {}
         public Builder(ServiceServiceConnectConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.accessLogConfiguration = defaults.accessLogConfiguration;
     	      this.enabled = defaults.enabled;
     	      this.logConfiguration = defaults.logConfiguration;
     	      this.namespace = defaults.namespace;
     	      this.services = defaults.services;
         }
 
+        @CustomType.Setter
+        public Builder accessLogConfiguration(@Nullable ServiceServiceConnectConfigurationAccessLogConfiguration accessLogConfiguration) {
+
+            this.accessLogConfiguration = accessLogConfiguration;
+            return this;
+        }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             if (enabled == null) {
@@ -120,6 +141,7 @@ public final class ServiceServiceConnectConfiguration {
         }
         public ServiceServiceConnectConfiguration build() {
             final var _resultValue = new ServiceServiceConnectConfiguration();
+            _resultValue.accessLogConfiguration = accessLogConfiguration;
             _resultValue.enabled = enabled;
             _resultValue.logConfiguration = logConfiguration;
             _resultValue.namespace = namespace;

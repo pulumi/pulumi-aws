@@ -195,6 +195,10 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Mechanism that the cluster uses to discover IP addresses.
+        /// </summary>
+        public readonly string IpDiscovery;
+        /// <summary>
         /// ARN of the KMS key used to encrypt the cluster at rest.
         /// </summary>
         public readonly string KmsKeyArn;
@@ -206,6 +210,10 @@ namespace Pulumi.Aws.MemoryDb
         /// Name of this node.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// IP address type for the cluster.
+        /// </summary>
+        public readonly string NetworkType;
         /// <summary>
         /// Compute and memory capacity of the nodes in the cluster.
         /// </summary>
@@ -284,11 +292,15 @@ namespace Pulumi.Aws.MemoryDb
 
             string id,
 
+            string ipDiscovery,
+
             string kmsKeyArn,
 
             string maintenanceWindow,
 
             string name,
+
+            string networkType,
 
             string nodeType,
 
@@ -329,9 +341,11 @@ namespace Pulumi.Aws.MemoryDb
             EngineVersion = engineVersion;
             FinalSnapshotName = finalSnapshotName;
             Id = id;
+            IpDiscovery = ipDiscovery;
             KmsKeyArn = kmsKeyArn;
             MaintenanceWindow = maintenanceWindow;
             Name = name;
+            NetworkType = networkType;
             NodeType = nodeType;
             NumReplicasPerShard = numReplicasPerShard;
             NumShards = numShards;

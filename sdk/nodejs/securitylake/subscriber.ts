@@ -111,7 +111,7 @@ export class Subscriber extends pulumi.CustomResource {
      */
     declare public readonly accessType: pulumi.Output<string>;
     /**
-     * ARN of the Data Lake.
+     * The ARN of the subscriber.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -236,7 +236,7 @@ export interface SubscriberState {
      */
     accessType?: pulumi.Input<string>;
     /**
-     * ARN of the Data Lake.
+     * The ARN of the subscriber.
      */
     arn?: pulumi.Input<string>;
     /**

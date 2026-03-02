@@ -7551,6 +7551,8 @@ func (o ServicePlacementConstraintArrayOutput) Index(i pulumi.IntInput) ServiceP
 }
 
 type ServiceServiceConnectConfiguration struct {
+	// Configuration for Service Connect access logs. See below.
+	AccessLogConfiguration *ServiceServiceConnectConfigurationAccessLogConfiguration `pulumi:"accessLogConfiguration"`
 	// Whether to use Service Connect with this service.
 	Enabled bool `pulumi:"enabled"`
 	// Log configuration for the container. See below.
@@ -7573,6 +7575,8 @@ type ServiceServiceConnectConfigurationInput interface {
 }
 
 type ServiceServiceConnectConfigurationArgs struct {
+	// Configuration for Service Connect access logs. See below.
+	AccessLogConfiguration ServiceServiceConnectConfigurationAccessLogConfigurationPtrInput `pulumi:"accessLogConfiguration"`
 	// Whether to use Service Connect with this service.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Log configuration for the container. See below.
@@ -7660,6 +7664,13 @@ func (o ServiceServiceConnectConfigurationOutput) ToServiceServiceConnectConfigu
 	}).(ServiceServiceConnectConfigurationPtrOutput)
 }
 
+// Configuration for Service Connect access logs. See below.
+func (o ServiceServiceConnectConfigurationOutput) AccessLogConfiguration() ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput {
+	return o.ApplyT(func(v ServiceServiceConnectConfiguration) *ServiceServiceConnectConfigurationAccessLogConfiguration {
+		return v.AccessLogConfiguration
+	}).(ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput)
+}
+
 // Whether to use Service Connect with this service.
 func (o ServiceServiceConnectConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -7708,6 +7719,16 @@ func (o ServiceServiceConnectConfigurationPtrOutput) Elem() ServiceServiceConnec
 	}).(ServiceServiceConnectConfigurationOutput)
 }
 
+// Configuration for Service Connect access logs. See below.
+func (o ServiceServiceConnectConfigurationPtrOutput) AccessLogConfiguration() ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput {
+	return o.ApplyT(func(v *ServiceServiceConnectConfiguration) *ServiceServiceConnectConfigurationAccessLogConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AccessLogConfiguration
+	}).(ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput)
+}
+
 // Whether to use Service Connect with this service.
 func (o ServiceServiceConnectConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceServiceConnectConfiguration) *bool {
@@ -7746,6 +7767,180 @@ func (o ServiceServiceConnectConfigurationPtrOutput) Services() ServiceServiceCo
 		}
 		return v.Services
 	}).(ServiceServiceConnectConfigurationServiceArrayOutput)
+}
+
+type ServiceServiceConnectConfigurationAccessLogConfiguration struct {
+	// The format for Service Connect access log output. Valid values: `TEXT`, `JSON`. See [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-envoy-access-logs.html) for format details.
+	Format string `pulumi:"format"`
+	// Specifies whether to include query parameters in Service Connect access logs. Valid values: `ENABLED`, `DISABLED`. Default: `DISABLED`. Query parameters may contain sensitive information.
+	//
+	// > **NOTE:** Access logs are delivered to the destination log group specified in the `logConfiguration` block. You must configure `logConfiguration` to enable access logs.
+	//
+	// > **SECURITY WARNING:** When `includeQueryParameters` is set to `ENABLED`, query parameters (which may contain sensitive data such as request IDs, tokens, or session identifiers) will be included in access logs.
+	IncludeQueryParameters *string `pulumi:"includeQueryParameters"`
+}
+
+// ServiceServiceConnectConfigurationAccessLogConfigurationInput is an input type that accepts ServiceServiceConnectConfigurationAccessLogConfigurationArgs and ServiceServiceConnectConfigurationAccessLogConfigurationOutput values.
+// You can construct a concrete instance of `ServiceServiceConnectConfigurationAccessLogConfigurationInput` via:
+//
+//	ServiceServiceConnectConfigurationAccessLogConfigurationArgs{...}
+type ServiceServiceConnectConfigurationAccessLogConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceServiceConnectConfigurationAccessLogConfigurationOutput() ServiceServiceConnectConfigurationAccessLogConfigurationOutput
+	ToServiceServiceConnectConfigurationAccessLogConfigurationOutputWithContext(context.Context) ServiceServiceConnectConfigurationAccessLogConfigurationOutput
+}
+
+type ServiceServiceConnectConfigurationAccessLogConfigurationArgs struct {
+	// The format for Service Connect access log output. Valid values: `TEXT`, `JSON`. See [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-envoy-access-logs.html) for format details.
+	Format pulumi.StringInput `pulumi:"format"`
+	// Specifies whether to include query parameters in Service Connect access logs. Valid values: `ENABLED`, `DISABLED`. Default: `DISABLED`. Query parameters may contain sensitive information.
+	//
+	// > **NOTE:** Access logs are delivered to the destination log group specified in the `logConfiguration` block. You must configure `logConfiguration` to enable access logs.
+	//
+	// > **SECURITY WARNING:** When `includeQueryParameters` is set to `ENABLED`, query parameters (which may contain sensitive data such as request IDs, tokens, or session identifiers) will be included in access logs.
+	IncludeQueryParameters pulumi.StringPtrInput `pulumi:"includeQueryParameters"`
+}
+
+func (ServiceServiceConnectConfigurationAccessLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceServiceConnectConfigurationAccessLogConfiguration)(nil)).Elem()
+}
+
+func (i ServiceServiceConnectConfigurationAccessLogConfigurationArgs) ToServiceServiceConnectConfigurationAccessLogConfigurationOutput() ServiceServiceConnectConfigurationAccessLogConfigurationOutput {
+	return i.ToServiceServiceConnectConfigurationAccessLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceServiceConnectConfigurationAccessLogConfigurationArgs) ToServiceServiceConnectConfigurationAccessLogConfigurationOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationAccessLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceServiceConnectConfigurationAccessLogConfigurationOutput)
+}
+
+func (i ServiceServiceConnectConfigurationAccessLogConfigurationArgs) ToServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput() ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput {
+	return i.ToServiceServiceConnectConfigurationAccessLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceServiceConnectConfigurationAccessLogConfigurationArgs) ToServiceServiceConnectConfigurationAccessLogConfigurationPtrOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceServiceConnectConfigurationAccessLogConfigurationOutput).ToServiceServiceConnectConfigurationAccessLogConfigurationPtrOutputWithContext(ctx)
+}
+
+// ServiceServiceConnectConfigurationAccessLogConfigurationPtrInput is an input type that accepts ServiceServiceConnectConfigurationAccessLogConfigurationArgs, ServiceServiceConnectConfigurationAccessLogConfigurationPtr and ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceServiceConnectConfigurationAccessLogConfigurationPtrInput` via:
+//
+//	        ServiceServiceConnectConfigurationAccessLogConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceServiceConnectConfigurationAccessLogConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput() ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput
+	ToServiceServiceConnectConfigurationAccessLogConfigurationPtrOutputWithContext(context.Context) ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput
+}
+
+type serviceServiceConnectConfigurationAccessLogConfigurationPtrType ServiceServiceConnectConfigurationAccessLogConfigurationArgs
+
+func ServiceServiceConnectConfigurationAccessLogConfigurationPtr(v *ServiceServiceConnectConfigurationAccessLogConfigurationArgs) ServiceServiceConnectConfigurationAccessLogConfigurationPtrInput {
+	return (*serviceServiceConnectConfigurationAccessLogConfigurationPtrType)(v)
+}
+
+func (*serviceServiceConnectConfigurationAccessLogConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceServiceConnectConfigurationAccessLogConfiguration)(nil)).Elem()
+}
+
+func (i *serviceServiceConnectConfigurationAccessLogConfigurationPtrType) ToServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput() ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput {
+	return i.ToServiceServiceConnectConfigurationAccessLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceServiceConnectConfigurationAccessLogConfigurationPtrType) ToServiceServiceConnectConfigurationAccessLogConfigurationPtrOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput)
+}
+
+type ServiceServiceConnectConfigurationAccessLogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceServiceConnectConfigurationAccessLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceServiceConnectConfigurationAccessLogConfiguration)(nil)).Elem()
+}
+
+func (o ServiceServiceConnectConfigurationAccessLogConfigurationOutput) ToServiceServiceConnectConfigurationAccessLogConfigurationOutput() ServiceServiceConnectConfigurationAccessLogConfigurationOutput {
+	return o
+}
+
+func (o ServiceServiceConnectConfigurationAccessLogConfigurationOutput) ToServiceServiceConnectConfigurationAccessLogConfigurationOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationAccessLogConfigurationOutput {
+	return o
+}
+
+func (o ServiceServiceConnectConfigurationAccessLogConfigurationOutput) ToServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput() ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput {
+	return o.ToServiceServiceConnectConfigurationAccessLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceServiceConnectConfigurationAccessLogConfigurationOutput) ToServiceServiceConnectConfigurationAccessLogConfigurationPtrOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceServiceConnectConfigurationAccessLogConfiguration) *ServiceServiceConnectConfigurationAccessLogConfiguration {
+		return &v
+	}).(ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput)
+}
+
+// The format for Service Connect access log output. Valid values: `TEXT`, `JSON`. See [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-envoy-access-logs.html) for format details.
+func (o ServiceServiceConnectConfigurationAccessLogConfigurationOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceServiceConnectConfigurationAccessLogConfiguration) string { return v.Format }).(pulumi.StringOutput)
+}
+
+// Specifies whether to include query parameters in Service Connect access logs. Valid values: `ENABLED`, `DISABLED`. Default: `DISABLED`. Query parameters may contain sensitive information.
+//
+// > **NOTE:** Access logs are delivered to the destination log group specified in the `logConfiguration` block. You must configure `logConfiguration` to enable access logs.
+//
+// > **SECURITY WARNING:** When `includeQueryParameters` is set to `ENABLED`, query parameters (which may contain sensitive data such as request IDs, tokens, or session identifiers) will be included in access logs.
+func (o ServiceServiceConnectConfigurationAccessLogConfigurationOutput) IncludeQueryParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceServiceConnectConfigurationAccessLogConfiguration) *string {
+		return v.IncludeQueryParameters
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceServiceConnectConfigurationAccessLogConfiguration)(nil)).Elem()
+}
+
+func (o ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput) ToServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput() ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput) ToServiceServiceConnectConfigurationAccessLogConfigurationPtrOutputWithContext(ctx context.Context) ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput) Elem() ServiceServiceConnectConfigurationAccessLogConfigurationOutput {
+	return o.ApplyT(func(v *ServiceServiceConnectConfigurationAccessLogConfiguration) ServiceServiceConnectConfigurationAccessLogConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceServiceConnectConfigurationAccessLogConfiguration
+		return ret
+	}).(ServiceServiceConnectConfigurationAccessLogConfigurationOutput)
+}
+
+// The format for Service Connect access log output. Valid values: `TEXT`, `JSON`. See [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-envoy-access-logs.html) for format details.
+func (o ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceServiceConnectConfigurationAccessLogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Format
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to include query parameters in Service Connect access logs. Valid values: `ENABLED`, `DISABLED`. Default: `DISABLED`. Query parameters may contain sensitive information.
+//
+// > **NOTE:** Access logs are delivered to the destination log group specified in the `logConfiguration` block. You must configure `logConfiguration` to enable access logs.
+//
+// > **SECURITY WARNING:** When `includeQueryParameters` is set to `ENABLED`, query parameters (which may contain sensitive data such as request IDs, tokens, or session identifiers) will be included in access logs.
+func (o ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput) IncludeQueryParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceServiceConnectConfigurationAccessLogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeQueryParameters
+	}).(pulumi.StringPtrOutput)
 }
 
 type ServiceServiceConnectConfigurationLogConfiguration struct {
@@ -17166,6 +17361,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicePlacementConstraintArrayInput)(nil)).Elem(), ServicePlacementConstraintArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceConnectConfigurationInput)(nil)).Elem(), ServiceServiceConnectConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceConnectConfigurationPtrInput)(nil)).Elem(), ServiceServiceConnectConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceConnectConfigurationAccessLogConfigurationInput)(nil)).Elem(), ServiceServiceConnectConfigurationAccessLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceConnectConfigurationAccessLogConfigurationPtrInput)(nil)).Elem(), ServiceServiceConnectConfigurationAccessLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceConnectConfigurationLogConfigurationInput)(nil)).Elem(), ServiceServiceConnectConfigurationLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceConnectConfigurationLogConfigurationPtrInput)(nil)).Elem(), ServiceServiceConnectConfigurationLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceConnectConfigurationLogConfigurationSecretOptionInput)(nil)).Elem(), ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs{})
@@ -17394,6 +17591,8 @@ func init() {
 	pulumi.RegisterOutputType(ServicePlacementConstraintArrayOutput{})
 	pulumi.RegisterOutputType(ServiceServiceConnectConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceServiceConnectConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ServiceServiceConnectConfigurationAccessLogConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceServiceConnectConfigurationLogConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceServiceConnectConfigurationLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceServiceConnectConfigurationLogConfigurationSecretOptionOutput{})

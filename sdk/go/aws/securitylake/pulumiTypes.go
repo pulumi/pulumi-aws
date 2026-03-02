@@ -3119,9 +3119,9 @@ func (o SubscriberSourceCustomLogSourceResourceProviderArrayOutput) Index(i pulu
 }
 
 type SubscriberSubscriberIdentity struct {
-	// The AWS Regions where Security Lake is automatically enabled.
+	// The external ID used to establish trust relationship with the AWS identity.
 	ExternalId string `pulumi:"externalId"`
-	// Provides encryption details of Amazon Security Lake object.
+	// The AWS identity principal.
 	Principal string `pulumi:"principal"`
 }
 
@@ -3137,9 +3137,9 @@ type SubscriberSubscriberIdentityInput interface {
 }
 
 type SubscriberSubscriberIdentityArgs struct {
-	// The AWS Regions where Security Lake is automatically enabled.
+	// The external ID used to establish trust relationship with the AWS identity.
 	ExternalId pulumi.StringInput `pulumi:"externalId"`
-	// Provides encryption details of Amazon Security Lake object.
+	// The AWS identity principal.
 	Principal pulumi.StringInput `pulumi:"principal"`
 }
 
@@ -3220,12 +3220,12 @@ func (o SubscriberSubscriberIdentityOutput) ToSubscriberSubscriberIdentityPtrOut
 	}).(SubscriberSubscriberIdentityPtrOutput)
 }
 
-// The AWS Regions where Security Lake is automatically enabled.
+// The external ID used to establish trust relationship with the AWS identity.
 func (o SubscriberSubscriberIdentityOutput) ExternalId() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriberSubscriberIdentity) string { return v.ExternalId }).(pulumi.StringOutput)
 }
 
-// Provides encryption details of Amazon Security Lake object.
+// The AWS identity principal.
 func (o SubscriberSubscriberIdentityOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriberSubscriberIdentity) string { return v.Principal }).(pulumi.StringOutput)
 }
@@ -3254,7 +3254,7 @@ func (o SubscriberSubscriberIdentityPtrOutput) Elem() SubscriberSubscriberIdenti
 	}).(SubscriberSubscriberIdentityOutput)
 }
 
-// The AWS Regions where Security Lake is automatically enabled.
+// The external ID used to establish trust relationship with the AWS identity.
 func (o SubscriberSubscriberIdentityPtrOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriberSubscriberIdentity) *string {
 		if v == nil {
@@ -3264,7 +3264,7 @@ func (o SubscriberSubscriberIdentityPtrOutput) ExternalId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Provides encryption details of Amazon Security Lake object.
+// The AWS identity principal.
 func (o SubscriberSubscriberIdentityPtrOutput) Principal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriberSubscriberIdentity) *string {
 		if v == nil {

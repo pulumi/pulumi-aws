@@ -63,6 +63,7 @@ __all__ = [
     'ServiceOrderedPlacementStrategy',
     'ServicePlacementConstraint',
     'ServiceServiceConnectConfiguration',
+    'ServiceServiceConnectConfigurationAccessLogConfiguration',
     'ServiceServiceConnectConfigurationLogConfiguration',
     'ServiceServiceConnectConfigurationLogConfigurationSecretOption',
     'ServiceServiceConnectConfigurationService',
@@ -2686,7 +2687,9 @@ class ServiceServiceConnectConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "logConfiguration":
+        if key == "accessLogConfiguration":
+            suggest = "access_log_configuration"
+        elif key == "logConfiguration":
             suggest = "log_configuration"
 
         if suggest:
@@ -2702,16 +2705,20 @@ class ServiceServiceConnectConfiguration(dict):
 
     def __init__(__self__, *,
                  enabled: _builtins.bool,
+                 access_log_configuration: Optional['outputs.ServiceServiceConnectConfigurationAccessLogConfiguration'] = None,
                  log_configuration: Optional['outputs.ServiceServiceConnectConfigurationLogConfiguration'] = None,
                  namespace: Optional[_builtins.str] = None,
                  services: Optional[Sequence['outputs.ServiceServiceConnectConfigurationService']] = None):
         """
         :param _builtins.bool enabled: Whether to use Service Connect with this service.
+        :param 'ServiceServiceConnectConfigurationAccessLogConfigurationArgs' access_log_configuration: Configuration for Service Connect access logs. See below.
         :param 'ServiceServiceConnectConfigurationLogConfigurationArgs' log_configuration: Log configuration for the container. See below.
         :param _builtins.str namespace: Namespace name or ARN of the `servicediscovery.HttpNamespace` for use with Service Connect.
         :param Sequence['ServiceServiceConnectConfigurationServiceArgs'] services: List of Service Connect service objects. See below.
         """
         pulumi.set(__self__, "enabled", enabled)
+        if access_log_configuration is not None:
+            pulumi.set(__self__, "access_log_configuration", access_log_configuration)
         if log_configuration is not None:
             pulumi.set(__self__, "log_configuration", log_configuration)
         if namespace is not None:
@@ -2726,6 +2733,14 @@ class ServiceServiceConnectConfiguration(dict):
         Whether to use Service Connect with this service.
         """
         return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="accessLogConfiguration")
+    def access_log_configuration(self) -> Optional['outputs.ServiceServiceConnectConfigurationAccessLogConfiguration']:
+        """
+        Configuration for Service Connect access logs. See below.
+        """
+        return pulumi.get(self, "access_log_configuration")
 
     @_builtins.property
     @pulumi.getter(name="logConfiguration")
@@ -2750,6 +2765,61 @@ class ServiceServiceConnectConfiguration(dict):
         List of Service Connect service objects. See below.
         """
         return pulumi.get(self, "services")
+
+
+@pulumi.output_type
+class ServiceServiceConnectConfigurationAccessLogConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeQueryParameters":
+            suggest = "include_query_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceServiceConnectConfigurationAccessLogConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceServiceConnectConfigurationAccessLogConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceServiceConnectConfigurationAccessLogConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 format: _builtins.str,
+                 include_query_parameters: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str format: The format for Service Connect access log output. Valid values: `TEXT`, `JSON`. See [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-envoy-access-logs.html) for format details.
+        :param _builtins.str include_query_parameters: Specifies whether to include query parameters in Service Connect access logs. Valid values: `ENABLED`, `DISABLED`. Default: `DISABLED`. Query parameters may contain sensitive information.
+               
+               > **NOTE:** Access logs are delivered to the destination log group specified in the `log_configuration` block. You must configure `log_configuration` to enable access logs.
+               
+               > **SECURITY WARNING:** When `include_query_parameters` is set to `ENABLED`, query parameters (which may contain sensitive data such as request IDs, tokens, or session identifiers) will be included in access logs.
+        """
+        pulumi.set(__self__, "format", format)
+        if include_query_parameters is not None:
+            pulumi.set(__self__, "include_query_parameters", include_query_parameters)
+
+    @_builtins.property
+    @pulumi.getter
+    def format(self) -> _builtins.str:
+        """
+        The format for Service Connect access log output. Valid values: `TEXT`, `JSON`. See [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-envoy-access-logs.html) for format details.
+        """
+        return pulumi.get(self, "format")
+
+    @_builtins.property
+    @pulumi.getter(name="includeQueryParameters")
+    def include_query_parameters(self) -> Optional[_builtins.str]:
+        """
+        Specifies whether to include query parameters in Service Connect access logs. Valid values: `ENABLED`, `DISABLED`. Default: `DISABLED`. Query parameters may contain sensitive information.
+
+        > **NOTE:** Access logs are delivered to the destination log group specified in the `log_configuration` block. You must configure `log_configuration` to enable access logs.
+
+        > **SECURITY WARNING:** When `include_query_parameters` is set to `ENABLED`, query parameters (which may contain sensitive data such as request IDs, tokens, or session identifiers) will be included in access logs.
+        """
+        return pulumi.get(self, "include_query_parameters")
 
 
 @pulumi.output_type

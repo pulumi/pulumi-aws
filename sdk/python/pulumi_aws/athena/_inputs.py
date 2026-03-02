@@ -43,6 +43,8 @@ __all__ = [
     'WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationArgsDict',
     'WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationArgs',
     'WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationArgsDict',
+    'WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs',
+    'WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgsDict',
     'WorkgroupConfigurationResultConfigurationArgs',
     'WorkgroupConfigurationResultConfigurationArgsDict',
     'WorkgroupConfigurationResultConfigurationAclConfigurationArgs',
@@ -243,6 +245,10 @@ class WorkgroupConfigurationArgsDict(TypedDict):
     """
     Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
     """
+    query_results_s3_access_grants_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgsDict']]
+    """
+    Configuration block for S3 access grants. See Query Results S3 Access Grants Configuration below.
+    """
     requester_pays_enabled: NotRequired[pulumi.Input[_builtins.bool]]
     """
     If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
@@ -265,6 +271,7 @@ class WorkgroupConfigurationArgs:
                  managed_query_results_configuration: Optional[pulumi.Input['WorkgroupConfigurationManagedQueryResultsConfigurationArgs']] = None,
                  monitoring_configuration: Optional[pulumi.Input['WorkgroupConfigurationMonitoringConfigurationArgs']] = None,
                  publish_cloudwatch_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 query_results_s3_access_grants_configuration: Optional[pulumi.Input['WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs']] = None,
                  requester_pays_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  result_configuration: Optional[pulumi.Input['WorkgroupConfigurationResultConfigurationArgs']] = None):
         """
@@ -278,6 +285,7 @@ class WorkgroupConfigurationArgs:
         :param pulumi.Input['WorkgroupConfigurationManagedQueryResultsConfigurationArgs'] managed_query_results_configuration: Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
         :param pulumi.Input['WorkgroupConfigurationMonitoringConfigurationArgs'] monitoring_configuration: Configuration block for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc. Only applicable to Apache Spark engine. See Monitoring Configuration below.
         :param pulumi.Input[_builtins.bool] publish_cloudwatch_metrics_enabled: Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
+        :param pulumi.Input['WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs'] query_results_s3_access_grants_configuration: Configuration block for S3 access grants. See Query Results S3 Access Grants Configuration below.
         :param pulumi.Input[_builtins.bool] requester_pays_enabled: If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
         :param pulumi.Input['WorkgroupConfigurationResultConfigurationArgs'] result_configuration: Configuration block with result settings. See Result Configuration below.
         """
@@ -301,6 +309,8 @@ class WorkgroupConfigurationArgs:
             pulumi.set(__self__, "monitoring_configuration", monitoring_configuration)
         if publish_cloudwatch_metrics_enabled is not None:
             pulumi.set(__self__, "publish_cloudwatch_metrics_enabled", publish_cloudwatch_metrics_enabled)
+        if query_results_s3_access_grants_configuration is not None:
+            pulumi.set(__self__, "query_results_s3_access_grants_configuration", query_results_s3_access_grants_configuration)
         if requester_pays_enabled is not None:
             pulumi.set(__self__, "requester_pays_enabled", requester_pays_enabled)
         if result_configuration is not None:
@@ -425,6 +435,18 @@ class WorkgroupConfigurationArgs:
     @publish_cloudwatch_metrics_enabled.setter
     def publish_cloudwatch_metrics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "publish_cloudwatch_metrics_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="queryResultsS3AccessGrantsConfiguration")
+    def query_results_s3_access_grants_configuration(self) -> Optional[pulumi.Input['WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs']]:
+        """
+        Configuration block for S3 access grants. See Query Results S3 Access Grants Configuration below.
+        """
+        return pulumi.get(self, "query_results_s3_access_grants_configuration")
+
+    @query_results_s3_access_grants_configuration.setter
+    def query_results_s3_access_grants_configuration(self, value: Optional[pulumi.Input['WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs']]):
+        pulumi.set(self, "query_results_s3_access_grants_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="requesterPaysEnabled")
@@ -942,6 +964,73 @@ class WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationArgs:
     @log_location.setter
     def log_location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "log_location", value)
+
+
+class WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgsDict(TypedDict):
+    authentication_type: pulumi.Input[_builtins.str]
+    """
+    The authentication type used for Amazon S3 access grants. Currently, only `DIRECTORY_IDENTITY` is supported.
+    """
+    enable_s3_access_grants: pulumi.Input[_builtins.bool]
+    """
+    Specifies whether Amazon S3 access grants are enabled for query results.
+    """
+    create_user_level_prefix: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When enabled, appends the user ID as an Amazon S3 path prefix to the query result output location. Defaults to `false`.
+    """
+
+@pulumi.input_type
+class WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs:
+    def __init__(__self__, *,
+                 authentication_type: pulumi.Input[_builtins.str],
+                 enable_s3_access_grants: pulumi.Input[_builtins.bool],
+                 create_user_level_prefix: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] authentication_type: The authentication type used for Amazon S3 access grants. Currently, only `DIRECTORY_IDENTITY` is supported.
+        :param pulumi.Input[_builtins.bool] enable_s3_access_grants: Specifies whether Amazon S3 access grants are enabled for query results.
+        :param pulumi.Input[_builtins.bool] create_user_level_prefix: When enabled, appends the user ID as an Amazon S3 path prefix to the query result output location. Defaults to `false`.
+        """
+        pulumi.set(__self__, "authentication_type", authentication_type)
+        pulumi.set(__self__, "enable_s3_access_grants", enable_s3_access_grants)
+        if create_user_level_prefix is not None:
+            pulumi.set(__self__, "create_user_level_prefix", create_user_level_prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The authentication type used for Amazon S3 access grants. Currently, only `DIRECTORY_IDENTITY` is supported.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "authentication_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableS3AccessGrants")
+    def enable_s3_access_grants(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Specifies whether Amazon S3 access grants are enabled for query results.
+        """
+        return pulumi.get(self, "enable_s3_access_grants")
+
+    @enable_s3_access_grants.setter
+    def enable_s3_access_grants(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enable_s3_access_grants", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createUserLevelPrefix")
+    def create_user_level_prefix(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When enabled, appends the user ID as an Amazon S3 path prefix to the query result output location. Defaults to `false`.
+        """
+        return pulumi.get(self, "create_user_level_prefix")
+
+    @create_user_level_prefix.setter
+    def create_user_level_prefix(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "create_user_level_prefix", value)
 
 
 class WorkgroupConfigurationResultConfigurationArgsDict(TypedDict):

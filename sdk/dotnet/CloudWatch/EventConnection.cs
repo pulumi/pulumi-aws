@@ -197,6 +197,58 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// 
+    /// ### OAuth Authorization With Connectivity Parameters
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.CloudWatch.EventConnection("test", new()
+    ///     {
+    ///         Name = "private-api-connection",
+    ///         Description = "A connection to a private API",
+    ///         AuthorizationType = "OAUTH_CLIENT_CREDENTIALS",
+    ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
+    ///         {
+    ///             ConnectivityParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersConnectivityParametersArgs
+    ///             {
+    ///                 ResourceParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersConnectivityParametersResourceParametersArgs
+    ///                 {
+    ///                     ResourceConfigurationArn = "arn:aws:vpc-lattice:us-east-1:12345678910:resourceconfiguration/rcfg-12345678910",
+    ///                 },
+    ///             },
+    ///             Oauth = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersOauthArgs
+    ///             {
+    ///                 AuthorizationEndpoint = "https://private-api.example.com/auth",
+    ///                 HttpMethod = "POST",
+    ///                 ClientParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersOauthClientParametersArgs
+    ///                 {
+    ///                     ClientId = "1234567890",
+    ///                     ClientSecret = "Pass1234!",
+    ///                 },
+    ///                 OauthHttpParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersOauthOauthHttpParametersArgs
+    ///                 {
+    ///                     Bodies = new[]
+    ///                     {
+    ///                         new Aws.CloudWatch.Inputs.EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs
+    ///                         {
+    ///                             Key = "grant_type",
+    ///                             Value = "client_credentials",
+    ///                             IsValueSecret = false,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### CMK Encryption
     /// 
     /// ```csharp

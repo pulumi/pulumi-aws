@@ -118,7 +118,7 @@ type Subscriber struct {
 
 	// The Amazon S3 or Lake Formation access type.
 	AccessType pulumi.StringOutput `pulumi:"accessType"`
-	// ARN of the Data Lake.
+	// The ARN of the subscriber.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -187,7 +187,7 @@ func GetSubscriber(ctx *pulumi.Context,
 type subscriberState struct {
 	// The Amazon S3 or Lake Formation access type.
 	AccessType *string `pulumi:"accessType"`
-	// ARN of the Data Lake.
+	// The ARN of the subscriber.
 	Arn *string `pulumi:"arn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -221,7 +221,7 @@ type subscriberState struct {
 type SubscriberState struct {
 	// The Amazon S3 or Lake Formation access type.
 	AccessType pulumi.StringPtrInput
-	// ARN of the Data Lake.
+	// The ARN of the subscriber.
 	Arn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -385,7 +385,7 @@ func (o SubscriberOutput) AccessType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscriber) pulumi.StringOutput { return v.AccessType }).(pulumi.StringOutput)
 }
 
-// ARN of the Data Lake.
+// The ARN of the subscriber.
 func (o SubscriberOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscriber) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

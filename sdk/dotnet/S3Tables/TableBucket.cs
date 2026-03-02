@@ -60,7 +60,7 @@ namespace Pulumi.Aws.S3Tables
         /// See `EncryptionConfiguration` below.
         /// </summary>
         [Output("encryptionConfiguration")]
-        public Output<Outputs.TableBucketEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
+        public Output<Outputs.TableBucketEncryptionConfiguration> EncryptionConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `True`. Once this parameter is set to `True`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.

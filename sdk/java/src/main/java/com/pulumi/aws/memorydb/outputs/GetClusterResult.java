@@ -68,6 +68,11 @@ public final class GetClusterResult {
      */
     private String id;
     /**
+     * @return Mechanism that the cluster uses to discover IP addresses.
+     * 
+     */
+    private String ipDiscovery;
+    /**
      * @return ARN of the KMS key used to encrypt the cluster at rest.
      * 
      */
@@ -82,6 +87,11 @@ public final class GetClusterResult {
      * 
      */
     private String name;
+    /**
+     * @return IP address type for the cluster.
+     * 
+     */
+    private String networkType;
     /**
      * @return Compute and memory capacity of the nodes in the cluster.
      * 
@@ -224,6 +234,13 @@ public final class GetClusterResult {
         return this.id;
     }
     /**
+     * @return Mechanism that the cluster uses to discover IP addresses.
+     * 
+     */
+    public String ipDiscovery() {
+        return this.ipDiscovery;
+    }
+    /**
      * @return ARN of the KMS key used to encrypt the cluster at rest.
      * 
      */
@@ -243,6 +260,13 @@ public final class GetClusterResult {
      */
     public String name() {
         return this.name;
+    }
+    /**
+     * @return IP address type for the cluster.
+     * 
+     */
+    public String networkType() {
+        return this.networkType;
     }
     /**
      * @return Compute and memory capacity of the nodes in the cluster.
@@ -359,9 +383,11 @@ public final class GetClusterResult {
         private String engineVersion;
         private String finalSnapshotName;
         private String id;
+        private String ipDiscovery;
         private String kmsKeyArn;
         private String maintenanceWindow;
         private String name;
+        private String networkType;
         private String nodeType;
         private Integer numReplicasPerShard;
         private Integer numShards;
@@ -390,9 +416,11 @@ public final class GetClusterResult {
     	      this.engineVersion = defaults.engineVersion;
     	      this.finalSnapshotName = defaults.finalSnapshotName;
     	      this.id = defaults.id;
+    	      this.ipDiscovery = defaults.ipDiscovery;
     	      this.kmsKeyArn = defaults.kmsKeyArn;
     	      this.maintenanceWindow = defaults.maintenanceWindow;
     	      this.name = defaults.name;
+    	      this.networkType = defaults.networkType;
     	      this.nodeType = defaults.nodeType;
     	      this.numReplicasPerShard = defaults.numReplicasPerShard;
     	      this.numShards = defaults.numShards;
@@ -501,6 +529,14 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder ipDiscovery(String ipDiscovery) {
+            if (ipDiscovery == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "ipDiscovery");
+            }
+            this.ipDiscovery = ipDiscovery;
+            return this;
+        }
+        @CustomType.Setter
         public Builder kmsKeyArn(String kmsKeyArn) {
             if (kmsKeyArn == null) {
               throw new MissingRequiredPropertyException("GetClusterResult", "kmsKeyArn");
@@ -522,6 +558,14 @@ public final class GetClusterResult {
               throw new MissingRequiredPropertyException("GetClusterResult", "name");
             }
             this.name = name;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder networkType(String networkType) {
+            if (networkType == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "networkType");
+            }
+            this.networkType = networkType;
             return this;
         }
         @CustomType.Setter
@@ -655,9 +699,11 @@ public final class GetClusterResult {
             _resultValue.engineVersion = engineVersion;
             _resultValue.finalSnapshotName = finalSnapshotName;
             _resultValue.id = id;
+            _resultValue.ipDiscovery = ipDiscovery;
             _resultValue.kmsKeyArn = kmsKeyArn;
             _resultValue.maintenanceWindow = maintenanceWindow;
             _resultValue.name = name;
+            _resultValue.networkType = networkType;
             _resultValue.nodeType = nodeType;
             _resultValue.numReplicasPerShard = numReplicasPerShard;
             _resultValue.numShards = numShards;

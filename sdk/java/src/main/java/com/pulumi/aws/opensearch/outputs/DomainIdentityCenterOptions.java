@@ -14,7 +14,15 @@ import javax.annotation.Nullable;
 public final class DomainIdentityCenterOptions {
     private @Nullable Boolean enabledApiAccess;
     private @Nullable String identityCenterInstanceArn;
+    /**
+     * @return Element of the JWT assertion to use for roles. Default is `roles`.
+     * 
+     */
     private @Nullable String rolesKey;
+    /**
+     * @return Element of the JWT assertion to use for the user name. Default is `sub`.
+     * 
+     */
     private @Nullable String subjectKey;
 
     private DomainIdentityCenterOptions() {}
@@ -24,9 +32,17 @@ public final class DomainIdentityCenterOptions {
     public Optional<String> identityCenterInstanceArn() {
         return Optional.ofNullable(this.identityCenterInstanceArn);
     }
+    /**
+     * @return Element of the JWT assertion to use for roles. Default is `roles`.
+     * 
+     */
     public Optional<String> rolesKey() {
         return Optional.ofNullable(this.rolesKey);
     }
+    /**
+     * @return Element of the JWT assertion to use for the user name. Default is `sub`.
+     * 
+     */
     public Optional<String> subjectKey() {
         return Optional.ofNullable(this.subjectKey);
     }

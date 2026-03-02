@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ssm.Inputs
     public sealed class AssociationTargetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
+        /// User-defined criteria for sending commands that target managed nodes that meet the criteria. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for the list of available keys.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ssm.Inputs
         private InputList<string>? _values;
 
         /// <summary>
-        /// User-defined criteria that maps to Key. A list of instance IDs or tag values.
+        /// List of values that correspond to the specified `Key`. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for details.
         /// </summary>
         public InputList<string> Values
         {

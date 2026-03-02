@@ -167,11 +167,11 @@ class AssociationOutputLocationArgs:
 class AssociationTargetArgsDict(TypedDict):
     key: pulumi.Input[_builtins.str]
     """
-    Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
+    User-defined criteria for sending commands that target managed nodes that meet the criteria. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for the list of available keys.
     """
     values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
-    User-defined criteria that maps to Key. A list of instance IDs or tag values.
+    List of values that correspond to the specified `key`. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for details.
     """
 
 @pulumi.input_type
@@ -180,8 +180,8 @@ class AssociationTargetArgs:
                  key: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
-        :param pulumi.Input[_builtins.str] key: Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: User-defined criteria that maps to Key. A list of instance IDs or tag values.
+        :param pulumi.Input[_builtins.str] key: User-defined criteria for sending commands that target managed nodes that meet the criteria. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for the list of available keys.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: List of values that correspond to the specified `key`. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for details.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -190,7 +190,7 @@ class AssociationTargetArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[_builtins.str]:
         """
-        Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
+        User-defined criteria for sending commands that target managed nodes that meet the criteria. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for the list of available keys.
         """
         return pulumi.get(self, "key")
 
@@ -202,7 +202,7 @@ class AssociationTargetArgs:
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        User-defined criteria that maps to Key. A list of instance IDs or tag values.
+        List of values that correspond to the specified `key`. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for details.
         """
         return pulumi.get(self, "values")
 

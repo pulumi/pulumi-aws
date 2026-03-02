@@ -210,6 +210,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.finalSnapshotName);
     }
     /**
+     * Mechanism that the cluster uses to discover IP addresses. Valid values are `ipv4` and `ipv6`. Defaults to `ipv4`. To specify `ipv6`, `networkType` must be `ipv6` or `dualStack`.
+     * 
+     */
+    @Export(name="ipDiscovery", refs={String.class}, tree="[0]")
+    private Output<String> ipDiscovery;
+
+    /**
+     * @return Mechanism that the cluster uses to discover IP addresses. Valid values are `ipv4` and `ipv6`. Defaults to `ipv4`. To specify `ipv6`, `networkType` must be `ipv6` or `dualStack`.
+     * 
+     */
+    public Output<String> ipDiscovery() {
+        return this.ipDiscovery;
+    }
+    /**
      * ARN of the KMS key used to encrypt the cluster at rest.
      * 
      */
@@ -278,6 +292,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> namePrefix() {
         return this.namePrefix;
+    }
+    /**
+     * IP address type for the cluster. Valid values are `ipv4`, `ipv6` and `dualStack`. Defaults to `ipv4`.
+     * 
+     */
+    @Export(name="networkType", refs={String.class}, tree="[0]")
+    private Output<String> networkType;
+
+    /**
+     * @return IP address type for the cluster. Valid values are `ipv4`, `ipv6` and `dualStack`. Defaults to `ipv4`.
+     * 
+     */
+    public Output<String> networkType() {
+        return this.networkType;
     }
     /**
      * The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).

@@ -81,12 +81,16 @@ type LookupClusterResult struct {
 	FinalSnapshotName string `pulumi:"finalSnapshotName"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// Mechanism that the cluster uses to discover IP addresses.
+	IpDiscovery string `pulumi:"ipDiscovery"`
 	// ARN of the KMS key used to encrypt the cluster at rest.
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
 	// Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
 	MaintenanceWindow string `pulumi:"maintenanceWindow"`
 	// Name of this node.
 	Name string `pulumi:"name"`
+	// IP address type for the cluster.
+	NetworkType string `pulumi:"networkType"`
 	// Compute and memory capacity of the nodes in the cluster.
 	NodeType string `pulumi:"nodeType"`
 	// The number of replicas to apply to each shard.
@@ -208,6 +212,11 @@ func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Mechanism that the cluster uses to discover IP addresses.
+func (o LookupClusterResultOutput) IpDiscovery() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.IpDiscovery }).(pulumi.StringOutput)
+}
+
 // ARN of the KMS key used to encrypt the cluster at rest.
 func (o LookupClusterResultOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.KmsKeyArn }).(pulumi.StringOutput)
@@ -221,6 +230,11 @@ func (o LookupClusterResultOutput) MaintenanceWindow() pulumi.StringOutput {
 // Name of this node.
 func (o LookupClusterResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// IP address type for the cluster.
+func (o LookupClusterResultOutput) NetworkType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.NetworkType }).(pulumi.StringOutput)
 }
 
 // Compute and memory capacity of the nodes in the cluster.

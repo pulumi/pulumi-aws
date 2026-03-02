@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfiguration("example", BucketLifecycleConfigurationArgs.builder()
- *             .bucket(bucket.id())
+ *             .bucket(bucket.bucket())
  *             .rules(BucketLifecycleConfigurationRuleArgs.builder()
  *                 .id("rule-1")
  *                 .status("Enabled")
@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfiguration("example", BucketLifecycleConfigurationArgs.builder()
- *             .bucket(bucket.id())
+ *             .bucket(bucket.bucket())
  *             .rules(BucketLifecycleConfigurationRuleArgs.builder()
  *                 .id("rule-1")
  *                 .filter(BucketLifecycleConfigurationRuleFilterArgs.builder()
@@ -149,7 +149,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfiguration("example", BucketLifecycleConfigurationArgs.builder()
- *             .bucket(bucket.id())
+ *             .bucket(bucket.bucket())
  *             .rules(BucketLifecycleConfigurationRuleArgs.builder()
  *                 .id("rule-1")
  *                 .filter(BucketLifecycleConfigurationRuleFilterArgs.builder()
@@ -191,7 +191,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfiguration("example", BucketLifecycleConfigurationArgs.builder()
- *             .bucket(bucket.id())
+ *             .bucket(bucket.bucket())
  *             .rules(            
  *                 BucketLifecycleConfigurationRuleArgs.builder()
  *                     .id("rule-1")
@@ -244,7 +244,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfiguration("example", BucketLifecycleConfigurationArgs.builder()
- *             .bucket(bucket.id())
+ *             .bucket(bucket.bucket())
  *             .rules(BucketLifecycleConfigurationRuleArgs.builder()
  *                 .id("rule-1")
  *                 .filter(BucketLifecycleConfigurationRuleFilterArgs.builder()
@@ -292,7 +292,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfiguration("example", BucketLifecycleConfigurationArgs.builder()
- *             .bucket(bucket.id())
+ *             .bucket(bucket.bucket())
  *             .rules(BucketLifecycleConfigurationRuleArgs.builder()
  *                 .id("rule-1")
  *                 .filter(BucketLifecycleConfigurationRuleFilterArgs.builder()
@@ -342,7 +342,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfiguration("example", BucketLifecycleConfigurationArgs.builder()
- *             .bucket(bucket.id())
+ *             .bucket(bucket.bucket())
  *             .rules(BucketLifecycleConfigurationRuleArgs.builder()
  *                 .id("rule-1")
  *                 .filter(BucketLifecycleConfigurationRuleFilterArgs.builder()
@@ -392,7 +392,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfiguration("example", BucketLifecycleConfigurationArgs.builder()
- *             .bucket(bucket.id())
+ *             .bucket(bucket.bucket())
  *             .rules(BucketLifecycleConfigurationRuleArgs.builder()
  *                 .id("Allow small object transitions")
  *                 .filter(BucketLifecycleConfigurationRuleFilterArgs.builder()
@@ -441,7 +441,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfiguration("example", BucketLifecycleConfigurationArgs.builder()
- *             .bucket(bucket.id())
+ *             .bucket(bucket.bucket())
  *             .rules(BucketLifecycleConfigurationRuleArgs.builder()
  *                 .id("rule-1")
  *                 .filter(BucketLifecycleConfigurationRuleFilterArgs.builder()
@@ -502,12 +502,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var bucketAcl = new BucketAcl("bucketAcl", BucketAclArgs.builder()
- *             .bucket(bucket.id())
+ *             .bucket(bucket.bucket())
  *             .acl("private")
  *             .build());
  * 
  *         var bucket_config = new BucketLifecycleConfiguration("bucket-config", BucketLifecycleConfigurationArgs.builder()
- *             .bucket(bucket.id())
+ *             .bucket(bucket.bucket())
  *             .rules(            
  *                 BucketLifecycleConfigurationRuleArgs.builder()
  *                     .id("log")
@@ -551,19 +551,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var versioningBucketAcl = new BucketAcl("versioningBucketAcl", BucketAclArgs.builder()
- *             .bucket(versioningBucket.id())
+ *             .bucket(versioningBucket.bucket())
  *             .acl("private")
  *             .build());
  * 
  *         var versioning = new BucketVersioning("versioning", BucketVersioningArgs.builder()
- *             .bucket(versioningBucket.id())
+ *             .bucket(versioningBucket.bucket())
  *             .versioningConfiguration(BucketVersioningVersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
  *             .build());
  * 
  *         var versioning_bucket_config = new BucketLifecycleConfiguration("versioning-bucket-config", BucketLifecycleConfigurationArgs.builder()
- *             .bucket(versioningBucket.id())
+ *             .bucket(versioningBucket.bucket())
  *             .rules(BucketLifecycleConfigurationRuleArgs.builder()
  *                 .id("config")
  *                 .filter(BucketLifecycleConfigurationRuleFilterArgs.builder()
@@ -593,6 +593,17 @@ import javax.annotation.Nullable;
  * </pre>
  * 
  * ## Import
+ * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `bucket` (String) S3 bucket name.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
  * 
  * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expectedBucketOwner` separated by a comma (`,`):
  * 

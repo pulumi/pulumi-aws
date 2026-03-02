@@ -18,7 +18,15 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? CustomParameters;
         /// <summary>
-        /// ARN of the OIDC provider for OAuth authentication.
+        /// The URL where the end user's browser is redirected after obtaining the authorization code. Required when `GrantType` is `AUTHORIZATION_CODE`.
+        /// </summary>
+        public readonly string? DefaultReturnUrl;
+        /// <summary>
+        /// The OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+        /// </summary>
+        public readonly string? GrantType;
+        /// <summary>
+        /// ARN of the Oauth credential provider for OAuth authentication.
         /// </summary>
         public readonly string ProviderArn;
         /// <summary>
@@ -30,11 +38,17 @@ namespace Pulumi.Aws.Bedrock.Outputs
         private AgentcoreGatewayTargetCredentialProviderConfigurationOauth(
             ImmutableDictionary<string, string>? customParameters,
 
+            string? defaultReturnUrl,
+
+            string? grantType,
+
             string providerArn,
 
             ImmutableArray<string> scopes)
         {
             CustomParameters = customParameters;
+            DefaultReturnUrl = defaultReturnUrl;
+            GrantType = grantType;
             ProviderArn = providerArn;
             Scopes = scopes;
         }

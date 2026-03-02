@@ -207,6 +207,58 @@ import (
 //
 // ```
 //
+// ### OAuth Authorization With Connectivity Parameters
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudwatch.NewEventConnection(ctx, "test", &cloudwatch.EventConnectionArgs{
+//				Name:              pulumi.String("private-api-connection"),
+//				Description:       pulumi.String("A connection to a private API"),
+//				AuthorizationType: pulumi.String("OAUTH_CLIENT_CREDENTIALS"),
+//				AuthParameters: &cloudwatch.EventConnectionAuthParametersArgs{
+//					ConnectivityParameters: &cloudwatch.EventConnectionAuthParametersConnectivityParametersArgs{
+//						ResourceParameters: &cloudwatch.EventConnectionAuthParametersConnectivityParametersResourceParametersArgs{
+//							ResourceConfigurationArn: pulumi.String("arn:aws:vpc-lattice:us-east-1:12345678910:resourceconfiguration/rcfg-12345678910"),
+//						},
+//					},
+//					Oauth: &cloudwatch.EventConnectionAuthParametersOauthArgs{
+//						AuthorizationEndpoint: pulumi.String("https://private-api.example.com/auth"),
+//						HttpMethod:            pulumi.String("POST"),
+//						ClientParameters: &cloudwatch.EventConnectionAuthParametersOauthClientParametersArgs{
+//							ClientId:     pulumi.String("1234567890"),
+//							ClientSecret: pulumi.String("Pass1234!"),
+//						},
+//						OauthHttpParameters: &cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersArgs{
+//							Bodies: cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersBodyArray{
+//								&cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs{
+//									Key:           pulumi.String("grant_type"),
+//									Value:         pulumi.String("client_credentials"),
+//									IsValueSecret: pulumi.Bool(false),
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### CMK Encryption
 //
 // ```go

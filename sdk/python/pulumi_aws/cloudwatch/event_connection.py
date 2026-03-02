@@ -424,6 +424,40 @@ class EventConnection(pulumi.CustomResource):
             })
         ```
 
+        ### OAuth Authorization With Connectivity Parameters
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.cloudwatch.EventConnection("test",
+            name="private-api-connection",
+            description="A connection to a private API",
+            authorization_type="OAUTH_CLIENT_CREDENTIALS",
+            auth_parameters={
+                "connectivity_parameters": {
+                    "resource_parameters": {
+                        "resource_configuration_arn": "arn:aws:vpc-lattice:us-east-1:12345678910:resourceconfiguration/rcfg-12345678910",
+                    },
+                },
+                "oauth": {
+                    "authorization_endpoint": "https://private-api.example.com/auth",
+                    "http_method": "POST",
+                    "client_parameters": {
+                        "client_id": "1234567890",
+                        "client_secret": "Pass1234!",
+                    },
+                    "oauth_http_parameters": {
+                        "bodies": [{
+                            "key": "grant_type",
+                            "value": "client_credentials",
+                            "is_value_secret": False,
+                        }],
+                    },
+                },
+            })
+        ```
+
         ### CMK Encryption
 
         ```python
@@ -627,6 +661,40 @@ class EventConnection(pulumi.CustomResource):
                         "value": "query-string-parameter-value",
                         "is_value_secret": False,
                     }],
+                },
+            })
+        ```
+
+        ### OAuth Authorization With Connectivity Parameters
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.cloudwatch.EventConnection("test",
+            name="private-api-connection",
+            description="A connection to a private API",
+            authorization_type="OAUTH_CLIENT_CREDENTIALS",
+            auth_parameters={
+                "connectivity_parameters": {
+                    "resource_parameters": {
+                        "resource_configuration_arn": "arn:aws:vpc-lattice:us-east-1:12345678910:resourceconfiguration/rcfg-12345678910",
+                    },
+                },
+                "oauth": {
+                    "authorization_endpoint": "https://private-api.example.com/auth",
+                    "http_method": "POST",
+                    "client_parameters": {
+                        "client_id": "1234567890",
+                        "client_secret": "Pass1234!",
+                    },
+                    "oauth_http_parameters": {
+                        "bodies": [{
+                            "key": "grant_type",
+                            "value": "client_credentials",
+                            "is_value_secret": False,
+                        }],
+                    },
                 },
             })
         ```

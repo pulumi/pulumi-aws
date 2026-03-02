@@ -105,6 +105,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly finalSnapshotName: pulumi.Output<string | undefined>;
     /**
+     * Mechanism that the cluster uses to discover IP addresses. Valid values are `ipv4` and `ipv6`. Defaults to `ipv4`. To specify `ipv6`, `networkType` must be `ipv6` or `dualStack`.
+     */
+    declare public readonly ipDiscovery: pulumi.Output<string>;
+    /**
      * ARN of the KMS key used to encrypt the cluster at rest.
      */
     declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
@@ -124,6 +128,10 @@ export class Cluster extends pulumi.CustomResource {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     declare public readonly namePrefix: pulumi.Output<string>;
+    /**
+     * IP address type for the cluster. Valid values are `ipv4`, `ipv6` and `dualStack`. Defaults to `ipv4`.
+     */
+    declare public readonly networkType: pulumi.Output<string>;
     /**
      * The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
      *
@@ -218,11 +226,13 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["enginePatchVersion"] = state?.enginePatchVersion;
             resourceInputs["engineVersion"] = state?.engineVersion;
             resourceInputs["finalSnapshotName"] = state?.finalSnapshotName;
+            resourceInputs["ipDiscovery"] = state?.ipDiscovery;
             resourceInputs["kmsKeyArn"] = state?.kmsKeyArn;
             resourceInputs["maintenanceWindow"] = state?.maintenanceWindow;
             resourceInputs["multiRegionClusterName"] = state?.multiRegionClusterName;
             resourceInputs["name"] = state?.name;
             resourceInputs["namePrefix"] = state?.namePrefix;
+            resourceInputs["networkType"] = state?.networkType;
             resourceInputs["nodeType"] = state?.nodeType;
             resourceInputs["numReplicasPerShard"] = state?.numReplicasPerShard;
             resourceInputs["numShards"] = state?.numShards;
@@ -255,11 +265,13 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["engine"] = args?.engine;
             resourceInputs["engineVersion"] = args?.engineVersion;
             resourceInputs["finalSnapshotName"] = args?.finalSnapshotName;
+            resourceInputs["ipDiscovery"] = args?.ipDiscovery;
             resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
             resourceInputs["maintenanceWindow"] = args?.maintenanceWindow;
             resourceInputs["multiRegionClusterName"] = args?.multiRegionClusterName;
             resourceInputs["name"] = args?.name;
             resourceInputs["namePrefix"] = args?.namePrefix;
+            resourceInputs["networkType"] = args?.networkType;
             resourceInputs["nodeType"] = args?.nodeType;
             resourceInputs["numReplicasPerShard"] = args?.numReplicasPerShard;
             resourceInputs["numShards"] = args?.numShards;
@@ -328,6 +340,10 @@ export interface ClusterState {
      */
     finalSnapshotName?: pulumi.Input<string>;
     /**
+     * Mechanism that the cluster uses to discover IP addresses. Valid values are `ipv4` and `ipv6`. Defaults to `ipv4`. To specify `ipv6`, `networkType` must be `ipv6` or `dualStack`.
+     */
+    ipDiscovery?: pulumi.Input<string>;
+    /**
      * ARN of the KMS key used to encrypt the cluster at rest.
      */
     kmsKeyArn?: pulumi.Input<string>;
@@ -347,6 +363,10 @@ export interface ClusterState {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * IP address type for the cluster. Valid values are `ipv4`, `ipv6` and `dualStack`. Defaults to `ipv4`.
+     */
+    networkType?: pulumi.Input<string>;
     /**
      * The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
      *
@@ -452,6 +472,10 @@ export interface ClusterArgs {
      */
     finalSnapshotName?: pulumi.Input<string>;
     /**
+     * Mechanism that the cluster uses to discover IP addresses. Valid values are `ipv4` and `ipv6`. Defaults to `ipv4`. To specify `ipv6`, `networkType` must be `ipv6` or `dualStack`.
+     */
+    ipDiscovery?: pulumi.Input<string>;
+    /**
      * ARN of the KMS key used to encrypt the cluster at rest.
      */
     kmsKeyArn?: pulumi.Input<string>;
@@ -471,6 +495,10 @@ export interface ClusterArgs {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * IP address type for the cluster. Valid values are `ipv4`, `ipv6` and `dualStack`. Defaults to `ipv4`.
+     */
+    networkType?: pulumi.Input<string>;
     /**
      * The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
      *

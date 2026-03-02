@@ -271,7 +271,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfiguration("example",
-            bucket=bucket["id"],
+            bucket=bucket["bucket"],
             rules=[{
                 "id": "rule-1",
                 "status": "Enabled",
@@ -287,7 +287,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfiguration("example",
-            bucket=bucket["id"],
+            bucket=bucket["bucket"],
             rules=[{
                 "id": "rule-1",
                 "filter": {},
@@ -304,7 +304,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfiguration("example",
-            bucket=bucket["id"],
+            bucket=bucket["bucket"],
             rules=[{
                 "id": "rule-1",
                 "filter": {
@@ -321,7 +321,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfiguration("example",
-            bucket=bucket["id"],
+            bucket=bucket["bucket"],
             rules=[
                 {
                     "id": "rule-1",
@@ -349,7 +349,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfiguration("example",
-            bucket=bucket["id"],
+            bucket=bucket["bucket"],
             rules=[{
                 "id": "rule-1",
                 "filter": {
@@ -371,7 +371,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfiguration("example",
-            bucket=bucket["id"],
+            bucket=bucket["bucket"],
             rules=[{
                 "id": "rule-1",
                 "filter": {
@@ -395,7 +395,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfiguration("example",
-            bucket=bucket["id"],
+            bucket=bucket["bucket"],
             rules=[{
                 "id": "rule-1",
                 "filter": {
@@ -420,7 +420,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfiguration("example",
-            bucket=bucket["id"],
+            bucket=bucket["bucket"],
             rules=[{
                 "id": "Allow small object transitions",
                 "filter": {
@@ -443,7 +443,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfiguration("example",
-            bucket=bucket["id"],
+            bucket=bucket["bucket"],
             rules=[{
                 "id": "rule-1",
                 "filter": {
@@ -465,10 +465,10 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
 
         bucket = aws.s3.Bucket("bucket", bucket="my-bucket")
         bucket_acl = aws.s3.BucketAcl("bucket_acl",
-            bucket=bucket.id,
+            bucket=bucket.bucket,
             acl="private")
         bucket_config = aws.s3.BucketLifecycleConfiguration("bucket-config",
-            bucket=bucket.id,
+            bucket=bucket.bucket,
             rules=[
                 {
                     "id": "log",
@@ -509,15 +509,15 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
             ])
         versioning_bucket = aws.s3.Bucket("versioning_bucket", bucket="my-versioning-bucket")
         versioning_bucket_acl = aws.s3.BucketAcl("versioning_bucket_acl",
-            bucket=versioning_bucket.id,
+            bucket=versioning_bucket.bucket,
             acl="private")
         versioning = aws.s3.BucketVersioning("versioning",
-            bucket=versioning_bucket.id,
+            bucket=versioning_bucket.bucket,
             versioning_configuration={
                 "status": "Enabled",
             })
         versioning_bucket_config = aws.s3.BucketLifecycleConfiguration("versioning-bucket-config",
-            bucket=versioning_bucket.id,
+            bucket=versioning_bucket.bucket,
             rules=[{
                 "id": "config",
                 "filter": {
@@ -542,6 +542,17 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `bucket` (String) S3 bucket name.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 
@@ -601,7 +612,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfiguration("example",
-            bucket=bucket["id"],
+            bucket=bucket["bucket"],
             rules=[{
                 "id": "rule-1",
                 "status": "Enabled",
@@ -617,7 +628,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfiguration("example",
-            bucket=bucket["id"],
+            bucket=bucket["bucket"],
             rules=[{
                 "id": "rule-1",
                 "filter": {},
@@ -634,7 +645,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfiguration("example",
-            bucket=bucket["id"],
+            bucket=bucket["bucket"],
             rules=[{
                 "id": "rule-1",
                 "filter": {
@@ -651,7 +662,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfiguration("example",
-            bucket=bucket["id"],
+            bucket=bucket["bucket"],
             rules=[
                 {
                     "id": "rule-1",
@@ -679,7 +690,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfiguration("example",
-            bucket=bucket["id"],
+            bucket=bucket["bucket"],
             rules=[{
                 "id": "rule-1",
                 "filter": {
@@ -701,7 +712,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfiguration("example",
-            bucket=bucket["id"],
+            bucket=bucket["bucket"],
             rules=[{
                 "id": "rule-1",
                 "filter": {
@@ -725,7 +736,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfiguration("example",
-            bucket=bucket["id"],
+            bucket=bucket["bucket"],
             rules=[{
                 "id": "rule-1",
                 "filter": {
@@ -750,7 +761,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfiguration("example",
-            bucket=bucket["id"],
+            bucket=bucket["bucket"],
             rules=[{
                 "id": "Allow small object transitions",
                 "filter": {
@@ -773,7 +784,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketLifecycleConfiguration("example",
-            bucket=bucket["id"],
+            bucket=bucket["bucket"],
             rules=[{
                 "id": "rule-1",
                 "filter": {
@@ -795,10 +806,10 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
 
         bucket = aws.s3.Bucket("bucket", bucket="my-bucket")
         bucket_acl = aws.s3.BucketAcl("bucket_acl",
-            bucket=bucket.id,
+            bucket=bucket.bucket,
             acl="private")
         bucket_config = aws.s3.BucketLifecycleConfiguration("bucket-config",
-            bucket=bucket.id,
+            bucket=bucket.bucket,
             rules=[
                 {
                     "id": "log",
@@ -839,15 +850,15 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
             ])
         versioning_bucket = aws.s3.Bucket("versioning_bucket", bucket="my-versioning-bucket")
         versioning_bucket_acl = aws.s3.BucketAcl("versioning_bucket_acl",
-            bucket=versioning_bucket.id,
+            bucket=versioning_bucket.bucket,
             acl="private")
         versioning = aws.s3.BucketVersioning("versioning",
-            bucket=versioning_bucket.id,
+            bucket=versioning_bucket.bucket,
             versioning_configuration={
                 "status": "Enabled",
             })
         versioning_bucket_config = aws.s3.BucketLifecycleConfiguration("versioning-bucket-config",
-            bucket=versioning_bucket.id,
+            bucket=versioning_bucket.bucket,
             rules=[{
                 "id": "config",
                 "filter": {
@@ -872,6 +883,17 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `bucket` (String) S3 bucket name.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 

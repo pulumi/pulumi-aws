@@ -1398,7 +1398,58 @@ class Service(pulumi.CustomResource):
             })
         ```
 
+        ### Service Connect with Access Logs
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_log_group = aws.cloudwatch.LogGroup("example", name="/ecs/example/service-connect")
+        current = aws.get_region()
+        example = aws.ecs.Service("example",
+            name="example",
+            cluster=example_aws_ecs_cluster["id"],
+            task_definition=example_aws_ecs_task_definition["arn"],
+            desired_count=1,
+            service_connect_configuration={
+                "enabled": True,
+                "namespace": example_aws_service_discovery_http_namespace["arn"],
+                "log_configuration": {
+                    "log_driver": "awslogs",
+                    "options": {
+                        "awslogs-group": example_log_group.name,
+                        "awslogs-region": current.name,
+                        "awslogs-stream-prefix": "service-connect",
+                    },
+                },
+                "access_log_configuration": {
+                    "format": "TEXT",
+                    "include_query_parameters": "ENABLED",
+                },
+                "services": [{
+                    "port_name": "http",
+                    "discovery_name": "example",
+                    "client_alias": {
+                        "dnsName": "example",
+                        "port": 8080,
+                    },
+                }],
+            })
+        ```
+
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `cluster` (String) The name of the cluster.
+        * `name` (String) The name of the service.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For example:
 
@@ -1611,7 +1662,58 @@ class Service(pulumi.CustomResource):
             })
         ```
 
+        ### Service Connect with Access Logs
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_log_group = aws.cloudwatch.LogGroup("example", name="/ecs/example/service-connect")
+        current = aws.get_region()
+        example = aws.ecs.Service("example",
+            name="example",
+            cluster=example_aws_ecs_cluster["id"],
+            task_definition=example_aws_ecs_task_definition["arn"],
+            desired_count=1,
+            service_connect_configuration={
+                "enabled": True,
+                "namespace": example_aws_service_discovery_http_namespace["arn"],
+                "log_configuration": {
+                    "log_driver": "awslogs",
+                    "options": {
+                        "awslogs-group": example_log_group.name,
+                        "awslogs-region": current.name,
+                        "awslogs-stream-prefix": "service-connect",
+                    },
+                },
+                "access_log_configuration": {
+                    "format": "TEXT",
+                    "include_query_parameters": "ENABLED",
+                },
+                "services": [{
+                    "port_name": "http",
+                    "discovery_name": "example",
+                    "client_alias": {
+                        "dnsName": "example",
+                        "port": 8080,
+                    },
+                }],
+            })
+        ```
+
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `cluster` (String) The name of the cluster.
+        * `name` (String) The name of the service.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For example:
 

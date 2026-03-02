@@ -306,7 +306,25 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
         ## Import
 
-        You cannot import Target Group Attachments.
+        ### Identity Schema
+
+        #### Required
+
+        * `target_group_arn` - (String) ARN of the target group.
+        * `target_id` - (String) ID of the target (instance ID, IP address, Lambda ARN, or ALB ARN).
+
+        #### Optional
+
+        * `port` - (Number) Port on which targets receive traffic.
+        * `availability_zone` - (String) Availability zone where the target is registered.
+        * `account_id` - (String) AWS Account where this resource is managed.
+        * `region` - (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Target Group Attachments using the same format. For example:
+
+        ```sh
+        $ pulumi import aws:lb/targetGroupAttachment:TargetGroupAttachment example arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-tg/abc123,i-0123456789abcdef0,8080
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -388,7 +406,25 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
         ## Import
 
-        You cannot import Target Group Attachments.
+        ### Identity Schema
+
+        #### Required
+
+        * `target_group_arn` - (String) ARN of the target group.
+        * `target_id` - (String) ID of the target (instance ID, IP address, Lambda ARN, or ALB ARN).
+
+        #### Optional
+
+        * `port` - (Number) Port on which targets receive traffic.
+        * `availability_zone` - (String) Availability zone where the target is registered.
+        * `account_id` - (String) AWS Account where this resource is managed.
+        * `region` - (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Target Group Attachments using the same format. For example:
+
+        ```sh
+        $ pulumi import aws:lb/targetGroupAttachment:TargetGroupAttachment example arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-tg/abc123,i-0123456789abcdef0,8080
+        ```
 
         :param str resource_name: The name of the resource.
         :param TargetGroupAttachmentArgs args: The arguments to use to populate this resource's properties.

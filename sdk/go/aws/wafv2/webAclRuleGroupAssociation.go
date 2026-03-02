@@ -26,7 +26,7 @@ import (
 // > **Note:** This resource creates a rule within the Web ACL that references the entire Rule Group. The rule group's individual rules are evaluated as a unit when requests are processed by the Web ACL.
 // ## Example Usage
 //
-// ### Custom Rule Group - Basic Usage
+// ### Basic Usage
 //
 // ```go
 // package main
@@ -40,86 +40,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := wafv2.NewRuleGroup(ctx, "example", &wafv2.RuleGroupArgs{
-//				Name:     pulumi.String("example-rule-group"),
-//				Scope:    pulumi.String("REGIONAL"),
-//				Capacity: pulumi.Int(10),
-//				Rules: wafv2.RuleGroupRuleArray{
-//					&wafv2.RuleGroupRuleArgs{
-//						Name:     pulumi.String("block-suspicious-requests"),
-//						Priority: pulumi.Int(1),
-//						Action: &wafv2.RuleGroupRuleActionArgs{
-//							Block: &wafv2.RuleGroupRuleActionBlockArgs{},
-//						},
-//						Statement: &wafv2.RuleGroupRuleStatementArgs{
-//							GeoMatchStatement: &wafv2.RuleGroupRuleStatementGeoMatchStatementArgs{
-//								CountryCodes: pulumi.StringArray{
-//									pulumi.String("CN"),
-//									pulumi.String("RU"),
-//								},
-//							},
-//						},
-//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
-//							CloudwatchMetricsEnabled: pulumi.Bool(true),
-//							MetricName:               pulumi.String("block-suspicious-requests"),
-//							SampledRequestsEnabled:   pulumi.Bool(true),
-//						},
-//					},
-//				},
-//				VisibilityConfig: &wafv2.RuleGroupVisibilityConfigArgs{
-//					CloudwatchMetricsEnabled: pulumi.Bool(true),
-//					MetricName:               pulumi.String("example-rule-group"),
-//					SampledRequestsEnabled:   pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleWebAcl, err := wafv2.NewWebAcl(ctx, "example", &wafv2.WebAclArgs{
-//				Name:  pulumi.String("example-web-acl"),
-//				Scope: pulumi.String("REGIONAL"),
-//				DefaultAction: &wafv2.WebAclDefaultActionArgs{
-//					Allow: &wafv2.WebAclDefaultActionAllowArgs{},
-//				},
-//				VisibilityConfig: &wafv2.WebAclVisibilityConfigArgs{
-//					CloudwatchMetricsEnabled: pulumi.Bool(true),
-//					MetricName:               pulumi.String("example-web-acl"),
-//					SampledRequestsEnabled:   pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = wafv2.NewWebAclRuleGroupAssociation(ctx, "example", &wafv2.WebAclRuleGroupAssociationArgs{
-//				RuleName:  pulumi.String("example-rule-group-rule"),
-//				Priority:  pulumi.Int(100),
-//				WebAclArn: exampleWebAcl.Arn,
-//				RuleGroupReference: &wafv2.WebAclRuleGroupAssociationRuleGroupReferenceArgs{
-//					Arn: example.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Managed Rule Group - Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Web ACL must use lifecycle.ignore_changes to prevent drift from this resource
 //			example, err := wafv2.NewWebAcl(ctx, "example", &wafv2.WebAclArgs{
 //				Name:  pulumi.String("example-web-acl"),
 //				Scope: pulumi.String("REGIONAL"),
@@ -135,13 +56,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = wafv2.NewWebAclRuleGroupAssociation(ctx, "managed_example", &wafv2.WebAclRuleGroupAssociationArgs{
-//				RuleName:  pulumi.String("aws-common-rule-set"),
-//				Priority:  pulumi.Int(50),
+//			// Associate a custom rule group
+//			_, err = wafv2.NewWebAclRuleGroupAssociation(ctx, "example", &wafv2.WebAclRuleGroupAssociationArgs{
+//				RuleName:  pulumi.String("example-rule-group-rule"),
+//				Priority:  pulumi.Int(100),
 //				WebAclArn: example.Arn,
-//				ManagedRuleGroup: &wafv2.WebAclRuleGroupAssociationManagedRuleGroupArgs{
-//					Name:       pulumi.String("AWSManagedRulesCommonRuleSet"),
-//					VendorName: pulumi.String("AWS"),
+//				RuleGroupReference: &wafv2.WebAclRuleGroupAssociationRuleGroupReferenceArgs{
+//					Arn: pulumi.Any(exampleAwsWafv2RuleGroup.Arn),
 //				},
 //			})
 //			if err != nil {
@@ -152,7 +73,7 @@ import (
 //	}
 //
 // ```
-// ### Managed Rule Group - With Version
+// ### Managed Rule Group
 //
 // ```go
 // package main
@@ -166,10 +87,41 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafv2.NewWebAclRuleGroupAssociation(ctx, "managed_versioned", &wafv2.WebAclRuleGroupAssociationArgs{
+//			_, err := wafv2.NewWebAclRuleGroupAssociation(ctx, "example", &wafv2.WebAclRuleGroupAssociationArgs{
+//				RuleName:  pulumi.String("aws-common-rule-set"),
+//				Priority:  pulumi.Int(50),
+//				WebAclArn: pulumi.Any(exampleAwsWafv2WebAcl.Arn),
+//				ManagedRuleGroup: &wafv2.WebAclRuleGroupAssociationManagedRuleGroupArgs{
+//					Name:       pulumi.String("AWSManagedRulesCommonRuleSet"),
+//					VendorName: pulumi.String("AWS"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Managed Rule Group With Version
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := wafv2.NewWebAclRuleGroupAssociation(ctx, "example", &wafv2.WebAclRuleGroupAssociationArgs{
 //				RuleName:  pulumi.String("aws-common-rule-set-versioned"),
 //				Priority:  pulumi.Int(60),
-//				WebAclArn: pulumi.Any(example.Arn),
+//				WebAclArn: pulumi.Any(exampleAwsWafv2WebAcl.Arn),
 //				ManagedRuleGroup: &wafv2.WebAclRuleGroupAssociationManagedRuleGroupArgs{
 //					Name:       pulumi.String("AWSManagedRulesCommonRuleSet"),
 //					VendorName: pulumi.String("AWS"),
@@ -184,7 +136,7 @@ import (
 //	}
 //
 // ```
-// ### Managed Rule Group - With Rule Action Overrides
+// ### Managed Rule Group With Rule Action Overrides
 //
 // ```go
 // package main
@@ -198,10 +150,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafv2.NewWebAclRuleGroupAssociation(ctx, "managed_with_overrides", &wafv2.WebAclRuleGroupAssociationArgs{
+//			_, err := wafv2.NewWebAclRuleGroupAssociation(ctx, "example", &wafv2.WebAclRuleGroupAssociationArgs{
 //				RuleName:  pulumi.String("aws-common-rule-set-with-overrides"),
 //				Priority:  pulumi.Int(70),
-//				WebAclArn: pulumi.Any(example.Arn),
+//				WebAclArn: pulumi.Any(exampleAwsWafv2WebAcl.Arn),
 //				ManagedRuleGroup: &wafv2.WebAclRuleGroupAssociationManagedRuleGroupArgs{
 //					Name:       pulumi.String("AWSManagedRulesCommonRuleSet"),
 //					VendorName: pulumi.String("AWS"),
@@ -238,7 +190,73 @@ import (
 //	}
 //
 // ```
-// ### Custom Rule Group - With Override Action
+// ### Managed Rule Group With Managed Rule Group Configs
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := wafv2.NewWebAclRuleGroupAssociation(ctx, "example", &wafv2.WebAclRuleGroupAssociationArgs{
+//				RuleName:  pulumi.String("acfp-ruleset-with-rule-config"),
+//				Priority:  pulumi.Int(70),
+//				WebAclArn: pulumi.Any(exampleAwsWafv2WebAcl.Arn),
+//				ManagedRuleGroup: &wafv2.WebAclRuleGroupAssociationManagedRuleGroupArgs{
+//					Name:       pulumi.String("AWSManagedRulesACFPRuleSet"),
+//					VendorName: pulumi.String("AWS"),
+//					ManagedRuleGroupConfigs: &wafv2.WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigsArgs{
+//						AwsManagedRulesAcfpRuleSet: &wafv2.WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigsAwsManagedRulesAcfpRuleSetArgs{
+//							CreationPath:         pulumi.String("/creation"),
+//							RegistrationPagePath: pulumi.String("/registration"),
+//							RequestInspection: &wafv2.WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigsAwsManagedRulesAcfpRuleSetRequestInspectionArgs{
+//								EmailField: &wafv2.WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigsAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldArgs{
+//									Identifier: pulumi.String("/email"),
+//								},
+//								PasswordField: &wafv2.WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigsAwsManagedRulesAcfpRuleSetRequestInspectionPasswordFieldArgs{
+//									Identifier: pulumi.String("/password"),
+//								},
+//								PhoneNumberFields: &wafv2.WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigsAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsArgs{
+//									Identifiers: pulumi.StringArray{
+//										pulumi.String("/phone1"),
+//										pulumi.String("/phone2"),
+//									},
+//								},
+//								AddressFields: &wafv2.WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigsAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgs{
+//									Identifiers: pulumi.StringArray{
+//										pulumi.String("home"),
+//										pulumi.String("work"),
+//									},
+//								},
+//								PayloadType: pulumi.String("JSON"),
+//								UsernameField: &wafv2.WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigsAwsManagedRulesAcfpRuleSetRequestInspectionUsernameFieldArgs{
+//									Identifier: pulumi.String("/username"),
+//								},
+//							},
+//						},
+//					},
+//				},
+//				VisibilityConfig: &wafv2.WebAclRuleGroupAssociationVisibilityConfigArgs{
+//					CloudwatchMetricsEnabled: pulumi.Bool(true),
+//					MetricName:               pulumi.String("friendly-metric-name"),
+//					SampledRequestsEnabled:   pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Custom Rule Group With Override Action
 //
 // ```go
 // package main
@@ -257,6 +275,98 @@ import (
 //				Priority:       pulumi.Int(100),
 //				WebAclArn:      pulumi.Any(exampleAwsWafv2WebAcl.Arn),
 //				OverrideAction: pulumi.String("count"),
+//				RuleGroupReference: &wafv2.WebAclRuleGroupAssociationRuleGroupReferenceArgs{
+//					Arn: pulumi.Any(exampleAwsWafv2RuleGroup.Arn),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Custom Rule Group With Rule Action Overrides
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := wafv2.NewWebAclRuleGroupAssociation(ctx, "example", &wafv2.WebAclRuleGroupAssociationArgs{
+//				RuleName:  pulumi.String("example-rule-group-rule"),
+//				Priority:  pulumi.Int(100),
+//				WebAclArn: pulumi.Any(exampleAwsWafv2WebAcl.Arn),
+//				RuleGroupReference: &wafv2.WebAclRuleGroupAssociationRuleGroupReferenceArgs{
+//					Arn: pulumi.Any(exampleAwsWafv2RuleGroup.Arn),
+//					RuleActionOverrides: wafv2.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArray{
+//						&wafv2.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArgs{
+//							Name: pulumi.String("geo-block-rule"),
+//							ActionToUse: &wafv2.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseArgs{
+//								Count: &wafv2.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountArgs{
+//									CustomRequestHandling: &wafv2.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingArgs{
+//										InsertHeaders: wafv2.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArray{
+//											&wafv2.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgs{
+//												Name:  pulumi.String("X-Geo-Block-Override"),
+//												Value: pulumi.String("counted"),
+//											},
+//										},
+//									},
+//								},
+//							},
+//						},
+//						&wafv2.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArgs{
+//							Name: pulumi.String("rate-limit-rule"),
+//							ActionToUse: &wafv2.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseArgs{
+//								Captcha: &wafv2.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaArgs{
+//									CustomRequestHandling: &wafv2.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs{
+//										InsertHeaders: wafv2.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArray{
+//											&wafv2.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs{
+//												Name:  pulumi.String("X-Rate-Limit-Override"),
+//												Value: pulumi.String("captcha-required"),
+//											},
+//										},
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### CloudFront Web ACL
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := wafv2.NewWebAclRuleGroupAssociation(ctx, "example", &wafv2.WebAclRuleGroupAssociationArgs{
+//				RuleName:  pulumi.String("cloudfront-rule-group-rule"),
+//				Priority:  pulumi.Int(50),
+//				WebAclArn: pulumi.Any(exampleAwsWafv2WebAcl.Arn),
 //				RuleGroupReference: &wafv2.WebAclRuleGroupAssociationRuleGroupReferenceArgs{
 //					Arn: pulumi.Any(exampleAwsWafv2RuleGroup.Arn),
 //				},
@@ -299,6 +409,8 @@ type WebAclRuleGroupAssociation struct {
 	// Name of the rule to create in the Web ACL that references the rule group. Must be between 1 and 128 characters.
 	RuleName pulumi.StringOutput                         `pulumi:"ruleName"`
 	Timeouts WebAclRuleGroupAssociationTimeoutsPtrOutput `pulumi:"timeouts"`
+	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See below.
+	VisibilityConfig WebAclRuleGroupAssociationVisibilityConfigPtrOutput `pulumi:"visibilityConfig"`
 	// ARN of the Web ACL to associate the Rule Group with.
 	//
 	// The following arguments are optional:
@@ -357,6 +469,8 @@ type webAclRuleGroupAssociationState struct {
 	// Name of the rule to create in the Web ACL that references the rule group. Must be between 1 and 128 characters.
 	RuleName *string                             `pulumi:"ruleName"`
 	Timeouts *WebAclRuleGroupAssociationTimeouts `pulumi:"timeouts"`
+	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See below.
+	VisibilityConfig *WebAclRuleGroupAssociationVisibilityConfig `pulumi:"visibilityConfig"`
 	// ARN of the Web ACL to associate the Rule Group with.
 	//
 	// The following arguments are optional:
@@ -377,6 +491,8 @@ type WebAclRuleGroupAssociationState struct {
 	// Name of the rule to create in the Web ACL that references the rule group. Must be between 1 and 128 characters.
 	RuleName pulumi.StringPtrInput
 	Timeouts WebAclRuleGroupAssociationTimeoutsPtrInput
+	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See below.
+	VisibilityConfig WebAclRuleGroupAssociationVisibilityConfigPtrInput
 	// ARN of the Web ACL to associate the Rule Group with.
 	//
 	// The following arguments are optional:
@@ -401,6 +517,8 @@ type webAclRuleGroupAssociationArgs struct {
 	// Name of the rule to create in the Web ACL that references the rule group. Must be between 1 and 128 characters.
 	RuleName string                              `pulumi:"ruleName"`
 	Timeouts *WebAclRuleGroupAssociationTimeouts `pulumi:"timeouts"`
+	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See below.
+	VisibilityConfig *WebAclRuleGroupAssociationVisibilityConfig `pulumi:"visibilityConfig"`
 	// ARN of the Web ACL to associate the Rule Group with.
 	//
 	// The following arguments are optional:
@@ -422,6 +540,8 @@ type WebAclRuleGroupAssociationArgs struct {
 	// Name of the rule to create in the Web ACL that references the rule group. Must be between 1 and 128 characters.
 	RuleName pulumi.StringInput
 	Timeouts WebAclRuleGroupAssociationTimeoutsPtrInput
+	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See below.
+	VisibilityConfig WebAclRuleGroupAssociationVisibilityConfigPtrInput
 	// ARN of the Web ACL to associate the Rule Group with.
 	//
 	// The following arguments are optional:
@@ -551,6 +671,13 @@ func (o WebAclRuleGroupAssociationOutput) RuleName() pulumi.StringOutput {
 
 func (o WebAclRuleGroupAssociationOutput) Timeouts() WebAclRuleGroupAssociationTimeoutsPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleGroupAssociation) WebAclRuleGroupAssociationTimeoutsPtrOutput { return v.Timeouts }).(WebAclRuleGroupAssociationTimeoutsPtrOutput)
+}
+
+// Defines and enables Amazon CloudWatch metrics and web request sample collection. See below.
+func (o WebAclRuleGroupAssociationOutput) VisibilityConfig() WebAclRuleGroupAssociationVisibilityConfigPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleGroupAssociation) WebAclRuleGroupAssociationVisibilityConfigPtrOutput {
+		return v.VisibilityConfig
+	}).(WebAclRuleGroupAssociationVisibilityConfigPtrOutput)
 }
 
 // ARN of the Web ACL to associate the Rule Group with.

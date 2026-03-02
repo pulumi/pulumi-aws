@@ -126,6 +126,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Mechanism that the cluster uses to discover IP addresses. Valid values are `ipv4` and `ipv6`. Defaults to `ipv4`. To specify `ipv6`, `networkType` must be `ipv6` or `dualStack`.
+     * 
+     */
+    @Import(name="ipDiscovery")
+    private @Nullable Output<String> ipDiscovery;
+
+    /**
+     * @return Mechanism that the cluster uses to discover IP addresses. Valid values are `ipv4` and `ipv6`. Defaults to `ipv4`. To specify `ipv6`, `networkType` must be `ipv6` or `dualStack`.
+     * 
+     */
+    public Optional<Output<String>> ipDiscovery() {
+        return Optional.ofNullable(this.ipDiscovery);
+    }
+
+    /**
      * ARN of the KMS key used to encrypt the cluster at rest.
      * 
      */
@@ -198,6 +213,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> namePrefix() {
         return Optional.ofNullable(this.namePrefix);
+    }
+
+    /**
+     * IP address type for the cluster. Valid values are `ipv4`, `ipv6` and `dualStack`. Defaults to `ipv4`.
+     * 
+     */
+    @Import(name="networkType")
+    private @Nullable Output<String> networkType;
+
+    /**
+     * @return IP address type for the cluster. Valid values are `ipv4`, `ipv6` and `dualStack`. Defaults to `ipv4`.
+     * 
+     */
+    public Optional<Output<String>> networkType() {
+        return Optional.ofNullable(this.networkType);
     }
 
     /**
@@ -439,11 +469,13 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.engine = $.engine;
         this.engineVersion = $.engineVersion;
         this.finalSnapshotName = $.finalSnapshotName;
+        this.ipDiscovery = $.ipDiscovery;
         this.kmsKeyArn = $.kmsKeyArn;
         this.maintenanceWindow = $.maintenanceWindow;
         this.multiRegionClusterName = $.multiRegionClusterName;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
+        this.networkType = $.networkType;
         this.nodeType = $.nodeType;
         this.numReplicasPerShard = $.numReplicasPerShard;
         this.numShards = $.numShards;
@@ -627,6 +659,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param ipDiscovery Mechanism that the cluster uses to discover IP addresses. Valid values are `ipv4` and `ipv6`. Defaults to `ipv4`. To specify `ipv6`, `networkType` must be `ipv6` or `dualStack`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipDiscovery(@Nullable Output<String> ipDiscovery) {
+            $.ipDiscovery = ipDiscovery;
+            return this;
+        }
+
+        /**
+         * @param ipDiscovery Mechanism that the cluster uses to discover IP addresses. Valid values are `ipv4` and `ipv6`. Defaults to `ipv4`. To specify `ipv6`, `networkType` must be `ipv6` or `dualStack`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipDiscovery(String ipDiscovery) {
+            return ipDiscovery(Output.of(ipDiscovery));
+        }
+
+        /**
          * @param kmsKeyArn ARN of the KMS key used to encrypt the cluster at rest.
          * 
          * @return builder
@@ -729,6 +782,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder namePrefix(String namePrefix) {
             return namePrefix(Output.of(namePrefix));
+        }
+
+        /**
+         * @param networkType IP address type for the cluster. Valid values are `ipv4`, `ipv6` and `dualStack`. Defaults to `ipv4`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(@Nullable Output<String> networkType) {
+            $.networkType = networkType;
+            return this;
+        }
+
+        /**
+         * @param networkType IP address type for the cluster. Valid values are `ipv4`, `ipv6` and `dualStack`. Defaults to `ipv4`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(String networkType) {
+            return networkType(Output.of(networkType));
         }
 
         /**

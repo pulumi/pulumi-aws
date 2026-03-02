@@ -25,6 +25,7 @@ class AgentcoreGatewayTargetArgs:
                  target_configuration: pulumi.Input['AgentcoreGatewayTargetTargetConfigurationArgs'],
                  credential_provider_configuration: Optional[pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 metadata_configuration: Optional[pulumi.Input['AgentcoreGatewayTargetMetadataConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['AgentcoreGatewayTargetTimeoutsArgs']] = None):
@@ -36,6 +37,7 @@ class AgentcoreGatewayTargetArgs:
                The following arguments are optional:
         :param pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationArgs'] credential_provider_configuration: Configuration for authenticating requests to the target. Required when using `lambda`, `open_api_schema` and `smithy_model` in `mcp` block. If using `mcp_server` in `mcp` block with no authorization, it should not be specified. See `credential_provider_configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the gateway target.
+        :param pulumi.Input['AgentcoreGatewayTargetMetadataConfigurationArgs'] metadata_configuration: Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadata_configuration` below.
         :param pulumi.Input[_builtins.str] name: Name of the gateway target.
         :param pulumi.Input[_builtins.str] region: AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
         """
@@ -45,6 +47,8 @@ class AgentcoreGatewayTargetArgs:
             pulumi.set(__self__, "credential_provider_configuration", credential_provider_configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if metadata_configuration is not None:
+            pulumi.set(__self__, "metadata_configuration", metadata_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if region is not None:
@@ -103,6 +107,18 @@ class AgentcoreGatewayTargetArgs:
         pulumi.set(self, "description", value)
 
     @_builtins.property
+    @pulumi.getter(name="metadataConfiguration")
+    def metadata_configuration(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetMetadataConfigurationArgs']]:
+        """
+        Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadata_configuration` below.
+        """
+        return pulumi.get(self, "metadata_configuration")
+
+    @metadata_configuration.setter
+    def metadata_configuration(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetMetadataConfigurationArgs']]):
+        pulumi.set(self, "metadata_configuration", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -142,6 +158,7 @@ class _AgentcoreGatewayTargetState:
                  credential_provider_configuration: Optional[pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  gateway_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 metadata_configuration: Optional[pulumi.Input['AgentcoreGatewayTargetMetadataConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  target_configuration: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationArgs']] = None,
@@ -152,6 +169,7 @@ class _AgentcoreGatewayTargetState:
         :param pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationArgs'] credential_provider_configuration: Configuration for authenticating requests to the target. Required when using `lambda`, `open_api_schema` and `smithy_model` in `mcp` block. If using `mcp_server` in `mcp` block with no authorization, it should not be specified. See `credential_provider_configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the gateway target.
         :param pulumi.Input[_builtins.str] gateway_identifier: Identifier of the gateway that this target belongs to.
+        :param pulumi.Input['AgentcoreGatewayTargetMetadataConfigurationArgs'] metadata_configuration: Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadata_configuration` below.
         :param pulumi.Input[_builtins.str] name: Name of the gateway target.
         :param pulumi.Input[_builtins.str] region: AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
         :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationArgs'] target_configuration: Configuration for the target endpoint. See `target_configuration` below.
@@ -165,6 +183,8 @@ class _AgentcoreGatewayTargetState:
             pulumi.set(__self__, "description", description)
         if gateway_identifier is not None:
             pulumi.set(__self__, "gateway_identifier", gateway_identifier)
+        if metadata_configuration is not None:
+            pulumi.set(__self__, "metadata_configuration", metadata_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if region is not None:
@@ -211,6 +231,18 @@ class _AgentcoreGatewayTargetState:
     @gateway_identifier.setter
     def gateway_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "gateway_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metadataConfiguration")
+    def metadata_configuration(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetMetadataConfigurationArgs']]:
+        """
+        Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadata_configuration` below.
+        """
+        return pulumi.get(self, "metadata_configuration")
+
+    @metadata_configuration.setter
+    def metadata_configuration(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetMetadataConfigurationArgs']]):
+        pulumi.set(self, "metadata_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -281,6 +313,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                  credential_provider_configuration: Optional[pulumi.Input[Union['AgentcoreGatewayTargetCredentialProviderConfigurationArgs', 'AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  gateway_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 metadata_configuration: Optional[pulumi.Input[Union['AgentcoreGatewayTargetMetadataConfigurationArgs', 'AgentcoreGatewayTargetMetadataConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  target_configuration: Optional[pulumi.Input[Union['AgentcoreGatewayTargetTargetConfigurationArgs', 'AgentcoreGatewayTargetTargetConfigurationArgsDict']]] = None,
@@ -451,9 +484,10 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                         "read",
                         "write",
                     ],
+                    "grant_type": "authorization_code",
+                    "default_return_url": "https://myapp.example.com/callback",
                     "custom_parameters": {
                         "client_type": "confidential",
-                        "grant_type": "authorization_code",
                     },
                 },
             },
@@ -548,6 +582,33 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
             })
         ```
 
+        ### MCP Server Target with Header Propagation
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        mcp_with_headers = aws.bedrock.AgentcoreGatewayTarget("mcp_with_headers",
+            name="mcp-target-with-headers",
+            gateway_identifier=example["gatewayId"],
+            description="MCP server target with header propagation",
+            target_configuration={
+                "mcp": {
+                    "mcp_server": {
+                        "endpoint": "https://example.com/mcp",
+                    },
+                },
+            },
+            metadata_configuration={
+                "allowed_request_headers": [
+                    "x-correlation-id",
+                    "x-tenant-id",
+                ],
+                "allowed_response_headers": ["x-rate-limit-remaining"],
+                "allowed_query_parameters": ["version"],
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import Bedrock AgentCore Gateway Target using the gateway identifier and target ID separated by a comma. For example:
@@ -561,6 +622,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         :param pulumi.Input[Union['AgentcoreGatewayTargetCredentialProviderConfigurationArgs', 'AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict']] credential_provider_configuration: Configuration for authenticating requests to the target. Required when using `lambda`, `open_api_schema` and `smithy_model` in `mcp` block. If using `mcp_server` in `mcp` block with no authorization, it should not be specified. See `credential_provider_configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the gateway target.
         :param pulumi.Input[_builtins.str] gateway_identifier: Identifier of the gateway that this target belongs to.
+        :param pulumi.Input[Union['AgentcoreGatewayTargetMetadataConfigurationArgs', 'AgentcoreGatewayTargetMetadataConfigurationArgsDict']] metadata_configuration: Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadata_configuration` below.
         :param pulumi.Input[_builtins.str] name: Name of the gateway target.
         :param pulumi.Input[_builtins.str] region: AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
         :param pulumi.Input[Union['AgentcoreGatewayTargetTargetConfigurationArgs', 'AgentcoreGatewayTargetTargetConfigurationArgsDict']] target_configuration: Configuration for the target endpoint. See `target_configuration` below.
@@ -738,9 +800,10 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                         "read",
                         "write",
                     ],
+                    "grant_type": "authorization_code",
+                    "default_return_url": "https://myapp.example.com/callback",
                     "custom_parameters": {
                         "client_type": "confidential",
-                        "grant_type": "authorization_code",
                     },
                 },
             },
@@ -835,6 +898,33 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
             })
         ```
 
+        ### MCP Server Target with Header Propagation
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        mcp_with_headers = aws.bedrock.AgentcoreGatewayTarget("mcp_with_headers",
+            name="mcp-target-with-headers",
+            gateway_identifier=example["gatewayId"],
+            description="MCP server target with header propagation",
+            target_configuration={
+                "mcp": {
+                    "mcp_server": {
+                        "endpoint": "https://example.com/mcp",
+                    },
+                },
+            },
+            metadata_configuration={
+                "allowed_request_headers": [
+                    "x-correlation-id",
+                    "x-tenant-id",
+                ],
+                "allowed_response_headers": ["x-rate-limit-remaining"],
+                "allowed_query_parameters": ["version"],
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import Bedrock AgentCore Gateway Target using the gateway identifier and target ID separated by a comma. For example:
@@ -861,6 +951,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                  credential_provider_configuration: Optional[pulumi.Input[Union['AgentcoreGatewayTargetCredentialProviderConfigurationArgs', 'AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  gateway_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 metadata_configuration: Optional[pulumi.Input[Union['AgentcoreGatewayTargetMetadataConfigurationArgs', 'AgentcoreGatewayTargetMetadataConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  target_configuration: Optional[pulumi.Input[Union['AgentcoreGatewayTargetTargetConfigurationArgs', 'AgentcoreGatewayTargetTargetConfigurationArgsDict']]] = None,
@@ -879,6 +970,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
             if gateway_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_identifier'")
             __props__.__dict__["gateway_identifier"] = gateway_identifier
+            __props__.__dict__["metadata_configuration"] = metadata_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["region"] = region
             if target_configuration is None and not opts.urn:
@@ -899,6 +991,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
             credential_provider_configuration: Optional[pulumi.Input[Union['AgentcoreGatewayTargetCredentialProviderConfigurationArgs', 'AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict']]] = None,
             description: Optional[pulumi.Input[_builtins.str]] = None,
             gateway_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+            metadata_configuration: Optional[pulumi.Input[Union['AgentcoreGatewayTargetMetadataConfigurationArgs', 'AgentcoreGatewayTargetMetadataConfigurationArgsDict']]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
             target_configuration: Optional[pulumi.Input[Union['AgentcoreGatewayTargetTargetConfigurationArgs', 'AgentcoreGatewayTargetTargetConfigurationArgsDict']]] = None,
@@ -914,6 +1007,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         :param pulumi.Input[Union['AgentcoreGatewayTargetCredentialProviderConfigurationArgs', 'AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict']] credential_provider_configuration: Configuration for authenticating requests to the target. Required when using `lambda`, `open_api_schema` and `smithy_model` in `mcp` block. If using `mcp_server` in `mcp` block with no authorization, it should not be specified. See `credential_provider_configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the gateway target.
         :param pulumi.Input[_builtins.str] gateway_identifier: Identifier of the gateway that this target belongs to.
+        :param pulumi.Input[Union['AgentcoreGatewayTargetMetadataConfigurationArgs', 'AgentcoreGatewayTargetMetadataConfigurationArgsDict']] metadata_configuration: Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadata_configuration` below.
         :param pulumi.Input[_builtins.str] name: Name of the gateway target.
         :param pulumi.Input[_builtins.str] region: AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
         :param pulumi.Input[Union['AgentcoreGatewayTargetTargetConfigurationArgs', 'AgentcoreGatewayTargetTargetConfigurationArgsDict']] target_configuration: Configuration for the target endpoint. See `target_configuration` below.
@@ -928,6 +1022,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         __props__.__dict__["credential_provider_configuration"] = credential_provider_configuration
         __props__.__dict__["description"] = description
         __props__.__dict__["gateway_identifier"] = gateway_identifier
+        __props__.__dict__["metadata_configuration"] = metadata_configuration
         __props__.__dict__["name"] = name
         __props__.__dict__["region"] = region
         __props__.__dict__["target_configuration"] = target_configuration
@@ -958,6 +1053,14 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         Identifier of the gateway that this target belongs to.
         """
         return pulumi.get(self, "gateway_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="metadataConfiguration")
+    def metadata_configuration(self) -> pulumi.Output[Optional['outputs.AgentcoreGatewayTargetMetadataConfiguration']]:
+        """
+        Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadata_configuration` below.
+        """
+        return pulumi.get(self, "metadata_configuration")
 
     @_builtins.property
     @pulumi.getter

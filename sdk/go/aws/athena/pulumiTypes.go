@@ -510,6 +510,8 @@ type WorkgroupConfiguration struct {
 	MonitoringConfiguration *WorkgroupConfigurationMonitoringConfiguration `pulumi:"monitoringConfiguration"`
 	// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
 	PublishCloudwatchMetricsEnabled *bool `pulumi:"publishCloudwatchMetricsEnabled"`
+	// Configuration block for S3 access grants. See Query Results S3 Access Grants Configuration below.
+	QueryResultsS3AccessGrantsConfiguration *WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration `pulumi:"queryResultsS3AccessGrantsConfiguration"`
 	// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
 	RequesterPaysEnabled *bool `pulumi:"requesterPaysEnabled"`
 	// Configuration block with result settings. See Result Configuration below.
@@ -548,6 +550,8 @@ type WorkgroupConfigurationArgs struct {
 	MonitoringConfiguration WorkgroupConfigurationMonitoringConfigurationPtrInput `pulumi:"monitoringConfiguration"`
 	// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
 	PublishCloudwatchMetricsEnabled pulumi.BoolPtrInput `pulumi:"publishCloudwatchMetricsEnabled"`
+	// Configuration block for S3 access grants. See Query Results S3 Access Grants Configuration below.
+	QueryResultsS3AccessGrantsConfiguration WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrInput `pulumi:"queryResultsS3AccessGrantsConfiguration"`
 	// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
 	RequesterPaysEnabled pulumi.BoolPtrInput `pulumi:"requesterPaysEnabled"`
 	// Configuration block with result settings. See Result Configuration below.
@@ -689,6 +693,13 @@ func (o WorkgroupConfigurationOutput) PublishCloudwatchMetricsEnabled() pulumi.B
 	return o.ApplyT(func(v WorkgroupConfiguration) *bool { return v.PublishCloudwatchMetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Configuration block for S3 access grants. See Query Results S3 Access Grants Configuration below.
+func (o WorkgroupConfigurationOutput) QueryResultsS3AccessGrantsConfiguration() WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput {
+	return o.ApplyT(func(v WorkgroupConfiguration) *WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration {
+		return v.QueryResultsS3AccessGrantsConfiguration
+	}).(WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput)
+}
+
 // If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
 func (o WorkgroupConfigurationOutput) RequesterPaysEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfiguration) *bool { return v.RequesterPaysEnabled }).(pulumi.BoolPtrOutput)
@@ -823,6 +834,16 @@ func (o WorkgroupConfigurationPtrOutput) PublishCloudwatchMetricsEnabled() pulum
 		}
 		return v.PublishCloudwatchMetricsEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Configuration block for S3 access grants. See Query Results S3 Access Grants Configuration below.
+func (o WorkgroupConfigurationPtrOutput) QueryResultsS3AccessGrantsConfiguration() WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput {
+	return o.ApplyT(func(v *WorkgroupConfiguration) *WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.QueryResultsS3AccessGrantsConfiguration
+	}).(WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput)
 }
 
 // If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
@@ -2405,6 +2426,187 @@ func (o WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration struct {
+	// The authentication type used for Amazon S3 access grants. Currently, only `DIRECTORY_IDENTITY` is supported.
+	AuthenticationType string `pulumi:"authenticationType"`
+	// When enabled, appends the user ID as an Amazon S3 path prefix to the query result output location. Defaults to `false`.
+	CreateUserLevelPrefix *bool `pulumi:"createUserLevelPrefix"`
+	// Specifies whether Amazon S3 access grants are enabled for query results.
+	EnableS3AccessGrants bool `pulumi:"enableS3AccessGrants"`
+}
+
+// WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationInput is an input type that accepts WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs and WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutput values.
+// You can construct a concrete instance of `WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationInput` via:
+//
+//	WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs{...}
+type WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationInput interface {
+	pulumi.Input
+
+	ToWorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutput() WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutput
+	ToWorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutputWithContext(context.Context) WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutput
+}
+
+type WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs struct {
+	// The authentication type used for Amazon S3 access grants. Currently, only `DIRECTORY_IDENTITY` is supported.
+	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
+	// When enabled, appends the user ID as an Amazon S3 path prefix to the query result output location. Defaults to `false`.
+	CreateUserLevelPrefix pulumi.BoolPtrInput `pulumi:"createUserLevelPrefix"`
+	// Specifies whether Amazon S3 access grants are enabled for query results.
+	EnableS3AccessGrants pulumi.BoolInput `pulumi:"enableS3AccessGrants"`
+}
+
+func (WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration)(nil)).Elem()
+}
+
+func (i WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs) ToWorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutput() WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutput {
+	return i.ToWorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutputWithContext(context.Background())
+}
+
+func (i WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs) ToWorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutputWithContext(ctx context.Context) WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutput)
+}
+
+func (i WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs) ToWorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput() WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput {
+	return i.ToWorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs) ToWorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutput).ToWorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutputWithContext(ctx)
+}
+
+// WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrInput is an input type that accepts WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs, WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtr and WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrInput` via:
+//
+//	        WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput() WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput
+	ToWorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutputWithContext(context.Context) WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput
+}
+
+type workgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrType WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs
+
+func WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtr(v *WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs) WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrInput {
+	return (*workgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrType)(v)
+}
+
+func (*workgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration)(nil)).Elem()
+}
+
+func (i *workgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrType) ToWorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput() WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput {
+	return i.ToWorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *workgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrType) ToWorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput)
+}
+
+type WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration)(nil)).Elem()
+}
+
+func (o WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutput) ToWorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutput() WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutput {
+	return o
+}
+
+func (o WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutput) ToWorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutputWithContext(ctx context.Context) WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutput {
+	return o
+}
+
+func (o WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutput) ToWorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput() WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput {
+	return o.ToWorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutput) ToWorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration) *WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration {
+		return &v
+	}).(WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput)
+}
+
+// The authentication type used for Amazon S3 access grants. Currently, only `DIRECTORY_IDENTITY` is supported.
+func (o WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration) string {
+		return v.AuthenticationType
+	}).(pulumi.StringOutput)
+}
+
+// When enabled, appends the user ID as an Amazon S3 path prefix to the query result output location. Defaults to `false`.
+func (o WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutput) CreateUserLevelPrefix() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration) *bool {
+		return v.CreateUserLevelPrefix
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether Amazon S3 access grants are enabled for query results.
+func (o WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutput) EnableS3AccessGrants() pulumi.BoolOutput {
+	return o.ApplyT(func(v WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration) bool {
+		return v.EnableS3AccessGrants
+	}).(pulumi.BoolOutput)
+}
+
+type WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration)(nil)).Elem()
+}
+
+func (o WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput) ToWorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput() WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput) ToWorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput) Elem() WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutput {
+	return o.ApplyT(func(v *WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration) WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration
+		return ret
+	}).(WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutput)
+}
+
+// The authentication type used for Amazon S3 access grants. Currently, only `DIRECTORY_IDENTITY` is supported.
+func (o WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput) AuthenticationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthenticationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// When enabled, appends the user ID as an Amazon S3 path prefix to the query result output location. Defaults to `false`.
+func (o WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput) CreateUserLevelPrefix() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CreateUserLevelPrefix
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether Amazon S3 access grants are enabled for query results.
+func (o WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput) EnableS3AccessGrants() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.EnableS3AccessGrants
+	}).(pulumi.BoolPtrOutput)
+}
+
 type WorkgroupConfigurationResultConfiguration struct {
 	// That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
 	AclConfiguration *WorkgroupConfigurationResultConfigurationAclConfiguration `pulumi:"aclConfiguration"`
@@ -2927,6 +3129,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationPtrInput)(nil)).Elem(), WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationInput)(nil)).Elem(), WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationPtrInput)(nil)).Elem(), WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationInput)(nil)).Elem(), WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrInput)(nil)).Elem(), WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationPtrInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationAclConfigurationInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationAclConfigurationArgs{})
@@ -2961,6 +3165,8 @@ func init() {
 	pulumi.RegisterOutputType(WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationOutput{})
+	pulumi.RegisterOutputType(WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigurationResultConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigurationResultConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigurationResultConfigurationAclConfigurationOutput{})

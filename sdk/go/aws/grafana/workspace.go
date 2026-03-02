@@ -150,6 +150,8 @@ type Workspace struct {
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
 	GrafanaVersion pulumi.StringOutput `pulumi:"grafanaVersion"`
+	// The ARN of the AWS KMS key for encrypting workspace data.
+	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// The Grafana workspace name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration for network access to your workspace.See Network Access Control below.
@@ -234,6 +236,8 @@ type workspaceState struct {
 	Endpoint *string `pulumi:"endpoint"`
 	// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
 	GrafanaVersion *string `pulumi:"grafanaVersion"`
+	// The ARN of the AWS KMS key for encrypting workspace data.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The Grafana workspace name.
 	Name *string `pulumi:"name"`
 	// Configuration for network access to your workspace.See Network Access Control below.
@@ -280,6 +284,8 @@ type WorkspaceState struct {
 	Endpoint pulumi.StringPtrInput
 	// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
 	GrafanaVersion pulumi.StringPtrInput
+	// The ARN of the AWS KMS key for encrypting workspace data.
+	KmsKeyId pulumi.StringPtrInput
 	// The Grafana workspace name.
 	Name pulumi.StringPtrInput
 	// Configuration for network access to your workspace.See Network Access Control below.
@@ -326,6 +332,8 @@ type workspaceArgs struct {
 	Description *string `pulumi:"description"`
 	// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
 	GrafanaVersion *string `pulumi:"grafanaVersion"`
+	// The ARN of the AWS KMS key for encrypting workspace data.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The Grafana workspace name.
 	Name *string `pulumi:"name"`
 	// Configuration for network access to your workspace.See Network Access Control below.
@@ -366,6 +374,8 @@ type WorkspaceArgs struct {
 	Description pulumi.StringPtrInput
 	// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
 	GrafanaVersion pulumi.StringPtrInput
+	// The ARN of the AWS KMS key for encrypting workspace data.
+	KmsKeyId pulumi.StringPtrInput
 	// The Grafana workspace name.
 	Name pulumi.StringPtrInput
 	// Configuration for network access to your workspace.See Network Access Control below.
@@ -517,6 +527,11 @@ func (o WorkspaceOutput) Endpoint() pulumi.StringOutput {
 // Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
 func (o WorkspaceOutput) GrafanaVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.GrafanaVersion }).(pulumi.StringOutput)
+}
+
+// The ARN of the AWS KMS key for encrypting workspace data.
+func (o WorkspaceOutput) KmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
 // The Grafana workspace name.

@@ -125,6 +125,11 @@ export type LinkAssociation = import("./linkAssociation").LinkAssociation;
 export const LinkAssociation: typeof import("./linkAssociation").LinkAssociation = null as any;
 utilities.lazyLoad(exports, ["LinkAssociation"], () => require("./linkAssociation"));
 
+export { PrefixListAssociationArgs, PrefixListAssociationState } from "./prefixListAssociation";
+export type PrefixListAssociation = import("./prefixListAssociation").PrefixListAssociation;
+export const PrefixListAssociation: typeof import("./prefixListAssociation").PrefixListAssociation = null as any;
+utilities.lazyLoad(exports, ["PrefixListAssociation"], () => require("./prefixListAssociation"));
+
 export { SiteArgs, SiteState } from "./site";
 export type Site = import("./site").Site;
 export const Site: typeof import("./site").Site = null as any;
@@ -191,6 +196,8 @@ const _module = {
                 return new Link(name, <any>undefined, { urn })
             case "aws:networkmanager/linkAssociation:LinkAssociation":
                 return new LinkAssociation(name, <any>undefined, { urn })
+            case "aws:networkmanager/prefixListAssociation:PrefixListAssociation":
+                return new PrefixListAssociation(name, <any>undefined, { urn })
             case "aws:networkmanager/site:Site":
                 return new Site(name, <any>undefined, { urn })
             case "aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment":
@@ -223,6 +230,7 @@ pulumi.runtime.registerResourceModule("aws", "networkmanager/dxGatewayAttachment
 pulumi.runtime.registerResourceModule("aws", "networkmanager/globalNetwork", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/link", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/linkAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "networkmanager/prefixListAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/site", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/siteToSiteVpnAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/transitGatewayConnectPeerAssociation", _module)

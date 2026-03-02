@@ -73,6 +73,12 @@ namespace Pulumi.Aws.Athena.Inputs
         public Input<bool>? PublishCloudwatchMetricsEnabled { get; set; }
 
         /// <summary>
+        /// Configuration block for S3 access grants. See Query Results S3 Access Grants Configuration below.
+        /// </summary>
+        [Input("queryResultsS3AccessGrantsConfiguration")]
+        public Input<Inputs.WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs>? QueryResultsS3AccessGrantsConfiguration { get; set; }
+
+        /// <summary>
         /// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
         /// </summary>
         [Input("requesterPaysEnabled")]

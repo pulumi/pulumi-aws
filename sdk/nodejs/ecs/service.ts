@@ -174,7 +174,59 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Service Connect with Access Logs
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {name: "/ecs/example/service-connect"});
+ * const current = aws.getRegion({});
+ * const example = new aws.ecs.Service("example", {
+ *     name: "example",
+ *     cluster: exampleAwsEcsCluster.id,
+ *     taskDefinition: exampleAwsEcsTaskDefinition.arn,
+ *     desiredCount: 1,
+ *     serviceConnectConfiguration: {
+ *         enabled: true,
+ *         namespace: exampleAwsServiceDiscoveryHttpNamespace.arn,
+ *         logConfiguration: {
+ *             logDriver: "awslogs",
+ *             options: {
+ *                 "awslogs-group": exampleLogGroup.name,
+ *                 "awslogs-region": current.then(current => current.name),
+ *                 "awslogs-stream-prefix": "service-connect",
+ *             },
+ *         },
+ *         accessLogConfiguration: {
+ *             format: "TEXT",
+ *             includeQueryParameters: "ENABLED",
+ *         },
+ *         services: [{
+ *             portName: "http",
+ *             discoveryName: "example",
+ *             clientAlias: {
+ *                 dnsName: "example",
+ *                 port: 8080,
+ *             },
+ *         }],
+ *     },
+ * });
+ * ```
+ *
  * ## Import
+ *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `cluster` (String) The name of the cluster.
+ * * `name` (String) The name of the service.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
  *
  * Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For example:
  *

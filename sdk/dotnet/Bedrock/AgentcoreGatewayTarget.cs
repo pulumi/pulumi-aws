@@ -283,10 +283,11 @@ namespace Pulumi.Aws.Bedrock
     ///                     "read",
     ///                     "write",
     ///                 },
+    ///                 GrantType = "authorization_code",
+    ///                 DefaultReturnUrl = "https://myapp.example.com/callback",
     ///                 CustomParameters = 
     ///                 {
     ///                     { "client_type", "confidential" },
-    ///                     { "grant_type", "authorization_code" },
     ///                 },
     ///             },
     ///         },
@@ -430,6 +431,52 @@ namespace Pulumi.Aws.Bedrock
     /// });
     /// ```
     /// 
+    /// ### MCP Server Target with Header Propagation
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mcpWithHeaders = new Aws.Bedrock.AgentcoreGatewayTarget("mcp_with_headers", new()
+    ///     {
+    ///         Name = "mcp-target-with-headers",
+    ///         GatewayIdentifier = example.GatewayId,
+    ///         Description = "MCP server target with header propagation",
+    ///         TargetConfiguration = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationArgs
+    ///         {
+    ///             Mcp = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpArgs
+    ///             {
+    ///                 McpServer = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs
+    ///                 {
+    ///                     Endpoint = "https://example.com/mcp",
+    ///                 },
+    ///             },
+    ///         },
+    ///         MetadataConfiguration = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetMetadataConfigurationArgs
+    ///         {
+    ///             AllowedRequestHeaders = new[]
+    ///             {
+    ///                 "x-correlation-id",
+    ///                 "x-tenant-id",
+    ///             },
+    ///             AllowedResponseHeaders = new[]
+    ///             {
+    ///                 "x-rate-limit-remaining",
+    ///             },
+    ///             AllowedQueryParameters = new[]
+    ///             {
+    ///                 "version",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Bedrock AgentCore Gateway Target using the gateway identifier and target ID separated by a comma. For example:
@@ -458,6 +505,12 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         [Output("gatewayIdentifier")]
         public Output<string> GatewayIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `MetadataConfiguration` below.
+        /// </summary>
+        [Output("metadataConfiguration")]
+        public Output<Outputs.AgentcoreGatewayTargetMetadataConfiguration?> MetadataConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Name of the gateway target.
@@ -553,6 +606,12 @@ namespace Pulumi.Aws.Bedrock
         public Input<string> GatewayIdentifier { get; set; } = null!;
 
         /// <summary>
+        /// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `MetadataConfiguration` below.
+        /// </summary>
+        [Input("metadataConfiguration")]
+        public Input<Inputs.AgentcoreGatewayTargetMetadataConfigurationArgs>? MetadataConfiguration { get; set; }
+
+        /// <summary>
         /// Name of the gateway target.
         /// </summary>
         [Input("name")]
@@ -600,6 +659,12 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         [Input("gatewayIdentifier")]
         public Input<string>? GatewayIdentifier { get; set; }
+
+        /// <summary>
+        /// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `MetadataConfiguration` below.
+        /// </summary>
+        [Input("metadataConfiguration")]
+        public Input<Inputs.AgentcoreGatewayTargetMetadataConfigurationGetArgs>? MetadataConfiguration { get; set; }
 
         /// <summary>
         /// Name of the gateway target.

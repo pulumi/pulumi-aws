@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.ecs.inputs;
 
+import com.pulumi.aws.ecs.inputs.ServiceServiceConnectConfigurationAccessLogConfigurationArgs;
 import com.pulumi.aws.ecs.inputs.ServiceServiceConnectConfigurationLogConfigurationArgs;
 import com.pulumi.aws.ecs.inputs.ServiceServiceConnectConfigurationServiceArgs;
 import com.pulumi.core.Output;
@@ -19,6 +20,21 @@ import javax.annotation.Nullable;
 public final class ServiceServiceConnectConfigurationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ServiceServiceConnectConfigurationArgs Empty = new ServiceServiceConnectConfigurationArgs();
+
+    /**
+     * Configuration for Service Connect access logs. See below.
+     * 
+     */
+    @Import(name="accessLogConfiguration")
+    private @Nullable Output<ServiceServiceConnectConfigurationAccessLogConfigurationArgs> accessLogConfiguration;
+
+    /**
+     * @return Configuration for Service Connect access logs. See below.
+     * 
+     */
+    public Optional<Output<ServiceServiceConnectConfigurationAccessLogConfigurationArgs>> accessLogConfiguration() {
+        return Optional.ofNullable(this.accessLogConfiguration);
+    }
 
     /**
      * Whether to use Service Connect with this service.
@@ -83,6 +99,7 @@ public final class ServiceServiceConnectConfigurationArgs extends com.pulumi.res
     private ServiceServiceConnectConfigurationArgs() {}
 
     private ServiceServiceConnectConfigurationArgs(ServiceServiceConnectConfigurationArgs $) {
+        this.accessLogConfiguration = $.accessLogConfiguration;
         this.enabled = $.enabled;
         this.logConfiguration = $.logConfiguration;
         this.namespace = $.namespace;
@@ -105,6 +122,27 @@ public final class ServiceServiceConnectConfigurationArgs extends com.pulumi.res
 
         public Builder(ServiceServiceConnectConfigurationArgs defaults) {
             $ = new ServiceServiceConnectConfigurationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param accessLogConfiguration Configuration for Service Connect access logs. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessLogConfiguration(@Nullable Output<ServiceServiceConnectConfigurationAccessLogConfigurationArgs> accessLogConfiguration) {
+            $.accessLogConfiguration = accessLogConfiguration;
+            return this;
+        }
+
+        /**
+         * @param accessLogConfiguration Configuration for Service Connect access logs. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessLogConfiguration(ServiceServiceConnectConfigurationAccessLogConfigurationArgs accessLogConfiguration) {
+            return accessLogConfiguration(Output.of(accessLogConfiguration));
         }
 
         /**

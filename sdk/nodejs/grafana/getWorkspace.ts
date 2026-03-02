@@ -88,6 +88,10 @@ export interface GetWorkspaceResult {
      */
     readonly id: string;
     /**
+     * The ID or ARN of the AWS KMS key for encrypting workspace data.
+     */
+    readonly kmsKeyId: string;
+    /**
      * Last updated date of the Grafana workspace.
      */
     readonly lastUpdatedDate: string;

@@ -30,16 +30,32 @@ public final class DomainIdentityCenterOptionsArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.identityCenterInstanceArn);
     }
 
+    /**
+     * Element of the JWT assertion to use for roles. Default is `roles`.
+     * 
+     */
     @Import(name="rolesKey")
     private @Nullable Output<String> rolesKey;
 
+    /**
+     * @return Element of the JWT assertion to use for roles. Default is `roles`.
+     * 
+     */
     public Optional<Output<String>> rolesKey() {
         return Optional.ofNullable(this.rolesKey);
     }
 
+    /**
+     * Element of the JWT assertion to use for the user name. Default is `sub`.
+     * 
+     */
     @Import(name="subjectKey")
     private @Nullable Output<String> subjectKey;
 
+    /**
+     * @return Element of the JWT assertion to use for the user name. Default is `sub`.
+     * 
+     */
     public Optional<Output<String>> subjectKey() {
         return Optional.ofNullable(this.subjectKey);
     }
@@ -89,20 +105,44 @@ public final class DomainIdentityCenterOptionsArgs extends com.pulumi.resources.
             return identityCenterInstanceArn(Output.of(identityCenterInstanceArn));
         }
 
+        /**
+         * @param rolesKey Element of the JWT assertion to use for roles. Default is `roles`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rolesKey(@Nullable Output<String> rolesKey) {
             $.rolesKey = rolesKey;
             return this;
         }
 
+        /**
+         * @param rolesKey Element of the JWT assertion to use for roles. Default is `roles`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rolesKey(String rolesKey) {
             return rolesKey(Output.of(rolesKey));
         }
 
+        /**
+         * @param subjectKey Element of the JWT assertion to use for the user name. Default is `sub`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subjectKey(@Nullable Output<String> subjectKey) {
             $.subjectKey = subjectKey;
             return this;
         }
 
+        /**
+         * @param subjectKey Element of the JWT assertion to use for the user name. Default is `sub`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subjectKey(String subjectKey) {
             return subjectKey(Output.of(subjectKey));
         }

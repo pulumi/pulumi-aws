@@ -239,6 +239,7 @@ __all__ = [
     'AgentcoreGatewayTargetCredentialProviderConfigurationApiKey',
     'AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole',
     'AgentcoreGatewayTargetCredentialProviderConfigurationOauth',
+    'AgentcoreGatewayTargetMetadataConfiguration',
     'AgentcoreGatewayTargetTargetConfiguration',
     'AgentcoreGatewayTargetTargetConfigurationMcp',
     'AgentcoreGatewayTargetTargetConfigurationMcpLambda',
@@ -10224,6 +10225,10 @@ class AgentcoreGatewayTargetCredentialProviderConfigurationOauth(dict):
             suggest = "provider_arn"
         elif key == "customParameters":
             suggest = "custom_parameters"
+        elif key == "defaultReturnUrl":
+            suggest = "default_return_url"
+        elif key == "grantType":
+            suggest = "grant_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayTargetCredentialProviderConfigurationOauth. Access the value via the '{suggest}' property getter instead.")
@@ -10239,22 +10244,30 @@ class AgentcoreGatewayTargetCredentialProviderConfigurationOauth(dict):
     def __init__(__self__, *,
                  provider_arn: _builtins.str,
                  scopes: Sequence[_builtins.str],
-                 custom_parameters: Optional[Mapping[str, _builtins.str]] = None):
+                 custom_parameters: Optional[Mapping[str, _builtins.str]] = None,
+                 default_return_url: Optional[_builtins.str] = None,
+                 grant_type: Optional[_builtins.str] = None):
         """
-        :param _builtins.str provider_arn: ARN of the OIDC provider for OAuth authentication.
+        :param _builtins.str provider_arn: ARN of the Oauth credential provider for OAuth authentication.
         :param Sequence[_builtins.str] scopes: Set of OAuth scopes to request.
         :param Mapping[str, _builtins.str] custom_parameters: Map of custom parameters to include in OAuth requests.
+        :param _builtins.str default_return_url: The URL where the end user's browser is redirected after obtaining the authorization code. Required when `grant_type` is `AUTHORIZATION_CODE`.
+        :param _builtins.str grant_type: The OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
         """
         pulumi.set(__self__, "provider_arn", provider_arn)
         pulumi.set(__self__, "scopes", scopes)
         if custom_parameters is not None:
             pulumi.set(__self__, "custom_parameters", custom_parameters)
+        if default_return_url is not None:
+            pulumi.set(__self__, "default_return_url", default_return_url)
+        if grant_type is not None:
+            pulumi.set(__self__, "grant_type", grant_type)
 
     @_builtins.property
     @pulumi.getter(name="providerArn")
     def provider_arn(self) -> _builtins.str:
         """
-        ARN of the OIDC provider for OAuth authentication.
+        ARN of the Oauth credential provider for OAuth authentication.
         """
         return pulumi.get(self, "provider_arn")
 
@@ -10273,6 +10286,90 @@ class AgentcoreGatewayTargetCredentialProviderConfigurationOauth(dict):
         Map of custom parameters to include in OAuth requests.
         """
         return pulumi.get(self, "custom_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultReturnUrl")
+    def default_return_url(self) -> Optional[_builtins.str]:
+        """
+        The URL where the end user's browser is redirected after obtaining the authorization code. Required when `grant_type` is `AUTHORIZATION_CODE`.
+        """
+        return pulumi.get(self, "default_return_url")
+
+    @_builtins.property
+    @pulumi.getter(name="grantType")
+    def grant_type(self) -> Optional[_builtins.str]:
+        """
+        The OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+        """
+        return pulumi.get(self, "grant_type")
+
+
+@pulumi.output_type
+class AgentcoreGatewayTargetMetadataConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedQueryParameters":
+            suggest = "allowed_query_parameters"
+        elif key == "allowedRequestHeaders":
+            suggest = "allowed_request_headers"
+        elif key == "allowedResponseHeaders":
+            suggest = "allowed_response_headers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayTargetMetadataConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayTargetMetadataConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayTargetMetadataConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_query_parameters: Optional[Sequence[_builtins.str]] = None,
+                 allowed_request_headers: Optional[Sequence[_builtins.str]] = None,
+                 allowed_response_headers: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence[_builtins.str] allowed_query_parameters: A set of URL query parameters that are allowed to be propagated from incoming gateway URL to the target. Maximum of 10 parameters.
+        :param Sequence[_builtins.str] allowed_request_headers: A set of HTTP headers that are allowed to be propagated from incoming client requests to the target. Maximum of 10 headers.
+        :param Sequence[_builtins.str] allowed_response_headers: A set of HTTP headers that are allowed to be propagated from the target response back to the client. Maximum of 10 headers.
+               
+               > **Note:** Header names must contain only alphanumeric characters, hyphens, and underscores. A large number of standard HTTP headers are restricted and cannot be configured for propagation, including authentication, content negotiation, caching, security, CORS, and connection management headers. Headers starting with `X-Amzn-` are prohibited except for `X-Amzn-Bedrock-AgentCore-Runtime-Custom-*` headers. These restrictions are enforced by schema validation. For the full list of restricted headers, see the [AWS documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-headers.html).
+        """
+        if allowed_query_parameters is not None:
+            pulumi.set(__self__, "allowed_query_parameters", allowed_query_parameters)
+        if allowed_request_headers is not None:
+            pulumi.set(__self__, "allowed_request_headers", allowed_request_headers)
+        if allowed_response_headers is not None:
+            pulumi.set(__self__, "allowed_response_headers", allowed_response_headers)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedQueryParameters")
+    def allowed_query_parameters(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A set of URL query parameters that are allowed to be propagated from incoming gateway URL to the target. Maximum of 10 parameters.
+        """
+        return pulumi.get(self, "allowed_query_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedRequestHeaders")
+    def allowed_request_headers(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A set of HTTP headers that are allowed to be propagated from incoming client requests to the target. Maximum of 10 headers.
+        """
+        return pulumi.get(self, "allowed_request_headers")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedResponseHeaders")
+    def allowed_response_headers(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A set of HTTP headers that are allowed to be propagated from the target response back to the client. Maximum of 10 headers.
+
+        > **Note:** Header names must contain only alphanumeric characters, hyphens, and underscores. A large number of standard HTTP headers are restricted and cannot be configured for propagation, including authentication, content negotiation, caching, security, CORS, and connection management headers. Headers starting with `X-Amzn-` are prohibited except for `X-Amzn-Bedrock-AgentCore-Runtime-Custom-*` headers. These restrictions are enforced by schema validation. For the full list of restricted headers, see the [AWS documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-headers.html).
+        """
+        return pulumi.get(self, "allowed_response_headers")
 
 
 @pulumi.output_type

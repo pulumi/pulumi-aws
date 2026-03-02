@@ -133,6 +133,41 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### OAuth Authorization With Connectivity Parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.cloudwatch.EventConnection("test", {
+ *     name: "private-api-connection",
+ *     description: "A connection to a private API",
+ *     authorizationType: "OAUTH_CLIENT_CREDENTIALS",
+ *     authParameters: {
+ *         connectivityParameters: {
+ *             resourceParameters: {
+ *                 resourceConfigurationArn: "arn:aws:vpc-lattice:us-east-1:12345678910:resourceconfiguration/rcfg-12345678910",
+ *             },
+ *         },
+ *         oauth: {
+ *             authorizationEndpoint: "https://private-api.example.com/auth",
+ *             httpMethod: "POST",
+ *             clientParameters: {
+ *                 clientId: "1234567890",
+ *                 clientSecret: "Pass1234!",
+ *             },
+ *             oauthHttpParameters: {
+ *                 bodies: [{
+ *                     key: "grant_type",
+ *                     value: "client_credentials",
+ *                     isValueSecret: false,
+ *                 }],
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ### CMK Encryption
  *
  * ```typescript

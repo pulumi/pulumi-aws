@@ -29,11 +29,13 @@ class ClusterArgs:
                  engine: Optional[pulumi.Input[_builtins.str]] = None,
                  engine_version: Optional[pulumi.Input[_builtins.str]] = None,
                  final_snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip_discovery: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
                  multi_region_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_type: Optional[pulumi.Input[_builtins.str]] = None,
                  num_replicas_per_shard: Optional[pulumi.Input[_builtins.int]] = None,
                  num_shards: Optional[pulumi.Input[_builtins.int]] = None,
                  parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -60,11 +62,13 @@ class ClusterArgs:
         :param pulumi.Input[_builtins.str] engine: The engine that will run on your nodes. Supported values are `redis` and `valkey`.
         :param pulumi.Input[_builtins.str] engine_version: Version number of the engine to be used for the cluster. Downgrades are not supported.
         :param pulumi.Input[_builtins.str] final_snapshot_name: Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
+        :param pulumi.Input[_builtins.str] ip_discovery: Mechanism that the cluster uses to discover IP addresses. Valid values are `ipv4` and `ipv6`. Defaults to `ipv4`. To specify `ipv6`, `network_type` must be `ipv6` or `dual_stack`.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the cluster at rest.
         :param pulumi.Input[_builtins.str] maintenance_window: Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
         :param pulumi.Input[_builtins.str] multi_region_cluster_name: The multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
         :param pulumi.Input[_builtins.str] name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[_builtins.str] network_type: IP address type for the cluster. Valid values are `ipv4`, `ipv6` and `dual_stack`. Defaults to `ipv4`.
         :param pulumi.Input[_builtins.int] num_replicas_per_shard: The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
         :param pulumi.Input[_builtins.int] num_shards: The number of shards in the cluster. Defaults to `1`.
         :param pulumi.Input[_builtins.str] parameter_group_name: The name of the parameter group associated with the cluster.
@@ -94,6 +98,8 @@ class ClusterArgs:
             pulumi.set(__self__, "engine_version", engine_version)
         if final_snapshot_name is not None:
             pulumi.set(__self__, "final_snapshot_name", final_snapshot_name)
+        if ip_discovery is not None:
+            pulumi.set(__self__, "ip_discovery", ip_discovery)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if maintenance_window is not None:
@@ -104,6 +110,8 @@ class ClusterArgs:
             pulumi.set(__self__, "name", name)
         if name_prefix is not None:
             pulumi.set(__self__, "name_prefix", name_prefix)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if num_replicas_per_shard is not None:
             pulumi.set(__self__, "num_replicas_per_shard", num_replicas_per_shard)
         if num_shards is not None:
@@ -232,6 +240,18 @@ class ClusterArgs:
         pulumi.set(self, "final_snapshot_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="ipDiscovery")
+    def ip_discovery(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Mechanism that the cluster uses to discover IP addresses. Valid values are `ipv4` and `ipv6`. Defaults to `ipv4`. To specify `ipv6`, `network_type` must be `ipv6` or `dual_stack`.
+        """
+        return pulumi.get(self, "ip_discovery")
+
+    @ip_discovery.setter
+    def ip_discovery(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ip_discovery", value)
+
+    @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -290,6 +310,18 @@ class ClusterArgs:
     @name_prefix.setter
     def name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        IP address type for the cluster. Valid values are `ipv4`, `ipv6` and `dual_stack`. Defaults to `ipv4`.
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "network_type", value)
 
     @_builtins.property
     @pulumi.getter(name="numReplicasPerShard")
@@ -473,11 +505,13 @@ class _ClusterState:
                  engine_patch_version: Optional[pulumi.Input[_builtins.str]] = None,
                  engine_version: Optional[pulumi.Input[_builtins.str]] = None,
                  final_snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip_discovery: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
                  multi_region_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_type: Optional[pulumi.Input[_builtins.str]] = None,
                  node_type: Optional[pulumi.Input[_builtins.str]] = None,
                  num_replicas_per_shard: Optional[pulumi.Input[_builtins.int]] = None,
                  num_shards: Optional[pulumi.Input[_builtins.int]] = None,
@@ -506,11 +540,13 @@ class _ClusterState:
         :param pulumi.Input[_builtins.str] engine_patch_version: Patch version number of the engine used by the cluster.
         :param pulumi.Input[_builtins.str] engine_version: Version number of the engine to be used for the cluster. Downgrades are not supported.
         :param pulumi.Input[_builtins.str] final_snapshot_name: Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
+        :param pulumi.Input[_builtins.str] ip_discovery: Mechanism that the cluster uses to discover IP addresses. Valid values are `ipv4` and `ipv6`. Defaults to `ipv4`. To specify `ipv6`, `network_type` must be `ipv6` or `dual_stack`.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the cluster at rest.
         :param pulumi.Input[_builtins.str] maintenance_window: Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
         :param pulumi.Input[_builtins.str] multi_region_cluster_name: The multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
         :param pulumi.Input[_builtins.str] name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[_builtins.str] network_type: IP address type for the cluster. Valid values are `ipv4`, `ipv6` and `dual_stack`. Defaults to `ipv4`.
         :param pulumi.Input[_builtins.str] node_type: The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
                
                The following arguments are optional:
@@ -551,6 +587,8 @@ class _ClusterState:
             pulumi.set(__self__, "engine_version", engine_version)
         if final_snapshot_name is not None:
             pulumi.set(__self__, "final_snapshot_name", final_snapshot_name)
+        if ip_discovery is not None:
+            pulumi.set(__self__, "ip_discovery", ip_discovery)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if maintenance_window is not None:
@@ -561,6 +599,8 @@ class _ClusterState:
             pulumi.set(__self__, "name", name)
         if name_prefix is not None:
             pulumi.set(__self__, "name_prefix", name_prefix)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if node_type is not None:
             pulumi.set(__self__, "node_type", node_type)
         if num_replicas_per_shard is not None:
@@ -714,6 +754,18 @@ class _ClusterState:
         pulumi.set(self, "final_snapshot_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="ipDiscovery")
+    def ip_discovery(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Mechanism that the cluster uses to discover IP addresses. Valid values are `ipv4` and `ipv6`. Defaults to `ipv4`. To specify `ipv6`, `network_type` must be `ipv6` or `dual_stack`.
+        """
+        return pulumi.get(self, "ip_discovery")
+
+    @ip_discovery.setter
+    def ip_discovery(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ip_discovery", value)
+
+    @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -772,6 +824,18 @@ class _ClusterState:
     @name_prefix.setter
     def name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        IP address type for the cluster. Valid values are `ipv4`, `ipv6` and `dual_stack`. Defaults to `ipv4`.
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "network_type", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeType")
@@ -993,11 +1057,13 @@ class Cluster(pulumi.CustomResource):
                  engine: Optional[pulumi.Input[_builtins.str]] = None,
                  engine_version: Optional[pulumi.Input[_builtins.str]] = None,
                  final_snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip_discovery: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
                  multi_region_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_type: Optional[pulumi.Input[_builtins.str]] = None,
                  node_type: Optional[pulumi.Input[_builtins.str]] = None,
                  num_replicas_per_shard: Optional[pulumi.Input[_builtins.int]] = None,
                  num_shards: Optional[pulumi.Input[_builtins.int]] = None,
@@ -1054,11 +1120,13 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] engine: The engine that will run on your nodes. Supported values are `redis` and `valkey`.
         :param pulumi.Input[_builtins.str] engine_version: Version number of the engine to be used for the cluster. Downgrades are not supported.
         :param pulumi.Input[_builtins.str] final_snapshot_name: Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
+        :param pulumi.Input[_builtins.str] ip_discovery: Mechanism that the cluster uses to discover IP addresses. Valid values are `ipv4` and `ipv6`. Defaults to `ipv4`. To specify `ipv6`, `network_type` must be `ipv6` or `dual_stack`.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the cluster at rest.
         :param pulumi.Input[_builtins.str] maintenance_window: Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
         :param pulumi.Input[_builtins.str] multi_region_cluster_name: The multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
         :param pulumi.Input[_builtins.str] name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[_builtins.str] network_type: IP address type for the cluster. Valid values are `ipv4`, `ipv6` and `dual_stack`. Defaults to `ipv4`.
         :param pulumi.Input[_builtins.str] node_type: The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
                
                The following arguments are optional:
@@ -1136,11 +1204,13 @@ class Cluster(pulumi.CustomResource):
                  engine: Optional[pulumi.Input[_builtins.str]] = None,
                  engine_version: Optional[pulumi.Input[_builtins.str]] = None,
                  final_snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip_discovery: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
                  multi_region_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_type: Optional[pulumi.Input[_builtins.str]] = None,
                  node_type: Optional[pulumi.Input[_builtins.str]] = None,
                  num_replicas_per_shard: Optional[pulumi.Input[_builtins.int]] = None,
                  num_shards: Optional[pulumi.Input[_builtins.int]] = None,
@@ -1174,11 +1244,13 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["engine"] = engine
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["final_snapshot_name"] = final_snapshot_name
+            __props__.__dict__["ip_discovery"] = ip_discovery
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["maintenance_window"] = maintenance_window
             __props__.__dict__["multi_region_cluster_name"] = multi_region_cluster_name
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
+            __props__.__dict__["network_type"] = network_type
             if node_type is None and not opts.urn:
                 raise TypeError("Missing required property 'node_type'")
             __props__.__dict__["node_type"] = node_type
@@ -1221,11 +1293,13 @@ class Cluster(pulumi.CustomResource):
             engine_patch_version: Optional[pulumi.Input[_builtins.str]] = None,
             engine_version: Optional[pulumi.Input[_builtins.str]] = None,
             final_snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
+            ip_discovery: Optional[pulumi.Input[_builtins.str]] = None,
             kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
             maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
             multi_region_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+            network_type: Optional[pulumi.Input[_builtins.str]] = None,
             node_type: Optional[pulumi.Input[_builtins.str]] = None,
             num_replicas_per_shard: Optional[pulumi.Input[_builtins.int]] = None,
             num_shards: Optional[pulumi.Input[_builtins.int]] = None,
@@ -1259,11 +1333,13 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] engine_patch_version: Patch version number of the engine used by the cluster.
         :param pulumi.Input[_builtins.str] engine_version: Version number of the engine to be used for the cluster. Downgrades are not supported.
         :param pulumi.Input[_builtins.str] final_snapshot_name: Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
+        :param pulumi.Input[_builtins.str] ip_discovery: Mechanism that the cluster uses to discover IP addresses. Valid values are `ipv4` and `ipv6`. Defaults to `ipv4`. To specify `ipv6`, `network_type` must be `ipv6` or `dual_stack`.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the cluster at rest.
         :param pulumi.Input[_builtins.str] maintenance_window: Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
         :param pulumi.Input[_builtins.str] multi_region_cluster_name: The multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
         :param pulumi.Input[_builtins.str] name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[_builtins.str] network_type: IP address type for the cluster. Valid values are `ipv4`, `ipv6` and `dual_stack`. Defaults to `ipv4`.
         :param pulumi.Input[_builtins.str] node_type: The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
                
                The following arguments are optional:
@@ -1298,11 +1374,13 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["engine_patch_version"] = engine_patch_version
         __props__.__dict__["engine_version"] = engine_version
         __props__.__dict__["final_snapshot_name"] = final_snapshot_name
+        __props__.__dict__["ip_discovery"] = ip_discovery
         __props__.__dict__["kms_key_arn"] = kms_key_arn
         __props__.__dict__["maintenance_window"] = maintenance_window
         __props__.__dict__["multi_region_cluster_name"] = multi_region_cluster_name
         __props__.__dict__["name"] = name
         __props__.__dict__["name_prefix"] = name_prefix
+        __props__.__dict__["network_type"] = network_type
         __props__.__dict__["node_type"] = node_type
         __props__.__dict__["num_replicas_per_shard"] = num_replicas_per_shard
         __props__.__dict__["num_shards"] = num_shards
@@ -1400,6 +1478,14 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "final_snapshot_name")
 
     @_builtins.property
+    @pulumi.getter(name="ipDiscovery")
+    def ip_discovery(self) -> pulumi.Output[_builtins.str]:
+        """
+        Mechanism that the cluster uses to discover IP addresses. Valid values are `ipv4` and `ipv6`. Defaults to `ipv4`. To specify `ipv6`, `network_type` must be `ipv6` or `dual_stack`.
+        """
+        return pulumi.get(self, "ip_discovery")
+
+    @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -1438,6 +1524,14 @@ class Cluster(pulumi.CustomResource):
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
         return pulumi.get(self, "name_prefix")
+
+    @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Output[_builtins.str]:
+        """
+        IP address type for the cluster. Valid values are `ipv4`, `ipv6` and `dual_stack`. Defaults to `ipv4`.
+        """
+        return pulumi.get(self, "network_type")
 
     @_builtins.property
     @pulumi.getter(name="nodeType")
