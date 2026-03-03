@@ -31,6 +31,7 @@ class ListenerRuleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ListenerRule resource.
+
         :param pulumi.Input['ListenerRuleActionArgs'] action: The action for the listener rule.
                See `action` Block for details.
         :param pulumi.Input[_builtins.str] listener_identifier: The ID or Amazon Resource Name (ARN) of the listener.
@@ -173,6 +174,7 @@ class _ListenerRuleState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ListenerRule resources.
+
         :param pulumi.Input['ListenerRuleActionArgs'] action: The action for the listener rule.
                See `action` Block for details.
         :param pulumi.Input[_builtins.str] arn: The ARN for the listener rule.
@@ -447,6 +449,7 @@ class ListenerRule(pulumi.CustomResource):
         $ pulumi import aws:vpclattice/listenerRule:ListenerRule example service123/listener456/rule789
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict']] action: The action for the listener rule.
@@ -550,6 +553,7 @@ class ListenerRule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:vpclattice/listenerRule:ListenerRule example service123/listener456/rule789
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ListenerRuleArgs args: The arguments to use to populate this resource's properties.

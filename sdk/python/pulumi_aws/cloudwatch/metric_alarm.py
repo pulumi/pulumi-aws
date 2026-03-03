@@ -46,6 +46,7 @@ class MetricAlarmArgs:
                  unit: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MetricAlarm resource.
+
         :param pulumi.Input[_builtins.str] comparison_operator: The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
         :param pulumi.Input[_builtins.int] evaluation_periods: The number of periods over which data is compared to the specified threshold.
         :param pulumi.Input[_builtins.bool] actions_enabled: Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
@@ -446,6 +447,7 @@ class _MetricAlarmState:
                  unit: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MetricAlarm resources.
+
         :param pulumi.Input[_builtins.bool] actions_enabled: Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alarm_actions: The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[_builtins.str] alarm_description: The description for the alarm.
@@ -1090,6 +1092,7 @@ class MetricAlarm(pulumi.CustomResource):
         $ pulumi import aws:cloudwatch/metricAlarm:MetricAlarm example alarm-12345
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] actions_enabled: Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
@@ -1345,6 +1348,7 @@ class MetricAlarm(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudwatch/metricAlarm:MetricAlarm example alarm-12345
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MetricAlarmArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class DomainAssociationArgs:
                  wait_for_verification: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a DomainAssociation resource.
+
         :param pulumi.Input[_builtins.str] app_id: Unique ID for an Amplify app.
         :param pulumi.Input[_builtins.str] domain_name: Domain name for the domain association.
         :param pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]] sub_domains: Setting for the subdomain. Documented below.
@@ -149,6 +150,7 @@ class _DomainAssociationState:
                  wait_for_verification: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering DomainAssociation resources.
+
         :param pulumi.Input[_builtins.str] app_id: Unique ID for an Amplify app.
         :param pulumi.Input[_builtins.str] arn: ARN for the domain association.
         :param pulumi.Input['DomainAssociationCertificateSettingsArgs'] certificate_settings: The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
@@ -343,6 +345,7 @@ class DomainAssociation(pulumi.CustomResource):
         $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: Unique ID for an Amplify app.
@@ -400,6 +403,7 @@ class DomainAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DomainAssociationArgs args: The arguments to use to populate this resource's properties.

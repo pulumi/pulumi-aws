@@ -33,6 +33,7 @@ class EndpointConfigurationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EndpointConfiguration resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationProductionVariantArgs']]] production_variants: List each model that you want to host at this endpoint. See below.
         :param pulumi.Input['EndpointConfigurationAsyncInferenceConfigArgs'] async_inference_config: How an endpoint performs asynchronous inference.
         :param pulumi.Input['EndpointConfigurationDataCaptureConfigArgs'] data_capture_config: Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
@@ -202,6 +203,7 @@ class _EndpointConfigurationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering EndpointConfiguration resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this endpoint configuration.
         :param pulumi.Input['EndpointConfigurationAsyncInferenceConfigArgs'] async_inference_config: How an endpoint performs asynchronous inference.
         :param pulumi.Input['EndpointConfigurationDataCaptureConfigArgs'] data_capture_config: Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
@@ -434,6 +436,7 @@ class EndpointConfiguration(pulumi.CustomResource):
         $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EndpointConfigurationAsyncInferenceConfigArgs', 'EndpointConfigurationAsyncInferenceConfigArgsDict']] async_inference_config: How an endpoint performs asynchronous inference.
@@ -484,6 +487,7 @@ class EndpointConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EndpointConfigurationArgs args: The arguments to use to populate this resource's properties.

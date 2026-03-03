@@ -27,6 +27,7 @@ class VpcIpamPoolCidrAllocationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcIpamPoolCidrAllocation resource.
+
         :param pulumi.Input[_builtins.str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
         :param pulumi.Input[_builtins.str] cidr: The CIDR you want to assign to the pool.
         :param pulumi.Input[_builtins.str] description: The description for the allocation.
@@ -134,6 +135,7 @@ class _VpcIpamPoolCidrAllocationState:
                  resource_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcIpamPoolCidrAllocation resources.
+
         :param pulumi.Input[_builtins.str] cidr: The CIDR you want to assign to the pool.
         :param pulumi.Input[_builtins.str] description: The description for the allocation.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
@@ -356,6 +358,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
         $ pulumi import aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation example ipam-pool-alloc-0dc6d196509c049ba8b549ff99f639736_ipam-pool-07cfb559e0921fcbe
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cidr: The CIDR you want to assign to the pool.
@@ -430,6 +433,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation example ipam-pool-alloc-0dc6d196509c049ba8b549ff99f639736_ipam-pool-07cfb559e0921fcbe
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcIpamPoolCidrAllocationArgs args: The arguments to use to populate this resource's properties.

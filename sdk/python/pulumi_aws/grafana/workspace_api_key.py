@@ -26,6 +26,7 @@ class WorkspaceApiKeyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceApiKey resource.
+
         :param pulumi.Input[_builtins.str] key_name: Specifies the name of the API key. Key names must be unique to the workspace.
         :param pulumi.Input[_builtins.str] key_role: Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
         :param pulumi.Input[_builtins.int] seconds_to_live: Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
@@ -111,6 +112,7 @@ class _WorkspaceApiKeyState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceApiKey resources.
+
         :param pulumi.Input[_builtins.str] key: The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
         :param pulumi.Input[_builtins.str] key_name: Specifies the name of the API key. Key names must be unique to the workspace.
         :param pulumi.Input[_builtins.str] key_role: Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
@@ -234,6 +236,7 @@ class WorkspaceApiKey(pulumi.CustomResource):
             workspace_id=test["id"])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] key_name: Specifies the name of the API key. Key names must be unique to the workspace.
@@ -265,6 +268,7 @@ class WorkspaceApiKey(pulumi.CustomResource):
             seconds_to_live=3600,
             workspace_id=test["id"])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceApiKeyArgs args: The arguments to use to populate this resource's properties.

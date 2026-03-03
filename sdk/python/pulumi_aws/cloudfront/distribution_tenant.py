@@ -34,6 +34,7 @@ class DistributionTenantArgs:
                  wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a DistributionTenant resource.
+
         :param pulumi.Input[_builtins.str] distribution_id: ID of the multi-tenant distribution.
         :param pulumi.Input[_builtins.str] connection_group_id: ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
         :param pulumi.Input['DistributionTenantCustomizationsArgs'] customizations: Customizations for the distribution tenant (maximum one).
@@ -217,6 +218,7 @@ class _DistributionTenantState:
                  wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering DistributionTenant resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the distribution tenant.
         :param pulumi.Input[_builtins.str] connection_group_id: ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
         :param pulumi.Input['DistributionTenantCustomizationsArgs'] customizations: Customizations for the distribution tenant (maximum one).
@@ -529,6 +531,7 @@ class DistributionTenant(pulumi.CustomResource):
         $ pulumi import aws:cloudfront/distributionTenant:DistributionTenant example TENANT123EXAMPLE
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connection_group_id: ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
@@ -617,6 +620,7 @@ class DistributionTenant(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudfront/distributionTenant:DistributionTenant example TENANT123EXAMPLE
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DistributionTenantArgs args: The arguments to use to populate this resource's properties.

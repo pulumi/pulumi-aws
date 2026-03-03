@@ -32,6 +32,7 @@ class LocationAzureBlobArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LocationAzureBlob resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
         :param pulumi.Input[_builtins.str] authentication_type: The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
         :param pulumi.Input[_builtins.str] container_url: The URL of the Azure Blob Storage container involved in your transfer.
@@ -184,6 +185,7 @@ class _LocationAzureBlobState:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LocationAzureBlob resources.
+
         :param pulumi.Input[_builtins.str] access_tier: The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
@@ -413,6 +415,7 @@ class LocationAzureBlob(pulumi.CustomResource):
         $ pulumi import aws:datasync/locationAzureBlob:LocationAzureBlob example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_tier: The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
@@ -464,6 +467,7 @@ class LocationAzureBlob(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:datasync/locationAzureBlob:LocationAzureBlob example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LocationAzureBlobArgs args: The arguments to use to populate this resource's properties.

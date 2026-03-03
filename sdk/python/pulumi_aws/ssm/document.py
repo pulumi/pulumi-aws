@@ -33,6 +33,7 @@ class DocumentArgs:
                  version_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Document resource.
+
         :param pulumi.Input[_builtins.str] content: The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
         :param pulumi.Input[_builtins.str] document_type: The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
         :param pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]] attachments_sources: One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
@@ -213,6 +214,7 @@ class _DocumentState:
                  version_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Document resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the document.
         :param pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]] attachments_sources: One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
         :param pulumi.Input[_builtins.str] content: The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
@@ -686,6 +688,7 @@ class Document(pulumi.CustomResource):
             }])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict']]]] attachments_sources: One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
@@ -797,6 +800,7 @@ class Document(pulumi.CustomResource):
                 "values": [f"s3://{object_bucket['bucket']}/test.zip"],
             }])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DocumentArgs args: The arguments to use to populate this resource's properties.

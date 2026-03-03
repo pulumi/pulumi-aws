@@ -27,6 +27,7 @@ class PolicyArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Policy resource.
+
         :param pulumi.Input[_builtins.str] content: The policy content to add to the new policy.
                For example, if you create a [service control policy (SCP)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html), this string must be JSON text that specifies the permissions that admins in attached accounts can delegate to their users, groups, and roles.
                For more information about the AI Services opt-out Policy syntax, see the [AI Services opt-out Policy Syntax documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out_syntax.html).
@@ -156,6 +157,7 @@ class _PolicyState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Policy resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the policy.
         :param pulumi.Input[_builtins.str] content: The policy content to add to the new policy.
                For example, if you create a [service control policy (SCP)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html), this string must be JSON text that specifies the permissions that admins in attached accounts can delegate to their users, groups, and roles.
@@ -343,6 +345,7 @@ class Policy(pulumi.CustomResource):
         $ pulumi import aws:organizations/policy:Policy example p-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content: The policy content to add to the new policy.
@@ -396,6 +399,7 @@ class Policy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:organizations/policy:Policy example p-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.

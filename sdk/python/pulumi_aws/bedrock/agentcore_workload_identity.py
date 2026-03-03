@@ -24,6 +24,7 @@ class AgentcoreWorkloadIdentityArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AgentcoreWorkloadIdentity resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_resource_oauth2_return_urls: Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
         :param pulumi.Input[_builtins.str] name: Name of the workload identity. Must be 3-255 characters and contain only alphanumeric characters, hyphens, periods, and underscores.
                
@@ -85,6 +86,7 @@ class _AgentcoreWorkloadIdentityState:
                  workload_identity_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AgentcoreWorkloadIdentity resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_resource_oauth2_return_urls: Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
         :param pulumi.Input[_builtins.str] name: Name of the workload identity. Must be 3-255 characters and contain only alphanumeric characters, hyphens, periods, and underscores.
                
@@ -201,6 +203,7 @@ class AgentcoreWorkloadIdentity(pulumi.CustomResource):
         $ pulumi import aws:bedrock/agentcoreWorkloadIdentity:AgentcoreWorkloadIdentity example example-workload-identity
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_resource_oauth2_return_urls: Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
@@ -253,6 +256,7 @@ class AgentcoreWorkloadIdentity(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:bedrock/agentcoreWorkloadIdentity:AgentcoreWorkloadIdentity example example-workload-identity
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AgentcoreWorkloadIdentityArgs args: The arguments to use to populate this resource's properties.

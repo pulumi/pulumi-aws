@@ -30,6 +30,7 @@ class ResourceLfTagArgs:
                  timeouts: Optional[pulumi.Input['ResourceLfTagTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ResourceLfTag resource.
+
         :param pulumi.Input['ResourceLfTagLfTagArgs'] lf_tag: Set of LF-tags to attach to the resource. See LF Tag for more details.
                
                Exactly one of the following is required:
@@ -153,6 +154,7 @@ class _ResourceLfTagState:
                  timeouts: Optional[pulumi.Input['ResourceLfTagTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ResourceLfTag resources.
+
         :param pulumi.Input[_builtins.str] catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
         :param pulumi.Input['ResourceLfTagDatabaseArgs'] database: Configuration block for a database resource. See Database for more details.
         :param pulumi.Input['ResourceLfTagLfTagArgs'] lf_tag: Set of LF-tags to attach to the resource. See LF Tag for more details.
@@ -304,6 +306,7 @@ class ResourceLfTag(pulumi.CustomResource):
 
         You cannot import this resource.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
@@ -347,6 +350,7 @@ class ResourceLfTag(pulumi.CustomResource):
         ## Import
 
         You cannot import this resource.
+
 
         :param str resource_name: The name of the resource.
         :param ResourceLfTagArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class TrafficPolicyArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TrafficPolicy resource.
+
         :param pulumi.Input[_builtins.str] document: Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
                
                The following arguments are optional:
@@ -86,6 +87,7 @@ class _TrafficPolicyState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering TrafficPolicy resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the traffic policy.
         :param pulumi.Input[_builtins.str] comment: Comment for the traffic policy.
         :param pulumi.Input[_builtins.str] document: Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
@@ -227,6 +229,7 @@ class TrafficPolicy(pulumi.CustomResource):
         $ pulumi import aws:route53/trafficPolicy:TrafficPolicy example 01a52019-d16f-422a-ae72-c306d2b6df7e/1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Comment for the traffic policy.
@@ -274,6 +277,7 @@ class TrafficPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53/trafficPolicy:TrafficPolicy example 01a52019-d16f-422a-ae72-c306d2b6df7e/1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TrafficPolicyArgs args: The arguments to use to populate this resource's properties.

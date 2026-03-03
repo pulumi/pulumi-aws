@@ -27,6 +27,7 @@ class ControlTowerControlArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ControlTowerControl resource.
+
         :param pulumi.Input[_builtins.str] control_identifier: The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
         :param pulumi.Input[_builtins.str] target_identifier: The ARN of the organizational unit.
                
@@ -102,6 +103,7 @@ class _ControlTowerControlState:
                  target_identifier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ControlTowerControl resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the EnabledControl resource.
         :param pulumi.Input[_builtins.str] control_identifier: The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
         :param pulumi.Input[Sequence[pulumi.Input['ControlTowerControlParameterArgs']]] parameters: Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
@@ -226,6 +228,7 @@ class ControlTowerControl(pulumi.CustomResource):
         $ pulumi import aws:controltower/controlTowerControl:ControlTowerControl example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] control_identifier: The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
@@ -271,6 +274,7 @@ class ControlTowerControl(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:controltower/controlTowerControl:ControlTowerControl example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ControlTowerControlArgs args: The arguments to use to populate this resource's properties.

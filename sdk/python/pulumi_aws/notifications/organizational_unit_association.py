@@ -23,6 +23,7 @@ class OrganizationalUnitAssociationArgs:
                  organizational_unit_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a OrganizationalUnitAssociation resource.
+
         :param pulumi.Input[_builtins.str] notification_configuration_arn: ARN of the notification configuration to associate the organizational unit with.
         :param pulumi.Input[_builtins.str] organizational_unit_id: ID of the organizational unit or ID of the root to associate with the notification configuration. Can be a root ID (e.g., `r-1234`), or an organization ID (e.g., `o-1234567890`).
         """
@@ -61,6 +62,7 @@ class _OrganizationalUnitAssociationState:
                  organizational_unit_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationalUnitAssociation resources.
+
         :param pulumi.Input[_builtins.str] notification_configuration_arn: ARN of the notification configuration to associate the organizational unit with.
         :param pulumi.Input[_builtins.str] organizational_unit_id: ID of the organizational unit or ID of the root to associate with the notification configuration. Can be a root ID (e.g., `r-1234`), or an organization ID (e.g., `o-1234567890`).
         """
@@ -157,6 +159,7 @@ class OrganizationalUnitAssociation(pulumi.CustomResource):
         $ pulumi import aws:notifications/organizationalUnitAssociation:OrganizationalUnitAssociation example arn:aws:notifications:us-west-2:123456789012:configuration:example-notification-config,ou-1234-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] notification_configuration_arn: ARN of the notification configuration to associate the organizational unit with.
@@ -221,6 +224,7 @@ class OrganizationalUnitAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:notifications/organizationalUnitAssociation:OrganizationalUnitAssociation example arn:aws:notifications:us-west-2:123456789012:configuration:example-notification-config,ou-1234-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationalUnitAssociationArgs args: The arguments to use to populate this resource's properties.

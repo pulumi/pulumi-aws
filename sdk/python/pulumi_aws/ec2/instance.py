@@ -74,6 +74,7 @@ class InstanceArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Instance resource.
+
         :param pulumi.Input[_builtins.str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         :param pulumi.Input[_builtins.bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[_builtins.str] availability_zone: AZ to start the instance in.
@@ -909,6 +910,7 @@ class _InstanceState:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Instance resources.
+
         :param pulumi.Input[_builtins.str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         :param pulumi.Input[_builtins.str] arn: ARN of the instance.
         :param pulumi.Input[_builtins.bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
@@ -2099,6 +2101,7 @@ class Instance(pulumi.CustomResource):
         $ pulumi import aws:ec2/instance:Instance web i-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
@@ -2360,6 +2363,7 @@ class Instance(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/instance:Instance web i-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.

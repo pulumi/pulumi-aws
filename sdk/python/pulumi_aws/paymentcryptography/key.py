@@ -31,6 +31,7 @@ class KeyArgs:
                  timeouts: Optional[pulumi.Input['KeyTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Key resource.
+
         :param pulumi.Input[_builtins.bool] exportable: Whether the key is exportable from the service.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable the key.
         :param pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeArgs']]] key_attributes: Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
@@ -167,6 +168,7 @@ class _KeyState:
                  timeouts: Optional[pulumi.Input['KeyTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Key resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the key.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable the key.
         :param pulumi.Input[_builtins.bool] exportable: Whether the key is exportable from the service.
@@ -416,6 +418,7 @@ class Key(pulumi.CustomResource):
         $ pulumi import aws:paymentcryptography/key:Key example arn:aws:payment-cryptography:us-east-1:123456789012:key/qtbojf64yshyvyzf
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable the key.
@@ -472,6 +475,7 @@ class Key(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:paymentcryptography/key:Key example arn:aws:payment-cryptography:us-east-1:123456789012:key/qtbojf64yshyvyzf
         ```
+
 
         :param str resource_name: The name of the resource.
         :param KeyArgs args: The arguments to use to populate this resource's properties.

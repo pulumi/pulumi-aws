@@ -23,6 +23,7 @@ class GroupArgs:
                  path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Group resource.
+
         :param pulumi.Input[_builtins.str] name: The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
         :param pulumi.Input[_builtins.str] path: Path in which to create the group.
         """
@@ -65,6 +66,7 @@ class _GroupState:
                  unique_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Group resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN assigned by AWS for this group.
         :param pulumi.Input[_builtins.str] name: The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
         :param pulumi.Input[_builtins.str] path: Path in which to create the group.
@@ -161,6 +163,7 @@ class Group(pulumi.CustomResource):
         $ pulumi import aws:iam/group:Group developers developers
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
@@ -195,6 +198,7 @@ class Group(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iam/group:Group developers developers
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.

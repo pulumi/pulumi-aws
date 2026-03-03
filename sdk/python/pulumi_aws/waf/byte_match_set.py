@@ -25,6 +25,7 @@ class ByteMatchSetArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ByteMatchSet resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ByteMatchSetByteMatchTupleArgs']]] byte_match_tuples: Specifies the bytes (typically a string that corresponds
                with ASCII characters) that you want to search for in web requests,
                the location in requests that you want to search, and other settings.
@@ -70,6 +71,7 @@ class _ByteMatchSetState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ByteMatchSet resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the byte match set.
         :param pulumi.Input[Sequence[pulumi.Input['ByteMatchSetByteMatchTupleArgs']]] byte_match_tuples: Specifies the bytes (typically a string that corresponds
                with ASCII characters) that you want to search for in web requests,
@@ -161,6 +163,7 @@ class ByteMatchSet(pulumi.CustomResource):
         $ pulumi import aws:waf/byteMatchSet:ByteMatchSet byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ByteMatchSetByteMatchTupleArgs', 'ByteMatchSetByteMatchTupleArgsDict']]]] byte_match_tuples: Specifies the bytes (typically a string that corresponds
@@ -203,6 +206,7 @@ class ByteMatchSet(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:waf/byteMatchSet:ByteMatchSet byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ByteMatchSetArgs args: The arguments to use to populate this resource's properties.

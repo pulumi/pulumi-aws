@@ -25,6 +25,7 @@ class ChannelGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ChannelGroup resource.
+
         :param pulumi.Input[_builtins.str] description: A description of the channel group
         :param pulumi.Input[_builtins.str] name: A unique identifier naming the channel group
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -100,6 +101,7 @@ class _ChannelGroupState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ChannelGroup resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the channel
         :param pulumi.Input[_builtins.str] description: A description of the channel group
         :param pulumi.Input[_builtins.str] egress_domain: The egress domain of the channel group
@@ -241,6 +243,7 @@ class ChannelGroup(pulumi.CustomResource):
         $ pulumi import aws:mediapackagev2/channelGroup:ChannelGroup example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the channel group
@@ -275,6 +278,7 @@ class ChannelGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:mediapackagev2/channelGroup:ChannelGroup example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ChannelGroupArgs args: The arguments to use to populate this resource's properties.

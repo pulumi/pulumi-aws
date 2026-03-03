@@ -25,6 +25,7 @@ class LocalGatewayRouteTableVpcAssociationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LocalGatewayRouteTableVpcAssociation resource.
+
         :param pulumi.Input[_builtins.str] local_gateway_route_table_id: Identifier of EC2 Local Gateway Route Table.
         :param pulumi.Input[_builtins.str] vpc_id: Identifier of EC2 VPC.
                
@@ -101,6 +102,7 @@ class _LocalGatewayRouteTableVpcAssociationState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LocalGatewayRouteTableVpcAssociation resources.
+
         :param pulumi.Input[_builtins.str] local_gateway_route_table_id: Identifier of EC2 Local Gateway Route Table.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -229,6 +231,7 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
         $ pulumi import aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation example lgw-vpc-assoc-1234567890abcdef
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] local_gateway_route_table_id: Identifier of EC2 Local Gateway Route Table.
@@ -267,6 +270,7 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation example lgw-vpc-assoc-1234567890abcdef
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LocalGatewayRouteTableVpcAssociationArgs args: The arguments to use to populate this resource's properties.

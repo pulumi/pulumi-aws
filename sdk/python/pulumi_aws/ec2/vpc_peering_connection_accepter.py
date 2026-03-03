@@ -29,6 +29,7 @@ class VpcPeeringConnectionAccepterInitArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpcPeeringConnectionAccepter resource.
+
         :param pulumi.Input[_builtins.str] vpc_peering_connection_id: The VPC Peering Connection ID to manage.
         :param pulumi.Input['VpcPeeringConnectionAccepterAccepterArgs'] accepter: A configuration block that describes [VPC Peering Connection]
                (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
@@ -142,6 +143,7 @@ class _VpcPeeringConnectionAccepterState:
                  vpc_peering_connection_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcPeeringConnectionAccepter resources.
+
         :param pulumi.Input[_builtins.str] accept_status: The status of the VPC Peering Connection request.
         :param pulumi.Input['VpcPeeringConnectionAccepterAccepterArgs'] accepter: A configuration block that describes [VPC Peering Connection]
                (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
@@ -428,6 +430,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
         example = aws.ec2.VpcPeeringConnectionAccepter("example")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['VpcPeeringConnectionAccepterAccepterArgs', 'VpcPeeringConnectionAccepterAccepterArgsDict']] accepter: A configuration block that describes [VPC Peering Connection]
@@ -530,6 +533,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
 
         example = aws.ec2.VpcPeeringConnectionAccepter("example")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcPeeringConnectionAccepterInitArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class BucketRequestPaymentConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BucketRequestPaymentConfiguration resource.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[_builtins.str] payer: Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
@@ -99,6 +100,7 @@ class _BucketRequestPaymentConfigurationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BucketRequestPaymentConfiguration resources.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[_builtins.str] payer: Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
@@ -213,6 +215,7 @@ class BucketRequestPaymentConfiguration(pulumi.CustomResource):
         $ pulumi import aws:s3/bucketRequestPaymentConfiguration:BucketRequestPaymentConfiguration example bucket-name,123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
@@ -261,6 +264,7 @@ class BucketRequestPaymentConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/bucketRequestPaymentConfiguration:BucketRequestPaymentConfiguration example bucket-name,123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BucketRequestPaymentConfigurationArgs args: The arguments to use to populate this resource's properties.

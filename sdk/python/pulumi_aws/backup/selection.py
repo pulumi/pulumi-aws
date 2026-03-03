@@ -31,6 +31,7 @@ class SelectionArgs:
                  selection_tags: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArgs']]]] = None):
         """
         The set of arguments for constructing a Selection resource.
+
         :param pulumi.Input[_builtins.str] iam_role_arn: The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
         :param pulumi.Input[_builtins.str] plan_id: The backup plan ID to be associated with the selection of resources.
         :param pulumi.Input[Sequence[pulumi.Input['SelectionConditionArgs']]] conditions: Condition-based filters used to specify sets of resources for a backup plan. See below for details.
@@ -165,6 +166,7 @@ class _SelectionState:
                  selection_tags: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArgs']]]] = None):
         """
         Input properties used for looking up and filtering Selection resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['SelectionConditionArgs']]] conditions: Condition-based filters used to specify sets of resources for a backup plan. See below for details.
         :param pulumi.Input[_builtins.str] iam_role_arn: The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
         :param pulumi.Input[_builtins.str] name: The display name of a resource selection document.
@@ -425,6 +427,7 @@ class Selection(pulumi.CustomResource):
         $ pulumi import aws:backup/selection:Selection example plan-id|selection-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SelectionConditionArgs', 'SelectionConditionArgsDict']]]] conditions: Condition-based filters used to specify sets of resources for a backup plan. See below for details.
@@ -563,6 +566,7 @@ class Selection(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:backup/selection:Selection example plan-id|selection-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SelectionArgs args: The arguments to use to populate this resource's properties.

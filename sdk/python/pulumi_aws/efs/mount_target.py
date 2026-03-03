@@ -28,6 +28,7 @@ class MountTargetArgs:
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MountTarget resource.
+
         :param pulumi.Input[_builtins.str] file_system_id: The ID of the file system for which the mount target is intended.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet to add the mount target in.
         :param pulumi.Input[_builtins.str] ip_address: The address (within the address range of the specified subnet) at
@@ -157,6 +158,7 @@ class _MountTargetState:
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MountTarget resources.
+
         :param pulumi.Input[_builtins.str] availability_zone_id: The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
         :param pulumi.Input[_builtins.str] availability_zone_name: The name of the Availability Zone (AZ) that the mount target resides in.
         :param pulumi.Input[_builtins.str] dns_name: The DNS name for the EFS file system.
@@ -415,6 +417,7 @@ class MountTarget(pulumi.CustomResource):
         $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] file_system_id: The ID of the file system for which the mount target is intended.
@@ -459,6 +462,7 @@ class MountTarget(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MountTargetArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class AccountSettingDefaultArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccountSettingDefault resource.
+
         :param pulumi.Input[_builtins.str] value: State of the setting.
         :param pulumi.Input[_builtins.str] name: Name of the account setting to set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -80,6 +81,7 @@ class _AccountSettingDefaultState:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountSettingDefault resources.
+
         :param pulumi.Input[_builtins.str] name: Name of the account setting to set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] value: State of the setting.
@@ -188,6 +190,7 @@ class AccountSettingDefault(pulumi.CustomResource):
         $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the account setting to set.
@@ -238,6 +241,7 @@ class AccountSettingDefault(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountSettingDefaultArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class ExportArgs:
                  timeouts: Optional[pulumi.Input['ExportTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Export resource.
+
         :param pulumi.Input['ExportExportArgs'] export: The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -80,6 +81,7 @@ class _ExportState:
                  timeouts: Optional[pulumi.Input['ExportTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Export resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) for this export.
                * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
         :param pulumi.Input['ExportExportArgs'] export: The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
@@ -222,6 +224,7 @@ class Export(pulumi.CustomResource):
         $ pulumi import aws:bcmdata/export:Export example arn:aws:bcm-data-exports:us-east-1:123456789012:export/CostUsageReport-9f1c75f3-f982-4d9a-b936-1e7ecab814b7
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ExportExportArgs', 'ExportExportArgsDict']] export: The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
@@ -292,6 +295,7 @@ class Export(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:bcmdata/export:Export example arn:aws:bcm-data-exports:us-east-1:123456789012:export/CostUsageReport-9f1c75f3-f982-4d9a-b936-1e7ecab814b7
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExportArgs args: The arguments to use to populate this resource's properties.

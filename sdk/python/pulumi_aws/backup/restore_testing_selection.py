@@ -32,6 +32,7 @@ class RestoreTestingSelectionArgs:
                  validation_window_hours: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a RestoreTestingSelection resource.
+
         :param pulumi.Input[_builtins.str] iam_role_arn: The ARN of the IAM role.
         :param pulumi.Input[_builtins.str] protected_resource_type: The type of the protected resource.
         :param pulumi.Input[_builtins.str] restore_testing_plan_name: The name of the restore testing plan.
@@ -181,6 +182,7 @@ class _RestoreTestingSelectionState:
                  validation_window_hours: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering RestoreTestingSelection resources.
+
         :param pulumi.Input[_builtins.str] iam_role_arn: The ARN of the IAM role.
         :param pulumi.Input[_builtins.str] name: The name of the backup restore testing selection.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protected_resource_arns: The ARNs for the protected resources.
@@ -381,6 +383,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
         $ pulumi import aws:backup/restoreTestingSelection:RestoreTestingSelection example restore_testing_selection_12345678:restore_testing_plan_12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] iam_role_arn: The ARN of the IAM role.
@@ -444,6 +447,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:backup/restoreTestingSelection:RestoreTestingSelection example restore_testing_selection_12345678:restore_testing_plan_12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RestoreTestingSelectionArgs args: The arguments to use to populate this resource's properties.

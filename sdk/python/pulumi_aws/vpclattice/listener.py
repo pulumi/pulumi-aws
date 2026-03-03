@@ -31,6 +31,7 @@ class ListenerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Listener resource.
+
         :param pulumi.Input['ListenerDefaultActionArgs'] default_action: Default action block for the default listener rule. Default action blocks are defined below.
         :param pulumi.Input[_builtins.str] protocol: Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
         :param pulumi.Input[_builtins.str] name: Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
@@ -172,6 +173,7 @@ class _ListenerState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Listener resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the listener.
         :param pulumi.Input[_builtins.str] created_at: Date and time that the listener was created, specified in ISO-8601 format.
         :param pulumi.Input['ListenerDefaultActionArgs'] default_action: Default action block for the default listener rule. Default action blocks are defined below.
@@ -481,6 +483,7 @@ class Listener(pulumi.CustomResource):
         $ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict']] default_action: Default action block for the default listener rule. Default action blocks are defined below.
@@ -600,6 +603,7 @@ class Listener(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ListenerArgs args: The arguments to use to populate this resource's properties.

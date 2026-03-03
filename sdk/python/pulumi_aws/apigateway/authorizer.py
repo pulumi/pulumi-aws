@@ -31,6 +31,7 @@ class AuthorizerArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Authorizer resource.
+
         :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API
         :param pulumi.Input[_builtins.str] authorizer_credentials: Credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
         :param pulumi.Input[_builtins.int] authorizer_result_ttl_in_seconds: TTL of cached authorizer results in seconds. Defaults to `300`.
@@ -201,6 +202,7 @@ class _AuthorizerState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Authorizer resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the API Gateway Authorizer
         :param pulumi.Input[_builtins.str] authorizer_credentials: Credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
         :param pulumi.Input[_builtins.int] authorizer_result_ttl_in_seconds: TTL of cached authorizer results in seconds. Defaults to `300`.
@@ -452,6 +454,7 @@ class Authorizer(pulumi.CustomResource):
         $ pulumi import aws:apigateway/authorizer:Authorizer authorizer 12345abcde/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authorizer_credentials: Credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
@@ -535,6 +538,7 @@ class Authorizer(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apigateway/authorizer:Authorizer authorizer 12345abcde/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AuthorizerArgs args: The arguments to use to populate this resource's properties.

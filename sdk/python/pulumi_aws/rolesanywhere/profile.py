@@ -30,6 +30,7 @@ class ProfileArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Profile resource.
+
         :param pulumi.Input[_builtins.bool] accept_role_session_name: Whether or not a custom role session name is accepted.
         :param pulumi.Input[_builtins.int] duration_seconds: The number of seconds the vended session credentials are valid for. Defaults to 3600.
         :param pulumi.Input[_builtins.bool] enabled: Whether or not the Profile is enabled.
@@ -184,6 +185,7 @@ class _ProfileState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Profile resources.
+
         :param pulumi.Input[_builtins.bool] accept_role_session_name: Whether or not a custom role session name is accepted.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Profile
         :param pulumi.Input[_builtins.int] duration_seconds: The number of seconds the vended session credentials are valid for. Defaults to 3600.
@@ -409,6 +411,7 @@ class Profile(pulumi.CustomResource):
         $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] accept_role_session_name: Whether or not a custom role session name is accepted.
@@ -467,6 +470,7 @@ class Profile(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProfileArgs args: The arguments to use to populate this resource's properties.

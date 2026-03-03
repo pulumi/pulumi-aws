@@ -34,6 +34,7 @@ class DataQualityJobDefinitionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DataQualityJobDefinition resource.
+
         :param pulumi.Input['DataQualityJobDefinitionDataQualityAppSpecificationArgs'] data_quality_app_specification: Specifies the container that runs the monitoring job. Fields are documented below.
         :param pulumi.Input['DataQualityJobDefinitionDataQualityJobInputArgs'] data_quality_job_input: A list of inputs for the monitoring job. Fields are documented below.
         :param pulumi.Input['DataQualityJobDefinitionDataQualityJobOutputConfigArgs'] data_quality_job_output_config: The output configuration for monitoring jobs. Fields are documented below.
@@ -215,6 +216,7 @@ class _DataQualityJobDefinitionState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DataQualityJobDefinition resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
         :param pulumi.Input['DataQualityJobDefinitionDataQualityAppSpecificationArgs'] data_quality_app_specification: Specifies the container that runs the monitoring job. Fields are documented below.
         :param pulumi.Input['DataQualityJobDefinitionDataQualityBaselineConfigArgs'] data_quality_baseline_config: Configures the constraints and baselines for the monitoring job. Fields are documented below.
@@ -477,6 +479,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         $ pulumi import aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition test_data_quality_job_definition data-quality-job-definition-foo
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DataQualityJobDefinitionDataQualityAppSpecificationArgs', 'DataQualityJobDefinitionDataQualityAppSpecificationArgsDict']] data_quality_app_specification: Specifies the container that runs the monitoring job. Fields are documented below.
@@ -542,6 +545,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition test_data_quality_job_definition data-quality-job-definition-foo
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataQualityJobDefinitionArgs args: The arguments to use to populate this resource's properties.

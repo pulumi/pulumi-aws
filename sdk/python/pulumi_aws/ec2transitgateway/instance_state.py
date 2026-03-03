@@ -25,6 +25,7 @@ class InstanceStateArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a InstanceState resource.
+
         :param pulumi.Input[_builtins.str] instance_id: ID of the instance.
         :param pulumi.Input[_builtins.str] state: State of the instance. Valid values are `stopped`, `running`.
                
@@ -99,6 +100,7 @@ class _InstanceStateState:
                  state: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering InstanceState resources.
+
         :param pulumi.Input[_builtins.bool] force: Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
         :param pulumi.Input[_builtins.str] instance_id: ID of the instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -219,6 +221,7 @@ class InstanceState(pulumi.CustomResource):
         $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] force: Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
@@ -275,6 +278,7 @@ class InstanceState(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InstanceStateArgs args: The arguments to use to populate this resource's properties.

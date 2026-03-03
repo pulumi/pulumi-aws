@@ -27,6 +27,7 @@ class MulticastDomainArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MulticastDomain resource.
+
         :param pulumi.Input[_builtins.str] transit_gateway_id: EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
         :param pulumi.Input[_builtins.str] auto_accept_shared_associations: Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[_builtins.str] igmpv2_support: Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
@@ -133,6 +134,7 @@ class _MulticastDomainState:
                  transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MulticastDomain resources.
+
         :param pulumi.Input[_builtins.str] arn: EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
         :param pulumi.Input[_builtins.str] auto_accept_shared_associations: Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[_builtins.str] igmpv2_support: Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
@@ -384,6 +386,7 @@ class MulticastDomain(pulumi.CustomResource):
         $ pulumi import aws:ec2transitgateway/multicastDomain:MulticastDomain example tgw-mcast-domain-12345
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auto_accept_shared_associations: Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
@@ -498,6 +501,7 @@ class MulticastDomain(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2transitgateway/multicastDomain:MulticastDomain example tgw-mcast-domain-12345
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MulticastDomainArgs args: The arguments to use to populate this resource's properties.

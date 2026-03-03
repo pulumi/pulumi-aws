@@ -27,6 +27,7 @@ class ConfigurationSetEventDestinationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConfigurationSetEventDestination resource.
+
         :param pulumi.Input[_builtins.str] configuration_set_name: The name of the configuration set.
         :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs'] event_destination: A name that identifies the event destination within the configuration set.
         :param pulumi.Input[_builtins.str] event_destination_name: An object that defines the event destination. See `event_destination` Block for details.
@@ -96,6 +97,7 @@ class _ConfigurationSetEventDestinationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConfigurationSetEventDestination resources.
+
         :param pulumi.Input[_builtins.str] configuration_set_name: The name of the configuration set.
         :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs'] event_destination: A name that identifies the event destination within the configuration set.
         :param pulumi.Input[_builtins.str] event_destination_name: An object that defines the event destination. See `event_destination` Block for details.
@@ -283,6 +285,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
         $ pulumi import aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination example example_configuration_set|example_event_destination
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] configuration_set_name: The name of the configuration set.
@@ -408,6 +411,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination example example_configuration_set|example_event_destination
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConfigurationSetEventDestinationArgs args: The arguments to use to populate this resource's properties.

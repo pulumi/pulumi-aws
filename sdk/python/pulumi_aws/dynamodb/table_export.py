@@ -34,6 +34,7 @@ class TableExportArgs:
                  s3_sse_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TableExport resource.
+
         :param pulumi.Input[_builtins.str] s3_bucket: Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
         :param pulumi.Input[_builtins.str] table_arn: ARN associated with the table to export.
                
@@ -225,6 +226,7 @@ class _TableExportState:
                  table_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TableExport resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Table Export.
         :param pulumi.Input[_builtins.int] billed_size_in_bytes: Billable size of the table export.
         :param pulumi.Input[_builtins.str] end_time: Time at which the export task completed.
@@ -596,6 +598,7 @@ class TableExport(pulumi.CustomResource):
         $ pulumi import aws:dynamodb/tableExport:TableExport example arn:aws:dynamodb:us-west-2:12345678911:table/my-table-1/export/01580735656614-2c2f422e
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] export_format: Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
@@ -695,6 +698,7 @@ class TableExport(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:dynamodb/tableExport:TableExport example arn:aws:dynamodb:us-west-2:12345678911:table/my-table-1/export/01580735656614-2c2f422e
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TableExportArgs args: The arguments to use to populate this resource's properties.

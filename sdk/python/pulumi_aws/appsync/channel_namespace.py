@@ -31,6 +31,7 @@ class ChannelNamespaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ChannelNamespace resource.
+
         :param pulumi.Input[_builtins.str] api_id: Event API ID.
         :param pulumi.Input[_builtins.str] code_handlers: Event handler functions that run custom business logic to process published events and subscribe requests.
         :param pulumi.Input['ChannelNamespaceHandlerConfigsArgs'] handler_configs: Configuration for the `on_publish` and `on_subscribe` handlers. See Handler Configs below.
@@ -172,6 +173,7 @@ class _ChannelNamespaceState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ChannelNamespace resources.
+
         :param pulumi.Input[_builtins.str] api_id: Event API ID.
         :param pulumi.Input[_builtins.str] channel_namespace_arn: ARN of the channel namespace.
         :param pulumi.Input[_builtins.str] code_handlers: Event handler functions that run custom business logic to process published events and subscribe requests.
@@ -368,6 +370,7 @@ class ChannelNamespace(pulumi.CustomResource):
         $ pulumi import aws:appsync/channelNamespace:ChannelNamespace example example-api-id,example-channel-namespace
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: Event API ID.
@@ -410,6 +413,7 @@ class ChannelNamespace(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appsync/channelNamespace:ChannelNamespace example example-api-id,example-channel-namespace
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ChannelNamespaceArgs args: The arguments to use to populate this resource's properties.

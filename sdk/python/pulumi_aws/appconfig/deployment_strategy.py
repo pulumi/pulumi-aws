@@ -30,6 +30,7 @@ class DeploymentStrategyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DeploymentStrategy resource.
+
         :param pulumi.Input[_builtins.int] deployment_duration_in_minutes: Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
         :param pulumi.Input[_builtins.float] growth_factor: Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
         :param pulumi.Input[_builtins.str] replicate_to: Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
@@ -181,6 +182,7 @@ class _DeploymentStrategyState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DeploymentStrategy resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the AppConfig Deployment Strategy.
         :param pulumi.Input[_builtins.int] deployment_duration_in_minutes: Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
         :param pulumi.Input[_builtins.str] description: Description of the deployment strategy. Can be at most 1024 characters.
@@ -395,6 +397,7 @@ class DeploymentStrategy(pulumi.CustomResource):
         $ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] deployment_duration_in_minutes: Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
@@ -442,6 +445,7 @@ class DeploymentStrategy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DeploymentStrategyArgs args: The arguments to use to populate this resource's properties.

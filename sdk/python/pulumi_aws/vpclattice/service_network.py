@@ -25,6 +25,7 @@ class ServiceNetworkArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServiceNetwork resource.
+
         :param pulumi.Input[_builtins.str] auth_type: Type of IAM policy. Either `NONE` or `AWS_IAM`.
         :param pulumi.Input[_builtins.str] name: Name of the service network
                
@@ -103,6 +104,7 @@ class _ServiceNetworkState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ServiceNetwork resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Service Network.
         :param pulumi.Input[_builtins.str] auth_type: Type of IAM policy. Either `NONE` or `AWS_IAM`.
         :param pulumi.Input[_builtins.str] name: Name of the service network
@@ -235,6 +237,7 @@ class ServiceNetwork(pulumi.CustomResource):
         $ pulumi import aws:vpclattice/serviceNetwork:ServiceNetwork example sn-0158f91c1e3358dba
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auth_type: Type of IAM policy. Either `NONE` or `AWS_IAM`.
@@ -273,6 +276,7 @@ class ServiceNetwork(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:vpclattice/serviceNetwork:ServiceNetwork example sn-0158f91c1e3358dba
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceNetworkArgs args: The arguments to use to populate this resource's properties.

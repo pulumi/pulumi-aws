@@ -26,6 +26,7 @@ class IngestionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Ingestion resource.
+
         :param pulumi.Input[_builtins.str] data_set_id: ID of the dataset used in the ingestion.
         :param pulumi.Input[_builtins.str] ingestion_id: ID for the ingestion.
         :param pulumi.Input[_builtins.str] ingestion_type: Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
@@ -117,6 +118,7 @@ class _IngestionState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Ingestion resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Ingestion.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] data_set_id: ID of the dataset used in the ingestion.
@@ -266,6 +268,7 @@ class Ingestion(pulumi.CustomResource):
         $ pulumi import aws:quicksight/ingestion:Ingestion example 123456789012,example-dataset-id,example-ingestion-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
@@ -306,6 +309,7 @@ class Ingestion(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:quicksight/ingestion:Ingestion example 123456789012,example-dataset-id,example-ingestion-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IngestionArgs args: The arguments to use to populate this resource's properties.

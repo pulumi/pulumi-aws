@@ -26,6 +26,7 @@ class LogDestinationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LogDestination resource.
+
         :param pulumi.Input[_builtins.str] role_arn: The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
         :param pulumi.Input[_builtins.str] target_arn: The ARN of the target Amazon Kinesis stream resource for the destination.
         :param pulumi.Input[_builtins.str] name: A name for the log destination.
@@ -114,6 +115,7 @@ class _LogDestinationState:
                  target_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogDestination resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the log destination.
         :param pulumi.Input[_builtins.str] name: A name for the log destination.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -257,6 +259,7 @@ class LogDestination(pulumi.CustomResource):
         $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: A name for the log destination.
@@ -293,6 +296,7 @@ class LogDestination(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LogDestinationArgs args: The arguments to use to populate this resource's properties.

@@ -35,6 +35,7 @@ class ProductArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Product resource.
+
         :param pulumi.Input[_builtins.str] owner: Owner of the product.
         :param pulumi.Input['ProductProvisioningArtifactParametersArgs'] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
         :param pulumi.Input[_builtins.str] type: Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
@@ -241,6 +242,7 @@ class _ProductState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Product resources.
+
         :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[_builtins.str] arn: ARN of the product.
         :param pulumi.Input[_builtins.str] created_time: Time when the product was created.
@@ -557,6 +559,7 @@ class Product(pulumi.CustomResource):
         $ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -614,6 +617,7 @@ class Product(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProductArgs args: The arguments to use to populate this resource's properties.

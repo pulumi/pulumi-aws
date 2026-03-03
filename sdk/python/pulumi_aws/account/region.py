@@ -24,6 +24,7 @@ class RegionArgs:
                  account_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Region resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Whether the region is enabled.
         :param pulumi.Input[_builtins.str] region_name: The region name to manage.
         :param pulumi.Input[_builtins.str] account_id: The ID of the target account when managing member accounts. Will manage current user's account by default if omitted. To use this parameter, the caller must be an identity in the organization's management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
@@ -79,6 +80,7 @@ class _RegionState:
                  region_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Region resources.
+
         :param pulumi.Input[_builtins.str] account_id: The ID of the target account when managing member accounts. Will manage current user's account by default if omitted. To use this parameter, the caller must be an identity in the organization's management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
         :param pulumi.Input[_builtins.bool] enabled: Whether the region is enabled.
         :param pulumi.Input[_builtins.str] opt_status: The region opt status.
@@ -174,6 +176,7 @@ class Region(pulumi.CustomResource):
         $ pulumi import aws:account/region:Region example ap-southeast-3
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The ID of the target account when managing member accounts. Will manage current user's account by default if omitted. To use this parameter, the caller must be an identity in the organization's management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
@@ -207,6 +210,7 @@ class Region(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:account/region:Region example ap-southeast-3
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RegionArgs args: The arguments to use to populate this resource's properties.

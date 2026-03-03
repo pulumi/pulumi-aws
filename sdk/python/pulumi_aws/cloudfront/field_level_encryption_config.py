@@ -26,6 +26,7 @@ class FieldLevelEncryptionConfigArgs:
                  comment: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FieldLevelEncryptionConfig resource.
+
         :param pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigArgs'] content_type_profile_config: Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
         :param pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigArgs'] query_arg_profile_config: Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
         :param pulumi.Input[_builtins.str] comment: An optional comment about the Field Level Encryption Config.
@@ -83,6 +84,7 @@ class _FieldLevelEncryptionConfigState:
                  query_arg_profile_config: Optional[pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigArgs']] = None):
         """
         Input properties used for looking up and filtering FieldLevelEncryptionConfig resources.
+
         :param pulumi.Input[_builtins.str] arn: The Field Level Encryption Config ARN.
         :param pulumi.Input[_builtins.str] caller_reference: Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
         :param pulumi.Input[_builtins.str] comment: An optional comment about the Field Level Encryption Config.
@@ -225,6 +227,7 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
         $ pulumi import aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig config E74FTE3AEXAMPLE
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: An optional comment about the Field Level Encryption Config.
@@ -275,6 +278,7 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig config E74FTE3AEXAMPLE
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FieldLevelEncryptionConfigArgs args: The arguments to use to populate this resource's properties.

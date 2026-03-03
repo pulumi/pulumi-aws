@@ -25,6 +25,7 @@ class TransitGatewayRouteTableAttachmentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TransitGatewayRouteTableAttachment resource.
+
         :param pulumi.Input[_builtins.str] peering_id: ID of the peer for the attachment.
         :param pulumi.Input[_builtins.str] transit_gateway_route_table_arn: ARN of the transit gateway route table for the attachment.
                
@@ -110,6 +111,7 @@ class _TransitGatewayRouteTableAttachmentState:
                  transit_gateway_route_table_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TransitGatewayRouteTableAttachment resources.
+
         :param pulumi.Input[_builtins.str] arn: Attachment ARN.
         :param pulumi.Input[_builtins.int] attachment_policy_rule_number: Policy rule number associated with the attachment.
         :param pulumi.Input[_builtins.str] attachment_type: Type of attachment.
@@ -375,6 +377,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
         $ pulumi import aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment example attachment-0f8fa60d2238d1bd8
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] peering_id: ID of the peer for the attachment.
@@ -411,6 +414,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment example attachment-0f8fa60d2238d1bd8
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayRouteTableAttachmentArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class EmailChannelArgs:
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EmailChannel resource.
+
         :param pulumi.Input[_builtins.str] application_id: The application ID.
         :param pulumi.Input[_builtins.str] from_address: The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
         :param pulumi.Input[_builtins.str] identity: The ARN of an identity verified with SES.
@@ -163,6 +164,7 @@ class _EmailChannelState:
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailChannel resources.
+
         :param pulumi.Input[_builtins.str] application_id: The application ID.
         :param pulumi.Input[_builtins.str] configuration_set: The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
         :param pulumi.Input[_builtins.bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
@@ -362,6 +364,7 @@ class EmailChannel(pulumi.CustomResource):
         $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: The application ID.
@@ -424,6 +427,7 @@ class EmailChannel(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EmailChannelArgs args: The arguments to use to populate this resource's properties.

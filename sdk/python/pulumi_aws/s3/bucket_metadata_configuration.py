@@ -28,6 +28,7 @@ class BucketMetadataConfigurationArgs:
                  timeouts: Optional[pulumi.Input['BucketMetadataConfigurationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a BucketMetadataConfiguration resource.
+
         :param pulumi.Input[_builtins.str] bucket: General purpose bucket that you want to create the metadata configuration for.
         :param pulumi.Input['BucketMetadataConfigurationMetadataConfigurationArgs'] metadata_configuration: Metadata configuration. See `metadata_configuration` Block for details.
                
@@ -118,6 +119,7 @@ class _BucketMetadataConfigurationState:
                  timeouts: Optional[pulumi.Input['BucketMetadataConfigurationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering BucketMetadataConfiguration resources.
+
         :param pulumi.Input[_builtins.str] bucket: General purpose bucket that you want to create the metadata configuration for.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input['BucketMetadataConfigurationMetadataConfigurationArgs'] metadata_configuration: Metadata configuration. See `metadata_configuration` Block for details.
@@ -257,6 +259,7 @@ class BucketMetadataConfiguration(pulumi.CustomResource):
         $ pulumi import aws:s3/bucketMetadataConfiguration:BucketMetadataConfiguration example bucket-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: General purpose bucket that you want to create the metadata configuration for.
@@ -316,6 +319,7 @@ class BucketMetadataConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/bucketMetadataConfiguration:BucketMetadataConfiguration example bucket-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BucketMetadataConfigurationArgs args: The arguments to use to populate this resource's properties.

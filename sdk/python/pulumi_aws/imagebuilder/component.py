@@ -33,6 +33,7 @@ class ComponentArgs:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Component resource.
+
         :param pulumi.Input[_builtins.str] platform: Platform of the component.
         :param pulumi.Input[_builtins.str] version: Version of the component.
                
@@ -245,6 +246,7 @@ class _ComponentState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Component resources.
+
         :param pulumi.Input[_builtins.str] arn: (Required) Amazon Resource Name (ARN) of the component.
         :param pulumi.Input[_builtins.str] change_description: Change description of the component.
         :param pulumi.Input[_builtins.str] data: Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
@@ -573,6 +575,7 @@ class Component(pulumi.CustomResource):
 
         Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] change_description: Change description of the component.
@@ -625,6 +628,7 @@ class Component(pulumi.CustomResource):
         ```
 
         Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
+
 
         :param str resource_name: The name of the resource.
         :param ComponentArgs args: The arguments to use to populate this resource's properties.

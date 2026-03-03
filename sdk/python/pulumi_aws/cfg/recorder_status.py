@@ -24,6 +24,7 @@ class RecorderStatusArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RecorderStatus resource.
+
         :param pulumi.Input[_builtins.bool] is_enabled: Whether the configuration recorder should be enabled or disabled.
         :param pulumi.Input[_builtins.str] name: The name of the recorder
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -79,6 +80,7 @@ class _RecorderStatusState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RecorderStatus resources.
+
         :param pulumi.Input[_builtins.bool] is_enabled: Whether the configuration recorder should be enabled or disabled.
         :param pulumi.Input[_builtins.str] name: The name of the recorder
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -195,6 +197,7 @@ class RecorderStatus(pulumi.CustomResource):
         $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] is_enabled: Whether the configuration recorder should be enabled or disabled.
@@ -264,6 +267,7 @@ class RecorderStatus(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RecorderStatusArgs args: The arguments to use to populate this resource's properties.

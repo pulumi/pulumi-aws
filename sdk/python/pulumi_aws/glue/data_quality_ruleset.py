@@ -29,6 +29,7 @@ class DataQualityRulesetArgs:
                  target_table: Optional[pulumi.Input['DataQualityRulesetTargetTableArgs']] = None):
         """
         The set of arguments for constructing a DataQualityRuleset resource.
+
         :param pulumi.Input[_builtins.str] ruleset: A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
         :param pulumi.Input[_builtins.str] description: Description of the data quality ruleset.
         :param pulumi.Input[_builtins.str] name: Name of the data quality ruleset.
@@ -137,6 +138,7 @@ class _DataQualityRulesetState:
                  target_table: Optional[pulumi.Input['DataQualityRulesetTargetTableArgs']] = None):
         """
         Input properties used for looking up and filtering DataQualityRuleset resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Glue Data Quality Ruleset.
         :param pulumi.Input[_builtins.str] created_on: The time and date that this data quality ruleset was created.
         :param pulumi.Input[_builtins.str] description: Description of the data quality ruleset.
@@ -383,6 +385,7 @@ class DataQualityRuleset(pulumi.CustomResource):
         $ pulumi import aws:glue/dataQualityRuleset:DataQualityRuleset example exampleName
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the data quality ruleset.
@@ -462,6 +465,7 @@ class DataQualityRuleset(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:glue/dataQualityRuleset:DataQualityRuleset example exampleName
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataQualityRulesetArgs args: The arguments to use to populate this resource's properties.

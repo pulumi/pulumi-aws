@@ -35,6 +35,7 @@ class PipelineArgs:
                  vpc_options: Optional[pulumi.Input['PipelineVpcOptionsArgs']] = None):
         """
         The set of arguments for constructing a Pipeline resource.
+
         :param pulumi.Input[_builtins.int] max_units: The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
         :param pulumi.Input[_builtins.int] min_units: The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
         :param pulumi.Input[_builtins.str] pipeline_configuration_body: The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \\n.
@@ -234,6 +235,7 @@ class _PipelineState:
                  vpc_options: Optional[pulumi.Input['PipelineVpcOptionsArgs']] = None):
         """
         Input properties used for looking up and filtering Pipeline resources.
+
         :param pulumi.Input['PipelineBufferOptionsArgs'] buffer_options: Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
         :param pulumi.Input['PipelineEncryptionAtRestOptionsArgs'] encryption_at_rest_options: Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ingest_endpoint_urls: The list of ingestion endpoints for the pipeline, which you can send data to.
@@ -545,6 +547,7 @@ class Pipeline(pulumi.CustomResource):
         $ pulumi import aws:opensearchingest/pipeline:Pipeline example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['PipelineBufferOptionsArgs', 'PipelineBufferOptionsArgsDict']] buffer_options: Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
@@ -634,6 +637,7 @@ class Pipeline(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:opensearchingest/pipeline:Pipeline example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PipelineArgs args: The arguments to use to populate this resource's properties.

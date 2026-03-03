@@ -30,6 +30,7 @@ class AgentcoreGatewayTargetArgs:
                  timeouts: Optional[pulumi.Input['AgentcoreGatewayTargetTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentcoreGatewayTarget resource.
+
         :param pulumi.Input[_builtins.str] gateway_identifier: Identifier of the gateway that this target belongs to.
         :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationArgs'] target_configuration: Configuration for the target endpoint. See `target_configuration` below.
                
@@ -149,6 +150,7 @@ class _AgentcoreGatewayTargetState:
                  timeouts: Optional[pulumi.Input['AgentcoreGatewayTargetTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AgentcoreGatewayTarget resources.
+
         :param pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationArgs'] credential_provider_configuration: Configuration for authenticating requests to the target. Required when using `lambda`, `open_api_schema` and `smithy_model` in `mcp` block. If using `mcp_server` in `mcp` block with no authorization, it should not be specified. See `credential_provider_configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the gateway target.
         :param pulumi.Input[_builtins.str] gateway_identifier: Identifier of the gateway that this target belongs to.
@@ -556,6 +558,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         $ pulumi import aws:bedrock/agentcoreGatewayTarget:AgentcoreGatewayTarget example GATEWAY1234567890,TARGET0987654321
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AgentcoreGatewayTargetCredentialProviderConfigurationArgs', 'AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict']] credential_provider_configuration: Configuration for authenticating requests to the target. Required when using `lambda`, `open_api_schema` and `smithy_model` in `mcp` block. If using `mcp_server` in `mcp` block with no authorization, it should not be specified. See `credential_provider_configuration` below.
@@ -842,6 +845,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:bedrock/agentcoreGatewayTarget:AgentcoreGatewayTarget example GATEWAY1234567890,TARGET0987654321
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AgentcoreGatewayTargetArgs args: The arguments to use to populate this resource's properties.

@@ -46,6 +46,7 @@ class ServerArgs:
                  workflow_details: Optional[pulumi.Input['ServerWorkflowDetailsArgs']] = None):
         """
         The set of arguments for constructing a Server resource.
+
         :param pulumi.Input[_builtins.str] certificate: The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
         :param pulumi.Input[_builtins.str] directory_id: The directory service ID of the directory service you want to connect to with an `identity_provider_type` of `AWS_DIRECTORY_SERVICE`.
         :param pulumi.Input[_builtins.str] domain: The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
@@ -474,6 +475,7 @@ class _ServerState:
                  workflow_details: Optional[pulumi.Input['ServerWorkflowDetailsArgs']] = None):
         """
         Input properties used for looking up and filtering Server resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of Transfer Server
         :param pulumi.Input[_builtins.str] certificate: The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
         :param pulumi.Input[_builtins.str] directory_id: The directory service ID of the directory service you want to connect to with an `identity_provider_type` of `AWS_DIRECTORY_SERVICE`.
@@ -1085,6 +1087,7 @@ class Server(pulumi.CustomResource):
 
         Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate: The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
@@ -1265,6 +1268,7 @@ class Server(pulumi.CustomResource):
         ```
 
         Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
+
 
         :param str resource_name: The name of the resource.
         :param ServerArgs args: The arguments to use to populate this resource's properties.

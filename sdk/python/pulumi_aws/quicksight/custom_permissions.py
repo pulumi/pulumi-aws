@@ -28,6 +28,7 @@ class CustomPermissionsArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CustomPermissions resource.
+
         :param pulumi.Input['CustomPermissionsCapabilitiesArgs'] capabilities: Actions to include in the custom permissions profile. See capabilities.
         :param pulumi.Input[_builtins.str] custom_permissions_name: Custom permissions profile name.
                
@@ -120,6 +121,7 @@ class _CustomPermissionsState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CustomPermissions resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the custom permissions profile.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input['CustomPermissionsCapabilitiesArgs'] capabilities: Actions to include in the custom permissions profile. See capabilities.
@@ -266,6 +268,7 @@ class CustomPermissions(pulumi.CustomResource):
         $ pulumi import aws:quicksight/customPermissions:CustomPermissions example 123456789012,example-permissions
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
@@ -303,6 +306,7 @@ class CustomPermissions(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:quicksight/customPermissions:CustomPermissions example 123456789012,example-permissions
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomPermissionsArgs args: The arguments to use to populate this resource's properties.

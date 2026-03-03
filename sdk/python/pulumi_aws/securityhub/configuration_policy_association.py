@@ -24,6 +24,7 @@ class ConfigurationPolicyAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConfigurationPolicyAssociation resource.
+
         :param pulumi.Input[_builtins.str] policy_id: The universally unique identifier (UUID) of the configuration policy.
         :param pulumi.Input[_builtins.str] target_id: The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _ConfigurationPolicyAssociationState:
                  target_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConfigurationPolicyAssociation resources.
+
         :param pulumi.Input[_builtins.str] policy_id: The universally unique identifier (UUID) of the configuration policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] target_id: The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
@@ -188,6 +190,7 @@ class ConfigurationPolicyAssociation(pulumi.CustomResource):
         $ pulumi import aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation example_account_association 123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy_id: The universally unique identifier (UUID) of the configuration policy.
@@ -251,6 +254,7 @@ class ConfigurationPolicyAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation example_account_association 123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConfigurationPolicyAssociationArgs args: The arguments to use to populate this resource's properties.

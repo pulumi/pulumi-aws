@@ -296,8 +296,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var name = config.get("name");
- *         final var subnetId = config.get("subnetId");
+ *         final var name = config.require("name");
+ *         final var subnetId = config.require("subnetId");
  *         var test = new LoadBalancer("test", LoadBalancerArgs.builder()
  *             .name(name)
  *             .internal(true)

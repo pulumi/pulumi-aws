@@ -29,6 +29,7 @@ class ServiceRegionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServiceRegion resource.
+
         :param pulumi.Input[_builtins.str] directory_id: The identifier of the directory to which you want to add Region replication.
         :param pulumi.Input[_builtins.str] region_name: The name of the Region where you want to add domain controllers for replication.
         :param pulumi.Input['ServiceRegionVpcSettingsArgs'] vpc_settings: VPC information in the replicated Region. Detailed below.
@@ -131,6 +132,7 @@ class _ServiceRegionState:
                  vpc_settings: Optional[pulumi.Input['ServiceRegionVpcSettingsArgs']] = None):
         """
         Input properties used for looking up and filtering ServiceRegion resources.
+
         :param pulumi.Input[_builtins.int] desired_number_of_domain_controllers: The number of domain controllers desired in the replicated directory. Minimum value of `2`.
         :param pulumi.Input[_builtins.str] directory_id: The identifier of the directory to which you want to add Region replication.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -334,6 +336,7 @@ class ServiceRegion(pulumi.CustomResource):
         $ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] desired_number_of_domain_controllers: The number of domain controllers desired in the replicated directory. Minimum value of `2`.
@@ -430,6 +433,7 @@ class ServiceRegion(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceRegionArgs args: The arguments to use to populate this resource's properties.

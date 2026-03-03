@@ -52,6 +52,7 @@ class UserPoolArgs:
                  web_authn_configuration: Optional[pulumi.Input['UserPoolWebAuthnConfigurationArgs']] = None):
         """
         The set of arguments for constructing a UserPool resource.
+
         :param pulumi.Input['UserPoolAccountRecoverySettingArgs'] account_recovery_setting: Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
         :param pulumi.Input['UserPoolAdminCreateUserConfigArgs'] admin_create_user_config: Configuration block for creating a new user profile. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alias_attributes: Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
@@ -532,6 +533,7 @@ class _UserPoolState:
                  web_authn_configuration: Optional[pulumi.Input['UserPoolWebAuthnConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering UserPool resources.
+
         :param pulumi.Input['UserPoolAccountRecoverySettingArgs'] account_recovery_setting: Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
         :param pulumi.Input['UserPoolAdminCreateUserConfigArgs'] admin_create_user_config: Configuration block for creating a new user profile. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alias_attributes: Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
@@ -1189,6 +1191,7 @@ class UserPool(pulumi.CustomResource):
         $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['UserPoolAccountRecoverySettingArgs', 'UserPoolAccountRecoverySettingArgsDict']] account_recovery_setting: Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
@@ -1289,6 +1292,7 @@ class UserPool(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserPoolArgs args: The arguments to use to populate this resource's properties.

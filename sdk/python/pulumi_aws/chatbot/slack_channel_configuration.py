@@ -34,6 +34,7 @@ class SlackChannelConfigurationArgs:
                  user_authorization_required: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SlackChannelConfiguration resource.
+
         :param pulumi.Input[_builtins.str] configuration_name: Name of the Slack channel configuration.
         :param pulumi.Input[_builtins.str] iam_role_arn: User-defined role that AWS Chatbot assumes. This is not the service-linked role.
         :param pulumi.Input[_builtins.str] slack_channel_id: ID of the Slack channel. For example, `C07EZ1ABC23`.
@@ -218,6 +219,7 @@ class _SlackChannelConfigurationState:
                  user_authorization_required: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SlackChannelConfiguration resources.
+
         :param pulumi.Input[_builtins.str] chat_configuration_arn: ARN of the Slack channel configuration.
         :param pulumi.Input[_builtins.str] configuration_name: Name of the Slack channel configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] guardrail_policy_arns: List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
@@ -493,6 +495,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
         $ pulumi import aws:chatbot/slackChannelConfiguration:SlackChannelConfiguration example arn:aws:chatbot::123456789012:chat-configuration/slack-channel/min-slaka-kanal
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] configuration_name: Name of the Slack channel configuration.
@@ -542,6 +545,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:chatbot/slackChannelConfiguration:SlackChannelConfiguration example arn:aws:chatbot::123456789012:chat-configuration/slack-channel/min-slaka-kanal
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SlackChannelConfigurationArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class NotificationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Notification resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_names: List of AutoScaling Group Names
         :param pulumi.Input[Sequence[pulumi.Input['NotificationType']]] notifications: List of Notification Types that trigger
                notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
@@ -97,6 +98,7 @@ class _NotificationState:
                  topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Notification resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_names: List of AutoScaling Group Names
         :param pulumi.Input[Sequence[pulumi.Input['NotificationType']]] notifications: List of Notification Types that trigger
                notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
@@ -203,6 +205,7 @@ class Notification(pulumi.CustomResource):
             topic_arn=example.arn)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_names: List of AutoScaling Group Names
@@ -246,6 +249,7 @@ class Notification(pulumi.CustomResource):
             ],
             topic_arn=example.arn)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NotificationArgs args: The arguments to use to populate this resource's properties.

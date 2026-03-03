@@ -26,6 +26,7 @@ class TargetAccountConfigurationArgs:
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TargetAccountConfiguration resource.
+
         :param pulumi.Input[_builtins.str] account_id: Account ID of the target account.
         :param pulumi.Input[_builtins.str] experiment_template_id: Experiment Template ID.
                
@@ -116,6 +117,7 @@ class _TargetAccountConfigurationState:
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TargetAccountConfiguration resources.
+
         :param pulumi.Input[_builtins.str] account_id: Account ID of the target account.
         :param pulumi.Input[_builtins.str] description: Description of the target account.
         :param pulumi.Input[_builtins.str] experiment_template_id: Experiment Template ID.
@@ -236,6 +238,7 @@ class TargetAccountConfiguration(pulumi.CustomResource):
         $ pulumi import aws:fis/targetAccountConfiguration:TargetAccountConfiguration example 123456789012,abcd123456789
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Account ID of the target account.
@@ -277,6 +280,7 @@ class TargetAccountConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:fis/targetAccountConfiguration:TargetAccountConfiguration example 123456789012,abcd123456789
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TargetAccountConfigurationArgs args: The arguments to use to populate this resource's properties.

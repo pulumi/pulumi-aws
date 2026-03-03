@@ -27,6 +27,7 @@ class BucketPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BucketPolicy resource.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket to which to apply the policy.
         :param pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']] policy: Text of the policy. Although this is a bucket policy rather than an IAM policy, the `iam_get_policy_document` data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -81,6 +82,7 @@ class _BucketPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BucketPolicy resources.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket to which to apply the policy.
         :param pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']] policy: Text of the policy. Although this is a bucket policy rather than an IAM policy, the `iam_get_policy_document` data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -193,6 +195,7 @@ class BucketPolicy(pulumi.CustomResource):
         $ pulumi import aws:s3/bucketPolicy:BucketPolicy example my-tf-test-bucket
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket to which to apply the policy.
@@ -258,6 +261,7 @@ class BucketPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/bucketPolicy:BucketPolicy example my-tf-test-bucket
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BucketPolicyArgs args: The arguments to use to populate this resource's properties.

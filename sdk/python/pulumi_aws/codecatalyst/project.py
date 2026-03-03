@@ -25,6 +25,7 @@ class ProjectArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Project resource.
+
         :param pulumi.Input[_builtins.str] display_name: The friendly name of the project that will be displayed to users.
                
                The following arguments are optional:
@@ -100,6 +101,7 @@ class _ProjectState:
                  space_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Project resources.
+
         :param pulumi.Input[_builtins.str] description: The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
         :param pulumi.Input[_builtins.str] display_name: The friendly name of the project that will be displayed to users.
                
@@ -218,6 +220,7 @@ class Project(pulumi.CustomResource):
         $ pulumi import aws:codecatalyst/project:Project example project-id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
@@ -257,6 +260,7 @@ class Project(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:codecatalyst/project:Project example project-id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.

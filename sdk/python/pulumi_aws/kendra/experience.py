@@ -29,6 +29,7 @@ class ExperienceArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Experience resource.
+
         :param pulumi.Input[_builtins.str] index_id: The identifier of the index for your Amazon Kendra experience.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
                
@@ -143,6 +144,7 @@ class _ExperienceState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Experience resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Experience.
         :param pulumi.Input['ExperienceConfigurationArgs'] configuration: Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
                
@@ -352,6 +354,7 @@ class Experience(pulumi.CustomResource):
         $ pulumi import aws:kendra/experience:Experience example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ExperienceConfigurationArgs', 'ExperienceConfigurationArgsDict']] configuration: Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
@@ -405,6 +408,7 @@ class Experience(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:kendra/experience:Experience example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExperienceArgs args: The arguments to use to populate this resource's properties.

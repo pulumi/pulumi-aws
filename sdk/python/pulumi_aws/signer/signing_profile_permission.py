@@ -28,6 +28,7 @@ class SigningProfilePermissionArgs:
                  statement_id_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SigningProfilePermission resource.
+
         :param pulumi.Input[_builtins.str] action: An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, `signer:RevokeSignature`, or `signer:SignPayload`.
         :param pulumi.Input[_builtins.str] principal: The AWS principal to be granted a cross-account permission.
         :param pulumi.Input[_builtins.str] profile_name: Name of the signing profile to add the cross-account permissions.
@@ -145,6 +146,7 @@ class _SigningProfilePermissionState:
                  statement_id_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SigningProfilePermission resources.
+
         :param pulumi.Input[_builtins.str] action: An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, `signer:RevokeSignature`, or `signer:SignPayload`.
         :param pulumi.Input[_builtins.str] principal: The AWS principal to be granted a cross-account permission.
         :param pulumi.Input[_builtins.str] profile_name: Name of the signing profile to add the cross-account permissions.
@@ -312,6 +314,7 @@ class SigningProfilePermission(pulumi.CustomResource):
         $ pulumi import aws:signer/signingProfilePermission:SigningProfilePermission test_signer_signing_profile_permission prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK/ProdAccountStartSigningJobStatementId
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, `signer:RevokeSignature`, or `signer:SignPayload`.
@@ -372,6 +375,7 @@ class SigningProfilePermission(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:signer/signingProfilePermission:SigningProfilePermission test_signer_signing_profile_permission prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK/ProdAccountStartSigningJobStatementId
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SigningProfilePermissionArgs args: The arguments to use to populate this resource's properties.

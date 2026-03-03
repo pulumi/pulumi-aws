@@ -25,6 +25,7 @@ class ResourcePolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourcePolicy resource.
+
         :param pulumi.Input[_builtins.str] policy: n Amazon Web Services resource-based policy document in JSON format. The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see Resource-based policy considerations.
                
                The following arguments are optional:
@@ -100,6 +101,7 @@ class _ResourcePolicyState:
                  revision_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourcePolicy resources.
+
         :param pulumi.Input[_builtins.bool] confirm_remove_self_resource_access: Set this parameter to true to confirm that you want to remove your permissions to change the policy of this resource in the future.
         :param pulumi.Input[_builtins.str] policy: n Amazon Web Services resource-based policy document in JSON format. The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see Resource-based policy considerations.
                
@@ -223,6 +225,7 @@ class ResourcePolicy(pulumi.CustomResource):
         $ pulumi import aws:dynamodb/resourcePolicy:ResourcePolicy example arn:aws:dynamodb:us-east-1:1234567890:table/my-table
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] confirm_remove_self_resource_access: Set this parameter to true to confirm that you want to remove your permissions to change the policy of this resource in the future.
@@ -267,6 +270,7 @@ class ResourcePolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:dynamodb/resourcePolicy:ResourcePolicy example arn:aws:dynamodb:us-east-1:1234567890:table/my-table
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.

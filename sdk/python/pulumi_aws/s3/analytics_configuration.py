@@ -28,6 +28,7 @@ class AnalyticsConfigurationArgs:
                  storage_class_analysis: Optional[pulumi.Input['AnalyticsConfigurationStorageClassAnalysisArgs']] = None):
         """
         The set of arguments for constructing a AnalyticsConfiguration resource.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket this analytics configuration is associated with.
         :param pulumi.Input['AnalyticsConfigurationFilterArgs'] filter: Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         :param pulumi.Input[_builtins.str] name: Unique identifier of the analytics configuration for the bucket.
@@ -115,6 +116,7 @@ class _AnalyticsConfigurationState:
                  storage_class_analysis: Optional[pulumi.Input['AnalyticsConfigurationStorageClassAnalysisArgs']] = None):
         """
         Input properties used for looking up and filtering AnalyticsConfiguration resources.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket this analytics configuration is associated with.
         :param pulumi.Input['AnalyticsConfigurationFilterArgs'] filter: Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         :param pulumi.Input[_builtins.str] name: Unique identifier of the analytics configuration for the bucket.
@@ -261,6 +263,7 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         $ pulumi import aws:s3/analyticsConfiguration:AnalyticsConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket this analytics configuration is associated with.
@@ -330,6 +333,7 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/analyticsConfiguration:AnalyticsConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AnalyticsConfigurationArgs args: The arguments to use to populate this resource's properties.

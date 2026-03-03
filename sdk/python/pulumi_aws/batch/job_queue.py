@@ -32,6 +32,7 @@ class JobQueueArgs:
                  timeouts: Optional[pulumi.Input['JobQueueTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a JobQueue resource.
+
         :param pulumi.Input[_builtins.int] priority: The priority of the job queue. Job queues with a higher priority
                are evaluated first when associated with the same compute environment.
         :param pulumi.Input[_builtins.str] state: The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
@@ -182,6 +183,7 @@ class _JobQueueState:
                  timeouts: Optional[pulumi.Input['JobQueueTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering JobQueue resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of the job queue.
         :param pulumi.Input[Sequence[pulumi.Input['JobQueueComputeEnvironmentOrderArgs']]] compute_environment_orders: The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
         :param pulumi.Input[Sequence[pulumi.Input['JobQueueJobStateTimeLimitActionArgs']]] job_state_time_limit_actions: The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
@@ -438,6 +440,7 @@ class JobQueue(pulumi.CustomResource):
         $ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['JobQueueComputeEnvironmentOrderArgs', 'JobQueueComputeEnvironmentOrderArgsDict']]]] compute_environment_orders: The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
@@ -529,6 +532,7 @@ class JobQueue(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
         ```
+
 
         :param str resource_name: The name of the resource.
         :param JobQueueArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class ReplicatorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Replicator resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]] kafka_clusters: A list of Kafka clusters which are targets of the replicator.
         :param pulumi.Input['ReplicatorReplicationInfoListArgs'] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         :param pulumi.Input[_builtins.str] replicator_name: The name of the replicator.
@@ -149,6 +150,7 @@ class _ReplicatorState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Replicator resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Replicator.
         :param pulumi.Input[_builtins.str] description: A summary description of the replicator.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]] kafka_clusters: A list of Kafka clusters which are targets of the replicator.
@@ -374,6 +376,7 @@ class Replicator(pulumi.CustomResource):
         $ pulumi import aws:msk/replicator:Replicator example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A summary description of the replicator.
@@ -451,6 +454,7 @@ class Replicator(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:msk/replicator:Replicator example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReplicatorArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class ServerlessAccessPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerlessAccessPolicy resource.
+
         :param pulumi.Input[_builtins.str] policy: JSON policy document to use as the content for the new policy
         :param pulumi.Input[_builtins.str] type: Type of access policy. Must be `data`.
                
@@ -117,6 +118,7 @@ class _ServerlessAccessPolicyState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerlessAccessPolicy resources.
+
         :param pulumi.Input[_builtins.str] description: Description of the policy. Typically used to store information about the permissions defined in the policy.
         :param pulumi.Input[_builtins.str] name: Name of the policy.
         :param pulumi.Input[_builtins.str] policy: JSON policy document to use as the content for the new policy
@@ -331,6 +333,7 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
         $ pulumi import aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy example example/data
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the policy. Typically used to store information about the permissions defined in the policy.
@@ -451,6 +454,7 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy example example/data
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerlessAccessPolicyArgs args: The arguments to use to populate this resource's properties.

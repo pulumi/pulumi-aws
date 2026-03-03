@@ -23,6 +23,7 @@ class ServicecatalogPortfolioStatusArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServicecatalogPortfolioStatus resource.
+
         :param pulumi.Input[_builtins.str] status: Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -62,6 +63,7 @@ class _ServicecatalogPortfolioStatusState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServicecatalogPortfolioStatus resources.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] status: Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
         """
@@ -126,6 +128,7 @@ class ServicecatalogPortfolioStatus(pulumi.CustomResource):
         $ pulumi import aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus example us-east-1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -158,6 +161,7 @@ class ServicecatalogPortfolioStatus(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus example us-east-1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServicecatalogPortfolioStatusArgs args: The arguments to use to populate this resource's properties.

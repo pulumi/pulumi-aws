@@ -29,6 +29,7 @@ class ClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+
         :param pulumi.Input['ClusterConfigurationArgs'] configuration: Execute command configuration for the cluster. See `configuration` Block for details.
         :param pulumi.Input[_builtins.str] name: Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
                
@@ -139,6 +140,7 @@ class _ClusterState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN that identifies the cluster.
         :param pulumi.Input['ClusterConfigurationArgs'] configuration: Execute command configuration for the cluster. See `configuration` Block for details.
         :param pulumi.Input[_builtins.str] name: Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
@@ -399,6 +401,7 @@ class Cluster(pulumi.CustomResource):
         $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ClusterConfigurationArgs', 'ClusterConfigurationArgsDict']] configuration: Execute command configuration for the cluster. See `configuration` Block for details.
@@ -535,6 +538,7 @@ class Cluster(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

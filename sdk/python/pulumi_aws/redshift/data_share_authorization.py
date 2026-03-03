@@ -25,6 +25,7 @@ class DataShareAuthorizationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataShareAuthorization resource.
+
         :param pulumi.Input[_builtins.str] consumer_identifier: Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
         :param pulumi.Input[_builtins.str] data_share_arn: Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
                
@@ -101,6 +102,7 @@ class _DataShareAuthorizationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataShareAuthorization resources.
+
         :param pulumi.Input[_builtins.bool] allow_writes: Whether to allow write operations for a datashare.
         :param pulumi.Input[_builtins.str] consumer_identifier: Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
         :param pulumi.Input[_builtins.str] data_share_arn: Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
@@ -233,6 +235,7 @@ class DataShareAuthorization(pulumi.CustomResource):
         $ pulumi import aws:redshift/dataShareAuthorization:DataShareAuthorization example arn:aws:redshift:us-west-2:123456789012:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share,123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_writes: Whether to allow write operations for a datashare.
@@ -271,6 +274,7 @@ class DataShareAuthorization(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:redshift/dataShareAuthorization:DataShareAuthorization example arn:aws:redshift:us-west-2:123456789012:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share,123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataShareAuthorizationArgs args: The arguments to use to populate this resource's properties.

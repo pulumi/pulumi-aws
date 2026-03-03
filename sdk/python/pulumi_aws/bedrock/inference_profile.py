@@ -29,6 +29,7 @@ class InferenceProfileArgs:
                  timeouts: Optional[pulumi.Input['InferenceProfileTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a InferenceProfile resource.
+
         :param pulumi.Input[_builtins.str] description: The description of the inference profile.
         :param pulumi.Input['InferenceProfileModelSourceArgs'] model_source: The source of the model this inference profile will track metrics and cost for. See `model_source`.
                
@@ -140,6 +141,7 @@ class _InferenceProfileState:
                  updated_at: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering InferenceProfile resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the inference profile.
         :param pulumi.Input[_builtins.str] created_at: The time at which the inference profile was created.
         :param pulumi.Input[_builtins.str] description: The description of the inference profile.
@@ -378,6 +380,7 @@ class InferenceProfile(pulumi.CustomResource):
         $ pulumi import aws:bedrock/inferenceProfile:InferenceProfile example inference_profile-id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the inference profile.
@@ -424,6 +427,7 @@ class InferenceProfile(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:bedrock/inferenceProfile:InferenceProfile example inference_profile-id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InferenceProfileArgs args: The arguments to use to populate this resource's properties.

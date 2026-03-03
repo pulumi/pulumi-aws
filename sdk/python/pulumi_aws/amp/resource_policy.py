@@ -28,6 +28,7 @@ class ResourcePolicyArgs:
                  timeouts: Optional[pulumi.Input['ResourcePolicyTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ResourcePolicy resource.
+
         :param pulumi.Input[_builtins.str] policy_document: The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
                
                The following arguments are optional:
@@ -114,6 +115,7 @@ class _ResourcePolicyState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourcePolicy resources.
+
         :param pulumi.Input[_builtins.str] policy_document: The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
                
                The following arguments are optional:
@@ -314,6 +316,7 @@ class ResourcePolicy(pulumi.CustomResource):
         $ pulumi import aws:amp/resourcePolicy:ResourcePolicy example ws-12345678-90ab-cdef-1234-567890abcdef
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy_document: The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
@@ -438,6 +441,7 @@ class ResourcePolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:amp/resourcePolicy:ResourcePolicy example ws-12345678-90ab-cdef-1234-567890abcdef
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.

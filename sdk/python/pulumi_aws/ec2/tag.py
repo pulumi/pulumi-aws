@@ -25,6 +25,7 @@ class TagArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Tag resource.
+
         :param pulumi.Input[_builtins.str] key: The tag name.
         :param pulumi.Input[_builtins.str] resource_id: The ID of the EC2 resource to manage the tag for.
         :param pulumi.Input[_builtins.str] value: The value of the tag.
@@ -94,6 +95,7 @@ class _TagState:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Tag resources.
+
         :param pulumi.Input[_builtins.str] key: The tag name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_id: The ID of the EC2 resource to manage the tag for.
@@ -202,6 +204,7 @@ class Tag(pulumi.CustomResource):
         $ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] key: The tag name.
@@ -248,6 +251,7 @@ class Tag(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TagArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class TargetGroupAttachmentArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TargetGroupAttachment resource.
+
         :param pulumi.Input[_builtins.str] target_group_arn: The ARN of the target group with which to register targets.
         :param pulumi.Input[_builtins.str] target_id: The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
                
@@ -133,6 +134,7 @@ class _TargetGroupAttachmentState:
                  target_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TargetGroupAttachment resources.
+
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
         :param pulumi.Input[_builtins.int] port: The port on which targets receive traffic.
         :param pulumi.Input[_builtins.str] quic_server_id: Server ID for the targets, consisting of the 0x prefix followed by 16 hexadecimal characters. The value must be unique at the listener level. Required if `lb.TargetGroup` protocol is `QUIC` or `TCP_QUIC`. Not valid with other protocols. Forces replacement if modified.
@@ -308,6 +310,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
         You cannot import Target Group Attachments.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
@@ -389,6 +392,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
         ## Import
 
         You cannot import Target Group Attachments.
+
 
         :param str resource_name: The name of the resource.
         :param TargetGroupAttachmentArgs args: The arguments to use to populate this resource's properties.

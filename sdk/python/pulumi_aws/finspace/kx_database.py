@@ -26,6 +26,7 @@ class KxDatabaseArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a KxDatabase resource.
+
         :param pulumi.Input[_builtins.str] environment_id: Unique identifier for the KX environment.
         :param pulumi.Input[_builtins.str] description: Description of the KX database.
         :param pulumi.Input[_builtins.str] name: Name of the KX database.
@@ -121,6 +122,7 @@ class _KxDatabaseState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering KxDatabase resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX database.
         :param pulumi.Input[_builtins.str] created_timestamp: Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         :param pulumi.Input[_builtins.str] description: Description of the KX database.
@@ -306,6 +308,7 @@ class KxDatabase(pulumi.CustomResource):
         $ pulumi import aws:finspace/kxDatabase:KxDatabase example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the KX database.
@@ -352,6 +355,7 @@ class KxDatabase(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:finspace/kxDatabase:KxDatabase example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database
         ```
+
 
         :param str resource_name: The name of the resource.
         :param KxDatabaseArgs args: The arguments to use to populate this resource's properties.

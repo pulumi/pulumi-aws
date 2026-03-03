@@ -23,6 +23,7 @@ class DelegatedAdminAccountArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DelegatedAdminAccount resource.
+
         :param pulumi.Input[_builtins.str] account_id: Account to enable as delegated admin account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -63,6 +64,7 @@ class _DelegatedAdminAccountState:
                  relationship_status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DelegatedAdminAccount resources.
+
         :param pulumi.Input[_builtins.str] account_id: Account to enable as delegated admin account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] relationship_status: Status of this delegated admin account.
@@ -143,6 +145,7 @@ class DelegatedAdminAccount(pulumi.CustomResource):
         $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Account to enable as delegated admin account.
@@ -176,6 +179,7 @@ class DelegatedAdminAccount(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DelegatedAdminAccountArgs args: The arguments to use to populate this resource's properties.

@@ -43,6 +43,7 @@ class CloudAutonomousVmClusterArgs:
                  timeouts: Optional[pulumi.Input['CloudAutonomousVmClusterTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a CloudAutonomousVmCluster resource.
+
         :param pulumi.Input[_builtins.float] autonomous_data_storage_size_in_tbs: The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.int] cpu_core_count_per_node: The number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_servers: The database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
@@ -396,6 +397,7 @@ class _CloudAutonomousVmClusterState:
                  total_container_databases: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CloudAutonomousVmCluster resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) for the Exadata infrastructure.
         :param pulumi.Input[_builtins.float] autonomous_data_storage_percentage: The progress of the current operation on the Autonomous VM cluster, as a percentage.
         :param pulumi.Input[_builtins.float] autonomous_data_storage_size_in_tbs: The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
@@ -1328,6 +1330,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
         $ pulumi import aws:odb/cloudAutonomousVmCluster:CloudAutonomousVmCluster example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.float] autonomous_data_storage_size_in_tbs: The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
@@ -1449,6 +1452,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:odb/cloudAutonomousVmCluster:CloudAutonomousVmCluster example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CloudAutonomousVmClusterArgs args: The arguments to use to populate this resource's properties.

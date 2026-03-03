@@ -26,6 +26,7 @@ class ResourceShareAssociationsExclusiveArgs:
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResourceShareAssociationsExclusive resource.
+
         :param pulumi.Input[_builtins.str] resource_share_arn: The Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: A set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include:
                * AWS account ID (exactly 12 digits, e.g., `123456789012`)
@@ -125,6 +126,7 @@ class _ResourceShareAssociationsExclusiveState:
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ResourceShareAssociationsExclusive resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: A set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include:
                * AWS account ID (exactly 12 digits, e.g., `123456789012`)
                * AWS Organizations Organization ARN (e.g., `arn:aws:organizations::123456789012:organization/o-exampleorgid`)
@@ -335,6 +337,7 @@ class ResourceShareAssociationsExclusive(pulumi.CustomResource):
         $ pulumi import aws:ram/resourceShareAssociationsExclusive:ResourceShareAssociationsExclusive example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: A set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include:
@@ -462,6 +465,7 @@ class ResourceShareAssociationsExclusive(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ram/resourceShareAssociationsExclusive:ResourceShareAssociationsExclusive example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceShareAssociationsExclusiveArgs args: The arguments to use to populate this resource's properties.

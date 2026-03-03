@@ -26,6 +26,7 @@ class GeofenceCollectionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a GeofenceCollection resource.
+
         :param pulumi.Input[_builtins.str] collection_name: The name of the geofence collection.
                
                The following arguments are optional:
@@ -121,6 +122,7 @@ class _GeofenceCollectionState:
                  update_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GeofenceCollection resources.
+
         :param pulumi.Input[_builtins.str] collection_arn: The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
         :param pulumi.Input[_builtins.str] collection_name: The name of the geofence collection.
                
@@ -291,6 +293,7 @@ class GeofenceCollection(pulumi.CustomResource):
         $ pulumi import aws:location/geofenceCollection:GeofenceCollection example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] collection_name: The name of the geofence collection.
@@ -326,6 +329,7 @@ class GeofenceCollection(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:location/geofenceCollection:GeofenceCollection example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GeofenceCollectionArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class ContactFlowArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ContactFlow resource.
+
         :param pulumi.Input[_builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[_builtins.str] content: Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
         :param pulumi.Input[_builtins.str] content_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
@@ -184,6 +185,7 @@ class _ContactFlowState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ContactFlow resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Contact Flow.
         :param pulumi.Input[_builtins.str] contact_flow_id: The identifier of the Contact Flow.
         :param pulumi.Input[_builtins.str] content: Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
@@ -471,6 +473,7 @@ class ContactFlow(pulumi.CustomResource):
         $ pulumi import aws:connect/contactFlow:ContactFlow example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content: Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
@@ -576,6 +579,7 @@ class ContactFlow(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:connect/contactFlow:ContactFlow example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ContactFlowArgs args: The arguments to use to populate this resource's properties.

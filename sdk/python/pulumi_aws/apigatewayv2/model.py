@@ -27,6 +27,7 @@ class ModelArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Model resource.
+
         :param pulumi.Input[_builtins.str] api_id: API identifier.
         :param pulumi.Input[_builtins.str] content_type: The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
         :param pulumi.Input[_builtins.str] schema: Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
@@ -128,6 +129,7 @@ class _ModelState:
                  schema: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Model resources.
+
         :param pulumi.Input[_builtins.str] api_id: API identifier.
         :param pulumi.Input[_builtins.str] content_type: The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
         :param pulumi.Input[_builtins.str] description: Description of the model. Must be between 1 and 128 characters in length.
@@ -270,6 +272,7 @@ class Model(pulumi.CustomResource):
         $ pulumi import aws:apigatewayv2/model:Model example aabbccddee/1122334
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: API identifier.
@@ -320,6 +323,7 @@ class Model(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apigatewayv2/model:Model example aabbccddee/1122334
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ModelArgs args: The arguments to use to populate this resource's properties.

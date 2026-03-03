@@ -35,6 +35,7 @@ class StackArgs:
                  timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Stack resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capabilities: A list of capabilities.
                Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
         :param pulumi.Input[_builtins.bool] disable_rollback: Set to true to disable rollback of the stack if stack creation failed.
@@ -279,6 +280,7 @@ class _StackState:
                  timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Stack resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capabilities: A list of capabilities.
                Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
         :param pulumi.Input[_builtins.bool] disable_rollback: Set to true to disable rollback of the stack if stack creation failed.
@@ -601,6 +603,7 @@ class Stack(pulumi.CustomResource):
         $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capabilities: A list of capabilities.
@@ -676,6 +679,7 @@ class Stack(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StackArgs args: The arguments to use to populate this resource's properties.

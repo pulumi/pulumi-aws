@@ -27,6 +27,7 @@ class ClusterCapacityProvidersArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClusterCapacityProviders resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: Name of the ECS cluster to manage capacity providers for.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capacity_providers: Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs']]] default_capacity_provider_strategies: Set of capacity provider strategies to use by default for the cluster. Detailed below.
@@ -98,6 +99,7 @@ class _ClusterCapacityProvidersState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterCapacityProviders resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capacity_providers: Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the ECS cluster to manage capacity providers for.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs']]] default_capacity_provider_strategies: Set of capacity provider strategies to use by default for the cluster. Detailed below.
@@ -202,6 +204,7 @@ class ClusterCapacityProviders(pulumi.CustomResource):
         $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capacity_providers: Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
@@ -244,6 +247,7 @@ class ClusterCapacityProviders(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterCapacityProvidersArgs args: The arguments to use to populate this resource's properties.

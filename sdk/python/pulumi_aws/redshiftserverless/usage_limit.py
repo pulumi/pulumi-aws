@@ -27,6 +27,7 @@ class UsageLimitArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UsageLimit resource.
+
         :param pulumi.Input[_builtins.int] amount: The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
         :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
         :param pulumi.Input[_builtins.str] usage_type: The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
@@ -129,6 +130,7 @@ class _UsageLimitState:
                  usage_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UsageLimit resources.
+
         :param pulumi.Input[_builtins.int] amount: The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
         :param pulumi.Input[_builtins.str] breach_action: The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
@@ -276,6 +278,7 @@ class UsageLimit(pulumi.CustomResource):
         $ pulumi import aws:redshiftserverless/usageLimit:UsageLimit example example-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] amount: The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
@@ -316,6 +319,7 @@ class UsageLimit(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:redshiftserverless/usageLimit:UsageLimit example example-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UsageLimitArgs args: The arguments to use to populate this resource's properties.

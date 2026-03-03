@@ -31,6 +31,7 @@ class RevisionAssetsArgs:
                  timeouts: Optional[pulumi.Input['RevisionAssetsTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a RevisionAssets resource.
+
         :param pulumi.Input[_builtins.str] data_set_id: Unique identifier for the data set associated with the revision.
         :param pulumi.Input[Sequence[pulumi.Input['RevisionAssetsAssetArgs']]] assets: A block to define the asset associated with the revision. See Asset for more details.
                
@@ -162,6 +163,7 @@ class _RevisionAssetsState:
                  updated_at: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RevisionAssets resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the Data Exchange Revision Assets.
         :param pulumi.Input[Sequence[pulumi.Input['RevisionAssetsAssetArgs']]] assets: A block to define the asset associated with the revision. See Asset for more details.
                
@@ -379,6 +381,7 @@ class RevisionAssets(pulumi.CustomResource):
             })
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RevisionAssetsAssetArgs', 'RevisionAssetsAssetArgsDict']]]] assets: A block to define the asset associated with the revision. See Asset for more details.
@@ -421,6 +424,7 @@ class RevisionAssets(pulumi.CustomResource):
                 "Environment": "Production",
             })
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RevisionAssetsArgs args: The arguments to use to populate this resource's properties.

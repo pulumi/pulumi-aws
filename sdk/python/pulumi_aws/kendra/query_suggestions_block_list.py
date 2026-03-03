@@ -30,6 +30,7 @@ class QuerySuggestionsBlockListArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a QuerySuggestionsBlockList resource.
+
         :param pulumi.Input[_builtins.str] index_id: Identifier of the index for a block list.
         :param pulumi.Input[_builtins.str] role_arn: IAM (Identity and Access Management) role used to access the block list text file in S3.
         :param pulumi.Input['QuerySuggestionsBlockListSourceS3PathArgs'] source_s3_path: S3 path where your block list text file is located. See details below.
@@ -143,6 +144,7 @@ class _QuerySuggestionsBlockListState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering QuerySuggestionsBlockList resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the block list.
         :param pulumi.Input[_builtins.str] index_id: Identifier of the index for a block list.
         :param pulumi.Input[_builtins.str] name: Name for the block list.
@@ -345,6 +347,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
         $ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] index_id: Identifier of the index for a block list.
@@ -390,6 +393,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
         ```
+
 
         :param str resource_name: The name of the resource.
         :param QuerySuggestionsBlockListArgs args: The arguments to use to populate this resource's properties.

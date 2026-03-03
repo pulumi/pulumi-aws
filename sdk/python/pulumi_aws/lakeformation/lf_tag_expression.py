@@ -28,6 +28,7 @@ class LfTagExpressionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LfTagExpression resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['LfTagExpressionExpressionArgs']]] expressions: A list of LF-Tag conditions (key-value pairs). See expression for more details.
                
                The following arguments are optional:
@@ -119,6 +120,7 @@ class _LfTagExpressionState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LfTagExpression resources.
+
         :param pulumi.Input[_builtins.str] catalog_id: ID of the Data Catalog. Defaults to the account ID if not specified.
         :param pulumi.Input[_builtins.str] description: Description of the LF-Tag Expression.
         :param pulumi.Input[Sequence[pulumi.Input['LfTagExpressionExpressionArgs']]] expressions: A list of LF-Tag conditions (key-value pairs). See expression for more details.
@@ -243,6 +245,7 @@ class LfTagExpression(pulumi.CustomResource):
         $ pulumi import aws:lakeformation/lfTagExpression:LfTagExpression example example-tag-expression,123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: ID of the Data Catalog. Defaults to the account ID if not specified.
@@ -288,6 +291,7 @@ class LfTagExpression(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lakeformation/lfTagExpression:LfTagExpression example example-tag-expression,123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LfTagExpressionArgs args: The arguments to use to populate this resource's properties.

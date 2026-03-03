@@ -38,6 +38,7 @@ class ElasticClusterArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ElasticCluster resource.
+
         :param pulumi.Input[_builtins.str] admin_user_name: Name of the Elastic DocumentDB cluster administrator
         :param pulumi.Input[_builtins.str] admin_user_password: Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
         :param pulumi.Input[_builtins.str] auth_type: Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
@@ -290,6 +291,7 @@ class _ElasticClusterState:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ElasticCluster resources.
+
         :param pulumi.Input[_builtins.str] admin_user_name: Name of the Elastic DocumentDB cluster administrator
         :param pulumi.Input[_builtins.str] admin_user_password: Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
         :param pulumi.Input[_builtins.str] arn: ARN of the DocumentDB Elastic Cluster
@@ -621,6 +623,7 @@ class ElasticCluster(pulumi.CustomResource):
         $ pulumi import aws:docdb/elasticCluster:ElasticCluster example arn:aws:docdb-elastic:us-east-1:000011112222:cluster/12345678-7abc-def0-1234-56789abcdef
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] admin_user_name: Name of the Elastic DocumentDB cluster administrator
@@ -682,6 +685,7 @@ class ElasticCluster(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:docdb/elasticCluster:ElasticCluster example arn:aws:docdb-elastic:us-east-1:000011112222:cluster/12345678-7abc-def0-1234-56789abcdef
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ElasticClusterArgs args: The arguments to use to populate this resource's properties.

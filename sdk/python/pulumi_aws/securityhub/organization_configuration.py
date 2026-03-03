@@ -27,6 +27,7 @@ class OrganizationConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OrganizationConfiguration resource.
+
         :param pulumi.Input[_builtins.bool] auto_enable: Whether to automatically enable Security Hub for new accounts in the organization.
         :param pulumi.Input[_builtins.str] auto_enable_standards: Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
         :param pulumi.Input['OrganizationConfigurationOrganizationConfigurationArgs'] organization_configuration: Provides information about the way an organization is configured in Security Hub.
@@ -98,6 +99,7 @@ class _OrganizationConfigurationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationConfiguration resources.
+
         :param pulumi.Input[_builtins.bool] auto_enable: Whether to automatically enable Security Hub for new accounts in the organization.
         :param pulumi.Input[_builtins.str] auto_enable_standards: Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
         :param pulumi.Input['OrganizationConfigurationOrganizationConfigurationArgs'] organization_configuration: Provides information about the way an organization is configured in Security Hub.
@@ -226,6 +228,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
         $ pulumi import aws:securityhub/organizationConfiguration:OrganizationConfiguration example 123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_enable: Whether to automatically enable Security Hub for new accounts in the organization.
@@ -292,6 +295,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:securityhub/organizationConfiguration:OrganizationConfiguration example 123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationConfigurationArgs args: The arguments to use to populate this resource's properties.

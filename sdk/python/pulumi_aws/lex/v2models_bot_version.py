@@ -29,6 +29,7 @@ class V2modelsBotVersionArgs:
                  timeouts: Optional[pulumi.Input['V2modelsBotVersionTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a V2modelsBotVersion resource.
+
         :param pulumi.Input[_builtins.str] bot_id: Idientifier of the bot to create the version for.
         :param pulumi.Input[Mapping[str, pulumi.Input['V2modelsBotVersionLocaleSpecificationArgs']]] locale_specification: Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
         :param pulumi.Input[_builtins.str] bot_version: Version number assigned to the version.
@@ -129,6 +130,7 @@ class _V2modelsBotVersionState:
                  timeouts: Optional[pulumi.Input['V2modelsBotVersionTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering V2modelsBotVersion resources.
+
         :param pulumi.Input[_builtins.str] bot_id: Idientifier of the bot to create the version for.
         :param pulumi.Input[_builtins.str] bot_version: Version number assigned to the version.
         :param pulumi.Input[_builtins.str] description: A description of the version. Use the description to help identify the version in lists.
@@ -261,6 +263,7 @@ class V2modelsBotVersion(pulumi.CustomResource):
         $ pulumi import aws:lex/v2modelsBotVersion:V2modelsBotVersion example id-12345678,1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bot_id: Idientifier of the bot to create the version for.
@@ -303,6 +306,7 @@ class V2modelsBotVersion(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lex/v2modelsBotVersion:V2modelsBotVersion example id-12345678,1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param V2modelsBotVersionArgs args: The arguments to use to populate this resource's properties.

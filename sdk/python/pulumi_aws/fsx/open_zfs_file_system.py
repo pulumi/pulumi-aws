@@ -47,6 +47,7 @@ class OpenZfsFileSystemArgs:
                  weekly_maintenance_start_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OpenZfsFileSystem resource.
+
         :param pulumi.Input[_builtins.str] deployment_type: Filesystem deployment type. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemOpenZFSConfiguration.html#FSx-Type-CreateFileSystemOpenZFSConfiguration-DeploymentType) for a list of valid values.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of IDs for the subnets that the file system will be accessible from.
         :param pulumi.Input[_builtins.int] throughput_capacity: Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
@@ -448,6 +449,7 @@ class _OpenZfsFileSystemState:
                  weekly_maintenance_start_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OpenZfsFileSystem resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the file system.
         :param pulumi.Input[_builtins.int] automatic_backup_retention_days: The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
         :param pulumi.Input[_builtins.str] backup_id: The ID of the source backup to create the filesystem from.
@@ -1000,6 +1002,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         example = aws.fsx.OpenZfsFileSystem("example", security_group_ids=[example_aws_security_group["id"]])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] automatic_backup_retention_days: The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
@@ -1068,6 +1071,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
 
         example = aws.fsx.OpenZfsFileSystem("example", security_group_ids=[example_aws_security_group["id"]])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OpenZfsFileSystemArgs args: The arguments to use to populate this resource's properties.

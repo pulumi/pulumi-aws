@@ -26,6 +26,7 @@ class BackendEnvironmentArgs:
                  stack_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BackendEnvironment resource.
+
         :param pulumi.Input[_builtins.str] app_id: Unique ID for an Amplify app.
         :param pulumi.Input[_builtins.str] environment_name: Name for the backend environment.
         :param pulumi.Input[_builtins.str] deployment_artifacts: Name of deployment artifacts.
@@ -113,6 +114,7 @@ class _BackendEnvironmentState:
                  stack_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BackendEnvironment resources.
+
         :param pulumi.Input[_builtins.str] app_id: Unique ID for an Amplify app.
         :param pulumi.Input[_builtins.str] arn: ARN for a backend environment that is part of an Amplify app.
         :param pulumi.Input[_builtins.str] deployment_artifacts: Name of deployment artifacts.
@@ -243,6 +245,7 @@ class BackendEnvironment(pulumi.CustomResource):
         $ pulumi import aws:amplify/backendEnvironment:BackendEnvironment example d2ypk4k47z8u6/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: Unique ID for an Amplify app.
@@ -281,6 +284,7 @@ class BackendEnvironment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:amplify/backendEnvironment:BackendEnvironment example d2ypk4k47z8u6/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BackendEnvironmentArgs args: The arguments to use to populate this resource's properties.

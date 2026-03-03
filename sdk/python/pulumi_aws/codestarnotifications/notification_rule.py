@@ -31,6 +31,7 @@ class NotificationRuleArgs:
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArgs']]]] = None):
         """
         The set of arguments for constructing a NotificationRule resource.
+
         :param pulumi.Input[_builtins.str] detail_type: The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_type_ids: A list of event types associated with this notification rule.
                For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
@@ -168,6 +169,7 @@ class _NotificationRuleState:
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArgs']]]] = None):
         """
         Input properties used for looking up and filtering NotificationRule resources.
+
         :param pulumi.Input[_builtins.str] arn: The codestar notification rule ARN.
         :param pulumi.Input[_builtins.str] detail_type: The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_type_ids: A list of event types associated with this notification rule.
@@ -384,6 +386,7 @@ class NotificationRule(pulumi.CustomResource):
         $ pulumi import aws:codestarnotifications/notificationRule:NotificationRule foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] detail_type: The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
@@ -447,6 +450,7 @@ class NotificationRule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:codestarnotifications/notificationRule:NotificationRule foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NotificationRuleArgs args: The arguments to use to populate this resource's properties.

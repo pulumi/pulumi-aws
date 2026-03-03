@@ -23,6 +23,7 @@ class RolePoliciesExclusiveArgs:
                  role_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a RolePoliciesExclusive resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policy_names: A list of inline policy names to be assigned to the role. Policies attached to this role but not configured in this argument will be removed.
         :param pulumi.Input[_builtins.str] role_name: IAM role name.
         """
@@ -61,6 +62,7 @@ class _RolePoliciesExclusiveState:
                  role_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RolePoliciesExclusive resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policy_names: A list of inline policy names to be assigned to the role. Policies attached to this role but not configured in this argument will be removed.
         :param pulumi.Input[_builtins.str] role_name: IAM role name.
         """
@@ -148,6 +150,7 @@ class RolePoliciesExclusive(pulumi.CustomResource):
         $ pulumi import aws:iam/rolePoliciesExclusive:RolePoliciesExclusive example MyRole
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policy_names: A list of inline policy names to be assigned to the role. Policies attached to this role but not configured in this argument will be removed.
@@ -203,6 +206,7 @@ class RolePoliciesExclusive(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iam/rolePoliciesExclusive:RolePoliciesExclusive example MyRole
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RolePoliciesExclusiveArgs args: The arguments to use to populate this resource's properties.

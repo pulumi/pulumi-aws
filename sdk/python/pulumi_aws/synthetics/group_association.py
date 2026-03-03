@@ -24,6 +24,7 @@ class GroupAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GroupAssociation resource.
+
         :param pulumi.Input[_builtins.str] canary_arn: ARN of the canary.
         :param pulumi.Input[_builtins.str] group_name: Name of the group that the canary will be associated with.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -80,6 +81,7 @@ class _GroupAssociationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GroupAssociation resources.
+
         :param pulumi.Input[_builtins.str] canary_arn: ARN of the canary.
         :param pulumi.Input[_builtins.str] group_id: ID of the Group.
         :param pulumi.Input[_builtins.str] group_name: Name of the group that the canary will be associated with.
@@ -188,6 +190,7 @@ class GroupAssociation(pulumi.CustomResource):
         $ pulumi import aws:synthetics/groupAssociation:GroupAssociation example arn:aws:synthetics:us-west-2:123456789012:canary:tf-acc-test-abcd1234,examplename
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] canary_arn: ARN of the canary.
@@ -223,6 +226,7 @@ class GroupAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:synthetics/groupAssociation:GroupAssociation example arn:aws:synthetics:us-west-2:123456789012:canary:tf-acc-test-abcd1234,examplename
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GroupAssociationArgs args: The arguments to use to populate this resource's properties.

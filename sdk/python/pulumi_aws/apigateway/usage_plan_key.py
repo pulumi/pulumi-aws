@@ -25,6 +25,7 @@ class UsagePlanKeyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UsagePlanKey resource.
+
         :param pulumi.Input[_builtins.str] key_id: Identifier of the API key resource.
         :param pulumi.Input[_builtins.str] key_type: Type of the API key resource. Currently, the valid key type is API_KEY.
         :param pulumi.Input[_builtins.str] usage_plan_id: Id of the usage plan resource representing to associate the key to.
@@ -96,6 +97,7 @@ class _UsagePlanKeyState:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UsagePlanKey resources.
+
         :param pulumi.Input[_builtins.str] key_id: Identifier of the API key resource.
         :param pulumi.Input[_builtins.str] key_type: Type of the API key resource. Currently, the valid key type is API_KEY.
         :param pulumi.Input[_builtins.str] name: Name of a usage plan key.
@@ -232,6 +234,7 @@ class UsagePlanKey(pulumi.CustomResource):
         $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] key_id: Identifier of the API key resource.
@@ -276,6 +279,7 @@ class UsagePlanKey(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UsagePlanKeyArgs args: The arguments to use to populate this resource's properties.

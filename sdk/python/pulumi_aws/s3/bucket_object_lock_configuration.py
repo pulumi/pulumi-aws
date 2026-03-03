@@ -29,6 +29,7 @@ class BucketObjectLockConfigurationInitArgs:
                  token: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BucketObjectLockConfiguration resource.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[_builtins.str] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
@@ -138,6 +139,7 @@ class _BucketObjectLockConfigurationState:
                  token: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BucketObjectLockConfiguration resources.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[_builtins.str] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
@@ -297,6 +299,7 @@ class BucketObjectLockConfiguration(pulumi.CustomResource):
         $ pulumi import aws:s3/bucketObjectLockConfiguration:BucketObjectLockConfiguration example bucket-name,123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
@@ -359,6 +362,7 @@ class BucketObjectLockConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/bucketObjectLockConfiguration:BucketObjectLockConfiguration example bucket-name,123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BucketObjectLockConfigurationInitArgs args: The arguments to use to populate this resource's properties.

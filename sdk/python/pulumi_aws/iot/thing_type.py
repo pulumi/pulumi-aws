@@ -28,6 +28,7 @@ class ThingTypeArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ThingType resource.
+
         :param pulumi.Input[_builtins.bool] deprecated: Whether the thing type is deprecated. If true, no new things could be associated with this type.
         :param pulumi.Input[_builtins.str] name: The name of the thing type.
         :param pulumi.Input['ThingTypePropertiesArgs'] properties: , Configuration block that can contain the following properties of the thing type:
@@ -118,6 +119,7 @@ class _ThingTypeState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ThingType resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the created AWS IoT Thing Type.
         :param pulumi.Input[_builtins.bool] deprecated: Whether the thing type is deprecated. If true, no new things could be associated with this type.
         :param pulumi.Input[_builtins.str] name: The name of the thing type.
@@ -258,6 +260,7 @@ class ThingType(pulumi.CustomResource):
         $ pulumi import aws:iot/thingType:ThingType example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] deprecated: Whether the thing type is deprecated. If true, no new things could be associated with this type.
@@ -291,6 +294,7 @@ class ThingType(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iot/thingType:ThingType example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ThingTypeArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class RouteTableAssociationArgs:
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RouteTableAssociation resource.
+
         :param pulumi.Input[_builtins.str] route_table_id: The ID of the routing table to associate with.
                
                > **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
@@ -100,6 +101,7 @@ class _RouteTableAssociationState:
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RouteTableAssociation resources.
+
         :param pulumi.Input[_builtins.str] gateway_id: The gateway ID to create an association. Conflicts with `subnet_id`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] route_table_id: The ID of the routing table to associate with.
@@ -220,6 +222,7 @@ class RouteTableAssociation(pulumi.CustomResource):
         $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] gateway_id: The gateway ID to create an association. Conflicts with `subnet_id`.
@@ -276,6 +279,7 @@ class RouteTableAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RouteTableAssociationArgs args: The arguments to use to populate this resource's properties.

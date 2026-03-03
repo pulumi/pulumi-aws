@@ -27,6 +27,7 @@ class ActivityArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Activity resource.
+
         :param pulumi.Input['ActivityEncryptionConfigurationArgs'] encryption_configuration: Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
         :param pulumi.Input[_builtins.str] name: The name of the activity to create.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -102,6 +103,7 @@ class _ActivityState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Activity resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the activity.
         :param pulumi.Input[_builtins.str] creation_date: Date the activity was created.
         :param pulumi.Input['ActivityEncryptionConfigurationArgs'] encryption_configuration: Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
@@ -260,6 +262,7 @@ class Activity(pulumi.CustomResource):
         $ pulumi import aws:sfn/activity:Activity example arn:aws:states:eu-west-1:123456789098:activity:bar
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ActivityEncryptionConfigurationArgs', 'ActivityEncryptionConfigurationArgsDict']] encryption_configuration: Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
@@ -311,6 +314,7 @@ class Activity(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sfn/activity:Activity example arn:aws:states:eu-west-1:123456789098:activity:bar
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ActivityArgs args: The arguments to use to populate this resource's properties.

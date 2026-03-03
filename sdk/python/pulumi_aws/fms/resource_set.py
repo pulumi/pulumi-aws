@@ -27,6 +27,7 @@ class ResourceSetArgs:
                  timeouts: Optional[pulumi.Input['ResourceSetTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ResourceSet resource.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceSetArgs']]] resource_sets: Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
         """
@@ -93,6 +94,7 @@ class _ResourceSetState:
                  timeouts: Optional[pulumi.Input['ResourceSetTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ResourceSet resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Resource Set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceSetArgs']]] resource_sets: Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
@@ -210,6 +212,7 @@ class ResourceSet(pulumi.CustomResource):
         $ pulumi import aws:fms/resourceSet:ResourceSet example resource_set-id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -245,6 +248,7 @@ class ResourceSet(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:fms/resourceSet:ResourceSet example resource_set-id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceSetArgs args: The arguments to use to populate this resource's properties.

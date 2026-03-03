@@ -25,6 +25,7 @@ class OpenIdConnectProviderArgs:
                  thumbprint_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a OpenIdConnectProvider resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_id_lists: List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
         :param pulumi.Input[_builtins.str] url: URL of the identity provider, corresponding to the `iss` claim.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -97,6 +98,7 @@ class _OpenIdConnectProviderState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OpenIdConnectProvider resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS for this provider.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_id_lists: List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -243,6 +245,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         $ pulumi import aws:iam/openIdConnectProvider:OpenIdConnectProvider default arn:aws:iam::123456789012:oidc-provider/accounts.google.com
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_id_lists: List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
@@ -297,6 +300,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iam/openIdConnectProvider:OpenIdConnectProvider default arn:aws:iam::123456789012:oidc-provider/accounts.google.com
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OpenIdConnectProviderArgs args: The arguments to use to populate this resource's properties.

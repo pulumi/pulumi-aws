@@ -32,6 +32,7 @@ class ResourceGatewayArgs:
                  timeouts: Optional[pulumi.Input['ResourceGatewayTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ResourceGateway resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: IDs of the VPC subnets in which to create the resource gateway.
         :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC for the resource gateway.
                
@@ -185,6 +186,7 @@ class _ResourceGatewayState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourceGateway resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the resource gateway.
         :param pulumi.Input[_builtins.str] ip_address_type: IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
         :param pulumi.Input[_builtins.int] ipv4_addresses_per_eni: The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
@@ -441,6 +443,7 @@ class ResourceGateway(pulumi.CustomResource):
         $ pulumi import aws:vpclattice/resourceGateway:ResourceGateway example rgw-0a1b2c3d4e5f
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ip_address_type: IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
@@ -516,6 +519,7 @@ class ResourceGateway(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:vpclattice/resourceGateway:ResourceGateway example rgw-0a1b2c3d4e5f
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceGatewayArgs args: The arguments to use to populate this resource's properties.

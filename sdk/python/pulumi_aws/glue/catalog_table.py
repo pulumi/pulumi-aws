@@ -39,6 +39,7 @@ class CatalogTableArgs:
                  view_original_text: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CatalogTable resource.
+
         :param pulumi.Input[_builtins.str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
                
                The following arguments are optional:
@@ -307,6 +308,7 @@ class _CatalogTableState:
                  view_original_text: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CatalogTable resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the Glue Table.
         :param pulumi.Input[_builtins.str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         :param pulumi.Input[_builtins.str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
@@ -669,6 +671,7 @@ class CatalogTable(pulumi.CustomResource):
         $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
@@ -772,6 +775,7 @@ class CatalogTable(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CatalogTableArgs args: The arguments to use to populate this resource's properties.

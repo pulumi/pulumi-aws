@@ -29,6 +29,7 @@ class EndpointAccessArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EndpointAccess resource.
+
         :param pulumi.Input[_builtins.str] endpoint_name: The name of the endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: An array of VPC subnet IDs to associate with the endpoint.
         :param pulumi.Input[_builtins.str] workgroup_name: The name of the workgroup.
@@ -134,6 +135,7 @@ class _EndpointAccessState:
                  workgroup_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EndpointAccess resources.
+
         :param pulumi.Input[_builtins.str] address: The DNS address of the VPC endpoint.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
         :param pulumi.Input[_builtins.str] endpoint_name: The name of the endpoint.
@@ -322,6 +324,7 @@ class EndpointAccess(pulumi.CustomResource):
         $ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] endpoint_name: The name of the endpoint.
@@ -358,6 +361,7 @@ class EndpointAccess(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EndpointAccessArgs args: The arguments to use to populate this resource's properties.

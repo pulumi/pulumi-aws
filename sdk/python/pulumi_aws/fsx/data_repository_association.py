@@ -32,6 +32,7 @@ class DataRepositoryAssociationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DataRepositoryAssociation resource.
+
         :param pulumi.Input[_builtins.str] data_repository_path: The path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
         :param pulumi.Input[_builtins.str] file_system_id: The ID of the Amazon FSx file system to on which to create a data repository association.
         :param pulumi.Input[_builtins.str] file_system_path: A path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `data_repository_path`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
@@ -186,6 +187,7 @@ class _DataRepositoryAssociationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DataRepositoryAssociation resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the file system.
         :param pulumi.Input[_builtins.bool] batch_import_meta_data_on_create: Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
         :param pulumi.Input[_builtins.str] data_repository_path: The path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
@@ -433,6 +435,7 @@ class DataRepositoryAssociation(pulumi.CustomResource):
         $ pulumi import aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation example dra-0b1cfaeca11088b10
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] batch_import_meta_data_on_create: Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
@@ -501,6 +504,7 @@ class DataRepositoryAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation example dra-0b1cfaeca11088b10
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataRepositoryAssociationArgs args: The arguments to use to populate this resource's properties.

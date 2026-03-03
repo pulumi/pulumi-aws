@@ -36,6 +36,7 @@ class StudioArgs:
                  user_role: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Studio resource.
+
         :param pulumi.Input[_builtins.str] auth_mode: Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
         :param pulumi.Input[_builtins.str] default_s3_location: The Amazon S3 location to back up Amazon EMR Studio Workspaces and notebook files.
         :param pulumi.Input[_builtins.str] engine_security_group_id: The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
@@ -284,6 +285,7 @@ class _StudioState:
                  workspace_security_group_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Studio resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the studio.
         :param pulumi.Input[_builtins.str] auth_mode: Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
         :param pulumi.Input[_builtins.str] default_s3_location: The Amazon S3 location to back up Amazon EMR Studio Workspaces and notebook files.
@@ -608,6 +610,7 @@ class Studio(pulumi.CustomResource):
         $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auth_mode: Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
@@ -662,6 +665,7 @@ class Studio(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StudioArgs args: The arguments to use to populate this resource's properties.

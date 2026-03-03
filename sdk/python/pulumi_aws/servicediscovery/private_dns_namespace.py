@@ -26,6 +26,7 @@ class PrivateDnsNamespaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PrivateDnsNamespace resource.
+
         :param pulumi.Input[_builtins.str] vpc: The ID of VPC that you want to associate the namespace with.
         :param pulumi.Input[_builtins.str] description: The description that you specify for the namespace when you create it.
         :param pulumi.Input[_builtins.str] name: The name of the namespace.
@@ -116,6 +117,7 @@ class _PrivateDnsNamespaceState:
                  vpc: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PrivateDnsNamespace resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN that Amazon Route 53 assigns to the namespace when you create it.
         :param pulumi.Input[_builtins.str] description: The description that you specify for the namespace when you create it.
         :param pulumi.Input[_builtins.str] hosted_zone: The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
@@ -275,6 +277,7 @@ class PrivateDnsNamespace(pulumi.CustomResource):
         $ pulumi import aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace example 0123456789:vpc-123345
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description that you specify for the namespace when you create it.
@@ -312,6 +315,7 @@ class PrivateDnsNamespace(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace example 0123456789:vpc-123345
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PrivateDnsNamespaceArgs args: The arguments to use to populate this resource's properties.

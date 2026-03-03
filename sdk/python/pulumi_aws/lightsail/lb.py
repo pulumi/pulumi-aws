@@ -27,6 +27,7 @@ class LbArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Lb resource.
+
         :param pulumi.Input[_builtins.int] instance_port: Instance port the load balancer will connect to.
         :param pulumi.Input[_builtins.str] health_check_path: Health check path of the load balancer. Default value `/`.
         :param pulumi.Input[_builtins.str] ip_address_type: IP address type of the load balancer. Valid values: `dualstack`, `ipv4`. Default value `dualstack`.
@@ -141,6 +142,7 @@ class _LbState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Lb resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Lightsail load balancer.
         :param pulumi.Input[_builtins.str] created_at: Timestamp when the load balancer was created.
         :param pulumi.Input[_builtins.str] dns_name: DNS name of the load balancer.
@@ -384,6 +386,7 @@ class Lb(pulumi.CustomResource):
         $ pulumi import aws:lightsail/lb:Lb example example-load-balancer
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] health_check_path: Health check path of the load balancer. Default value `/`.
@@ -428,6 +431,7 @@ class Lb(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lightsail/lb:Lb example example-load-balancer
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LbArgs args: The arguments to use to populate this resource's properties.

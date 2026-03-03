@@ -29,6 +29,7 @@ class GroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Group resource.
+
         :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: The id of the verified access instance this group is associated with.
                
                The following arguments are optional:
@@ -143,6 +144,7 @@ class _GroupState:
                  verifiedaccess_instance_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Group resources.
+
         :param pulumi.Input[_builtins.str] creation_time: Timestamp when the access group was created.
         :param pulumi.Input[_builtins.str] deletion_time: Timestamp when the access group was deleted.
         :param pulumi.Input[_builtins.str] description: Description of the verified access group.
@@ -382,6 +384,7 @@ class Group(pulumi.CustomResource):
             })
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the verified access group.
@@ -426,6 +429,7 @@ class Group(pulumi.CustomResource):
                 "kms_key_arn": test_key.arn,
             })
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.

@@ -35,6 +35,7 @@ class KeyArgs:
                  xks_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Key resource.
+
         :param pulumi.Input[_builtins.bool] bypass_policy_lockout_safety_check: A flag to indicate whether to bypass the key policy lockout safety check.
                Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
                For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
@@ -288,6 +289,7 @@ class _KeyState:
                  xks_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Key resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the key.
         :param pulumi.Input[_builtins.bool] bypass_policy_lockout_safety_check: A flag to indicate whether to bypass the key policy lockout safety check.
                Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
@@ -909,6 +911,7 @@ class Key(pulumi.CustomResource):
         $ pulumi import aws:kms/key:Key a 1234abcd-12ab-34cd-56ef-1234567890ab
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] bypass_policy_lockout_safety_check: A flag to indicate whether to bypass the key policy lockout safety check.
@@ -1264,6 +1267,7 @@ class Key(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:kms/key:Key a 1234abcd-12ab-34cd-56ef-1234567890ab
         ```
+
 
         :param str resource_name: The name of the resource.
         :param KeyArgs args: The arguments to use to populate this resource's properties.

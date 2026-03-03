@@ -26,6 +26,7 @@ class FirewallTransitGatewayAttachmentAccepterArgs:
                  timeouts: Optional[pulumi.Input['FirewallTransitGatewayAttachmentAccepterTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a FirewallTransitGatewayAttachmentAccepter resource.
+
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: The unique identifier of the transit gateway attachment to accept. This ID is returned in the response when creating a transit gateway-attached firewall.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -77,6 +78,7 @@ class _FirewallTransitGatewayAttachmentAccepterState:
                  transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FirewallTransitGatewayAttachmentAccepter resources.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: The unique identifier of the transit gateway attachment to accept. This ID is returned in the response when creating a transit gateway-attached firewall.
         """
@@ -160,6 +162,7 @@ class FirewallTransitGatewayAttachmentAccepter(pulumi.CustomResource):
         $ pulumi import aws:networkfirewall/firewallTransitGatewayAttachmentAccepter:FirewallTransitGatewayAttachmentAccepter example tgw-attach-0c3b7e9570eee089c
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -199,6 +202,7 @@ class FirewallTransitGatewayAttachmentAccepter(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:networkfirewall/firewallTransitGatewayAttachmentAccepter:FirewallTransitGatewayAttachmentAccepter example tgw-attach-0c3b7e9570eee089c
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FirewallTransitGatewayAttachmentAccepterArgs args: The arguments to use to populate this resource's properties.

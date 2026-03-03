@@ -24,6 +24,7 @@ class EmailIdentityFeedbackAttributesArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EmailIdentityFeedbackAttributes resource.
+
         :param pulumi.Input[_builtins.str] email_identity: The email identity.
         :param pulumi.Input[_builtins.bool] email_forwarding_enabled: Sets the feedback forwarding configuration for the identity.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -79,6 +80,7 @@ class _EmailIdentityFeedbackAttributesState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailIdentityFeedbackAttributes resources.
+
         :param pulumi.Input[_builtins.bool] email_forwarding_enabled: Sets the feedback forwarding configuration for the identity.
         :param pulumi.Input[_builtins.str] email_identity: The email identity.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -162,6 +164,7 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
         $ pulumi import aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes example example.com
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] email_forwarding_enabled: Sets the feedback forwarding configuration for the identity.
@@ -198,6 +201,7 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes example example.com
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EmailIdentityFeedbackAttributesArgs args: The arguments to use to populate this resource's properties.

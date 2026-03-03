@@ -26,6 +26,7 @@ class ResourceShareArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResourceShare resource.
+
         :param pulumi.Input[_builtins.bool] allow_external_principals: Indicates whether principals outside your organization can be associated with a resource share.
         :param pulumi.Input[_builtins.str] name: The name of the resource share.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permission_arns: Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
@@ -116,6 +117,7 @@ class _ResourceShareState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ResourceShare resources.
+
         :param pulumi.Input[_builtins.bool] allow_external_principals: Indicates whether principals outside your organization can be associated with a resource share.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the resource share.
         :param pulumi.Input[_builtins.str] name: The name of the resource share.
@@ -261,6 +263,7 @@ class ResourceShare(pulumi.CustomResource):
         $ pulumi import aws:ram/resourceShare:ResourceShare example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_external_principals: Indicates whether principals outside your organization can be associated with a resource share.
@@ -299,6 +302,7 @@ class ResourceShare(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ram/resourceShare:ResourceShare example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceShareArgs args: The arguments to use to populate this resource's properties.

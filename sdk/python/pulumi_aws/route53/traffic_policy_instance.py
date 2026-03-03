@@ -26,6 +26,7 @@ class TrafficPolicyInstanceArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TrafficPolicyInstance resource.
+
         :param pulumi.Input[_builtins.str] hosted_zone_id: ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
         :param pulumi.Input[_builtins.str] traffic_policy_id: ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
         :param pulumi.Input[_builtins.int] traffic_policy_version: Version of the traffic policy
@@ -111,6 +112,7 @@ class _TrafficPolicyInstanceState:
                  ttl: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering TrafficPolicyInstance resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the traffic policy instance.
         :param pulumi.Input[_builtins.str] hosted_zone_id: ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
         :param pulumi.Input[_builtins.str] name: Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
@@ -241,6 +243,7 @@ class TrafficPolicyInstance(pulumi.CustomResource):
         $ pulumi import aws:route53/trafficPolicyInstance:TrafficPolicyInstance test df579d9a-6396-410e-ac22-e7ad60cf9e7e
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] hosted_zone_id: ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
@@ -279,6 +282,7 @@ class TrafficPolicyInstance(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53/trafficPolicyInstance:TrafficPolicyInstance test df579d9a-6396-410e-ac22-e7ad60cf9e7e
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TrafficPolicyInstanceArgs args: The arguments to use to populate this resource's properties.

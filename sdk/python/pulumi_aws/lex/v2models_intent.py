@@ -42,6 +42,7 @@ class V2modelsIntentArgs:
                  timeouts: Optional[pulumi.Input['V2modelsIntentTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a V2modelsIntent resource.
+
         :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot associated with this intent.
         :param pulumi.Input[_builtins.str] bot_version: Version of the bot associated with this intent.
         :param pulumi.Input[_builtins.str] locale_id: Identifier of the language and locale where this intent is used. All of the bots, slot types, and slots used by the intent must have the same locale.
@@ -354,6 +355,7 @@ class _V2modelsIntentState:
                  timeouts: Optional[pulumi.Input['V2modelsIntentTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering V2modelsIntent resources.
+
         :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot associated with this intent.
         :param pulumi.Input[_builtins.str] bot_version: Version of the bot associated with this intent.
         :param pulumi.Input['V2modelsIntentClosingSettingArgs'] closing_setting: Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closing_setting`.
@@ -875,6 +877,7 @@ class V2modelsIntent(pulumi.CustomResource):
         $ pulumi import aws:lex/v2modelsIntent:V2modelsIntent example intent-42874:bot-11376:DRAFT:en_US
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot associated with this intent.
@@ -1065,6 +1068,7 @@ class V2modelsIntent(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lex/v2modelsIntent:V2modelsIntent example intent-42874:bot-11376:DRAFT:en_US
         ```
+
 
         :param str resource_name: The name of the resource.
         :param V2modelsIntentArgs args: The arguments to use to populate this resource's properties.

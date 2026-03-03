@@ -29,6 +29,7 @@ class MultiplexArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Multiplex resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of availability zones. You must specify exactly two.
         :param pulumi.Input['MultiplexMultiplexSettingsArgs'] multiplex_settings: Multiplex settings. See Multiplex Settings for more details.
         :param pulumi.Input[_builtins.str] name: name of Multiplex.
@@ -138,6 +139,7 @@ class _MultiplexState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Multiplex resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Multiplex.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of availability zones. You must specify exactly two.
         :param pulumi.Input['MultiplexMultiplexSettingsArgs'] multiplex_settings: Multiplex settings. See Multiplex Settings for more details.
@@ -312,6 +314,7 @@ class Multiplex(pulumi.CustomResource):
         $ pulumi import aws:medialive/multiplex:Multiplex example 12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of availability zones. You must specify exactly two.
@@ -366,6 +369,7 @@ class Multiplex(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:medialive/multiplex:Multiplex example 12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MultiplexArgs args: The arguments to use to populate this resource's properties.

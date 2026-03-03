@@ -25,6 +25,7 @@ class ReplicationConfigurationArgs:
                  replication_configuration: Optional[pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs']] = None):
         """
         The set of arguments for constructing a ReplicationConfiguration resource.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs'] replication_configuration: Replication configuration for a registry. See Replication Configuration.
         """
@@ -66,6 +67,7 @@ class _ReplicationConfigurationState:
                  replication_configuration: Optional[pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering ReplicationConfiguration resources.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] registry_id: The registry ID where the replication configuration was created.
         :param pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs'] replication_configuration: Replication configuration for a registry. See Replication Configuration.
@@ -198,6 +200,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -283,6 +286,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReplicationConfigurationArgs args: The arguments to use to populate this resource's properties.

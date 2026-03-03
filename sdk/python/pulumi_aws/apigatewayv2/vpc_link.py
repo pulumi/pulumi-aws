@@ -26,6 +26,7 @@ class VpcLinkArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpcLink resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Security group IDs for the VPC Link.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: Subnet IDs for the VPC Link.
         :param pulumi.Input[_builtins.str] name: Name of the VPC Link. Must be between 1 and 128 characters in length.
@@ -114,6 +115,7 @@ class _VpcLinkState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering VpcLink resources.
+
         :param pulumi.Input[_builtins.str] arn: VPC Link ARN.
         :param pulumi.Input[_builtins.str] name: Name of the VPC Link. Must be between 1 and 128 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -263,6 +265,7 @@ class VpcLink(pulumi.CustomResource):
         $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the VPC Link. Must be between 1 and 128 characters in length.
@@ -305,6 +308,7 @@ class VpcLink(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcLinkArgs args: The arguments to use to populate this resource's properties.

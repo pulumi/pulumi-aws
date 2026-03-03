@@ -25,6 +25,7 @@ class BucketArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Bucket resource.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[_builtins.str] outpost_id: Identifier of the Outpost to contain this bucket.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -99,6 +100,7 @@ class _BucketState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Bucket resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the bucket.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[_builtins.str] creation_date: UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
@@ -263,6 +265,7 @@ class Bucket(pulumi.CustomResource):
         $ pulumi import aws:s3control/bucket:Bucket example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
@@ -305,6 +308,7 @@ class Bucket(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3control/bucket:Bucket example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BucketArgs args: The arguments to use to populate this resource's properties.

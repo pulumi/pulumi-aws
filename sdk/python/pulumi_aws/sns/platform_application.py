@@ -35,6 +35,7 @@ class PlatformApplicationArgs:
                  success_feedback_sample_rate: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PlatformApplication resource.
+
         :param pulumi.Input[_builtins.str] platform: The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
         :param pulumi.Input[_builtins.str] platform_credential: Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         :param pulumi.Input[_builtins.str] apple_platform_bundle_id: The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
@@ -270,6 +271,7 @@ class _PlatformApplicationState:
                  success_feedback_sample_rate: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PlatformApplication resources.
+
         :param pulumi.Input[_builtins.str] apple_platform_bundle_id: The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
         :param pulumi.Input[_builtins.str] apple_platform_team_id: The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
         :param pulumi.Input[_builtins.str] arn: The ARN of the SNS platform application
@@ -576,6 +578,7 @@ class PlatformApplication(pulumi.CustomResource):
         $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:123456789012:app/GCM/gcm_application
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] apple_platform_bundle_id: The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
@@ -653,6 +656,7 @@ class PlatformApplication(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:123456789012:app/GCM/gcm_application
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PlatformApplicationArgs args: The arguments to use to populate this resource's properties.

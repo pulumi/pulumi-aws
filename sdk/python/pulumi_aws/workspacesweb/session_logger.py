@@ -30,6 +30,7 @@ class SessionLoggerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SessionLogger resource.
+
         :param pulumi.Input['SessionLoggerEventFilterArgs'] event_filter: Event filter that determines which events are logged. See Event Filter below.
         :param pulumi.Input['SessionLoggerLogConfigurationArgs'] log_configuration: Configuration block for specifying where logs are delivered. See Log Configuration below.
                
@@ -155,6 +156,7 @@ class _SessionLoggerState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SessionLogger resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Map of additional encryption context key-value pairs.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_portal_arns: List of ARNs of the web portals associated with the session logger.
         :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key used to encrypt sensitive information.
@@ -457,6 +459,7 @@ class SessionLogger(pulumi.CustomResource):
         $ pulumi import aws:workspacesweb/sessionLogger:SessionLogger example arn:aws:workspaces-web:us-west-2:123456789012:sessionLogger/session_logger-id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Map of additional encryption context key-value pairs.
@@ -605,6 +608,7 @@ class SessionLogger(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:workspacesweb/sessionLogger:SessionLogger example arn:aws:workspaces-web:us-west-2:123456789012:sessionLogger/session_logger-id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SessionLoggerArgs args: The arguments to use to populate this resource's properties.

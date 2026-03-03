@@ -25,6 +25,7 @@ class LicenseAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LicenseAssociation resource.
+
         :param pulumi.Input[_builtins.str] license_type: The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
         :param pulumi.Input[_builtins.str] workspace_id: The workspace id.
         :param pulumi.Input[_builtins.str] grafana_token: A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
@@ -97,6 +98,7 @@ class _LicenseAssociationState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LicenseAssociation resources.
+
         :param pulumi.Input[_builtins.str] free_trial_expiration: If `license_type` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
         :param pulumi.Input[_builtins.str] grafana_token: A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
         :param pulumi.Input[_builtins.str] license_expiration: If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
@@ -244,6 +246,7 @@ class LicenseAssociation(pulumi.CustomResource):
         $ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] grafana_token: A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
@@ -299,6 +302,7 @@ class LicenseAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LicenseAssociationArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class SubnetGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SubnetGroup resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of VPC subnet IDs.
         :param pulumi.Input[_builtins.str] description: The description of the docDB subnet group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[_builtins.str] name: The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
@@ -135,6 +136,7 @@ class _SubnetGroupState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SubnetGroup resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the docDB subnet group.
         :param pulumi.Input[_builtins.str] description: The description of the docDB subnet group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[_builtins.str] name: The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
@@ -316,6 +318,7 @@ class SubnetGroup(pulumi.CustomResource):
         $ pulumi import aws:docdb/subnetGroup:SubnetGroup default production-subnet-group
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the docDB subnet group. Defaults to "Managed by Pulumi".
@@ -358,6 +361,7 @@ class SubnetGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:docdb/subnetGroup:SubnetGroup default production-subnet-group
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SubnetGroupArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class BucketNotificationArgs:
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]]] = None):
         """
         The set of arguments for constructing a BucketNotification resource.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket for notification configuration.
                
                The following arguments are optional:
@@ -136,6 +137,7 @@ class _BucketNotificationState:
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]]] = None):
         """
         Input properties used for looking up and filtering BucketNotification resources.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket for notification configuration.
                
                The following arguments are optional:
@@ -489,6 +491,7 @@ class BucketNotification(pulumi.CustomResource):
         $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket for notification configuration.
@@ -748,6 +751,7 @@ class BucketNotification(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BucketNotificationArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class LoggingOptionsArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LoggingOptions resource.
+
         :param pulumi.Input[_builtins.str] default_log_level: The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that allows IoT to write to Cloudwatch logs.
         :param pulumi.Input[_builtins.bool] disable_all_logs: If `true` all logs are disabled. The default is `false`.
@@ -95,6 +96,7 @@ class _LoggingOptionsState:
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LoggingOptions resources.
+
         :param pulumi.Input[_builtins.str] default_log_level: The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
         :param pulumi.Input[_builtins.bool] disable_all_logs: If `true` all logs are disabled. The default is `false`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -183,6 +185,7 @@ class LoggingOptions(pulumi.CustomResource):
             role_arn=example_aws_iam_role["arn"])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] default_log_level: The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
@@ -209,6 +212,7 @@ class LoggingOptions(pulumi.CustomResource):
             default_log_level="WARN",
             role_arn=example_aws_iam_role["arn"])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LoggingOptionsArgs args: The arguments to use to populate this resource's properties.

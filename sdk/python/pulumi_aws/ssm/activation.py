@@ -28,6 +28,7 @@ class ActivationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Activation resource.
+
         :param pulumi.Input[_builtins.str] iam_role: The IAM Role to attach to the managed instance.
         :param pulumi.Input[_builtins.str] description: The description of the resource that you want to register.
         :param pulumi.Input[_builtins.str] expiration_date: UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
@@ -151,6 +152,7 @@ class _ActivationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Activation resources.
+
         :param pulumi.Input[_builtins.str] activation_code: The code the system generates when it processes the activation.
         :param pulumi.Input[_builtins.str] description: The description of the resource that you want to register.
         :param pulumi.Input[_builtins.str] expiration_date: UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
@@ -374,6 +376,7 @@ class Activation(pulumi.CustomResource):
 
         > **Note:** The `activation_code` attribute cannot be imported.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the resource that you want to register.
@@ -430,6 +433,7 @@ class Activation(pulumi.CustomResource):
         ```
 
         > **Note:** The `activation_code` attribute cannot be imported.
+
 
         :param str resource_name: The name of the resource.
         :param ActivationArgs args: The arguments to use to populate this resource's properties.

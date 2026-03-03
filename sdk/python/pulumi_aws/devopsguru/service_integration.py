@@ -27,6 +27,7 @@ class ServiceIntegrationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceIntegration resource.
+
         :param pulumi.Input['ServiceIntegrationKmsServerSideEncryptionArgs'] kms_server_side_encryption: Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kms_server_side_encryption` below.
         :param pulumi.Input['ServiceIntegrationLogsAnomalyDetectionArgs'] logs_anomaly_detection: Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logs_anomaly_detection` below.
         :param pulumi.Input['ServiceIntegrationOpsCenterArgs'] ops_center: Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `ops_center` below.
@@ -96,6 +97,7 @@ class _ServiceIntegrationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceIntegration resources.
+
         :param pulumi.Input['ServiceIntegrationKmsServerSideEncryptionArgs'] kms_server_side_encryption: Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kms_server_side_encryption` below.
         :param pulumi.Input['ServiceIntegrationLogsAnomalyDetectionArgs'] logs_anomaly_detection: Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logs_anomaly_detection` below.
         :param pulumi.Input['ServiceIntegrationOpsCenterArgs'] ops_center: Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `ops_center` below.
@@ -225,6 +227,7 @@ class ServiceIntegration(pulumi.CustomResource):
         $ pulumi import aws:devopsguru/serviceIntegration:ServiceIntegration example us-east-1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceIntegrationKmsServerSideEncryptionArgs', 'ServiceIntegrationKmsServerSideEncryptionArgsDict']] kms_server_side_encryption: Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kms_server_side_encryption` below.
@@ -292,6 +295,7 @@ class ServiceIntegration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:devopsguru/serviceIntegration:ServiceIntegration example us-east-1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceIntegrationArgs args: The arguments to use to populate this resource's properties.

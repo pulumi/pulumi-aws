@@ -33,6 +33,7 @@ class OrganizationCustomRuleArgs:
                  tag_value_scope: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OrganizationCustomRule resource.
+
         :param pulumi.Input[_builtins.str] lambda_function_arn: Amazon Resource Name (ARN) of the rule Lambda Function
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] trigger_types: List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`, and `ScheduledNotification`
         :param pulumi.Input[_builtins.str] description: Description of the rule
@@ -232,6 +233,7 @@ class _OrganizationCustomRuleState:
                  trigger_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering OrganizationCustomRule resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the rule
         :param pulumi.Input[_builtins.str] description: Description of the rule
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_accounts: List of AWS account identifiers to exclude from the rule
@@ -488,6 +490,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
         $ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the rule
@@ -547,6 +550,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationCustomRuleArgs args: The arguments to use to populate this resource's properties.

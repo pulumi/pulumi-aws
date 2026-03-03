@@ -41,6 +41,7 @@ class GraphQLApiArgs:
                  xray_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a GraphQLApi resource.
+
         :param pulumi.Input[_builtins.str] authentication_type: Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
         :param pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]] additional_authentication_providers: One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
         :param pulumi.Input[_builtins.str] api_type: API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
@@ -347,6 +348,7 @@ class _GraphQLApiState:
                  xray_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering GraphQLApi resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]] additional_authentication_providers: One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
         :param pulumi.Input[_builtins.str] api_type: API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
         :param pulumi.Input[_builtins.str] arn: ARN
@@ -899,6 +901,7 @@ class GraphQLApi(pulumi.CustomResource):
         $ pulumi import aws:appsync/graphQLApi:GraphQLApi example 0123456789
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GraphQLApiAdditionalAuthenticationProviderArgs', 'GraphQLApiAdditionalAuthenticationProviderArgsDict']]]] additional_authentication_providers: One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
@@ -1130,6 +1133,7 @@ class GraphQLApi(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appsync/graphQLApi:GraphQLApi example 0123456789
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GraphQLApiArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class GcmChannelArgs:
                  service_json: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GcmChannel resource.
+
         :param pulumi.Input[_builtins.str] application_id: The application ID.
         :param pulumi.Input[_builtins.str] api_key: Platform credential API key from Google.
         :param pulumi.Input[_builtins.bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
@@ -122,6 +123,7 @@ class _GcmChannelState:
                  service_json: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GcmChannel resources.
+
         :param pulumi.Input[_builtins.str] api_key: Platform credential API key from Google.
         :param pulumi.Input[_builtins.str] application_id: The application ID.
         :param pulumi.Input[_builtins.bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
@@ -232,6 +234,7 @@ class GcmChannel(pulumi.CustomResource):
         $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_key: Platform credential API key from Google.
@@ -256,6 +259,7 @@ class GcmChannel(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GcmChannelArgs args: The arguments to use to populate this resource's properties.

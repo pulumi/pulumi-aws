@@ -26,6 +26,7 @@ class VpcLinkArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpcLink resource.
+
         :param pulumi.Input[_builtins.str] target_arn: List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
         :param pulumi.Input[_builtins.str] description: Description of the VPC link.
         :param pulumi.Input[_builtins.str] name: Name used to label and identify the VPC link.
@@ -115,6 +116,7 @@ class _VpcLinkState:
                  target_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcLink resources.
+
         :param pulumi.Input[_builtins.str] description: Description of the VPC link.
         :param pulumi.Input[_builtins.str] name: Name used to label and identify the VPC link.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -264,6 +266,7 @@ class VpcLink(pulumi.CustomResource):
         $ pulumi import aws:apigateway/vpcLink:VpcLink example 12345abcde
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the VPC link.
@@ -310,6 +313,7 @@ class VpcLink(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apigateway/vpcLink:VpcLink example 12345abcde
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcLinkArgs args: The arguments to use to populate this resource's properties.

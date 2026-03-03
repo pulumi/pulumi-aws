@@ -31,6 +31,7 @@ class CachesIscsiVolumeArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CachesIscsiVolume resource.
+
         :param pulumi.Input[_builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
         :param pulumi.Input[_builtins.str] network_interface_id: The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
         :param pulumi.Input[_builtins.str] target_name: The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
@@ -203,6 +204,7 @@ class _CachesIscsiVolumeState:
                  volume_size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CachesIscsiVolume resources.
+
         :param pulumi.Input[_builtins.str] arn: Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         :param pulumi.Input[_builtins.bool] chap_enabled: Whether mutual CHAP is enabled for the iSCSI target.
         :param pulumi.Input[_builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
@@ -553,6 +555,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
         $ pulumi import aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
@@ -631,6 +634,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CachesIscsiVolumeArgs args: The arguments to use to populate this resource's properties.

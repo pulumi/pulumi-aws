@@ -26,6 +26,7 @@ class Smsvoicev2ConfigurationSetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Smsvoicev2ConfigurationSet resource.
+
         :param pulumi.Input[_builtins.str] default_message_type: The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
         :param pulumi.Input[_builtins.str] default_sender_id: The default sender ID to use for this configuration set.
         :param pulumi.Input[_builtins.str] name: The name of the configuration set.
@@ -116,6 +117,7 @@ class _Smsvoicev2ConfigurationSetState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Smsvoicev2ConfigurationSet resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the configuration set.
         :param pulumi.Input[_builtins.str] default_message_type: The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
         :param pulumi.Input[_builtins.str] default_sender_id: The default sender ID to use for this configuration set.
@@ -259,6 +261,7 @@ class Smsvoicev2ConfigurationSet(pulumi.CustomResource):
         $ pulumi import aws:pinpoint/smsvoicev2ConfigurationSet:Smsvoicev2ConfigurationSet example example-configuration-set
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] default_message_type: The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
@@ -295,6 +298,7 @@ class Smsvoicev2ConfigurationSet(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:pinpoint/smsvoicev2ConfigurationSet:Smsvoicev2ConfigurationSet example example-configuration-set
         ```
+
 
         :param str resource_name: The name of the resource.
         :param Smsvoicev2ConfigurationSetArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class ApiMappingArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiMapping resource.
+
         :param pulumi.Input[_builtins.str] api_id: API identifier.
         :param pulumi.Input[_builtins.str] domain_name: Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
         :param pulumi.Input[_builtins.str] stage: API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
@@ -111,6 +112,7 @@ class _ApiMappingState:
                  stage: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiMapping resources.
+
         :param pulumi.Input[_builtins.str] api_id: API identifier.
         :param pulumi.Input[_builtins.str] api_mapping_key: The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
         :param pulumi.Input[_builtins.str] domain_name: Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
@@ -227,6 +229,7 @@ class ApiMapping(pulumi.CustomResource):
         $ pulumi import aws:apigatewayv2/apiMapping:ApiMapping example 1122334/ws-api.example.com
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: API identifier.
@@ -266,6 +269,7 @@ class ApiMapping(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apigatewayv2/apiMapping:ApiMapping example 1122334/ws-api.example.com
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApiMappingArgs args: The arguments to use to populate this resource's properties.

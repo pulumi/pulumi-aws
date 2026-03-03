@@ -26,6 +26,7 @@ class SnapshotArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Snapshot resource.
+
         :param pulumi.Input[_builtins.str] db_instance_identifier: The DB Instance Identifier from which to take the snapshot.
         :param pulumi.Input[_builtins.str] db_snapshot_identifier: The Identifier for the snapshot.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -130,6 +131,7 @@ class _SnapshotState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Snapshot resources.
+
         :param pulumi.Input[_builtins.int] allocated_storage: Specifies the allocated storage size in gigabytes (GB).
         :param pulumi.Input[_builtins.str] availability_zone: Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
         :param pulumi.Input[_builtins.str] db_instance_identifier: The DB Instance Identifier from which to take the snapshot.
@@ -515,6 +517,7 @@ class Snapshot(pulumi.CustomResource):
         $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] db_instance_identifier: The DB Instance Identifier from which to take the snapshot.
@@ -561,6 +564,7 @@ class Snapshot(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SnapshotArgs args: The arguments to use to populate this resource's properties.

@@ -34,6 +34,7 @@ class FeatureGroupArgs:
                  throughput_config: Optional[pulumi.Input['FeatureGroupThroughputConfigArgs']] = None):
         """
         The set of arguments for constructing a FeatureGroup resource.
+
         :param pulumi.Input[_builtins.str] event_time_feature_name: The name of the feature that stores the EventTime of a Record in a Feature Group.
         :param pulumi.Input[Sequence[pulumi.Input['FeatureGroupFeatureDefinitionArgs']]] feature_definitions: A list of Feature names and types. See Feature Definition Below.
         :param pulumi.Input[_builtins.str] feature_group_name: The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
@@ -211,6 +212,7 @@ class _FeatureGroupState:
                  throughput_config: Optional[pulumi.Input['FeatureGroupThroughputConfigArgs']] = None):
         """
         Input properties used for looking up and filtering FeatureGroup resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
         :param pulumi.Input[_builtins.str] description: A free-form description of a Feature Group.
         :param pulumi.Input[_builtins.str] event_time_feature_name: The name of the feature that stores the EventTime of a Record in a Feature Group.
@@ -456,6 +458,7 @@ class FeatureGroup(pulumi.CustomResource):
         $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A free-form description of a Feature Group.
@@ -507,6 +510,7 @@ class FeatureGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FeatureGroupArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class AgentcoreTokenVaultCmkArgs:
                  token_vault_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AgentcoreTokenVaultCmk resource.
+
         :param pulumi.Input['AgentcoreTokenVaultCmkKmsConfigurationArgs'] kms_configuration: KMS configuration for the token vault. See `kms_configuration` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] token_vault_id: Token vault ID. Defaults to `default`.
@@ -81,6 +82,7 @@ class _AgentcoreTokenVaultCmkState:
                  token_vault_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AgentcoreTokenVaultCmk resources.
+
         :param pulumi.Input['AgentcoreTokenVaultCmkKmsConfigurationArgs'] kms_configuration: KMS configuration for the token vault. See `kms_configuration` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] token_vault_id: Token vault ID. Defaults to `default`.
@@ -164,6 +166,7 @@ class AgentcoreTokenVaultCmk(pulumi.CustomResource):
         $ pulumi import aws:bedrock/agentcoreTokenVaultCmk:AgentcoreTokenVaultCmk example "default"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AgentcoreTokenVaultCmkKmsConfigurationArgs', 'AgentcoreTokenVaultCmkKmsConfigurationArgsDict']] kms_configuration: KMS configuration for the token vault. See `kms_configuration` below.
@@ -200,6 +203,7 @@ class AgentcoreTokenVaultCmk(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:bedrock/agentcoreTokenVaultCmk:AgentcoreTokenVaultCmk example "default"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AgentcoreTokenVaultCmkArgs args: The arguments to use to populate this resource's properties.

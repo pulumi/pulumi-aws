@@ -29,6 +29,7 @@ class BucketIntelligentTieringConfigurationArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BucketIntelligentTieringConfiguration resource.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket this intelligent tiering configuration is associated with.
         :param pulumi.Input[Sequence[pulumi.Input['BucketIntelligentTieringConfigurationTieringArgs']]] tierings: S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
         :param pulumi.Input['BucketIntelligentTieringConfigurationFilterArgs'] filter: Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
@@ -131,6 +132,7 @@ class _BucketIntelligentTieringConfigurationState:
                  tierings: Optional[pulumi.Input[Sequence[pulumi.Input['BucketIntelligentTieringConfigurationTieringArgs']]]] = None):
         """
         Input properties used for looking up and filtering BucketIntelligentTieringConfiguration resources.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket this intelligent tiering configuration is associated with.
         :param pulumi.Input['BucketIntelligentTieringConfigurationFilterArgs'] filter: Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
         :param pulumi.Input[_builtins.str] name: Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
@@ -298,6 +300,7 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
         $ pulumi import aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket this intelligent tiering configuration is associated with.
@@ -373,6 +376,7 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BucketIntelligentTieringConfigurationArgs args: The arguments to use to populate this resource's properties.

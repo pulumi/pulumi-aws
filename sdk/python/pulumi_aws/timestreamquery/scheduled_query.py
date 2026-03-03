@@ -36,6 +36,7 @@ class ScheduledQueryArgs:
                  timeouts: Optional[pulumi.Input['ScheduledQueryTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ScheduledQuery resource.
+
         :param pulumi.Input['ScheduledQueryErrorReportConfigurationArgs'] error_report_configuration: Configuration block for error reporting configuration. See below.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN for the IAM role that Timestream will assume when running the scheduled query.
         :param pulumi.Input['ScheduledQueryNotificationConfigurationArgs'] notification_configuration: Configuration block for notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated, or when it is deleted. See below.
@@ -252,6 +253,7 @@ class _ScheduledQueryState:
                  timeouts: Optional[pulumi.Input['ScheduledQueryTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ScheduledQuery resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Scheduled Query.
         :param pulumi.Input[_builtins.str] creation_time: Creation time for the scheduled query.
         :param pulumi.Input['ScheduledQueryErrorReportConfigurationArgs'] error_report_configuration: Configuration block for error reporting configuration. See below.
@@ -837,6 +839,7 @@ class ScheduledQuery(pulumi.CustomResource):
         $ pulumi import aws:timestreamquery/scheduledQuery:ScheduledQuery example arn:aws:timestream:us-west-2:012345678901:scheduled-query/tf-acc-test-7774188528604787105-e13659544fe66c8d
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ScheduledQueryErrorReportConfigurationArgs', 'ScheduledQueryErrorReportConfigurationArgsDict']] error_report_configuration: Configuration block for error reporting configuration. See below.
@@ -1136,6 +1139,7 @@ class ScheduledQuery(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:timestreamquery/scheduledQuery:ScheduledQuery example arn:aws:timestream:us-west-2:012345678901:scheduled-query/tf-acc-test-7774188528604787105-e13659544fe66c8d
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ScheduledQueryArgs args: The arguments to use to populate this resource's properties.

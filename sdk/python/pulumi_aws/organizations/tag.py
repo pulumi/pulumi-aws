@@ -24,6 +24,7 @@ class TagArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a Tag resource.
+
         :param pulumi.Input[_builtins.str] key: Tag name.
         :param pulumi.Input[_builtins.str] resource_id: Id of the Organizations resource to tag.
         :param pulumi.Input[_builtins.str] value: Tag value.
@@ -77,6 +78,7 @@ class _TagState:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Tag resources.
+
         :param pulumi.Input[_builtins.str] key: Tag name.
         :param pulumi.Input[_builtins.str] resource_id: Id of the Organizations resource to tag.
         :param pulumi.Input[_builtins.str] value: Tag value.
@@ -166,6 +168,7 @@ class Tag(pulumi.CustomResource):
         $ pulumi import aws:organizations/tag:Tag example ou-1234567,ExampleKey
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] key: Tag name.
@@ -208,6 +211,7 @@ class Tag(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:organizations/tag:Tag example ou-1234567,ExampleKey
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TagArgs args: The arguments to use to populate this resource's properties.

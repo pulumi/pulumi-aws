@@ -32,6 +32,7 @@ class VpcPeeringConnectionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpcPeeringConnection resource.
+
         :param pulumi.Input[_builtins.str] peer_vpc_id: The ID of the target VPC with which you are creating the VPC Peering Connection.
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the requester VPC.
         :param pulumi.Input['VpcPeeringConnectionAccepterArgs'] accepter: An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
@@ -192,6 +193,7 @@ class _VpcPeeringConnectionState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcPeeringConnection resources.
+
         :param pulumi.Input[_builtins.str] accept_status: The status of the VPC Peering Connection request.
         :param pulumi.Input['VpcPeeringConnectionAccepterArgs'] accepter: An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
                the peering connection (a maximum of one).
@@ -483,6 +485,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
         $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['VpcPeeringConnectionAccepterArgs', 'VpcPeeringConnectionAccepterArgsDict']] accepter: An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
@@ -603,6 +606,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcPeeringConnectionArgs args: The arguments to use to populate this resource's properties.

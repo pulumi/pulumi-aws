@@ -29,6 +29,7 @@ class EndpointAccessArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EndpointAccess resource.
+
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier of the cluster to access.
         :param pulumi.Input[_builtins.str] endpoint_name: The Redshift-managed VPC endpoint name.
         :param pulumi.Input[_builtins.str] subnet_group_name: The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
@@ -133,6 +134,7 @@ class _EndpointAccessState:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering EndpointAccess resources.
+
         :param pulumi.Input[_builtins.str] address: The DNS address of the endpoint.
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier of the cluster to access.
         :param pulumi.Input[_builtins.str] endpoint_name: The Redshift-managed VPC endpoint name.
@@ -307,6 +309,7 @@ class EndpointAccess(pulumi.CustomResource):
         $ pulumi import aws:redshift/endpointAccess:EndpointAccess example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier of the cluster to access.
@@ -344,6 +347,7 @@ class EndpointAccess(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:redshift/endpointAccess:EndpointAccess example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EndpointAccessArgs args: The arguments to use to populate this resource's properties.

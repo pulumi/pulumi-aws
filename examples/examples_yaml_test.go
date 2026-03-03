@@ -23,6 +23,7 @@ package examples
 import (
 	"bytes"
 	"context"
+	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -52,6 +53,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optrefresh"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optup"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -1315,7 +1317,16 @@ outputs:
 }
 
 func TestRegressUnknownTags(t *testing.T) {
-	repro := `
+	seedB64 := "pm3N78209q8Aq/BJU17gDsIRv2BvC/geMb0WK/pMRQg="
+	seed, err := base64.StdEncoding.DecodeString(seedB64)
+	require.NoError(t, err)
+
+	// Avoid hardcoding deterministic suffixes; transitive RNG dependency updates can
+	// change NewUniqueName output without changing provider behavior.
+	expectedName, err := resource.NewUniqueName(seed, "example-ng-tags-ng2-nodeSecurityGroup-", 7, 255, nil)
+	require.NoError(t, err)
+
+	repro := fmt.Sprintf(`
 	[
 	  {
 	    "method": "/pulumirpc.ResourceProvider/Check",
@@ -1328,7 +1339,7 @@ func TestRegressUnknownTags(t *testing.T) {
 		"tags": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
 		"vpcId": "vpc-4b82e033"
 	      },
-	      "randomSeed": "pm3N78209q8Aq/BJU17gDsIRv2BvC/geMb0WK/pMRQg="
+	      "randomSeed": %q
 	    },
 	    "response": {
 	      "inputs": {
@@ -1337,7 +1348,7 @@ func TestRegressUnknownTags(t *testing.T) {
 		  "name"
 		],
 		"description": "Managed by Pulumi",
-		"name": "example-ng-tags-ng2-nodeSecurityGroup-8012419",
+		"name": %q,
 		"revokeRulesOnDelete": true,
 		"vpcId": "vpc-4b82e033",
 		"tags": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
@@ -1346,7 +1357,7 @@ func TestRegressUnknownTags(t *testing.T) {
             }
           }
         ]
-	`
+	`, seedB64, expectedName)
 	replay(t, repro)
 }
 

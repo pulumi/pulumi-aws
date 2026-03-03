@@ -32,6 +32,7 @@ class VpcAttachmentArgs:
                  transit_gateway_default_route_table_propagation: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a VpcAttachment resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: Identifiers of EC2 Subnets.
         :param pulumi.Input[_builtins.str] transit_gateway_id: Identifier of EC2 Transit Gateway.
         :param pulumi.Input[_builtins.str] vpc_id: Identifier of EC2 VPC.
@@ -216,6 +217,7 @@ class _VpcAttachmentState:
                  vpc_owner_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcAttachment resources.
+
         :param pulumi.Input[_builtins.str] appliance_mode_support: Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[_builtins.str] arn: ARN of the attachment.
         :param pulumi.Input[_builtins.str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
@@ -470,6 +472,7 @@ class VpcAttachment(pulumi.CustomResource):
         $ pulumi import aws:ec2transitgateway/vpcAttachment:VpcAttachment example tgw-attach-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] appliance_mode_support: Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
@@ -512,6 +515,7 @@ class VpcAttachment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2transitgateway/vpcAttachment:VpcAttachment example tgw-attach-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcAttachmentArgs args: The arguments to use to populate this resource's properties.

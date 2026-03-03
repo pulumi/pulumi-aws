@@ -26,6 +26,7 @@ class WebAppCustomizationArgs:
                  title: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebAppCustomization resource.
+
         :param pulumi.Input[_builtins.str] web_app_id: The identifier of the web app to be customized.
                
                The following arguments are optional:
@@ -117,6 +118,7 @@ class _WebAppCustomizationState:
                  web_app_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WebAppCustomization resources.
+
         :param pulumi.Input[_builtins.str] favicon_file: Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
         :param pulumi.Input[_builtins.str] logo_file: Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -224,6 +226,7 @@ class WebAppCustomization(pulumi.CustomResource):
         $ pulumi import aws:transfer/webAppCustomization:WebAppCustomization example webapp-12345678901234567890
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] favicon_file: Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
@@ -252,6 +255,7 @@ class WebAppCustomization(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:transfer/webAppCustomization:WebAppCustomization example webapp-12345678901234567890
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WebAppCustomizationArgs args: The arguments to use to populate this resource's properties.

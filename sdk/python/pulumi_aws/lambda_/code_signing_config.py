@@ -28,6 +28,7 @@ class CodeSigningConfigArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CodeSigningConfig resource.
+
         :param pulumi.Input['CodeSigningConfigAllowedPublishersArgs'] allowed_publishers: Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
                
                The following arguments are optional:
@@ -123,6 +124,7 @@ class _CodeSigningConfigState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CodeSigningConfig resources.
+
         :param pulumi.Input['CodeSigningConfigAllowedPublishersArgs'] allowed_publishers: Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
                
                The following arguments are optional:
@@ -386,6 +388,7 @@ class CodeSigningConfig(pulumi.CustomResource):
         $ pulumi import aws:lambda/codeSigningConfig:CodeSigningConfig example arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CodeSigningConfigAllowedPublishersArgs', 'CodeSigningConfigAllowedPublishersArgsDict']] allowed_publishers: Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
@@ -510,6 +513,7 @@ class CodeSigningConfig(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lambda/codeSigningConfig:CodeSigningConfig example arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CodeSigningConfigArgs args: The arguments to use to populate this resource's properties.

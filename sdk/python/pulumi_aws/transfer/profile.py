@@ -26,6 +26,7 @@ class ProfileArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Profile resource.
+
         :param pulumi.Input[_builtins.str] as2_id: The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
         :param pulumi.Input[_builtins.str] profile_type: The profile type should be LOCAL or PARTNER.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] certificate_ids: The list of certificate Ids from the imported certificate operation.
@@ -115,6 +116,7 @@ class _ProfileState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Profile resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the profile.
         :param pulumi.Input[_builtins.str] as2_id: The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] certificate_ids: The list of certificate Ids from the imported certificate operation.
@@ -271,6 +273,7 @@ class Profile(pulumi.CustomResource):
         $ pulumi import aws:transfer/profile:Profile example p-4221a88afd5f4362a
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] as2_id: The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
@@ -309,6 +312,7 @@ class Profile(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:transfer/profile:Profile example p-4221a88afd5f4362a
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProfileArgs args: The arguments to use to populate this resource's properties.

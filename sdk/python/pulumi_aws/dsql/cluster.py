@@ -30,6 +30,7 @@ class ClusterArgs:
                  timeouts: Optional[pulumi.Input['ClusterTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Cluster resource.
+
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Whether deletion protection is enabled in this cluster.
                Default value is `false`.
         :param pulumi.Input[_builtins.bool] force_destroy: Destroys cluster even if `deletion_protection_enabled` is set to `true`.
@@ -155,6 +156,7 @@ class _ClusterState:
                  vpc_endpoint_service_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Cluster.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Whether deletion protection is enabled in this cluster.
                Default value is `false`.
@@ -378,6 +380,7 @@ class Cluster(pulumi.CustomResource):
         $ pulumi import aws:dsql/cluster:Cluster example abcde1f234ghijklmnop5qr6st
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Whether deletion protection is enabled in this cluster.
@@ -420,6 +423,7 @@ class Cluster(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:dsql/cluster:Cluster example abcde1f234ghijklmnop5qr6st
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

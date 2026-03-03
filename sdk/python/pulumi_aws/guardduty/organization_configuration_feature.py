@@ -28,6 +28,7 @@ class OrganizationConfigurationFeatureArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OrganizationConfigurationFeature resource.
+
         :param pulumi.Input[_builtins.str] auto_enable: The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
         :param pulumi.Input[_builtins.str] detector_id: The ID of the detector that configures the delegated administrator.
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]] additional_configurations: Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
@@ -114,6 +115,7 @@ class _OrganizationConfigurationFeatureState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationConfigurationFeature resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]] additional_configurations: Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
         :param pulumi.Input[_builtins.str] auto_enable: The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
         :param pulumi.Input[_builtins.str] detector_id: The ID of the detector that configures the delegated administrator.
@@ -226,6 +228,7 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
             }])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConfigurationFeatureAdditionalConfigurationArgs', 'OrganizationConfigurationFeatureAdditionalConfigurationArgsDict']]]] additional_configurations: Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
@@ -261,6 +264,7 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
                 "auto_enable": "NEW",
             }])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationConfigurationFeatureArgs args: The arguments to use to populate this resource's properties.

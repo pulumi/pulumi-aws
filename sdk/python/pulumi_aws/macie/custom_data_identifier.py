@@ -30,6 +30,7 @@ class CustomDataIdentifierArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CustomDataIdentifier resource.
+
         :param pulumi.Input[_builtins.str] description: A custom description of the custom data identifier. The description can contain as many as 512 characters.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ignore_words: An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] keywords: An array that lists specific character sequences (keywords), one of which must be within proximity (`maximum_match_distance`) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren't case sensitive.
@@ -185,6 +186,7 @@ class _CustomDataIdentifierState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CustomDataIdentifier resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the custom data identifier.
         :param pulumi.Input[_builtins.str] created_at: The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
         :param pulumi.Input[_builtins.str] description: A custom description of the custom data identifier. The description can contain as many as 512 characters.
@@ -412,6 +414,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
         $ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A custom description of the custom data identifier. The description can contain as many as 512 characters.
@@ -457,6 +460,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomDataIdentifierArgs args: The arguments to use to populate this resource's properties.

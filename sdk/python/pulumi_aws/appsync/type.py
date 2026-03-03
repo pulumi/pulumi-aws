@@ -25,6 +25,7 @@ class TypeArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Type resource.
+
         :param pulumi.Input[_builtins.str] api_id: GraphQL API ID.
         :param pulumi.Input[_builtins.str] definition: The type definition.
         :param pulumi.Input[_builtins.str] format: The type format: `SDL` or `JSON`.
@@ -97,6 +98,7 @@ class _TypeState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Type resources.
+
         :param pulumi.Input[_builtins.str] api_id: GraphQL API ID.
         :param pulumi.Input[_builtins.str] arn: The ARN of the type.
         :param pulumi.Input[_builtins.str] definition: The type definition.
@@ -248,6 +250,7 @@ class Type(pulumi.CustomResource):
         $ pulumi import aws:appsync/type:Type example api-id:format:name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: GraphQL API ID.
@@ -292,6 +295,7 @@ class Type(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appsync/type:Type example api-id:format:name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TypeArgs args: The arguments to use to populate this resource's properties.

@@ -40,6 +40,7 @@ class BudgetArgs:
                  time_period_start: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Budget resource.
+
         :param pulumi.Input[_builtins.str] budget_type: Whether this budget tracks monetary cost or usage.
         :param pulumi.Input[_builtins.str] time_unit: The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
                
@@ -330,6 +331,7 @@ class _BudgetState:
                  time_unit: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Budget resources.
+
         :param pulumi.Input[_builtins.str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
         :param pulumi.Input[_builtins.str] arn: The ARN of the budget.
         :param pulumi.Input['BudgetAutoAdjustDataArgs'] auto_adjust_data: Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
@@ -974,6 +976,7 @@ class Budget(pulumi.CustomResource):
         $ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
@@ -1326,6 +1329,7 @@ class Budget(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BudgetArgs args: The arguments to use to populate this resource's properties.

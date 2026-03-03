@@ -33,6 +33,7 @@ class ScheduledActionArgs:
                  timezone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScheduledAction resource.
+
         :param pulumi.Input[_builtins.str] resource_id: Identifier of the resource associated with the scheduled action. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
         :param pulumi.Input[_builtins.str] scalable_dimension: Scalable dimension. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs:service:DesiredCount
         :param pulumi.Input['ScheduledActionScalableTargetActionArgs'] scalable_target_action: New minimum and maximum capacity. You can set both values or just one. See below
@@ -197,6 +198,7 @@ class _ScheduledActionState:
                  timezone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ScheduledAction resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the scheduled action.
         :param pulumi.Input[_builtins.str] end_time: Date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
         :param pulumi.Input[_builtins.str] name: Name of the scheduled action.
@@ -435,6 +437,7 @@ class ScheduledAction(pulumi.CustomResource):
             })
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] end_time: Date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
@@ -506,6 +509,7 @@ class ScheduledAction(pulumi.CustomResource):
                 "max_capacity": 10,
             })
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ScheduledActionArgs args: The arguments to use to populate this resource's properties.

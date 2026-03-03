@@ -33,6 +33,7 @@ class SecretArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Secret resource.
+
         :param pulumi.Input[_builtins.str] description: Description of the secret.
         :param pulumi.Input[_builtins.bool] force_overwrite_replica_secret: Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you need to reference a CMK in a different account, you can use only the key ARN. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
@@ -203,6 +204,7 @@ class _SecretState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Secret resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the secret.
         :param pulumi.Input[_builtins.str] description: Description of the secret.
         :param pulumi.Input[_builtins.bool] force_overwrite_replica_secret: Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
@@ -431,6 +433,7 @@ class Secret(pulumi.CustomResource):
         $ pulumi import aws:secretsmanager/secret:Secret example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the secret.
@@ -477,6 +480,7 @@ class Secret(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:secretsmanager/secret:Secret example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecretArgs args: The arguments to use to populate this resource's properties.

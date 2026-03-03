@@ -30,6 +30,7 @@ class ProvisionedModelThroughputArgs:
                  timeouts: Optional[pulumi.Input['ProvisionedModelThroughputTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ProvisionedModelThroughput resource.
+
         :param pulumi.Input[_builtins.str] model_arn: ARN of the model to associate with this Provisioned Throughput.
         :param pulumi.Input[_builtins.int] model_units: Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
         :param pulumi.Input[_builtins.str] provisioned_model_name: Unique name for this Provisioned Throughput.
@@ -145,6 +146,7 @@ class _ProvisionedModelThroughputState:
                  timeouts: Optional[pulumi.Input['ProvisionedModelThroughputTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ProvisionedModelThroughput resources.
+
         :param pulumi.Input[_builtins.str] commitment_duration: Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
         :param pulumi.Input[_builtins.str] model_arn: ARN of the model to associate with this Provisioned Throughput.
         :param pulumi.Input[_builtins.int] model_units: Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
@@ -323,6 +325,7 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
         $ pulumi import aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput example arn:aws:bedrock:us-west-2:123456789012:provisioned-model/1y5n57gh5y2e
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] commitment_duration: Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
@@ -367,6 +370,7 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput example arn:aws:bedrock:us-west-2:123456789012:provisioned-model/1y5n57gh5y2e
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProvisionedModelThroughputArgs args: The arguments to use to populate this resource's properties.

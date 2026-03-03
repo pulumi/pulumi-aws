@@ -30,6 +30,7 @@ class LifecyclePolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LifecyclePolicy resource.
+
         :param pulumi.Input[_builtins.str] description: A description for the DLM lifecycle policy.
         :param pulumi.Input[_builtins.str] execution_role_arn: The ARN of an IAM role that is able to be assumed by the DLM service.
         :param pulumi.Input['LifecyclePolicyPolicyDetailsArgs'] policy_details: See the `policy_details` configuration block. Max of 1.
@@ -149,6 +150,7 @@ class _LifecyclePolicyState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LifecyclePolicy resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
         :param pulumi.Input[_builtins.str] default_policy: Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
         :param pulumi.Input[_builtins.str] description: A description for the DLM lifecycle policy.
@@ -536,6 +538,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] default_policy: Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
@@ -786,6 +789,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LifecyclePolicyArgs args: The arguments to use to populate this resource's properties.

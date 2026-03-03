@@ -26,6 +26,7 @@ class WorkspaceServiceAccountTokenArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceServiceAccountToken resource.
+
         :param pulumi.Input[_builtins.int] seconds_to_live: Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
         :param pulumi.Input[_builtins.str] service_account_id: The ID of the service account for which to create a token.
         :param pulumi.Input[_builtins.str] workspace_id: The Grafana workspace with which the service account token is associated.
@@ -115,6 +116,7 @@ class _WorkspaceServiceAccountTokenState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceServiceAccountToken resources.
+
         :param pulumi.Input[_builtins.str] created_at: Specifies when the service account token was created.
         :param pulumi.Input[_builtins.str] expires_at: Specifies when the service account token will expire.
         :param pulumi.Input[_builtins.str] key: The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
@@ -290,6 +292,7 @@ class WorkspaceServiceAccountToken(pulumi.CustomResource):
             workspace_id=example_aws_grafana_workspace["id"])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: A name for the token to create. The name must be unique within the workspace.
@@ -328,6 +331,7 @@ class WorkspaceServiceAccountToken(pulumi.CustomResource):
             seconds_to_live=3600,
             workspace_id=example_aws_grafana_workspace["id"])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceServiceAccountTokenArgs args: The arguments to use to populate this resource's properties.

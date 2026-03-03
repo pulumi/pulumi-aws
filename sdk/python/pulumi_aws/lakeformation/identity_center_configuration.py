@@ -24,6 +24,7 @@ class IdentityCenterConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IdentityCenterConfiguration resource.
+
         :param pulumi.Input[_builtins.str] instance_arn: ARN of the IAM Identity Center Instance to associate.
                
                The following arguments are optional:
@@ -87,6 +88,7 @@ class _IdentityCenterConfigurationState:
                  resource_share: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IdentityCenterConfiguration resources.
+
         :param pulumi.Input[_builtins.str] application_arn: ARN of the Lake Formation applicated integrated with IAM Identity Center.
         :param pulumi.Input[_builtins.str] catalog_id: Identifier for the Data Catalog.
                By default, the account ID.
@@ -205,6 +207,7 @@ class IdentityCenterConfiguration(pulumi.CustomResource):
         $ pulumi import aws:lakeformation/identityCenterConfiguration:IdentityCenterConfiguration example 123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: Identifier for the Data Catalog.
@@ -243,6 +246,7 @@ class IdentityCenterConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lakeformation/identityCenterConfiguration:IdentityCenterConfiguration example 123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IdentityCenterConfigurationArgs args: The arguments to use to populate this resource's properties.

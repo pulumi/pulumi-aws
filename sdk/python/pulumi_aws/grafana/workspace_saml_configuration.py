@@ -35,6 +35,7 @@ class WorkspaceSamlConfigurationArgs:
                  role_assertion: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceSamlConfiguration resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] editor_role_values: The editor role values.
         :param pulumi.Input[_builtins.str] workspace_id: The workspace id.
                
@@ -270,6 +271,7 @@ class _WorkspaceSamlConfigurationState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceSamlConfiguration resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_role_values: The admin role values.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_organizations: The allowed organizations.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] editor_role_values: The editor role values.
@@ -567,6 +569,7 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
         $ pulumi import aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration example g-2054c75a02
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_role_values: The admin role values.
@@ -635,6 +638,7 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration example g-2054c75a02
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceSamlConfigurationArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class NamespaceArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Namespace resource.
+
         :param pulumi.Input[_builtins.str] namespace: Name of the namespace.
                Must be between 1 and 255 characters in length.
                Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
@@ -85,6 +86,7 @@ class _NamespaceState:
                  table_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Namespace resources.
+
         :param pulumi.Input[_builtins.str] created_at: Date and time when the namespace was created.
         :param pulumi.Input[_builtins.str] created_by: Account ID of the account that created the namespace.
         :param pulumi.Input[_builtins.str] namespace: Name of the namespace.
@@ -217,6 +219,7 @@ class Namespace(pulumi.CustomResource):
         $ pulumi import aws:s3tables/namespace:Namespace example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] namespace: Name of the namespace.
@@ -255,6 +258,7 @@ class Namespace(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3tables/namespace:Namespace example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NamespaceArgs args: The arguments to use to populate this resource's properties.

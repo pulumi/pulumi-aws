@@ -49,6 +49,7 @@ class SmbFileShareArgs:
                  vpc_endpoint_dns_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SmbFileShare resource.
+
         :param pulumi.Input[_builtins.str] gateway_arn: Amazon Resource Name (ARN) of the file gateway.
         :param pulumi.Input[_builtins.str] location_arn: The ARN of the backed storage used for storing file data.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
@@ -478,6 +479,7 @@ class _SmbFileShareState:
                  vpc_endpoint_dns_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SmbFileShare resources.
+
         :param pulumi.Input[_builtins.bool] access_based_enumeration: The files and folders on this share will only be visible to users with read access. Default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_user_lists: A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the SMB File Share.
@@ -1011,6 +1013,7 @@ class SmbFileShare(pulumi.CustomResource):
         $ pulumi import aws:storagegateway/smbFileShare:SmbFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] access_based_enumeration: The files and folders on this share will only be visible to users with read access. Default value is `false`.
@@ -1090,6 +1093,7 @@ class SmbFileShare(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:storagegateway/smbFileShare:SmbFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SmbFileShareArgs args: The arguments to use to populate this resource's properties.

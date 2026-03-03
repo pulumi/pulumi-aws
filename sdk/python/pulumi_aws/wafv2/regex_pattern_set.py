@@ -30,6 +30,7 @@ class RegexPatternSetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RegexPatternSet resource.
+
         :param pulumi.Input[_builtins.str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[_builtins.str] description: A friendly description of the regular expression pattern set.
         :param pulumi.Input[_builtins.str] name: A friendly name of the regular expression pattern set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -152,6 +153,7 @@ class _RegexPatternSetState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RegexPatternSet resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) that identifies the cluster.
         :param pulumi.Input[_builtins.str] description: A friendly description of the regular expression pattern set.
         :param pulumi.Input[_builtins.str] name: A friendly name of the regular expression pattern set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -350,6 +352,7 @@ class RegexPatternSet(pulumi.CustomResource):
         $ pulumi import aws:wafv2/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A friendly description of the regular expression pattern set.
@@ -400,6 +403,7 @@ class RegexPatternSet(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:wafv2/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RegexPatternSetArgs args: The arguments to use to populate this resource's properties.

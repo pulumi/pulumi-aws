@@ -27,6 +27,7 @@ class HostKeyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a HostKey resource.
+
         :param pulumi.Input[_builtins.str] server_id: Server ID.
         :param pulumi.Input[_builtins.str] description: Text description.
         :param pulumi.Input[_builtins.str] host_key_body: Private key portion of an SSH key pair.
@@ -136,6 +137,7 @@ class _HostKeyState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering HostKey resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of host key.
         :param pulumi.Input[_builtins.str] description: Text description.
         :param pulumi.Input[_builtins.str] host_key_body: Private key portion of an SSH key pair.
@@ -327,6 +329,7 @@ class HostKey(pulumi.CustomResource):
         $ pulumi import aws:transfer/hostKey:HostKey example s-12345678,key-12345
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Text description.
@@ -365,6 +368,7 @@ class HostKey(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:transfer/hostKey:HostKey example s-12345678,key-12345
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HostKeyArgs args: The arguments to use to populate this resource's properties.

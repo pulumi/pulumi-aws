@@ -33,6 +33,7 @@ class EventRuleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EventRule resource.
+
         :param pulumi.Input[_builtins.str] description: The description of the rule.
         :param pulumi.Input[_builtins.str] event_bus_name: The name or ARN of the event bus to associate with this rule. If you omit this, the `default` event bus is used.
         :param pulumi.Input[_builtins.str] event_pattern: The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.
@@ -243,6 +244,7 @@ class _EventRuleState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering EventRule resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the rule.
         :param pulumi.Input[_builtins.str] description: The description of the rule.
         :param pulumi.Input[_builtins.str] event_bus_name: The name or ARN of the event bus to associate with this rule. If you omit this, the `default` event bus is used.
@@ -540,6 +542,7 @@ class EventRule(pulumi.CustomResource):
         $ pulumi import aws:cloudwatch/eventRule:EventRule example example-event-bus/capture-console-sign-in
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the rule.
@@ -619,6 +622,7 @@ class EventRule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudwatch/eventRule:EventRule example example-event-bus/capture-console-sign-in
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventRuleArgs args: The arguments to use to populate this resource's properties.

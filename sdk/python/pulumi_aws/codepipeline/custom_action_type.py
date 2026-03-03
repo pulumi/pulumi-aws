@@ -32,6 +32,7 @@ class CustomActionTypeArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CustomActionType resource.
+
         :param pulumi.Input[_builtins.str] category: The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
         :param pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]] configuration_properties: The configuration properties for the custom action. Max 10 items.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -158,6 +159,7 @@ class _CustomActionTypeState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomActionType resources.
+
         :param pulumi.Input[_builtins.str] arn: The action ARN.
         :param pulumi.Input[_builtins.str] category: The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
         :param pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]] configuration_properties: The configuration properties for the custom action. Max 10 items.
@@ -364,6 +366,7 @@ class CustomActionType(pulumi.CustomResource):
         $ pulumi import aws:codepipeline/customActionType:CustomActionType example Build:pulumi:1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] category: The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
@@ -406,6 +409,7 @@ class CustomActionType(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:codepipeline/customActionType:CustomActionType example Build:pulumi:1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomActionTypeArgs args: The arguments to use to populate this resource's properties.

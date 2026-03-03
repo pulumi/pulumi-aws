@@ -28,6 +28,7 @@ class CloudFormationStackArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CloudFormationStack resource.
+
         :param pulumi.Input[_builtins.str] application_id: The ARN of the application from the Serverless Application Repository.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capabilities: A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
         :param pulumi.Input[_builtins.str] name: The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
@@ -148,6 +149,7 @@ class _CloudFormationStackState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CloudFormationStack resources.
+
         :param pulumi.Input[_builtins.str] application_id: The ARN of the application from the Serverless Application Repository.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capabilities: A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
         :param pulumi.Input[_builtins.str] name: The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
@@ -332,6 +334,7 @@ class CloudFormationStack(pulumi.CustomResource):
         $ pulumi import aws:serverlessrepository/cloudFormationStack:CloudFormationStack example serverlessrepo-postgres-rotator
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: The ARN of the application from the Serverless Application Repository.
@@ -379,6 +382,7 @@ class CloudFormationStack(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:serverlessrepository/cloudFormationStack:CloudFormationStack example serverlessrepo-postgres-rotator
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CloudFormationStackArgs args: The arguments to use to populate this resource's properties.

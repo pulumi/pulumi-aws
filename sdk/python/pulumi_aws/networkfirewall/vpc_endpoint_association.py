@@ -30,6 +30,7 @@ class VpcEndpointAssociationArgs:
                  timeouts: Optional[pulumi.Input['VpcEndpointAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a VpcEndpointAssociation resource.
+
         :param pulumi.Input[_builtins.str] firewall_arn: The Amazon Resource Name (ARN) that identifies the firewall.
         :param pulumi.Input['VpcEndpointAssociationSubnetMappingArgs'] subnet_mapping: The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
         :param pulumi.Input[_builtins.str] vpc_id: The unique identifier of the VPC for the endpoint association.
@@ -147,6 +148,7 @@ class _VpcEndpointAssociationState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcEndpointAssociation resources.
+
         :param pulumi.Input[_builtins.str] description: A description of the VPC endpoint association.
         :param pulumi.Input[_builtins.str] firewall_arn: The Amazon Resource Name (ARN) that identifies the firewall.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -357,6 +359,7 @@ class VpcEndpointAssociation(pulumi.CustomResource):
         $ pulumi import aws:networkfirewall/vpcEndpointAssociation:VpcEndpointAssociation example arn:aws:network-firewall:us-west-1:123456789012:vpc-endpoint-association/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the VPC endpoint association.
@@ -403,6 +406,7 @@ class VpcEndpointAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:networkfirewall/vpcEndpointAssociation:VpcEndpointAssociation example arn:aws:network-firewall:us-west-1:123456789012:vpc-endpoint-association/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcEndpointAssociationArgs args: The arguments to use to populate this resource's properties.

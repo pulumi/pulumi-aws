@@ -22,6 +22,7 @@ class EnrollmentStatusArgs:
                  include_member_accounts: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a EnrollmentStatus resource.
+
         :param pulumi.Input[_builtins.bool] include_member_accounts: Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
         """
         if include_member_accounts is not None:
@@ -47,6 +48,7 @@ class _EnrollmentStatusState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EnrollmentStatus resources.
+
         :param pulumi.Input[_builtins.bool] include_member_accounts: Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
         :param pulumi.Input[_builtins.str] status: Status of enrollment. When the resource is present in Terraform, its status will always be `Active`.
         """
@@ -121,6 +123,7 @@ class EnrollmentStatus(pulumi.CustomResource):
         $ pulumi import aws:costoptimizationhub/enrollmentStatus:EnrollmentStatus example 111222333444
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] include_member_accounts: Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
@@ -163,6 +166,7 @@ class EnrollmentStatus(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:costoptimizationhub/enrollmentStatus:EnrollmentStatus example 111222333444
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnrollmentStatusArgs args: The arguments to use to populate this resource's properties.

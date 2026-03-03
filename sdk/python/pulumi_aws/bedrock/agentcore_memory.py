@@ -31,6 +31,7 @@ class AgentcoreMemoryArgs:
                  timeouts: Optional[pulumi.Input['AgentcoreMemoryTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentcoreMemory resource.
+
         :param pulumi.Input[_builtins.int] event_expiry_duration: Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
                
                The following arguments are optional:
@@ -168,6 +169,7 @@ class _AgentcoreMemoryState:
                  timeouts: Optional[pulumi.Input['AgentcoreMemoryTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AgentcoreMemory resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Memory.
         :param pulumi.Input[_builtins.str] description: Description of the memory.
         :param pulumi.Input[_builtins.str] encryption_key_arn: ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
@@ -390,6 +392,7 @@ class AgentcoreMemory(pulumi.CustomResource):
         $ pulumi import aws:bedrock/agentcoreMemory:AgentcoreMemory example MEMORY1234567890
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the memory.
@@ -461,6 +464,7 @@ class AgentcoreMemory(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:bedrock/agentcoreMemory:AgentcoreMemory example MEMORY1234567890
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AgentcoreMemoryArgs args: The arguments to use to populate this resource's properties.

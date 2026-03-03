@@ -26,6 +26,7 @@ class PolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Policy resource.
+
         :param pulumi.Input['PolicyDefinitionArgs'] definition: The definition of the policy. See Definition below.
         :param pulumi.Input[_builtins.str] policy_store_id: The Policy Store ID of the policy store.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -82,6 +83,7 @@ class _PolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Policy resources.
+
         :param pulumi.Input[_builtins.str] created_date: The date the policy was created.
         :param pulumi.Input['PolicyDefinitionArgs'] definition: The definition of the policy. See Definition below.
         :param pulumi.Input[_builtins.str] policy_id: The Policy ID of the policy.
@@ -198,6 +200,7 @@ class Policy(pulumi.CustomResource):
         $ pulumi import aws:verifiedpermissions/policy:Policy example policy-id-12345678,policy-store-id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict']] definition: The definition of the policy. See Definition below.
@@ -237,6 +240,7 @@ class Policy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:verifiedpermissions/policy:Policy example policy-id-12345678,policy-store-id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.

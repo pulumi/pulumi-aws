@@ -28,6 +28,7 @@ class BucketAclArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BucketAcl resource.
+
         :param pulumi.Input[_builtins.str] bucket: Bucket to which to apply the ACL.
         :param pulumi.Input['BucketAclAccessControlPolicyArgs'] access_control_policy: Configuration block that sets the ACL permissions for an object per grantee. See below.
         :param pulumi.Input[_builtins.str] acl: Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
@@ -119,6 +120,7 @@ class _BucketAclState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BucketAcl resources.
+
         :param pulumi.Input['BucketAclAccessControlPolicyArgs'] access_control_policy: Configuration block that sets the ACL permissions for an object per grantee. See below.
         :param pulumi.Input[_builtins.str] acl: Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         :param pulumi.Input[_builtins.str] bucket: Bucket to which to apply the ACL.
@@ -359,6 +361,7 @@ class BucketAcl(pulumi.CustomResource):
 
         [1]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['BucketAclAccessControlPolicyArgs', 'BucketAclAccessControlPolicyArgsDict']] access_control_policy: Configuration block that sets the ACL permissions for an object per grantee. See below.
@@ -518,6 +521,7 @@ class BucketAcl(pulumi.CustomResource):
         ```
 
         [1]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl
+
 
         :param str resource_name: The name of the resource.
         :param BucketAclArgs args: The arguments to use to populate this resource's properties.

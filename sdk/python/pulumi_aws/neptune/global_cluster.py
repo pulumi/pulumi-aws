@@ -30,6 +30,7 @@ class GlobalClusterArgs:
                  storage_encrypted: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a GlobalCluster resource.
+
         :param pulumi.Input[_builtins.str] global_cluster_identifier: Global cluster identifier.
         :param pulumi.Input[_builtins.bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[_builtins.str] engine: Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `source_db_cluster_identifier`.
@@ -153,6 +154,7 @@ class _GlobalClusterState:
                  storage_encrypted: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering GlobalCluster resources.
+
         :param pulumi.Input[_builtins.str] arn: Global Cluster ARN
         :param pulumi.Input[_builtins.bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[_builtins.str] engine: Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `source_db_cluster_identifier`.
@@ -406,6 +408,7 @@ class GlobalCluster(pulumi.CustomResource):
         example = aws.neptune.GlobalCluster("example")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
@@ -496,6 +499,7 @@ class GlobalCluster(pulumi.CustomResource):
 
         example = aws.neptune.GlobalCluster("example")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GlobalClusterArgs args: The arguments to use to populate this resource's properties.

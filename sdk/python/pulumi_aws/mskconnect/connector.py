@@ -37,6 +37,7 @@ class ConnectorArgs:
                  worker_configuration: Optional[pulumi.Input['ConnectorWorkerConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Connector resource.
+
         :param pulumi.Input['ConnectorCapacityArgs'] capacity: Information about the capacity allocated to the connector. See `capacity` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] connector_configuration: A map of keys to values that represent the configuration for the connector.
         :param pulumi.Input['ConnectorKafkaClusterArgs'] kafka_cluster: Specifies which Apache Kafka cluster to connect to. See `kafka_cluster` Block for details.
@@ -268,6 +269,7 @@ class _ConnectorState:
                  worker_configuration: Optional[pulumi.Input['ConnectorWorkerConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering Connector resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the connector.
         :param pulumi.Input['ConnectorCapacityArgs'] capacity: Information about the capacity allocated to the connector. See `capacity` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] connector_configuration: A map of keys to values that represent the configuration for the connector.
@@ -619,6 +621,7 @@ class Connector(pulumi.CustomResource):
         $ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ConnectorCapacityArgs', 'ConnectorCapacityArgsDict']] capacity: Information about the capacity allocated to the connector. See `capacity` Block for details.
@@ -711,6 +714,7 @@ class Connector(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConnectorArgs args: The arguments to use to populate this resource's properties.

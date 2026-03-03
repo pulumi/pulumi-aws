@@ -55,6 +55,7 @@ class AWSPrincipalArgs:
                  aws: pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]):
         """
         When you use an AWS account identifier as the principal in a policy, the permissions in the policy statement can be granted to all identities contained in that account. This includes IAM users and roles in that account.
+
         :param pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]] aws: AWS account identifier or ARN.
         """
         pulumi.set(__self__, "aws", aws)
@@ -87,6 +88,7 @@ class FederatedPrincipalArgs:
                  federated: pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]):
         """
         Federated principal for identity providers.
+
         :param pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]] federated: The federated principal identifier.
         """
         pulumi.set(__self__, "federated", federated)
@@ -209,6 +211,7 @@ class PolicyStatementArgs:
                  sid: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The Statement element is the main element for a policy. This element is required. It can include multiple elements (see the subsequent sections in this page). The Statement element contains an array of individual statements.
+
         :param pulumi.Input['PolicyStatementEffect'] effect: Indicate whether the policy allows or denies access.
         :param pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]] action: Include a list of actions that the policy allows or denies. Required (either Action or NotAction)
         :param pulumi.Input[Mapping[str, Any]] condition: Specify the circumstances under which the policy grants permission.
@@ -410,6 +413,7 @@ class ServicePrincipalArgs:
                  service: pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]):
         """
         IAM roles that can be assumed by an AWS service are called service roles. Service roles must include a trust policy. A service principal is an identifier that is used to grant permissions to a service.
+
         :param pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]] service: The service principal identifier.
         """
         pulumi.set(__self__, "service", service)

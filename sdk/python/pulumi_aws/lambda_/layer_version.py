@@ -33,6 +33,7 @@ class LayerVersionArgs:
                  source_code_hash: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LayerVersion resource.
+
         :param pulumi.Input[_builtins.str] layer_name: Unique name for your Lambda Layer.
                
                The following arguments are optional:
@@ -244,6 +245,7 @@ class _LayerVersionState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LayerVersion resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Lambda Layer with version.
         :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
         :param pulumi.Input[_builtins.str] code_sha256: Base64-encoded representation of raw SHA-256 sum of the zip file.
@@ -652,6 +654,7 @@ class LayerVersion(pulumi.CustomResource):
         $ pulumi import aws:lambda/layerVersion:LayerVersion example arn:aws:lambda:us-west-2:123456789012:layer:example:1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
@@ -756,6 +759,7 @@ class LayerVersion(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lambda/layerVersion:LayerVersion example arn:aws:lambda:us-west-2:123456789012:layer:example:1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LayerVersionArgs args: The arguments to use to populate this resource's properties.

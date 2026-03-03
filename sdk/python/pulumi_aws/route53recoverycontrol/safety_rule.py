@@ -31,6 +31,7 @@ class SafetyRuleArgs:
                  target_controls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SafetyRule resource.
+
         :param pulumi.Input[_builtins.str] control_panel_arn: ARN of the control panel in which this safety rule will reside.
         :param pulumi.Input['SafetyRuleRuleConfigArgs'] rule_config: Configuration block for safety rule criteria. See below.
         :param pulumi.Input[_builtins.int] wait_period_ms: Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
@@ -171,6 +172,7 @@ class _SafetyRuleState:
                  wait_period_ms: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering SafetyRule resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the safety rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] asserted_controls: Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
         :param pulumi.Input[_builtins.str] control_panel_arn: ARN of the control panel in which this safety rule will reside.
@@ -404,6 +406,7 @@ class SafetyRule(pulumi.CustomResource):
         $ pulumi import aws:route53recoverycontrol/safetyRule:SafetyRule myrule arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] asserted_controls: Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
@@ -468,6 +471,7 @@ class SafetyRule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53recoverycontrol/safetyRule:SafetyRule myrule arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SafetyRuleArgs args: The arguments to use to populate this resource's properties.

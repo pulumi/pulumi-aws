@@ -39,6 +39,7 @@ class AgentAgentArgs:
                  timeouts: Optional[pulumi.Input['AgentAgentTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentAgent resource.
+
         :param pulumi.Input[_builtins.str] agent_name: Name of the agent.
         :param pulumi.Input[_builtins.str] agent_resource_role_arn: ARN of the IAM role with permissions to invoke API operations on the agent.
         :param pulumi.Input[_builtins.str] foundation_model: Foundation model used for orchestration by the agent.
@@ -305,6 +306,7 @@ class _AgentAgentState:
                  timeouts: Optional[pulumi.Input['AgentAgentTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AgentAgent resources.
+
         :param pulumi.Input[_builtins.str] agent_arn: ARN of the agent.
         :param pulumi.Input[_builtins.str] agent_collaboration: Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
         :param pulumi.Input[_builtins.str] agent_id: Unique identifier of the agent.
@@ -705,6 +707,7 @@ class AgentAgent(pulumi.CustomResource):
         $ pulumi import aws:bedrock/agentAgent:AgentAgent example GGRRAED6JP
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_collaboration: Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
@@ -789,6 +792,7 @@ class AgentAgent(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:bedrock/agentAgent:AgentAgent example GGRRAED6JP
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AgentAgentArgs args: The arguments to use to populate this resource's properties.

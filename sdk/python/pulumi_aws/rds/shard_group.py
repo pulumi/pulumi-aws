@@ -32,6 +32,7 @@ class ShardGroupArgs:
                  timeouts: Optional[pulumi.Input['ShardGroupTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ShardGroup resource.
+
         :param pulumi.Input[_builtins.str] db_cluster_identifier: The name of the primary DB cluster for the DB shard group.
         :param pulumi.Input[_builtins.str] db_shard_group_identifier: The name of the DB shard group.
         :param pulumi.Input[_builtins.float] max_acu: The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
@@ -185,6 +186,7 @@ class _ShardGroupState:
                  timeouts: Optional[pulumi.Input['ShardGroupTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ShardGroup resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the shard group.
         :param pulumi.Input[_builtins.int] compute_redundancy: Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
         :param pulumi.Input[_builtins.str] db_cluster_identifier: The name of the primary DB cluster for the DB shard group.
@@ -438,6 +440,7 @@ class ShardGroup(pulumi.CustomResource):
         $ pulumi import aws:rds/shardGroup:ShardGroup example example-shard-group
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] compute_redundancy: Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
@@ -495,6 +498,7 @@ class ShardGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:rds/shardGroup:ShardGroup example example-shard-group
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ShardGroupArgs args: The arguments to use to populate this resource's properties.

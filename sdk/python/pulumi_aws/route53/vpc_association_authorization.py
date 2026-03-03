@@ -24,6 +24,7 @@ class VpcAssociationAuthorizationArgs:
                  vpc_region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcAssociationAuthorization resource.
+
         :param pulumi.Input[_builtins.str] vpc_id: The VPC to authorize for association with the private hosted zone.
         :param pulumi.Input[_builtins.str] zone_id: The ID of the private hosted zone that you want to authorize associating a VPC with.
         :param pulumi.Input[_builtins.str] vpc_region: The VPC's region. Defaults to the region of the AWS provider.
@@ -78,6 +79,7 @@ class _VpcAssociationAuthorizationState:
                  zone_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcAssociationAuthorization resources.
+
         :param pulumi.Input[_builtins.str] vpc_id: The VPC to authorize for association with the private hosted zone.
         :param pulumi.Input[_builtins.str] vpc_region: The VPC's region. Defaults to the region of the AWS provider.
         :param pulumi.Input[_builtins.str] zone_id: The ID of the private hosted zone that you want to authorize associating a VPC with.
@@ -174,6 +176,7 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
         $ pulumi import aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization example Z123456ABCDEFG:vpc-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] vpc_id: The VPC to authorize for association with the private hosted zone.
@@ -223,6 +226,7 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization example Z123456ABCDEFG:vpc-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcAssociationAuthorizationArgs args: The arguments to use to populate this resource's properties.

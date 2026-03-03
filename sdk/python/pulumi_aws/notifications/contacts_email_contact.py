@@ -24,6 +24,7 @@ class ContactsEmailContactArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ContactsEmailContact resource.
+
         :param pulumi.Input[_builtins.str] email_address: Email address for the contact. Must be between 6 and 254 characters and match an email
                pattern.
         :param pulumi.Input[_builtins.str] name: Name of the email contact. Must be between 1 and 64 characters and can contain alphanumeric
@@ -93,6 +94,7 @@ class _ContactsEmailContactState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ContactsEmailContact resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Email Contact.
         :param pulumi.Input[_builtins.str] email_address: Email address for the contact. Must be between 6 and 254 characters and match an email
                pattern.
@@ -222,6 +224,7 @@ class ContactsEmailContact(pulumi.CustomResource):
         $ pulumi import aws:notifications/contactsEmailContact:ContactsEmailContact example arn:aws:notificationscontacts:us-west-2:123456789012:emailcontact:example-contact
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] email_address: Email address for the contact. Must be between 6 and 254 characters and match an email
@@ -266,6 +269,7 @@ class ContactsEmailContact(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:notifications/contactsEmailContact:ContactsEmailContact example arn:aws:notificationscontacts:us-west-2:123456789012:emailcontact:example-contact
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ContactsEmailContactArgs args: The arguments to use to populate this resource's properties.

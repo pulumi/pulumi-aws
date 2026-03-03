@@ -25,6 +25,7 @@ class ExtensionAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ExtensionAssociation resource.
+
         :param pulumi.Input[_builtins.str] extension_arn: The ARN of the extension defined in the association.
         :param pulumi.Input[_builtins.str] resource_arn: The ARN of the application, configuration profile, or environment to associate with the extension.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: The parameter names and values defined for the association.
@@ -97,6 +98,7 @@ class _ExtensionAssociationState:
                  resource_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ExtensionAssociation resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the AppConfig Extension Association.
         :param pulumi.Input[_builtins.str] extension_arn: The ARN of the extension defined in the association.
         :param pulumi.Input[_builtins.int] extension_version: The version number for the extension defined in the association.
@@ -249,6 +251,7 @@ class ExtensionAssociation(pulumi.CustomResource):
         $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] extension_arn: The ARN of the extension defined in the association.
@@ -309,6 +312,7 @@ class ExtensionAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExtensionAssociationArgs args: The arguments to use to populate this resource's properties.

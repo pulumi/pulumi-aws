@@ -32,6 +32,7 @@ class GlossaryTermArgs:
                  timeouts: Optional[pulumi.Input['GlossaryTermTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a GlossaryTerm resource.
+
         :param pulumi.Input[_builtins.str] glossary_identifier: Identifier of glossary.
         :param pulumi.Input[_builtins.str] domain_identifier: Identifier of domain.
         :param pulumi.Input[_builtins.str] long_description: Long description of entry.
@@ -185,6 +186,7 @@ class _GlossaryTermState:
                  timeouts: Optional[pulumi.Input['GlossaryTermTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering GlossaryTerm resources.
+
         :param pulumi.Input[_builtins.str] created_at: Time of glossary term creation.
         :param pulumi.Input[_builtins.str] created_by: Creator of glossary term.
         :param pulumi.Input[_builtins.str] domain_identifier: Identifier of domain.
@@ -452,6 +454,7 @@ class GlossaryTerm(pulumi.CustomResource):
         $ pulumi import aws:datazone/glossaryTerm:GlossaryTerm example domain-id,glossary-term-id,glossary-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_identifier: Identifier of domain.
@@ -553,6 +556,7 @@ class GlossaryTerm(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:datazone/glossaryTerm:GlossaryTerm example domain-id,glossary-term-id,glossary-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GlossaryTermArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class GatewayRouteArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a GatewayRoute resource.
+
         :param pulumi.Input[_builtins.str] mesh_name: Name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
         :param pulumi.Input['GatewayRouteSpecArgs'] spec: Gateway route specification to apply.
         :param pulumi.Input[_builtins.str] virtual_gateway_name: Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
@@ -152,6 +153,7 @@ class _GatewayRouteState:
                  virtual_gateway_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GatewayRoute resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the gateway route.
         :param pulumi.Input[_builtins.str] created_date: Creation date of the gateway route.
         :param pulumi.Input[_builtins.str] last_updated_date: Last update date of the gateway route.
@@ -389,6 +391,7 @@ class GatewayRoute(pulumi.CustomResource):
         $ pulumi import aws:appmesh/gatewayRoute:GatewayRoute example mesh/gw1/example-gateway-route
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] mesh_name: Name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
@@ -444,6 +447,7 @@ class GatewayRoute(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appmesh/gatewayRoute:GatewayRoute example mesh/gw1/example-gateway-route
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GatewayRouteArgs args: The arguments to use to populate this resource's properties.

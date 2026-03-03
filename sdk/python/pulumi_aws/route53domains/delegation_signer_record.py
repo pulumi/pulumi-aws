@@ -26,6 +26,7 @@ class DelegationSignerRecordArgs:
                  timeouts: Optional[pulumi.Input['DelegationSignerRecordTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a DelegationSignerRecord resource.
+
         :param pulumi.Input[_builtins.str] domain_name: The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
         :param pulumi.Input['DelegationSignerRecordSigningAttributesArgs'] signing_attributes: The information about a key, including the algorithm, public key-value, and flags.
         """
@@ -78,6 +79,7 @@ class _DelegationSignerRecordState:
                  timeouts: Optional[pulumi.Input['DelegationSignerRecordTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering DelegationSignerRecord resources.
+
         :param pulumi.Input[_builtins.str] dnssec_key_id: An ID assigned to the created DS record.
         :param pulumi.Input[_builtins.str] domain_name: The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
         :param pulumi.Input['DelegationSignerRecordSigningAttributesArgs'] signing_attributes: The information about a key, including the algorithm, public key-value, and flags.
@@ -237,6 +239,7 @@ class DelegationSignerRecord(pulumi.CustomResource):
         $ pulumi import aws:route53domains/delegationSignerRecord:DelegationSignerRecord example example.com,40DE3534F5324DBDAC598ACEDB5B1E26A5368732D9C791D1347E4FBDDF6FC343
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_name: The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
@@ -337,6 +340,7 @@ class DelegationSignerRecord(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53domains/delegationSignerRecord:DelegationSignerRecord example example.com,40DE3534F5324DBDAC598ACEDB5B1E26A5368732D9C791D1347E4FBDDF6FC343
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DelegationSignerRecordArgs args: The arguments to use to populate this resource's properties.

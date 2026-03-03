@@ -34,6 +34,7 @@ class PresetArgs:
                  video_watermarks: Optional[pulumi.Input[Sequence[pulumi.Input['PresetVideoWatermarkArgs']]]] = None):
         """
         The set of arguments for constructing a Preset resource.
+
         :param pulumi.Input[_builtins.str] container: The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
         :param pulumi.Input['PresetAudioArgs'] audio: Audio parameters object (documented below).
         :param pulumi.Input['PresetAudioCodecOptionsArgs'] audio_codec_options: Codec options for the audio parameters (documented below)
@@ -218,6 +219,7 @@ class _PresetState:
                  video_watermarks: Optional[pulumi.Input[Sequence[pulumi.Input['PresetVideoWatermarkArgs']]]] = None):
         """
         Input properties used for looking up and filtering Preset resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
         :param pulumi.Input['PresetAudioArgs'] audio: Audio parameters object (documented below).
         :param pulumi.Input['PresetAudioCodecOptionsArgs'] audio_codec_options: Codec options for the audio parameters (documented below)
@@ -494,6 +496,7 @@ class Preset(pulumi.CustomResource):
         $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['PresetAudioArgs', 'PresetAudioArgsDict']] audio: Audio parameters object (documented below).
@@ -589,6 +592,7 @@ class Preset(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PresetArgs args: The arguments to use to populate this resource's properties.

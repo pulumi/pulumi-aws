@@ -29,6 +29,7 @@ class MembershipArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Membership resource.
+
         :param pulumi.Input[_builtins.str] collaboration_id: The ID of the collaboration to which the member was invited.
         :param pulumi.Input[_builtins.str] query_log_status: An indicator as to whether query logging has been enabled or disabled for the membership.
         :param pulumi.Input['MembershipDefaultResultConfigurationArgs'] default_result_configuration: The default configuration for a query result.
@@ -137,6 +138,7 @@ class _MembershipState:
                  update_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Membership resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the membership.
         :param pulumi.Input[_builtins.str] collaboration_arn: The ARN of the joined collaboration.
         :param pulumi.Input[_builtins.str] collaboration_creator_account_id: The account ID of the collaboration's creator.
@@ -422,6 +424,7 @@ class Membership(pulumi.CustomResource):
         $ pulumi import aws:cleanrooms/membership:Membership membership 1234abcd-12ab-34cd-56ef-1234567890ab
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] collaboration_id: The ID of the collaboration to which the member was invited.
@@ -472,6 +475,7 @@ class Membership(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cleanrooms/membership:Membership membership 1234abcd-12ab-34cd-56ef-1234567890ab
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MembershipArgs args: The arguments to use to populate this resource's properties.

@@ -36,6 +36,7 @@ class ResourceConfigurationArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourceConfiguration resource.
+
         :param pulumi.Input[_builtins.bool] allow_association_to_shareable_service_network: Allow or Deny the association of this resource to a shareable service network.
         :param pulumi.Input[_builtins.str] custom_domain_name: Custom domain name for your resource configuration. Additionally, provide a `domain_verification_id` to prove your ownership of a domain.
         :param pulumi.Input[_builtins.str] domain_verification_id: The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
@@ -256,6 +257,7 @@ class _ResourceConfigurationState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourceConfiguration resources.
+
         :param pulumi.Input[_builtins.bool] allow_association_to_shareable_service_network: Allow or Deny the association of this resource to a shareable service network.
         :param pulumi.Input[_builtins.str] arn: ARN of the resource gateway.
         :param pulumi.Input[_builtins.str] custom_domain_name: Custom domain name for your resource configuration. Additionally, provide a `domain_verification_id` to prove your ownership of a domain.
@@ -632,6 +634,7 @@ class ResourceConfiguration(pulumi.CustomResource):
         $ pulumi import aws:vpclattice/resourceConfiguration:ResourceConfiguration example rcfg-1234567890abcdef1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_association_to_shareable_service_network: Allow or Deny the association of this resource to a shareable service network.
@@ -752,6 +755,7 @@ class ResourceConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:vpclattice/resourceConfiguration:ResourceConfiguration example rcfg-1234567890abcdef1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceConfigurationArgs args: The arguments to use to populate this resource's properties.

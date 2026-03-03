@@ -30,6 +30,7 @@ class MaintenanceWindowTargetArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MaintenanceWindowTarget resource.
+
         :param pulumi.Input[_builtins.str] resource_type: The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
         :param pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTargetTargetArgs']]] targets: The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
                (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
@@ -149,6 +150,7 @@ class _MaintenanceWindowTargetState:
                  window_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MaintenanceWindowTarget resources.
+
         :param pulumi.Input[_builtins.str] description: The description of the maintenance window target.
         :param pulumi.Input[_builtins.str] name: The name of the maintenance window target.
         :param pulumi.Input[_builtins.str] owner_information: User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
@@ -342,6 +344,7 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
         $ pulumi import aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the maintenance window target.
@@ -427,6 +430,7 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MaintenanceWindowTargetArgs args: The arguments to use to populate this resource's properties.

@@ -43,6 +43,7 @@ class HealthCheckArgs:
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a HealthCheck resource.
+
         :param pulumi.Input[_builtins.str] type: The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
         :param pulumi.Input[_builtins.int] child_health_threshold: The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] child_healthchecks: For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
@@ -416,6 +417,7 @@ class _HealthCheckState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HealthCheck resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Health Check.
         :param pulumi.Input[_builtins.int] child_health_threshold: The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] child_healthchecks: For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
@@ -934,6 +936,7 @@ class HealthCheck(pulumi.CustomResource):
         $ pulumi import aws:route53/healthCheck:HealthCheck http_check abcdef11-2222-3333-4444-555555fedcba
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] child_health_threshold: The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
@@ -1084,6 +1087,7 @@ class HealthCheck(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53/healthCheck:HealthCheck http_check abcdef11-2222-3333-4444-555555fedcba
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HealthCheckArgs args: The arguments to use to populate this resource's properties.

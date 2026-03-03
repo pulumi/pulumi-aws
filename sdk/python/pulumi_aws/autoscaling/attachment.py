@@ -25,6 +25,7 @@ class AttachmentArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Attachment resource.
+
         :param pulumi.Input[_builtins.str] autoscaling_group_name: Name of ASG to associate with the ELB.
         :param pulumi.Input[_builtins.str] elb: Name of the ELB.
         :param pulumi.Input[_builtins.str] lb_target_group_arn: ARN of a load balancer target group.
@@ -96,6 +97,7 @@ class _AttachmentState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Attachment resources.
+
         :param pulumi.Input[_builtins.str] autoscaling_group_name: Name of ASG to associate with the ELB.
         :param pulumi.Input[_builtins.str] elb: Name of the ELB.
         :param pulumi.Input[_builtins.str] lb_target_group_arn: ARN of a load balancer target group.
@@ -197,6 +199,7 @@ class Attachment(pulumi.CustomResource):
             lb_target_group_arn=example_aws_lb_target_group["arn"])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] autoscaling_group_name: Name of ASG to associate with the ELB.
@@ -236,6 +239,7 @@ class Attachment(pulumi.CustomResource):
             autoscaling_group_name=example_aws_autoscaling_group["id"],
             lb_target_group_arn=example_aws_lb_target_group["arn"])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AttachmentArgs args: The arguments to use to populate this resource's properties.

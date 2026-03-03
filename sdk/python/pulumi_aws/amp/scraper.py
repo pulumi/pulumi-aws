@@ -31,6 +31,7 @@ class ScraperArgs:
                  timeouts: Optional[pulumi.Input['ScraperTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Scraper resource.
+
         :param pulumi.Input['ScraperDestinationArgs'] destination: Configuration block for the managed scraper to send metrics to. See `destination`.
         :param pulumi.Input[_builtins.str] scrape_configuration: The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
         :param pulumi.Input[_builtins.str] alias: a name to associate with the managed scraper. This is for your use, and does not need to be unique.
@@ -164,6 +165,7 @@ class _ScraperState:
                  timeouts: Optional[pulumi.Input['ScraperTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Scraper resources.
+
         :param pulumi.Input[_builtins.str] alias: a name to associate with the managed scraper. This is for your use, and does not need to be unique.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the new scraper.
         :param pulumi.Input['ScraperDestinationArgs'] destination: Configuration block for the managed scraper to send metrics to. See `destination`.
@@ -527,6 +529,7 @@ class Scraper(pulumi.CustomResource):
         $ pulumi import aws:amp/scraper:Scraper example s-0123abc-0000-0123-a000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: a name to associate with the managed scraper. This is for your use, and does not need to be unique.
@@ -731,6 +734,7 @@ class Scraper(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:amp/scraper:Scraper example s-0123abc-0000-0123-a000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ScraperArgs args: The arguments to use to populate this resource's properties.

@@ -23,6 +23,7 @@ class ProductSubscriptionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProductSubscription resource.
+
         :param pulumi.Input[_builtins.str] product_arn: The ARN of the product that generates findings that you want to import into Security Hub - see below.
                
                Amazon maintains a list of [Product integrations in AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-providers.html) that changes over time. Any of the products on the linked [Available AWS service integrations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-internal-providers.html) or [Available third-party partner product integrations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-partner-providers.html) can be configured using `securityhub.ProductSubscription`.
@@ -139,6 +140,7 @@ class _ProductSubscriptionState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProductSubscription resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
         :param pulumi.Input[_builtins.str] product_arn: The ARN of the product that generates findings that you want to import into Security Hub - see below.
                
@@ -295,6 +297,7 @@ class ProductSubscription(pulumi.CustomResource):
         $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] product_arn: The ARN of the product that generates findings that you want to import into Security Hub - see below.
@@ -366,6 +369,7 @@ class ProductSubscription(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProductSubscriptionArgs args: The arguments to use to populate this resource's properties.

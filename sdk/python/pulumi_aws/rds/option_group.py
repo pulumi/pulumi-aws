@@ -32,6 +32,7 @@ class OptionGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a OptionGroup resource.
+
         :param pulumi.Input[_builtins.str] engine_name: Specifies the name of the engine that this option group should be associated with.
         :param pulumi.Input[_builtins.str] major_engine_version: Specifies the major version of the engine that this option group should be associated with.
         :param pulumi.Input[_builtins.str] name: Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
@@ -186,6 +187,7 @@ class _OptionGroupState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering OptionGroup resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the DB option group.
         :param pulumi.Input[_builtins.str] engine_name: Specifies the name of the engine that this option group should be associated with.
         :param pulumi.Input[_builtins.str] major_engine_version: Specifies the major version of the engine that this option group should be associated with.
@@ -430,6 +432,7 @@ class OptionGroup(pulumi.CustomResource):
         $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] engine_name: Specifies the name of the engine that this option group should be associated with.
@@ -505,6 +508,7 @@ class OptionGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OptionGroupArgs args: The arguments to use to populate this resource's properties.

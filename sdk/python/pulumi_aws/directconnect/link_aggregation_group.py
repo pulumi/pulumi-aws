@@ -29,6 +29,7 @@ class LinkAggregationGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LinkAggregationGroup resource.
+
         :param pulumi.Input[_builtins.str] connections_bandwidth: The bandwidth of the individual dedicated connections bundled by the LAG. Valid values: 1Gbps, 10Gbps, 100Gbps, and 400Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Dedicated Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/dedicated_connection.html).
         :param pulumi.Input[_builtins.str] location: The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
         :param pulumi.Input[_builtins.str] connection_id: The ID of an existing dedicated connection to migrate to the LAG.
@@ -168,6 +169,7 @@ class _LinkAggregationGroupState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LinkAggregationGroup resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the LAG.
         :param pulumi.Input[_builtins.str] connection_id: The ID of an existing dedicated connection to migrate to the LAG.
         :param pulumi.Input[_builtins.str] connections_bandwidth: The bandwidth of the individual dedicated connections bundled by the LAG. Valid values: 1Gbps, 10Gbps, 100Gbps, and 400Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Dedicated Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/dedicated_connection.html).
@@ -407,6 +409,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
         $ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connection_id: The ID of an existing dedicated connection to migrate to the LAG.
@@ -449,6 +452,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LinkAggregationGroupArgs args: The arguments to use to populate this resource's properties.

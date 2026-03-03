@@ -38,6 +38,7 @@ class ServerlessCacheArgs:
                  user_group_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerlessCache resource.
+
         :param pulumi.Input[_builtins.str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
         :param pulumi.Input['ServerlessCacheCacheUsageLimitsArgs'] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
         :param pulumi.Input[_builtins.str] daily_snapshot_time: The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
@@ -294,6 +295,7 @@ class _ServerlessCacheState:
                  user_group_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerlessCache resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the serverless cache.
         :param pulumi.Input['ServerlessCacheCacheUsageLimitsArgs'] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
         :param pulumi.Input[_builtins.str] create_time: Timestamp of when the serverless cache was created.
@@ -739,6 +741,7 @@ class ServerlessCache(pulumi.CustomResource):
         $ pulumi import aws:elasticache/serverlessCache:ServerlessCache my_cluster my_cluster
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict']] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
@@ -856,6 +859,7 @@ class ServerlessCache(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:elasticache/serverlessCache:ServerlessCache my_cluster my_cluster
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerlessCacheArgs args: The arguments to use to populate this resource's properties.

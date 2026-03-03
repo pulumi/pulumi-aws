@@ -24,6 +24,7 @@ class KeyvaluestoreKeyArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a KeyvaluestoreKey resource.
+
         :param pulumi.Input[_builtins.str] key: Key to put.
         :param pulumi.Input[_builtins.str] key_value_store_arn: Amazon Resource Name (ARN) of the Key Value Store.
         :param pulumi.Input[_builtins.str] value: Value to put.
@@ -78,6 +79,7 @@ class _KeyvaluestoreKeyState:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering KeyvaluestoreKey resources.
+
         :param pulumi.Input[_builtins.str] key: Key to put.
         :param pulumi.Input[_builtins.str] key_value_store_arn: Amazon Resource Name (ARN) of the Key Value Store.
         :param pulumi.Input[_builtins.int] total_size_in_bytes: Total size of the Key Value Store in bytes.
@@ -192,6 +194,7 @@ class KeyvaluestoreKey(pulumi.CustomResource):
         $ pulumi import aws:cloudfront/keyvaluestoreKey:KeyvaluestoreKey example arn:aws:cloudfront::111111111111:key-value-store/8562g61f-caba-2845-9d99-b97diwae5d3c,someKey
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] key: Key to put.
@@ -244,6 +247,7 @@ class KeyvaluestoreKey(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudfront/keyvaluestoreKey:KeyvaluestoreKey example arn:aws:cloudfront::111111111111:key-value-store/8562g61f-caba-2845-9d99-b97diwae5d3c,someKey
         ```
+
 
         :param str resource_name: The name of the resource.
         :param KeyvaluestoreKeyArgs args: The arguments to use to populate this resource's properties.

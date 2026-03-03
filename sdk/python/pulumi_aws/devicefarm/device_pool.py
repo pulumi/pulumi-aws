@@ -30,6 +30,7 @@ class DevicePoolArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DevicePool resource.
+
         :param pulumi.Input[_builtins.str] project_arn: The ARN of the project for the device pool.
         :param pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArgs']]] rules: The device pool's rules. See Rule.
         :param pulumi.Input[_builtins.str] description: The device pool's description.
@@ -151,6 +152,7 @@ class _DevicePoolState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DevicePool resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of this Device Pool
         :param pulumi.Input[_builtins.str] description: The device pool's description.
         :param pulumi.Input[_builtins.int] max_devices: The number of devices that Device Farm can add to your device pool.
@@ -347,6 +349,7 @@ class DevicePool(pulumi.CustomResource):
         $ pulumi import aws:devicefarm/devicePool:DevicePool example arn:aws:devicefarm:us-west-2:123456789012:devicepool:4fa784c7-ccb4-4dbf-ba4f-02198320daa1/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The device pool's description.
@@ -395,6 +398,7 @@ class DevicePool(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:devicefarm/devicePool:DevicePool example arn:aws:devicefarm:us-west-2:123456789012:devicepool:4fa784c7-ccb4-4dbf-ba4f-02198320daa1/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DevicePoolArgs args: The arguments to use to populate this resource's properties.

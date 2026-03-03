@@ -27,6 +27,7 @@ class ProtectionGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ProtectionGroup resource.
+
         :param pulumi.Input[_builtins.str] aggregation: Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
         :param pulumi.Input[_builtins.str] pattern: The criteria to use to choose the protected resources for inclusion in the group.
         :param pulumi.Input[_builtins.str] protection_group_id: The name of the protection group.
@@ -130,6 +131,7 @@ class _ProtectionGroupState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ProtectionGroup resources.
+
         :param pulumi.Input[_builtins.str] aggregation: Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
         :param pulumi.Input[_builtins.str] pattern: The criteria to use to choose the protected resources for inclusion in the group.
@@ -326,6 +328,7 @@ class ProtectionGroup(pulumi.CustomResource):
         $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aggregation: Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
@@ -400,6 +403,7 @@ class ProtectionGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProtectionGroupArgs args: The arguments to use to populate this resource's properties.

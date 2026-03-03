@@ -26,6 +26,7 @@ class TrustStoreArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TrustStore resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['TrustStoreCertificateArgs']]] certificates: Set of certificates to include in the trust store. See Certificate below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -85,6 +86,7 @@ class _TrustStoreState:
                  trust_store_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TrustStore resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_portal_arns: List of ARNs of the web portals associated with the trust store.
         :param pulumi.Input[Sequence[pulumi.Input['TrustStoreCertificateArgs']]] certificates: Set of certificates to include in the trust store. See Certificate below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -234,6 +236,7 @@ class TrustStore(pulumi.CustomResource):
         $ pulumi import aws:workspacesweb/trustStore:TrustStore example arn:aws:workspaces-web:us-west-2:123456789012:trustStore/trust_store-id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TrustStoreCertificateArgs', 'TrustStoreCertificateArgsDict']]]] certificates: Set of certificates to include in the trust store. See Certificate below.
@@ -291,6 +294,7 @@ class TrustStore(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:workspacesweb/trustStore:TrustStore example arn:aws:workspaces-web:us-west-2:123456789012:trustStore/trust_store-id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TrustStoreArgs args: The arguments to use to populate this resource's properties.

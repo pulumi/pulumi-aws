@@ -26,6 +26,7 @@ class AccessLogSubscriptionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AccessLogSubscription resource.
+
         :param pulumi.Input[_builtins.str] destination_arn: Amazon Resource Name (ARN) of the log destination.
         :param pulumi.Input[_builtins.str] resource_identifier: The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
                
@@ -115,6 +116,7 @@ class _AccessLogSubscriptionState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AccessLogSubscription resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the access log subscription.
         :param pulumi.Input[_builtins.str] destination_arn: Amazon Resource Name (ARN) of the log destination.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -270,6 +272,7 @@ class AccessLogSubscription(pulumi.CustomResource):
         $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] destination_arn: Amazon Resource Name (ARN) of the log destination.
@@ -308,6 +311,7 @@ class AccessLogSubscription(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccessLogSubscriptionArgs args: The arguments to use to populate this resource's properties.

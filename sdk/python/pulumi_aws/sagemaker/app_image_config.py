@@ -29,6 +29,7 @@ class AppImageConfigArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AppImageConfig resource.
+
         :param pulumi.Input[_builtins.str] app_image_config_name: The name of the App Image Config.
         :param pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs'] code_editor_app_image_config: The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
         :param pulumi.Input['AppImageConfigJupyterLabImageConfigArgs'] jupyter_lab_image_config: The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
@@ -138,6 +139,7 @@ class _AppImageConfigState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AppImageConfig resources.
+
         :param pulumi.Input[_builtins.str] app_image_config_name: The name of the App Image Config.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
         :param pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs'] code_editor_app_image_config: The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
@@ -333,6 +335,7 @@ class AppImageConfig(pulumi.CustomResource):
         $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_image_config_name: The name of the App Image Config.
@@ -404,6 +407,7 @@ class AppImageConfig(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AppImageConfigArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class EventRuleArgs:
                  event_pattern: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventRule resource.
+
         :param pulumi.Input[_builtins.str] event_type: Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \\-\\(\\)])+`.
         :param pulumi.Input[_builtins.str] notification_configuration_arn: ARN of the notification configuration to associate with this event rule. Must match the pattern `arn:aws:notifications::[0-9]{12}:configuration/[a-z0-9]{27}`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: Set of AWS regions where the event rule will be applied. Each region must be between 2 and 25 characters, and match the pattern `([a-z]{1,2})-([a-z]{1,15}-)+([0-9])`.
@@ -115,6 +116,7 @@ class _EventRuleState:
                  source: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventRule resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Event Rule.
         :param pulumi.Input[_builtins.str] event_pattern: JSON string defining the event pattern to match. Maximum length is 4096 characters.
         :param pulumi.Input[_builtins.str] event_type: Type of event to match. Must be between 1 and 128 characters, and match the pattern `([a-zA-Z0-9 \\-\\(\\)])+`.
@@ -264,6 +266,7 @@ class EventRule(pulumi.CustomResource):
         $ pulumi import aws:notifications/eventRule:EventRule example arn:aws:notifications::123456789012:configuration/abc123def456ghi789jkl012mno345/rule/abc123def456ghi789jkl012mno345
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] event_pattern: JSON string defining the event pattern to match. Maximum length is 4096 characters.
@@ -319,6 +322,7 @@ class EventRule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:notifications/eventRule:EventRule example arn:aws:notifications::123456789012:configuration/abc123def456ghi789jkl012mno345/rule/abc123def456ghi789jkl012mno345
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventRuleArgs args: The arguments to use to populate this resource's properties.

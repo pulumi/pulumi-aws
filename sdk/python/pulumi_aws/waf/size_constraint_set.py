@@ -25,6 +25,7 @@ class SizeConstraintSetArgs:
                  size_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]]] = None):
         """
         The set of arguments for constructing a SizeConstraintSet resource.
+
         :param pulumi.Input[_builtins.str] name: Name or description of the Size Constraint Set.
         :param pulumi.Input[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]] size_constraints: Parts of web requests that you want to inspect the size of.
         """
@@ -66,6 +67,7 @@ class _SizeConstraintSetState:
                  size_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]]] = None):
         """
         Input properties used for looking up and filtering SizeConstraintSet resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN).
         :param pulumi.Input[_builtins.str] name: Name or description of the Size Constraint Set.
         :param pulumi.Input[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]] size_constraints: Parts of web requests that you want to inspect the size of.
@@ -152,6 +154,7 @@ class SizeConstraintSet(pulumi.CustomResource):
         $ pulumi import aws:waf/sizeConstraintSet:SizeConstraintSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name or description of the Size Constraint Set.
@@ -191,6 +194,7 @@ class SizeConstraintSet(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:waf/sizeConstraintSet:SizeConstraintSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SizeConstraintSetArgs args: The arguments to use to populate this resource's properties.

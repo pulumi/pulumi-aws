@@ -26,6 +26,7 @@ class StudioLifecycleConfigArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a StudioLifecycleConfig resource.
+
         :param pulumi.Input[_builtins.str] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
         :param pulumi.Input[_builtins.str] studio_lifecycle_config_content: The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
         :param pulumi.Input[_builtins.str] studio_lifecycle_config_name: The name of the Studio Lifecycle Configuration to create.
@@ -113,6 +114,7 @@ class _StudioLifecycleConfigState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering StudioLifecycleConfig resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
@@ -259,6 +261,7 @@ class StudioLifecycleConfig(pulumi.CustomResource):
         $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -298,6 +301,7 @@ class StudioLifecycleConfig(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StudioLifecycleConfigArgs args: The arguments to use to populate this resource's properties.

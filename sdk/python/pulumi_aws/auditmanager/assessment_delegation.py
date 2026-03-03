@@ -27,6 +27,7 @@ class AssessmentDelegationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AssessmentDelegation resource.
+
         :param pulumi.Input[_builtins.str] assessment_id: Identifier for the assessment.
         :param pulumi.Input[_builtins.str] control_set_id: Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
         :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM role.
@@ -133,6 +134,7 @@ class _AssessmentDelegationState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AssessmentDelegation resources.
+
         :param pulumi.Input[_builtins.str] assessment_id: Identifier for the assessment.
         :param pulumi.Input[_builtins.str] comment: Comment describing the delegation request.
         :param pulumi.Input[_builtins.str] control_set_id: Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
@@ -299,6 +301,7 @@ class AssessmentDelegation(pulumi.CustomResource):
         $ pulumi import aws:auditmanager/assessmentDelegation:AssessmentDelegation example abcdef-123456,arn:aws:iam::123456789012:role/example,example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] assessment_id: Identifier for the assessment.
@@ -341,6 +344,7 @@ class AssessmentDelegation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:auditmanager/assessmentDelegation:AssessmentDelegation example abcdef-123456,arn:aws:iam::123456789012:role/example,example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AssessmentDelegationArgs args: The arguments to use to populate this resource's properties.

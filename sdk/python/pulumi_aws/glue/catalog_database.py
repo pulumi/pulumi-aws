@@ -33,6 +33,7 @@ class CatalogDatabaseArgs:
                  target_database: Optional[pulumi.Input['CatalogDatabaseTargetDatabaseArgs']] = None):
         """
         The set of arguments for constructing a CatalogDatabase resource.
+
         :param pulumi.Input[_builtins.str] catalog_id: ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         :param pulumi.Input[Sequence[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionArgs']]] create_table_default_permissions: Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
         :param pulumi.Input[_builtins.str] description: Description of the database.
@@ -203,6 +204,7 @@ class _CatalogDatabaseState:
                  target_database: Optional[pulumi.Input['CatalogDatabaseTargetDatabaseArgs']] = None):
         """
         Input properties used for looking up and filtering CatalogDatabase resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Glue Catalog Database.
         :param pulumi.Input[_builtins.str] catalog_id: ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         :param pulumi.Input[Sequence[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionArgs']]] create_table_default_permissions: Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
@@ -439,6 +441,7 @@ class CatalogDatabase(pulumi.CustomResource):
         $ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
@@ -493,6 +496,7 @@ class CatalogDatabase(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CatalogDatabaseArgs args: The arguments to use to populate this resource's properties.

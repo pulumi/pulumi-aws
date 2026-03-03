@@ -34,6 +34,7 @@ class DashboardArgs:
                  theme_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Dashboard resource.
+
         :param pulumi.Input[_builtins.str] dashboard_id: Identifier for the dashboard.
         :param pulumi.Input[_builtins.str] version_description: A description of the current dashboard version being created/updated.
                
@@ -228,6 +229,7 @@ class _DashboardState:
                  version_number: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Dashboard resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the dashboard.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] created_time: The time that the dashboard was created.
@@ -625,6 +627,7 @@ class Dashboard(pulumi.CustomResource):
         $ pulumi import aws:quicksight/dashboard:Dashboard example 123456789012,example-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
@@ -737,6 +740,7 @@ class Dashboard(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:quicksight/dashboard:Dashboard example 123456789012,example-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DashboardArgs args: The arguments to use to populate this resource's properties.

@@ -35,6 +35,7 @@ class TriggerArgs:
                  workflow_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Trigger resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['TriggerActionArgs']]] actions: List of actions initiated by this trigger when it fires. See Actions Below.
         :param pulumi.Input[_builtins.str] type: The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
         :param pulumi.Input[_builtins.str] description: A description of the new trigger.
@@ -236,6 +237,7 @@ class _TriggerState:
                  workflow_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Trigger resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['TriggerActionArgs']]] actions: List of actions initiated by this trigger when it fires. See Actions Below.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of Glue Trigger
         :param pulumi.Input[_builtins.str] description: A description of the new trigger.
@@ -589,6 +591,7 @@ class Trigger(pulumi.CustomResource):
         $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TriggerActionArgs', 'TriggerActionArgsDict']]]] actions: List of actions initiated by this trigger when it fires. See Actions Below.
@@ -715,6 +718,7 @@ class Trigger(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TriggerArgs args: The arguments to use to populate this resource's properties.

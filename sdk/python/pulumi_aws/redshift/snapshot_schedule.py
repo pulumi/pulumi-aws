@@ -28,6 +28,7 @@ class SnapshotScheduleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SnapshotSchedule resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] definitions: The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
         :param pulumi.Input[_builtins.str] description: The description of the snapshot schedule.
         :param pulumi.Input[_builtins.bool] force_destroy: Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
@@ -151,6 +152,7 @@ class _SnapshotScheduleState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SnapshotSchedule resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] definitions: The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
         :param pulumi.Input[_builtins.str] description: The description of the snapshot schedule.
@@ -325,6 +327,7 @@ class SnapshotSchedule(pulumi.CustomResource):
         $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] definitions: The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
@@ -361,6 +364,7 @@ class SnapshotSchedule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SnapshotScheduleArgs args: The arguments to use to populate this resource's properties.

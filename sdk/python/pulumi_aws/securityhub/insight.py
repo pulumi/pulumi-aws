@@ -27,6 +27,7 @@ class InsightArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Insight resource.
+
         :param pulumi.Input['InsightFiltersArgs'] filters: A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
         :param pulumi.Input[_builtins.str] group_by_attribute: The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
         :param pulumi.Input[_builtins.str] name: The name of the custom insight.
@@ -98,6 +99,7 @@ class _InsightState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Insight resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the insight.
         :param pulumi.Input['InsightFiltersArgs'] filters: A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
         :param pulumi.Input[_builtins.str] group_by_attribute: The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
@@ -302,6 +304,7 @@ class Insight(pulumi.CustomResource):
         $ pulumi import aws:securityhub/insight:Insight example arn:aws:securityhub:us-west-2:1234567890:insight/1234567890/custom/91299ed7-abd0-4e44-a858-d0b15e37141a
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['InsightFiltersArgs', 'InsightFiltersArgsDict']] filters: A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
@@ -429,6 +432,7 @@ class Insight(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:securityhub/insight:Insight example arn:aws:securityhub:us-west-2:1234567890:insight/1234567890/custom/91299ed7-abd0-4e44-a858-d0b15e37141a
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InsightArgs args: The arguments to use to populate this resource's properties.

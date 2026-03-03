@@ -23,6 +23,7 @@ class ManagedNotificationAccountContactAssociationArgs:
                  managed_notification_configuration_arn: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ManagedNotificationAccountContactAssociation resource.
+
         :param pulumi.Input[_builtins.str] contact_identifier: A unique value of an Account Contact Type to associate with the ManagedNotificationConfiguration. Valid values: `ACCOUNT_PRIMARY`, `ACCOUNT_ALTERNATE_BILLING`, `ACCOUNT_ALTERNATE_OPERATIONS`, `ACCOUNT_ALTERNATE_SECURITY`.
         :param pulumi.Input[_builtins.str] managed_notification_configuration_arn: ARN of the managed notification configuration to associate the account contact with.
         """
@@ -61,6 +62,7 @@ class _ManagedNotificationAccountContactAssociationState:
                  managed_notification_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedNotificationAccountContactAssociation resources.
+
         :param pulumi.Input[_builtins.str] contact_identifier: A unique value of an Account Contact Type to associate with the ManagedNotificationConfiguration. Valid values: `ACCOUNT_PRIMARY`, `ACCOUNT_ALTERNATE_BILLING`, `ACCOUNT_ALTERNATE_OPERATIONS`, `ACCOUNT_ALTERNATE_SECURITY`.
         :param pulumi.Input[_builtins.str] managed_notification_configuration_arn: ARN of the managed notification configuration to associate the account contact with.
         """
@@ -127,6 +129,7 @@ class ManagedNotificationAccountContactAssociation(pulumi.CustomResource):
         $ pulumi import aws:notifications/managedNotificationAccountContactAssociation:ManagedNotificationAccountContactAssociation example arn:aws:notifications::123456789012:managed-notification-configuration/category/AWS-Health/sub-category/Security,ACCOUNT_PRIMARY
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] contact_identifier: A unique value of an Account Contact Type to associate with the ManagedNotificationConfiguration. Valid values: `ACCOUNT_PRIMARY`, `ACCOUNT_ALTERNATE_BILLING`, `ACCOUNT_ALTERNATE_OPERATIONS`, `ACCOUNT_ALTERNATE_SECURITY`.
@@ -161,6 +164,7 @@ class ManagedNotificationAccountContactAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:notifications/managedNotificationAccountContactAssociation:ManagedNotificationAccountContactAssociation example arn:aws:notifications::123456789012:managed-notification-configuration/category/AWS-Health/sub-category/Security,ACCOUNT_PRIMARY
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedNotificationAccountContactAssociationArgs args: The arguments to use to populate this resource's properties.

@@ -34,6 +34,7 @@ class FileSystemArgs:
                  throughput_mode: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FileSystem resource.
+
         :param pulumi.Input[_builtins.str] availability_zone_name: the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
         :param pulumi.Input[_builtins.str] creation_token: A unique name (a maximum of 64 characters are allowed)
                used as reference when creating the Elastic File System to ensure idempotent file
@@ -232,6 +233,7 @@ class _FileSystemState:
                  throughput_mode: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FileSystem resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the file system.
         :param pulumi.Input[_builtins.str] availability_zone_id: The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
         :param pulumi.Input[_builtins.str] availability_zone_name: the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
@@ -583,6 +585,7 @@ class FileSystem(pulumi.CustomResource):
         $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability_zone_name: the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
@@ -644,6 +647,7 @@ class FileSystem(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FileSystemArgs args: The arguments to use to populate this resource's properties.

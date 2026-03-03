@@ -27,6 +27,7 @@ class IdentityPoolRoleAttachmentArgs:
                  role_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingArgs']]]] = None):
         """
         The set of arguments for constructing a IdentityPoolRoleAttachment resource.
+
         :param pulumi.Input[_builtins.str] identity_pool_id: An identity pool ID in the format `REGION_GUID`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] roles: The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -97,6 +98,7 @@ class _IdentityPoolRoleAttachmentState:
                  roles: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering IdentityPoolRoleAttachment resources.
+
         :param pulumi.Input[_builtins.str] identity_pool_id: An identity pool ID in the format `REGION_GUID`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingArgs']]] role_mappings: A List of Role Mapping.
@@ -182,6 +184,7 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
         $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] identity_pool_id: An identity pool ID in the format `REGION_GUID`.
@@ -205,6 +208,7 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IdentityPoolRoleAttachmentArgs args: The arguments to use to populate this resource's properties.

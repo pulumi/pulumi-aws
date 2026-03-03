@@ -33,6 +33,7 @@ class ConnectionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Connection resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] athena_properties: Map of key-value pairs used as connection properties specific to the Athena compute environment.
         :param pulumi.Input[_builtins.str] catalog_id: ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] connection_properties: Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
@@ -211,6 +212,7 @@ class _ConnectionState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Connection resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Glue Connection.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] athena_properties: Map of key-value pairs used as connection properties specific to the Athena compute environment.
         :param pulumi.Input[_builtins.str] catalog_id: ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
@@ -690,6 +692,7 @@ class Connection(pulumi.CustomResource):
         $ pulumi import aws:glue/connection:Connection MyConnection 123456789012:MyConnection
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] athena_properties: Map of key-value pairs used as connection properties specific to the Athena compute environment.
@@ -983,6 +986,7 @@ class Connection(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:glue/connection:Connection MyConnection 123456789012:MyConnection
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConnectionArgs args: The arguments to use to populate this resource's properties.

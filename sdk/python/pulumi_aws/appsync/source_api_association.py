@@ -31,6 +31,7 @@ class SourceApiAssociationArgs:
                  timeouts: Optional[pulumi.Input['SourceApiAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a SourceApiAssociation resource.
+
         :param pulumi.Input[_builtins.str] description: Description of the source API being merged.
         :param pulumi.Input[_builtins.str] merged_api_arn: ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
         :param pulumi.Input[_builtins.str] merged_api_id: ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
@@ -161,6 +162,7 @@ class _SourceApiAssociationState:
                  timeouts: Optional[pulumi.Input['SourceApiAssociationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering SourceApiAssociation resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Source API Association.
         :param pulumi.Input[_builtins.str] association_id: ID of the Source API Association.
         :param pulumi.Input[_builtins.str] description: Description of the source API being merged.
@@ -346,6 +348,7 @@ class SourceApiAssociation(pulumi.CustomResource):
         $ pulumi import aws:appsync/sourceApiAssociation:SourceApiAssociation example gzos6bteufdunffzzifiowisoe,243685a0-9347-4a1a-89c1-9b57dea01e31
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the source API being merged.
@@ -385,6 +388,7 @@ class SourceApiAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appsync/sourceApiAssociation:SourceApiAssociation example gzos6bteufdunffzzifiowisoe,243685a0-9347-4a1a-89c1-9b57dea01e31
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SourceApiAssociationArgs args: The arguments to use to populate this resource's properties.

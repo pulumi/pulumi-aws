@@ -24,6 +24,7 @@ class DefaultPatchBaselineArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DefaultPatchBaseline resource.
+
         :param pulumi.Input[_builtins.str] baseline_id: ID of the patch baseline.
                Can be an ID or an ARN.
                When specifying an AWS-provided patch baseline, must be the ARN.
@@ -112,6 +113,7 @@ class _DefaultPatchBaselineState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DefaultPatchBaseline resources.
+
         :param pulumi.Input[_builtins.str] baseline_id: ID of the patch baseline.
                Can be an ID or an ARN.
                When specifying an AWS-provided patch baseline, must be the ARN.
@@ -249,6 +251,7 @@ class DefaultPatchBaseline(pulumi.CustomResource):
         $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example CENTOS
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] baseline_id: ID of the patch baseline.
@@ -322,6 +325,7 @@ class DefaultPatchBaseline(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example CENTOS
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DefaultPatchBaselineArgs args: The arguments to use to populate this resource's properties.

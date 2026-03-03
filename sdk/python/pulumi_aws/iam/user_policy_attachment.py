@@ -23,6 +23,7 @@ class UserPolicyAttachmentArgs:
                  user: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a UserPolicyAttachment resource.
+
         :param pulumi.Input[_builtins.str] policy_arn: The ARN of the policy you want to apply
         :param pulumi.Input[_builtins.str] user: The user the policy should be applied to
         """
@@ -61,6 +62,7 @@ class _UserPolicyAttachmentState:
                  user: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserPolicyAttachment resources.
+
         :param pulumi.Input[_builtins.str] policy_arn: The ARN of the policy you want to apply
         :param pulumi.Input[_builtins.str] user: The user the policy should be applied to
         """
@@ -132,6 +134,7 @@ class UserPolicyAttachment(pulumi.CustomResource):
         $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy_arn: The ARN of the policy you want to apply
@@ -171,6 +174,7 @@ class UserPolicyAttachment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserPolicyAttachmentArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class TrafficSourceAttachmentArgs:
                  traffic_source: Optional[pulumi.Input['TrafficSourceAttachmentTrafficSourceArgs']] = None):
         """
         The set of arguments for constructing a TrafficSourceAttachment resource.
+
         :param pulumi.Input[_builtins.str] autoscaling_group_name: The name of the Auto Scaling group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['TrafficSourceAttachmentTrafficSourceArgs'] traffic_source: The unique identifiers of a traffic sources.
@@ -81,6 +82,7 @@ class _TrafficSourceAttachmentState:
                  traffic_source: Optional[pulumi.Input['TrafficSourceAttachmentTrafficSourceArgs']] = None):
         """
         Input properties used for looking up and filtering TrafficSourceAttachment resources.
+
         :param pulumi.Input[_builtins.str] autoscaling_group_name: The name of the Auto Scaling group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['TrafficSourceAttachmentTrafficSourceArgs'] traffic_source: The unique identifiers of a traffic sources.
@@ -160,6 +162,7 @@ class TrafficSourceAttachment(pulumi.CustomResource):
             })
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] autoscaling_group_name: The name of the Auto Scaling group.
@@ -192,6 +195,7 @@ class TrafficSourceAttachment(pulumi.CustomResource):
                 "type": "elbv2",
             })
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TrafficSourceAttachmentArgs args: The arguments to use to populate this resource's properties.

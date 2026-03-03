@@ -30,6 +30,7 @@ class ResolverRuleArgs:
                  target_ips: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleTargetIpArgs']]]] = None):
         """
         The set of arguments for constructing a ResolverRule resource.
+
         :param pulumi.Input[_builtins.str] domain_name: DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
         :param pulumi.Input[_builtins.str] rule_type: Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
         :param pulumi.Input[_builtins.str] name: Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
@@ -156,6 +157,7 @@ class _ResolverRuleState:
                  target_ips: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleTargetIpArgs']]]] = None):
         """
         Input properties used for looking up and filtering ResolverRule resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN (Amazon Resource Name) for the resolver rule.
         :param pulumi.Input[_builtins.str] domain_name: DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
         :param pulumi.Input[_builtins.str] name: Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
@@ -417,6 +419,7 @@ class ResolverRule(pulumi.CustomResource):
         $ pulumi import aws:route53/resolverRule:ResolverRule example rslvr-rr-0123456789abcdef0
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_name: DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
@@ -507,6 +510,7 @@ class ResolverRule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53/resolverRule:ResolverRule example rslvr-rr-0123456789abcdef0
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResolverRuleArgs args: The arguments to use to populate this resource's properties.

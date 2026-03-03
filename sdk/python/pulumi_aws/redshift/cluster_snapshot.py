@@ -26,6 +26,7 @@ class ClusterSnapshotArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ClusterSnapshot resource.
+
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier for which you want a snapshot.
         :param pulumi.Input[_builtins.str] snapshot_identifier: A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
         :param pulumi.Input[_builtins.int] manual_snapshot_retention_period: The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
@@ -116,6 +117,7 @@ class _ClusterSnapshotState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ClusterSnapshot resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the snapshot.
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier for which you want a snapshot.
         :param pulumi.Input[_builtins.str] kms_key_id: The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
@@ -293,6 +295,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         $ pulumi import aws:redshift/clusterSnapshot:ClusterSnapshot test example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier for which you want a snapshot.
@@ -333,6 +336,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:redshift/clusterSnapshot:ClusterSnapshot test example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterSnapshotArgs args: The arguments to use to populate this resource's properties.

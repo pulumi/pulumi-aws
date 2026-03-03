@@ -33,6 +33,7 @@ class ResolverEndpointArgs:
                  target_name_server_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ResolverEndpoint resource.
+
         :param pulumi.Input[_builtins.str] direction: Direction of DNS queries to or from the Route 53 Resolver endpoint.
                Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
         :param pulumi.Input[Sequence[pulumi.Input['ResolverEndpointIpAddressArgs']]] ip_addresses: Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
@@ -209,6 +210,7 @@ class _ResolverEndpointState:
                  target_name_server_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ResolverEndpoint resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Route 53 Resolver endpoint.
         :param pulumi.Input[_builtins.str] direction: Direction of DNS queries to or from the Route 53 Resolver endpoint.
                Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
@@ -475,6 +477,7 @@ class ResolverEndpoint(pulumi.CustomResource):
         $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] direction: Direction of DNS queries to or from the Route 53 Resolver endpoint.
@@ -540,6 +543,7 @@ class ResolverEndpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResolverEndpointArgs args: The arguments to use to populate this resource's properties.

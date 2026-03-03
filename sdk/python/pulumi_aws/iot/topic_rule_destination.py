@@ -26,6 +26,7 @@ class TopicRuleDestinationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TopicRuleDestination resource.
+
         :param pulumi.Input['TopicRuleDestinationVpcConfigurationArgs'] vpc_configuration: Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
         :param pulumi.Input[_builtins.bool] enabled: Whether or not to enable the destination. Default: `true`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -82,6 +83,7 @@ class _TopicRuleDestinationState:
                  vpc_configuration: Optional[pulumi.Input['TopicRuleDestinationVpcConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering TopicRuleDestination resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the topic rule destination
         :param pulumi.Input[_builtins.bool] enabled: Whether or not to enable the destination. Default: `true`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -178,6 +180,7 @@ class TopicRuleDestination(pulumi.CustomResource):
         $ pulumi import aws:iot/topicRuleDestination:TopicRuleDestination example arn:aws:iot:us-west-2:123456789012:ruledestination/vpc/2ce781c8-68a6-4c52-9c62-63fe489ecc60
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Whether or not to enable the destination. Default: `true`.
@@ -212,6 +215,7 @@ class TopicRuleDestination(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iot/topicRuleDestination:TopicRuleDestination example arn:aws:iot:us-west-2:123456789012:ruledestination/vpc/2ce781c8-68a6-4c52-9c62-63fe489ecc60
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TopicRuleDestinationArgs args: The arguments to use to populate this resource's properties.

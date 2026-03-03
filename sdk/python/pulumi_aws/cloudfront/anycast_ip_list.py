@@ -27,6 +27,7 @@ class AnycastIpListArgs:
                  timeouts: Optional[pulumi.Input['AnycastIpListTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AnycastIpList resource.
+
         :param pulumi.Input[_builtins.int] ip_count: The number of static IP addresses that are allocated to the Anycast IP list. Valid values: `3`, `21`.
         :param pulumi.Input[_builtins.str] name: Name of the Anycast IP list.
                
@@ -102,6 +103,7 @@ class _AnycastIpListState:
                  timeouts: Optional[pulumi.Input['AnycastIpListTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AnycastIpList resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] anycast_ips: The static IP addresses that are allocated to the Anycast IP list.
         :param pulumi.Input[_builtins.str] arn: The Anycast IP list ARN.
         :param pulumi.Input[_builtins.str] etag: The current version of the Anycast IP list.
@@ -260,6 +262,7 @@ class AnycastIpList(pulumi.CustomResource):
         $ pulumi import aws:cloudfront/anycastIpList:AnycastIpList example abcd-1234
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] ip_count: The number of static IP addresses that are allocated to the Anycast IP list. Valid values: `3`, `21`.
@@ -297,6 +300,7 @@ class AnycastIpList(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudfront/anycastIpList:AnycastIpList example abcd-1234
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AnycastIpListArgs args: The arguments to use to populate this resource's properties.

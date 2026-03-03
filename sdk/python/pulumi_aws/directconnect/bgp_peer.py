@@ -28,6 +28,7 @@ class BgpPeerArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BgpPeer resource.
+
         :param pulumi.Input[_builtins.str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
         :param pulumi.Input[_builtins.int] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         :param pulumi.Input[_builtins.str] virtual_interface_id: The ID of the Direct Connect virtual interface on which to create the BGP peer.
@@ -152,6 +153,7 @@ class _BgpPeerState:
                  virtual_interface_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BgpPeer resources.
+
         :param pulumi.Input[_builtins.str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
         :param pulumi.Input[_builtins.str] amazon_address: The IPv4 CIDR address to use to send traffic to Amazon.
                Required for IPv4 BGP peers on public virtual interfaces.
@@ -338,6 +340,7 @@ class BgpPeer(pulumi.CustomResource):
             bgp_asn=65351)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
@@ -370,6 +373,7 @@ class BgpPeer(pulumi.CustomResource):
             address_family="ipv6",
             bgp_asn=65351)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BgpPeerArgs args: The arguments to use to populate this resource's properties.

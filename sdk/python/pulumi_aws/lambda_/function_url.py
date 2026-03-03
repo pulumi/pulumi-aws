@@ -29,6 +29,7 @@ class FunctionUrlArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FunctionUrl resource.
+
         :param pulumi.Input[_builtins.str] authorization_type: Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
         :param pulumi.Input[_builtins.str] function_name: Name or ARN of the Lambda function.
                
@@ -138,6 +139,7 @@ class _FunctionUrlState:
                  url_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FunctionUrl resources.
+
         :param pulumi.Input[_builtins.str] authorization_type: Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
         :param pulumi.Input['FunctionUrlCorsArgs'] cors: Cross-origin resource sharing (CORS) settings for the function URL. See below.
         :param pulumi.Input[_builtins.str] function_arn: ARN of the Lambda function.
@@ -349,6 +351,7 @@ class FunctionUrl(pulumi.CustomResource):
         $ pulumi import aws:lambda/functionUrl:FunctionUrl example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authorization_type: Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
@@ -421,6 +424,7 @@ class FunctionUrl(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lambda/functionUrl:FunctionUrl example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FunctionUrlArgs args: The arguments to use to populate this resource's properties.

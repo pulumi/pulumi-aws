@@ -28,6 +28,7 @@ class CertificateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Certificate resource.
+
         :param pulumi.Input[_builtins.str] certificate: The valid certificate file required for the transfer.
         :param pulumi.Input[_builtins.str] usage: Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
         :param pulumi.Input[_builtins.str] certificate_chain: The optional list of certificate that make up the chain for the certificate that is being imported.
@@ -151,6 +152,7 @@ class _CertificateState:
                  usage: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
+
         :param pulumi.Input[_builtins.str] active_date: An date when the certificate becomes active
         :param pulumi.Input[_builtins.str] arn: The ARN of the certificate
         :param pulumi.Input[_builtins.str] certificate: The valid certificate file required for the transfer.
@@ -357,6 +359,7 @@ class Certificate(pulumi.CustomResource):
         $ pulumi import aws:transfer/certificate:Certificate example c-4221a88afd5f4362a
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate: The valid certificate file required for the transfer.
@@ -385,6 +388,7 @@ class Certificate(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:transfer/certificate:Certificate example c-4221a88afd5f4362a
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

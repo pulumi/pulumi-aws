@@ -31,6 +31,7 @@ class EnvironmentEC2Args:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EnvironmentEC2 resource.
+
         :param pulumi.Input[_builtins.str] image_id: The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
                * `amazonlinux-2-x86_64`
                * `amazonlinux-2023-x86_64`
@@ -216,6 +217,7 @@ class _EnvironmentEC2State:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EnvironmentEC2 resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the environment.
         :param pulumi.Input[_builtins.int] automatic_stop_time_minutes: The number of minutes until the running instance is shut down after the environment has last been used.
         :param pulumi.Input[_builtins.str] connection_type: The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
@@ -495,6 +497,7 @@ class EnvironmentEC2(pulumi.CustomResource):
         pulumi.export("cloud9PublicIp", cloud9_eip.public_ip)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] automatic_stop_time_minutes: The number of minutes until the running instance is shut down after the environment has last been used.
@@ -569,6 +572,7 @@ class EnvironmentEC2(pulumi.CustomResource):
             domain="vpc")
         pulumi.export("cloud9PublicIp", cloud9_eip.public_ip)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentEC2Args args: The arguments to use to populate this resource's properties.

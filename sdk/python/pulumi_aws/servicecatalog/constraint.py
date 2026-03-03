@@ -28,6 +28,7 @@ class ConstraintArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Constraint resource.
+
         :param pulumi.Input[_builtins.str] parameters: Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
         :param pulumi.Input[_builtins.str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[_builtins.str] product_id: Product identifier.
@@ -150,6 +151,7 @@ class _ConstraintState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Constraint resources.
+
         :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[_builtins.str] description: Description of the constraint.
         :param pulumi.Input[_builtins.str] owner: Owner of the constraint.
@@ -334,6 +336,7 @@ class Constraint(pulumi.CustomResource):
         $ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -383,6 +386,7 @@ class Constraint(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConstraintArgs args: The arguments to use to populate this resource's properties.

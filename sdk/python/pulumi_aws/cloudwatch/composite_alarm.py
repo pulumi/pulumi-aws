@@ -33,6 +33,7 @@ class CompositeAlarmArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CompositeAlarm resource.
+
         :param pulumi.Input[_builtins.str] alarm_name: The name for the composite alarm. This name must be unique within the region.
         :param pulumi.Input[_builtins.str] alarm_rule: An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
         :param pulumi.Input[_builtins.bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
@@ -201,6 +202,7 @@ class _CompositeAlarmState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CompositeAlarm resources.
+
         :param pulumi.Input[_builtins.bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
         :param pulumi.Input['CompositeAlarmActionsSuppressorArgs'] actions_suppressor: Actions will be suppressed if the suppressor alarm is in the ALARM state.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alarm_actions: The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
@@ -435,6 +437,7 @@ class CompositeAlarm(pulumi.CustomResource):
         $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
@@ -487,6 +490,7 @@ class CompositeAlarm(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CompositeAlarmArgs args: The arguments to use to populate this resource's properties.

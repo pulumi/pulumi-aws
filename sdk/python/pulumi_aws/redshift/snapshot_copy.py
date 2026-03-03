@@ -27,6 +27,7 @@ class SnapshotCopyArgs:
                  snapshot_copy_grant_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SnapshotCopy resource.
+
         :param pulumi.Input[_builtins.str] cluster_identifier: Identifier of the source cluster.
         :param pulumi.Input[_builtins.str] destination_region: AWS Region to copy snapshots to.
                
@@ -133,6 +134,7 @@ class _SnapshotCopyState:
                  snapshot_copy_grant_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SnapshotCopy resources.
+
         :param pulumi.Input[_builtins.str] cluster_identifier: Identifier of the source cluster.
         :param pulumi.Input[_builtins.str] destination_region: AWS Region to copy snapshots to.
                
@@ -267,6 +269,7 @@ class SnapshotCopy(pulumi.CustomResource):
         $ pulumi import aws:redshift/snapshotCopy:SnapshotCopy example cluster-id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_identifier: Identifier of the source cluster.
@@ -307,6 +310,7 @@ class SnapshotCopy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:redshift/snapshotCopy:SnapshotCopy example cluster-id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SnapshotCopyArgs args: The arguments to use to populate this resource's properties.

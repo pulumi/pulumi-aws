@@ -36,6 +36,7 @@ class IntentArgs:
                  slots: Optional[pulumi.Input[Sequence[pulumi.Input['IntentSlotArgs']]]] = None):
         """
         The set of arguments for constructing a Intent resource.
+
         :param pulumi.Input['IntentFulfillmentActivityArgs'] fulfillment_activity: Describes how the intent is fulfilled. For example, after a
                user provides all of the information for a pizza order, `fulfillment_activity` defines how the bot
                places an order with a local pizza store. Attributes are documented under fulfillment_activity.
@@ -300,6 +301,7 @@ class _IntentState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Intent resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the Lex intent.
         :param pulumi.Input[_builtins.str] checksum: Checksum identifying the version of the intent that was created. The checksum is not
                included as an argument because the resource will add it automatically when updating the intent.
@@ -733,6 +735,7 @@ class Intent(pulumi.CustomResource):
         $ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['IntentConclusionStatementArgs', 'IntentConclusionStatementArgsDict']] conclusion_statement: The statement that you want Amazon Lex to convey to the user
@@ -870,6 +873,7 @@ class Intent(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntentArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class ObservabilityConfigurationArgs:
                  trace_configuration: Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs']] = None):
         """
         The set of arguments for constructing a ObservabilityConfiguration resource.
+
         :param pulumi.Input[_builtins.str] observability_configuration_name: Name of the observability configuration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -103,6 +104,7 @@ class _ObservabilityConfigurationState:
                  trace_configuration: Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering ObservabilityConfiguration resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of this observability configuration.
         :param pulumi.Input[_builtins.bool] latest: Whether the observability configuration has the highest `observability_configuration_revision` among all configurations that share the same `observability_configuration_name`.
         :param pulumi.Input[_builtins.str] observability_configuration_name: Name of the observability configuration.
@@ -285,6 +287,7 @@ class ObservabilityConfiguration(pulumi.CustomResource):
         $ pulumi import aws:apprunner/observabilityConfiguration:ObservabilityConfiguration example arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] observability_configuration_name: Name of the observability configuration.
@@ -330,6 +333,7 @@ class ObservabilityConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apprunner/observabilityConfiguration:ObservabilityConfiguration example arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ObservabilityConfigurationArgs args: The arguments to use to populate this resource's properties.

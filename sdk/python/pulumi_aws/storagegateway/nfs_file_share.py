@@ -44,6 +44,7 @@ class NfsFileShareArgs:
                  vpc_endpoint_dns_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NfsFileShare resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_lists: The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
         :param pulumi.Input[_builtins.str] gateway_arn: Amazon Resource Name (ARN) of the file gateway.
         :param pulumi.Input[_builtins.str] location_arn: The ARN of the backed storage used for storing file data.
@@ -388,6 +389,7 @@ class _NfsFileShareState:
                  vpc_endpoint_dns_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NfsFileShare resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the NFS File Share.
         :param pulumi.Input[_builtins.str] audit_destination_arn: The Amazon Resource Name (ARN) of the storage used for audit logs.
         :param pulumi.Input[_builtins.str] bucket_region: The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
@@ -818,6 +820,7 @@ class NfsFileShare(pulumi.CustomResource):
         $ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] audit_destination_arn: The Amazon Resource Name (ARN) of the storage used for audit logs.
@@ -871,6 +874,7 @@ class NfsFileShare(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NfsFileShareArgs args: The arguments to use to populate this resource's properties.

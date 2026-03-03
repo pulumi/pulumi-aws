@@ -37,6 +37,7 @@ class StageArgs:
                  xray_tracing_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Stage resource.
+
         :param pulumi.Input[_builtins.str] deployment: ID of the deployment that the stage points to
         :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API
         :param pulumi.Input[_builtins.str] stage_name: Name of the stage
@@ -271,6 +272,7 @@ class _StageState:
                  xray_tracing_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Stage resources.
+
         :param pulumi.Input['StageAccessLogSettingsArgs'] access_log_settings: Enables access logs for the API stage. See Access Log Settings below.
         :param pulumi.Input[_builtins.str] arn: ARN
         :param pulumi.Input[_builtins.bool] cache_cluster_enabled: Whether a cache cluster is enabled for the stage
@@ -617,6 +619,7 @@ class Stage(pulumi.CustomResource):
         $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict']] access_log_settings: Enables access logs for the API stage. See Access Log Settings below.
@@ -670,6 +673,7 @@ class Stage(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StageArgs args: The arguments to use to populate this resource's properties.

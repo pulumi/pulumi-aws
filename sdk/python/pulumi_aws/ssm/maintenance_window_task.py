@@ -36,6 +36,7 @@ class MaintenanceWindowTaskArgs:
                  task_invocation_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs']] = None):
         """
         The set of arguments for constructing a MaintenanceWindowTask resource.
+
         :param pulumi.Input[_builtins.str] task_arn: The ARN of the task to execute.
         :param pulumi.Input[_builtins.str] task_type: The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
         :param pulumi.Input[_builtins.str] window_id: The Id of the maintenance window to register the task with.
@@ -251,6 +252,7 @@ class _MaintenanceWindowTaskState:
                  window_task_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MaintenanceWindowTask resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the maintenance window task.
         :param pulumi.Input[_builtins.str] cutoff_behavior: Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
         :param pulumi.Input[_builtins.str] description: The description of the maintenance window task.
@@ -639,6 +641,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         $ pulumi import aws:ssm/maintenanceWindowTask:MaintenanceWindowTask example <window_id>/<window_task_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cutoff_behavior: Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
@@ -800,6 +803,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ssm/maintenanceWindowTask:MaintenanceWindowTask example <window_id>/<window_task_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MaintenanceWindowTaskArgs args: The arguments to use to populate this resource's properties.

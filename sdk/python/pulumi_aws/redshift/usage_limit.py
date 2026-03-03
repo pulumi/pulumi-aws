@@ -29,6 +29,7 @@ class UsageLimitArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a UsageLimit resource.
+
         :param pulumi.Input[_builtins.int] amount: The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
         :param pulumi.Input[_builtins.str] cluster_identifier: The identifier of the cluster that you want to limit usage.
         :param pulumi.Input[_builtins.str] feature_type: The Amazon Redshift feature that you want to limit. Valid values are `spectrum`, `concurrency-scaling`, and `cross-region-datasharing`.
@@ -163,6 +164,7 @@ class _UsageLimitState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering UsageLimit resources.
+
         :param pulumi.Input[_builtins.int] amount: The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Redshift Usage Limit.
         :param pulumi.Input[_builtins.str] breach_action: The action that Amazon Redshift takes when the limit is reached. The default is `log`. Valid values are `log`, `emit-metric`, and `disable`.
@@ -355,6 +357,7 @@ class UsageLimit(pulumi.CustomResource):
         $ pulumi import aws:redshift/usageLimit:UsageLimit example example-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] amount: The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
@@ -395,6 +398,7 @@ class UsageLimit(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:redshift/usageLimit:UsageLimit example example-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UsageLimitArgs args: The arguments to use to populate this resource's properties.

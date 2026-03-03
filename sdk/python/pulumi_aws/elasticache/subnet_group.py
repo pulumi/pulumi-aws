@@ -26,6 +26,7 @@ class SubnetGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SubnetGroup resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of VPC Subnet IDs for the cache subnet group
         :param pulumi.Input[_builtins.str] description: Description for the cache subnet group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[_builtins.str] name: Name for the cache subnet group. ElastiCache converts this name to lowercase.
@@ -118,6 +119,7 @@ class _SubnetGroupState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SubnetGroup resources.
+
         :param pulumi.Input[_builtins.str] description: Description for the cache subnet group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[_builtins.str] name: Name for the cache subnet group. ElastiCache converts this name to lowercase.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -285,6 +287,7 @@ class SubnetGroup(pulumi.CustomResource):
         $ pulumi import aws:elasticache/subnetGroup:SubnetGroup bar tf-test-cache-subnet
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description for the cache subnet group. Defaults to "Managed by Pulumi".
@@ -332,6 +335,7 @@ class SubnetGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:elasticache/subnetGroup:SubnetGroup bar tf-test-cache-subnet
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SubnetGroupArgs args: The arguments to use to populate this resource's properties.

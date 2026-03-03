@@ -24,6 +24,7 @@ class NetworkInterfaceSecurityGroupAttachmentArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkInterfaceSecurityGroupAttachment resource.
+
         :param pulumi.Input[_builtins.str] network_interface_id: The ID of the network interface to attach to.
         :param pulumi.Input[_builtins.str] security_group_id: The ID of the security group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _NetworkInterfaceSecurityGroupAttachmentState:
                  security_group_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkInterfaceSecurityGroupAttachment resources.
+
         :param pulumi.Input[_builtins.str] network_interface_id: The ID of the network interface to attach to.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] security_group_id: The ID of the security group.
@@ -205,6 +207,7 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         $ pulumi import aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment sg_attachment eni-1234567890abcdef0_sg-1234567890abcdef0
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] network_interface_id: The ID of the network interface to attach to.
@@ -285,6 +288,7 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment sg_attachment eni-1234567890abcdef0_sg-1234567890abcdef0
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceSecurityGroupAttachmentArgs args: The arguments to use to populate this resource's properties.

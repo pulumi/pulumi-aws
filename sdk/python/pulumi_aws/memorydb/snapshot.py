@@ -29,6 +29,7 @@ class SnapshotArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Snapshot resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: Name of the MemoryDB cluster to take a snapshot of.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the snapshot at rest.
         :param pulumi.Input[_builtins.str] name: Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -136,6 +137,7 @@ class _SnapshotState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Snapshot resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the snapshot.
         :param pulumi.Input[Sequence[pulumi.Input['SnapshotClusterConfigurationArgs']]] cluster_configurations: The configuration of the cluster from which the snapshot was taken.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the MemoryDB cluster to take a snapshot of.
@@ -326,6 +328,7 @@ class Snapshot(pulumi.CustomResource):
         $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the MemoryDB cluster to take a snapshot of.
@@ -364,6 +367,7 @@ class Snapshot(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SnapshotArgs args: The arguments to use to populate this resource's properties.

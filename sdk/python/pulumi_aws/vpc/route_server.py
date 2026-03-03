@@ -30,6 +30,7 @@ class RouteServerArgs:
                  timeouts: Optional[pulumi.Input['RouteServerTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a RouteServer resource.
+
         :param pulumi.Input[_builtins.int] amazon_side_asn: The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
                
                The following arguments are optional:
@@ -153,6 +154,7 @@ class _RouteServerState:
                  timeouts: Optional[pulumi.Input['RouteServerTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering RouteServer resources.
+
         :param pulumi.Input[_builtins.int] amazon_side_asn: The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
                
                The following arguments are optional:
@@ -377,6 +379,7 @@ class RouteServer(pulumi.CustomResource):
         $ pulumi import aws:vpc/routeServer:RouteServer example rs-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] amazon_side_asn: The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
@@ -435,6 +438,7 @@ class RouteServer(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:vpc/routeServer:RouteServer example rs-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RouteServerArgs args: The arguments to use to populate this resource's properties.

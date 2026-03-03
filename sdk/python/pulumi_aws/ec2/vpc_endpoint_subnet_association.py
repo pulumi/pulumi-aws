@@ -24,6 +24,7 @@ class VpcEndpointSubnetAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcEndpointSubnetAssociation resource.
+
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet to be associated with the VPC endpoint.
         :param pulumi.Input[_builtins.str] vpc_endpoint_id: The ID of the VPC endpoint with which the subnet will be associated.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _VpcEndpointSubnetAssociationState:
                  vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcEndpointSubnetAssociation resources.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet to be associated with the VPC endpoint.
         :param pulumi.Input[_builtins.str] vpc_endpoint_id: The ID of the VPC endpoint with which the subnet will be associated.
@@ -166,6 +168,7 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
         $ pulumi import aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation example vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -207,6 +210,7 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation example vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcEndpointSubnetAssociationArgs args: The arguments to use to populate this resource's properties.

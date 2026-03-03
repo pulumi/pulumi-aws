@@ -26,6 +26,7 @@ class ContributorInsightRuleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ContributorInsightRule resource.
+
         :param pulumi.Input[_builtins.str] rule_definition: Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
         :param pulumi.Input[_builtins.str] rule_name: Unique name of the rule.
                
@@ -114,6 +115,7 @@ class _ContributorInsightRuleState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ContributorInsightRule resources.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_arn: ARN of the Contributor Insight Rule.
         :param pulumi.Input[_builtins.str] rule_definition: Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
@@ -255,6 +257,7 @@ class ContributorInsightRule(pulumi.CustomResource):
         $ pulumi import aws:cloudwatch/contributorInsightRule:ContributorInsightRule example contributor_insight_rule-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -294,6 +297,7 @@ class ContributorInsightRule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudwatch/contributorInsightRule:ContributorInsightRule example contributor_insight_rule-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ContributorInsightRuleArgs args: The arguments to use to populate this resource's properties.

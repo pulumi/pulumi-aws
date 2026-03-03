@@ -26,6 +26,7 @@ class RouteArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Route resource.
+
         :param pulumi.Input[_builtins.str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
         :param pulumi.Input[_builtins.str] destination_cidr_block: The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
         :param pulumi.Input[_builtins.str] target_vpc_subnet_id: The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
@@ -113,6 +114,7 @@ class _RouteState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Route resources.
+
         :param pulumi.Input[_builtins.str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
         :param pulumi.Input[_builtins.str] description: A brief description of the route.
         :param pulumi.Input[_builtins.str] destination_cidr_block: The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
@@ -271,6 +273,7 @@ class Route(pulumi.CustomResource):
         $ pulumi import aws:ec2clientvpn/route:Route example cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
@@ -322,6 +325,7 @@ class Route(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2clientvpn/route:Route example cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RouteArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class DefaultRouteTableArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DefaultRouteTable resource.
+
         :param pulumi.Input[_builtins.str] default_route_table_id: ID of the default route table.
                
                The following arguments are optional:
@@ -123,6 +124,7 @@ class _DefaultRouteTableState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DefaultRouteTable resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the route table.
         :param pulumi.Input[_builtins.str] default_route_table_id: ID of the default route table.
                
@@ -333,6 +335,7 @@ class DefaultRouteTable(pulumi.CustomResource):
 
         [tf-main-route-table-association]: /docs/providers/aws/r/main_route_table_association.html
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] default_route_table_id: ID of the default route table.
@@ -404,6 +407,7 @@ class DefaultRouteTable(pulumi.CustomResource):
         ```
 
         [tf-main-route-table-association]: /docs/providers/aws/r/main_route_table_association.html
+
 
         :param str resource_name: The name of the resource.
         :param DefaultRouteTableArgs args: The arguments to use to populate this resource's properties.

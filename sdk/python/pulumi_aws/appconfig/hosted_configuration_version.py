@@ -27,6 +27,7 @@ class HostedConfigurationVersionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a HostedConfigurationVersion resource.
+
         :param pulumi.Input[_builtins.str] application_id: Application ID.
         :param pulumi.Input[_builtins.str] configuration_profile_id: Configuration profile ID.
         :param pulumi.Input[_builtins.str] content: Content of the configuration or the configuration data.
@@ -129,6 +130,7 @@ class _HostedConfigurationVersionState:
                  version_number: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering HostedConfigurationVersion resources.
+
         :param pulumi.Input[_builtins.str] application_id: Application ID.
         :param pulumi.Input[_builtins.str] arn: ARN of the AppConfig  hosted configuration version.
         :param pulumi.Input[_builtins.str] configuration_profile_id: Configuration profile ID.
@@ -391,6 +393,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         $ pulumi import aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion example 71abcde/11xxxxx/2
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: Application ID.
@@ -531,6 +534,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion example 71abcde/11xxxxx/2
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HostedConfigurationVersionArgs args: The arguments to use to populate this resource's properties.

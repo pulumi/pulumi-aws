@@ -39,6 +39,7 @@ class DirectoryArgs:
                  workspace_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Directory resource.
+
         :param pulumi.Input['DirectoryActiveDirectoryConfigArgs'] active_directory_config: Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
         :param pulumi.Input['DirectoryCertificateBasedAuthPropertiesArgs'] certificate_based_auth_properties: Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
         :param pulumi.Input[_builtins.str] directory_id: The directory identifier for registration in WorkSpaces service.
@@ -316,6 +317,7 @@ class _DirectoryState:
                  workspace_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Directory resources.
+
         :param pulumi.Input['DirectoryActiveDirectoryConfigArgs'] active_directory_config: Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
         :param pulumi.Input[_builtins.str] alias: The directory alias.
         :param pulumi.Input['DirectoryCertificateBasedAuthPropertiesArgs'] certificate_based_auth_properties: Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
@@ -884,6 +886,7 @@ class Directory(pulumi.CustomResource):
         $ pulumi import aws:workspaces/directory:Directory main d-4444444444
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DirectoryActiveDirectoryConfigArgs', 'DirectoryActiveDirectoryConfigArgsDict']] active_directory_config: Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
@@ -1073,6 +1076,7 @@ class Directory(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:workspaces/directory:Directory main d-4444444444
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DirectoryArgs args: The arguments to use to populate this resource's properties.

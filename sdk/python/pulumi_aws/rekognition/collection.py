@@ -27,6 +27,7 @@ class CollectionArgs:
                  timeouts: Optional[pulumi.Input['CollectionTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Collection resource.
+
         :param pulumi.Input[_builtins.str] collection_id: The name of the collection
                
                The following arguments are optional:
@@ -101,6 +102,7 @@ class _CollectionState:
                  timeouts: Optional[pulumi.Input['CollectionTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Collection resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Collection.
         :param pulumi.Input[_builtins.str] collection_id: The name of the collection
                
@@ -244,6 +246,7 @@ class Collection(pulumi.CustomResource):
         $ pulumi import aws:rekognition/collection:Collection example collection-id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] collection_id: The name of the collection
@@ -281,6 +284,7 @@ class Collection(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:rekognition/collection:Collection example collection-id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CollectionArgs args: The arguments to use to populate this resource's properties.

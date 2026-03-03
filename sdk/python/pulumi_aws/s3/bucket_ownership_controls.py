@@ -26,6 +26,7 @@ class BucketOwnershipControlsArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BucketOwnershipControls resource.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket that you want to associate this access point with.
         :param pulumi.Input['BucketOwnershipControlsRuleArgs'] rule: Configuration block(s) with Ownership Controls rules. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -80,6 +81,7 @@ class _BucketOwnershipControlsState:
                  rule: Optional[pulumi.Input['BucketOwnershipControlsRuleArgs']] = None):
         """
         Input properties used for looking up and filtering BucketOwnershipControls resources.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket that you want to associate this access point with.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['BucketOwnershipControlsRuleArgs'] rule: Configuration block(s) with Ownership Controls rules. Detailed below.
@@ -165,6 +167,7 @@ class BucketOwnershipControls(pulumi.CustomResource):
         $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket that you want to associate this access point with.
@@ -203,6 +206,7 @@ class BucketOwnershipControls(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BucketOwnershipControlsArgs args: The arguments to use to populate this resource's properties.

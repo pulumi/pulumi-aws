@@ -26,6 +26,7 @@ class ProxyTargetArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProxyTarget resource.
+
         :param pulumi.Input[_builtins.str] db_proxy_name: The name of the DB proxy.
         :param pulumi.Input[_builtins.str] target_group_name: The name of the target group.
         :param pulumi.Input[_builtins.str] db_cluster_identifier: DB cluster identifier.
@@ -122,6 +123,7 @@ class _ProxyTargetState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProxyTarget resources.
+
         :param pulumi.Input[_builtins.str] db_cluster_identifier: DB cluster identifier.
                
                **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
@@ -329,6 +331,7 @@ class ProxyTarget(pulumi.CustomResource):
         $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/TRACKED_CLUSTER/example-cluster
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] db_cluster_identifier: DB cluster identifier.
@@ -367,6 +370,7 @@ class ProxyTarget(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/TRACKED_CLUSTER/example-cluster
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProxyTargetArgs args: The arguments to use to populate this resource's properties.

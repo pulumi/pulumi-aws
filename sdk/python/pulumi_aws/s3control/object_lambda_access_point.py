@@ -27,6 +27,7 @@ class ObjectLambdaAccessPointArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ObjectLambdaAccessPoint resource.
+
         :param pulumi.Input['ObjectLambdaAccessPointConfigurationArgs'] configuration: A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[_builtins.str] name: The name for this Object Lambda Access Point.
@@ -100,6 +101,7 @@ class _ObjectLambdaAccessPointState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ObjectLambdaAccessPoint resources.
+
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[_builtins.str] alias: Alias for the S3 Object Lambda Access Point.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Object Lambda Access Point.
@@ -241,6 +243,7 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
         $ pulumi import aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint example 123456789012:example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
@@ -290,6 +293,7 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint example 123456789012:example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ObjectLambdaAccessPointArgs args: The arguments to use to populate this resource's properties.

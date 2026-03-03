@@ -26,6 +26,7 @@ class MedicalVocabularyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MedicalVocabulary resource.
+
         :param pulumi.Input[_builtins.str] language_code: The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
         :param pulumi.Input[_builtins.str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
         :param pulumi.Input[_builtins.str] vocabulary_name: The name of the Medical Vocabulary.
@@ -118,6 +119,7 @@ class _MedicalVocabularyState:
                  vocabulary_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MedicalVocabulary resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the MedicalVocabulary.
         :param pulumi.Input[_builtins.str] download_uri: Generated download URI.
         :param pulumi.Input[_builtins.str] language_code: The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
@@ -294,6 +296,7 @@ class MedicalVocabulary(pulumi.CustomResource):
         $ pulumi import aws:transcribe/medicalVocabulary:MedicalVocabulary example example-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] language_code: The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
@@ -350,6 +353,7 @@ class MedicalVocabulary(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:transcribe/medicalVocabulary:MedicalVocabulary example example-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MedicalVocabularyArgs args: The arguments to use to populate this resource's properties.

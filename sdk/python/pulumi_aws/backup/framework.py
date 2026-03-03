@@ -28,6 +28,7 @@ class FrameworkArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Framework resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['FrameworkControlArgs']]] controls: One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
         :param pulumi.Input[_builtins.str] description: The description of the framework with a maximum of 1,024 characters
         :param pulumi.Input[_builtins.str] name: The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
@@ -120,6 +121,7 @@ class _FrameworkState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Framework resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the backup framework.
         :param pulumi.Input[Sequence[pulumi.Input['FrameworkControlArgs']]] controls: One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
         :param pulumi.Input[_builtins.str] creation_time: The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
@@ -382,6 +384,7 @@ class Framework(pulumi.CustomResource):
         $ pulumi import aws:backup/framework:Framework test <id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlArgs', 'FrameworkControlArgsDict']]]] controls: One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
@@ -492,6 +495,7 @@ class Framework(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:backup/framework:Framework test <id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FrameworkArgs args: The arguments to use to populate this resource's properties.

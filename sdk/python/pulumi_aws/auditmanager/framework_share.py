@@ -26,6 +26,7 @@ class FrameworkShareArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FrameworkShare resource.
+
         :param pulumi.Input[_builtins.str] destination_account: Amazon Web Services account of the recipient.
         :param pulumi.Input[_builtins.str] destination_region: Amazon Web Services region of the recipient.
         :param pulumi.Input[_builtins.str] framework_id: Unique identifier for the shared custom framework.
@@ -116,6 +117,7 @@ class _FrameworkShareState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FrameworkShare resources.
+
         :param pulumi.Input[_builtins.str] comment: Comment from the sender about the share request.
         :param pulumi.Input[_builtins.str] destination_account: Amazon Web Services account of the recipient.
         :param pulumi.Input[_builtins.str] destination_region: Amazon Web Services region of the recipient.
@@ -250,6 +252,7 @@ class FrameworkShare(pulumi.CustomResource):
         $ pulumi import aws:auditmanager/frameworkShare:FrameworkShare example abcdef-123456
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Comment from the sender about the share request.
@@ -290,6 +293,7 @@ class FrameworkShare(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:auditmanager/frameworkShare:FrameworkShare example abcdef-123456
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FrameworkShareArgs args: The arguments to use to populate this resource's properties.

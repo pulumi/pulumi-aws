@@ -32,6 +32,7 @@ class KxVolumeArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a KxVolume resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: The identifier of the AWS Availability Zone IDs.
                
                The following arguments are optional:
@@ -193,6 +194,7 @@ class _KxVolumeState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering KxVolume resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX volume.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: The identifier of the AWS Availability Zone IDs.
                
@@ -499,6 +501,7 @@ class KxVolume(pulumi.CustomResource):
         $ pulumi import aws:finspace/kxVolume:KxVolume example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-volume
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: The identifier of the AWS Availability Zone IDs.
@@ -550,6 +553,7 @@ class KxVolume(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:finspace/kxVolume:KxVolume example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-volume
         ```
+
 
         :param str resource_name: The name of the resource.
         :param KxVolumeArgs args: The arguments to use to populate this resource's properties.

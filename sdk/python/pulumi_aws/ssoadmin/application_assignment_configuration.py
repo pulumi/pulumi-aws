@@ -24,6 +24,7 @@ class ApplicationAssignmentConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApplicationAssignmentConfiguration resource.
+
         :param pulumi.Input[_builtins.str] application_arn: ARN of the application.
         :param pulumi.Input[_builtins.bool] assignment_required: Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _ApplicationAssignmentConfigurationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApplicationAssignmentConfiguration resources.
+
         :param pulumi.Input[_builtins.str] application_arn: ARN of the application.
         :param pulumi.Input[_builtins.bool] assignment_required: Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -171,6 +173,7 @@ class ApplicationAssignmentConfiguration(pulumi.CustomResource):
         $ pulumi import aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration example arn:aws:sso::123456789012:application/id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_arn: ARN of the application.
@@ -217,6 +220,7 @@ class ApplicationAssignmentConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration example arn:aws:sso::123456789012:application/id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationAssignmentConfigurationArgs args: The arguments to use to populate this resource's properties.

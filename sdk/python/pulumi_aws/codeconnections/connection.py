@@ -29,6 +29,7 @@ class ConnectionArgs:
                  timeouts: Optional[pulumi.Input['ConnectionTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Connection resource.
+
         :param pulumi.Input[_builtins.str] host_arn: The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
         :param pulumi.Input[_builtins.str] name: The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
         :param pulumi.Input[_builtins.str] provider_type: The name of the external provider where your third-party code repository is configured. Changing `provider_type` will create a new resource. Conflicts with `host_arn`.
@@ -133,6 +134,7 @@ class _ConnectionState:
                  timeouts: Optional[pulumi.Input['ConnectionTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Connection resources.
+
         :param pulumi.Input[_builtins.str] arn: The codeconnections connection ARN.
         :param pulumi.Input[_builtins.str] connection_status: The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
         :param pulumi.Input[_builtins.str] host_arn: The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
@@ -323,6 +325,7 @@ class Connection(pulumi.CustomResource):
         $ pulumi import aws:codeconnections/connection:Connection test-connection arn:aws:codeconnections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] host_arn: The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
@@ -368,6 +371,7 @@ class Connection(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:codeconnections/connection:Connection test-connection arn:aws:codeconnections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConnectionArgs args: The arguments to use to populate this resource's properties.

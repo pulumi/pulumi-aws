@@ -37,6 +37,7 @@ class CustomModelArgs:
                  vpc_config: Optional[pulumi.Input['CustomModelVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a CustomModel resource.
+
         :param pulumi.Input[_builtins.str] base_model_identifier: The Amazon Resource Name (ARN) of the base model.
         :param pulumi.Input[_builtins.str] custom_model_name: Name for the custom model.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] hyperparameters: [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
@@ -264,6 +265,7 @@ class _CustomModelState:
                  vpc_config: Optional[pulumi.Input['CustomModelVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering CustomModel resources.
+
         :param pulumi.Input[_builtins.str] base_model_identifier: The Amazon Resource Name (ARN) of the base model.
         :param pulumi.Input[_builtins.str] custom_model_arn: The ARN of the output model.
         :param pulumi.Input[_builtins.str] custom_model_kms_key_id: The custom model is encrypted at rest using this key. Specify the key ARN.
@@ -640,6 +642,7 @@ class CustomModel(pulumi.CustomResource):
         $ pulumi import aws:bedrock/customModel:CustomModel example arn:aws:bedrock:us-west-2:123456789012:model-customization-job/amazon.titan-text-express-v1:0:8k/1y5n57gh5y2e
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] base_model_identifier: The Amazon Resource Name (ARN) of the base model.
@@ -717,6 +720,7 @@ class CustomModel(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:bedrock/customModel:CustomModel example arn:aws:bedrock:us-west-2:123456789012:model-customization-job/amazon.titan-text-express-v1:0:8k/1y5n57gh5y2e
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomModelArgs args: The arguments to use to populate this resource's properties.

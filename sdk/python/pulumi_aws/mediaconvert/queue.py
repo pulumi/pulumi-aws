@@ -31,6 +31,7 @@ class QueueArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Queue resource.
+
         :param pulumi.Input[_builtins.int] concurrent_jobs: The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
         :param pulumi.Input[_builtins.str] description: A description of the queue
         :param pulumi.Input[_builtins.str] name: A unique identifier describing the queue
@@ -169,6 +170,7 @@ class _QueueState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Queue resources.
+
         :param pulumi.Input[_builtins.str] arn: The Arn of the queue
         :param pulumi.Input[_builtins.int] concurrent_jobs: The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
         :param pulumi.Input[_builtins.str] description: A description of the queue
@@ -357,6 +359,7 @@ class Queue(pulumi.CustomResource):
         $ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] concurrent_jobs: The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
@@ -393,6 +396,7 @@ class Queue(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
         ```
+
 
         :param str resource_name: The name of the resource.
         :param QueueArgs args: The arguments to use to populate this resource's properties.

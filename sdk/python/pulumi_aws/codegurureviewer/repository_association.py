@@ -27,6 +27,7 @@ class RepositoryAssociationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RepositoryAssociation resource.
+
         :param pulumi.Input['RepositoryAssociationRepositoryArgs'] repository: An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
                
                The following arguments are optional:
@@ -108,6 +109,7 @@ class _RepositoryAssociationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RepositoryAssociation resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) identifying the repository association.
         :param pulumi.Input[_builtins.str] association_id: The ID of the repository association.
         :param pulumi.Input[_builtins.str] connection_arn: The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
@@ -347,6 +349,7 @@ class RepositoryAssociation(pulumi.CustomResource):
             })
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RepositoryAssociationKmsKeyDetailsArgs', 'RepositoryAssociationKmsKeyDetailsArgsDict']] kms_key_details: An object describing the KMS key to asssociate. Block is documented below.
@@ -383,6 +386,7 @@ class RepositoryAssociation(pulumi.CustomResource):
                 "kms_key_id": example.key_id,
             })
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryAssociationArgs args: The arguments to use to populate this resource's properties.

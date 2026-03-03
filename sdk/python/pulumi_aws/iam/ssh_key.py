@@ -25,6 +25,7 @@ class SshKeyArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SshKey resource.
+
         :param pulumi.Input[_builtins.str] encoding: Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
         :param pulumi.Input[_builtins.str] public_key: The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
         :param pulumi.Input[_builtins.str] username: The name of the IAM user to associate the SSH public key with.
@@ -96,6 +97,7 @@ class _SshKeyState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SshKey resources.
+
         :param pulumi.Input[_builtins.str] encoding: Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
         :param pulumi.Input[_builtins.str] fingerprint: The MD5 message digest of the SSH public key.
         :param pulumi.Input[_builtins.str] public_key: The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
@@ -226,6 +228,7 @@ class SshKey(pulumi.CustomResource):
         $ pulumi import aws:iam/sshKey:SshKey user user:APKAJNCNNJICVN7CFKCA:SSH
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] encoding: Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
@@ -264,6 +267,7 @@ class SshKey(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iam/sshKey:SshKey user user:APKAJNCNNJICVN7CFKCA:SSH
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SshKeyArgs args: The arguments to use to populate this resource's properties.

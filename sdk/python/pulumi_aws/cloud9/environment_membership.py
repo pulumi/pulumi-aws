@@ -25,6 +25,7 @@ class EnvironmentMembershipArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EnvironmentMembership resource.
+
         :param pulumi.Input[_builtins.str] environment_id: The ID of the environment that contains the environment member you want to add.
         :param pulumi.Input[_builtins.str] permissions: The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
         :param pulumi.Input[_builtins.str] user_arn: The Amazon Resource Name (ARN) of the environment member you want to add.
@@ -95,6 +96,7 @@ class _EnvironmentMembershipState:
                  user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EnvironmentMembership resources.
+
         :param pulumi.Input[_builtins.str] environment_id: The ID of the environment that contains the environment member you want to add.
         :param pulumi.Input[_builtins.str] permissions: The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -211,6 +213,7 @@ class EnvironmentMembership(pulumi.CustomResource):
         $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] environment_id: The ID of the environment that contains the environment member you want to add.
@@ -250,6 +253,7 @@ class EnvironmentMembership(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentMembershipArgs args: The arguments to use to populate this resource's properties.

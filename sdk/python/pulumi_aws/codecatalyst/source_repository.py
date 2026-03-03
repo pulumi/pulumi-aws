@@ -26,6 +26,7 @@ class SourceRepositoryArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SourceRepository resource.
+
         :param pulumi.Input[_builtins.str] project_name: The name of the project in the CodeCatalyst space.
                
                The following arguments are optional:
@@ -116,6 +117,7 @@ class _SourceRepositoryState:
                  space_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SourceRepository resources.
+
         :param pulumi.Input[_builtins.str] description: The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
         :param pulumi.Input[_builtins.str] name: The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
         :param pulumi.Input[_builtins.str] project_name: The name of the project in the CodeCatalyst space.
@@ -235,6 +237,7 @@ class SourceRepository(pulumi.CustomResource):
         $ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example example-repo
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
@@ -275,6 +278,7 @@ class SourceRepository(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example example-repo
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SourceRepositoryArgs args: The arguments to use to populate this resource's properties.

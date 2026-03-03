@@ -27,6 +27,7 @@ class ResourceArgs:
                  type_version_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Resource resource.
+
         :param pulumi.Input[_builtins.str] desired_state: JSON string matching the CloudFormation resource type schema with desired configuration.
         :param pulumi.Input[_builtins.str] type_name: CloudFormation resource type name. For example, `AWS::EC2::VPC`.
                
@@ -134,6 +135,7 @@ class _ResourceState:
                  type_version_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Resource resources.
+
         :param pulumi.Input[_builtins.str] desired_state: JSON string matching the CloudFormation resource type schema with desired configuration.
         :param pulumi.Input[_builtins.str] properties: JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)["example"]`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -280,6 +282,7 @@ class Resource(pulumi.CustomResource):
             }))
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] desired_state: JSON string matching the CloudFormation resource type schema with desired configuration.
@@ -317,6 +320,7 @@ class Resource(pulumi.CustomResource):
                 }],
             }))
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceArgs args: The arguments to use to populate this resource's properties.

@@ -31,6 +31,7 @@ class WebAclRuleGroupAssociationArgs:
                  timeouts: Optional[pulumi.Input['WebAclRuleGroupAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a WebAclRuleGroupAssociation resource.
+
         :param pulumi.Input[_builtins.int] priority: Priority of the rule within the Web ACL. Rules are evaluated in order of priority, with lower numbers evaluated first.
         :param pulumi.Input[_builtins.str] rule_name: Name of the rule to create in the Web ACL that references the rule group. Must be between 1 and 128 characters.
         :param pulumi.Input[_builtins.str] web_acl_arn: ARN of the Web ACL to associate the Rule Group with.
@@ -164,6 +165,7 @@ class _WebAclRuleGroupAssociationState:
                  web_acl_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WebAclRuleGroupAssociation resources.
+
         :param pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupArgs'] managed_rule_group: Managed Rule Group configuration. One of `rule_group_reference` or `managed_rule_group` is required. Conflicts with `rule_group_reference`. See below.
         :param pulumi.Input[_builtins.str] override_action: Override action for the rule group. Valid values are `none` and `count`. Defaults to `none`. When set to `count`, the actions defined in the rule group rules are overridden to count matches instead of blocking or allowing requests.
         :param pulumi.Input[_builtins.int] priority: Priority of the rule within the Web ACL. Rules are evaluated in order of priority, with lower numbers evaluated first.
@@ -479,6 +481,7 @@ class WebAclRuleGroupAssociation(pulumi.CustomResource):
         $ pulumi import aws:wafv2/webAclRuleGroupAssociation:WebAclRuleGroupAssociation managed_example "arn:aws:wafv2:us-east-1:123456789012:regional/webacl/example-web-acl/12345678-1234-1234-1234-123456789012,AWS:AWSManagedRulesCommonRuleSet,aws-common-rule-set"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['WebAclRuleGroupAssociationManagedRuleGroupArgs', 'WebAclRuleGroupAssociationManagedRuleGroupArgsDict']] managed_rule_group: Managed Rule Group configuration. One of `rule_group_reference` or `managed_rule_group` is required. Conflicts with `rule_group_reference`. See below.
@@ -673,6 +676,7 @@ class WebAclRuleGroupAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:wafv2/webAclRuleGroupAssociation:WebAclRuleGroupAssociation managed_example "arn:aws:wafv2:us-east-1:123456789012:regional/webacl/example-web-acl/12345678-1234-1234-1234-123456789012,AWS:AWSManagedRulesCommonRuleSet,aws-common-rule-set"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WebAclRuleGroupAssociationArgs args: The arguments to use to populate this resource's properties.

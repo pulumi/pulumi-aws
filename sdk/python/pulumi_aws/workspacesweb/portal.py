@@ -33,6 +33,7 @@ class PortalArgs:
                  timeouts: Optional[pulumi.Input['PortalTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Portal resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the customer managed key. Forces replacement if changed.
         :param pulumi.Input[_builtins.str] authentication_type: Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
         :param pulumi.Input[_builtins.str] browser_settings_arn: ARN of the browser settings to use for the portal.
@@ -212,6 +213,7 @@ class _PortalState:
                  user_settings_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Portal resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the customer managed key. Forces replacement if changed.
         :param pulumi.Input[_builtins.str] authentication_type: Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
         :param pulumi.Input[_builtins.str] browser_settings_arn: ARN of the browser settings to use for the portal.
@@ -650,6 +652,7 @@ class Portal(pulumi.CustomResource):
         $ pulumi import aws:workspacesweb/portal:Portal example arn:aws:workspaces-web:us-west-2:123456789012:portal/abcdef12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the customer managed key. Forces replacement if changed.
@@ -714,6 +717,7 @@ class Portal(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:workspacesweb/portal:Portal example arn:aws:workspaces-web:us-west-2:123456789012:portal/abcdef12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PortalArgs args: The arguments to use to populate this resource's properties.

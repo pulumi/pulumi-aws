@@ -29,6 +29,7 @@ class BuildArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Build resource.
+
         :param pulumi.Input[_builtins.str] operating_system: Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
         :param pulumi.Input['BuildStorageLocationArgs'] storage_location: Information indicating where your game build files are stored. See below.
         :param pulumi.Input[_builtins.str] name: Name of the build
@@ -133,6 +134,7 @@ class _BuildState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Build resources.
+
         :param pulumi.Input[_builtins.str] arn: GameLift Build ARN.
         :param pulumi.Input[_builtins.str] name: Name of the build
         :param pulumi.Input[_builtins.str] operating_system: Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
@@ -296,6 +298,7 @@ class Build(pulumi.CustomResource):
         $ pulumi import aws:gamelift/build:Build example <build-id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the build
@@ -337,6 +340,7 @@ class Build(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:gamelift/build:Build example <build-id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BuildArgs args: The arguments to use to populate this resource's properties.

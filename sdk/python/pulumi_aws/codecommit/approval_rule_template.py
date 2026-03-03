@@ -25,6 +25,7 @@ class ApprovalRuleTemplateArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApprovalRuleTemplate resource.
+
         :param pulumi.Input[_builtins.str] content: The content of the approval rule template. Maximum of 3000 characters.
         :param pulumi.Input[_builtins.str] description: The description of the approval rule template. Maximum of 1000 characters.
         :param pulumi.Input[_builtins.str] name: The name for the approval rule template. Maximum of 100 characters.
@@ -101,6 +102,7 @@ class _ApprovalRuleTemplateState:
                  rule_content_sha256: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApprovalRuleTemplate resources.
+
         :param pulumi.Input[_builtins.str] approval_rule_template_id: The ID of the approval rule template
         :param pulumi.Input[_builtins.str] content: The content of the approval rule template. Maximum of 3000 characters.
         :param pulumi.Input[_builtins.str] creation_date: The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
@@ -282,6 +284,7 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
         $ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content: The content of the approval rule template. Maximum of 3000 characters.
@@ -326,6 +329,7 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApprovalRuleTemplateArgs args: The arguments to use to populate this resource's properties.

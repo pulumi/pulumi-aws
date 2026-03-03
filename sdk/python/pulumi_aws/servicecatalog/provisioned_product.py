@@ -38,6 +38,7 @@ class ProvisionedProductArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ProvisionedProduct resource.
+
         :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[_builtins.bool] ignore_errors: _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
         :param pulumi.Input[_builtins.str] name: User-friendly name of the provisioned product.
@@ -302,6 +303,7 @@ class _ProvisionedProductState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProvisionedProduct resources.
+
         :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[_builtins.str] arn: ARN of the provisioned product.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cloudwatch_dashboard_names: Set of CloudWatch dashboards that were created when provisioning the product.
@@ -776,6 +778,7 @@ class ProvisionedProduct(pulumi.CustomResource):
         $ pulumi import aws:servicecatalog/provisionedProduct:ProvisionedProduct example pp-dnigbtea24ste
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -841,6 +844,7 @@ class ProvisionedProduct(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:servicecatalog/provisionedProduct:ProvisionedProduct example pp-dnigbtea24ste
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProvisionedProductArgs args: The arguments to use to populate this resource's properties.

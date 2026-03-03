@@ -23,6 +23,7 @@ class ImageBlockPublicAccessArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ImageBlockPublicAccess resource.
+
         :param pulumi.Input[_builtins.str] state: The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `unblocked` and `block-new-sharing`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -62,6 +63,7 @@ class _ImageBlockPublicAccessState:
                  state: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ImageBlockPublicAccess resources.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] state: The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `unblocked` and `block-new-sharing`.
         """
@@ -124,6 +126,7 @@ class ImageBlockPublicAccess(pulumi.CustomResource):
 
         You cannot import this resource.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -154,6 +157,7 @@ class ImageBlockPublicAccess(pulumi.CustomResource):
         ## Import
 
         You cannot import this resource.
+
 
         :param str resource_name: The name of the resource.
         :param ImageBlockPublicAccessArgs args: The arguments to use to populate this resource's properties.

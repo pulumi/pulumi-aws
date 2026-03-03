@@ -26,6 +26,7 @@ class RoleMembershipArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RoleMembership resource.
+
         :param pulumi.Input[_builtins.str] member_name: Name of the group to be added to the role.
         :param pulumi.Input[_builtins.str] role: Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
                
@@ -116,6 +117,7 @@ class _RoleMembershipState:
                  role: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RoleMembership resources.
+
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] member_name: Name of the group to be added to the role.
         :param pulumi.Input[_builtins.str] namespace: Name of the namespace. Defaults to `default`.
@@ -236,6 +238,7 @@ class RoleMembership(pulumi.CustomResource):
         $ pulumi import aws:quicksight/roleMembership:RoleMembership example 012345678901,default,READER,example-group
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
@@ -277,6 +280,7 @@ class RoleMembership(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:quicksight/roleMembership:RoleMembership example 012345678901,default,READER,example-group
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RoleMembershipArgs args: The arguments to use to populate this resource's properties.

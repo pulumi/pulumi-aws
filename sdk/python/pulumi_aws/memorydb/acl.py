@@ -26,6 +26,7 @@ class AclArgs:
                  user_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Acl resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -117,6 +118,7 @@ class _AclState:
                  user_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Acl resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the ACL.
         :param pulumi.Input[_builtins.str] minimum_engine_version: The minimum engine version supported by the ACL.
         :param pulumi.Input[_builtins.str] name: Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -279,6 +281,7 @@ class Acl(pulumi.CustomResource):
         $ pulumi import aws:memorydb/acl:Acl example my-acl
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -319,6 +322,7 @@ class Acl(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:memorydb/acl:Acl example my-acl
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AclArgs args: The arguments to use to populate this resource's properties.

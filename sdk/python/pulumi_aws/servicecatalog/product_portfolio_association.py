@@ -26,6 +26,7 @@ class ProductPortfolioAssociationArgs:
                  source_portfolio_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProductPortfolioAssociation resource.
+
         :param pulumi.Input[_builtins.str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[_builtins.str] product_id: Product identifier.
                
@@ -116,6 +117,7 @@ class _ProductPortfolioAssociationState:
                  source_portfolio_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProductPortfolioAssociation resources.
+
         :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[_builtins.str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[_builtins.str] product_id: Product identifier.
@@ -234,6 +236,7 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
         $ pulumi import aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation example en:port-68656c6c6f:prod-dnigbtea24ste
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -273,6 +276,7 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation example en:port-68656c6c6f:prod-dnigbtea24ste
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProductPortfolioAssociationArgs args: The arguments to use to populate this resource's properties.

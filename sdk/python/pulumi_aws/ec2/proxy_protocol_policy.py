@@ -24,6 +24,7 @@ class ProxyProtocolPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProxyProtocolPolicy resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] instance_ports: List of instance ports to which the policy
                should be applied. This can be specified if the protocol is SSL or TCP.
         :param pulumi.Input[_builtins.str] load_balancer: The load balancer to which the policy
@@ -82,6 +83,7 @@ class _ProxyProtocolPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProxyProtocolPolicy resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] instance_ports: List of instance ports to which the policy
                should be applied. This can be specified if the protocol is SSL or TCP.
         :param pulumi.Input[_builtins.str] load_balancer: The load balancer to which the policy
@@ -178,6 +180,7 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
             ])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] instance_ports: List of instance ports to which the policy
@@ -225,6 +228,7 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
                 "587",
             ])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProxyProtocolPolicyArgs args: The arguments to use to populate this resource's properties.

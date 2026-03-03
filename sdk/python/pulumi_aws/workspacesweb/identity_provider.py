@@ -27,6 +27,7 @@ class IdentityProviderArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IdentityProvider resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] identity_provider_details: Identity provider details. The following list describes the provider detail keys for each identity provider type:
                * For Google and Login with Amazon:
         :param pulumi.Input[_builtins.str] identity_provider_name: Identity provider name.
@@ -135,6 +136,7 @@ class _IdentityProviderState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering IdentityProvider resources.
+
         :param pulumi.Input[_builtins.str] identity_provider_arn: ARN of the identity provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] identity_provider_details: Identity provider details. The following list describes the provider detail keys for each identity provider type:
                * For Google and Login with Amazon:
@@ -326,6 +328,7 @@ class IdentityProvider(pulumi.CustomResource):
         $ pulumi import aws:workspacesweb/identityProvider:IdentityProvider example arn:aws:workspaces-web:us-west-2:123456789012:identityprovider/abcdef12345678/12345678-1234-1234-1234-123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] identity_provider_details: Identity provider details. The following list describes the provider detail keys for each identity provider type:
@@ -392,6 +395,7 @@ class IdentityProvider(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:workspacesweb/identityProvider:IdentityProvider example arn:aws:workspaces-web:us-west-2:123456789012:identityprovider/abcdef12345678/12345678-1234-1234-1234-123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IdentityProviderArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class VpcEndpointServiceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpcEndpointService resource.
+
         :param pulumi.Input[_builtins.bool] acceptance_required: Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_principals: The ARNs of one or more principals allowed to discover the endpoint service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] gateway_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
@@ -192,6 +193,7 @@ class _VpcEndpointServiceState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering VpcEndpointService resources.
+
         :param pulumi.Input[_builtins.bool] acceptance_required: Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_principals: The ARNs of one or more principals allowed to discover the endpoint service.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the VPC endpoint service.
@@ -523,6 +525,7 @@ class VpcEndpointService(pulumi.CustomResource):
         $ pulumi import aws:ec2/vpcEndpointService:VpcEndpointService foo vpce-svc-0f97a19d3fa8220bc
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] acceptance_required: Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
@@ -582,6 +585,7 @@ class VpcEndpointService(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/vpcEndpointService:VpcEndpointService foo vpce-svc-0f97a19d3fa8220bc
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcEndpointServiceArgs args: The arguments to use to populate this resource's properties.

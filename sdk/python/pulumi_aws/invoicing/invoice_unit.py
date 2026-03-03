@@ -31,6 +31,7 @@ class InvoiceUnitArgs:
                  timeouts: Optional[pulumi.Input['InvoiceUnitTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a InvoiceUnit resource.
+
         :param pulumi.Input[_builtins.str] invoice_receiver: AWS account ID that receives invoices for this unit. Cannot be changed after creation.
         :param pulumi.Input[_builtins.str] description: Description of the invoice unit.
         :param pulumi.Input[_builtins.str] name: Unique name of the invoice unit. Cannot be changed after creation.
@@ -173,6 +174,7 @@ class _InvoiceUnitState:
                  timeouts: Optional[pulumi.Input['InvoiceUnitTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering InvoiceUnit resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the invoice unit.
         :param pulumi.Input[_builtins.str] description: Description of the invoice unit.
         :param pulumi.Input[_builtins.str] invoice_receiver: AWS account ID that receives invoices for this unit. Cannot be changed after creation.
@@ -389,6 +391,7 @@ class InvoiceUnit(pulumi.CustomResource):
         $ pulumi import aws:invoicing/invoiceUnit:InvoiceUnit example arn:aws:invoicing::123456789012:invoice-unit/example-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the invoice unit.
@@ -435,6 +438,7 @@ class InvoiceUnit(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:invoicing/invoiceUnit:InvoiceUnit example arn:aws:invoicing::123456789012:invoice-unit/example-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InvoiceUnitArgs args: The arguments to use to populate this resource's properties.

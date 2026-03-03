@@ -24,6 +24,7 @@ class PeeringAttachmentAccepterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PeeringAttachmentAccepter resource.
+
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: The ID of the EC2 Transit Gateway Peering Attachment to manage.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -84,6 +85,7 @@ class _PeeringAttachmentAccepterState:
                  transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PeeringAttachmentAccepter resources.
+
         :param pulumi.Input[_builtins.str] peer_account_id: Identifier of the AWS account that owns the EC2 TGW peering.
         :param pulumi.Input[_builtins.str] peer_transit_gateway_id: Identifier of EC2 Transit Gateway to peer with.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -237,6 +239,7 @@ class PeeringAttachmentAccepter(pulumi.CustomResource):
         $ pulumi import aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter example tgw-attach-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -272,6 +275,7 @@ class PeeringAttachmentAccepter(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter example tgw-attach-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PeeringAttachmentAccepterArgs args: The arguments to use to populate this resource's properties.

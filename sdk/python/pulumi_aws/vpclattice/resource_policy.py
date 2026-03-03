@@ -24,6 +24,7 @@ class ResourcePolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourcePolicy resource.
+
         :param pulumi.Input[_builtins.str] policy: An IAM policy. The policy string in JSON must not contain newlines or blank lines.
         :param pulumi.Input[_builtins.str] resource_arn: The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _ResourcePolicyState:
                  resource_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourcePolicy resources.
+
         :param pulumi.Input[_builtins.str] policy: An IAM policy. The policy string in JSON must not contain newlines or blank lines.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_arn: The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
@@ -179,6 +181,7 @@ class ResourcePolicy(pulumi.CustomResource):
         $ pulumi import aws:vpclattice/resourcePolicy:ResourcePolicy example rft-8012925589
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy: An IAM policy. The policy string in JSON must not contain newlines or blank lines.
@@ -233,6 +236,7 @@ class ResourcePolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:vpclattice/resourcePolicy:ResourcePolicy example rft-8012925589
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.

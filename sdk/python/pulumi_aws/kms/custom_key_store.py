@@ -34,6 +34,7 @@ class CustomKeyStoreArgs:
                  xks_proxy_vpc_endpoint_service_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomKeyStore resource.
+
         :param pulumi.Input[_builtins.str] custom_key_store_name: Unique name for Custom Key Store.
                
                The following arguments are optional:
@@ -189,6 +190,7 @@ class _CustomKeyStoreState:
                  xks_proxy_vpc_endpoint_service_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomKeyStore resources.
+
         :param pulumi.Input[_builtins.str] custom_key_store_name: Unique name for Custom Key Store.
                
                The following arguments are optional:
@@ -411,6 +413,7 @@ class CustomKeyStore(pulumi.CustomResource):
         $ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_key_store_name: Unique name for Custom Key Store.
@@ -488,6 +491,7 @@ class CustomKeyStore(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomKeyStoreArgs args: The arguments to use to populate this resource's properties.

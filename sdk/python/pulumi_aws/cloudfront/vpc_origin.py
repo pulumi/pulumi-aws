@@ -26,6 +26,7 @@ class VpcOriginArgs:
                  timeouts: Optional[pulumi.Input['VpcOriginTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a VpcOrigin resource.
+
         :param pulumi.Input['VpcOriginVpcOriginEndpointConfigArgs'] vpc_origin_endpoint_config: The VPC origin endpoint configuration.
                
                The following arguments are optional:
@@ -84,6 +85,7 @@ class _VpcOriginState:
                  vpc_origin_endpoint_config: Optional[pulumi.Input['VpcOriginVpcOriginEndpointConfigArgs']] = None):
         """
         Input properties used for looking up and filtering VpcOrigin resources.
+
         :param pulumi.Input[_builtins.str] arn: The VPC origin ARN.
         :param pulumi.Input[_builtins.str] etag: The current version of the origin.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -224,6 +226,7 @@ class VpcOrigin(pulumi.CustomResource):
         % pulumi import aws_cloudfront_vpc_origin vo_JQEa410sssUFoY6wMkx69j
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -273,6 +276,7 @@ class VpcOrigin(pulumi.CustomResource):
         ```sh
         % pulumi import aws_cloudfront_vpc_origin vo_JQEa410sssUFoY6wMkx69j
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcOriginArgs args: The arguments to use to populate this resource's properties.

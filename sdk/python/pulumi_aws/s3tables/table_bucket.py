@@ -29,6 +29,7 @@ class TableBucketArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TableBucket resource.
+
         :param pulumi.Input['TableBucketEncryptionConfigurationArgs'] encryption_configuration: A single table bucket encryption configuration object.
                See `encryption_configuration` below.
         :param pulumi.Input[_builtins.bool] force_destroy: Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
@@ -151,6 +152,7 @@ class _TableBucketState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering TableBucket resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the table bucket.
         :param pulumi.Input[_builtins.str] created_at: Date and time when the bucket was created.
         :param pulumi.Input['TableBucketEncryptionConfigurationArgs'] encryption_configuration: A single table bucket encryption configuration object.
@@ -353,6 +355,7 @@ class TableBucket(pulumi.CustomResource):
         $ pulumi import aws:s3tables/tableBucket:TableBucket example arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict']] encryption_configuration: A single table bucket encryption configuration object.
@@ -396,6 +399,7 @@ class TableBucket(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3tables/tableBucket:TableBucket example arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TableBucketArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class ApiKeyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiKey resource.
+
         :param pulumi.Input[_builtins.str] api_id: ID of the associated AppSync API
         :param pulumi.Input[_builtins.str] description: API key description. Defaults to "Managed by Pulumi".
         :param pulumi.Input[_builtins.str] expires: RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
@@ -100,6 +101,7 @@ class _ApiKeyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiKey resources.
+
         :param pulumi.Input[_builtins.str] api_id: ID of the associated AppSync API
         :param pulumi.Input[_builtins.str] description: API key description. Defaults to "Managed by Pulumi".
         :param pulumi.Input[_builtins.str] expires: RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
@@ -227,6 +229,7 @@ class ApiKey(pulumi.CustomResource):
         $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: ID of the associated AppSync API
@@ -264,6 +267,7 @@ class ApiKey(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApiKeyArgs args: The arguments to use to populate this resource's properties.

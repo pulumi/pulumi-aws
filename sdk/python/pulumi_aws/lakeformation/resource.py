@@ -28,6 +28,7 @@ class ResourceArgs:
                  with_privileged_access: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Resource resource.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the resource.
                
                The following arguments are optional:
@@ -156,6 +157,7 @@ class _ResourceState:
                  with_privileged_access: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Resource resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the resource.
                
                The following arguments are optional:
@@ -319,6 +321,7 @@ class Resource(pulumi.CustomResource):
         example_resource = aws.lakeformation.Resource("example", arn=example.arn)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the resource.
@@ -356,6 +359,7 @@ class Resource(pulumi.CustomResource):
         example = aws.s3.get_bucket(bucket="an-example-bucket")
         example_resource = aws.lakeformation.Resource("example", arn=example.arn)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceArgs args: The arguments to use to populate this resource's properties.

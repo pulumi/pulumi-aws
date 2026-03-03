@@ -30,6 +30,7 @@ class AgentAgentAliasArgs:
                  timeouts: Optional[pulumi.Input['AgentAgentAliasTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentAgentAlias resource.
+
         :param pulumi.Input[_builtins.str] agent_alias_name: Name of the alias.
         :param pulumi.Input[_builtins.str] agent_id: Identifier of the agent to create an alias for.
                
@@ -151,6 +152,7 @@ class _AgentAgentAliasState:
                  timeouts: Optional[pulumi.Input['AgentAgentAliasTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AgentAgentAlias resources.
+
         :param pulumi.Input[_builtins.str] agent_alias_arn: ARN of the alias.
         :param pulumi.Input[_builtins.str] agent_alias_id: Unique identifier of the alias.
         :param pulumi.Input[_builtins.str] agent_alias_name: Name of the alias.
@@ -380,6 +382,7 @@ class AgentAgentAlias(pulumi.CustomResource):
         $ pulumi import aws:bedrock/agentAgentAlias:AgentAgentAlias example 66IVY0GUTF,GGRRAED6JP
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_alias_name: Name of the alias.
@@ -458,6 +461,7 @@ class AgentAgentAlias(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:bedrock/agentAgentAlias:AgentAgentAlias example 66IVY0GUTF,GGRRAED6JP
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AgentAgentAliasArgs args: The arguments to use to populate this resource's properties.

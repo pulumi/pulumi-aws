@@ -28,6 +28,7 @@ class MapArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Map resource.
+
         :param pulumi.Input['MapConfigurationArgs'] configuration: Configuration block with the map style selected from an available data provider. Detailed below.
         :param pulumi.Input[_builtins.str] map_name: The name for the map resource.
                
@@ -122,6 +123,7 @@ class _MapState:
                  update_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Map resources.
+
         :param pulumi.Input['MapConfigurationArgs'] configuration: Configuration block with the map style selected from an available data provider. Detailed below.
         :param pulumi.Input[_builtins.str] create_time: The timestamp for when the map resource was created in ISO 8601 format.
         :param pulumi.Input[_builtins.str] description: An optional description for the map resource.
@@ -300,6 +302,7 @@ class Map(pulumi.CustomResource):
         $ pulumi import aws:location/map:Map example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['MapConfigurationArgs', 'MapConfigurationArgsDict']] configuration: Configuration block with the map style selected from an available data provider. Detailed below.
@@ -339,6 +342,7 @@ class Map(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:location/map:Map example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MapArgs args: The arguments to use to populate this resource's properties.

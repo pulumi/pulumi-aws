@@ -30,6 +30,7 @@ class IpAccessSettingsArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IpAccessSettings resource.
+
         :param pulumi.Input[_builtins.str] display_name: The display name of the IP access settings.
         :param pulumi.Input[Sequence[pulumi.Input['IpAccessSettingsIpRuleArgs']]] ip_rules: The IP rules of the IP access settings. See IP Rule below.
                
@@ -155,6 +156,7 @@ class _IpAccessSettingsState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering IpAccessSettings resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the IP access settings.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_portal_arns: List of web portal ARNs that this IP access settings resource is associated with.
         :param pulumi.Input[_builtins.str] customer_managed_key: ARN of the customer managed KMS key.
@@ -404,6 +406,7 @@ class IpAccessSettings(pulumi.CustomResource):
         $ pulumi import aws:workspacesweb/ipAccessSettings:IpAccessSettings example arn:aws:workspaces-web:us-west-2:123456789012:ipAccessSettings/abcdef12345
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the IP access settings.
@@ -499,6 +502,7 @@ class IpAccessSettings(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:workspacesweb/ipAccessSettings:IpAccessSettings example arn:aws:workspaces-web:us-west-2:123456789012:ipAccessSettings/abcdef12345
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IpAccessSettingsArgs args: The arguments to use to populate this resource's properties.

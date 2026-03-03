@@ -26,6 +26,7 @@ class RouteCalculationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RouteCalculation resource.
+
         :param pulumi.Input[_builtins.str] calculator_name: The name of the route calculator resource.
         :param pulumi.Input[_builtins.str] data_source: Specifies the data provider of traffic and road network data.
                
@@ -120,6 +121,7 @@ class _RouteCalculationState:
                  update_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RouteCalculation resources.
+
         :param pulumi.Input[_builtins.str] calculator_arn: The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
         :param pulumi.Input[_builtins.str] calculator_name: The name of the route calculator resource.
         :param pulumi.Input[_builtins.str] create_time: The timestamp for when the route calculator resource was created in ISO 8601 format.
@@ -296,6 +298,7 @@ class RouteCalculation(pulumi.CustomResource):
         $ pulumi import aws:location/routeCalculation:RouteCalculation example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] calculator_name: The name of the route calculator resource.
@@ -333,6 +336,7 @@ class RouteCalculation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:location/routeCalculation:RouteCalculation example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RouteCalculationArgs args: The arguments to use to populate this resource's properties.

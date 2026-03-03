@@ -29,6 +29,7 @@ class CoreNetworkArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CoreNetwork resource.
+
         :param pulumi.Input[_builtins.str] global_network_id: ID of the global network that a core network will be a part of.
                
                The following arguments are optional:
@@ -192,6 +193,7 @@ class _CoreNetworkState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CoreNetwork resources.
+
         :param pulumi.Input[_builtins.str] arn: Core Network ARN.
         :param pulumi.Input[_builtins.str] base_policy_document: Sets the base policy document for the core network. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] base_policy_regions: List of regions to add to the base policy. The base policy created by setting the `create_base_policy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `base_policy_regions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
@@ -721,6 +723,7 @@ class CoreNetwork(pulumi.CustomResource):
         $ pulumi import aws:networkmanager/coreNetwork:CoreNetwork example core-network-0d47f6t230mz46dy4
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] base_policy_document: Sets the base policy document for the core network. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
@@ -1041,6 +1044,7 @@ class CoreNetwork(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:networkmanager/coreNetwork:CoreNetwork example core-network-0d47f6t230mz46dy4
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CoreNetworkArgs args: The arguments to use to populate this resource's properties.

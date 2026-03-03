@@ -25,6 +25,7 @@ class ConnectionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Connection resource.
+
         :param pulumi.Input[_builtins.str] connection_name: Name of the connection.
         :param pulumi.Input[_builtins.str] provider_type: Source repository provider. Valid values: `GITHUB`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -98,6 +99,7 @@ class _ConnectionState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Connection resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the connection.
         :param pulumi.Input[_builtins.str] connection_name: Name of the connection.
         :param pulumi.Input[_builtins.str] provider_type: Source repository provider. Valid values: `GITHUB`.
@@ -244,6 +246,7 @@ class Connection(pulumi.CustomResource):
         $ pulumi import aws:apprunner/connection:Connection example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connection_name: Name of the connection.
@@ -283,6 +286,7 @@ class Connection(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apprunner/connection:Connection example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConnectionArgs args: The arguments to use to populate this resource's properties.

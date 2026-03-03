@@ -32,6 +32,7 @@ class AgentcoreMemoryStrategyArgs:
                  timeouts: Optional[pulumi.Input['AgentcoreMemoryStrategyTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentcoreMemoryStrategy resource.
+
         :param pulumi.Input[_builtins.str] memory_id: ID of the memory to associate with this strategy. Changing this forces a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespaces: Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
                
@@ -178,6 +179,7 @@ class _AgentcoreMemoryStrategyState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AgentcoreMemoryStrategy resources.
+
         :param pulumi.Input['AgentcoreMemoryStrategyConfigurationArgs'] configuration: Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the memory strategy.
         :param pulumi.Input[_builtins.str] memory_id: ID of the memory to associate with this strategy. Changing this forces a new resource.
@@ -476,6 +478,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
         $ pulumi import aws:bedrock/agentcoreMemoryStrategy:AgentcoreMemoryStrategy example MEMORY1234567890,STRATEGY0987654321
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AgentcoreMemoryStrategyConfigurationArgs', 'AgentcoreMemoryStrategyConfigurationArgsDict']] configuration: Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
@@ -626,6 +629,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:bedrock/agentcoreMemoryStrategy:AgentcoreMemoryStrategy example MEMORY1234567890,STRATEGY0987654321
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AgentcoreMemoryStrategyArgs args: The arguments to use to populate this resource's properties.

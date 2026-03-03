@@ -28,6 +28,7 @@ class ManagedPolicyAttachmentsExclusiveArgs:
                  timeouts: Optional[pulumi.Input['ManagedPolicyAttachmentsExclusiveTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ManagedPolicyAttachmentsExclusive resource.
+
         :param pulumi.Input[_builtins.str] instance_arn: ARN of the SSO Instance.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] managed_policy_arns: Set of ARNs of IAM managed policies to attach to the Permission Set.
         :param pulumi.Input[_builtins.str] permission_set_arn: ARN of the Permission Set.
@@ -113,6 +114,7 @@ class _ManagedPolicyAttachmentsExclusiveState:
                  timeouts: Optional[pulumi.Input['ManagedPolicyAttachmentsExclusiveTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ManagedPolicyAttachmentsExclusive resources.
+
         :param pulumi.Input[_builtins.str] instance_arn: ARN of the SSO Instance.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] managed_policy_arns: Set of ARNs of IAM managed policies to attach to the Permission Set.
         :param pulumi.Input[_builtins.str] permission_set_arn: ARN of the Permission Set.
@@ -265,6 +267,7 @@ class ManagedPolicyAttachmentsExclusive(pulumi.CustomResource):
         $ pulumi import aws:ssoadmin/managedPolicyAttachmentsExclusive:ManagedPolicyAttachmentsExclusive example arn:aws:sso:::instance/ssoins-1234567890abcdef,arn:aws:sso:::permissionSet/ssoins-1234567890abcdef/ps-1234567890abcdef
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] instance_arn: ARN of the SSO Instance.
@@ -341,6 +344,7 @@ class ManagedPolicyAttachmentsExclusive(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ssoadmin/managedPolicyAttachmentsExclusive:ManagedPolicyAttachmentsExclusive example arn:aws:sso:::instance/ssoins-1234567890abcdef,arn:aws:sso:::permissionSet/ssoins-1234567890abcdef/ps-1234567890abcdef
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedPolicyAttachmentsExclusiveArgs args: The arguments to use to populate this resource's properties.

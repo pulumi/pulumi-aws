@@ -26,6 +26,7 @@ class LicenseGrantArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LicenseGrant resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_operations: A list of the allowed operations for the grant. This is a subset of the allowed operations on the license.
         :param pulumi.Input[_builtins.str] license_arn: The ARN of the license to grant.
         :param pulumi.Input[_builtins.str] principal: The target account for the grant in the form of the ARN for an account principal of the root user.
@@ -116,6 +117,7 @@ class _LicenseGrantState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LicenseGrant resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_operations: A list of the allowed operations for the grant. This is a subset of the allowed operations on the license.
         :param pulumi.Input[_builtins.str] arn: The grant ARN.
         :param pulumi.Input[_builtins.str] home_region: The home region for the license.
@@ -312,6 +314,7 @@ class LicenseGrant(pulumi.CustomResource):
         $ pulumi import aws:licensemanager/licenseGrant:LicenseGrant test arn:aws:license-manager::123456789011:grant:g-01d313393d9e443d8664cc054db1e089
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_operations: A list of the allowed operations for the grant. This is a subset of the allowed operations on the license.
@@ -356,6 +359,7 @@ class LicenseGrant(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:licensemanager/licenseGrant:LicenseGrant test arn:aws:license-manager::123456789011:grant:g-01d313393d9e443d8664cc054db1e089
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LicenseGrantArgs args: The arguments to use to populate this resource's properties.

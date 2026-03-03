@@ -66,6 +66,7 @@ class GroupArgs:
                  warm_pool: Optional[pulumi.Input['GroupWarmPoolArgs']] = None):
         """
         The set of arguments for constructing a Group resource.
+
         :param pulumi.Input[_builtins.int] max_size: Maximum size of the Auto Scaling Group.
         :param pulumi.Input[_builtins.int] min_size: Minimum size of the Auto Scaling Group.
                (See also Waiting for Capacity below.)
@@ -815,6 +816,7 @@ class _GroupState:
                  warm_pool_size: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Group resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN for this Auto Scaling Group
         :param pulumi.Input['GroupAvailabilityZoneDistributionArgs'] availability_zone_distribution: The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
@@ -2040,6 +2042,7 @@ class Group(pulumi.CustomResource):
         $ pulumi import aws:autoscaling/group:Group web web-asg
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['GroupAvailabilityZoneDistributionArgs', 'GroupAvailabilityZoneDistributionArgsDict']] availability_zone_distribution: The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
@@ -2554,6 +2557,7 @@ class Group(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:autoscaling/group:Group web web-asg
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.

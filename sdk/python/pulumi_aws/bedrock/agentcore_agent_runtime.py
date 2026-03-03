@@ -36,6 +36,7 @@ class AgentcoreAgentRuntimeArgs:
                  timeouts: Optional[pulumi.Input['AgentcoreAgentRuntimeTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentcoreAgentRuntime resource.
+
         :param pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs'] agent_runtime_artifact: Container artifact configuration. See `agent_runtime_artifact` below.
         :param pulumi.Input[_builtins.str] agent_runtime_name: Name of the agent runtime.
         :param pulumi.Input['AgentcoreAgentRuntimeNetworkConfigurationArgs'] network_configuration: Network configuration for the agent runtime. See `network_configuration` below.
@@ -253,6 +254,7 @@ class _AgentcoreAgentRuntimeState:
                  workload_identity_details: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreAgentRuntimeWorkloadIdentityDetailArgs']]]] = None):
         """
         Input properties used for looking up and filtering AgentcoreAgentRuntime resources.
+
         :param pulumi.Input[_builtins.str] agent_runtime_arn: ARN of the Agent Runtime.
         :param pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs'] agent_runtime_artifact: Container artifact configuration. See `agent_runtime_artifact` below.
         :param pulumi.Input[_builtins.str] agent_runtime_id: Unique identifier of the Agent Runtime.
@@ -673,6 +675,7 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
         $ pulumi import aws:bedrock/agentcoreAgentRuntime:AgentcoreAgentRuntime example agent-runtime-12345
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs', 'AgentcoreAgentRuntimeAgentRuntimeArtifactArgsDict']] agent_runtime_artifact: Container artifact configuration. See `agent_runtime_artifact` below.
@@ -822,6 +825,7 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:bedrock/agentcoreAgentRuntime:AgentcoreAgentRuntime example agent-runtime-12345
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AgentcoreAgentRuntimeArgs args: The arguments to use to populate this resource's properties.

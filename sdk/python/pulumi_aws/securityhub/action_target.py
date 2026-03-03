@@ -25,6 +25,7 @@ class ActionTargetArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ActionTarget resource.
+
         :param pulumi.Input[_builtins.str] description: The name of the custom action target.
         :param pulumi.Input[_builtins.str] identifier: The ID for the custom action target.
         :param pulumi.Input[_builtins.str] name: The description for the custom action target.
@@ -96,6 +97,7 @@ class _ActionTargetState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActionTarget resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Security Hub custom action target.
         :param pulumi.Input[_builtins.str] description: The name of the custom action target.
         :param pulumi.Input[_builtins.str] identifier: The ID for the custom action target.
@@ -210,6 +212,7 @@ class ActionTarget(pulumi.CustomResource):
         $ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The name of the custom action target.
@@ -247,6 +250,7 @@ class ActionTarget(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ActionTargetArgs args: The arguments to use to populate this resource's properties.

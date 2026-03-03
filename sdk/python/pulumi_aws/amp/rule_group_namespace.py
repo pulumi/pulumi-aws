@@ -26,6 +26,7 @@ class RuleGroupNamespaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RuleGroupNamespace resource.
+
         :param pulumi.Input[_builtins.str] data: the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
         :param pulumi.Input[_builtins.str] workspace_id: ID of the prometheus workspace the rule group namespace should be linked to.
         :param pulumi.Input[_builtins.str] name: The name of the rule group namespace.
@@ -114,6 +115,7 @@ class _RuleGroupNamespaceState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RuleGroupNamespace resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the rule group namespace.
         :param pulumi.Input[_builtins.str] data: the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
         :param pulumi.Input[_builtins.str] name: The name of the rule group namespace.
@@ -263,6 +265,7 @@ class RuleGroupNamespace(pulumi.CustomResource):
         $ pulumi import aws:amp/ruleGroupNamespace:RuleGroupNamespace demo arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data: the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
@@ -305,6 +308,7 @@ class RuleGroupNamespace(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:amp/ruleGroupNamespace:RuleGroupNamespace demo arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RuleGroupNamespaceArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class PhoneNumberArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PhoneNumber resource.
+
         :param pulumi.Input[_builtins.str] country_code: The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
         :param pulumi.Input[_builtins.str] target_arn: The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
         :param pulumi.Input[_builtins.str] type: The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
@@ -151,6 +152,7 @@ class _PhoneNumberState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PhoneNumber resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the phone number.
         :param pulumi.Input[_builtins.str] country_code: The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
         :param pulumi.Input[_builtins.str] description: The description of the phone number.
@@ -399,6 +401,7 @@ class PhoneNumber(pulumi.CustomResource):
         $ pulumi import aws:connect/phoneNumber:PhoneNumber example 12345678-abcd-1234-efgh-9876543210ab
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] country_code: The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
@@ -480,6 +483,7 @@ class PhoneNumber(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:connect/phoneNumber:PhoneNumber example 12345678-abcd-1234-efgh-9876543210ab
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PhoneNumberArgs args: The arguments to use to populate this resource's properties.

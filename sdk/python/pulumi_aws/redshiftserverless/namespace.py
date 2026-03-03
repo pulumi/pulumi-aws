@@ -35,6 +35,7 @@ class NamespaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Namespace resource.
+
         :param pulumi.Input[_builtins.str] namespace_name: The name of the namespace.
         :param pulumi.Input[_builtins.str] admin_password_secret_kms_key_id: ID of the KMS key used to encrypt the namespace's admin credentials secret.
         :param pulumi.Input[_builtins.str] admin_user_password: The password of the administrator for the first database created in the namespace.
@@ -278,6 +279,7 @@ class _NamespaceState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Namespace resources.
+
         :param pulumi.Input[_builtins.str] admin_password_secret_arn: Amazon Resource Name (ARN) of namespace's admin user credentials secret.
         :param pulumi.Input[_builtins.str] admin_password_secret_kms_key_id: ID of the KMS key used to encrypt the namespace's admin credentials secret.
         :param pulumi.Input[_builtins.str] admin_user_password: The password of the administrator for the first database created in the namespace.
@@ -602,6 +604,7 @@ class Namespace(pulumi.CustomResource):
         $ pulumi import aws:redshiftserverless/namespace:Namespace example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] admin_password_secret_kms_key_id: ID of the KMS key used to encrypt the namespace's admin credentials secret.
@@ -650,6 +653,7 @@ class Namespace(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:redshiftserverless/namespace:Namespace example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NamespaceArgs args: The arguments to use to populate this resource's properties.

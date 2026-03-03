@@ -25,6 +25,7 @@ class BackupArgs:
                  volume_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Backup resource.
+
         :param pulumi.Input[_builtins.str] file_system_id: The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
@@ -106,6 +107,7 @@ class _BackupState:
                  volume_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Backup resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the backup.
         :param pulumi.Input[_builtins.str] file_system_id: The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
         :param pulumi.Input[_builtins.str] kms_key_id: The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
@@ -328,6 +330,7 @@ class Backup(pulumi.CustomResource):
         $ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] file_system_id: The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
@@ -411,6 +414,7 @@ class Backup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BackupArgs args: The arguments to use to populate this resource's properties.

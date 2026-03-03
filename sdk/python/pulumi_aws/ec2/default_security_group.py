@@ -29,6 +29,7 @@ class DefaultSecurityGroupArgs:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DefaultSecurityGroup resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['DefaultSecurityGroupEgressArgs']]] egress: Configuration block. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['DefaultSecurityGroupIngressArgs']]] ingress: Configuration block. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -135,6 +136,7 @@ class _DefaultSecurityGroupState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DefaultSecurityGroup resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the security group.
         :param pulumi.Input[_builtins.str] description: Description of the security group.
         :param pulumi.Input[Sequence[pulumi.Input['DefaultSecurityGroupEgressArgs']]] egress: Configuration block. Detailed below.
@@ -390,6 +392,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         $ pulumi import aws:ec2/defaultSecurityGroup:DefaultSecurityGroup default_sg sg-903004f8
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultSecurityGroupEgressArgs', 'DefaultSecurityGroupEgressArgsDict']]]] egress: Configuration block. Detailed below.
@@ -470,6 +473,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/defaultSecurityGroup:DefaultSecurityGroup default_sg sg-903004f8
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DefaultSecurityGroupArgs args: The arguments to use to populate this resource's properties.

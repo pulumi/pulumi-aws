@@ -24,6 +24,7 @@ class SnapshotCreateVolumePermissionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SnapshotCreateVolumePermission resource.
+
         :param pulumi.Input[_builtins.str] account_id: An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
         :param pulumi.Input[_builtins.str] snapshot_id: A snapshot ID
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _SnapshotCreateVolumePermissionState:
                  snapshot_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SnapshotCreateVolumePermission resources.
+
         :param pulumi.Input[_builtins.str] account_id: An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] snapshot_id: A snapshot ID
@@ -154,6 +156,7 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
             account_id="12345678")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
@@ -183,6 +186,7 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
             snapshot_id=example_snapshot.id,
             account_id="12345678")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SnapshotCreateVolumePermissionArgs args: The arguments to use to populate this resource's properties.

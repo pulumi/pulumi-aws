@@ -34,6 +34,7 @@ class DataSourceArgs:
                  vpc_connection_properties: Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DataSource resource.
+
         :param pulumi.Input[_builtins.str] data_source_id: An identifier for the data source.
         :param pulumi.Input['DataSourceParametersArgs'] parameters: The parameters used to connect to this data source (exactly one).
         :param pulumi.Input[_builtins.str] type: The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
@@ -221,6 +222,7 @@ class _DataSourceState:
                  vpc_connection_properties: Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']] = None):
         """
         Input properties used for looking up and filtering DataSource resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the data source
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input['DataSourceCredentialsArgs'] credentials: The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
@@ -556,6 +558,7 @@ class DataSource(pulumi.CustomResource):
         $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
@@ -692,6 +695,7 @@ class DataSource(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataSourceArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class AssessmentTargetArgs:
                  resource_group_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AssessmentTarget resource.
+
         :param pulumi.Input[_builtins.str] name: The name of the assessment target.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_group_arn: Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
@@ -81,6 +82,7 @@ class _AssessmentTargetState:
                  resource_group_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AssessmentTarget resources.
+
         :param pulumi.Input[_builtins.str] arn: The target assessment ARN.
         :param pulumi.Input[_builtins.str] name: The name of the assessment target.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -186,6 +188,7 @@ class AssessmentTarget(pulumi.CustomResource):
         $ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the assessment target.
@@ -229,6 +232,7 @@ class AssessmentTarget(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AssessmentTargetArgs args: The arguments to use to populate this resource's properties.

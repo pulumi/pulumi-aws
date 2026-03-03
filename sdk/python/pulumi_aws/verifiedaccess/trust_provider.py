@@ -34,6 +34,7 @@ class TrustProviderArgs:
                  user_trust_provider_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TrustProvider resource.
+
         :param pulumi.Input[_builtins.str] policy_reference_name: The identifier to be used when working with policy rules.
         :param pulumi.Input[_builtins.str] trust_provider_type: The type of trust provider can be either user or device-based.
                
@@ -217,6 +218,7 @@ class _TrustProviderState:
                  user_trust_provider_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TrustProvider resources.
+
         :param pulumi.Input[_builtins.str] description: A description for the AWS Verified Access trust provider.
         :param pulumi.Input['TrustProviderDeviceOptionsArgs'] device_options: A block of options for device identity based trust providers.
         :param pulumi.Input[_builtins.str] device_trust_provider_type: The type of device-based trust provider.
@@ -437,6 +439,7 @@ class TrustProvider(pulumi.CustomResource):
         $ pulumi import aws:verifiedaccess/trustProvider:TrustProvider example vatp-8012925589
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the AWS Verified Access trust provider.
@@ -480,6 +483,7 @@ class TrustProvider(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:verifiedaccess/trustProvider:TrustProvider example vatp-8012925589
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TrustProviderArgs args: The arguments to use to populate this resource's properties.

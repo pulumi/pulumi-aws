@@ -25,6 +25,7 @@ class RouteTableAssociationArgs:
                  replace_existing_association: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a RouteTableAssociation resource.
+
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[_builtins.str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -97,6 +98,7 @@ class _RouteTableAssociationState:
                  transit_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RouteTableAssociation resources.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] replace_existing_association: Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
         :param pulumi.Input[_builtins.str] resource_id: Identifier of the resource
@@ -274,6 +276,7 @@ class RouteTableAssociation(pulumi.CustomResource):
         $ pulumi import aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -359,6 +362,7 @@ class RouteTableAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RouteTableAssociationArgs args: The arguments to use to populate this resource's properties.

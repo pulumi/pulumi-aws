@@ -27,6 +27,7 @@ class LoggingConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LoggingConfiguration resource.
+
         :param pulumi.Input[_builtins.str] firewall_arn: The Amazon Resource Name (ARN) of the Network Firewall firewall.
         :param pulumi.Input['LoggingConfigurationLoggingConfigurationArgs'] logging_configuration: A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
         :param pulumi.Input[_builtins.bool] enable_monitoring_dashboard: Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
@@ -97,6 +98,7 @@ class _LoggingConfigurationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LoggingConfiguration resources.
+
         :param pulumi.Input[_builtins.bool] enable_monitoring_dashboard: Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
         :param pulumi.Input[_builtins.str] firewall_arn: The Amazon Resource Name (ARN) of the Network Firewall firewall.
         :param pulumi.Input['LoggingConfigurationLoggingConfigurationArgs'] logging_configuration: A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
@@ -242,6 +244,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         $ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enable_monitoring_dashboard: Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
@@ -325,6 +328,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LoggingConfigurationArgs args: The arguments to use to populate this resource's properties.

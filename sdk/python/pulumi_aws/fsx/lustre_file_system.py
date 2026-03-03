@@ -52,6 +52,7 @@ class LustreFileSystemArgs:
                  weekly_maintenance_start_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LustreFileSystem resource.
+
         :param pulumi.Input[_builtins.str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
                
                The following arguments are optional:
@@ -538,6 +539,7 @@ class _LustreFileSystemState:
                  weekly_maintenance_start_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LustreFileSystem resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the file system.
         :param pulumi.Input[_builtins.str] auto_import_policy: How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details. Only supported on `PERSISTENT_1` deployment types.
         :param pulumi.Input[_builtins.int] automatic_backup_retention_days: The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
@@ -1159,6 +1161,7 @@ class LustreFileSystem(pulumi.CustomResource):
         example = aws.fsx.LustreFileSystem("example", security_group_ids=[example_aws_security_group["id"]])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auto_import_policy: How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details. Only supported on `PERSISTENT_1` deployment types.
@@ -1235,6 +1238,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
         example = aws.fsx.LustreFileSystem("example", security_group_ids=[example_aws_security_group["id"]])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LustreFileSystemArgs args: The arguments to use to populate this resource's properties.

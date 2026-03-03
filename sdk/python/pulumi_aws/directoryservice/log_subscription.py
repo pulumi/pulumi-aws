@@ -24,6 +24,7 @@ class LogSubscriptionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogSubscription resource.
+
         :param pulumi.Input[_builtins.str] directory_id: ID of directory.
         :param pulumi.Input[_builtins.str] log_group_name: Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _LogSubscriptionState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogSubscription resources.
+
         :param pulumi.Input[_builtins.str] directory_id: ID of directory.
         :param pulumi.Input[_builtins.str] log_group_name: Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -176,6 +178,7 @@ class LogSubscription(pulumi.CustomResource):
         $ pulumi import aws:directoryservice/logSubscription:LogSubscription msad d-1234567890
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] directory_id: ID of directory.
@@ -227,6 +230,7 @@ class LogSubscription(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:directoryservice/logSubscription:LogSubscription msad d-1234567890
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LogSubscriptionArgs args: The arguments to use to populate this resource's properties.

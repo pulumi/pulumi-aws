@@ -26,6 +26,7 @@ class VaultLockConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VaultLockConfiguration resource.
+
         :param pulumi.Input[_builtins.str] backup_vault_name: Name of the backup vault to add a lock configuration for.
         :param pulumi.Input[_builtins.int] changeable_for_days: The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
         :param pulumi.Input[_builtins.int] max_retention_days: The maximum retention period that the vault retains its recovery points.
@@ -114,6 +115,7 @@ class _VaultLockConfigurationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VaultLockConfiguration resources.
+
         :param pulumi.Input[_builtins.str] backup_vault_arn: The ARN of the vault.
         :param pulumi.Input[_builtins.str] backup_vault_name: Name of the backup vault to add a lock configuration for.
         :param pulumi.Input[_builtins.int] changeable_for_days: The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
@@ -243,6 +245,7 @@ class VaultLockConfiguration(pulumi.CustomResource):
         $ pulumi import aws:backup/vaultLockConfiguration:VaultLockConfiguration test TestVault
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] backup_vault_name: Name of the backup vault to add a lock configuration for.
@@ -280,6 +283,7 @@ class VaultLockConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:backup/vaultLockConfiguration:VaultLockConfiguration test TestVault
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VaultLockConfigurationArgs args: The arguments to use to populate this resource's properties.

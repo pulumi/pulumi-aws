@@ -23,6 +23,7 @@ class GroupPoliciesExclusiveArgs:
                  policy_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The set of arguments for constructing a GroupPoliciesExclusive resource.
+
         :param pulumi.Input[_builtins.str] group_name: IAM group name.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policy_names: A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
         """
@@ -61,6 +62,7 @@ class _GroupPoliciesExclusiveState:
                  policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering GroupPoliciesExclusive resources.
+
         :param pulumi.Input[_builtins.str] group_name: IAM group name.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policy_names: A list of inline policy names to be assigned to the group. Policies attached to this group but not configured in this argument will be removed.
         """
@@ -146,6 +148,7 @@ class GroupPoliciesExclusive(pulumi.CustomResource):
         $ pulumi import aws:iam/groupPoliciesExclusive:GroupPoliciesExclusive example MyGroup
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] group_name: IAM group name.
@@ -199,6 +202,7 @@ class GroupPoliciesExclusive(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iam/groupPoliciesExclusive:GroupPoliciesExclusive example MyGroup
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GroupPoliciesExclusiveArgs args: The arguments to use to populate this resource's properties.

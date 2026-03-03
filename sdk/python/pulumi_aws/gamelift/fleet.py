@@ -38,6 +38,7 @@ class FleetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Fleet resource.
+
         :param pulumi.Input[_builtins.str] ec2_instance_type: Name of an EC2 instance typeE.g., `t2.micro`
         :param pulumi.Input[_builtins.str] build_id: ID of the GameLift Build to be deployed on the fleet. Conflicts with `script_id`.
         :param pulumi.Input['FleetCertificateConfigurationArgs'] certificate_configuration: Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
@@ -291,6 +292,7 @@ class _FleetState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Fleet resources.
+
         :param pulumi.Input[_builtins.str] arn: Fleet ARN.
         :param pulumi.Input[_builtins.str] build_arn: Build ARN.
         :param pulumi.Input[_builtins.str] build_id: ID of the GameLift Build to be deployed on the fleet. Conflicts with `script_id`.
@@ -657,6 +659,7 @@ class Fleet(pulumi.CustomResource):
         $ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] build_id: ID of the GameLift Build to be deployed on the fleet. Conflicts with `script_id`.
@@ -710,6 +713,7 @@ class Fleet(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FleetArgs args: The arguments to use to populate this resource's properties.

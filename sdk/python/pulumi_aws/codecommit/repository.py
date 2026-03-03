@@ -27,6 +27,7 @@ class RepositoryArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Repository resource.
+
         :param pulumi.Input[_builtins.str] repository_name: The name for the repository. This needs to be less than 100 characters.
         :param pulumi.Input[_builtins.str] default_branch: The default branch of the repository. The branch specified here needs to exist.
         :param pulumi.Input[_builtins.str] description: The description of the repository. This needs to be less than 1000 characters
@@ -135,6 +136,7 @@ class _RepositoryState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Repository resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the repository
         :param pulumi.Input[_builtins.str] clone_url_http: The URL to use for cloning the repository over HTTPS.
         :param pulumi.Input[_builtins.str] clone_url_ssh: The URL to use for cloning the repository over SSH.
@@ -353,6 +355,7 @@ class Repository(pulumi.CustomResource):
         $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] default_branch: The default branch of the repository. The branch specified here needs to exist.
@@ -404,6 +407,7 @@ class Repository(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryArgs args: The arguments to use to populate this resource's properties.

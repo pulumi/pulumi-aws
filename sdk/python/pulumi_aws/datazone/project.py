@@ -30,6 +30,7 @@ class ProjectArgs:
                  timeouts: Optional[pulumi.Input['ProjectTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Project resource.
+
         :param pulumi.Input[_builtins.str] domain_identifier: Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
         :param pulumi.Input[_builtins.str] description: Description of project.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] glossary_terms: List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
@@ -154,6 +155,7 @@ class _ProjectState:
                  timeouts: Optional[pulumi.Input['ProjectTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Project resources.
+
         :param pulumi.Input[_builtins.str] created_at: Timestamp of when the project was made.
         :param pulumi.Input[_builtins.str] created_by: Creator of the project.
         :param pulumi.Input[_builtins.str] description: Description of project.
@@ -387,6 +389,7 @@ class Project(pulumi.CustomResource):
         $ pulumi import aws:datazone/project:Project example domain-1234:project-1234
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of project.
@@ -439,6 +442,7 @@ class Project(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:datazone/project:Project example domain-1234:project-1234
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.

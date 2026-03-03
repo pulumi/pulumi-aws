@@ -28,6 +28,7 @@ class AgentcoreApiKeyCredentialProviderArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AgentcoreApiKeyCredentialProvider resource.
+
         :param pulumi.Input[_builtins.str] api_key: API key value. Cannot be used with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
                
                **Write-Only API Key (choose one approach):**
@@ -132,6 +133,7 @@ class _AgentcoreApiKeyCredentialProviderState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AgentcoreApiKeyCredentialProvider resources.
+
         :param pulumi.Input[_builtins.str] api_key: API key value. Cannot be used with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
                
                **Write-Only API Key (choose one approach):**
@@ -304,6 +306,7 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
         $ pulumi import aws:bedrock/agentcoreApiKeyCredentialProvider:AgentcoreApiKeyCredentialProvider example example-api-key-provider
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_key: API key value. Cannot be used with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
@@ -362,6 +365,7 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:bedrock/agentcoreApiKeyCredentialProvider:AgentcoreApiKeyCredentialProvider example example-api-key-provider
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AgentcoreApiKeyCredentialProviderArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class LoadBalancerBackendServerPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LoadBalancerBackendServerPolicy resource.
+
         :param pulumi.Input[_builtins.int] instance_port: The instance port to apply the policy to.
         :param pulumi.Input[_builtins.str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policy_names: List of Policy Names to apply to the backend server.
@@ -95,6 +96,7 @@ class _LoadBalancerBackendServerPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LoadBalancerBackendServerPolicy resources.
+
         :param pulumi.Input[_builtins.int] instance_port: The instance port to apply the policy to.
         :param pulumi.Input[_builtins.str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] policy_names: List of Policy Names to apply to the backend server.
@@ -214,6 +216,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
             policy_names=[wu_tang_root_ca_backend_auth_policy.policy_name])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] instance_port: The instance port to apply the policy to.
@@ -271,6 +274,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
             instance_port=443,
             policy_names=[wu_tang_root_ca_backend_auth_policy.policy_name])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LoadBalancerBackendServerPolicyArgs args: The arguments to use to populate this resource's properties.

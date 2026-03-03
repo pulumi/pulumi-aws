@@ -30,6 +30,7 @@ class DirectoryBucketArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DirectoryBucket resource.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `s3.Bucket` resource to manage general purpose buckets.
         :param pulumi.Input['DirectoryBucketLocationArgs'] location: Bucket location. See Location below for more details.
         :param pulumi.Input[_builtins.str] data_redundancy: Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
@@ -150,6 +151,7 @@ class _DirectoryBucketState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DirectoryBucket resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the bucket.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `s3.Bucket` resource to manage general purpose buckets.
         :param pulumi.Input[_builtins.str] data_redundancy: Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
@@ -353,6 +355,7 @@ class DirectoryBucket(pulumi.CustomResource):
         $ pulumi import aws:s3/directoryBucket:DirectoryBucket example example--usw2-az1--x-s3
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `s3.Bucket` resource to manage general purpose buckets.
@@ -419,6 +422,7 @@ class DirectoryBucket(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/directoryBucket:DirectoryBucket example example--usw2-az1--x-s3
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DirectoryBucketArgs args: The arguments to use to populate this resource's properties.

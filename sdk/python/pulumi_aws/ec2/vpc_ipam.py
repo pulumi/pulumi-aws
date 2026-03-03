@@ -31,6 +31,7 @@ class VpcIpamArgs:
                  tier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcIpam resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArgs']]] operating_regions: Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
         :param pulumi.Input[_builtins.bool] cascade: Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
         :param pulumi.Input[_builtins.str] description: A description for the IPAM.
@@ -173,6 +174,7 @@ class _VpcIpamState:
                  tier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcIpam resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of IPAM
         :param pulumi.Input[_builtins.bool] cascade: Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
         :param pulumi.Input[_builtins.str] default_resource_discovery_association_id: The IPAM's default resource discovery association ID.
@@ -475,6 +477,7 @@ class VpcIpam(pulumi.CustomResource):
         $ pulumi import aws:ec2/vpcIpam:VpcIpam example ipam-0178368ad2146a492
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] cascade: Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
@@ -548,6 +551,7 @@ class VpcIpam(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/vpcIpam:VpcIpam example ipam-0178368ad2146a492
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcIpamArgs args: The arguments to use to populate this resource's properties.

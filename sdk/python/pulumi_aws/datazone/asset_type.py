@@ -30,6 +30,7 @@ class AssetTypeArgs:
                  timeouts: Optional[pulumi.Input['AssetTypeTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AssetType resource.
+
         :param pulumi.Input[_builtins.str] domain_identifier: The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
         :param pulumi.Input[_builtins.str] owning_project_identifier: The unique identifier of the Amazon DataZone project that owns the custom asset type.
                
@@ -151,6 +152,7 @@ class _AssetTypeState:
                  timeouts: Optional[pulumi.Input['AssetTypeTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AssetType resources.
+
         :param pulumi.Input[_builtins.str] created_at: The timestamp when the custom asset type was created.
         :param pulumi.Input[_builtins.str] created_by: The user who created the custom asset type.
         :param pulumi.Input[_builtins.str] description: The description of the custom asset type.
@@ -344,6 +346,7 @@ class AssetType(pulumi.CustomResource):
         $ pulumi import aws:datazone/assetType:AssetType example domain-id-12345678,example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the custom asset type.
@@ -386,6 +389,7 @@ class AssetType(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:datazone/assetType:AssetType example domain-id-12345678,example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AssetTypeArgs args: The arguments to use to populate this resource's properties.

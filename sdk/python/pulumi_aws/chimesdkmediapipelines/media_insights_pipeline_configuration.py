@@ -29,6 +29,7 @@ class MediaInsightsPipelineConfigurationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MediaInsightsPipelineConfiguration resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['MediaInsightsPipelineConfigurationElementArgs']]] elements: Collection of processors and sinks to transform media and deliver data.
         :param pulumi.Input[_builtins.str] resource_access_role_arn: ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
         :param pulumi.Input[_builtins.str] name: Configuration name.
@@ -133,6 +134,7 @@ class _MediaInsightsPipelineConfigurationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering MediaInsightsPipelineConfiguration resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Media Insights Pipeline Configuration.
         :param pulumi.Input[Sequence[pulumi.Input['MediaInsightsPipelineConfigurationElementArgs']]] elements: Collection of processors and sinks to transform media and deliver data.
         :param pulumi.Input[_builtins.str] name: Configuration name.
@@ -536,6 +538,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
         $ pulumi import aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration example abcdef123456
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict']]]] elements: Collection of processors and sinks to transform media and deliver data.
@@ -821,6 +824,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration example abcdef123456
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MediaInsightsPipelineConfigurationArgs args: The arguments to use to populate this resource's properties.

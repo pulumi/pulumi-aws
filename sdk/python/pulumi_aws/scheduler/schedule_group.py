@@ -25,6 +25,7 @@ class ScheduleGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ScheduleGroup resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -102,6 +103,7 @@ class _ScheduleGroupState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ScheduleGroup resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the schedule group.
         :param pulumi.Input[_builtins.str] creation_date: Time at which the schedule group was created.
         :param pulumi.Input[_builtins.str] last_modification_date: Time at which the schedule group was last modified.
@@ -275,6 +277,7 @@ class ScheduleGroup(pulumi.CustomResource):
         $ pulumi import aws:scheduler/scheduleGroup:ScheduleGroup example my-schedule-group
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -311,6 +314,7 @@ class ScheduleGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:scheduler/scheduleGroup:ScheduleGroup example my-schedule-group
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ScheduleGroupArgs args: The arguments to use to populate this resource's properties.

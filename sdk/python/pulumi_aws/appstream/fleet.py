@@ -42,6 +42,7 @@ class FleetArgs:
                  vpc_config: Optional[pulumi.Input['FleetVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Fleet resource.
+
         :param pulumi.Input['FleetComputeCapacityArgs'] compute_capacity: Configuration block for the desired capacity of the fleet. See below.
         :param pulumi.Input[_builtins.str] instance_type: Instance type to use when launching fleet instances.
         :param pulumi.Input[_builtins.str] description: Description to display.
@@ -360,6 +361,7 @@ class _FleetState:
                  vpc_config: Optional[pulumi.Input['FleetVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Fleet resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the appstream fleet.
         :param pulumi.Input['FleetComputeCapacityArgs'] compute_capacity: Configuration block for the desired capacity of the fleet. See below.
         :param pulumi.Input[_builtins.str] created_time: Date and time, in UTC and extended RFC 3339 format, when the fleet was created.
@@ -772,6 +774,7 @@ class Fleet(pulumi.CustomResource):
         $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['FleetComputeCapacityArgs', 'FleetComputeCapacityArgsDict']] compute_capacity: Configuration block for the desired capacity of the fleet. See below.
@@ -839,6 +842,7 @@ class Fleet(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FleetArgs args: The arguments to use to populate this resource's properties.

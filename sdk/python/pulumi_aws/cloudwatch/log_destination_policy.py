@@ -25,6 +25,7 @@ class LogDestinationPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogDestinationPolicy resource.
+
         :param pulumi.Input[_builtins.str] access_policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[_builtins.str] destination_name: A name for the subscription filter
         :param pulumi.Input[_builtins.bool] force_update: Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
@@ -95,6 +96,7 @@ class _LogDestinationPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogDestinationPolicy resources.
+
         :param pulumi.Input[_builtins.str] access_policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[_builtins.str] destination_name: A name for the subscription filter
         :param pulumi.Input[_builtins.bool] force_update: Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
@@ -204,6 +206,7 @@ class LogDestinationPolicy(pulumi.CustomResource):
         $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_policy: The policy document. This is a JSON formatted string.
@@ -251,6 +254,7 @@ class LogDestinationPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LogDestinationPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class TemplateAliasArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TemplateAlias resource.
+
         :param pulumi.Input[_builtins.str] alias_name: Display name of the template alias.
         :param pulumi.Input[_builtins.str] template_id: ID of the template.
         :param pulumi.Input[_builtins.int] template_version_number: Version number of the template.
@@ -116,6 +117,7 @@ class _TemplateAliasState:
                  template_version_number: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering TemplateAlias resources.
+
         :param pulumi.Input[_builtins.str] alias_name: Display name of the template alias.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the template alias.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
@@ -250,6 +252,7 @@ class TemplateAlias(pulumi.CustomResource):
         $ pulumi import aws:quicksight/templateAlias:TemplateAlias example 123456789012,example-id,example-alias
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias_name: Display name of the template alias.
@@ -290,6 +293,7 @@ class TemplateAlias(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:quicksight/templateAlias:TemplateAlias example 123456789012,example-id,example-alias
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TemplateAliasArgs args: The arguments to use to populate this resource's properties.

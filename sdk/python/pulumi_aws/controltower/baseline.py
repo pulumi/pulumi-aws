@@ -30,6 +30,7 @@ class BaselineArgs:
                  timeouts: Optional[pulumi.Input['BaselineTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Baseline resource.
+
         :param pulumi.Input[_builtins.str] baseline_identifier: The ARN of the baseline to be enabled.
         :param pulumi.Input[_builtins.str] baseline_version: The version of the baseline to be enabled.
         :param pulumi.Input[_builtins.str] target_identifier: The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.
@@ -150,6 +151,7 @@ class _BaselineState:
                  timeouts: Optional[pulumi.Input['BaselineTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Baseline resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Baseline.
         :param pulumi.Input[_builtins.str] baseline_identifier: The ARN of the baseline to be enabled.
         :param pulumi.Input[_builtins.str] baseline_version: The version of the baseline to be enabled.
@@ -342,6 +344,7 @@ class Baseline(pulumi.CustomResource):
         $ pulumi import aws:controltower/baseline:Baseline example arn:aws:controltower:us-east-1:012345678912:enabledbaseline/XALULM96QHI525UOC
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] baseline_identifier: The ARN of the baseline to be enabled.
@@ -387,6 +390,7 @@ class Baseline(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:controltower/baseline:Baseline example arn:aws:controltower:us-east-1:012345678912:enabledbaseline/XALULM96QHI525UOC
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BaselineArgs args: The arguments to use to populate this resource's properties.

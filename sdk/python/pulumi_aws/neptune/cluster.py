@@ -54,6 +54,7 @@ class ClusterArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+
         :param pulumi.Input[_builtins.bool] allow_major_version_upgrade: Whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
         :param pulumi.Input[_builtins.bool] apply_immediately: Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: List of EC2 Availability Zones that instances in the Neptune cluster can be created in.
@@ -565,6 +566,7 @@ class _ClusterState:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
+
         :param pulumi.Input[_builtins.bool] allow_major_version_upgrade: Whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
         :param pulumi.Input[_builtins.bool] apply_immediately: Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
         :param pulumi.Input[_builtins.str] arn: Neptune Cluster ARN
@@ -1214,6 +1216,7 @@ class Cluster(pulumi.CustomResource):
         $ pulumi import aws:neptune/cluster:Cluster example my-cluster
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_major_version_upgrade: Whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
@@ -1291,6 +1294,7 @@ class Cluster(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:neptune/cluster:Cluster example my-cluster
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

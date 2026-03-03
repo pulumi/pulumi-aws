@@ -25,6 +25,7 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
+
         :param pulumi.Input[_builtins.str] description: Description of the application. Can be at most 1024 characters.
         :param pulumi.Input[_builtins.str] name: Name for the application. Must be between 1 and 64 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -99,6 +100,7 @@ class _ApplicationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Application resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the AppConfig Application.
         :param pulumi.Input[_builtins.str] description: Description of the application. Can be at most 1024 characters.
         :param pulumi.Input[_builtins.str] name: Name for the application. Must be between 1 and 64 characters in length.
@@ -228,6 +230,7 @@ class Application(pulumi.CustomResource):
         $ pulumi import aws:appconfig/application:Application example 71rxuzt
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the application. Can be at most 1024 characters.
@@ -265,6 +268,7 @@ class Application(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appconfig/application:Application example 71rxuzt
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

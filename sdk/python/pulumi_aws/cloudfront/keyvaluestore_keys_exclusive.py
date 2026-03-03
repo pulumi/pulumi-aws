@@ -26,6 +26,7 @@ class KeyvaluestoreKeysExclusiveArgs:
                  resource_key_value_pairs: Optional[pulumi.Input[Sequence[pulumi.Input['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs']]]] = None):
         """
         The set of arguments for constructing a KeyvaluestoreKeysExclusive resource.
+
         :param pulumi.Input[_builtins.str] key_value_store_arn: Amazon Resource Name (ARN) of the Key Value Store.
                
                The following arguments are optional:
@@ -88,6 +89,7 @@ class _KeyvaluestoreKeysExclusiveState:
                  total_size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering KeyvaluestoreKeysExclusive resources.
+
         :param pulumi.Input[_builtins.str] key_value_store_arn: Amazon Resource Name (ARN) of the Key Value Store.
                
                The following arguments are optional:
@@ -214,6 +216,7 @@ class KeyvaluestoreKeysExclusive(pulumi.CustomResource):
         $ pulumi import aws:cloudfront/keyvaluestoreKeysExclusive:KeyvaluestoreKeysExclusive example arn:aws:cloudfront::111111111111:key-value-store/8562g61f-caba-2845-9d99-b97diwae5d3c
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] key_value_store_arn: Amazon Resource Name (ARN) of the Key Value Store.
@@ -275,6 +278,7 @@ class KeyvaluestoreKeysExclusive(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudfront/keyvaluestoreKeysExclusive:KeyvaluestoreKeysExclusive example arn:aws:cloudfront::111111111111:key-value-store/8562g61f-caba-2845-9d99-b97diwae5d3c
         ```
+
 
         :param str resource_name: The name of the resource.
         :param KeyvaluestoreKeysExclusiveArgs args: The arguments to use to populate this resource's properties.

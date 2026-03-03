@@ -35,6 +35,7 @@ class StreamArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Stream resource.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
         :param pulumi.Input[_builtins.str] encryption_type: The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
         :param pulumi.Input[_builtins.bool] enforce_consumer_deletion: A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
@@ -238,6 +239,7 @@ class _StreamState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Stream resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
         :param pulumi.Input[_builtins.str] encryption_type: The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
         :param pulumi.Input[_builtins.bool] enforce_consumer_deletion: A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
@@ -497,6 +499,7 @@ class Stream(pulumi.CustomResource):
         [2]: https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html
         [3]: https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
@@ -558,6 +561,7 @@ class Stream(pulumi.CustomResource):
         [1]: https://aws.amazon.com/documentation/kinesis/
         [2]: https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html
         [3]: https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html
+
 
         :param str resource_name: The name of the resource.
         :param StreamArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class InstanceConnectEndpointArgs:
                  timeouts: Optional[pulumi.Input['InstanceConnectEndpointTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a InstanceConnectEndpoint resource.
+
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
         :param pulumi.Input[_builtins.str] ip_address_type: IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
         :param pulumi.Input[_builtins.bool] preserve_client_ip: Indicates whether your client's IP address is preserved as the source. Default: `true`.
@@ -153,6 +154,7 @@ class _InstanceConnectEndpointState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering InstanceConnectEndpoint resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone of the EC2 Instance Connect Endpoint.
         :param pulumi.Input[_builtins.str] dns_name: The DNS name of the EC2 Instance Connect Endpoint.
@@ -411,6 +413,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
         $ pulumi import aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint example eice-012345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ip_address_type: IP address type of the endpoint. Valid values are `ipv4`, `ipv6`, and `dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
@@ -445,6 +448,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint example eice-012345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InstanceConnectEndpointArgs args: The arguments to use to populate this resource's properties.

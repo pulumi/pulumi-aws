@@ -29,6 +29,7 @@ class EventPermissionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventPermission resource.
+
         :param pulumi.Input[_builtins.str] principal: The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
         :param pulumi.Input[_builtins.str] statement_id: An identifier string for the external account that you are granting permissions to.
         :param pulumi.Input[_builtins.str] action: The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
@@ -133,6 +134,7 @@ class _EventPermissionState:
                  statement_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventPermission resources.
+
         :param pulumi.Input[_builtins.str] action: The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
         :param pulumi.Input['EventPermissionConditionArgs'] condition: Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
         :param pulumi.Input[_builtins.str] event_bus_name: The name of the event bus to set the permissions on.
@@ -285,6 +287,7 @@ class EventPermission(pulumi.CustomResource):
         $ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
@@ -344,6 +347,7 @@ class EventPermission(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventPermissionArgs args: The arguments to use to populate this resource's properties.

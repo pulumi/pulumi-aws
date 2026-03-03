@@ -26,6 +26,7 @@ class ContributorManagedInsightRuleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ContributorManagedInsightRule resource.
+
         :param pulumi.Input[_builtins.str] resource_arn: ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
         :param pulumi.Input[_builtins.str] template_name: Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
                
@@ -111,6 +112,7 @@ class _ContributorManagedInsightRuleState:
                  template_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ContributorManagedInsightRule resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Contributor Managed Insight Rule.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_arn: ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
@@ -259,6 +261,7 @@ class ContributorManagedInsightRule(pulumi.CustomResource):
         $ pulumi import aws:cloudwatch/contributorManagedInsightRule:ContributorManagedInsightRule example contributor_managed_insight_rule-id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -297,6 +300,7 @@ class ContributorManagedInsightRule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudwatch/contributorManagedInsightRule:ContributorManagedInsightRule example contributor_managed_insight_rule-id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ContributorManagedInsightRuleArgs args: The arguments to use to populate this resource's properties.

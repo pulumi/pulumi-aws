@@ -28,6 +28,7 @@ class ResolverFirewallRuleGroupAssociationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResolverFirewallRuleGroupAssociation resource.
+
         :param pulumi.Input[_builtins.str] firewall_rule_group_id: The unique identifier of the firewall rule group.
         :param pulumi.Input[_builtins.int] priority: The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
         :param pulumi.Input[_builtins.str] vpc_id: The unique identifier of the VPC that you want to associate with the rule group.
@@ -147,6 +148,7 @@ class _ResolverFirewallRuleGroupAssociationState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResolverFirewallRuleGroupAssociation resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN (Amazon Resource Name) of the firewall rule group association.
         :param pulumi.Input[_builtins.str] firewall_rule_group_id: The unique identifier of the firewall rule group.
         :param pulumi.Input[_builtins.str] mutation_protection: If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
@@ -324,6 +326,7 @@ class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
         $ pulumi import aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation example rslvr-frgassoc-0123456789abcdef
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] firewall_rule_group_id: The unique identifier of the firewall rule group.
@@ -364,6 +367,7 @@ class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation example rslvr-frgassoc-0123456789abcdef
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResolverFirewallRuleGroupAssociationArgs args: The arguments to use to populate this resource's properties.

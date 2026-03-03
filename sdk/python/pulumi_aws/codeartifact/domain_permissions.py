@@ -26,6 +26,7 @@ class DomainPermissionsArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DomainPermissions resource.
+
         :param pulumi.Input[_builtins.str] domain: The name of the domain on which to set the resource policy.
         :param pulumi.Input[_builtins.str] domain_owner: The account number of the AWS account that owns the domain.
         :param pulumi.Input[_builtins.str] policy_document: A JSON policy string to be set as the access control resource policy on the provided domain.
@@ -114,6 +115,7 @@ class _DomainPermissionsState:
                  resource_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DomainPermissions resources.
+
         :param pulumi.Input[_builtins.str] domain: The name of the domain on which to set the resource policy.
         :param pulumi.Input[_builtins.str] domain_owner: The account number of the AWS account that owns the domain.
         :param pulumi.Input[_builtins.str] policy_document: A JSON policy string to be set as the access control resource policy on the provided domain.
@@ -260,6 +262,7 @@ class DomainPermissions(pulumi.CustomResource):
         $ pulumi import aws:codeartifact/domainPermissions:DomainPermissions example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain: The name of the domain on which to set the resource policy.
@@ -314,6 +317,7 @@ class DomainPermissions(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:codeartifact/domainPermissions:DomainPermissions example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DomainPermissionsArgs args: The arguments to use to populate this resource's properties.

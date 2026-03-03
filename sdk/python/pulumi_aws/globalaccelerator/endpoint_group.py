@@ -33,6 +33,7 @@ class EndpointGroupArgs:
                  traffic_dial_percentage: Optional[pulumi.Input[_builtins.float]] = None):
         """
         The set of arguments for constructing a EndpointGroup resource.
+
         :param pulumi.Input[_builtins.str] listener_arn: The Amazon Resource Name (ARN) of the listener.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointGroupEndpointConfigurationArgs']]] endpoint_configurations: The list of endpoint objects. Fields documented below.
         :param pulumi.Input[_builtins.str] endpoint_group_region: The name of the AWS Region where the endpoint group is located.
@@ -203,6 +204,7 @@ class _EndpointGroupState:
                  traffic_dial_percentage: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Input properties used for looking up and filtering EndpointGroup resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the endpoint group.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointGroupEndpointConfigurationArgs']]] endpoint_configurations: The list of endpoint objects. Fields documented below.
         :param pulumi.Input[_builtins.str] endpoint_group_region: The name of the AWS Region where the endpoint group is located.
@@ -421,6 +423,7 @@ class EndpointGroup(pulumi.CustomResource):
         $ pulumi import aws:globalaccelerator/endpointGroup:EndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointGroupEndpointConfigurationArgs', 'EndpointGroupEndpointConfigurationArgsDict']]]] endpoint_configurations: The list of endpoint objects. Fields documented below.
@@ -471,6 +474,7 @@ class EndpointGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:globalaccelerator/endpointGroup:EndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EndpointGroupArgs args: The arguments to use to populate this resource's properties.

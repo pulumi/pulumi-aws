@@ -33,6 +33,7 @@ class ServiceArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Service resource.
+
         :param pulumi.Input[_builtins.str] description: The description of the service.
         :param pulumi.Input['ServiceDnsConfigArgs'] dns_config: A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
         :param pulumi.Input[_builtins.bool] force_destroy: A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable. Defaults to `false`.
@@ -203,6 +204,7 @@ class _ServiceState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Service resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the service.
         :param pulumi.Input[_builtins.str] description: The description of the service.
         :param pulumi.Input['ServiceDnsConfigArgs'] dns_config: A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
@@ -462,6 +464,7 @@ class Service(pulumi.CustomResource):
         $ pulumi import aws:servicediscovery/service:Service example 0123456789
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the service.
@@ -543,6 +546,7 @@ class Service(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:servicediscovery/service:Service example 0123456789
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.

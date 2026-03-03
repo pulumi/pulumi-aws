@@ -30,6 +30,7 @@ class ContactsRotationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ContactsRotation resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] contact_ids: Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
         :param pulumi.Input['ContactsRotationRecurrenceArgs'] recurrence: Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `daily_settings`, `monthly_settings`, or `weekly_settings` must be populated. See Recurrence for more details.
                
@@ -153,6 +154,7 @@ class _ContactsRotationState:
                  time_zone_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ContactsRotation resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the rotation.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] contact_ids: Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
         :param pulumi.Input[_builtins.str] name: The name for the rotation.
@@ -435,6 +437,7 @@ class ContactsRotation(pulumi.CustomResource):
         $ pulumi import aws:ssm/contactsRotation:ContactsRotation example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] contact_ids: Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
@@ -578,6 +581,7 @@ class ContactsRotation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ssm/contactsRotation:ContactsRotation example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ContactsRotationArgs args: The arguments to use to populate this resource's properties.

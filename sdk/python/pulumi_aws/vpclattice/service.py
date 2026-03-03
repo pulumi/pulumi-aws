@@ -29,6 +29,7 @@ class ServiceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Service resource.
+
         :param pulumi.Input[_builtins.str] auth_type: Type of IAM policy. Either `NONE` or `AWS_IAM`.
         :param pulumi.Input[_builtins.str] certificate_arn: Amazon Resource Name (ARN) of the certificate.
         :param pulumi.Input[_builtins.str] custom_domain_name: Custom domain name of the service.
@@ -141,6 +142,7 @@ class _ServiceState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Service resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the service.
         :param pulumi.Input[_builtins.str] auth_type: Type of IAM policy. Either `NONE` or `AWS_IAM`.
         :param pulumi.Input[_builtins.str] certificate_arn: Amazon Resource Name (ARN) of the certificate.
@@ -336,6 +338,7 @@ class Service(pulumi.CustomResource):
         $ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auth_type: Type of IAM policy. Either `NONE` or `AWS_IAM`.
@@ -377,6 +380,7 @@ class Service(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.

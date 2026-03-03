@@ -32,6 +32,7 @@ class AccessPointArgs:
                  vpc_configuration: Optional[pulumi.Input['AccessPointVpcConfigurationArgs']] = None):
         """
         The set of arguments for constructing a AccessPoint resource.
+
         :param pulumi.Input[_builtins.str] bucket: Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[_builtins.str] bucket_account_id: AWS account ID associated with the S3 bucket associated with this access point.
@@ -194,6 +195,7 @@ class _AccessPointState:
                  vpc_configuration: Optional[pulumi.Input['AccessPointVpcConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering AccessPoint resources.
+
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[_builtins.str] alias: Alias of the S3 Access Point.
         :param pulumi.Input[_builtins.str] arn: ARN of the S3 Access Point.
@@ -533,6 +535,7 @@ class AccessPoint(pulumi.CustomResource):
         $ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
@@ -626,6 +629,7 @@ class AccessPoint(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccessPointArgs args: The arguments to use to populate this resource's properties.

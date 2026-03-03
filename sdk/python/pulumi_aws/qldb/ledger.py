@@ -27,6 +27,7 @@ class LedgerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Ledger resource.
+
         :param pulumi.Input[_builtins.str] permissions_mode: The permissions mode for the QLDB ledger instance. Specify either `ALLOW_ALL` or `STANDARD`.
         :param pulumi.Input[_builtins.bool] deletion_protection: The deletion protection for the QLDB Ledger instance. By default it is `true`. To delete this resource via the provider, this value must be configured to `false` and applied first before attempting deletion.
         :param pulumi.Input[_builtins.str] kms_key: The key in AWS Key Management Service (AWS KMS) to use for encryption of data at rest in the ledger. For more information, see the [AWS documentation](https://docs.aws.amazon.com/qldb/latest/developerguide/encryption-at-rest.html). Valid values are `"AWS_OWNED_KMS_KEY"` to use an AWS KMS key that is owned and managed by AWS on your behalf, or the ARN of a valid symmetric customer managed KMS key.
@@ -132,6 +133,7 @@ class _LedgerState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Ledger resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the QLDB Ledger
         :param pulumi.Input[_builtins.bool] deletion_protection: The deletion protection for the QLDB Ledger instance. By default it is `true`. To delete this resource via the provider, this value must be configured to `false` and applied first before attempting deletion.
         :param pulumi.Input[_builtins.str] kms_key: The key in AWS Key Management Service (AWS KMS) to use for encryption of data at rest in the ledger. For more information, see the [AWS documentation](https://docs.aws.amazon.com/qldb/latest/developerguide/encryption-at-rest.html). Valid values are `"AWS_OWNED_KMS_KEY"` to use an AWS KMS key that is owned and managed by AWS on your behalf, or the ARN of a valid symmetric customer managed KMS key.
@@ -292,6 +294,7 @@ class Ledger(pulumi.CustomResource):
         $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] deletion_protection: The deletion protection for the QLDB Ledger instance. By default it is `true`. To delete this resource via the provider, this value must be configured to `false` and applied first before attempting deletion.
@@ -330,6 +333,7 @@ class Ledger(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LedgerArgs args: The arguments to use to populate this resource's properties.

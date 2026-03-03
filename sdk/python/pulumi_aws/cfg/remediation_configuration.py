@@ -34,6 +34,7 @@ class RemediationConfigurationArgs:
                  target_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RemediationConfiguration resource.
+
         :param pulumi.Input[_builtins.str] config_rule_name: Name of the AWS Config rule.
         :param pulumi.Input[_builtins.str] target_id: Target ID is the name of the public document.
         :param pulumi.Input[_builtins.str] target_type: Type of the target. Target executes remediation. For example, SSM document.
@@ -220,6 +221,7 @@ class _RemediationConfigurationState:
                  target_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RemediationConfiguration resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Config Remediation Configuration.
         :param pulumi.Input[_builtins.bool] automatic: Remediation is triggered automatically if `true`.
         :param pulumi.Input[_builtins.str] config_rule_name: Name of the AWS Config rule.
@@ -483,6 +485,7 @@ class RemediationConfiguration(pulumi.CustomResource):
         $ pulumi import aws:cfg/remediationConfiguration:RemediationConfiguration this example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] automatic: Remediation is triggered automatically if `true`.
@@ -562,6 +565,7 @@ class RemediationConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cfg/remediationConfiguration:RemediationConfiguration this example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RemediationConfigurationArgs args: The arguments to use to populate this resource's properties.

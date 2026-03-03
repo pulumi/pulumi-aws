@@ -28,6 +28,7 @@ class BucketReplicationConfigArgs:
                  token: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BucketReplicationConfig resource.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the source S3 bucket you want Amazon S3 to monitor.
         :param pulumi.Input[_builtins.str] role: ARN of the IAM role for Amazon S3 to assume when replicating the objects.
         :param pulumi.Input[Sequence[pulumi.Input['BucketReplicationConfigRuleArgs']]] rules: List of configuration blocks describing the rules managing the replication. See below.
@@ -129,6 +130,7 @@ class _BucketReplicationConfigState:
                  token: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BucketReplicationConfig resources.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the source S3 bucket you want Amazon S3 to monitor.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role: ARN of the IAM role for Amazon S3 to assume when replicating the objects.
@@ -476,6 +478,7 @@ class BucketReplicationConfig(pulumi.CustomResource):
         $ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the source S3 bucket you want Amazon S3 to monitor.
@@ -738,6 +741,7 @@ class BucketReplicationConfig(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BucketReplicationConfigArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class RuntimeManagementConfigArgs:
                  update_runtime_on: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RuntimeManagementConfig resource.
+
         :param pulumi.Input[_builtins.str] function_name: Name or ARN of the Lambda function.
                
                The following arguments are optional:
@@ -118,6 +119,7 @@ class _RuntimeManagementConfigState:
                  update_runtime_on: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RuntimeManagementConfig resources.
+
         :param pulumi.Input[_builtins.str] function_arn: ARN of the function.
         :param pulumi.Input[_builtins.str] function_name: Name or ARN of the Lambda function.
                
@@ -269,6 +271,7 @@ class RuntimeManagementConfig(pulumi.CustomResource):
         $ pulumi import aws:lambda/runtimeManagementConfig:RuntimeManagementConfig example example,$LATEST
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] function_name: Name or ARN of the Lambda function.
@@ -326,6 +329,7 @@ class RuntimeManagementConfig(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lambda/runtimeManagementConfig:RuntimeManagementConfig example example,$LATEST
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RuntimeManagementConfigArgs args: The arguments to use to populate this resource's properties.

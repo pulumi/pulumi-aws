@@ -35,6 +35,7 @@ class OrganizationCustomPolicyRuleArgs:
                  tag_value_scope: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OrganizationCustomPolicyRule resource.
+
         :param pulumi.Input[_builtins.str] policy_runtime: Runtime system for policy rules.
         :param pulumi.Input[_builtins.str] policy_text: Policy definition containing the rule logic.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] trigger_types: List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`.
@@ -269,6 +270,7 @@ class _OrganizationCustomPolicyRuleState:
                  trigger_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering OrganizationCustomPolicyRule resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] debug_log_delivery_accounts: List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
         :param pulumi.Input[_builtins.str] description: Description of the rule.
@@ -563,6 +565,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
         $ pulumi import aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule example example_rule_name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] debug_log_delivery_accounts: List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
@@ -628,6 +631,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule example example_rule_name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationCustomPolicyRuleArgs args: The arguments to use to populate this resource's properties.

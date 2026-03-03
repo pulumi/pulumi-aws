@@ -29,6 +29,7 @@ class LocationFsxWindowsArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LocationFsxWindows resource.
+
         :param pulumi.Input[_builtins.str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx for Windows file system.
         :param pulumi.Input[_builtins.str] password: The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_arns: The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
@@ -165,6 +166,7 @@ class _LocationFsxWindowsState:
                  user: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LocationFsxWindows resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
         :param pulumi.Input[_builtins.str] creation_time: The time that the FSx for Windows location was created.
         :param pulumi.Input[_builtins.str] domain: The name of the Windows domain that the FSx for Windows server belongs to.
@@ -387,6 +389,7 @@ class LocationFsxWindows(pulumi.CustomResource):
         $ pulumi import aws:datasync/locationFsxWindows:LocationFsxWindows example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:476956259333:file-system/fs-08e04cd442c1bb94a
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain: The name of the Windows domain that the FSx for Windows server belongs to.
@@ -427,6 +430,7 @@ class LocationFsxWindows(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:datasync/locationFsxWindows:LocationFsxWindows example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:476956259333:file-system/fs-08e04cd442c1bb94a
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LocationFsxWindowsArgs args: The arguments to use to populate this resource's properties.

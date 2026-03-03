@@ -28,6 +28,7 @@ class CapacityReservationArgs:
                  timeouts: Optional[pulumi.Input['CapacityReservationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a CapacityReservation resource.
+
         :param pulumi.Input[_builtins.int] target_dpus: Number of data processing units requested. Must be at least `24` units.
                
                The following arguments are optional:
@@ -119,6 +120,7 @@ class _CapacityReservationState:
                  timeouts: Optional[pulumi.Input['CapacityReservationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering CapacityReservation resources.
+
         :param pulumi.Input[_builtins.int] allocated_dpus: Number of data processing units currently allocated.
         :param pulumi.Input[_builtins.str] arn: ARN of the Capacity Reservation.
         :param pulumi.Input[_builtins.str] name: Name of the capacity reservation.
@@ -295,6 +297,7 @@ class CapacityReservation(pulumi.CustomResource):
         $ pulumi import aws:athena/capacityReservation:CapacityReservation example example-reservation
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the capacity reservation.
@@ -335,6 +338,7 @@ class CapacityReservation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:athena/capacityReservation:CapacityReservation example example-reservation
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CapacityReservationArgs args: The arguments to use to populate this resource's properties.

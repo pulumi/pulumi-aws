@@ -29,6 +29,7 @@ class ScriptArgs:
                  zip_file: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Script resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the script
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ScriptStorageLocationArgs'] storage_location: Information indicating where your game script files are stored. See below.
@@ -135,6 +136,7 @@ class _ScriptState:
                  zip_file: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Script resources.
+
         :param pulumi.Input[_builtins.str] arn: GameLift Script ARN.
         :param pulumi.Input[_builtins.str] name: Name of the script
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -297,6 +299,7 @@ class Script(pulumi.CustomResource):
         $ pulumi import aws:gamelift/script:Script example <script-id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the script
@@ -337,6 +340,7 @@ class Script(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:gamelift/script:Script example <script-id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ScriptArgs args: The arguments to use to populate this resource's properties.

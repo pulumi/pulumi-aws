@@ -30,6 +30,7 @@ class ThesaurusArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Thesaurus resource.
+
         :param pulumi.Input[_builtins.str] index_id: The identifier of the index for a thesaurus.
         :param pulumi.Input[_builtins.str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         :param pulumi.Input['ThesaurusSourceS3PathArgs'] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
@@ -143,6 +144,7 @@ class _ThesaurusState:
                  thesaurus_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Thesaurus resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the thesaurus.
         :param pulumi.Input[_builtins.str] index_id: The identifier of the index for a thesaurus.
         :param pulumi.Input[_builtins.str] name: The name for the thesaurus.
@@ -343,6 +345,7 @@ class Thesaurus(pulumi.CustomResource):
         $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] index_id: The identifier of the index for a thesaurus.
@@ -386,6 +389,7 @@ class Thesaurus(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ThesaurusArgs args: The arguments to use to populate this resource's properties.

@@ -37,6 +37,7 @@ class Smsvoicev2PhoneNumberArgs:
                  two_way_channel_role: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Smsvoicev2PhoneNumber resource.
+
         :param pulumi.Input[_builtins.str] iso_country_code: The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
         :param pulumi.Input[_builtins.str] message_type: The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] number_capabilities: Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
@@ -261,6 +262,7 @@ class _Smsvoicev2PhoneNumberState:
                  two_way_channel_role: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Smsvoicev2PhoneNumber resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the phone number.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: By default this is set to `false`. When set to true the phone number can’t be deleted.
         :param pulumi.Input[_builtins.str] iso_country_code: The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
@@ -571,6 +573,7 @@ class Smsvoicev2PhoneNumber(pulumi.CustomResource):
         $ pulumi import aws:pinpoint/smsvoicev2PhoneNumber:Smsvoicev2PhoneNumber example phone-abcdef0123456789abcdef0123456789
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: By default this is set to `false`. When set to true the phone number can’t be deleted.
@@ -615,6 +618,7 @@ class Smsvoicev2PhoneNumber(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:pinpoint/smsvoicev2PhoneNumber:Smsvoicev2PhoneNumber example phone-abcdef0123456789abcdef0123456789
         ```
+
 
         :param str resource_name: The name of the resource.
         :param Smsvoicev2PhoneNumberArgs args: The arguments to use to populate this resource's properties.

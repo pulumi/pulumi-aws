@@ -24,6 +24,7 @@ class VaultPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VaultPolicy resource.
+
         :param pulumi.Input[_builtins.str] backup_vault_name: Name of the backup vault to add policy for.
         :param pulumi.Input[_builtins.str] policy: The backup vault access policy document in JSON format.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -79,6 +80,7 @@ class _VaultPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VaultPolicy resources.
+
         :param pulumi.Input[_builtins.str] backup_vault_arn: The ARN of the vault.
         :param pulumi.Input[_builtins.str] backup_vault_name: Name of the backup vault to add policy for.
         :param pulumi.Input[_builtins.str] policy: The backup vault access policy document in JSON format.
@@ -194,6 +196,7 @@ class VaultPolicy(pulumi.CustomResource):
         $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] backup_vault_name: Name of the backup vault to add policy for.
@@ -247,6 +250,7 @@ class VaultPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VaultPolicyArgs args: The arguments to use to populate this resource's properties.

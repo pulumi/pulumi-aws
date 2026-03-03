@@ -32,6 +32,7 @@ class FaqArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Faq resource.
+
         :param pulumi.Input[_builtins.str] index_id: The identifier of the index for a FAQ.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         :param pulumi.Input['FaqS3PathArgs'] s3_path: The S3 location of the FAQ input data. Detailed below.
@@ -172,6 +173,7 @@ class _FaqState:
                  updated_at: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Faq resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the FAQ.
         :param pulumi.Input[_builtins.str] created_at: The Unix datetime that the FAQ was created.
         :param pulumi.Input[_builtins.str] error_message: When the Status field value is `FAILED`, this contains a message that explains why.
@@ -481,6 +483,7 @@ class Faq(pulumi.CustomResource):
         $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] index_id: The identifier of the index for a FAQ.
@@ -560,6 +563,7 @@ class Faq(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FaqArgs args: The arguments to use to populate this resource's properties.

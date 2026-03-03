@@ -30,6 +30,7 @@ class RestApiPutArgs:
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RestApiPut resource.
+
         :param pulumi.Input[_builtins.str] body: PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
         :param pulumi.Input[_builtins.str] rest_api_id: Identifier of the associated REST API.
                
@@ -148,6 +149,7 @@ class _RestApiPutState:
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RestApiPut resources.
+
         :param pulumi.Input[_builtins.str] body: PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
         :param pulumi.Input[_builtins.bool] fail_on_warnings: Whether to rollback the API update when a warning is encountered. The default value is `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
@@ -326,6 +328,7 @@ class RestApiPut(pulumi.CustomResource):
         $ pulumi import aws:apigateway/restApiPut:RestApiPut example import-id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] body: PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
@@ -398,6 +401,7 @@ class RestApiPut(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apigateway/restApiPut:RestApiPut example import-id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RestApiPutArgs args: The arguments to use to populate this resource's properties.

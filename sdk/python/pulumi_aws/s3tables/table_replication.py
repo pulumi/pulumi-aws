@@ -27,6 +27,7 @@ class TableReplicationArgs:
                  rule: Optional[pulumi.Input['TableReplicationRuleArgs']] = None):
         """
         The set of arguments for constructing a TableReplication resource.
+
         :param pulumi.Input[_builtins.str] role: ARN referencing the IAM role assumed by S3 when replicating tables.
         :param pulumi.Input[_builtins.str] table_arn: ARN referencing the Table that owns this replication configuration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -98,6 +99,7 @@ class _TableReplicationState:
                  version_token: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TableReplication resources.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role: ARN referencing the IAM role assumed by S3 when replicating tables.
         :param pulumi.Input['TableReplicationRuleArgs'] rule: Replication rules. See Rule below for more details.
@@ -212,6 +214,7 @@ class TableReplication(pulumi.CustomResource):
         $ pulumi import aws:s3tables/tableReplication:TableReplication example 'arn:aws:s3tables:us-west-2:123456789012:table/example-table'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -253,6 +256,7 @@ class TableReplication(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3tables/tableReplication:TableReplication example 'arn:aws:s3tables:us-west-2:123456789012:table/example-table'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TableReplicationArgs args: The arguments to use to populate this resource's properties.

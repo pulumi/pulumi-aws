@@ -26,6 +26,7 @@ class TriggerArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Trigger resource.
+
         :param pulumi.Input[_builtins.str] repository_name: The name for the repository. This needs to be less than 100 characters.
         :param pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]] triggers: The name of the trigger.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -81,6 +82,7 @@ class _TriggerState:
                  triggers: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]]] = None):
         """
         Input properties used for looking up and filtering Trigger resources.
+
         :param pulumi.Input[_builtins.str] configuration_id: System-generated unique identifier.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] repository_name: The name for the repository. This needs to be less than 100 characters.
@@ -173,6 +175,7 @@ class Trigger(pulumi.CustomResource):
             }])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -203,6 +206,7 @@ class Trigger(pulumi.CustomResource):
                 "destination_arn": test_aws_sns_topic["arn"],
             }])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TriggerArgs args: The arguments to use to populate this resource's properties.

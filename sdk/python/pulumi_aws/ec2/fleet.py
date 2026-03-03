@@ -41,6 +41,7 @@ class FleetArgs:
                  valid_until: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Fleet resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigArgs']]] launch_template_configs: Nested argument containing EC2 Launch Template configurations. Defined below.
         :param pulumi.Input['FleetTargetCapacitySpecificationArgs'] target_capacity_specification: Nested argument containing target capacity configurations. Defined below.
         :param pulumi.Input[_builtins.str] context: Reserved.
@@ -337,6 +338,7 @@ class _FleetState:
                  valid_until: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Fleet resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the fleet
         :param pulumi.Input[_builtins.str] context: Reserved.
         :param pulumi.Input[_builtins.str] excess_capacity_termination_policy: Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
@@ -695,6 +697,7 @@ class Fleet(pulumi.CustomResource):
         $ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] context: Reserved.
@@ -751,6 +754,7 @@ class Fleet(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FleetArgs args: The arguments to use to populate this resource's properties.

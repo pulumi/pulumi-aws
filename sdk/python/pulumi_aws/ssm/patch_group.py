@@ -24,6 +24,7 @@ class PatchGroupArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PatchGroup resource.
+
         :param pulumi.Input[_builtins.str] baseline_id: The ID of the patch baseline to register the patch group with.
         :param pulumi.Input[_builtins.str] patch_group: The name of the patch group that should be registered with the patch baseline.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _PatchGroupState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PatchGroup resources.
+
         :param pulumi.Input[_builtins.str] baseline_id: The ID of the patch baseline to register the patch group with.
         :param pulumi.Input[_builtins.str] patch_group: The name of the patch group that should be registered with the patch baseline.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -153,6 +155,7 @@ class PatchGroup(pulumi.CustomResource):
             patch_group="patch-group-name")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] baseline_id: The ID of the patch baseline to register the patch group with.
@@ -181,6 +184,7 @@ class PatchGroup(pulumi.CustomResource):
             baseline_id=production.id,
             patch_group="patch-group-name")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PatchGroupArgs args: The arguments to use to populate this resource's properties.

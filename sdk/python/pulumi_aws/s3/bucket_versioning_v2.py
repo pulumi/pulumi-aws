@@ -28,6 +28,7 @@ class BucketVersioningV2Args:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BucketVersioningV2 resource.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the S3 bucket.
         :param pulumi.Input['BucketVersioningV2VersioningConfigurationArgs'] versioning_configuration: Configuration block for the versioning parameters. See below.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
@@ -118,6 +119,7 @@ class _BucketVersioningV2State:
                  versioning_configuration: Optional[pulumi.Input['BucketVersioningV2VersioningConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering BucketVersioningV2 resources.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the S3 bucket.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[_builtins.str] mfa: Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
@@ -317,6 +319,7 @@ class BucketVersioningV2(pulumi.CustomResource):
         $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name,123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the S3 bucket.
@@ -430,6 +433,7 @@ class BucketVersioningV2(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name,123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BucketVersioningV2Args args: The arguments to use to populate this resource's properties.

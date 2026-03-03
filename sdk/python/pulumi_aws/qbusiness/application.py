@@ -32,6 +32,7 @@ class ApplicationArgs:
                  timeouts: Optional[pulumi.Input['ApplicationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Application resource.
+
         :param pulumi.Input['ApplicationAttachmentsConfigurationArgs'] attachments_configuration: Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
         :param pulumi.Input[_builtins.str] display_name: Name of the Amazon Q application.
         :param pulumi.Input[_builtins.str] iam_service_role_arn: ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
@@ -179,6 +180,7 @@ class _ApplicationState:
                  timeouts: Optional[pulumi.Input['ApplicationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Application resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Q Business application.
         :param pulumi.Input['ApplicationAttachmentsConfigurationArgs'] attachments_configuration: Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the Amazon Q application.
@@ -400,6 +402,7 @@ class Application(pulumi.CustomResource):
         $ pulumi import aws:qbusiness/application:Application example id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict']] attachments_configuration: Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
@@ -443,6 +446,7 @@ class Application(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:qbusiness/application:Application example id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

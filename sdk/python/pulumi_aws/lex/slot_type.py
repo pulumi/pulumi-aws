@@ -29,6 +29,7 @@ class SlotTypeArgs:
                  value_selection_strategy: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SlotType resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArgs']]] enumeration_values: A list of EnumerationValue objects that defines the values that
                the slot type can take. Each value can have a list of synonyms, which are additional values that help
                train the machine learning model about the values that it resolves for a slot. Attributes are
@@ -150,6 +151,7 @@ class _SlotTypeState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SlotType resources.
+
         :param pulumi.Input[_builtins.str] checksum: Checksum identifying the version of the slot type that was created. The checksum is
                not included as an argument because the resource will add it automatically when updating the slot type.
         :param pulumi.Input[_builtins.bool] create_version: Determines if a new slot type version is created when the initial resource is created and on each
@@ -373,6 +375,7 @@ class SlotType(pulumi.CustomResource):
         $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] create_version: Determines if a new slot type version is created when the initial resource is created and on each
@@ -435,6 +438,7 @@ class SlotType(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SlotTypeArgs args: The arguments to use to populate this resource's properties.

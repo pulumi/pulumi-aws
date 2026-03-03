@@ -48,6 +48,7 @@ class ClusterInstanceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ClusterInstance resource.
+
         :param pulumi.Input[_builtins.str] cluster_identifier: Identifier of the `rds.Cluster` in which to launch this instance.
         :param pulumi.Input['EngineType'] engine: Name of the database engine to be used for the RDS cluster instance.
                Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
@@ -487,6 +488,7 @@ class _ClusterInstanceState:
                  writer: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ClusterInstance resources.
+
         :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of cluster instance
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
@@ -1123,6 +1125,7 @@ class ClusterInstance(pulumi.CustomResource):
         $ pulumi import aws:rds/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
@@ -1213,6 +1216,7 @@ class ClusterInstance(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:rds/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterInstanceArgs args: The arguments to use to populate this resource's properties.

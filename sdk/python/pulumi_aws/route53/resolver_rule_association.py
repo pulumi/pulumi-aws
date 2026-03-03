@@ -25,6 +25,7 @@ class ResolverRuleAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResolverRuleAssociation resource.
+
         :param pulumi.Input[_builtins.str] resolver_rule_id: The ID of the resolver rule that you want to associate with the VPC.
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC that you want to associate the resolver rule with.
         :param pulumi.Input[_builtins.str] name: A name for the association that you're creating between a resolver rule and a VPC.
@@ -95,6 +96,7 @@ class _ResolverRuleAssociationState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResolverRuleAssociation resources.
+
         :param pulumi.Input[_builtins.str] name: A name for the association that you're creating between a resolver rule and a VPC.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resolver_rule_id: The ID of the resolver rule that you want to associate with the VPC.
@@ -202,6 +204,7 @@ class ResolverRuleAssociation(pulumi.CustomResource):
         $ pulumi import aws:route53/resolverRuleAssociation:ResolverRuleAssociation example rslvr-rrassoc-97242eaf88example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: A name for the association that you're creating between a resolver rule and a VPC.
@@ -247,6 +250,7 @@ class ResolverRuleAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53/resolverRuleAssociation:ResolverRuleAssociation example rslvr-rrassoc-97242eaf88example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResolverRuleAssociationArgs args: The arguments to use to populate this resource's properties.

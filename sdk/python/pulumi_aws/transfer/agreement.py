@@ -29,6 +29,7 @@ class AgreementArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Agreement resource.
+
         :param pulumi.Input[_builtins.str] access_role: The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
         :param pulumi.Input[_builtins.str] base_directory: The landing directory for the files transferred by using the AS2 protocol.
         :param pulumi.Input[_builtins.str] local_profile_id: The unique identifier for the AS2 local profile.
@@ -164,6 +165,7 @@ class _AgreementState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Agreement resources.
+
         :param pulumi.Input[_builtins.str] access_role: The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
         :param pulumi.Input[_builtins.str] agreement_id: The unique identifier for the AS2 agreement.
         :param pulumi.Input[_builtins.str] arn: The ARN of the agreement.
@@ -382,6 +384,7 @@ class Agreement(pulumi.CustomResource):
         $ pulumi import aws:transfer/agreement:Agreement example s-4221a88afd5f4362a/a-4221a88afd5f4362a
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_role: The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
@@ -426,6 +429,7 @@ class Agreement(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:transfer/agreement:Agreement example s-4221a88afd5f4362a/a-4221a88afd5f4362a
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AgreementArgs args: The arguments to use to populate this resource's properties.

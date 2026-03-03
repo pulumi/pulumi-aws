@@ -33,6 +33,7 @@ class ExperimentTemplateArgs:
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetArgs']]]] = None):
         """
         The set of arguments for constructing a ExperimentTemplate resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateActionArgs']]] actions: Action to be performed during an experiment. See below.
         :param pulumi.Input[_builtins.str] description: Description for the experiment template.
         :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
@@ -202,6 +203,7 @@ class _ExperimentTemplateState:
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetArgs']]]] = None):
         """
         Input properties used for looking up and filtering ExperimentTemplate resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateActionArgs']]] actions: Action to be performed during an experiment. See below.
         :param pulumi.Input[_builtins.str] description: Description for the experiment template.
         :param pulumi.Input['ExperimentTemplateExperimentOptionsArgs'] experiment_options: The experiment options for the experiment template. See experiment_options below for more details!
@@ -532,6 +534,7 @@ class ExperimentTemplate(pulumi.CustomResource):
         $ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict']]]] actions: Action to be performed during an experiment. See below.
@@ -697,6 +700,7 @@ class ExperimentTemplate(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExperimentTemplateArgs args: The arguments to use to populate this resource's properties.

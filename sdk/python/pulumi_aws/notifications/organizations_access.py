@@ -25,6 +25,7 @@ class OrganizationsAccessArgs:
                  timeouts: Optional[pulumi.Input['OrganizationsAccessTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a OrganizationsAccess resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable organizations access for AWS User Notifications in AWS Organizations. When set to `true`, enables organizations access. When set to `false`, disables organizations access.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -60,6 +61,7 @@ class _OrganizationsAccessState:
                  timeouts: Optional[pulumi.Input['OrganizationsAccessTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering OrganizationsAccess resources.
+
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable organizations access for AWS User Notifications in AWS Organizations. When set to `true`, enables organizations access. When set to `false`, disables organizations access.
         """
         if enabled is not None:
@@ -124,6 +126,7 @@ class OrganizationsAccess(pulumi.CustomResource):
         $ pulumi import aws:notifications/organizationsAccess:OrganizationsAccess example 123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable organizations access for AWS User Notifications in AWS Organizations. When set to `true`, enables organizations access. When set to `false`, disables organizations access.
@@ -159,6 +162,7 @@ class OrganizationsAccess(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:notifications/organizationsAccess:OrganizationsAccess example 123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationsAccessArgs args: The arguments to use to populate this resource's properties.

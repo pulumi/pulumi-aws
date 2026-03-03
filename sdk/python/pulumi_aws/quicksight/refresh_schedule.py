@@ -28,6 +28,7 @@ class RefreshScheduleArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RefreshSchedule resource.
+
         :param pulumi.Input[_builtins.str] data_set_id: The ID of the dataset.
         :param pulumi.Input['RefreshScheduleScheduleArgs'] schedule: The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
                
@@ -118,6 +119,7 @@ class _RefreshScheduleState:
                  schedule_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RefreshSchedule resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the refresh schedule.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] data_set_id: The ID of the dataset.
@@ -301,6 +303,7 @@ class RefreshSchedule(pulumi.CustomResource):
         $ pulumi import aws:quicksight/refreshSchedule:RefreshSchedule example 123456789012,dataset-id,schedule-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
@@ -390,6 +393,7 @@ class RefreshSchedule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:quicksight/refreshSchedule:RefreshSchedule example 123456789012,dataset-id,schedule-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RefreshScheduleArgs args: The arguments to use to populate this resource's properties.

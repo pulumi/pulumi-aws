@@ -30,6 +30,7 @@ class AgentcoreAgentRuntimeEndpointArgs:
                  timeouts: Optional[pulumi.Input['AgentcoreAgentRuntimeEndpointTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentcoreAgentRuntimeEndpoint resource.
+
         :param pulumi.Input[_builtins.str] agent_runtime_id: ID of the agent runtime this endpoint belongs to.
                
                The following arguments are optional:
@@ -152,6 +153,7 @@ class _AgentcoreAgentRuntimeEndpointState:
                  timeouts: Optional[pulumi.Input['AgentcoreAgentRuntimeEndpointTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AgentcoreAgentRuntimeEndpoint resources.
+
         :param pulumi.Input[_builtins.str] agent_runtime_arn: ARN of the associated Agent Runtime.
         :param pulumi.Input[_builtins.str] agent_runtime_endpoint_arn: ARN of the Agent Runtime Endpoint.
         :param pulumi.Input[_builtins.str] agent_runtime_id: ID of the agent runtime this endpoint belongs to.
@@ -344,6 +346,7 @@ class AgentcoreAgentRuntimeEndpoint(pulumi.CustomResource):
         $ pulumi import aws:bedrock/agentcoreAgentRuntimeEndpoint:AgentcoreAgentRuntimeEndpoint example AGENTRUNTIME1234567890,example-endpoint
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_runtime_id: ID of the agent runtime this endpoint belongs to.
@@ -385,6 +388,7 @@ class AgentcoreAgentRuntimeEndpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:bedrock/agentcoreAgentRuntimeEndpoint:AgentcoreAgentRuntimeEndpoint example AGENTRUNTIME1234567890,example-endpoint
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AgentcoreAgentRuntimeEndpointArgs args: The arguments to use to populate this resource's properties.

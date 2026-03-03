@@ -30,6 +30,7 @@ class SecondarySubnetArgs:
                  timeouts: Optional[pulumi.Input['SecondarySubnetTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a SecondarySubnet resource.
+
         :param pulumi.Input[_builtins.str] ipv4_cidr_block: IPv4 CIDR block for the secondary subnet. The CIDR block size must be between `/12` and `/28`.
         :param pulumi.Input[_builtins.str] secondary_network_id: ID of the secondary network in which to create the secondary subnet.
         :param pulumi.Input[_builtins.str] availability_zone: Availability Zone for the secondary subnet. Cannot be specified with `availability_zone_id`.
@@ -151,6 +152,7 @@ class _SecondarySubnetState:
                  timeouts: Optional[pulumi.Input['SecondarySubnetTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering SecondarySubnet resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the secondary subnet.
         :param pulumi.Input[_builtins.str] availability_zone: Availability Zone for the secondary subnet. Cannot be specified with `availability_zone_id`.
         :param pulumi.Input[_builtins.str] availability_zone_id: ID of the Availability Zone for the secondary subnet. This option is preferred over `availability_zone` as it provides a consistent identifier across AWS accounts. Cannot be specified with `availability_zone`.
@@ -447,6 +449,7 @@ class SecondarySubnet(pulumi.CustomResource):
         $ pulumi import aws:ec2/secondarySubnet:SecondarySubnet example ss-0123456789abcdef0
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability_zone: Availability Zone for the secondary subnet. Cannot be specified with `availability_zone_id`.
@@ -534,6 +537,7 @@ class SecondarySubnet(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/secondarySubnet:SecondarySubnet example ss-0123456789abcdef0
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecondarySubnetArgs args: The arguments to use to populate this resource's properties.

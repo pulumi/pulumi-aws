@@ -24,6 +24,7 @@ class AccountSettingArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccountSetting resource.
+
         :param pulumi.Input[_builtins.str] value: Setting value that is specified. Valid values are:
                * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
                * If `name` is specified as `BLOB_MOUNTING`, one of: `ENABLED`, `DISABLED`.
@@ -85,6 +86,7 @@ class _AccountSettingState:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountSetting resources.
+
         :param pulumi.Input[_builtins.str] name: Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `BLOB_MOUNTING`, `REGISTRY_POLICY_SCOPE`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] value: Setting value that is specified. Valid values are:
@@ -195,6 +197,7 @@ class AccountSetting(pulumi.CustomResource):
         $ pulumi import aws:ecr/accountSetting:AccountSetting foo BASIC_SCAN_TYPE_VERSION
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `BLOB_MOUNTING`, `REGISTRY_POLICY_SCOPE`.
@@ -255,6 +258,7 @@ class AccountSetting(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ecr/accountSetting:AccountSetting foo BASIC_SCAN_TYPE_VERSION
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountSettingArgs args: The arguments to use to populate this resource's properties.

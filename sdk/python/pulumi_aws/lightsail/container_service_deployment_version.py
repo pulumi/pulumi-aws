@@ -27,6 +27,7 @@ class ContainerServiceDeploymentVersionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ContainerServiceDeploymentVersion resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]] containers: Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
         :param pulumi.Input[_builtins.str] service_name: Name of the container service.
                
@@ -104,6 +105,7 @@ class _ContainerServiceDeploymentVersionState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering ContainerServiceDeploymentVersion resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]] containers: Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
         :param pulumi.Input[_builtins.str] created_at: Date and time when the deployment was created.
         :param pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs'] public_endpoint: Configuration block that describes the settings of the public endpoint for the container service. See below.
@@ -277,6 +279,7 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
         $ pulumi import aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion example container-service-1/1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerServiceDeploymentVersionContainerArgs', 'ContainerServiceDeploymentVersionContainerArgsDict']]]] containers: Set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. See below.
@@ -341,6 +344,7 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion example container-service-1/1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ContainerServiceDeploymentVersionArgs args: The arguments to use to populate this resource's properties.

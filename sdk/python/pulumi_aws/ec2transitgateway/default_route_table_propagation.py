@@ -27,6 +27,7 @@ class DefaultRouteTablePropagationArgs:
                  timeouts: Optional[pulumi.Input['DefaultRouteTablePropagationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a DefaultRouteTablePropagation resource.
+
         :param pulumi.Input[_builtins.str] transit_gateway_id: ID of the Transit Gateway to change the default association route table on.
         :param pulumi.Input[_builtins.str] transit_gateway_route_table_id: ID of the Transit Gateway Route Table to be made the default association route table.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -94,6 +95,7 @@ class _DefaultRouteTablePropagationState:
                  transit_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DefaultRouteTablePropagation resources.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] transit_gateway_id: ID of the Transit Gateway to change the default association route table on.
         :param pulumi.Input[_builtins.str] transit_gateway_route_table_id: ID of the Transit Gateway Route Table to be made the default association route table.
@@ -191,6 +193,7 @@ class DefaultRouteTablePropagation(pulumi.CustomResource):
             transit_gateway_route_table_id=example_aws_ec2_transit_gateway_route_table["id"])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -218,6 +221,7 @@ class DefaultRouteTablePropagation(pulumi.CustomResource):
             transit_gateway_id=example_aws_ec2_transit_gateway["id"],
             transit_gateway_route_table_id=example_aws_ec2_transit_gateway_route_table["id"])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DefaultRouteTablePropagationArgs args: The arguments to use to populate this resource's properties.

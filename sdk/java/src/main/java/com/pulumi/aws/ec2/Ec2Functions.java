@@ -5863,7 +5863,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.get("vpcId");
+     *         final var vpcId = config.require("vpcId");
      *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
      *             .filters(GetInternetGatewayFilterArgs.builder()
      *                 .name("attachment.vpc-id")
@@ -5908,7 +5908,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.get("vpcId");
+     *         final var vpcId = config.require("vpcId");
      *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
      *             .filters(GetInternetGatewayFilterArgs.builder()
      *                 .name("attachment.vpc-id")
@@ -5953,7 +5953,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.get("vpcId");
+     *         final var vpcId = config.require("vpcId");
      *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
      *             .filters(GetInternetGatewayFilterArgs.builder()
      *                 .name("attachment.vpc-id")
@@ -5998,7 +5998,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.get("vpcId");
+     *         final var vpcId = config.require("vpcId");
      *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
      *             .filters(GetInternetGatewayFilterArgs.builder()
      *                 .name("attachment.vpc-id")
@@ -6043,7 +6043,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.get("vpcId");
+     *         final var vpcId = config.require("vpcId");
      *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
      *             .filters(GetInternetGatewayFilterArgs.builder()
      *                 .name("attachment.vpc-id")
@@ -6088,7 +6088,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.get("vpcId");
+     *         final var vpcId = config.require("vpcId");
      *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
      *             .filters(GetInternetGatewayFilterArgs.builder()
      *                 .name("attachment.vpc-id")
@@ -6133,7 +6133,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.get("vpcId");
+     *         final var vpcId = config.require("vpcId");
      *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
      *             .filters(GetInternetGatewayFilterArgs.builder()
      *                 .name("attachment.vpc-id")
@@ -7522,7 +7522,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var localGatewayId = config.get("localGatewayId");
+     *         final var localGatewayId = config.require("localGatewayId");
      *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
      *             .id(localGatewayId)
      *             .build());
@@ -7566,7 +7566,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var localGatewayId = config.get("localGatewayId");
+     *         final var localGatewayId = config.require("localGatewayId");
      *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
      *             .id(localGatewayId)
      *             .build());
@@ -7610,7 +7610,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var localGatewayId = config.get("localGatewayId");
+     *         final var localGatewayId = config.require("localGatewayId");
      *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
      *             .id(localGatewayId)
      *             .build());
@@ -7654,7 +7654,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var localGatewayId = config.get("localGatewayId");
+     *         final var localGatewayId = config.require("localGatewayId");
      *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
      *             .id(localGatewayId)
      *             .build());
@@ -7698,7 +7698,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var localGatewayId = config.get("localGatewayId");
+     *         final var localGatewayId = config.require("localGatewayId");
      *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
      *             .id(localGatewayId)
      *             .build());
@@ -7742,7 +7742,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var localGatewayId = config.get("localGatewayId");
+     *         final var localGatewayId = config.require("localGatewayId");
      *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
      *             .id(localGatewayId)
      *             .build());
@@ -7786,7 +7786,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var localGatewayId = config.get("localGatewayId");
+     *         final var localGatewayId = config.require("localGatewayId");
      *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
      *             .id(localGatewayId)
      *             .build());
@@ -7833,7 +7833,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var awsEc2LocalGatewayRouteTable = config.get("awsEc2LocalGatewayRouteTable");
+     *         final var awsEc2LocalGatewayRouteTable = config.require("awsEc2LocalGatewayRouteTable");
      *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
      *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
      *             .build());
@@ -7880,7 +7880,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var awsEc2LocalGatewayRouteTable = config.get("awsEc2LocalGatewayRouteTable");
+     *         final var awsEc2LocalGatewayRouteTable = config.require("awsEc2LocalGatewayRouteTable");
      *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
      *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
      *             .build());
@@ -7927,7 +7927,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var awsEc2LocalGatewayRouteTable = config.get("awsEc2LocalGatewayRouteTable");
+     *         final var awsEc2LocalGatewayRouteTable = config.require("awsEc2LocalGatewayRouteTable");
      *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
      *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
      *             .build());
@@ -7974,7 +7974,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var awsEc2LocalGatewayRouteTable = config.get("awsEc2LocalGatewayRouteTable");
+     *         final var awsEc2LocalGatewayRouteTable = config.require("awsEc2LocalGatewayRouteTable");
      *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
      *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
      *             .build());
@@ -8021,7 +8021,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var awsEc2LocalGatewayRouteTable = config.get("awsEc2LocalGatewayRouteTable");
+     *         final var awsEc2LocalGatewayRouteTable = config.require("awsEc2LocalGatewayRouteTable");
      *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
      *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
      *             .build());
@@ -8068,7 +8068,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var awsEc2LocalGatewayRouteTable = config.get("awsEc2LocalGatewayRouteTable");
+     *         final var awsEc2LocalGatewayRouteTable = config.require("awsEc2LocalGatewayRouteTable");
      *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
      *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
      *             .build());
@@ -8115,7 +8115,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var awsEc2LocalGatewayRouteTable = config.get("awsEc2LocalGatewayRouteTable");
+     *         final var awsEc2LocalGatewayRouteTable = config.require("awsEc2LocalGatewayRouteTable");
      *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
      *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
      *             .build());
@@ -14582,7 +14582,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get("subnetId");
+     *         final var subnetId = config.require("subnetId");
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
@@ -14639,7 +14639,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get("subnetId");
+     *         final var subnetId = config.require("subnetId");
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
@@ -14696,7 +14696,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get("subnetId");
+     *         final var subnetId = config.require("subnetId");
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
@@ -14753,7 +14753,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get("subnetId");
+     *         final var subnetId = config.require("subnetId");
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
@@ -14810,7 +14810,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get("subnetId");
+     *         final var subnetId = config.require("subnetId");
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
@@ -14867,7 +14867,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get("subnetId");
+     *         final var subnetId = config.require("subnetId");
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
@@ -14921,7 +14921,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get("subnetId");
+     *         final var subnetId = config.require("subnetId");
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
@@ -14975,7 +14975,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get("subnetId");
+     *         final var subnetId = config.require("subnetId");
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
@@ -15029,7 +15029,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get("subnetId");
+     *         final var subnetId = config.require("subnetId");
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
@@ -15083,7 +15083,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get("subnetId");
+     *         final var subnetId = config.require("subnetId");
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
@@ -15137,7 +15137,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get("subnetId");
+     *         final var subnetId = config.require("subnetId");
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
@@ -15191,7 +15191,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get("subnetId");
+     *         final var subnetId = config.require("subnetId");
      *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
      *             .build());
@@ -15668,7 +15668,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var securityGroupId = config.get("securityGroupId");
+     *         final var securityGroupId = config.require("securityGroupId");
      *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
      *             .id(securityGroupId)
      *             .build());
@@ -15724,7 +15724,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var securityGroupId = config.get("securityGroupId");
+     *         final var securityGroupId = config.require("securityGroupId");
      *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
      *             .id(securityGroupId)
      *             .build());
@@ -15780,7 +15780,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var securityGroupId = config.get("securityGroupId");
+     *         final var securityGroupId = config.require("securityGroupId");
      *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
      *             .id(securityGroupId)
      *             .build());
@@ -15836,7 +15836,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var securityGroupId = config.get("securityGroupId");
+     *         final var securityGroupId = config.require("securityGroupId");
      *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
      *             .id(securityGroupId)
      *             .build());
@@ -15892,7 +15892,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var securityGroupId = config.get("securityGroupId");
+     *         final var securityGroupId = config.require("securityGroupId");
      *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
      *             .id(securityGroupId)
      *             .build());
@@ -15948,7 +15948,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var securityGroupId = config.get("securityGroupId");
+     *         final var securityGroupId = config.require("securityGroupId");
      *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
      *             .id(securityGroupId)
      *             .build());
@@ -16004,7 +16004,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var securityGroupId = config.get("securityGroupId");
+     *         final var securityGroupId = config.require("securityGroupId");
      *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
      *             .id(securityGroupId)
      *             .build());
@@ -17507,7 +17507,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get("subnetId");
+     *         final var subnetId = config.require("subnetId");
      *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .id(subnetId)
      *             .build());
@@ -17604,7 +17604,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get("subnetId");
+     *         final var subnetId = config.require("subnetId");
      *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .id(subnetId)
      *             .build());
@@ -17701,7 +17701,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get("subnetId");
+     *         final var subnetId = config.require("subnetId");
      *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .id(subnetId)
      *             .build());
@@ -17798,7 +17798,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get("subnetId");
+     *         final var subnetId = config.require("subnetId");
      *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .id(subnetId)
      *             .build());
@@ -17895,7 +17895,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get("subnetId");
+     *         final var subnetId = config.require("subnetId");
      *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .id(subnetId)
      *             .build());
@@ -17992,7 +17992,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get("subnetId");
+     *         final var subnetId = config.require("subnetId");
      *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .id(subnetId)
      *             .build());
@@ -18089,7 +18089,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var subnetId = config.get("subnetId");
+     *         final var subnetId = config.require("subnetId");
      *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .id(subnetId)
      *             .build());
@@ -18926,7 +18926,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.get("vpcId");
+     *         final var vpcId = config.require("vpcId");
      *         final var selected = Ec2Functions.getVpc(GetVpcArgs.builder()
      *             .id(vpcId)
      *             .build());
@@ -18990,7 +18990,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.get("vpcId");
+     *         final var vpcId = config.require("vpcId");
      *         final var selected = Ec2Functions.getVpc(GetVpcArgs.builder()
      *             .id(vpcId)
      *             .build());
@@ -19054,7 +19054,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.get("vpcId");
+     *         final var vpcId = config.require("vpcId");
      *         final var selected = Ec2Functions.getVpc(GetVpcArgs.builder()
      *             .id(vpcId)
      *             .build());
@@ -19118,7 +19118,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.get("vpcId");
+     *         final var vpcId = config.require("vpcId");
      *         final var selected = Ec2Functions.getVpc(GetVpcArgs.builder()
      *             .id(vpcId)
      *             .build());
@@ -19182,7 +19182,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.get("vpcId");
+     *         final var vpcId = config.require("vpcId");
      *         final var selected = Ec2Functions.getVpc(GetVpcArgs.builder()
      *             .id(vpcId)
      *             .build());
@@ -19246,7 +19246,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.get("vpcId");
+     *         final var vpcId = config.require("vpcId");
      *         final var selected = Ec2Functions.getVpc(GetVpcArgs.builder()
      *             .id(vpcId)
      *             .build());
@@ -19310,7 +19310,7 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var vpcId = config.get("vpcId");
+     *         final var vpcId = config.require("vpcId");
      *         final var selected = Ec2Functions.getVpc(GetVpcArgs.builder()
      *             .id(vpcId)
      *             .build());

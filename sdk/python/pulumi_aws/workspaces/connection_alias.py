@@ -27,6 +27,7 @@ class ConnectionAliasArgs:
                  timeouts: Optional[pulumi.Input['ConnectionAliasTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ConnectionAlias resource.
+
         :param pulumi.Input[_builtins.str] connection_string: The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as www.example.com.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -97,6 +98,7 @@ class _ConnectionAliasState:
                  timeouts: Optional[pulumi.Input['ConnectionAliasTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ConnectionAlias resources.
+
         :param pulumi.Input[_builtins.str] connection_string: The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as www.example.com.
         :param pulumi.Input[_builtins.str] owner_account_id: The identifier of the Amazon Web Services account that owns the connection alias.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -234,6 +236,7 @@ class ConnectionAlias(pulumi.CustomResource):
         $ pulumi import aws:workspaces/connectionAlias:ConnectionAlias example rft-8012925589
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connection_string: The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as www.example.com.
@@ -267,6 +270,7 @@ class ConnectionAlias(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:workspaces/connectionAlias:ConnectionAlias example rft-8012925589
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConnectionAliasArgs args: The arguments to use to populate this resource's properties.

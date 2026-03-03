@@ -27,6 +27,7 @@ class DefaultCreditSpecificationArgs:
                  timeouts: Optional[pulumi.Input['DefaultCreditSpecificationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a DefaultCreditSpecification resource.
+
         :param pulumi.Input[_builtins.str] cpu_credits: Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
         :param pulumi.Input[_builtins.str] instance_family: Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -93,6 +94,7 @@ class _DefaultCreditSpecificationState:
                  timeouts: Optional[pulumi.Input['DefaultCreditSpecificationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering DefaultCreditSpecification resources.
+
         :param pulumi.Input[_builtins.str] cpu_credits: Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
         :param pulumi.Input[_builtins.str] instance_family: Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -183,6 +185,7 @@ class DefaultCreditSpecification(pulumi.CustomResource):
 
         Using `pulumi import`, import EC2 (Elastic Compute Cloud) Default Credit Specification using the `instance_family`. For example:
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cpu_credits: Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
@@ -214,6 +217,7 @@ class DefaultCreditSpecification(pulumi.CustomResource):
         ## Import
 
         Using `pulumi import`, import EC2 (Elastic Compute Cloud) Default Credit Specification using the `instance_family`. For example:
+
 
         :param str resource_name: The name of the resource.
         :param DefaultCreditSpecificationArgs args: The arguments to use to populate this resource's properties.

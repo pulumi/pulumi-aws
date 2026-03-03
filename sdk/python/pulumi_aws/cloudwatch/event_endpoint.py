@@ -30,6 +30,7 @@ class EventEndpointArgs:
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventEndpoint resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['EventEndpointEventBusArgs']]] event_buses: The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
         :param pulumi.Input['EventEndpointRoutingConfigArgs'] routing_config: Parameters used for routing, including the health check and secondary Region. Documented below.
         :param pulumi.Input[_builtins.str] description: A description of the global endpoint.
@@ -150,6 +151,7 @@ class _EventEndpointState:
                  routing_config: Optional[pulumi.Input['EventEndpointRoutingConfigArgs']] = None):
         """
         Input properties used for looking up and filtering EventEndpoint resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the endpoint that was created.
         :param pulumi.Input[_builtins.str] description: A description of the global endpoint.
         :param pulumi.Input[_builtins.str] endpoint_url: The URL of the endpoint that was created.
@@ -347,6 +349,7 @@ class EventEndpoint(pulumi.CustomResource):
         $ pulumi import aws:cloudwatch/eventEndpoint:EventEndpoint imported_endpoint example-endpoint
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the global endpoint.
@@ -407,6 +410,7 @@ class EventEndpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudwatch/eventEndpoint:EventEndpoint imported_endpoint example-endpoint
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventEndpointArgs args: The arguments to use to populate this resource's properties.

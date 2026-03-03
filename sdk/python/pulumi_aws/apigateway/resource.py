@@ -25,6 +25,7 @@ class ResourceArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Resource resource.
+
         :param pulumi.Input[_builtins.str] parent_id: ID of the parent API resource
         :param pulumi.Input[_builtins.str] path_part: Last path segment of this API resource.
         :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API
@@ -95,6 +96,7 @@ class _ResourceState:
                  rest_api: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Resource resources.
+
         :param pulumi.Input[_builtins.str] parent_id: ID of the parent API resource
         :param pulumi.Input[_builtins.str] path: Complete path for this API resource, including all parent paths.
         :param pulumi.Input[_builtins.str] path_part: Last path segment of this API resource.
@@ -210,6 +212,7 @@ class Resource(pulumi.CustomResource):
         $ pulumi import aws:apigateway/resource:Resource example 12345abcde/67890fghij
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] parent_id: ID of the parent API resource
@@ -248,6 +251,7 @@ class Resource(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apigateway/resource:Resource example 12345abcde/67890fghij
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceArgs args: The arguments to use to populate this resource's properties.

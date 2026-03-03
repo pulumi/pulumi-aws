@@ -28,6 +28,7 @@ class BucketPublicAccessBlockArgs:
                  skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a BucketPublicAccessBlock resource.
+
         :param pulumi.Input[_builtins.str] bucket: S3 Bucket to which this Public Access Block configuration should be applied.
         :param pulumi.Input[_builtins.bool] block_public_acls: Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
                * PUT Bucket ACL and PUT Object ACL calls will fail if the specified ACL allows public access.
@@ -157,6 +158,7 @@ class _BucketPublicAccessBlockState:
                  skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering BucketPublicAccessBlock resources.
+
         :param pulumi.Input[_builtins.bool] block_public_acls: Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
                * PUT Bucket ACL and PUT Object ACL calls will fail if the specified ACL allows public access.
                * PUT Object calls will fail if the request includes an object ACL.
@@ -319,6 +321,7 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
         $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] block_public_acls: Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
@@ -369,6 +372,7 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BucketPublicAccessBlockArgs args: The arguments to use to populate this resource's properties.

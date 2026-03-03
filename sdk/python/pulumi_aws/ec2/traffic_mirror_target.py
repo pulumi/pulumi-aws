@@ -27,6 +27,7 @@ class TrafficMirrorTargetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TrafficMirrorTarget resource.
+
         :param pulumi.Input[_builtins.str] description: A description of the traffic mirror session.
         :param pulumi.Input[_builtins.str] gateway_load_balancer_endpoint_id: The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
         :param pulumi.Input[_builtins.str] network_interface_id: The network interface ID that is associated with the target.
@@ -138,6 +139,7 @@ class _TrafficMirrorTargetState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering TrafficMirrorTarget resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the traffic mirror target.
         :param pulumi.Input[_builtins.str] description: A description of the traffic mirror session.
         :param pulumi.Input[_builtins.str] gateway_load_balancer_endpoint_id: The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
@@ -324,6 +326,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
         $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the traffic mirror session.
@@ -371,6 +374,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TrafficMirrorTargetArgs args: The arguments to use to populate this resource's properties.

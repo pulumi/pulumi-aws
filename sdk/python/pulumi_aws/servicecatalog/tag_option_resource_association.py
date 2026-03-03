@@ -24,6 +24,7 @@ class TagOptionResourceAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TagOptionResourceAssociation resource.
+
         :param pulumi.Input[_builtins.str] resource_id: Resource identifier.
         :param pulumi.Input[_builtins.str] tag_option_id: Tag Option identifier.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -82,6 +83,7 @@ class _TagOptionResourceAssociationState:
                  tag_option_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TagOptionResourceAssociation resources.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_arn: ARN of the resource.
         :param pulumi.Input[_builtins.str] resource_created_time: Creation time of the resource.
@@ -226,6 +228,7 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
         $ pulumi import aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation example tag-pjtvyakdlyo3m:prod-dnigbtea24ste
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -263,6 +266,7 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation example tag-pjtvyakdlyo3m:prod-dnigbtea24ste
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TagOptionResourceAssociationArgs args: The arguments to use to populate this resource's properties.

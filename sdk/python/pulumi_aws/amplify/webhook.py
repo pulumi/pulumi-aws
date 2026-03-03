@@ -25,6 +25,7 @@ class WebhookArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Webhook resource.
+
         :param pulumi.Input[_builtins.str] app_id: Unique ID for an Amplify app.
         :param pulumi.Input[_builtins.str] branch_name: Name for a branch that is part of the Amplify app.
         :param pulumi.Input[_builtins.str] description: Description for a webhook.
@@ -97,6 +98,7 @@ class _WebhookState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Webhook resources.
+
         :param pulumi.Input[_builtins.str] app_id: Unique ID for an Amplify app.
         :param pulumi.Input[_builtins.str] arn: ARN for the webhook.
         :param pulumi.Input[_builtins.str] branch_name: Name for a branch that is part of the Amplify app.
@@ -228,6 +230,7 @@ class Webhook(pulumi.CustomResource):
         $ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: Unique ID for an Amplify app.
@@ -267,6 +270,7 @@ class Webhook(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WebhookArgs args: The arguments to use to populate this resource's properties.

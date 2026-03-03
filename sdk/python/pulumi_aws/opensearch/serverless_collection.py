@@ -30,6 +30,7 @@ class ServerlessCollectionArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerlessCollection resource.
+
         :param pulumi.Input[_builtins.str] description: Description of the collection.
         :param pulumi.Input[_builtins.str] name: Name of the collection.
                
@@ -155,6 +156,7 @@ class _ServerlessCollectionState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerlessCollection resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the collection.
         :param pulumi.Input[_builtins.str] collection_endpoint: Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
         :param pulumi.Input[_builtins.str] dashboard_endpoint: Collection-specific endpoint used to access OpenSearch Dashboards.
@@ -386,6 +388,7 @@ class ServerlessCollection(pulumi.CustomResource):
         $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the collection.
@@ -440,6 +443,7 @@ class ServerlessCollection(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerlessCollectionArgs args: The arguments to use to populate this resource's properties.

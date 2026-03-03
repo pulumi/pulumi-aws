@@ -31,6 +31,7 @@ class FilterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Filter resource.
+
         :param pulumi.Input[_builtins.str] action: Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
         :param pulumi.Input[_builtins.str] detector_id: ID of a GuardDuty detector, attached to your account.
         :param pulumi.Input['FilterFindingCriteriaArgs'] finding_criteria: Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
@@ -165,6 +166,7 @@ class _FilterState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Filter resources.
+
         :param pulumi.Input[_builtins.str] action: Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
         :param pulumi.Input[_builtins.str] arn: The ARN of the GuardDuty filter.
         :param pulumi.Input[_builtins.str] description: Description of the filter.
@@ -381,6 +383,7 @@ class Filter(pulumi.CustomResource):
         $ pulumi import aws:guardduty/filter:Filter MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
@@ -445,6 +448,7 @@ class Filter(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:guardduty/filter:Filter MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FilterArgs args: The arguments to use to populate this resource's properties.

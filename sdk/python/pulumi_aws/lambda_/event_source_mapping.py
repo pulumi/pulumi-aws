@@ -51,6 +51,7 @@ class EventSourceMappingArgs:
                  tumbling_window_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a EventSourceMapping resource.
+
         :param pulumi.Input[_builtins.str] function_name: Name or ARN of the Lambda function that will be subscribing to events.
                
                The following arguments are optional:
@@ -518,6 +519,7 @@ class _EventSourceMappingState:
                  uuid: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventSourceMapping resources.
+
         :param pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs'] amazon_managed_kafka_event_source_config: Additional configuration block for Amazon Managed Kafka sources. Incompatible with `self_managed_event_source` and `self_managed_kafka_event_source_config`. See below.
         :param pulumi.Input[_builtins.str] arn: Event source mapping ARN.
         :param pulumi.Input[_builtins.int] batch_size: Largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
@@ -1314,6 +1316,7 @@ class EventSourceMapping(pulumi.CustomResource):
         $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping example 12345kxodurf3443
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs', 'EventSourceMappingAmazonManagedKafkaEventSourceConfigArgsDict']] amazon_managed_kafka_event_source_config: Additional configuration block for Amazon Managed Kafka sources. Incompatible with `self_managed_event_source` and `self_managed_kafka_event_source_config`. See below.
@@ -1566,6 +1569,7 @@ class EventSourceMapping(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping example 12345kxodurf3443
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventSourceMappingArgs args: The arguments to use to populate this resource's properties.

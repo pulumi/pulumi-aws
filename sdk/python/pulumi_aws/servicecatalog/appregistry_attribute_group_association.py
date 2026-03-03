@@ -24,6 +24,7 @@ class AppregistryAttributeGroupAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AppregistryAttributeGroupAssociation resource.
+
         :param pulumi.Input[_builtins.str] application_id: ID of the application.
         :param pulumi.Input[_builtins.str] attribute_group_id: ID of the attribute group to associate with the application.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _AppregistryAttributeGroupAssociationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AppregistryAttributeGroupAssociation resources.
+
         :param pulumi.Input[_builtins.str] application_id: ID of the application.
         :param pulumi.Input[_builtins.str] attribute_group_id: ID of the attribute group to associate with the application.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -169,6 +171,7 @@ class AppregistryAttributeGroupAssociation(pulumi.CustomResource):
         $ pulumi import aws:servicecatalog/appregistryAttributeGroupAssociation:AppregistryAttributeGroupAssociation example 12456778723424sdffsdfsdq34,12234t3564dsfsdf34asff4ww3
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: ID of the application.
@@ -213,6 +216,7 @@ class AppregistryAttributeGroupAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:servicecatalog/appregistryAttributeGroupAssociation:AppregistryAttributeGroupAssociation example 12456778723424sdffsdfsdq34,12234t3564dsfsdf34asff4ww3
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AppregistryAttributeGroupAssociationArgs args: The arguments to use to populate this resource's properties.

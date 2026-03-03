@@ -28,6 +28,7 @@ class HostArgs:
                  vpc_configuration: Optional[pulumi.Input['HostVpcConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Host resource.
+
         :param pulumi.Input[_builtins.str] provider_endpoint: The endpoint of the infrastructure to be represented by the host after it is created.
         :param pulumi.Input[_builtins.str] provider_type: The name of the external provider where your third-party code repository is configured.
         :param pulumi.Input[_builtins.str] name: The name of the host to be created. The name must be unique in the calling AWS account.
@@ -116,6 +117,7 @@ class _HostState:
                  vpc_configuration: Optional[pulumi.Input['HostVpcConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering Host resources.
+
         :param pulumi.Input[_builtins.str] arn: The CodeStar Host ARN.
         :param pulumi.Input[_builtins.str] name: The name of the host to be created. The name must be unique in the calling AWS account.
         :param pulumi.Input[_builtins.str] provider_endpoint: The endpoint of the infrastructure to be represented by the host after it is created.
@@ -267,6 +269,7 @@ class Host(pulumi.CustomResource):
         $ pulumi import aws:codestarconnections/host:Host example-host arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the host to be created. The name must be unique in the calling AWS account.
@@ -311,6 +314,7 @@ class Host(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:codestarconnections/host:Host example-host arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HostArgs args: The arguments to use to populate this resource's properties.

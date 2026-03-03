@@ -36,6 +36,7 @@ class V2modelsSlotArgs:
                  timeouts: Optional[pulumi.Input['V2modelsSlotTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a V2modelsSlot resource.
+
         :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot associated with the slot.
         :param pulumi.Input[_builtins.str] bot_version: Version of the bot associated with the slot.
         :param pulumi.Input[_builtins.str] intent_id: Identifier of the intent that contains the slot.
@@ -262,6 +263,7 @@ class _V2modelsSlotState:
                  value_elicitation_setting: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingArgs']] = None):
         """
         Input properties used for looking up and filtering V2modelsSlot resources.
+
         :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot associated with the slot.
         :param pulumi.Input[_builtins.str] bot_version: Version of the bot associated with the slot.
         :param pulumi.Input[_builtins.str] description: Description of the slot.
@@ -619,6 +621,7 @@ class V2modelsSlot(pulumi.CustomResource):
         $ pulumi import aws:lex/v2modelsSlot:V2modelsSlot example bot-1234,1,intent-5678,en-US,slot-9012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot associated with the slot.
@@ -758,6 +761,7 @@ class V2modelsSlot(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lex/v2modelsSlot:V2modelsSlot example bot-1234,1,intent-5678,en-US,slot-9012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param V2modelsSlotArgs args: The arguments to use to populate this resource's properties.

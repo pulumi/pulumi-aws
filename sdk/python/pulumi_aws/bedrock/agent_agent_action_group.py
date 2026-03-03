@@ -36,6 +36,7 @@ class AgentAgentActionGroupArgs:
                  timeouts: Optional[pulumi.Input['AgentAgentActionGroupTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentAgentActionGroup resource.
+
         :param pulumi.Input[_builtins.str] action_group_name: Name of the action group.
         :param pulumi.Input[_builtins.str] agent_id: The unique identifier of the agent for which to create the action group.
         :param pulumi.Input[_builtins.str] agent_version: Version of the agent for which to create the action group. Valid values: `DRAFT`.
@@ -254,6 +255,7 @@ class _AgentAgentActionGroupState:
                  timeouts: Optional[pulumi.Input['AgentAgentActionGroupTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AgentAgentActionGroup resources.
+
         :param pulumi.Input['AgentAgentActionGroupActionGroupExecutorArgs'] action_group_executor: ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` Block for details.
                
                The following arguments are optional:
@@ -604,6 +606,7 @@ class AgentAgentActionGroup(pulumi.CustomResource):
         $ pulumi import aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup example MMAUDBZTH4,GGRRAED6JP,DRAFT
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AgentAgentActionGroupActionGroupExecutorArgs', 'AgentAgentActionGroupActionGroupExecutorArgsDict']] action_group_executor: ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` Block for details.
@@ -741,6 +744,7 @@ class AgentAgentActionGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup example MMAUDBZTH4,GGRRAED6JP,DRAFT
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AgentAgentActionGroupArgs args: The arguments to use to populate this resource's properties.

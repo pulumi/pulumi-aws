@@ -36,6 +36,7 @@ class RouteArgs:
                  vpc_peering_connection_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Route resource.
+
         :param pulumi.Input[_builtins.str] route_table_id: The ID of the routing table.
                
                One of the following destination arguments must be supplied:
@@ -299,6 +300,7 @@ class _RouteState:
                  vpc_peering_connection_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Route resources.
+
         :param pulumi.Input[_builtins.str] carrier_gateway_id: Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
         :param pulumi.Input[_builtins.str] core_network_arn: The Amazon Resource Name (ARN) of a core network.
         :param pulumi.Input[_builtins.str] destination_cidr_block: The destination CIDR block.
@@ -698,6 +700,7 @@ class Route(pulumi.CustomResource):
         $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_pl-0570a1d2d725c16be
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] carrier_gateway_id: Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
@@ -804,6 +807,7 @@ class Route(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_pl-0570a1d2d725c16be
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RouteArgs args: The arguments to use to populate this resource's properties.

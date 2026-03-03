@@ -32,6 +32,7 @@ class VectorsIndexArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VectorsIndex resource.
+
         :param pulumi.Input[_builtins.str] data_type: Data type of the vectors to be inserted into the vector index. Valid values: `float32`.
         :param pulumi.Input[_builtins.int] dimension: Dimensions of the vectors to be inserted into the vector index.
         :param pulumi.Input[_builtins.str] distance_metric: Distance metric to be used for similarity search. Valid values: `cosine`, `euclidean`.
@@ -186,6 +187,7 @@ class _VectorsIndexState:
                  vector_bucket_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VectorsIndex resources.
+
         :param pulumi.Input[_builtins.str] creation_time: Date and time when the vector index was created.
         :param pulumi.Input[_builtins.str] data_type: Data type of the vectors to be inserted into the vector index. Valid values: `float32`.
         :param pulumi.Input[_builtins.int] dimension: Dimensions of the vectors to be inserted into the vector index.
@@ -416,6 +418,7 @@ class VectorsIndex(pulumi.CustomResource):
         $ pulumi import aws:s3/vectorsIndex:VectorsIndex example arn:aws:s3vectors:us-west-2:123456789012:bucket/example-bucket/index/example-index
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_type: Data type of the vectors to be inserted into the vector index. Valid values: `float32`.
@@ -462,6 +465,7 @@ class VectorsIndex(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/vectorsIndex:VectorsIndex example arn:aws:s3vectors:us-west-2:123456789012:bucket/example-bucket/index/example-index
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VectorsIndexArgs args: The arguments to use to populate this resource's properties.

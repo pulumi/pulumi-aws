@@ -26,6 +26,7 @@ class IdentityNotificationTopicArgs:
                  topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IdentityNotificationTopic resource.
+
         :param pulumi.Input[_builtins.str] identity: The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
         :param pulumi.Input[_builtins.str] notification_type: The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
         :param pulumi.Input[_builtins.bool] include_original_headers: Whether SES should include original email headers in SNS notifications of this type. `false` by default.
@@ -112,6 +113,7 @@ class _IdentityNotificationTopicState:
                  topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IdentityNotificationTopic resources.
+
         :param pulumi.Input[_builtins.str] identity: The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
         :param pulumi.Input[_builtins.bool] include_original_headers: Whether SES should include original email headers in SNS notifications of this type. `false` by default.
         :param pulumi.Input[_builtins.str] notification_type: The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
@@ -226,6 +228,7 @@ class IdentityNotificationTopic(pulumi.CustomResource):
         $ pulumi import aws:ses/identityNotificationTopic:IdentityNotificationTopic test 'example.com|Bounce'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] identity: The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
@@ -263,6 +266,7 @@ class IdentityNotificationTopic(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ses/identityNotificationTopic:IdentityNotificationTopic test 'example.com|Bounce'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IdentityNotificationTopicArgs args: The arguments to use to populate this resource's properties.

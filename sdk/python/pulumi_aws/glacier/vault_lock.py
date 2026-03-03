@@ -26,6 +26,7 @@ class VaultLockArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VaultLock resource.
+
         :param pulumi.Input[_builtins.bool] complete_lock: Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
         :param pulumi.Input[_builtins.str] policy: JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
         :param pulumi.Input[_builtins.str] vault_name: The name of the Glacier Vault.
@@ -111,6 +112,7 @@ class _VaultLockState:
                  vault_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VaultLock resources.
+
         :param pulumi.Input[_builtins.bool] complete_lock: Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
         :param pulumi.Input[_builtins.bool] ignore_deletion_error: Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
         :param pulumi.Input[_builtins.str] policy: JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
@@ -255,6 +257,7 @@ class VaultLock(pulumi.CustomResource):
         $ pulumi import aws:glacier/vaultLock:VaultLock example example-vault
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] complete_lock: Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
@@ -322,6 +325,7 @@ class VaultLock(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:glacier/vaultLock:VaultLock example example-vault
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VaultLockArgs args: The arguments to use to populate this resource's properties.

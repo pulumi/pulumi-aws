@@ -27,6 +27,7 @@ class BasePathMappingArgs:
                  stage_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BasePathMapping resource.
+
         :param pulumi.Input[_builtins.str] domain_name: Already-registered domain name to connect the API to.
         :param pulumi.Input[_builtins.str] rest_api: ID of the API to connect.
         :param pulumi.Input[_builtins.str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
@@ -129,6 +130,7 @@ class _BasePathMappingState:
                  stage_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BasePathMapping resources.
+
         :param pulumi.Input[_builtins.str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
         :param pulumi.Input[_builtins.str] domain_name: Already-registered domain name to connect the API to.
         :param pulumi.Input[_builtins.str] domain_name_id: The identifier for the domain name resource. Supported only for private custom domain names.
@@ -266,6 +268,7 @@ class BasePathMapping(pulumi.CustomResource):
         $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example api.internal.example.com/base-path/abcde12345
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
@@ -311,6 +314,7 @@ class BasePathMapping(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example api.internal.example.com/base-path/abcde12345
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BasePathMappingArgs args: The arguments to use to populate this resource's properties.

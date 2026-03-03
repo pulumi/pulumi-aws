@@ -26,6 +26,7 @@ class UploadArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Upload resource.
+
         :param pulumi.Input[_builtins.str] project_arn: The ARN of the project for the upload.
         :param pulumi.Input[_builtins.str] type: The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
         :param pulumi.Input[_builtins.str] content_type: The upload's content type (for example, application/octet-stream).
@@ -116,6 +117,7 @@ class _UploadState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Upload resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of this upload.
         :param pulumi.Input[_builtins.str] category: The upload's category.
         :param pulumi.Input[_builtins.str] content_type: The upload's content type (for example, application/octet-stream).
@@ -298,6 +300,7 @@ class Upload(pulumi.CustomResource):
         $ pulumi import aws:devicefarm/upload:Upload example arn:aws:devicefarm:us-west-2:123456789012:upload:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content_type: The upload's content type (for example, application/octet-stream).
@@ -343,6 +346,7 @@ class Upload(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:devicefarm/upload:Upload example arn:aws:devicefarm:us-west-2:123456789012:upload:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UploadArgs args: The arguments to use to populate this resource's properties.

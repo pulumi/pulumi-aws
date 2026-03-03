@@ -25,6 +25,7 @@ class MonitoringSubscriptionArgs:
                  monitoring_subscription: pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionArgs']):
         """
         The set of arguments for constructing a MonitoringSubscription resource.
+
         :param pulumi.Input[_builtins.str] distribution_id: The ID of the distribution that you are enabling metrics for.
         :param pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionArgs'] monitoring_subscription: A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
         """
@@ -63,6 +64,7 @@ class _MonitoringSubscriptionState:
                  monitoring_subscription: Optional[pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionArgs']] = None):
         """
         Input properties used for looking up and filtering MonitoringSubscription resources.
+
         :param pulumi.Input[_builtins.str] distribution_id: The ID of the distribution that you are enabling metrics for.
         :param pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionArgs'] monitoring_subscription: A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
         """
@@ -131,6 +133,7 @@ class MonitoringSubscription(pulumi.CustomResource):
         $ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] distribution_id: The ID of the distribution that you are enabling metrics for.
@@ -167,6 +170,7 @@ class MonitoringSubscription(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MonitoringSubscriptionArgs args: The arguments to use to populate this resource's properties.

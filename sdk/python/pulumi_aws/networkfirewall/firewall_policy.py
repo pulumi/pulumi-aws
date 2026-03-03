@@ -29,6 +29,7 @@ class FirewallPolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FirewallPolicy resource.
+
         :param pulumi.Input['FirewallPolicyFirewallPolicyArgs'] firewall_policy: A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
         :param pulumi.Input[_builtins.str] description: A friendly description of the firewall policy.
         :param pulumi.Input['FirewallPolicyEncryptionConfigurationArgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
@@ -135,6 +136,7 @@ class _FirewallPolicyState:
                  update_token: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FirewallPolicy resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) that identifies the firewall policy.
         :param pulumi.Input[_builtins.str] description: A friendly description of the firewall policy.
         :param pulumi.Input['FirewallPolicyEncryptionConfigurationArgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
@@ -427,6 +429,7 @@ class FirewallPolicy(pulumi.CustomResource):
         $ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A friendly description of the firewall policy.
@@ -582,6 +585,7 @@ class FirewallPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FirewallPolicyArgs args: The arguments to use to populate this resource's properties.

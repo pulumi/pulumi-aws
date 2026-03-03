@@ -36,6 +36,7 @@ class StackArgs:
                  user_settings: Optional[pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]]] = None):
         """
         The set of arguments for constructing a Stack resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['StackAccessEndpointArgs']]] access_endpoints: Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
                See `access_endpoints` below.
         :param pulumi.Input['StackApplicationSettingsArgs'] application_settings: Settings for application settings persistence.
@@ -269,6 +270,7 @@ class _StackState:
                  user_settings: Optional[pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]]] = None):
         """
         Input properties used for looking up and filtering Stack resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['StackAccessEndpointArgs']]] access_endpoints: Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
                See `access_endpoints` below.
         :param pulumi.Input['StackApplicationSettingsArgs'] application_settings: Settings for application settings persistence.
@@ -611,6 +613,7 @@ class Stack(pulumi.CustomResource):
         $ pulumi import aws:appstream/stack:Stack example stackID
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StackAccessEndpointArgs', 'StackAccessEndpointArgsDict']]]] access_endpoints: Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
@@ -708,6 +711,7 @@ class Stack(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appstream/stack:Stack example stackID
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StackArgs args: The arguments to use to populate this resource's properties.

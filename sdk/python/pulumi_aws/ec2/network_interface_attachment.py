@@ -26,6 +26,7 @@ class NetworkInterfaceAttachmentInitArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkInterfaceAttachment resource.
+
         :param pulumi.Input[_builtins.int] device_index: Network interface index (int).
         :param pulumi.Input[_builtins.str] instance_id: Instance ID to attach.
         :param pulumi.Input[_builtins.str] network_interface_id: ENI ID to attach.
@@ -113,6 +114,7 @@ class _NetworkInterfaceAttachmentState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkInterfaceAttachment resources.
+
         :param pulumi.Input[_builtins.str] attachment_id: The ENI Attachment ID.
         :param pulumi.Input[_builtins.int] device_index: Network interface index (int).
         :param pulumi.Input[_builtins.str] instance_id: Instance ID to attach.
@@ -256,6 +258,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
         $ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] device_index: Network interface index (int).
@@ -292,6 +295,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceAttachmentInitArgs args: The arguments to use to populate this resource's properties.

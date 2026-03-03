@@ -26,6 +26,7 @@ class ReplicationConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReplicationConfiguration resource.
+
         :param pulumi.Input['ReplicationConfigurationDestinationArgs'] destination: A destination configuration block (documented below).
         :param pulumi.Input[_builtins.str] source_file_system_id: The ID of the file system that is to be replicated.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -84,6 +85,7 @@ class _ReplicationConfigurationState:
                  source_file_system_region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ReplicationConfiguration resources.
+
         :param pulumi.Input[_builtins.str] creation_time: When the replication configuration was created.
                * `destination[0].file_system_id` - The fs ID of the replica.
                * `destination[0].status` - The status of the replication.
@@ -265,6 +267,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         $ pulumi import aws:efs/replicationConfiguration:ReplicationConfiguration example fs-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ReplicationConfigurationDestinationArgs', 'ReplicationConfigurationDestinationArgsDict']] destination: A destination configuration block (documented below).
@@ -335,6 +338,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:efs/replicationConfiguration:ReplicationConfiguration example fs-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReplicationConfigurationArgs args: The arguments to use to populate this resource's properties.

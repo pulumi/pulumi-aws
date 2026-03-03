@@ -27,6 +27,7 @@ class ProfilesProfileArgs:
                  timeouts: Optional[pulumi.Input['ProfilesProfileTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ProfilesProfile resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the Profile.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -101,6 +102,7 @@ class _ProfilesProfileState:
                  timeouts: Optional[pulumi.Input['ProfilesProfileTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ProfilesProfile resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Profile.
         :param pulumi.Input[_builtins.str] name: Name of the Profile.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -283,6 +285,7 @@ class ProfilesProfile(pulumi.CustomResource):
         $ pulumi import aws:route53/profilesProfile:ProfilesProfile example rp-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the Profile.
@@ -320,6 +323,7 @@ class ProfilesProfile(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53/profilesProfile:ProfilesProfile example rp-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProfilesProfileArgs args: The arguments to use to populate this resource's properties.

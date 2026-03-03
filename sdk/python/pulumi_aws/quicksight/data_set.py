@@ -40,6 +40,7 @@ class DataSetArgs:
                  use_as: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataSet resource.
+
         :param pulumi.Input[_builtins.str] data_set_id: Identifier for the data set.
         :param pulumi.Input[_builtins.str] import_mode: Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
@@ -325,6 +326,7 @@ class _DataSetState:
                  use_as: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataSet resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the data set.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnGroupArgs']]] column_groups: Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
@@ -848,6 +850,7 @@ class DataSet(pulumi.CustomResource):
         $ pulumi import aws:quicksight/dataSet:DataSet example 123456789012,example-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
@@ -1067,6 +1070,7 @@ class DataSet(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:quicksight/dataSet:DataSet example 123456789012,example-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataSetArgs args: The arguments to use to populate this resource's properties.

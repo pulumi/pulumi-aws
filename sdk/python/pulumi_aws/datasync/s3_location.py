@@ -30,6 +30,7 @@ class S3LocationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a S3Location resource.
+
         :param pulumi.Input[_builtins.str] s3_bucket_arn: Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
         :param pulumi.Input['S3LocationS3ConfigArgs'] s3_config: Configuration block containing information for connecting to S3.
         :param pulumi.Input[_builtins.str] subdirectory: Prefix to perform actions as source or destination.
@@ -150,6 +151,7 @@ class _S3LocationState:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering S3Location resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -362,6 +364,7 @@ class S3Location(pulumi.CustomResource):
         $ pulumi import aws:datasync/s3Location:S3Location example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
@@ -426,6 +429,7 @@ class S3Location(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:datasync/s3Location:S3Location example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
         ```
+
 
         :param str resource_name: The name of the resource.
         :param S3LocationArgs args: The arguments to use to populate this resource's properties.

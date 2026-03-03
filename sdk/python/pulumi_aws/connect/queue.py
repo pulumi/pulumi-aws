@@ -33,6 +33,7 @@ class QueueArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Queue resource.
+
         :param pulumi.Input[_builtins.str] hours_of_operation_id: Specifies the identifier of the Hours of Operation.
         :param pulumi.Input[_builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[_builtins.str] description: Specifies the description of the Queue.
@@ -202,6 +203,7 @@ class _QueueState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Queue resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Queue.
         :param pulumi.Input[_builtins.str] description: Specifies the description of the Queue.
         :param pulumi.Input[_builtins.str] hours_of_operation_id: Specifies the identifier of the Hours of Operation.
@@ -485,6 +487,7 @@ class Queue(pulumi.CustomResource):
         $ pulumi import aws:connect/queue:Queue example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Specifies the description of the Queue.
@@ -571,6 +574,7 @@ class Queue(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:connect/queue:Queue example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
         ```
+
 
         :param str resource_name: The name of the resource.
         :param QueueArgs args: The arguments to use to populate this resource's properties.

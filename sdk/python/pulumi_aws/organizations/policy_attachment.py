@@ -24,6 +24,7 @@ class PolicyAttachmentArgs:
                  skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a PolicyAttachment resource.
+
         :param pulumi.Input[_builtins.str] policy_id: The unique identifier (ID) of the policy that you want to attach to the target.
         :param pulumi.Input[_builtins.str] target_id: The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
         :param pulumi.Input[_builtins.bool] skip_destroy: If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
@@ -78,6 +79,7 @@ class _PolicyAttachmentState:
                  target_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PolicyAttachment resources.
+
         :param pulumi.Input[_builtins.str] policy_id: The unique identifier (ID) of the policy that you want to attach to the target.
         :param pulumi.Input[_builtins.bool] skip_destroy: If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
         :param pulumi.Input[_builtins.str] target_id: The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
@@ -195,6 +197,7 @@ class PolicyAttachment(pulumi.CustomResource):
         $ pulumi import aws:organizations/policyAttachment:PolicyAttachment example 123456789012:p-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy_id: The unique identifier (ID) of the policy that you want to attach to the target.
@@ -265,6 +268,7 @@ class PolicyAttachment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:organizations/policyAttachment:PolicyAttachment example 123456789012:p-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyAttachmentArgs args: The arguments to use to populate this resource's properties.

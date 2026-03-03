@@ -26,6 +26,7 @@ class UserStackAssociationArgs:
                  send_email_notification: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a UserStackAssociation resource.
+
         :param pulumi.Input[_builtins.str] authentication_type: Authentication type for the user.
         :param pulumi.Input[_builtins.str] stack_name: Name of the stack that is associated with the user.
         :param pulumi.Input[_builtins.str] user_name: Email address of the user who is associated with the stack.
@@ -115,6 +116,7 @@ class _UserStackAssociationState:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserStackAssociation resources.
+
         :param pulumi.Input[_builtins.str] authentication_type: Authentication type for the user.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] send_email_notification: Whether a welcome email is sent to a user after the user is created in the user pool.
@@ -236,6 +238,7 @@ class UserStackAssociation(pulumi.CustomResource):
         $ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authentication_type: Authentication type for the user.
@@ -278,6 +281,7 @@ class UserStackAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserStackAssociationArgs args: The arguments to use to populate this resource's properties.

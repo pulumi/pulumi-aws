@@ -41,6 +41,7 @@ class NetworkArgs:
                  timeouts: Optional[pulumi.Input['NetworkTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Network resource.
+
         :param pulumi.Input[_builtins.str] availability_zone_id: The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] backup_subnet_cidr: The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] client_subnet_cidr: The CIDR notation for the network resource. Changing this will force terraform to create new resource.
@@ -345,6 +346,7 @@ class _NetworkState:
                  zero_etl_access: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Network resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the odb network resource.
         :param pulumi.Input[_builtins.str] availability_zone: The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availability_zone maps correctly with availability_zone_id.
         :param pulumi.Input[_builtins.str] availability_zone_id: The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
@@ -862,6 +864,7 @@ class Network(pulumi.CustomResource):
         $ pulumi import aws:odb/network:Network example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability_zone: The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availability_zone maps correctly with availability_zone_id.
@@ -902,6 +905,7 @@ class Network(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:odb/network:Network example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class LocationFsxOntapFileSystemArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LocationFsxOntapFileSystem resource.
+
         :param pulumi.Input['LocationFsxOntapFileSystemProtocolArgs'] protocol: The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_arns: The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
                * Network File System (NFS): TCP ports 111, 635, and 2049
@@ -143,6 +144,7 @@ class _LocationFsxOntapFileSystemState:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LocationFsxOntapFileSystem resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the DataSync Location for the FSx Ontap File System.
         :param pulumi.Input[_builtins.str] fsx_filesystem_arn: ARN of the FSx Ontap File System.
         :param pulumi.Input['LocationFsxOntapFileSystemProtocolArgs'] protocol: The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
@@ -356,6 +358,7 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
         $ pulumi import aws:datasync/locationFsxOntapFileSystem:LocationFsxOntapFileSystem example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:storage-virtual-machine/svm-12345678abcdef123
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['LocationFsxOntapFileSystemProtocolArgs', 'LocationFsxOntapFileSystemProtocolArgsDict']] protocol: The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
@@ -406,6 +409,7 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:datasync/locationFsxOntapFileSystem:LocationFsxOntapFileSystem example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:storage-virtual-machine/svm-12345678abcdef123
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LocationFsxOntapFileSystemArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class EndpointArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
+
         :param pulumi.Input[_builtins.str] outpost_id: Identifier of the Outpost to contain this endpoint.
         :param pulumi.Input[_builtins.str] security_group_id: Identifier of the EC2 Security Group.
         :param pulumi.Input[_builtins.str] subnet_id: Identifier of the EC2 Subnet.
@@ -134,6 +135,7 @@ class _EndpointState:
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Endpoint resources.
+
         :param pulumi.Input[_builtins.str] access_type: Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the endpoint.
         :param pulumi.Input[_builtins.str] cidr_block: VPC CIDR block of the endpoint.
@@ -323,6 +325,7 @@ class Endpoint(pulumi.CustomResource):
         $ pulumi import aws:s3outposts/endpoint:Endpoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/endpoint/0123456789abcdef,sg-12345678,subnet-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_type: Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
@@ -360,6 +363,7 @@ class Endpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3outposts/endpoint:Endpoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/endpoint/0123456789abcdef,sg-12345678,subnet-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EndpointArgs args: The arguments to use to populate this resource's properties.

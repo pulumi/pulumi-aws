@@ -32,6 +32,7 @@ class CapacityProviderArgs:
                  timeouts: Optional[pulumi.Input['CapacityProviderTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a CapacityProvider resource.
+
         :param pulumi.Input['CapacityProviderPermissionsConfigArgs'] permissions_config: Configuration block for permissions settings. See Permissions Config below.
                
                The following arguments are optional:
@@ -180,6 +181,7 @@ class _CapacityProviderState:
                  vpc_config: Optional[pulumi.Input['CapacityProviderVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering CapacityProvider resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Capacity Provider.
         :param pulumi.Input[Sequence[pulumi.Input['CapacityProviderCapacityProviderScalingConfigArgs']]] capacity_provider_scaling_configs: Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
         :param pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementArgs']]] instance_requirements: Configuration block for instance requirements settings. See Instance Requirements below.
@@ -421,6 +423,7 @@ class CapacityProvider(pulumi.CustomResource):
         $ pulumi import aws:lambda/capacityProvider:CapacityProvider example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CapacityProviderCapacityProviderScalingConfigArgs', 'CapacityProviderCapacityProviderScalingConfigArgsDict']]]] capacity_provider_scaling_configs: Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
@@ -499,6 +502,7 @@ class CapacityProvider(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lambda/capacityProvider:CapacityProvider example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CapacityProviderArgs args: The arguments to use to populate this resource's properties.

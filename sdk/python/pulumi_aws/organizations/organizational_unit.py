@@ -26,6 +26,7 @@ class OrganizationalUnitArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a OrganizationalUnit resource.
+
         :param pulumi.Input[_builtins.str] parent_id: ID of the parent organizational unit, which may be the root
         :param pulumi.Input[_builtins.str] name: The name for the organizational unit
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -84,6 +85,7 @@ class _OrganizationalUnitState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering OrganizationalUnit resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationalUnitAccountArgs']]] accounts: List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
         :param pulumi.Input[_builtins.str] arn: ARN of the organizational unit
         :param pulumi.Input[_builtins.str] name: The name for the organizational unit
@@ -219,6 +221,7 @@ class OrganizationalUnit(pulumi.CustomResource):
         $ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name for the organizational unit
@@ -262,6 +265,7 @@ class OrganizationalUnit(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationalUnitArgs args: The arguments to use to populate this resource's properties.

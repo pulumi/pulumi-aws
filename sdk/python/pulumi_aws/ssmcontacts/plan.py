@@ -26,6 +26,7 @@ class PlanArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Plan resource.
+
         :param pulumi.Input[_builtins.str] contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
         :param pulumi.Input[Sequence[pulumi.Input['PlanStageArgs']]] stages: One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -80,6 +81,7 @@ class _PlanState:
                  stages: Optional[pulumi.Input[Sequence[pulumi.Input['PlanStageArgs']]]] = None):
         """
         Input properties used for looking up and filtering Plan resources.
+
         :param pulumi.Input[_builtins.str] contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['PlanStageArgs']]] stages: One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
@@ -222,6 +224,7 @@ class Plan(pulumi.CustomResource):
         $ pulumi import aws:ssmcontacts/plan:Plan example {ARNValue}
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
@@ -317,6 +320,7 @@ class Plan(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ssmcontacts/plan:Plan example {ARNValue}
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PlanArgs args: The arguments to use to populate this resource's properties.

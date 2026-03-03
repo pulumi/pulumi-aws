@@ -27,6 +27,7 @@ class ArchiveRuleArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ArchiveRule resource.
+
         :param pulumi.Input[_builtins.str] analyzer_name: Analyzer name.
         :param pulumi.Input[Sequence[pulumi.Input['ArchiveRuleFilterArgs']]] filters: Filter criteria for the archive rule. See Filter for more details.
         :param pulumi.Input[_builtins.str] rule_name: Rule name.
@@ -96,6 +97,7 @@ class _ArchiveRuleState:
                  rule_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ArchiveRule resources.
+
         :param pulumi.Input[_builtins.str] analyzer_name: Analyzer name.
         :param pulumi.Input[Sequence[pulumi.Input['ArchiveRuleFilterArgs']]] filters: Filter criteria for the archive rule. See Filter for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -208,6 +210,7 @@ class ArchiveRule(pulumi.CustomResource):
         $ pulumi import aws:accessanalyzer/archiveRule:ArchiveRule example example-analyzer/example-rule
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] analyzer_name: Analyzer name.
@@ -258,6 +261,7 @@ class ArchiveRule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:accessanalyzer/archiveRule:ArchiveRule example example-analyzer/example-rule
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ArchiveRuleArgs args: The arguments to use to populate this resource's properties.

@@ -31,6 +31,7 @@ class FileSystemAssociationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FileSystemAssociation resource.
+
         :param pulumi.Input[_builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
         :param pulumi.Input[_builtins.str] location_arn: The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
         :param pulumi.Input[_builtins.str] password: The password of the user credential.
@@ -165,6 +166,7 @@ class _FileSystemAssociationState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FileSystemAssociation resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the newly created file system association.
         :param pulumi.Input[_builtins.str] audit_destination_arn: The Amazon Resource Name (ARN) of the storage used for the audit logs.
         :param pulumi.Input['FileSystemAssociationCacheAttributesArgs'] cache_attributes: Refresh cache information. see Cache Attributes for more details.
@@ -405,6 +407,7 @@ class FileSystemAssociation(pulumi.CustomResource):
         $ pulumi import aws:storagegateway/fileSystemAssociation:FileSystemAssociation example arn:aws:storagegateway:us-east-1:123456789012:fs-association/fsa-0DA347732FDB40125
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] audit_destination_arn: The Amazon Resource Name (ARN) of the storage used for the audit logs.
@@ -493,6 +496,7 @@ class FileSystemAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:storagegateway/fileSystemAssociation:FileSystemAssociation example arn:aws:storagegateway:us-east-1:123456789012:fs-association/fsa-0DA347732FDB40125
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FileSystemAssociationArgs args: The arguments to use to populate this resource's properties.

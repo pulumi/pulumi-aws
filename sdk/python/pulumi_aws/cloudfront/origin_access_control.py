@@ -26,6 +26,7 @@ class OriginAccessControlArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OriginAccessControl resource.
+
         :param pulumi.Input[_builtins.str] origin_access_control_origin_type: The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
         :param pulumi.Input[_builtins.str] signing_behavior: Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
         :param pulumi.Input[_builtins.str] signing_protocol: Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
@@ -113,6 +114,7 @@ class _OriginAccessControlState:
                  signing_protocol: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OriginAccessControl resources.
+
         :param pulumi.Input[_builtins.str] arn: The Origin Access Control ARN.
         :param pulumi.Input[_builtins.str] description: The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
         :param pulumi.Input[_builtins.str] etag: The current version of this Origin Access Control.
@@ -262,6 +264,7 @@ class OriginAccessControl(pulumi.CustomResource):
         $ pulumi import aws:cloudfront/originAccessControl:OriginAccessControl example E327GJI25M56DG
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
@@ -304,6 +307,7 @@ class OriginAccessControl(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudfront/originAccessControl:OriginAccessControl example E327GJI25M56DG
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OriginAccessControlArgs args: The arguments to use to populate this resource's properties.

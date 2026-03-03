@@ -29,6 +29,7 @@ class ParameterGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ParameterGroup resource.
+
         :param pulumi.Input[_builtins.str] family: The family of the Redshift parameter group.
         :param pulumi.Input[_builtins.str] description: The description of the Redshift parameter group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[_builtins.str] name: The name of the Redshift parameter.
@@ -140,6 +141,7 @@ class _ParameterGroupState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ParameterGroup resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of parameter group
         :param pulumi.Input[_builtins.str] description: The description of the Redshift parameter group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[_builtins.str] family: The family of the Redshift parameter group.
@@ -318,6 +320,7 @@ class ParameterGroup(pulumi.CustomResource):
         $ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test-pulumi
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the Redshift parameter group. Defaults to "Managed by Pulumi".
@@ -370,6 +373,7 @@ class ParameterGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test-pulumi
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ParameterGroupArgs args: The arguments to use to populate this resource's properties.

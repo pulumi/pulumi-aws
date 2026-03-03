@@ -23,6 +23,7 @@ class ResolverDnsSecConfigArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResolverDnsSecConfig resource.
+
         :param pulumi.Input[_builtins.str] resource_id: The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -65,6 +66,7 @@ class _ResolverDnsSecConfigState:
                  validation_status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResolverDnsSecConfig resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN for a configuration for DNSSEC validation.
         :param pulumi.Input[_builtins.str] owner_id: The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -176,6 +178,7 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
         $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -210,6 +213,7 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResolverDnsSecConfigArgs args: The arguments to use to populate this resource's properties.

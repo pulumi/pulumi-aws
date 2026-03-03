@@ -24,6 +24,7 @@ class UserSettingsAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserSettingsAssociation resource.
+
         :param pulumi.Input[_builtins.str] portal_arn: ARN of the portal to associate with the user settings. Forces replacement if changed.
                
                The following arguments are optional:
@@ -82,6 +83,7 @@ class _UserSettingsAssociationState:
                  user_settings_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserSettingsAssociation resources.
+
         :param pulumi.Input[_builtins.str] portal_arn: ARN of the portal to associate with the user settings. Forces replacement if changed.
                
                The following arguments are optional:
@@ -167,6 +169,7 @@ class UserSettingsAssociation(pulumi.CustomResource):
             portal_arn=example.portal_arn)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] portal_arn: ARN of the portal to associate with the user settings. Forces replacement if changed.
@@ -203,6 +206,7 @@ class UserSettingsAssociation(pulumi.CustomResource):
             user_settings_arn=example_user_settings.user_settings_arn,
             portal_arn=example.portal_arn)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserSettingsAssociationArgs args: The arguments to use to populate this resource's properties.

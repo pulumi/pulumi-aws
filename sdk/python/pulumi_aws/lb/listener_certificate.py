@@ -24,6 +24,7 @@ class ListenerCertificateArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ListenerCertificate resource.
+
         :param pulumi.Input[_builtins.str] certificate_arn: The ARN of the certificate to attach to the listener.
         :param pulumi.Input[_builtins.str] listener_arn: The ARN of the listener to which to attach the certificate.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _ListenerCertificateState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ListenerCertificate resources.
+
         :param pulumi.Input[_builtins.str] certificate_arn: The ARN of the certificate to attach to the listener.
         :param pulumi.Input[_builtins.str] listener_arn: The ARN of the listener to which to attach the certificate.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -165,6 +167,7 @@ class ListenerCertificate(pulumi.CustomResource):
         $ pulumi import aws:lb/listenerCertificate:ListenerCertificate example arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b_arn:aws:iam::123456789012:server-certificate/tf-acc-test-6453083910015726063
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_arn: The ARN of the certificate to attach to the listener.
@@ -205,6 +208,7 @@ class ListenerCertificate(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lb/listenerCertificate:ListenerCertificate example arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b_arn:aws:iam::123456789012:server-certificate/tf-acc-test-6453083910015726063
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ListenerCertificateArgs args: The arguments to use to populate this resource's properties.

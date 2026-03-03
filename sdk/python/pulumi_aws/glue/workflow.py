@@ -27,6 +27,7 @@ class WorkflowArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Workflow resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         :param pulumi.Input[_builtins.str] description: Description of the workflow.
         :param pulumi.Input[_builtins.int] max_concurrent_runs: Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
@@ -133,6 +134,7 @@ class _WorkflowState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Workflow resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of Glue Workflow
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         :param pulumi.Input[_builtins.str] description: Description of the workflow.
@@ -311,6 +313,7 @@ class Workflow(pulumi.CustomResource):
         $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
@@ -367,6 +370,7 @@ class Workflow(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkflowArgs args: The arguments to use to populate this resource's properties.

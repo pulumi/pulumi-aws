@@ -22,6 +22,7 @@ class OrganizationDelegatedAdminAccountArgs:
                  account_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a OrganizationDelegatedAdminAccount resource.
+
         :param pulumi.Input[_builtins.str] account_id: An organization member account ID that you want to designate as a delegated administrator.
         """
         pulumi.set(__self__, "account_id", account_id)
@@ -49,6 +50,7 @@ class _OrganizationDelegatedAdminAccountState:
                  service_principal: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationDelegatedAdminAccount resources.
+
         :param pulumi.Input[_builtins.str] account_id: An organization member account ID that you want to designate as a delegated administrator.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the delegated administrator's account.
         :param pulumi.Input[_builtins.str] email: The email address that is associated with the delegated administrator's AWS account.
@@ -158,6 +160,7 @@ class OrganizationDelegatedAdminAccount(pulumi.CustomResource):
         $ pulumi import aws:cloudtrail/organizationDelegatedAdminAccount:OrganizationDelegatedAdminAccount example 12345678901
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: An organization member account ID that you want to designate as a delegated administrator.
@@ -190,6 +193,7 @@ class OrganizationDelegatedAdminAccount(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudtrail/organizationDelegatedAdminAccount:OrganizationDelegatedAdminAccount example 12345678901
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationDelegatedAdminAccountArgs args: The arguments to use to populate this resource's properties.

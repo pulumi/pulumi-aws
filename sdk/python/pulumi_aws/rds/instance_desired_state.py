@@ -27,6 +27,7 @@ class InstanceDesiredStateArgs:
                  timeouts: Optional[pulumi.Input['InstanceDesiredStateTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a InstanceDesiredState resource.
+
         :param pulumi.Input[_builtins.str] identifier: DB Instance Identifier
         :param pulumi.Input[_builtins.str] state: Configured state of the DB Instance. Valid values are `available` and `stopped`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -93,6 +94,7 @@ class _InstanceDesiredStateState:
                  timeouts: Optional[pulumi.Input['InstanceDesiredStateTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering InstanceDesiredState resources.
+
         :param pulumi.Input[_builtins.str] identifier: DB Instance Identifier
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] state: Configured state of the DB Instance. Valid values are `available` and `stopped`.
@@ -189,6 +191,7 @@ class InstanceDesiredState(pulumi.CustomResource):
         $ pulumi import aws:rds/instanceDesiredState:InstanceDesiredState example rds_instance_state-id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] identifier: DB Instance Identifier
@@ -226,6 +229,7 @@ class InstanceDesiredState(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:rds/instanceDesiredState:InstanceDesiredState example rds_instance_state-id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InstanceDesiredStateArgs args: The arguments to use to populate this resource's properties.

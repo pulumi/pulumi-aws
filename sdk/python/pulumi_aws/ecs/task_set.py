@@ -39,6 +39,7 @@ class TaskSetArgs:
                  wait_until_stable_timeout: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TaskSet resource.
+
         :param pulumi.Input[_builtins.str] cluster: The short name or ARN of the cluster that hosts the service to create the task set in.
         :param pulumi.Input[_builtins.str] service: The short name or ARN of the ECS service.
         :param pulumi.Input[_builtins.str] task_definition: The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
@@ -309,6 +310,7 @@ class _TaskSetState:
                  wait_until_stable_timeout: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TaskSet resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) that identifies the task set.
         :param pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyArgs']]] capacity_provider_strategies: The capacity provider strategy to use for the service. Can be one or more.  Defined below.
         :param pulumi.Input[_builtins.str] cluster: The short name or ARN of the cluster that hosts the service to create the task set in.
@@ -697,6 +699,7 @@ class TaskSet(pulumi.CustomResource):
         $ pulumi import aws:ecs/taskSet:TaskSet example ecs-svc/7177320696926227436,arn:aws:ecs:us-west-2:123456789101:service/example/example-1234567890,arn:aws:ecs:us-west-2:123456789101:cluster/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskSetCapacityProviderStrategyArgs', 'TaskSetCapacityProviderStrategyArgsDict']]]] capacity_provider_strategies: The capacity provider strategy to use for the service. Can be one or more.  Defined below.
@@ -766,6 +769,7 @@ class TaskSet(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ecs/taskSet:TaskSet example ecs-svc/7177320696926227436,arn:aws:ecs:us-west-2:123456789101:service/example/example-1234567890,arn:aws:ecs:us-west-2:123456789101:cluster/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TaskSetArgs args: The arguments to use to populate this resource's properties.

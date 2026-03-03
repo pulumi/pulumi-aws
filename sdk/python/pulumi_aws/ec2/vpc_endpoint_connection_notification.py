@@ -26,6 +26,7 @@ class VpcEndpointConnectionNotificationArgs:
                  vpc_endpoint_service_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcEndpointConnectionNotification resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] connection_events: One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
                
                > **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
@@ -118,6 +119,7 @@ class _VpcEndpointConnectionNotificationState:
                  vpc_endpoint_service_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcEndpointConnectionNotification resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] connection_events: One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
                
                > **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
@@ -284,6 +286,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         $ pulumi import aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification foo vpce-nfn-09e6ed3b4efba2263
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] connection_events: One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
@@ -341,6 +344,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification foo vpce-nfn-09e6ed3b4efba2263
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcEndpointConnectionNotificationArgs args: The arguments to use to populate this resource's properties.

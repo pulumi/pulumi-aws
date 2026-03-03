@@ -29,6 +29,7 @@ class ProbeArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Probe resource.
+
         :param pulumi.Input[_builtins.str] destination: The destination IP address. This must be either IPV4 or IPV6.
         :param pulumi.Input[_builtins.str] monitor_name: The name of the monitor.
         :param pulumi.Input[_builtins.str] protocol: The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
@@ -166,6 +167,7 @@ class _ProbeState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Probe resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the attachment.
         :param pulumi.Input[_builtins.str] destination: The destination IP address. This must be either IPV4 or IPV6.
         :param pulumi.Input[_builtins.int] destination_port: The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
@@ -398,6 +400,7 @@ class Probe(pulumi.CustomResource):
         $ pulumi import aws:networkmonitor/probe:Probe example monitor-7786087912324693644,probe-3qm8p693i4fi1h8lqylzkbp42e
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] destination: The destination IP address. This must be either IPV4 or IPV6.
@@ -445,6 +448,7 @@ class Probe(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:networkmonitor/probe:Probe example monitor-7786087912324693644,probe-3qm8p693i4fi1h8lqylzkbp42e
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProbeArgs args: The arguments to use to populate this resource's properties.

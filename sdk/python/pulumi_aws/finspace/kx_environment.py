@@ -30,6 +30,7 @@ class KxEnvironmentArgs:
                  transit_gateway_configuration: Optional[pulumi.Input['KxEnvironmentTransitGatewayConfigurationArgs']] = None):
         """
         The set of arguments for constructing a KxEnvironment resource.
+
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key ID to encrypt your data in the FinSpace environment.
                
                The following arguments are optional:
@@ -160,6 +161,7 @@ class _KxEnvironmentState:
                  transit_gateway_configuration: Optional[pulumi.Input['KxEnvironmentTransitGatewayConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering KxEnvironment resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX environment.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: AWS Availability Zone IDs that this environment is available in. Important when selecting VPC subnets to use in cluster creation.
         :param pulumi.Input[_builtins.str] created_timestamp: Timestamp at which the environment is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
@@ -480,6 +482,7 @@ class KxEnvironment(pulumi.CustomResource):
         $ pulumi import aws:finspace/kxEnvironment:KxEnvironment example n3ceo7wqxoxcti5tujqwzs
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['KxEnvironmentCustomDnsConfigurationArgs', 'KxEnvironmentCustomDnsConfigurationArgsDict']]]] custom_dns_configurations: List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.
@@ -586,6 +589,7 @@ class KxEnvironment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:finspace/kxEnvironment:KxEnvironment example n3ceo7wqxoxcti5tujqwzs
         ```
+
 
         :param str resource_name: The name of the resource.
         :param KxEnvironmentArgs args: The arguments to use to populate this resource's properties.

@@ -31,6 +31,7 @@ class _OutboundWebIdentityFederationState:
                  issuer_identifier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OutboundWebIdentityFederation resources.
+
         :param pulumi.Input[_builtins.str] issuer_identifier: A unique issuer URL for your AWS account that hosts the OpenID Connect (OIDC) discovery endpoints.
         """
         if issuer_identifier is not None:
@@ -78,6 +79,7 @@ class OutboundWebIdentityFederation(pulumi.CustomResource):
         $ pulumi import aws:iam/outboundWebIdentityFederation:OutboundWebIdentityFederation example 123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -108,6 +110,7 @@ class OutboundWebIdentityFederation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iam/outboundWebIdentityFederation:OutboundWebIdentityFederation example 123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OutboundWebIdentityFederationArgs args: The arguments to use to populate this resource's properties.

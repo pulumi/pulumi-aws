@@ -26,6 +26,7 @@ class LogDeliveryConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogDeliveryConfiguration resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]] log_configurations: Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
         :param pulumi.Input[_builtins.str] user_pool_id: The ID of the user pool for which to configure log delivery.
                
@@ -84,6 +85,7 @@ class _LogDeliveryConfigurationState:
                  user_pool_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogDeliveryConfiguration resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]] log_configurations: Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
         :param pulumi.Input[_builtins.str] region: The AWS region.
         :param pulumi.Input[_builtins.str] user_pool_id: The ID of the user pool for which to configure log delivery.
@@ -282,6 +284,7 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
         $ pulumi import aws:cognito/logDeliveryConfiguration:LogDeliveryConfiguration example us-west-2_example123
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LogDeliveryConfigurationLogConfigurationArgs', 'LogDeliveryConfigurationLogConfigurationArgsDict']]]] log_configurations: Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
@@ -431,6 +434,7 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cognito/logDeliveryConfiguration:LogDeliveryConfiguration example us-west-2_example123
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LogDeliveryConfigurationArgs args: The arguments to use to populate this resource's properties.

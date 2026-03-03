@@ -31,6 +31,7 @@ class RepositoryArgs:
                  upstreams: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryUpstreamArgs']]]] = None):
         """
         The set of arguments for constructing a Repository resource.
+
         :param pulumi.Input[_builtins.str] domain: The domain that contains the created repository.
         :param pulumi.Input[_builtins.str] repository: The name of the repository to create.
         :param pulumi.Input[_builtins.str] description: The description of the repository.
@@ -168,6 +169,7 @@ class _RepositoryState:
                  upstreams: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryUpstreamArgs']]]] = None):
         """
         Input properties used for looking up and filtering Repository resources.
+
         :param pulumi.Input[_builtins.str] administrator_account: The account number of the AWS account that manages the repository.
         :param pulumi.Input[_builtins.str] arn: The ARN of the repository.
         :param pulumi.Input[_builtins.str] description: The description of the repository.
@@ -417,6 +419,7 @@ class Repository(pulumi.CustomResource):
         $ pulumi import aws:codeartifact/repository:Repository example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the repository.
@@ -499,6 +502,7 @@ class Repository(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:codeartifact/repository:Repository example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryArgs args: The arguments to use to populate this resource's properties.

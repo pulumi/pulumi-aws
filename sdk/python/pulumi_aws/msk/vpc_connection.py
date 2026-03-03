@@ -28,6 +28,7 @@ class VpcConnectionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpcConnection resource.
+
         :param pulumi.Input[_builtins.str] authentication: The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_subnets: The list of subnets in the client VPC to connect to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: The security groups to attach to the ENIs for the broker nodes.
@@ -145,6 +146,7 @@ class _VpcConnectionState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcConnection resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the VPC connection.
         :param pulumi.Input[_builtins.str] authentication: The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_subnets: The list of subnets in the client VPC to connect to.
@@ -322,6 +324,7 @@ class VpcConnection(pulumi.CustomResource):
         $ pulumi import aws:msk/vpcConnection:VpcConnection example arn:aws:kafka:eu-west-2:123456789012:vpc-connection/123456789012/example/38173259-79cd-4ee8-87f3-682ea6023f48-2
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authentication: The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
@@ -362,6 +365,7 @@ class VpcConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:msk/vpcConnection:VpcConnection example arn:aws:kafka:eu-west-2:123456789012:vpc-connection/123456789012/example/38173259-79cd-4ee8-87f3-682ea6023f48-2
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcConnectionArgs args: The arguments to use to populate this resource's properties.

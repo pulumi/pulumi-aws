@@ -32,6 +32,7 @@ class ApplicationArgs:
                  timeouts: Optional[pulumi.Input['ApplicationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Application resource.
+
         :param pulumi.Input['ApplicationDefinitionArgs'] definition: The application definition for this application. You can specify either inline JSON or an S3 bucket location.
         :param pulumi.Input[_builtins.str] engine_type: Engine type must be `microfocus | bluage`.
         :param pulumi.Input[_builtins.str] description: Description of the application.
@@ -186,6 +187,7 @@ class _ApplicationState:
                  timeouts: Optional[pulumi.Input['ApplicationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Application resources.
+
         :param pulumi.Input[_builtins.str] application_id: Id of the Application.
         :param pulumi.Input[_builtins.str] arn: ARN of the Application.
         :param pulumi.Input[_builtins.int] current_version: Current version of the application deployed.
@@ -452,6 +454,7 @@ class Application(pulumi.CustomResource):
         $ pulumi import aws:m2/application:Application example 01234567890abcdef012345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ApplicationDefinitionArgs', 'ApplicationDefinitionArgsDict']] definition: The application definition for this application. You can specify either inline JSON or an S3 bucket location.
@@ -522,6 +525,7 @@ class Application(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:m2/application:Application example 01234567890abcdef012345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

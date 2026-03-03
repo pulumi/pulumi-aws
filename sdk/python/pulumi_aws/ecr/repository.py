@@ -31,6 +31,7 @@ class RepositoryArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Repository resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryEncryptionConfigurationArgs']]] encryption_configurations: Encryption configuration for the repository. See below for schema.
         :param pulumi.Input[_builtins.bool] force_delete: If `true`, will delete the repository even if it contains images.
                Defaults to `false`.
@@ -173,6 +174,7 @@ class _RepositoryState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Repository resources.
+
         :param pulumi.Input[_builtins.str] arn: Full ARN of the repository.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryEncryptionConfigurationArgs']]] encryption_configurations: Encryption configuration for the repository. See below for schema.
         :param pulumi.Input[_builtins.bool] force_delete: If `true`, will delete the repository even if it contains images.
@@ -430,6 +432,7 @@ class Repository(pulumi.CustomResource):
         $ pulumi import aws:ecr/repository:Repository service test-service
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration for the repository. See below for schema.
@@ -504,6 +507,7 @@ class Repository(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ecr/repository:Repository service test-service
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryArgs args: The arguments to use to populate this resource's properties.

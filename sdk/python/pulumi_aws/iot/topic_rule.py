@@ -50,6 +50,7 @@ class TopicRuleArgs:
                  timestreams: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleTimestreamArgs']]]] = None):
         """
         The set of arguments for constructing a TopicRule resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the rule is enabled.
         :param pulumi.Input[_builtins.str] sql: The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
         :param pulumi.Input[_builtins.str] sql_version: The version of the SQL rules engine to use when evaluating the rule.
@@ -413,6 +414,7 @@ class _TopicRuleState:
                  timestreams: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleTimestreamArgs']]]] = None):
         """
         Input properties used for looking up and filtering TopicRule resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the topic rule
         :param pulumi.Input[_builtins.str] description: The description of the rule.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the rule is enabled.
@@ -868,6 +870,7 @@ class TopicRule(pulumi.CustomResource):
         $ pulumi import aws:iot/topicRule:TopicRule rule <name>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the rule.
@@ -943,6 +946,7 @@ class TopicRule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iot/topicRule:TopicRule rule <name>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TopicRuleArgs args: The arguments to use to populate this resource's properties.

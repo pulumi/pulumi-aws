@@ -36,6 +36,7 @@ class MLTransformArgs:
                  worker_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MLTransform resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['MLTransformInputRecordTableArgs']]] input_record_tables: A list of AWS Glue table definitions used by the transform. see Input Record Tables.
         :param pulumi.Input['MLTransformParametersArgs'] parameters: The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role associated with this ML Transform.
@@ -253,6 +254,7 @@ class _MLTransformState:
                  worker_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MLTransform resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of Glue ML Transform.
         :param pulumi.Input[_builtins.str] description: Description of the ML Transform.
         :param pulumi.Input[_builtins.str] glue_version: The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
@@ -630,6 +632,7 @@ class MLTransform(pulumi.CustomResource):
         $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the ML Transform.
@@ -750,6 +753,7 @@ class MLTransform(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MLTransformArgs args: The arguments to use to populate this resource's properties.

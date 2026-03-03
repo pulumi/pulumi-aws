@@ -34,6 +34,7 @@ class TransitGatewayArgs:
                  vpn_ecmp_support: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TransitGateway resource.
+
         :param pulumi.Input[_builtins.int] amazon_side_asn: Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
                
                > **NOTE:** Modifying `amazon_side_asn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazon_side_asn`.
@@ -259,6 +260,7 @@ class _TransitGatewayState:
                  vpn_ecmp_support: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TransitGateway resources.
+
         :param pulumi.Input[_builtins.int] amazon_side_asn: Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
                
                > **NOTE:** Modifying `amazon_side_asn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazon_side_asn`.
@@ -576,6 +578,7 @@ class TransitGateway(pulumi.CustomResource):
         $ pulumi import aws:ec2transitgateway/transitGateway:TransitGateway example tgw-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] amazon_side_asn: Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
@@ -619,6 +622,7 @@ class TransitGateway(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2transitgateway/transitGateway:TransitGateway example tgw-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayArgs args: The arguments to use to populate this resource's properties.

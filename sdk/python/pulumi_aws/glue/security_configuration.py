@@ -26,6 +26,7 @@ class SecurityConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurityConfiguration resource.
+
         :param pulumi.Input['SecurityConfigurationEncryptionConfigurationArgs'] encryption_configuration: Configuration block containing encryption configuration. Detailed below.
         :param pulumi.Input[_builtins.str] name: Name of the security configuration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -81,6 +82,7 @@ class _SecurityConfigurationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SecurityConfiguration resources.
+
         :param pulumi.Input['SecurityConfigurationEncryptionConfigurationArgs'] encryption_configuration: Configuration block containing encryption configuration. Detailed below.
         :param pulumi.Input[_builtins.str] name: Name of the security configuration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -172,6 +174,7 @@ class SecurityConfiguration(pulumi.CustomResource):
         $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SecurityConfigurationEncryptionConfigurationArgs', 'SecurityConfigurationEncryptionConfigurationArgsDict']] encryption_configuration: Configuration block containing encryption configuration. Detailed below.
@@ -216,6 +219,7 @@ class SecurityConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecurityConfigurationArgs args: The arguments to use to populate this resource's properties.

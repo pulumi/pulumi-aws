@@ -25,6 +25,7 @@ class CustomRoutingListenerArgs:
                  port_ranges: pulumi.Input[Sequence[pulumi.Input['CustomRoutingListenerPortRangeArgs']]]):
         """
         The set of arguments for constructing a CustomRoutingListener resource.
+
         :param pulumi.Input[_builtins.str] accelerator_arn: The Amazon Resource Name (ARN) of a custom routing accelerator.
         :param pulumi.Input[Sequence[pulumi.Input['CustomRoutingListenerPortRangeArgs']]] port_ranges: The list of port ranges for the connections from clients to the accelerator. Fields documented below.
         """
@@ -64,6 +65,7 @@ class _CustomRoutingListenerState:
                  port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRoutingListenerPortRangeArgs']]]] = None):
         """
         Input properties used for looking up and filtering CustomRoutingListener resources.
+
         :param pulumi.Input[_builtins.str] accelerator_arn: The Amazon Resource Name (ARN) of a custom routing accelerator.
         :param pulumi.Input[Sequence[pulumi.Input['CustomRoutingListenerPortRangeArgs']]] port_ranges: The list of port ranges for the connections from clients to the accelerator. Fields documented below.
         """
@@ -157,6 +159,7 @@ class CustomRoutingListener(pulumi.CustomResource):
         $ pulumi import aws:globalaccelerator/customRoutingListener:CustomRoutingListener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accelerator_arn: The Amazon Resource Name (ARN) of a custom routing accelerator.
@@ -207,6 +210,7 @@ class CustomRoutingListener(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:globalaccelerator/customRoutingListener:CustomRoutingListener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomRoutingListenerArgs args: The arguments to use to populate this resource's properties.

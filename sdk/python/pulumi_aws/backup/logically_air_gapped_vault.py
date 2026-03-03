@@ -30,6 +30,7 @@ class LogicallyAirGappedVaultArgs:
                  timeouts: Optional[pulumi.Input['LogicallyAirGappedVaultTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a LogicallyAirGappedVault resource.
+
         :param pulumi.Input[_builtins.int] max_retention_days: Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         :param pulumi.Input[_builtins.int] min_retention_days: Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         :param pulumi.Input[_builtins.str] encryption_key_arn: The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
@@ -146,6 +147,7 @@ class _LogicallyAirGappedVaultState:
                  timeouts: Optional[pulumi.Input['LogicallyAirGappedVaultTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering LogicallyAirGappedVault resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the Logically Air Gapped Backup Vault.
         :param pulumi.Input[_builtins.str] encryption_key_arn: The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
         :param pulumi.Input[_builtins.int] max_retention_days: Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
@@ -319,6 +321,7 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
         $ pulumi import aws:backup/logicallyAirGappedVault:LogicallyAirGappedVault example lag-example-vault
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] encryption_key_arn: The AWS KMS key identifier (ARN) used to encrypt the backups in the logically air-gapped vault.
@@ -358,6 +361,7 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:backup/logicallyAirGappedVault:LogicallyAirGappedVault example lag-example-vault
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LogicallyAirGappedVaultArgs args: The arguments to use to populate this resource's properties.

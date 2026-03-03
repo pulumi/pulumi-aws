@@ -26,6 +26,7 @@ class VaultArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Vault resource.
+
         :param pulumi.Input[_builtins.bool] force_destroy: A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
         :param pulumi.Input[_builtins.str] kms_key_arn: The server-side encryption key that is used to protect your backups.
         :param pulumi.Input[_builtins.str] name: Name of the backup vault to create.
@@ -117,6 +118,7 @@ class _VaultState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Vault resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the vault.
         :param pulumi.Input[_builtins.bool] force_destroy: A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
         :param pulumi.Input[_builtins.str] kms_key_arn: The server-side encryption key that is used to protect your backups.
@@ -274,6 +276,7 @@ class Vault(pulumi.CustomResource):
         $ pulumi import aws:backup/vault:Vault test-vault TestVault
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] force_destroy: A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
@@ -309,6 +312,7 @@ class Vault(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:backup/vault:Vault test-vault TestVault
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VaultArgs args: The arguments to use to populate this resource's properties.

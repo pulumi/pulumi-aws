@@ -25,6 +25,7 @@ class BucketAccelerateConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BucketAccelerateConfiguration resource.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[_builtins.str] status: Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
@@ -99,6 +100,7 @@ class _BucketAccelerateConfigurationState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BucketAccelerateConfiguration resources.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -212,6 +214,7 @@ class BucketAccelerateConfiguration(pulumi.CustomResource):
         $ pulumi import aws:s3/bucketAccelerateConfiguration:BucketAccelerateConfiguration example bucket-name,123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
@@ -259,6 +262,7 @@ class BucketAccelerateConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/bucketAccelerateConfiguration:BucketAccelerateConfiguration example bucket-name,123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BucketAccelerateConfigurationArgs args: The arguments to use to populate this resource's properties.

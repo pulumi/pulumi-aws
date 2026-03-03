@@ -25,6 +25,7 @@ class CustomerGatewayAssociationArgs:
                  link_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomerGatewayAssociation resource.
+
         :param pulumi.Input[_builtins.str] customer_gateway_arn: ARN of the customer gateway.
         :param pulumi.Input[_builtins.str] device_id: ID of the device.
         :param pulumi.Input[_builtins.str] global_network_id: ID of the global network.
@@ -98,6 +99,7 @@ class _CustomerGatewayAssociationState:
                  link_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomerGatewayAssociation resources.
+
         :param pulumi.Input[_builtins.str] customer_gateway_arn: ARN of the customer gateway.
         :param pulumi.Input[_builtins.str] device_id: ID of the device.
         :param pulumi.Input[_builtins.str] global_network_id: ID of the global network.
@@ -221,6 +223,7 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
         $ pulumi import aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:customer-gateway/cgw-123abc05e04123abc
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] customer_gateway_arn: ARN of the customer gateway.
@@ -280,6 +283,7 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:customer-gateway/cgw-123abc05e04123abc
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomerGatewayAssociationArgs args: The arguments to use to populate this resource's properties.

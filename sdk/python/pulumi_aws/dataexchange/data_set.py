@@ -26,6 +26,7 @@ class DataSetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DataSet resource.
+
         :param pulumi.Input[_builtins.str] asset_type: The type of asset that is added to a data set. Valid values include `API_GATEWAY_API`, `LAKE_FORMATION_DATA_PERMISSION`, `REDSHIFT_DATA_SHARE`, `S3_DATA_ACCESS`, `S3_SNAPSHOT`.
         :param pulumi.Input[_builtins.str] description: A description for the data set.
         :param pulumi.Input[_builtins.str] name: The name of the data set.
@@ -114,6 +115,7 @@ class _DataSetState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DataSet resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of this data set.
         :param pulumi.Input[_builtins.str] asset_type: The type of asset that is added to a data set. Valid values include `API_GATEWAY_API`, `LAKE_FORMATION_DATA_PERMISSION`, `REDSHIFT_DATA_SHARE`, `S3_DATA_ACCESS`, `S3_SNAPSHOT`.
         :param pulumi.Input[_builtins.str] description: A description for the data set.
@@ -257,6 +259,7 @@ class DataSet(pulumi.CustomResource):
         $ pulumi import aws:dataexchange/dataSet:DataSet example 4fa784c7-ccb4-4dbf-ba4f-02198320daa1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] asset_type: The type of asset that is added to a data set. Valid values include `API_GATEWAY_API`, `LAKE_FORMATION_DATA_PERMISSION`, `REDSHIFT_DATA_SHARE`, `S3_DATA_ACCESS`, `S3_SNAPSHOT`.
@@ -293,6 +296,7 @@ class DataSet(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:dataexchange/dataSet:DataSet example 4fa784c7-ccb4-4dbf-ba4f-02198320daa1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataSetArgs args: The arguments to use to populate this resource's properties.

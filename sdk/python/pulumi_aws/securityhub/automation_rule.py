@@ -32,6 +32,7 @@ class AutomationRuleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AutomationRule resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionArgs']]] actions: A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
         :param pulumi.Input['AutomationRuleCriteriaArgs'] criteria: A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
         :param pulumi.Input[_builtins.str] description: The description of the rule.
@@ -177,6 +178,7 @@ class _AutomationRuleState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AutomationRule resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionArgs']]] actions: A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
         :param pulumi.Input[_builtins.str] arn: The ARN of the Security Hub automation rule.
         :param pulumi.Input['AutomationRuleCriteriaArgs'] criteria: A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
@@ -407,6 +409,7 @@ class AutomationRule(pulumi.CustomResource):
         $ pulumi import aws:securityhub/automationRule:AutomationRule example arn:aws:securityhub:us-west-2:123456789012:automation-rule/473eddde-f5c4-4ae5-85c7-e922f271fffc
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionArgs', 'AutomationRuleActionArgsDict']]]] actions: A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
@@ -477,6 +480,7 @@ class AutomationRule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:securityhub/automationRule:AutomationRule example arn:aws:securityhub:us-west-2:123456789012:automation-rule/473eddde-f5c4-4ae5-85c7-e922f271fffc
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AutomationRuleArgs args: The arguments to use to populate this resource's properties.

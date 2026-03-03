@@ -27,6 +27,7 @@ class TapePoolArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TapePool resource.
+
         :param pulumi.Input[_builtins.str] pool_name: The name of the new custom tape pool.
         :param pulumi.Input[_builtins.str] storage_class: The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class that corresponds to the pool. Possible values are `DEEP_ARCHIVE` or `GLACIER`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -131,6 +132,7 @@ class _TapePoolState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering TapePool resources.
+
         :param pulumi.Input[_builtins.str] arn: Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
         :param pulumi.Input[_builtins.str] pool_name: The name of the new custom tape pool.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -289,6 +291,7 @@ class TapePool(pulumi.CustomResource):
         $ pulumi import aws:storagegateway/tapePool:TapePool example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] pool_name: The name of the new custom tape pool.
@@ -325,6 +328,7 @@ class TapePool(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:storagegateway/tapePool:TapePool example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TapePoolArgs args: The arguments to use to populate this resource's properties.

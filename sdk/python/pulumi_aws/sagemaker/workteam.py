@@ -31,6 +31,7 @@ class WorkteamArgs:
                  workforce_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workteam resource.
+
         :param pulumi.Input[_builtins.str] description: A description of the work team.
         :param pulumi.Input[Sequence[pulumi.Input['WorkteamMemberDefinitionArgs']]] member_definitions: A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
         :param pulumi.Input[_builtins.str] workteam_name: The name of the Workteam (must be unique).
@@ -167,6 +168,7 @@ class _WorkteamState:
                  workteam_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Workteam resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
         :param pulumi.Input[_builtins.str] description: A description of the work team.
         :param pulumi.Input[Sequence[pulumi.Input['WorkteamMemberDefinitionArgs']]] member_definitions: A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
@@ -399,6 +401,7 @@ class Workteam(pulumi.CustomResource):
         $ pulumi import aws:sagemaker/workteam:Workteam example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the work team.
@@ -464,6 +467,7 @@ class Workteam(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sagemaker/workteam:Workteam example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkteamArgs args: The arguments to use to populate this resource's properties.

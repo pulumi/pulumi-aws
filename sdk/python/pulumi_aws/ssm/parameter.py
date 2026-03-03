@@ -37,6 +37,7 @@ class ParameterArgs:
                  value_wo_version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Parameter resource.
+
         :param pulumi.Input[Union[_builtins.str, 'ParameterType']] type: Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
                
                The following arguments are optional:
@@ -297,6 +298,7 @@ class _ParameterState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Parameter resources.
+
         :param pulumi.Input[_builtins.str] allowed_pattern: Regular expression used to validate the parameter value.
         :param pulumi.Input[_builtins.str] arn: ARN of the parameter.
         :param pulumi.Input[_builtins.str] data_type: Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
@@ -667,6 +669,7 @@ class Parameter(pulumi.CustomResource):
         $ pulumi import aws:ssm/parameter:Parameter example /my_path/my_paramname
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allowed_pattern: Regular expression used to validate the parameter value.
@@ -760,6 +763,7 @@ class Parameter(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ssm/parameter:Parameter example /my_path/my_paramname
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ParameterArgs args: The arguments to use to populate this resource's properties.

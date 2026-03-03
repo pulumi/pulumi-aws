@@ -27,6 +27,7 @@ class GroupPolicyArgs:
                  name_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GroupPolicy resource.
+
         :param pulumi.Input[_builtins.str] group: The IAM group to attach to the policy.
         :param pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[_builtins.str] name: The name of the policy. If omitted, the provider will
@@ -101,6 +102,7 @@ class _GroupPolicyState:
                  policy: Optional[pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']]] = None):
         """
         Input properties used for looking up and filtering GroupPolicy resources.
+
         :param pulumi.Input[_builtins.str] group: The IAM group to attach to the policy.
         :param pulumi.Input[_builtins.str] name: The name of the policy. If omitted, the provider will
                assign a random, unique name.
@@ -215,6 +217,7 @@ class GroupPolicy(pulumi.CustomResource):
         $ pulumi import aws:iam/groupPolicy:GroupPolicy mypolicy group_of_mypolicy_name:mypolicy_name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] group: The IAM group to attach to the policy.
@@ -265,6 +268,7 @@ class GroupPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iam/groupPolicy:GroupPolicy mypolicy group_of_mypolicy_name:mypolicy_name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GroupPolicyArgs args: The arguments to use to populate this resource's properties.

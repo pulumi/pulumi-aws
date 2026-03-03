@@ -36,6 +36,7 @@ class DataSourceArgs:
                  service_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataSource resource.
+
         :param pulumi.Input[_builtins.str] api_id: API ID for the GraphQL API for the data source.
         :param pulumi.Input[_builtins.str] type: Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
         :param pulumi.Input[_builtins.str] description: Description of the data source.
@@ -251,6 +252,7 @@ class _DataSourceState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataSource resources.
+
         :param pulumi.Input[_builtins.str] api_id: API ID for the GraphQL API for the data source.
         :param pulumi.Input[_builtins.str] arn: ARN
         :param pulumi.Input[_builtins.str] description: Description of the data source.
@@ -543,6 +545,7 @@ class DataSource(pulumi.CustomResource):
         $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: API ID for the GraphQL API for the data source.
@@ -623,6 +626,7 @@ class DataSource(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataSourceArgs args: The arguments to use to populate this resource's properties.

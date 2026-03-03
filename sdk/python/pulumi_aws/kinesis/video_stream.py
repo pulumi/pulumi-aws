@@ -28,6 +28,7 @@ class VideoStreamArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VideoStream resource.
+
         :param pulumi.Input[_builtins.int] data_retention_in_hours: The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
         :param pulumi.Input[_builtins.str] device_name: The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
         :param pulumi.Input[_builtins.str] kms_key_id: The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
@@ -154,6 +155,7 @@ class _VideoStreamState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VideoStream resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
         :param pulumi.Input[_builtins.str] creation_time: A time stamp that indicates when the stream was created.
         :param pulumi.Input[_builtins.int] data_retention_in_hours: The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
@@ -371,6 +373,7 @@ class VideoStream(pulumi.CustomResource):
         [2]: http://www.iana.org/assignments/media-types/media-types.xhtml
         [3]: https://tools.ietf.org/html/rfc6838#section-4.2
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] data_retention_in_hours: The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
@@ -420,6 +423,7 @@ class VideoStream(pulumi.CustomResource):
         [1]: https://aws.amazon.com/documentation/kinesis/
         [2]: http://www.iana.org/assignments/media-types/media-types.xhtml
         [3]: https://tools.ietf.org/html/rfc6838#section-4.2
+
 
         :param str resource_name: The name of the resource.
         :param VideoStreamArgs args: The arguments to use to populate this resource's properties.

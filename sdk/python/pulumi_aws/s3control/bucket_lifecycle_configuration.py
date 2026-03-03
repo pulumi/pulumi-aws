@@ -26,6 +26,7 @@ class BucketLifecycleConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BucketLifecycleConfiguration resource.
+
         :param pulumi.Input[_builtins.str] bucket: Amazon Resource Name (ARN) of the bucket.
         :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]] rules: Configuration block(s) containing lifecycle rules for the bucket.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -80,6 +81,7 @@ class _BucketLifecycleConfigurationState:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]]] = None):
         """
         Input properties used for looking up and filtering BucketLifecycleConfiguration resources.
+
         :param pulumi.Input[_builtins.str] bucket: Amazon Resource Name (ARN) of the bucket.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]] rules: Configuration block(s) containing lifecycle rules for the bucket.
@@ -183,6 +185,7 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
         $ pulumi import aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Amazon Resource Name (ARN) of the bucket.
@@ -239,6 +242,7 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BucketLifecycleConfigurationArgs args: The arguments to use to populate this resource's properties.

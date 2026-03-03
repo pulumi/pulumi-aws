@@ -27,6 +27,7 @@ class DataCatalogArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DataCatalog resource.
+
         :param pulumi.Input[_builtins.str] description: Description of the data catalog.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
         :param pulumi.Input[_builtins.str] type: Type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
@@ -130,6 +131,7 @@ class _DataCatalogState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataCatalog resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the data catalog.
         :param pulumi.Input[_builtins.str] description: Description of the data catalog.
         :param pulumi.Input[_builtins.str] name: Name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
@@ -345,6 +347,7 @@ class DataCatalog(pulumi.CustomResource):
         $ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the data catalog.
@@ -438,6 +441,7 @@ class DataCatalog(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataCatalogArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class SnapshotScheduleAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SnapshotScheduleAssociation resource.
+
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier.
         :param pulumi.Input[_builtins.str] schedule_identifier: The snapshot schedule identifier.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _SnapshotScheduleAssociationState:
                  schedule_identifier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SnapshotScheduleAssociation resources.
+
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] schedule_identifier: The snapshot schedule identifier.
@@ -166,6 +168,7 @@ class SnapshotScheduleAssociation(pulumi.CustomResource):
         $ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier.
@@ -207,6 +210,7 @@ class SnapshotScheduleAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SnapshotScheduleAssociationArgs args: The arguments to use to populate this resource's properties.

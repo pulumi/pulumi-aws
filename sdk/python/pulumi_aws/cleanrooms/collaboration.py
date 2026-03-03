@@ -33,6 +33,7 @@ class CollaborationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Collaboration resource.
+
         :param pulumi.Input[_builtins.str] creator_display_name: Name for the member record for the collaboration creator.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] creator_member_abilities: List of member abilities for the creator of the collaboration. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
         :param pulumi.Input[_builtins.str] description: Description for a collaboration.
@@ -205,6 +206,7 @@ class _CollaborationState:
                  update_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Collaboration resources.
+
         :param pulumi.Input[_builtins.str] analytics_engine: Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
         :param pulumi.Input[_builtins.str] arn: ARN of the collaboration.
         :param pulumi.Input[_builtins.str] create_time: Date and time the collaboration was created.
@@ -490,6 +492,7 @@ class Collaboration(pulumi.CustomResource):
         $ pulumi import aws:cleanrooms/collaboration:Collaboration collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] analytics_engine: Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
@@ -565,6 +568,7 @@ class Collaboration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cleanrooms/collaboration:Collaboration collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CollaborationArgs args: The arguments to use to populate this resource's properties.

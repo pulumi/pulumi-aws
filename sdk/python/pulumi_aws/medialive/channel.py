@@ -37,6 +37,7 @@ class ChannelArgs:
                  vpc: Optional[pulumi.Input['ChannelVpcArgs']] = None):
         """
         The set of arguments for constructing a Channel resource.
+
         :param pulumi.Input[_builtins.str] channel_class: Concise argument description.
         :param pulumi.Input[Sequence[pulumi.Input['ChannelDestinationArgs']]] destinations: Destinations for channel. See Destinations for more details.
         :param pulumi.Input['ChannelEncoderSettingsArgs'] encoder_settings: Encoder settings. See Encoder Settings for more details.
@@ -271,6 +272,7 @@ class _ChannelState:
                  vpc: Optional[pulumi.Input['ChannelVpcArgs']] = None):
         """
         Input properties used for looking up and filtering Channel resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Channel.
         :param pulumi.Input['ChannelCdiInputSpecificationArgs'] cdi_input_specification: Specification of CDI inputs for this channel. See CDI Input Specification for more details.
         :param pulumi.Input[_builtins.str] channel_class: Concise argument description.
@@ -634,6 +636,7 @@ class Channel(pulumi.CustomResource):
         $ pulumi import aws:medialive/channel:Channel example 1234567
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ChannelCdiInputSpecificationArgs', 'ChannelCdiInputSpecificationArgsDict']] cdi_input_specification: Specification of CDI inputs for this channel. See CDI Input Specification for more details.
@@ -742,6 +745,7 @@ class Channel(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:medialive/channel:Channel example 1234567
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ChannelArgs args: The arguments to use to populate this resource's properties.

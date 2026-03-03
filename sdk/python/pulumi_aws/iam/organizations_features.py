@@ -22,6 +22,7 @@ class OrganizationsFeaturesArgs:
                  enabled_features: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The set of arguments for constructing a OrganizationsFeatures resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_features: List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
         """
         pulumi.set(__self__, "enabled_features", enabled_features)
@@ -45,6 +46,7 @@ class _OrganizationsFeaturesState:
                  enabled_features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering OrganizationsFeatures resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_features: List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
         """
         if enabled_features is not None:
@@ -99,6 +101,7 @@ class OrganizationsFeatures(pulumi.CustomResource):
         $ pulumi import aws:iam/organizationsFeatures:OrganizationsFeatures example o-1234567
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_features: List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
@@ -136,6 +139,7 @@ class OrganizationsFeatures(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iam/organizationsFeatures:OrganizationsFeatures example o-1234567
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationsFeaturesArgs args: The arguments to use to populate this resource's properties.

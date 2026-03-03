@@ -22,6 +22,7 @@ class AccountAliasArgs:
                  account_alias: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a AccountAlias resource.
+
         :param pulumi.Input[_builtins.str] account_alias: The account alias
         """
         pulumi.set(__self__, "account_alias", account_alias)
@@ -45,6 +46,7 @@ class _AccountAliasState:
                  account_alias: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountAlias resources.
+
         :param pulumi.Input[_builtins.str] account_alias: The account alias
         """
         if account_alias is not None:
@@ -93,6 +95,7 @@ class AccountAlias(pulumi.CustomResource):
         $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_alias: The account alias
@@ -124,6 +127,7 @@ class AccountAlias(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountAliasArgs args: The arguments to use to populate this resource's properties.

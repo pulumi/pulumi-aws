@@ -31,6 +31,7 @@ class ControlArgs:
                  testing_information: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Control resource.
+
         :param pulumi.Input[_builtins.str] action_plan_instructions: Recommended actions to carry out if the control isn't fulfilled.
         :param pulumi.Input[_builtins.str] action_plan_title: Title of the action plan for remediating the control.
         :param pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]] control_mapping_sources: Data mapping sources. See `control_mapping_sources` below.
@@ -174,6 +175,7 @@ class _ControlState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Control resources.
+
         :param pulumi.Input[_builtins.str] action_plan_instructions: Recommended actions to carry out if the control isn't fulfilled.
         :param pulumi.Input[_builtins.str] action_plan_title: Title of the action plan for remediating the control.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the control.
@@ -387,6 +389,7 @@ class Control(pulumi.CustomResource):
         $ pulumi import aws:auditmanager/control:Control example abc123-de45
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action_plan_instructions: Recommended actions to carry out if the control isn't fulfilled.
@@ -433,6 +436,7 @@ class Control(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:auditmanager/control:Control example abc123-de45
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ControlArgs args: The arguments to use to populate this resource's properties.

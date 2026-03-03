@@ -38,6 +38,7 @@ class PipeArgs:
                  target_parameters: Optional[pulumi.Input['PipeTargetParametersArgs']] = None):
         """
         The set of arguments for constructing a Pipe resource.
+
         :param pulumi.Input[_builtins.str] role_arn: ARN of the role that allows the pipe to send data to the target.
         :param pulumi.Input[_builtins.str] source: Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         :param pulumi.Input[_builtins.str] target: Target resource of the pipe (typically an ARN).
@@ -289,6 +290,7 @@ class _PipeState:
                  target_parameters: Optional[pulumi.Input['PipeTargetParametersArgs']] = None):
         """
         Input properties used for looking up and filtering Pipe resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of this pipe.
         :param pulumi.Input[_builtins.str] description: A description of the pipe. At most 512 characters.
         :param pulumi.Input[_builtins.str] desired_state: The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
@@ -752,6 +754,7 @@ class Pipe(pulumi.CustomResource):
         $ pulumi import aws:pipes/pipe:Pipe example my-pipe
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the pipe. At most 512 characters.
@@ -956,6 +959,7 @@ class Pipe(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:pipes/pipe:Pipe example my-pipe
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PipeArgs args: The arguments to use to populate this resource's properties.

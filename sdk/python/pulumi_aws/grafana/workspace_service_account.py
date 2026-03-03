@@ -25,6 +25,7 @@ class WorkspaceServiceAccountArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceServiceAccount resource.
+
         :param pulumi.Input[_builtins.str] grafana_role: The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
         :param pulumi.Input[_builtins.str] workspace_id: The Grafana workspace with which the service account is associated.
         :param pulumi.Input[_builtins.str] name: A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
@@ -96,6 +97,7 @@ class _WorkspaceServiceAccountState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceServiceAccount resources.
+
         :param pulumi.Input[_builtins.str] grafana_role: The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
         :param pulumi.Input[_builtins.str] name: A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -213,6 +215,7 @@ class WorkspaceServiceAccount(pulumi.CustomResource):
         $ pulumi import aws:grafana/workspaceServiceAccount:WorkspaceServiceAccount example g-abc12345,1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] grafana_role: The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
@@ -253,6 +256,7 @@ class WorkspaceServiceAccount(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:grafana/workspaceServiceAccount:WorkspaceServiceAccount example g-abc12345,1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceServiceAccountArgs args: The arguments to use to populate this resource's properties.

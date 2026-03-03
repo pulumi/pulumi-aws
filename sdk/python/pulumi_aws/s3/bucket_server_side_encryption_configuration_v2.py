@@ -27,6 +27,7 @@ class BucketServerSideEncryptionConfigurationV2Args:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BucketServerSideEncryptionConfigurationV2 resource.
+
         :param pulumi.Input[_builtins.str] bucket: ID (name) of the bucket.
         :param pulumi.Input[Sequence[pulumi.Input['BucketServerSideEncryptionConfigurationV2RuleArgs']]] rules: Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
@@ -101,6 +102,7 @@ class _BucketServerSideEncryptionConfigurationV2State:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketServerSideEncryptionConfigurationV2RuleArgs']]]] = None):
         """
         Input properties used for looking up and filtering BucketServerSideEncryptionConfigurationV2 resources.
+
         :param pulumi.Input[_builtins.str] bucket: ID (name) of the bucket.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -262,6 +264,7 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
         $ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name,123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: ID (name) of the bucket.
@@ -352,6 +355,7 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name,123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BucketServerSideEncryptionConfigurationV2Args args: The arguments to use to populate this resource's properties.

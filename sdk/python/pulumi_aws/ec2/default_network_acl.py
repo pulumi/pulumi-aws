@@ -29,6 +29,7 @@ class DefaultNetworkAclArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DefaultNetworkAcl resource.
+
         :param pulumi.Input[_builtins.str] default_network_acl_id: Network ACL ID to manage. This attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
                
                The following arguments are optional:
@@ -140,6 +141,7 @@ class _DefaultNetworkAclState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DefaultNetworkAcl resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Default Network ACL
         :param pulumi.Input[_builtins.str] default_network_acl_id: Network ACL ID to manage. This attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
                
@@ -414,6 +416,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         $ pulumi import aws:ec2/defaultNetworkAcl:DefaultNetworkAcl sample acl-7aaabd18
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] default_network_acl_id: Network ACL ID to manage. This attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
@@ -534,6 +537,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/defaultNetworkAcl:DefaultNetworkAcl sample acl-7aaabd18
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DefaultNetworkAclArgs args: The arguments to use to populate this resource's properties.

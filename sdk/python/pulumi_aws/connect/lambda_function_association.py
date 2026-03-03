@@ -24,6 +24,7 @@ class LambdaFunctionAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LambdaFunctionAssociation resource.
+
         :param pulumi.Input[_builtins.str] function_arn: Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
         :param pulumi.Input[_builtins.str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _LambdaFunctionAssociationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LambdaFunctionAssociation resources.
+
         :param pulumi.Input[_builtins.str] function_arn: Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
         :param pulumi.Input[_builtins.str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -159,6 +161,7 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
         $ pulumi import aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] function_arn: Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
@@ -193,6 +196,7 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LambdaFunctionAssociationArgs args: The arguments to use to populate this resource's properties.

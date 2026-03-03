@@ -38,6 +38,7 @@ class ReceiptRuleArgs:
                  workmail_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReceiptRuleWorkmailActionArgs']]]] = None):
         """
         The set of arguments for constructing a ReceiptRule resource.
+
         :param pulumi.Input[_builtins.str] rule_set_name: The name of the rule set
         :param pulumi.Input[Sequence[pulumi.Input['ReceiptRuleAddHeaderActionArgs']]] add_header_actions: A list of Add Header Action blocks. Documented below.
         :param pulumi.Input[_builtins.str] after: The name of the rule to place this rule after
@@ -286,6 +287,7 @@ class _ReceiptRuleState:
                  workmail_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReceiptRuleWorkmailActionArgs']]]] = None):
         """
         Input properties used for looking up and filtering ReceiptRule resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['ReceiptRuleAddHeaderActionArgs']]] add_header_actions: A list of Add Header Action blocks. Documented below.
         :param pulumi.Input[_builtins.str] after: The name of the rule to place this rule after
         :param pulumi.Input[_builtins.str] arn: The SES receipt rule ARN.
@@ -586,6 +588,7 @@ class ReceiptRule(pulumi.CustomResource):
         $ pulumi import aws:ses/receiptRule:ReceiptRule my_rule my_rule_set:my_rule
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ReceiptRuleAddHeaderActionArgs', 'ReceiptRuleAddHeaderActionArgsDict']]]] add_header_actions: A list of Add Header Action blocks. Documented below.
@@ -644,6 +647,7 @@ class ReceiptRule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ses/receiptRule:ReceiptRule my_rule my_rule_set:my_rule
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReceiptRuleArgs args: The arguments to use to populate this resource's properties.

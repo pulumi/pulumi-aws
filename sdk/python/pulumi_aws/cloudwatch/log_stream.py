@@ -24,6 +24,7 @@ class LogStreamArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogStream resource.
+
         :param pulumi.Input[_builtins.str] log_group_name: The name of the log group under which the log stream is to be created.
         :param pulumi.Input[_builtins.str] name: The name of the log stream. Must not be longer than 512 characters and must not contain `:`
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -80,6 +81,7 @@ class _LogStreamState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogStream resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the log stream.
         :param pulumi.Input[_builtins.str] log_group_name: The name of the log group under which the log stream is to be created.
         :param pulumi.Input[_builtins.str] name: The name of the log stream. Must not be longer than 512 characters and must not contain `:`
@@ -176,6 +178,7 @@ class LogStream(pulumi.CustomResource):
         $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] log_group_name: The name of the log group under which the log stream is to be created.
@@ -210,6 +213,7 @@ class LogStream(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LogStreamArgs args: The arguments to use to populate this resource's properties.

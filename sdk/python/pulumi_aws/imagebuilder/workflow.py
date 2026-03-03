@@ -31,6 +31,7 @@ class WorkflowArgs:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workflow resource.
+
         :param pulumi.Input[_builtins.str] type: Type of the workflow. Valid values: `BUILD`, `TEST`.
         :param pulumi.Input[_builtins.str] version: Version of the workflow.
                
@@ -205,6 +206,7 @@ class _WorkflowState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Workflow resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the workflow.
         :param pulumi.Input[_builtins.str] change_description: Change description of the workflow.
         :param pulumi.Input[_builtins.str] data: Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
@@ -497,6 +499,7 @@ class Workflow(pulumi.CustomResource):
 
         Certain resource arguments, such as `uri`, cannot be read via the API and imported into Terraform. Terraform will display a difference for these arguments the first run after import if declared in the Terraform configuration for an imported resource.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] change_description: Change description of the workflow.
@@ -579,6 +582,7 @@ class Workflow(pulumi.CustomResource):
         ```
 
         Certain resource arguments, such as `uri`, cannot be read via the API and imported into Terraform. Terraform will display a difference for these arguments the first run after import if declared in the Terraform configuration for an imported resource.
+
 
         :param str resource_name: The name of the resource.
         :param WorkflowArgs args: The arguments to use to populate this resource's properties.

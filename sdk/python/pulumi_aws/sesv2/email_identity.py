@@ -28,6 +28,7 @@ class EmailIdentityArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EmailIdentity resource.
+
         :param pulumi.Input[_builtins.str] email_identity: The email address or domain to verify.
                
                The following arguments are optional:
@@ -124,6 +125,7 @@ class _EmailIdentityState:
                  verified_for_sending_status: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering EmailIdentity resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Email Identity.
         :param pulumi.Input[_builtins.str] configuration_set_name: The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
         :param pulumi.Input['EmailIdentityDkimSigningAttributesArgs'] dkim_signing_attributes: The configuration of the DKIM authentication settings for an email domain identity.
@@ -352,6 +354,7 @@ class EmailIdentity(pulumi.CustomResource):
         $ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] configuration_set_name: The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
@@ -426,6 +429,7 @@ class EmailIdentity(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EmailIdentityArgs args: The arguments to use to populate this resource's properties.

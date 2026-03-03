@@ -31,6 +31,7 @@ class TemplateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Template resource.
+
         :param pulumi.Input[_builtins.str] template_id: Identifier for the template.
         :param pulumi.Input[_builtins.str] version_description: A description of the current template version being created/updated.
                
@@ -176,6 +177,7 @@ class _TemplateState:
                  version_number: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Template resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the template.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] created_time: The time that the template was created.
@@ -518,6 +520,7 @@ class Template(pulumi.CustomResource):
         $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
@@ -631,6 +634,7 @@ class Template(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TemplateArgs args: The arguments to use to populate this resource's properties.

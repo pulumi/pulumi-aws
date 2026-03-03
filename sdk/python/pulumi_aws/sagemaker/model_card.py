@@ -30,6 +30,7 @@ class ModelCardArgs:
                  timeouts: Optional[pulumi.Input['ModelCardTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ModelCard resource.
+
         :param pulumi.Input[_builtins.str] content: Content of the model card in [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema).
         :param pulumi.Input[_builtins.str] model_card_name: Name of the model card.
         :param pulumi.Input[_builtins.str] model_card_status: Approval status of the model card. Valid values: `Draft`, `PendingReview`, `Approved`, `Archived`.
@@ -145,6 +146,7 @@ class _ModelCardState:
                  timeouts: Optional[pulumi.Input['ModelCardTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ModelCard resources.
+
         :param pulumi.Input[_builtins.str] content: Content of the model card in [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema).
         :param pulumi.Input[_builtins.str] model_card_arn: The Amazon Resource Name (ARN) of the model card.
         :param pulumi.Input[_builtins.str] model_card_name: Name of the model card.
@@ -329,6 +331,7 @@ class ModelCard(pulumi.CustomResource):
         $ pulumi import aws:sagemaker/modelCard:ModelCard example my-model-card
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content: Content of the model card in [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema).
@@ -379,6 +382,7 @@ class ModelCard(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sagemaker/modelCard:ModelCard example my-model-card
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ModelCardArgs args: The arguments to use to populate this resource's properties.

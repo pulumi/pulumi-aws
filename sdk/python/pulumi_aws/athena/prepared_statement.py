@@ -26,6 +26,7 @@ class PreparedStatementArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PreparedStatement resource.
+
         :param pulumi.Input[_builtins.str] query_statement: The query string for the prepared statement.
         :param pulumi.Input[_builtins.str] workgroup: The name of the workgroup to which the prepared statement belongs.
         :param pulumi.Input[_builtins.str] description: Brief explanation of prepared statement. Maximum length of 1024.
@@ -112,6 +113,7 @@ class _PreparedStatementState:
                  workgroup: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PreparedStatement resources.
+
         :param pulumi.Input[_builtins.str] description: Brief explanation of prepared statement. Maximum length of 1024.
         :param pulumi.Input[_builtins.str] name: The name of the prepared statement. Maximum length of 256.
         :param pulumi.Input[_builtins.str] query_statement: The query string for the prepared statement.
@@ -232,6 +234,7 @@ class PreparedStatement(pulumi.CustomResource):
         $ pulumi import aws:athena/preparedStatement:PreparedStatement example 12345abcde/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Brief explanation of prepared statement. Maximum length of 1024.
@@ -275,6 +278,7 @@ class PreparedStatement(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:athena/preparedStatement:PreparedStatement example 12345abcde/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PreparedStatementArgs args: The arguments to use to populate this resource's properties.

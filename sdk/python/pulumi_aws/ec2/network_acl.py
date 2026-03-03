@@ -29,6 +29,7 @@ class NetworkAclArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkAcl resource.
+
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the associated VPC.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkAclEgressArgs']]] egress: Specifies an egress rule. Parameters defined below.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArgs']]] ingress: Specifies an ingress rule. Parameters defined below.
@@ -135,6 +136,7 @@ class _NetworkAclState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkAcl resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the network ACL
         :param pulumi.Input[Sequence[pulumi.Input['NetworkAclEgressArgs']]] egress: Specifies an egress rule. Parameters defined below.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArgs']]] ingress: Specifies an ingress rule. Parameters defined below.
@@ -337,6 +339,7 @@ class NetworkAcl(pulumi.CustomResource):
         $ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclEgressArgs', 'NetworkAclEgressArgsDict']]]] egress: Specifies an egress rule. Parameters defined below.
@@ -402,6 +405,7 @@ class NetworkAcl(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkAclArgs args: The arguments to use to populate this resource's properties.

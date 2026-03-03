@@ -26,6 +26,7 @@ class UserGroupArgs:
                  user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a UserGroup resource.
+
         :param pulumi.Input[_builtins.str] engine: The current supported value are `redis`, `valkey` (case insensitive).
         :param pulumi.Input[_builtins.str] user_group_id: The ID of the user group.
                
@@ -118,6 +119,7 @@ class _UserGroupState:
                  user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering UserGroup resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN that identifies the user group.
         :param pulumi.Input[_builtins.str] engine: The current supported value are `redis`, `valkey` (case insensitive).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -271,6 +273,7 @@ class UserGroup(pulumi.CustomResource):
         $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] engine: The current supported value are `redis`, `valkey` (case insensitive).
@@ -315,6 +318,7 @@ class UserGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserGroupArgs args: The arguments to use to populate this resource's properties.

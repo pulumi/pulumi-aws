@@ -27,6 +27,7 @@ class EmailTemplateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EmailTemplate resource.
+
         :param pulumi.Input[_builtins.str] template_name: name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
         :param pulumi.Input[Sequence[pulumi.Input['EmailTemplateEmailTemplateArgs']]] email_templates: Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -96,6 +97,7 @@ class _EmailTemplateState:
                  template_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailTemplate resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the message template.
         :param pulumi.Input[Sequence[pulumi.Input['EmailTemplateEmailTemplateArgs']]] email_templates: Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -221,6 +223,7 @@ class EmailTemplate(pulumi.CustomResource):
         $ pulumi import aws:pinpoint/emailTemplate:EmailTemplate reset template_name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EmailTemplateEmailTemplateArgs', 'EmailTemplateEmailTemplateArgsDict']]]] email_templates: Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
@@ -261,6 +264,7 @@ class EmailTemplate(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:pinpoint/emailTemplate:EmailTemplate reset template_name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EmailTemplateArgs args: The arguments to use to populate this resource's properties.

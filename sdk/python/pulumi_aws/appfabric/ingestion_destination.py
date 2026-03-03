@@ -30,6 +30,7 @@ class IngestionDestinationArgs:
                  timeouts: Optional[pulumi.Input['IngestionDestinationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a IngestionDestination resource.
+
         :param pulumi.Input[_builtins.str] app_bundle_arn: The Amazon Resource Name (ARN) of the app bundle to use for the request.
         :param pulumi.Input['IngestionDestinationDestinationConfigurationArgs'] destination_configuration: Contains information about the destination of ingested data.
         :param pulumi.Input[_builtins.str] ingestion_arn: The Amazon Resource Name (ARN) of the ingestion to use for the request.
@@ -144,6 +145,7 @@ class _IngestionDestinationState:
                  timeouts: Optional[pulumi.Input['IngestionDestinationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering IngestionDestination resources.
+
         :param pulumi.Input[_builtins.str] app_bundle_arn: The Amazon Resource Name (ARN) of the app bundle to use for the request.
         :param pulumi.Input[_builtins.str] arn: ARN of the Ingestion Destination.
         :param pulumi.Input['IngestionDestinationDestinationConfigurationArgs'] destination_configuration: Contains information about the destination of ingested data.
@@ -323,6 +325,7 @@ class IngestionDestination(pulumi.CustomResource):
             })
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_bundle_arn: The Amazon Resource Name (ARN) of the app bundle to use for the request.
@@ -368,6 +371,7 @@ class IngestionDestination(pulumi.CustomResource):
                 },
             })
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IngestionDestinationArgs args: The arguments to use to populate this resource's properties.

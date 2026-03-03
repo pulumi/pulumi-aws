@@ -28,6 +28,7 @@ class TargetGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TargetGroup resource.
+
         :param pulumi.Input[_builtins.str] type: The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
                
                The following arguments are optional:
@@ -122,6 +123,7 @@ class _TargetGroupState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TargetGroup resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the target group.
         :param pulumi.Input['TargetGroupConfigArgs'] config: The target group configuration.
         :param pulumi.Input[_builtins.str] name: The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
@@ -354,6 +356,7 @@ class TargetGroup(pulumi.CustomResource):
         $ pulumi import aws:vpclattice/targetGroup:TargetGroup example tg-0c11d4dc16ed96bdb
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TargetGroupConfigArgs', 'TargetGroupConfigArgsDict']] config: The target group configuration.
@@ -462,6 +465,7 @@ class TargetGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:vpclattice/targetGroup:TargetGroup example tg-0c11d4dc16ed96bdb
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TargetGroupArgs args: The arguments to use to populate this resource's properties.

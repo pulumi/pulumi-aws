@@ -34,6 +34,7 @@ class GlobalClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a GlobalCluster resource.
+
         :param pulumi.Input[_builtins.str] global_cluster_identifier: Global cluster identifier.
                
                The following arguments are optional:
@@ -231,6 +232,7 @@ class _GlobalClusterState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering GlobalCluster resources.
+
         :param pulumi.Input[_builtins.str] arn: RDS Global Cluster Amazon Resource Name (ARN).
         :param pulumi.Input[_builtins.str] database_name: Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[_builtins.bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
@@ -669,6 +671,7 @@ class GlobalCluster(pulumi.CustomResource):
         example = aws.rds.GlobalCluster("example")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] database_name: Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
@@ -850,6 +853,7 @@ class GlobalCluster(pulumi.CustomResource):
 
         example = aws.rds.GlobalCluster("example")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GlobalClusterArgs args: The arguments to use to populate this resource's properties.

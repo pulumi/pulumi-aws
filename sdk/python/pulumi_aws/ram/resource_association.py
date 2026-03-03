@@ -24,6 +24,7 @@ class ResourceAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourceAssociation resource.
+
         :param pulumi.Input[_builtins.str] resource_arn: Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
         :param pulumi.Input[_builtins.str] resource_share_arn: Amazon Resource Name (ARN) of the RAM Resource Share.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _ResourceAssociationState:
                  resource_share_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourceAssociation resources.
+
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_arn: Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
         :param pulumi.Input[_builtins.str] resource_share_arn: Amazon Resource Name (ARN) of the RAM Resource Share.
@@ -160,6 +162,7 @@ class ResourceAssociation(pulumi.CustomResource):
         $ pulumi import aws:ram/resourceAssociation:ResourceAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,arn:aws:ec2:eu-west-1:123456789012:subnet/subnet-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -195,6 +198,7 @@ class ResourceAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ram/resourceAssociation:ResourceAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,arn:aws:ec2:eu-west-1:123456789012:subnet/subnet-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceAssociationArgs args: The arguments to use to populate this resource's properties.

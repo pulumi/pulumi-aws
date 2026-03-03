@@ -29,6 +29,7 @@ class ReportPlanArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReportPlan resource.
+
         :param pulumi.Input['ReportPlanReportDeliveryChannelArgs'] report_delivery_channel: An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
         :param pulumi.Input['ReportPlanReportSettingArgs'] report_setting: An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
         :param pulumi.Input[_builtins.str] description: The description of the report plan with a maximum of 1,024 characters
@@ -135,6 +136,7 @@ class _ReportPlanState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ReportPlan resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the backup report plan.
         :param pulumi.Input[_builtins.str] creation_time: The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
         :param pulumi.Input[_builtins.str] deployment_status: The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
@@ -336,6 +338,7 @@ class ReportPlan(pulumi.CustomResource):
         $ pulumi import aws:backup/reportPlan:ReportPlan test <id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the report plan with a maximum of 1,024 characters
@@ -385,6 +388,7 @@ class ReportPlan(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:backup/reportPlan:ReportPlan test <id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReportPlanArgs args: The arguments to use to populate this resource's properties.

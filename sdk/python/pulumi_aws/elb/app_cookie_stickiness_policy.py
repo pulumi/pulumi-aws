@@ -26,6 +26,7 @@ class AppCookieStickinessPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AppCookieStickinessPolicy resource.
+
         :param pulumi.Input[_builtins.str] cookie_name: Application cookie whose lifetime the ELB's cookie should follow.
         :param pulumi.Input[_builtins.int] lb_port: Load balancer port to which the policy
                should be applied. This must be an active listener on the load
@@ -117,6 +118,7 @@ class _AppCookieStickinessPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AppCookieStickinessPolicy resources.
+
         :param pulumi.Input[_builtins.str] cookie_name: Application cookie whose lifetime the ELB's cookie should follow.
         :param pulumi.Input[_builtins.int] lb_port: Load balancer port to which the policy
                should be applied. This must be an active listener on the load
@@ -246,6 +248,7 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
         $ pulumi import aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy example my-elb:80:my-policy
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cookie_name: Application cookie whose lifetime the ELB's cookie should follow.
@@ -295,6 +298,7 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy example my-elb:80:my-policy
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AppCookieStickinessPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class AllowedImagesSettingsArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AllowedImagesSettings resource.
+
         :param pulumi.Input[_builtins.str] state: State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
         :param pulumi.Input[Sequence[pulumi.Input['AllowedImagesSettingsImageCriterionArgs']]] image_criterions: List of image criteria. Maximum of 10 criterion blocks allowed. See `image_criterion` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -81,6 +82,7 @@ class _AllowedImagesSettingsState:
                  state: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AllowedImagesSettings resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['AllowedImagesSettingsImageCriterionArgs']]] image_criterions: List of image criteria. Maximum of 10 criterion blocks allowed. See `image_criterion` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] state: State of the allowed images settings. Valid values are `enabled` or `audit-mode`.
@@ -187,6 +189,7 @@ class AllowedImagesSettings(pulumi.CustomResource):
         $ pulumi import aws:ec2/allowedImagesSettings:AllowedImagesSettings example us-east-1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AllowedImagesSettingsImageCriterionArgs', 'AllowedImagesSettingsImageCriterionArgsDict']]]] image_criterions: List of image criteria. Maximum of 10 criterion blocks allowed. See `image_criterion` below.
@@ -246,6 +249,7 @@ class AllowedImagesSettings(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/allowedImagesSettings:AllowedImagesSettings example us-east-1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AllowedImagesSettingsArgs args: The arguments to use to populate this resource's properties.

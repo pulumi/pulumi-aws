@@ -28,6 +28,7 @@ class AccessPolicyAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccessPolicyAssociation resource.
+
         :param pulumi.Input['AccessPolicyAssociationAccessScopeArgs'] access_scope: The configuration block to determine the scope of the access. See `access_scope` Block below.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[_builtins.str] policy_arn: The ARN of the access policy that you're associating.
@@ -114,6 +115,7 @@ class _AccessPolicyAssociationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccessPolicyAssociation resources.
+
         :param pulumi.Input['AccessPolicyAssociationAccessScopeArgs'] access_scope: The configuration block to determine the scope of the access. See `access_scope` Block below.
         :param pulumi.Input[_builtins.str] associated_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
@@ -261,6 +263,7 @@ class AccessPolicyAssociation(pulumi.CustomResource):
         $ pulumi import aws:eks/accessPolicyAssociation:AccessPolicyAssociation my_eks_access_entry my_cluster_name#my_principal_arn#my_policy_arn
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AccessPolicyAssociationAccessScopeArgs', 'AccessPolicyAssociationAccessScopeArgsDict']] access_scope: The configuration block to determine the scope of the access. See `access_scope` Block below.
@@ -301,6 +304,7 @@ class AccessPolicyAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:eks/accessPolicyAssociation:AccessPolicyAssociation my_eks_access_entry my_cluster_name#my_principal_arn#my_policy_arn
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccessPolicyAssociationArgs args: The arguments to use to populate this resource's properties.

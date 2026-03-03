@@ -28,6 +28,7 @@ class EnvironmentBlueprintConfigurationArgs:
                  regional_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None):
         """
         The set of arguments for constructing a EnvironmentBlueprintConfiguration resource.
+
         :param pulumi.Input[_builtins.str] domain_id: ID of the Domain.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_regions: Regions in which the blueprint is enabled
                
@@ -149,6 +150,7 @@ class _EnvironmentBlueprintConfigurationState:
                  regional_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None):
         """
         Input properties used for looking up and filtering EnvironmentBlueprintConfiguration resources.
+
         :param pulumi.Input[_builtins.str] domain_id: ID of the Domain.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_regions: Regions in which the blueprint is enabled
                
@@ -311,6 +313,7 @@ class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
         $ pulumi import aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration example domain-id-12345/environment-blueprint-id-54321
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_id: ID of the Domain.
@@ -364,6 +367,7 @@ class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration example domain-id-12345/environment-blueprint-id-54321
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentBlueprintConfigurationArgs args: The arguments to use to populate this resource's properties.

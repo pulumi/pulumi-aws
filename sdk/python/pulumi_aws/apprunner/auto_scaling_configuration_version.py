@@ -27,6 +27,7 @@ class AutoScalingConfigurationVersionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AutoScalingConfigurationVersion resource.
+
         :param pulumi.Input[_builtins.str] auto_scaling_configuration_name: Name of the auto scaling configuration.
         :param pulumi.Input[_builtins.int] max_concurrency: Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
         :param pulumi.Input[_builtins.int] max_size: Maximal number of instances that App Runner provisions for your service.
@@ -137,6 +138,7 @@ class _AutoScalingConfigurationVersionState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AutoScalingConfigurationVersion resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of this auto scaling configuration version.
         :param pulumi.Input[_builtins.str] auto_scaling_configuration_name: Name of the auto scaling configuration.
         :param pulumi.Input[_builtins.int] auto_scaling_configuration_revision: The revision of this auto scaling configuration.
@@ -373,6 +375,7 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
         $ pulumi import aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion example "arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auto_scaling_configuration_name: Name of the auto scaling configuration.
@@ -420,6 +423,7 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion example "arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AutoScalingConfigurationVersionArgs args: The arguments to use to populate this resource's properties.

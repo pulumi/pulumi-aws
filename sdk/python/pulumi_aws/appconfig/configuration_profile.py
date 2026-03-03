@@ -33,6 +33,7 @@ class ConfigurationProfileArgs:
                  validators: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorArgs']]]] = None):
         """
         The set of arguments for constructing a ConfigurationProfile resource.
+
         :param pulumi.Input[_builtins.str] application_id: Application ID. Must be between 4 and 7 characters in length.
         :param pulumi.Input[_builtins.str] location_uri: URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
         :param pulumi.Input[_builtins.str] description: Description of the configuration profile. Can be at most 1024 characters.
@@ -202,6 +203,7 @@ class _ConfigurationProfileState:
                  validators: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorArgs']]]] = None):
         """
         Input properties used for looking up and filtering ConfigurationProfile resources.
+
         :param pulumi.Input[_builtins.str] application_id: Application ID. Must be between 4 and 7 characters in length.
         :param pulumi.Input[_builtins.str] arn: ARN of the AppConfig Configuration Profile.
         :param pulumi.Input[_builtins.str] configuration_profile_id: The configuration profile ID.
@@ -448,6 +450,7 @@ class ConfigurationProfile(pulumi.CustomResource):
         $ pulumi import aws:appconfig/configurationProfile:ConfigurationProfile example 71abcde:11xxxxx
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: Application ID. Must be between 4 and 7 characters in length.
@@ -497,6 +500,7 @@ class ConfigurationProfile(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appconfig/configurationProfile:ConfigurationProfile example 71abcde:11xxxxx
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConfigurationProfileArgs args: The arguments to use to populate this resource's properties.

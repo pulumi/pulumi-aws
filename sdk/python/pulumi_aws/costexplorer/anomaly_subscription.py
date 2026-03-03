@@ -30,6 +30,7 @@ class AnomalySubscriptionArgs:
                  threshold_expression: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionArgs']] = None):
         """
         The set of arguments for constructing a AnomalySubscription resource.
+
         :param pulumi.Input[_builtins.str] frequency: The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] monitor_arn_lists: A list of cost anomaly monitors.
         :param pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionSubscriberArgs']]] subscribers: A subscriber configuration. Multiple subscribers can be defined.
@@ -149,6 +150,7 @@ class _AnomalySubscriptionState:
                  threshold_expression: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionArgs']] = None):
         """
         Input properties used for looking up and filtering AnomalySubscription resources.
+
         :param pulumi.Input[_builtins.str] account_id: The unique identifier for the AWS account in which the anomaly subscription ought to be created.
         :param pulumi.Input[_builtins.str] arn: ARN of the anomaly subscription.
         :param pulumi.Input[_builtins.str] frequency: The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
@@ -473,6 +475,7 @@ class AnomalySubscription(pulumi.CustomResource):
         $ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The unique identifier for the AWS account in which the anomaly subscription ought to be created.
@@ -660,6 +663,7 @@ class AnomalySubscription(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AnomalySubscriptionArgs args: The arguments to use to populate this resource's properties.

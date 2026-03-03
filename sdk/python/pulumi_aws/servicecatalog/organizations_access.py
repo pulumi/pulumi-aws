@@ -22,6 +22,7 @@ class OrganizationsAccessArgs:
                  enabled: pulumi.Input[_builtins.bool]):
         """
         The set of arguments for constructing a OrganizationsAccess resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable AWS Organizations access.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -45,6 +46,7 @@ class _OrganizationsAccessState:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering OrganizationsAccess resources.
+
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable AWS Organizations access.
         """
         if enabled is not None:
@@ -87,6 +89,7 @@ class OrganizationsAccess(pulumi.CustomResource):
         example = aws.servicecatalog.OrganizationsAccess("example", enabled=True)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable AWS Organizations access.
@@ -112,6 +115,7 @@ class OrganizationsAccess(pulumi.CustomResource):
 
         example = aws.servicecatalog.OrganizationsAccess("example", enabled=True)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationsAccessArgs args: The arguments to use to populate this resource's properties.

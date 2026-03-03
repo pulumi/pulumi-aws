@@ -29,6 +29,7 @@ class LogMetricFilterArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogMetricFilter resource.
+
         :param pulumi.Input[_builtins.str] log_group_name: The name of the log group to associate the metric filter with.
         :param pulumi.Input['LogMetricFilterMetricTransformationArgs'] metric_transformation: A block defining collection of information needed to define how metric data gets emitted. See below.
         :param pulumi.Input[_builtins.str] pattern: A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
@@ -132,6 +133,7 @@ class _LogMetricFilterState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogMetricFilter resources.
+
         :param pulumi.Input[_builtins.bool] apply_on_transformed_logs: Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
         :param pulumi.Input[_builtins.str] log_group_name: The name of the log group to associate the metric filter with.
         :param pulumi.Input['LogMetricFilterMetricTransformationArgs'] metric_transformation: A block defining collection of information needed to define how metric data gets emitted. See below.
@@ -269,6 +271,7 @@ class LogMetricFilter(pulumi.CustomResource):
         $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] apply_on_transformed_logs: Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
@@ -313,6 +316,7 @@ class LogMetricFilter(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LogMetricFilterArgs args: The arguments to use to populate this resource's properties.

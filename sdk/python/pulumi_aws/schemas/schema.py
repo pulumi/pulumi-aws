@@ -28,6 +28,7 @@ class SchemaArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Schema resource.
+
         :param pulumi.Input[_builtins.str] content: The schema specification. Must be a valid Open API 3.0 spec.
         :param pulumi.Input[_builtins.str] registry_name: The name of the registry in which this schema belongs.
         :param pulumi.Input[_builtins.str] type: The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
@@ -150,6 +151,7 @@ class _SchemaState:
                  version_created_date: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Schema resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the discoverer.
         :param pulumi.Input[_builtins.str] content: The schema specification. Must be a valid Open API 3.0 spec.
         :param pulumi.Input[_builtins.str] description: The description of the schema. Maximum of 256 characters.
@@ -395,6 +397,7 @@ class Schema(pulumi.CustomResource):
         $ pulumi import aws:schemas/schema:Schema test name/registry
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content: The schema specification. Must be a valid Open API 3.0 spec.
@@ -458,6 +461,7 @@ class Schema(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:schemas/schema:Schema test name/registry
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SchemaArgs args: The arguments to use to populate this resource's properties.

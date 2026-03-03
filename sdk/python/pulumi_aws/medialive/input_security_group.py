@@ -26,6 +26,7 @@ class InputSecurityGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a InputSecurityGroup resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['InputSecurityGroupWhitelistRuleArgs']]] whitelist_rules: Whitelist rules. See Whitelist Rules for more details.
                
                The following arguments are optional:
@@ -88,6 +89,7 @@ class _InputSecurityGroupState:
                  whitelist_rules: Optional[pulumi.Input[Sequence[pulumi.Input['InputSecurityGroupWhitelistRuleArgs']]]] = None):
         """
         Input properties used for looking up and filtering InputSecurityGroup resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the InputSecurityGroup.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] inputs: The list of inputs currently using this InputSecurityGroup.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -219,6 +221,7 @@ class InputSecurityGroup(pulumi.CustomResource):
         $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -260,6 +263,7 @@ class InputSecurityGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InputSecurityGroupArgs args: The arguments to use to populate this resource's properties.

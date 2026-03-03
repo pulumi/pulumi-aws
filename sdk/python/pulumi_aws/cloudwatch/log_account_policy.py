@@ -27,6 +27,7 @@ class LogAccountPolicyArgs:
                  selection_criteria: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogAccountPolicy resource.
+
         :param pulumi.Input[_builtins.str] policy_document: Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
         :param pulumi.Input[_builtins.str] policy_name: Name of the account policy.
         :param pulumi.Input[_builtins.str] policy_type: Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
@@ -128,6 +129,7 @@ class _LogAccountPolicyState:
                  selection_criteria: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogAccountPolicy resources.
+
         :param pulumi.Input[_builtins.str] policy_document: Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
         :param pulumi.Input[_builtins.str] policy_name: Name of the account policy.
         :param pulumi.Input[_builtins.str] policy_type: Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
@@ -318,6 +320,7 @@ class LogAccountPolicy(pulumi.CustomResource):
         $ pulumi import aws:cloudwatch/logAccountPolicy:LogAccountPolicy example "my-account-policy:SUBSCRIPTION_FILTER_POLICY"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy_document: Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
@@ -416,6 +419,7 @@ class LogAccountPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudwatch/logAccountPolicy:LogAccountPolicy example "my-account-policy:SUBSCRIPTION_FILTER_POLICY"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LogAccountPolicyArgs args: The arguments to use to populate this resource's properties.

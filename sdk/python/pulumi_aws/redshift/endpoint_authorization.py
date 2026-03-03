@@ -26,6 +26,7 @@ class EndpointAuthorizationArgs:
                  vpc_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EndpointAuthorization resource.
+
         :param pulumi.Input[_builtins.str] account: The Amazon Web Services account ID to grant access to.
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier of the cluster to grant access to.
         :param pulumi.Input[_builtins.bool] force_delete: Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
@@ -116,6 +117,7 @@ class _EndpointAuthorizationState:
                  vpc_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering EndpointAuthorization resources.
+
         :param pulumi.Input[_builtins.str] account: The Amazon Web Services account ID to grant access to.
         :param pulumi.Input[_builtins.bool] allowed_all_vpcs: Indicates whether all VPCs in the grantee account are allowed access to the cluster.
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier of the cluster to grant access to.
@@ -288,6 +290,7 @@ class EndpointAuthorization(pulumi.CustomResource):
         $ pulumi import aws:redshift/endpointAuthorization:EndpointAuthorization example 01234567910:cluster-example-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account: The Amazon Web Services account ID to grant access to.
@@ -323,6 +326,7 @@ class EndpointAuthorization(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:redshift/endpointAuthorization:EndpointAuthorization example 01234567910:cluster-example-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EndpointAuthorizationArgs args: The arguments to use to populate this resource's properties.

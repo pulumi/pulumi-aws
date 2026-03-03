@@ -28,6 +28,7 @@ class ServerCertificateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServerCertificate resource.
+
         :param pulumi.Input[_builtins.str] certificate_body: The contents of the public key certificate in
                PEM-encoded format.
         :param pulumi.Input[_builtins.str] private_key: The contents of the private key in PEM-encoded format.
@@ -168,6 +169,7 @@ class _ServerCertificateState:
                  upload_date: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerCertificate resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the server certificate.
         :param pulumi.Input[_builtins.str] certificate_body: The contents of the public key certificate in
                PEM-encoded format.
@@ -433,6 +435,7 @@ class ServerCertificate(pulumi.CustomResource):
         [1]: https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
         [2]: https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_body: The contents of the public key certificate in
@@ -522,6 +525,7 @@ class ServerCertificate(pulumi.CustomResource):
 
         [1]: https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
         [2]: https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html
+
 
         :param str resource_name: The name of the resource.
         :param ServerCertificateArgs args: The arguments to use to populate this resource's properties.

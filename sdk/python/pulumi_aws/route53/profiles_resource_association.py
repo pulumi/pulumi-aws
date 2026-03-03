@@ -29,6 +29,7 @@ class ProfilesResourceAssociationArgs:
                  timeouts: Optional[pulumi.Input['ProfilesResourceAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ProfilesResourceAssociation resource.
+
         :param pulumi.Input[_builtins.str] profile_id: ID of the profile associated with the VPC.
         :param pulumi.Input[_builtins.str] resource_arn: Resource ID of the resource to be associated with the profile.
         :param pulumi.Input[_builtins.str] name: Name of the Profile Resource Association.
@@ -131,6 +132,7 @@ class _ProfilesResourceAssociationState:
                  timeouts: Optional[pulumi.Input['ProfilesResourceAssociationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ProfilesResourceAssociation resources.
+
         :param pulumi.Input[_builtins.str] name: Name of the Profile Resource Association.
         :param pulumi.Input[_builtins.str] profile_id: ID of the profile associated with the VPC.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -321,6 +323,7 @@ class ProfilesResourceAssociation(pulumi.CustomResource):
         $ pulumi import aws:route53/profilesResourceAssociation:ProfilesResourceAssociation example rpa-id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the Profile Resource Association.
@@ -366,6 +369,7 @@ class ProfilesResourceAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53/profilesResourceAssociation:ProfilesResourceAssociation example rpa-id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProfilesResourceAssociationArgs args: The arguments to use to populate this resource's properties.

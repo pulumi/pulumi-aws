@@ -28,6 +28,7 @@ class MethodSettingsArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MethodSettings resource.
+
         :param pulumi.Input[_builtins.str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
         :param pulumi.Input[_builtins.str] rest_api: ID of the REST API
         :param pulumi.Input['MethodSettingsSettingsArgs'] settings: Settings block, see below.
@@ -112,6 +113,7 @@ class _MethodSettingsState:
                  stage_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MethodSettings resources.
+
         :param pulumi.Input[_builtins.str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] rest_api: ID of the REST API
@@ -285,6 +287,7 @@ class MethodSettings(pulumi.CustomResource):
         $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
@@ -381,6 +384,7 @@ class MethodSettings(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MethodSettingsArgs args: The arguments to use to populate this resource's properties.

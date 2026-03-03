@@ -27,6 +27,7 @@ class AgentcoreOauth2CredentialProviderArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AgentcoreOauth2CredentialProvider resource.
+
         :param pulumi.Input[_builtins.str] credential_provider_vendor: Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
         :param pulumi.Input[_builtins.str] name: Name of the OAuth2 credential provider.
         :param pulumi.Input['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs'] oauth2_provider_config: OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2_provider_config` below.
@@ -104,6 +105,7 @@ class _AgentcoreOauth2CredentialProviderState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AgentcoreOauth2CredentialProvider resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreOauth2CredentialProviderClientSecretArnArgs']]] client_secret_arns: ARN of the AWS Secrets Manager secret containing the client secret.
         :param pulumi.Input[_builtins.str] credential_provider_arn: ARN of the OAuth2 credential provider.
         :param pulumi.Input[_builtins.str] credential_provider_vendor: Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
@@ -294,6 +296,7 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
         $ pulumi import aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider example oauth2-provider-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] credential_provider_vendor: Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
@@ -390,6 +393,7 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider example oauth2-provider-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AgentcoreOauth2CredentialProviderArgs args: The arguments to use to populate this resource's properties.

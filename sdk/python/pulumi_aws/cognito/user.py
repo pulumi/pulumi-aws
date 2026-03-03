@@ -33,6 +33,7 @@ class UserArgs:
                  validation_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a User resource.
+
         :param pulumi.Input[_builtins.str] user_pool_id: The user pool ID for the user pool where the user will be created.
         :param pulumi.Input[_builtins.str] username: The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
                
@@ -245,6 +246,7 @@ class _UserState:
                  validation_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering User resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: A map that contains user attributes and attribute values to be set for the user.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] client_metadata: A map of custom key-value pairs that you can provide as input for any custom workflows that user creation triggers. Amazon Cognito does not store the `client_metadata` value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] desired_delivery_mediums: A list of mediums to the welcome message will be sent through. Allowed values are `EMAIL` and `SMS`. If it's provided, make sure you have also specified `email` attribute for the `EMAIL` medium and `phone_number` for the `SMS`. More than one value can be specified. Amazon Cognito does not store the `desired_delivery_mediums` value. Defaults to `["SMS"]`.
@@ -590,6 +592,7 @@ class User(pulumi.CustomResource):
         $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: A map that contains user attributes and attribute values to be set for the user.
@@ -675,6 +678,7 @@ class User(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

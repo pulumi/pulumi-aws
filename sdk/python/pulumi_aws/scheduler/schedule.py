@@ -37,6 +37,7 @@ class ScheduleArgs:
                  state: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Schedule resource.
+
         :param pulumi.Input['ScheduleFlexibleTimeWindowArgs'] flexible_time_window: Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
         :param pulumi.Input[_builtins.str] schedule_expression: Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).
         :param pulumi.Input['ScheduleTargetArgs'] target: Configures the target of the schedule. Detailed below.
@@ -271,6 +272,7 @@ class _ScheduleState:
                  target: Optional[pulumi.Input['ScheduleTargetArgs']] = None):
         """
         Input properties used for looking up and filtering Schedule resources.
+
         :param pulumi.Input[_builtins.str] action_after_completion: Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
         :param pulumi.Input[_builtins.str] arn: ARN of the schedule.
         :param pulumi.Input[_builtins.str] description: Brief description of the schedule.
@@ -584,6 +586,7 @@ class Schedule(pulumi.CustomResource):
         $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action_after_completion: Action that applies to the schedule after completing invocation of the target. Valid values are `NONE` and `DELETE`. Defaults to `NONE`.
@@ -668,6 +671,7 @@ class Schedule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ScheduleArgs args: The arguments to use to populate this resource's properties.

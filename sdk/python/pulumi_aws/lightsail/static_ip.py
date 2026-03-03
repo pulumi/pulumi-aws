@@ -23,6 +23,7 @@ class StaticIpArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a StaticIp resource.
+
         :param pulumi.Input[_builtins.str] name: Name for the allocated static IP.
                
                The following arguments are optional:
@@ -70,6 +71,7 @@ class _StaticIpState:
                  support_code: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StaticIp resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Lightsail static IP.
         :param pulumi.Input[_builtins.str] ip_address: Allocated static IP address.
         :param pulumi.Input[_builtins.str] name: Name for the allocated static IP.
@@ -185,6 +187,7 @@ class StaticIp(pulumi.CustomResource):
         $ pulumi import aws:lightsail/staticIp:StaticIp example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name for the allocated static IP.
@@ -221,6 +224,7 @@ class StaticIp(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lightsail/staticIp:StaticIp example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StaticIpArgs args: The arguments to use to populate this resource's properties.

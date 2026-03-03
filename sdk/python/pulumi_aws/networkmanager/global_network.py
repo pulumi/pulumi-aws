@@ -23,6 +23,7 @@ class GlobalNetworkArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a GlobalNetwork resource.
+
         :param pulumi.Input[_builtins.str] description: Description of the Global Network.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the Global Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -65,6 +66,7 @@ class _GlobalNetworkState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering GlobalNetwork resources.
+
         :param pulumi.Input[_builtins.str] arn: Global Network ARN.
         :param pulumi.Input[_builtins.str] description: Description of the Global Network.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the Global Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -159,6 +161,7 @@ class GlobalNetwork(pulumi.CustomResource):
         $ pulumi import aws:networkmanager/globalNetwork:GlobalNetwork example global-network-0d47f6t230mz46dy4
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the Global Network.
@@ -191,6 +194,7 @@ class GlobalNetwork(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:networkmanager/globalNetwork:GlobalNetwork example global-network-0d47f6t230mz46dy4
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GlobalNetworkArgs args: The arguments to use to populate this resource's properties.

@@ -35,6 +35,7 @@ class EnvironmentArgs:
                  user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentUserParameterArgs']]]] = None):
         """
         The set of arguments for constructing a Environment resource.
+
         :param pulumi.Input[_builtins.str] domain_identifier: The ID of the domain where the environment exists.
         :param pulumi.Input[_builtins.str] profile_identifier: The ID of the profile with which the environment is created.
         :param pulumi.Input[_builtins.str] project_identifier: The ID of the project where the environment exists.
@@ -241,6 +242,7 @@ class _EnvironmentState:
                  user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentUserParameterArgs']]]] = None):
         """
         Input properties used for looking up and filtering Environment resources.
+
         :param pulumi.Input[_builtins.str] account_identifier: The ID of the Amazon Web Services account where the environment exists
         :param pulumi.Input[_builtins.str] account_region: The Amazon Web Services region where the environment exists.
         :param pulumi.Input[_builtins.str] blueprint_identifier: The blueprint with which the environment is created.
@@ -559,6 +561,7 @@ class Environment(pulumi.CustomResource):
         $ pulumi import aws:datazone/environment:Environment example dzd_d2i7tzk3tnjjf4,5vpywijpwryec0
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_identifier: The ID of the Amazon Web Services account where the environment exists
@@ -623,6 +626,7 @@ class Environment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:datazone/environment:Environment example dzd_d2i7tzk3tnjjf4,5vpywijpwryec0
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.

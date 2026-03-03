@@ -26,6 +26,7 @@ class UserArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a User resource.
+
         :param pulumi.Input[_builtins.bool] force_destroy: When destroying this user, destroy even if it
                has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
                a user with non-provider-managed access keys and login profile will fail to be destroyed.
@@ -121,6 +122,7 @@ class _UserState:
                  unique_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering User resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN assigned by AWS for this user.
         :param pulumi.Input[_builtins.bool] force_destroy: When destroying this user, destroy even if it
                has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
@@ -297,6 +299,7 @@ class User(pulumi.CustomResource):
         $ pulumi import aws:iam/user:User lb loadbalancer
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] force_destroy: When destroying this user, destroy even if it
@@ -349,6 +352,7 @@ class User(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iam/user:User lb loadbalancer
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

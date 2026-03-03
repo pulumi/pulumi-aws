@@ -32,6 +32,7 @@ class GlobalSecondaryIndexArgs:
                  warm_throughput: Optional[pulumi.Input['GlobalSecondaryIndexWarmThroughputArgs']] = None):
         """
         The set of arguments for constructing a GlobalSecondaryIndex resource.
+
         :param pulumi.Input[_builtins.str] index_name: Name of the index.
         :param pulumi.Input[_builtins.str] table_name: Name of the table this index belongs to.
                
@@ -203,6 +204,7 @@ class _GlobalSecondaryIndexState:
                  warm_throughput: Optional[pulumi.Input['GlobalSecondaryIndexWarmThroughputArgs']] = None):
         """
         Input properties used for looking up and filtering GlobalSecondaryIndex resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the GSI.
         :param pulumi.Input[_builtins.str] index_name: Name of the index.
         :param pulumi.Input[Sequence[pulumi.Input['GlobalSecondaryIndexKeySchemaArgs']]] key_schemas: Set of nested attribute definitions.
@@ -506,6 +508,7 @@ class GlobalSecondaryIndex(pulumi.CustomResource):
         $ pulumi import aws:dynamodb/globalSecondaryIndex:GlobalSecondaryIndex example 'example-table,example-index'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] index_name: Name of the index.
@@ -648,6 +651,7 @@ class GlobalSecondaryIndex(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:dynamodb/globalSecondaryIndex:GlobalSecondaryIndex example 'example-table,example-index'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GlobalSecondaryIndexArgs args: The arguments to use to populate this resource's properties.

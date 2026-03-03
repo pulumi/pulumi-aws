@@ -31,6 +31,7 @@ class EventDestinationArgs:
                  sns_destination: Optional[pulumi.Input['EventDestinationSnsDestinationArgs']] = None):
         """
         The set of arguments for constructing a EventDestination resource.
+
         :param pulumi.Input[_builtins.str] configuration_set_name: The name of the configuration set
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] matching_types: A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
         :param pulumi.Input[Sequence[pulumi.Input['EventDestinationCloudwatchDestinationArgs']]] cloudwatch_destinations: CloudWatch destination for the events
@@ -170,6 +171,7 @@ class _EventDestinationState:
                  sns_destination: Optional[pulumi.Input['EventDestinationSnsDestinationArgs']] = None):
         """
         Input properties used for looking up and filtering EventDestination resources.
+
         :param pulumi.Input[_builtins.str] arn: The SES event destination ARN.
         :param pulumi.Input[Sequence[pulumi.Input['EventDestinationCloudwatchDestinationArgs']]] cloudwatch_destinations: CloudWatch destination for the events
         :param pulumi.Input[_builtins.str] configuration_set_name: The name of the configuration set
@@ -400,6 +402,7 @@ class EventDestination(pulumi.CustomResource):
         $ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EventDestinationCloudwatchDestinationArgs', 'EventDestinationCloudwatchDestinationArgsDict']]]] cloudwatch_destinations: CloudWatch destination for the events
@@ -491,6 +494,7 @@ class EventDestination(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventDestinationArgs args: The arguments to use to populate this resource's properties.

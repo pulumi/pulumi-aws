@@ -27,6 +27,7 @@ class ServiceQuotaArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceQuota resource.
+
         :param pulumi.Input[_builtins.str] quota_code: Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
         :param pulumi.Input[_builtins.str] service_code: Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
         :param pulumi.Input[_builtins.float] value: Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
@@ -104,6 +105,7 @@ class _ServiceQuotaState:
                  value: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Input properties used for looking up and filtering ServiceQuota resources.
+
         :param pulumi.Input[_builtins.bool] adjustable: Whether the service quota can be increased.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the service quota.
         :param pulumi.Input[_builtins.float] default_value: Default value of the service quota.
@@ -317,6 +319,7 @@ class ServiceQuota(pulumi.CustomResource):
         $ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] quota_code: Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
@@ -356,6 +359,7 @@ class ServiceQuota(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceQuotaArgs args: The arguments to use to populate this resource's properties.

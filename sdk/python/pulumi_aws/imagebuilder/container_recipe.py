@@ -38,6 +38,7 @@ class ContainerRecipeArgs:
                  working_directory: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ContainerRecipe resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentArgs']]] components: Ordered configuration block(s) with components for the container recipe. Detailed below.
         :param pulumi.Input[_builtins.str] container_type: The type of the container to create. Valid values: `DOCKER`.
         :param pulumi.Input[_builtins.str] parent_image: The base image for the container recipe.
@@ -291,6 +292,7 @@ class _ContainerRecipeState:
                  working_directory: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ContainerRecipe resources.
+
         :param pulumi.Input[_builtins.str] arn: (Required) Amazon Resource Name (ARN) of the container recipe.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentArgs']]] components: Ordered configuration block(s) with components for the container recipe. Detailed below.
         :param pulumi.Input[_builtins.str] container_type: The type of the container to create. Valid values: `DOCKER`.
@@ -686,6 +688,7 @@ class ContainerRecipe(pulumi.CustomResource):
         $ pulumi import aws:imagebuilder/containerRecipe:ContainerRecipe example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerRecipeComponentArgs', 'ContainerRecipeComponentArgsDict']]]] components: Ordered configuration block(s) with components for the container recipe. Detailed below.
@@ -762,6 +765,7 @@ class ContainerRecipe(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:imagebuilder/containerRecipe:ContainerRecipe example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ContainerRecipeArgs args: The arguments to use to populate this resource's properties.

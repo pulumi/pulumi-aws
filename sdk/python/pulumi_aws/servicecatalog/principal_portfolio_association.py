@@ -26,6 +26,7 @@ class PrincipalPortfolioAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrincipalPortfolioAssociation resource.
+
         :param pulumi.Input[_builtins.str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[_builtins.str] principal_arn: Principal ARN.
                
@@ -116,6 +117,7 @@ class _PrincipalPortfolioAssociationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PrincipalPortfolioAssociation resources.
+
         :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[_builtins.str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[_builtins.str] principal_arn: Principal ARN.
@@ -234,6 +236,7 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
         $ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f,IAM
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -273,6 +276,7 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f,IAM
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PrincipalPortfolioAssociationArgs args: The arguments to use to populate this resource's properties.

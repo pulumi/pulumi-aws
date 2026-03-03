@@ -28,6 +28,7 @@ class SecondaryNetworkArgs:
                  timeouts: Optional[pulumi.Input['SecondaryNetworkTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a SecondaryNetwork resource.
+
         :param pulumi.Input[_builtins.str] ipv4_cidr_block: IPv4 CIDR block for the secondary network. The CIDR block size must be between `/12` and `/28`.
         :param pulumi.Input[_builtins.str] network_type: Type of secondary network. Currently only `rdma` is supported.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -116,6 +117,7 @@ class _SecondaryNetworkState:
                  timeouts: Optional[pulumi.Input['SecondaryNetworkTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering SecondaryNetwork resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the secondary network.
         :param pulumi.Input[_builtins.str] ipv4_cidr_block: IPv4 CIDR block for the secondary network. The CIDR block size must be between `/12` and `/28`.
         :param pulumi.Input[Sequence[pulumi.Input['SecondaryNetworkIpv4CidrBlockAssociationArgs']]] ipv4_cidr_block_associations: A list of IPv4 CIDR block associations for the secondary network.
@@ -327,6 +329,7 @@ class SecondaryNetwork(pulumi.CustomResource):
         $ pulumi import aws:ec2/secondaryNetwork:SecondaryNetwork example sn-0123456789abcdef0
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ipv4_cidr_block: IPv4 CIDR block for the secondary network. The CIDR block size must be between `/12` and `/28`.
@@ -378,6 +381,7 @@ class SecondaryNetwork(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/secondaryNetwork:SecondaryNetwork example sn-0123456789abcdef0
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecondaryNetworkArgs args: The arguments to use to populate this resource's properties.

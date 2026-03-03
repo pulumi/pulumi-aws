@@ -30,6 +30,7 @@ class ConformancePackArgs:
                  template_s3_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConformancePack resource.
+
         :param pulumi.Input[_builtins.str] delivery_s3_bucket: Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
         :param pulumi.Input[_builtins.str] delivery_s3_key_prefix: The prefix for the Amazon S3 bucket. Maximum length of 1024.
         :param pulumi.Input[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]] input_parameters: Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
@@ -155,6 +156,7 @@ class _ConformancePackState:
                  template_s3_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConformancePack resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the conformance pack.
         :param pulumi.Input[_builtins.str] delivery_s3_bucket: Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
         :param pulumi.Input[_builtins.str] delivery_s3_key_prefix: The prefix for the Amazon S3 bucket. Maximum length of 1024.
@@ -372,6 +374,7 @@ class ConformancePack(pulumi.CustomResource):
         $ pulumi import aws:cfg/conformancePack:ConformancePack example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] delivery_s3_bucket: Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
@@ -465,6 +468,7 @@ class ConformancePack(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cfg/conformancePack:ConformancePack example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConformancePackArgs args: The arguments to use to populate this resource's properties.

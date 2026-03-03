@@ -64,6 +64,7 @@ class FunctionArgs:
                  vpc_config: Optional[pulumi.Input['FunctionVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Function resource.
+
         :param pulumi.Input[_builtins.str] role: ARN of the function's execution role. The role provides the function's identity and access to AWS services and resources.
                
                The following arguments are optional:
@@ -726,6 +727,7 @@ class _FunctionState:
                  vpc_config: Optional[pulumi.Input['FunctionVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Function resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] architectures: Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stays the same.
         :param pulumi.Input[_builtins.str] arn: ARN identifying your Lambda Function.
         :param pulumi.Input['FunctionCapacityProviderConfigArgs'] capacity_provider_config: Configuration block for Lambda Capacity Provider. See below.
@@ -1993,6 +1995,7 @@ class Function(pulumi.CustomResource):
         $ pulumi import aws:lambda/function:Function example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] architectures: Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stays the same.
@@ -2491,6 +2494,7 @@ class Function(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lambda/function:Function example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FunctionArgs args: The arguments to use to populate this resource's properties.

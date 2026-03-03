@@ -38,6 +38,7 @@ class OpenZfsVolumeArgs:
                  volume_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OpenZfsVolume resource.
+
         :param pulumi.Input[_builtins.str] parent_volume_id: The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `fsx.OpenZfsFileSystem` resource with the `root_volume_id` or the `id` property of another `fsx.OpenZfsVolume`.
         :param pulumi.Input[_builtins.bool] copy_tags_to_snapshots: A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
         :param pulumi.Input[_builtins.str] data_compression_type: Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
@@ -283,6 +284,7 @@ class _OpenZfsVolumeState:
                  volume_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OpenZfsVolume resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the file system.
         :param pulumi.Input[_builtins.bool] copy_tags_to_snapshots: A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
         :param pulumi.Input[_builtins.str] data_compression_type: Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
@@ -582,6 +584,7 @@ class OpenZfsVolume(pulumi.CustomResource):
         $ pulumi import aws:fsx/openZfsVolume:OpenZfsVolume example fsvol-543ab12b1ca672f33
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] copy_tags_to_snapshots: A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
@@ -627,6 +630,7 @@ class OpenZfsVolume(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:fsx/openZfsVolume:OpenZfsVolume example fsvol-543ab12b1ca672f33
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OpenZfsVolumeArgs args: The arguments to use to populate this resource's properties.

@@ -22,6 +22,7 @@ class OriginAccessIdentityArgs:
                  comment: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OriginAccessIdentity resource.
+
         :param pulumi.Input[_builtins.str] comment: An optional comment for the origin access identity.
         """
         if comment is not None:
@@ -52,6 +53,7 @@ class _OriginAccessIdentityState:
                  s3_canonical_user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OriginAccessIdentity resources.
+
         :param pulumi.Input[_builtins.str] arn: The origin access identity ARN.
         :param pulumi.Input[_builtins.str] caller_reference: Internal value used by CloudFront to allow future
                updates to the origin access identity.
@@ -255,6 +257,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
         $ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: An optional comment for the origin access identity.
@@ -337,6 +340,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OriginAccessIdentityArgs args: The arguments to use to populate this resource's properties.

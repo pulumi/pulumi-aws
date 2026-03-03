@@ -29,6 +29,7 @@ class VirtualNodeArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualNode resource.
+
         :param pulumi.Input[_builtins.str] mesh_name: Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
         :param pulumi.Input['VirtualNodeSpecArgs'] spec: Virtual node specification to apply.
         :param pulumi.Input[_builtins.str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
@@ -136,6 +137,7 @@ class _VirtualNodeState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering VirtualNode resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the virtual node.
         :param pulumi.Input[_builtins.str] created_date: Creation date of the virtual node.
         :param pulumi.Input[_builtins.str] last_updated_date: Last update date of the virtual node.
@@ -477,6 +479,7 @@ class VirtualNode(pulumi.CustomResource):
         $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] mesh_name: Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
@@ -651,6 +654,7 @@ class VirtualNode(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualNodeArgs args: The arguments to use to populate this resource's properties.

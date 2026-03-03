@@ -28,6 +28,7 @@ class InstanceProfileArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a InstanceProfile resource.
+
         :param pulumi.Input[_builtins.str] description: The description of the instance profile.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exclude_app_packages_from_cleanups: An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.
         :param pulumi.Input[_builtins.str] name: The name for the instance profile.
@@ -150,6 +151,7 @@ class _InstanceProfileState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering InstanceProfile resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of this instance profile.
         :param pulumi.Input[_builtins.str] description: The description of the instance profile.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exclude_app_packages_from_cleanups: An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.
@@ -330,6 +332,7 @@ class InstanceProfile(pulumi.CustomResource):
         $ pulumi import aws:devicefarm/instanceProfile:InstanceProfile example arn:aws:devicefarm:us-west-2:123456789012:instanceprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the instance profile.
@@ -373,6 +376,7 @@ class InstanceProfile(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:devicefarm/instanceProfile:InstanceProfile example arn:aws:devicefarm:us-west-2:123456789012:instanceprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InstanceProfileArgs args: The arguments to use to populate this resource's properties.

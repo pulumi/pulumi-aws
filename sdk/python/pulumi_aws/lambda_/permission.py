@@ -34,6 +34,7 @@ class PermissionArgs:
                  statement_id_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Permission resource.
+
         :param pulumi.Input[_builtins.str] action: Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
         :param pulumi.Input[_builtins.str] function: Name or ARN of the Lambda function
         :param pulumi.Input[_builtins.str] principal: AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
@@ -251,6 +252,7 @@ class _PermissionState:
                  statement_id_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Permission resources.
+
         :param pulumi.Input[_builtins.str] action: Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
         :param pulumi.Input[_builtins.str] event_source_token: Event Source Token for Alexa Skills
         :param pulumi.Input[_builtins.str] function: Name or ARN of the Lambda function
@@ -643,6 +645,7 @@ class Permission(pulumi.CustomResource):
         $ pulumi import aws:lambda/permission:Permission example my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
@@ -836,6 +839,7 @@ class Permission(pulumi.CustomResource):
         $ pulumi import aws:lambda/permission:Permission example my_test_lambda_function/AllowExecutionFromCloudWatch
         $ pulumi import aws:lambda/permission:Permission example my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PermissionArgs args: The arguments to use to populate this resource's properties.

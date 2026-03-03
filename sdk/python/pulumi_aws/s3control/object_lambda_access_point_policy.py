@@ -25,6 +25,7 @@ class ObjectLambdaAccessPointPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ObjectLambdaAccessPointPolicy resource.
+
         :param pulumi.Input[_builtins.str] policy: The Object Lambda Access Point resource policy document.
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[_builtins.str] name: The name of the Object Lambda Access Point.
@@ -97,6 +98,7 @@ class _ObjectLambdaAccessPointPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ObjectLambdaAccessPointPolicy resources.
+
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[_builtins.bool] has_public_access_policy: Indicates whether this access point currently has a policy that allows public access.
         :param pulumi.Input[_builtins.str] name: The name of the Object Lambda Access Point.
@@ -236,6 +238,7 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
         $ pulumi import aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy example 123456789012:example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
@@ -298,6 +301,7 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy example 123456789012:example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ObjectLambdaAccessPointPolicyArgs args: The arguments to use to populate this resource's properties.

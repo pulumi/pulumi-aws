@@ -31,6 +31,7 @@ class ResiliencyPolicyArgs:
                  timeouts: Optional[pulumi.Input['ResiliencyPolicyTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ResiliencyPolicy resource.
+
         :param pulumi.Input[_builtins.str] tier: Resiliency Policy Tier.
                Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
         :param pulumi.Input[_builtins.str] data_location_constraint: Data Location Constraint of the Policy.
@@ -177,6 +178,7 @@ class _ResiliencyPolicyState:
                  timeouts: Optional[pulumi.Input['ResiliencyPolicyTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ResiliencyPolicy resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Resiliency Policy.
         :param pulumi.Input[_builtins.str] data_location_constraint: Data Location Constraint of the Policy.
                Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
@@ -410,6 +412,7 @@ class ResiliencyPolicy(pulumi.CustomResource):
         $ pulumi import aws:resiliencehub/resiliencyPolicy:ResiliencyPolicy example arn:aws:resiliencehub:us-east-1:123456789012:resiliency-policy/8c1cfa29-d1dd-4421-aa68-c9f64cced4c2
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_location_constraint: Data Location Constraint of the Policy.
@@ -473,6 +476,7 @@ class ResiliencyPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:resiliencehub/resiliencyPolicy:ResiliencyPolicy example arn:aws:resiliencehub:us-east-1:123456789012:resiliency-policy/8c1cfa29-d1dd-4421-aa68-c9f64cced4c2
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResiliencyPolicyArgs args: The arguments to use to populate this resource's properties.

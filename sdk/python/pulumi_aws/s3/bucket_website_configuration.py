@@ -31,6 +31,7 @@ class BucketWebsiteConfigurationArgs:
                  routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketWebsiteConfigurationRoutingRuleArgs']]]] = None):
         """
         The set of arguments for constructing a BucketWebsiteConfiguration resource.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
         :param pulumi.Input['BucketWebsiteConfigurationErrorDocumentArgs'] error_document: Name of the error document for the website. See below.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
@@ -174,6 +175,7 @@ class _BucketWebsiteConfigurationState:
                  website_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BucketWebsiteConfiguration resources.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
         :param pulumi.Input['BucketWebsiteConfigurationErrorDocumentArgs'] error_document: Name of the error document for the website. See below.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
@@ -433,6 +435,7 @@ class BucketWebsiteConfiguration(pulumi.CustomResource):
         $ pulumi import aws:s3/bucketWebsiteConfiguration:BucketWebsiteConfiguration example bucket-name,123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
@@ -535,6 +538,7 @@ class BucketWebsiteConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/bucketWebsiteConfiguration:BucketWebsiteConfiguration example bucket-name,123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BucketWebsiteConfigurationArgs args: The arguments to use to populate this resource's properties.

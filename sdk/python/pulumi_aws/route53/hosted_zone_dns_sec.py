@@ -23,6 +23,7 @@ class HostedZoneDnsSecArgs:
                  signing_status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a HostedZoneDnsSec resource.
+
         :param pulumi.Input[_builtins.str] hosted_zone_id: Identifier of the Route 53 Hosted Zone.
                
                The following arguments are optional:
@@ -66,6 +67,7 @@ class _HostedZoneDnsSecState:
                  signing_status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HostedZoneDnsSec resources.
+
         :param pulumi.Input[_builtins.str] hosted_zone_id: Identifier of the Route 53 Hosted Zone.
                
                The following arguments are optional:
@@ -176,6 +178,7 @@ class HostedZoneDnsSec(pulumi.CustomResource):
         $ pulumi import aws:route53/hostedZoneDnsSec:HostedZoneDnsSec example Z1D633PJN98FT9
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] hosted_zone_id: Identifier of the Route 53 Hosted Zone.
@@ -252,6 +255,7 @@ class HostedZoneDnsSec(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53/hostedZoneDnsSec:HostedZoneDnsSec example Z1D633PJN98FT9
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HostedZoneDnsSecArgs args: The arguments to use to populate this resource's properties.

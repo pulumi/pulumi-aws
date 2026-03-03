@@ -25,6 +25,7 @@ class NotificationHubArgs:
                  timeouts: Optional[pulumi.Input['NotificationHubTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a NotificationHub resource.
+
         :param pulumi.Input[_builtins.str] notification_hub_region: Notification Hub region.
         """
         pulumi.set(__self__, "notification_hub_region", notification_hub_region)
@@ -60,6 +61,7 @@ class _NotificationHubState:
                  timeouts: Optional[pulumi.Input['NotificationHubTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering NotificationHub resources.
+
         :param pulumi.Input[_builtins.str] notification_hub_region: Notification Hub region.
         """
         if notification_hub_region is not None:
@@ -120,6 +122,7 @@ class NotificationHub(pulumi.CustomResource):
         $ pulumi import aws:notifications/notificationHub:NotificationHub example us-west-2
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] notification_hub_region: Notification Hub region.
@@ -151,6 +154,7 @@ class NotificationHub(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:notifications/notificationHub:NotificationHub example us-west-2
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NotificationHubArgs args: The arguments to use to populate this resource's properties.

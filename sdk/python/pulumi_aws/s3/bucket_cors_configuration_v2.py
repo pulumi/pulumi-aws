@@ -27,6 +27,7 @@ class BucketCorsConfigurationV2Args:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BucketCorsConfigurationV2 resource.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[Sequence[pulumi.Input['BucketCorsConfigurationV2CorsRuleArgs']]] cors_rules: Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
@@ -101,6 +102,7 @@ class _BucketCorsConfigurationV2State:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BucketCorsConfigurationV2 resources.
+
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[Sequence[pulumi.Input['BucketCorsConfigurationV2CorsRuleArgs']]] cors_rules: Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
@@ -247,6 +249,7 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
         $ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name,123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
@@ -322,6 +325,7 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name,123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BucketCorsConfigurationV2Args args: The arguments to use to populate this resource's properties.

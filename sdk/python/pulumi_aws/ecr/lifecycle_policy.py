@@ -26,6 +26,7 @@ class LifecyclePolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LifecyclePolicy resource.
+
         :param pulumi.Input[Union[_builtins.str, 'LifecyclePolicyDocumentArgs']] policy: The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `policy` argument.
         :param pulumi.Input[_builtins.str] repository: Name of the repository to apply the policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -81,6 +82,7 @@ class _LifecyclePolicyState:
                  repository: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LifecyclePolicy resources.
+
         :param pulumi.Input[Union[_builtins.str, 'LifecyclePolicyDocumentArgs']] policy: The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `policy` argument.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] registry_id: The registry ID where the repository was created.
@@ -284,6 +286,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, Union['LifecyclePolicyDocumentArgs', 'LifecyclePolicyDocumentArgsDict']]] policy: The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `policy` argument.
@@ -425,6 +428,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LifecyclePolicyArgs args: The arguments to use to populate this resource's properties.

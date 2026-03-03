@@ -31,6 +31,7 @@ class AgentcoreBrowserArgs:
                  timeouts: Optional[pulumi.Input['AgentcoreBrowserTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentcoreBrowser resource.
+
         :param pulumi.Input['AgentcoreBrowserNetworkConfigurationArgs'] network_configuration: Network configuration for the browser. See `network_configuration` below.
                
                The following arguments are optional:
@@ -169,6 +170,7 @@ class _AgentcoreBrowserState:
                  timeouts: Optional[pulumi.Input['AgentcoreBrowserTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AgentcoreBrowser resources.
+
         :param pulumi.Input[_builtins.str] browser_arn: ARN of the Browser.
         :param pulumi.Input[_builtins.str] browser_id: Unique identifier of the Browser.
         :param pulumi.Input[_builtins.str] description: Description of the browser.
@@ -434,6 +436,7 @@ class AgentcoreBrowser(pulumi.CustomResource):
         $ pulumi import aws:bedrock/agentcoreBrowser:AgentcoreBrowser example BROWSER1234567890
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the browser.
@@ -533,6 +536,7 @@ class AgentcoreBrowser(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:bedrock/agentcoreBrowser:AgentcoreBrowser example BROWSER1234567890
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AgentcoreBrowserArgs args: The arguments to use to populate this resource's properties.

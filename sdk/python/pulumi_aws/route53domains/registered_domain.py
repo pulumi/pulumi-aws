@@ -36,6 +36,7 @@ class RegisteredDomainArgs:
                  transfer_lock: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a RegisteredDomain resource.
+
         :param pulumi.Input[_builtins.str] domain_name: The name of the registered domain.
         :param pulumi.Input['RegisteredDomainAdminContactArgs'] admin_contact: Details about the domain administrative contact. See Contact Blocks for more details.
         :param pulumi.Input[_builtins.bool] admin_privacy: Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
@@ -266,6 +267,7 @@ class _RegisteredDomainState:
                  whois_server: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RegisteredDomain resources.
+
         :param pulumi.Input[_builtins.str] abuse_contact_email: Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
         :param pulumi.Input[_builtins.str] abuse_contact_phone: Phone number for reporting abuse.
         :param pulumi.Input['RegisteredDomainAdminContactArgs'] admin_contact: Details about the domain administrative contact. See Contact Blocks for more details.
@@ -689,6 +691,7 @@ class RegisteredDomain(pulumi.CustomResource):
         $ pulumi import aws:route53domains/registeredDomain:RegisteredDomain example example.com
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RegisteredDomainAdminContactArgs', 'RegisteredDomainAdminContactArgsDict']] admin_contact: Details about the domain administrative contact. See Contact Blocks for more details.
@@ -748,6 +751,7 @@ class RegisteredDomain(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53domains/registeredDomain:RegisteredDomain example example.com
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RegisteredDomainArgs args: The arguments to use to populate this resource's properties.

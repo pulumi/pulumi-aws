@@ -27,6 +27,7 @@ class FunctionArgs:
                  publish: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Function resource.
+
         :param pulumi.Input[_builtins.str] code: Source code of the function
         :param pulumi.Input[_builtins.str] runtime: Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
                
@@ -137,6 +138,7 @@ class _FunctionState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Function resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifying your CloudFront Function.
         :param pulumi.Input[_builtins.str] code: Source code of the function
         :param pulumi.Input[_builtins.str] comment: Comment.
@@ -324,6 +326,7 @@ class Function(pulumi.CustomResource):
         $ pulumi import aws:cloudfront/function:Function test my_test_function
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] code: Source code of the function
@@ -357,6 +360,7 @@ class Function(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudfront/function:Function test my_test_function
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FunctionArgs args: The arguments to use to populate this resource's properties.

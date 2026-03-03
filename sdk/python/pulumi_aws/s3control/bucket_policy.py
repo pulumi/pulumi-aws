@@ -24,6 +24,7 @@ class BucketPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BucketPolicy resource.
+
         :param pulumi.Input[_builtins.str] bucket: Amazon Resource Name (ARN) of the bucket.
         :param pulumi.Input[_builtins.str] policy: JSON string of the resource policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _BucketPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BucketPolicy resources.
+
         :param pulumi.Input[_builtins.str] bucket: Amazon Resource Name (ARN) of the bucket.
         :param pulumi.Input[_builtins.str] policy: JSON string of the resource policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -173,6 +175,7 @@ class BucketPolicy(pulumi.CustomResource):
         $ pulumi import aws:s3control/bucketPolicy:BucketPolicy example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Amazon Resource Name (ARN) of the bucket.
@@ -221,6 +224,7 @@ class BucketPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3control/bucketPolicy:BucketPolicy example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BucketPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class ServerlessLifecyclePolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerlessLifecyclePolicy resource.
+
         :param pulumi.Input[_builtins.str] policy: JSON policy document to use as the content for the new policy.
         :param pulumi.Input[_builtins.str] type: Type of lifecycle policy. Must be `retention`.
                
@@ -117,6 +118,7 @@ class _ServerlessLifecyclePolicyState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerlessLifecyclePolicy resources.
+
         :param pulumi.Input[_builtins.str] description: Description of the policy.
         :param pulumi.Input[_builtins.str] name: Name of the policy.
         :param pulumi.Input[_builtins.str] policy: JSON policy document to use as the content for the new policy.
@@ -265,6 +267,7 @@ class ServerlessLifecyclePolicy(pulumi.CustomResource):
         $ pulumi import aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy example example/retention
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the policy.
@@ -319,6 +322,7 @@ class ServerlessLifecyclePolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy example example/retention
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerlessLifecyclePolicyArgs args: The arguments to use to populate this resource's properties.

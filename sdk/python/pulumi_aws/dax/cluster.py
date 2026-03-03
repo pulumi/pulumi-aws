@@ -38,6 +38,7 @@ class ClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: Group identifier. DAX converts this name to
                lowercase
         :param pulumi.Input[_builtins.str] iam_role_arn: A valid Amazon Resource Name (ARN) that identifies
@@ -322,6 +323,7 @@ class _ClusterState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the DAX cluster
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: List of Availability Zones in which the
                nodes will be created
@@ -728,6 +730,7 @@ class Cluster(pulumi.CustomResource):
 
         [1]: http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: List of Availability Zones in which the
@@ -794,6 +797,7 @@ class Cluster(pulumi.CustomResource):
         ```
 
         [1]: http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes
+
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

@@ -31,6 +31,7 @@ class AppArgs:
                  user_profile_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a App resource.
+
         :param pulumi.Input[_builtins.str] app_name: The name of the app.
         :param pulumi.Input[_builtins.str] app_type: The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
         :param pulumi.Input[_builtins.str] domain_id: The domain ID.
@@ -166,6 +167,7 @@ class _AppState:
                  user_profile_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering App resources.
+
         :param pulumi.Input[_builtins.str] app_name: The name of the app.
         :param pulumi.Input[_builtins.str] app_type: The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the app.
@@ -360,6 +362,7 @@ class App(pulumi.CustomResource):
         $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_name: The name of the app.
@@ -402,6 +405,7 @@ class App(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AppArgs args: The arguments to use to populate this resource's properties.

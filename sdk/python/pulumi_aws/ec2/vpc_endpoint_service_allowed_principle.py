@@ -24,6 +24,7 @@ class VpcEndpointServiceAllowedPrincipleArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcEndpointServiceAllowedPrinciple resource.
+
         :param pulumi.Input[_builtins.str] principal_arn: The ARN of the principal to allow permissions.
         :param pulumi.Input[_builtins.str] vpc_endpoint_service_id: The ID of the VPC endpoint service to allow permission.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _VpcEndpointServiceAllowedPrincipleState:
                  vpc_endpoint_service_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcEndpointServiceAllowedPrinciple resources.
+
         :param pulumi.Input[_builtins.str] principal_arn: The ARN of the principal to allow permissions.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] vpc_endpoint_service_id: The ID of the VPC endpoint service to allow permission.
@@ -159,6 +161,7 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
             principal_arn=current.arn)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] principal_arn: The ARN of the principal to allow permissions.
@@ -193,6 +196,7 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
             vpc_endpoint_service_id=foo["id"],
             principal_arn=current.arn)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcEndpointServiceAllowedPrincipleArgs args: The arguments to use to populate this resource's properties.

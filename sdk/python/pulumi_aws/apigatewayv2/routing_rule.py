@@ -28,6 +28,7 @@ class RoutingRuleArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RoutingRule resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['RoutingRuleActionArgs']]] actions: Configuration of resulting action based on matching routing rules condition. See below.
         :param pulumi.Input[Sequence[pulumi.Input['RoutingRuleConditionArgs']]] conditions: Conditions configuration. See below.
         :param pulumi.Input[_builtins.str] domain_name: Domain name. Must be between 1 and 512 characters in length.
@@ -118,6 +119,7 @@ class _RoutingRuleState:
                  routing_rule_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RoutingRule resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['RoutingRuleActionArgs']]] actions: Configuration of resulting action based on matching routing rules condition. See below.
         :param pulumi.Input[Sequence[pulumi.Input['RoutingRuleConditionArgs']]] conditions: Conditions configuration. See below.
         :param pulumi.Input[_builtins.str] domain_name: Domain name. Must be between 1 and 512 characters in length.
@@ -287,6 +289,7 @@ class RoutingRule(pulumi.CustomResource):
         $ pulumi import aws:apigatewayv2/routingRule:RoutingRule example arn:aws:apigateway:us-east-1:123456789012:/domainnames/example.com/routingrules/rule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingRuleActionArgs', 'RoutingRuleActionArgsDict']]]] actions: Configuration of resulting action based on matching routing rules condition. See below.
@@ -347,6 +350,7 @@ class RoutingRule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apigatewayv2/routingRule:RoutingRule example arn:aws:apigateway:us-east-1:123456789012:/domainnames/example.com/routingrules/rule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RoutingRuleArgs args: The arguments to use to populate this resource's properties.

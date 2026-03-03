@@ -35,6 +35,7 @@ class NatGatewayArgs:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NatGateway resource.
+
         :param pulumi.Input[_builtins.str] allocation_id: The Allocation ID of the Elastic IP address for the NAT Gateway. Required when `connectivity_type` is set to `public` and `availability_mode` is set to `zonal`. When `availability_mode` is set to `regional`, this must not be set; instead, use the `availability_zone_address` block to specify EIPs for each AZ.
         :param pulumi.Input[_builtins.str] availability_mode: Specifies whether to create a zonal (single-AZ) or regional (multi-AZ) NAT gateway. Valid values are `zonal` and `regional`. Defaults to `zonal`.
         :param pulumi.Input[Sequence[pulumi.Input['NatGatewayAvailabilityZoneAddressArgs']]] availability_zone_addresses: Repeatable configuration block for the Elastic IP addresses (EIPs) and availability zones for the regional NAT gateway. When not specified, the regional NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface (auto mode). When specified, auto-expansion is disabled (manual mode). See `availability_zone_address` below for details.
@@ -244,6 +245,7 @@ class _NatGatewayState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NatGateway resources.
+
         :param pulumi.Input[_builtins.str] allocation_id: The Allocation ID of the Elastic IP address for the NAT Gateway. Required when `connectivity_type` is set to `public` and `availability_mode` is set to `zonal`. When `availability_mode` is set to `regional`, this must not be set; instead, use the `availability_zone_address` block to specify EIPs for each AZ.
         :param pulumi.Input[_builtins.str] association_id: Association ID of the Elastic IP address.
         :param pulumi.Input[_builtins.str] auto_provision_zones: (regional NAT gateways only) Indicates whether AWS automatically manages AZ coverage.
@@ -687,6 +689,7 @@ class NatGateway(pulumi.CustomResource):
         $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allocation_id: The Allocation ID of the Elastic IP address for the NAT Gateway. Required when `connectivity_type` is set to `public` and `availability_mode` is set to `zonal`. When `availability_mode` is set to `regional`, this must not be set; instead, use the `availability_zone_address` block to specify EIPs for each AZ.
@@ -817,6 +820,7 @@ class NatGateway(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NatGatewayArgs args: The arguments to use to populate this resource's properties.

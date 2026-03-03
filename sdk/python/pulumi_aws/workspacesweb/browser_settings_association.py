@@ -24,6 +24,7 @@ class BrowserSettingsAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BrowserSettingsAssociation resource.
+
         :param pulumi.Input[_builtins.str] browser_settings_arn: ARN of the browser settings to associate with the portal. Forces replacement if changed.
         :param pulumi.Input[_builtins.str] portal_arn: ARN of the portal to associate with the browser settings. Forces replacement if changed.
                
@@ -82,6 +83,7 @@ class _BrowserSettingsAssociationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BrowserSettingsAssociation resources.
+
         :param pulumi.Input[_builtins.str] browser_settings_arn: ARN of the browser settings to associate with the portal. Forces replacement if changed.
         :param pulumi.Input[_builtins.str] portal_arn: ARN of the portal to associate with the browser settings. Forces replacement if changed.
                
@@ -177,6 +179,7 @@ class BrowserSettingsAssociation(pulumi.CustomResource):
         $ pulumi import aws:workspacesweb/browserSettingsAssociation:BrowserSettingsAssociation example arn:aws:workspaces-web:us-west-2:123456789012:browserSettings/browser_settings-id-12345678,arn:aws:workspaces-web:us-west-2:123456789012:portal/portal-id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] browser_settings_arn: ARN of the browser settings to associate with the portal. Forces replacement if changed.
@@ -223,6 +226,7 @@ class BrowserSettingsAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:workspacesweb/browserSettingsAssociation:BrowserSettingsAssociation example arn:aws:workspaces-web:us-west-2:123456789012:browserSettings/browser_settings-id-12345678,arn:aws:workspaces-web:us-west-2:123456789012:portal/portal-id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BrowserSettingsAssociationArgs args: The arguments to use to populate this resource's properties.

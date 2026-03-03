@@ -35,6 +35,7 @@ class AmiCopyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AmiCopy resource.
+
         :param pulumi.Input[_builtins.str] source_ami_id: Id of the AMI to copy. This id must be valid in the region
                given by `source_ami_region`.
         :param pulumi.Input[_builtins.str] source_ami_region: Region from which the AMI will be copied. This may be the
@@ -268,6 +269,7 @@ class _AmiCopyState:
                  virtualization_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AmiCopy resources.
+
         :param pulumi.Input[_builtins.str] architecture: Machine architecture for created instances. Defaults to `x86_64`.
         :param pulumi.Input[_builtins.str] arn: ARN of the AMI.
         :param pulumi.Input[_builtins.str] boot_mode: Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
@@ -851,6 +853,7 @@ class AmiCopy(pulumi.CustomResource):
             })
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] deprecation_time: Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
@@ -904,6 +907,7 @@ class AmiCopy(pulumi.CustomResource):
                 "Name": "HelloWorld",
             })
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AmiCopyArgs args: The arguments to use to populate this resource's properties.

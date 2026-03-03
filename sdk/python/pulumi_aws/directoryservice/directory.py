@@ -37,6 +37,7 @@ class DirectoryArgs:
                  vpc_settings: Optional[pulumi.Input['DirectoryVpcSettingsArgs']] = None):
         """
         The set of arguments for constructing a Directory resource.
+
         :param pulumi.Input[_builtins.str] name: The fully qualified name for the directory, such as `corp.example.com`
         :param pulumi.Input[_builtins.str] password: The password for the directory administrator or connector user.
         :param pulumi.Input[_builtins.str] alias: The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
@@ -271,6 +272,7 @@ class _DirectoryState:
                  vpc_settings: Optional[pulumi.Input['DirectoryVpcSettingsArgs']] = None):
         """
         Input properties used for looking up and filtering Directory resources.
+
         :param pulumi.Input[_builtins.str] access_url: The access URL for the directory, such as `http://alias.awsapps.com`.
         :param pulumi.Input[_builtins.str] alias: The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
         :param pulumi.Input['DirectoryConnectSettingsArgs'] connect_settings: Connector related information about the directory. Fields documented below.
@@ -672,6 +674,7 @@ class Directory(pulumi.CustomResource):
         $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
@@ -801,6 +804,7 @@ class Directory(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DirectoryArgs args: The arguments to use to populate this resource's properties.

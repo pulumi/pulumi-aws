@@ -28,6 +28,7 @@ class EventArchiveArgs:
                  retention_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a EventArchive resource.
+
         :param pulumi.Input[_builtins.str] event_source_arn: ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
         :param pulumi.Input[_builtins.str] description: Description for the archive.
         :param pulumi.Input[_builtins.str] event_pattern: Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
@@ -148,6 +149,7 @@ class _EventArchiveState:
                  retention_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering EventArchive resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the archive.
         :param pulumi.Input[_builtins.str] description: Description for the archive.
         :param pulumi.Input[_builtins.str] event_pattern: Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
@@ -391,6 +393,7 @@ class EventArchive(pulumi.CustomResource):
         $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description for the archive.
@@ -512,6 +515,7 @@ class EventArchive(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventArchiveArgs args: The arguments to use to populate this resource's properties.

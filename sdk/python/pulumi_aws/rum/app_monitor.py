@@ -31,6 +31,7 @@ class AppMonitorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AppMonitor resource.
+
         :param pulumi.Input['AppMonitorAppMonitorConfigurationArgs'] app_monitor_configuration: configuration data for the app monitor. See app_monitor_configuration below.
         :param pulumi.Input['AppMonitorCustomEventsArgs'] custom_events: Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
         :param pulumi.Input[_builtins.bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
@@ -163,6 +164,7 @@ class _AppMonitorState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AppMonitor resources.
+
         :param pulumi.Input['AppMonitorAppMonitorConfigurationArgs'] app_monitor_configuration: configuration data for the app monitor. See app_monitor_configuration below.
         :param pulumi.Input[_builtins.str] app_monitor_id: The unique ID of the app monitor. Useful for JS templates.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the app monitor.
@@ -375,6 +377,7 @@ class AppMonitor(pulumi.CustomResource):
         $ pulumi import aws:rum/appMonitor:AppMonitor example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AppMonitorAppMonitorConfigurationArgs', 'AppMonitorAppMonitorConfigurationArgsDict']] app_monitor_configuration: configuration data for the app monitor. See app_monitor_configuration below.
@@ -411,6 +414,7 @@ class AppMonitor(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:rum/appMonitor:AppMonitor example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AppMonitorArgs args: The arguments to use to populate this resource's properties.

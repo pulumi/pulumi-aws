@@ -35,6 +35,7 @@ class NetworkProfileArgs:
                  uplink_loss_percent: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a NetworkProfile resource.
+
         :param pulumi.Input[_builtins.str] project_arn: The ARN of the project for the network profile.
         :param pulumi.Input[_builtins.str] description: The description of the network profile.
         :param pulumi.Input[_builtins.int] downlink_bandwidth_bits: The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
@@ -268,6 +269,7 @@ class _NetworkProfileState:
                  uplink_loss_percent: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering NetworkProfile resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of this network profile.
         :param pulumi.Input[_builtins.str] description: The description of the network profile.
         :param pulumi.Input[_builtins.int] downlink_bandwidth_bits: The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
@@ -563,6 +565,7 @@ class NetworkProfile(pulumi.CustomResource):
         $ pulumi import aws:devicefarm/networkProfile:NetworkProfile example arn:aws:devicefarm:us-west-2:123456789012:networkprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the network profile.
@@ -616,6 +619,7 @@ class NetworkProfile(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:devicefarm/networkProfile:NetworkProfile example arn:aws:devicefarm:us-west-2:123456789012:networkprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkProfileArgs args: The arguments to use to populate this resource's properties.

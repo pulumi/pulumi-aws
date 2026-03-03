@@ -33,6 +33,7 @@ class MethodArgs:
                  request_validator_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Method resource.
+
         :param pulumi.Input[_builtins.str] authorization: Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
         :param pulumi.Input[_builtins.str] http_method: HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         :param pulumi.Input[_builtins.str] resource_id: API resource ID
@@ -235,6 +236,7 @@ class _MethodState:
                  rest_api: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Method resources.
+
         :param pulumi.Input[_builtins.bool] api_key_required: Specify if the method requires an API key
         :param pulumi.Input[_builtins.str] authorization: Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorization_scopes: Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
@@ -504,6 +506,7 @@ class Method(pulumi.CustomResource):
         $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] api_key_required: Specify if the method requires an API key
@@ -588,6 +591,7 @@ class Method(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MethodArgs args: The arguments to use to populate this resource's properties.

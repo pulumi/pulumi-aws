@@ -29,6 +29,7 @@ class AcceleratorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Accelerator resource.
+
         :param pulumi.Input['AcceleratorAttributesArgs'] attributes: The attributes of the accelerator. Fields documented below.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         :param pulumi.Input[_builtins.str] ip_address_type: The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
@@ -139,6 +140,7 @@ class _AcceleratorState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Accelerator resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the accelerator.
         :param pulumi.Input['AcceleratorAttributesArgs'] attributes: The attributes of the accelerator. Fields documented below.
         :param pulumi.Input[_builtins.str] dns_name: The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
@@ -374,6 +376,7 @@ class Accelerator(pulumi.CustomResource):
         $ pulumi import aws:globalaccelerator/accelerator:Accelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AcceleratorAttributesArgs', 'AcceleratorAttributesArgsDict']] attributes: The attributes of the accelerator. Fields documented below.
@@ -423,6 +426,7 @@ class Accelerator(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:globalaccelerator/accelerator:Accelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AcceleratorArgs args: The arguments to use to populate this resource's properties.

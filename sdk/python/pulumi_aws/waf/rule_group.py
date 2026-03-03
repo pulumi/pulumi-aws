@@ -27,6 +27,7 @@ class RuleGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RuleGroup resource.
+
         :param pulumi.Input[_builtins.str] metric_name: A friendly name for the metrics from the rule group
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupActivatedRuleArgs']]] activated_rules: A list of activated rules, see below
         :param pulumi.Input[_builtins.str] name: Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -100,6 +101,7 @@ class _RuleGroupState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RuleGroup resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupActivatedRuleArgs']]] activated_rules: A list of activated rules, see below
         :param pulumi.Input[_builtins.str] arn: The ARN of the WAF rule group.
         :param pulumi.Input[_builtins.str] metric_name: A friendly name for the metrics from the rule group
@@ -236,6 +238,7 @@ class RuleGroup(pulumi.CustomResource):
         $ pulumi import aws:waf/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupActivatedRuleArgs', 'RuleGroupActivatedRuleArgsDict']]]] activated_rules: A list of activated rules, see below
@@ -280,6 +283,7 @@ class RuleGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:waf/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RuleGroupArgs args: The arguments to use to populate this resource's properties.

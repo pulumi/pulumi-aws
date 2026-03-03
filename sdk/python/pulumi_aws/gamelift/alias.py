@@ -28,6 +28,7 @@ class AliasArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Alias resource.
+
         :param pulumi.Input['AliasRoutingStrategyArgs'] routing_strategy: Specifies the fleet and/or routing type to use for the alias.
         :param pulumi.Input[_builtins.str] description: Description of the alias.
         :param pulumi.Input[_builtins.str] name: Name of the alias.
@@ -117,6 +118,7 @@ class _AliasState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Alias resources.
+
         :param pulumi.Input[_builtins.str] arn: Alias ARN.
         :param pulumi.Input[_builtins.str] description: Description of the alias.
         :param pulumi.Input[_builtins.str] name: Name of the alias.
@@ -263,6 +265,7 @@ class Alias(pulumi.CustomResource):
         $ pulumi import aws:gamelift/alias:Alias example <alias-id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the alias.
@@ -302,6 +305,7 @@ class Alias(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:gamelift/alias:Alias example <alias-id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AliasArgs args: The arguments to use to populate this resource's properties.

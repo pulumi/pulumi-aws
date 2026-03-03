@@ -30,6 +30,7 @@ class UserProfileArgs:
                  user_settings: Optional[pulumi.Input['UserProfileUserSettingsArgs']] = None):
         """
         The set of arguments for constructing a UserProfile resource.
+
         :param pulumi.Input[_builtins.str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[_builtins.str] user_profile_name: The name for the User Profile.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -151,6 +152,7 @@ class _UserProfileState:
                  user_settings: Optional[pulumi.Input['UserProfileUserSettingsArgs']] = None):
         """
         Input properties used for looking up and filtering UserProfile resources.
+
         :param pulumi.Input[_builtins.str] arn: The user profile Amazon Resource Name (ARN).
         :param pulumi.Input[_builtins.str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[_builtins.str] home_efs_file_system_uid: The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
@@ -354,6 +356,7 @@ class UserProfile(pulumi.CustomResource):
         $ pulumi import aws:sagemaker/userProfile:UserProfile example arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_id: The ID of the associated Domain.
@@ -405,6 +408,7 @@ class UserProfile(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sagemaker/userProfile:UserProfile example arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserProfileArgs args: The arguments to use to populate this resource's properties.

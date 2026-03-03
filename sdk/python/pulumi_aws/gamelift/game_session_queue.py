@@ -31,6 +31,7 @@ class GameSessionQueueArgs:
                  timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a GameSessionQueue resource.
+
         :param pulumi.Input[_builtins.str] custom_event_data: Information to be added to all events that are related to this game session queue.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destinations: List of fleet/alias ARNs used by session queue for placing game sessions.
         :param pulumi.Input[_builtins.str] name: Name of the session queue.
@@ -169,6 +170,7 @@ class _GameSessionQueueState:
                  timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering GameSessionQueue resources.
+
         :param pulumi.Input[_builtins.str] arn: Game Session Queue ARN.
         :param pulumi.Input[_builtins.str] custom_event_data: Information to be added to all events that are related to this game session queue.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destinations: List of fleet/alias ARNs used by session queue for placing game sessions.
@@ -373,6 +375,7 @@ class GameSessionQueue(pulumi.CustomResource):
         $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_event_data: Information to be added to all events that are related to this game session queue.
@@ -425,6 +428,7 @@ class GameSessionQueue(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GameSessionQueueArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class CustomDomainAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomDomainAssociation resource.
+
         :param pulumi.Input[_builtins.str] custom_domain_certificate_arn: ARN of the certificate for the custom domain association.
         :param pulumi.Input[_builtins.str] custom_domain_name: Custom domain to associate with the workgroup.
         :param pulumi.Input[_builtins.str] workgroup_name: Name of the workgroup.
@@ -95,6 +96,7 @@ class _CustomDomainAssociationState:
                  workgroup_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomDomainAssociation resources.
+
         :param pulumi.Input[_builtins.str] custom_domain_certificate_arn: ARN of the certificate for the custom domain association.
         :param pulumi.Input[_builtins.str] custom_domain_certificate_expiry_time: Expiration time for the certificate.
         :param pulumi.Input[_builtins.str] custom_domain_name: Custom domain to associate with the workgroup.
@@ -212,6 +214,7 @@ class CustomDomainAssociation(pulumi.CustomResource):
         $ pulumi import aws:redshiftserverless/customDomainAssociation:CustomDomainAssociation example example-workgroup,example.com
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_domain_certificate_arn: ARN of the certificate for the custom domain association.
@@ -252,6 +255,7 @@ class CustomDomainAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:redshiftserverless/customDomainAssociation:CustomDomainAssociation example example-workgroup,example.com
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomDomainAssociationArgs args: The arguments to use to populate this resource's properties.

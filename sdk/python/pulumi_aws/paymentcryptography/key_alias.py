@@ -24,6 +24,7 @@ class KeyAliasArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a KeyAlias resource.
+
         :param pulumi.Input[_builtins.str] alias_name: Name of the Key Alias.
                
                The following arguments are optional:
@@ -83,6 +84,7 @@ class _KeyAliasState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering KeyAlias resources.
+
         :param pulumi.Input[_builtins.str] alias_name: Name of the Key Alias.
                
                The following arguments are optional:
@@ -182,6 +184,7 @@ class KeyAlias(pulumi.CustomResource):
         $ pulumi import aws:paymentcryptography/keyAlias:KeyAlias example alias/4681482429376900170
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias_name: Name of the Key Alias.
@@ -232,6 +235,7 @@ class KeyAlias(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:paymentcryptography/keyAlias:KeyAlias example alias/4681482429376900170
         ```
+
 
         :param str resource_name: The name of the resource.
         :param KeyAliasArgs args: The arguments to use to populate this resource's properties.

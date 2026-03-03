@@ -29,6 +29,7 @@ class NamespaceArgs:
                  timeouts: Optional[pulumi.Input['NamespaceTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Namespace resource.
+
         :param pulumi.Input[_builtins.str] namespace: Name of the namespace.
                
                The following arguments are optional:
@@ -136,6 +137,7 @@ class _NamespaceState:
                  timeouts: Optional[pulumi.Input['NamespaceTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Namespace resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Namespace.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] capacity_region: Namespace AWS Region.
@@ -324,6 +326,7 @@ class Namespace(pulumi.CustomResource):
         $ pulumi import aws:quicksight/namespace:Namespace example 123456789012,example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
@@ -361,6 +364,7 @@ class Namespace(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:quicksight/namespace:Namespace example 123456789012,example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NamespaceArgs args: The arguments to use to populate this resource's properties.

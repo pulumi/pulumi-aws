@@ -25,6 +25,7 @@ class LfTagArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LfTag resource.
+
         :param pulumi.Input[_builtins.str] key: Key-name for the tag.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: List of possible values an attribute can take.
         :param pulumi.Input[_builtins.str] catalog_id: ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
@@ -95,6 +96,7 @@ class _LfTagState:
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LfTag resources.
+
         :param pulumi.Input[_builtins.str] catalog_id: ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
         :param pulumi.Input[_builtins.str] key: Key-name for the tag.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -195,6 +197,7 @@ class LfTag(pulumi.CustomResource):
         $ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
@@ -233,6 +236,7 @@ class LfTag(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LfTagArgs args: The arguments to use to populate this resource's properties.

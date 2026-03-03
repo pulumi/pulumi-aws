@@ -40,6 +40,7 @@ class ClusterInstanceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ClusterInstance resource.
+
         :param pulumi.Input[_builtins.str] cluster_identifier: The identifier of the `neptune.Cluster` in which to launch this instance.
         :param pulumi.Input[_builtins.str] instance_class: The instance class to use.
         :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any instance modifications
@@ -363,6 +364,7 @@ class _ClusterInstanceState:
                  writer: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ClusterInstance resources.
+
         :param pulumi.Input[_builtins.str] address: The hostname of the instance. See also `endpoint` and `port`.
         :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any instance modifications
                are applied immediately, or during the next maintenance window. Default is`false`.
@@ -855,6 +857,7 @@ class ClusterInstance(pulumi.CustomResource):
         $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any instance modifications
@@ -923,6 +926,7 @@ class ClusterInstance(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterInstanceArgs args: The arguments to use to populate this resource's properties.

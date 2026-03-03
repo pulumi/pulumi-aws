@@ -44,6 +44,7 @@ class EventTargetArgs:
                  target_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventTarget resource.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the target.
         :param pulumi.Input[_builtins.str] rule: The name of the rule you want to add targets to.
                
@@ -392,6 +393,7 @@ class _EventTargetState:
                  target_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventTarget resources.
+
         :param pulumi.Input['EventTargetAppsyncTargetArgs'] appsync_target: Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the target.
         :param pulumi.Input['EventTargetBatchTargetArgs'] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
@@ -1205,6 +1207,7 @@ class EventTarget(pulumi.CustomResource):
         $ pulumi import aws:cloudwatch/eventTarget:EventTarget example rule-name/target-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EventTargetAppsyncTargetArgs', 'EventTargetAppsyncTargetArgsDict']] appsync_target: Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
@@ -1698,6 +1701,7 @@ class EventTarget(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudwatch/eventTarget:EventTarget example rule-name/target-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventTargetArgs args: The arguments to use to populate this resource's properties.

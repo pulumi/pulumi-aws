@@ -44,6 +44,7 @@ class NodeGroupArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NodeGroup resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[_builtins.str] node_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
         :param pulumi.Input['NodeGroupScalingConfigArgs'] scaling_config: Configuration block with scaling settings. See `scaling_config` below for details.
@@ -392,6 +393,7 @@ class _NodeGroupState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NodeGroup resources.
+
         :param pulumi.Input[_builtins.str] ami_type: Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the EKS Node Group.
         :param pulumi.Input[_builtins.str] capacity_type: Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
@@ -900,6 +902,7 @@ class NodeGroup(pulumi.CustomResource):
         $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ami_type: Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
@@ -1029,6 +1032,7 @@ class NodeGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NodeGroupArgs args: The arguments to use to populate this resource's properties.

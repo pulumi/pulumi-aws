@@ -25,6 +25,7 @@ class OpenZfsSnapshotArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a OpenZfsSnapshot resource.
+
         :param pulumi.Input[_builtins.str] volume_id: The ID of the volume to snapshot. This can be the root volume or a child volume.
         :param pulumi.Input[_builtins.str] name: The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -99,6 +100,7 @@ class _OpenZfsSnapshotState:
                  volume_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OpenZfsSnapshot resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the snapshot.
         :param pulumi.Input[_builtins.str] name: The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -263,6 +265,7 @@ class OpenZfsSnapshot(pulumi.CustomResource):
         $ pulumi import aws:fsx/openZfsSnapshot:OpenZfsSnapshot example fs-543ab12b1ca672f33
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
@@ -324,6 +327,7 @@ class OpenZfsSnapshot(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:fsx/openZfsSnapshot:OpenZfsSnapshot example fs-543ab12b1ca672f33
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OpenZfsSnapshotArgs args: The arguments to use to populate this resource's properties.

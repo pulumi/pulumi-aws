@@ -23,6 +23,7 @@ class OrganizationConfigurationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OrganizationConfiguration resource.
+
         :param pulumi.Input[_builtins.bool] auto_enable: Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -62,6 +63,7 @@ class _OrganizationConfigurationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationConfiguration resources.
+
         :param pulumi.Input[_builtins.bool] auto_enable: Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -116,6 +118,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
         example = aws.macie2.OrganizationConfiguration("example", auto_enable=True)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_enable: Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations.
@@ -138,6 +141,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
         example = aws.macie2.OrganizationConfiguration("example", auto_enable=True)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationConfigurationArgs args: The arguments to use to populate this resource's properties.

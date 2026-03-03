@@ -27,6 +27,7 @@ class GatewayAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GatewayAssociation resource.
+
         :param pulumi.Input[_builtins.str] dx_gateway_id: The ID of the Direct Connect gateway.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_prefixes: VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
                
@@ -148,6 +149,7 @@ class _GatewayAssociationState:
                  transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GatewayAssociation resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_prefixes: VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
                
                > **NOTE:** `dx_gateway_id` and `associated_gateway_id` must be specified for single account Direct Connect gateway associations.
@@ -400,6 +402,7 @@ class GatewayAssociation(pulumi.CustomResource):
         $ pulumi import aws:directconnect/gatewayAssociation:GatewayAssociation example 345508c3-7215-4aef-9832-07c125d5bd0f/vgw-98765432
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_prefixes: VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
@@ -493,6 +496,7 @@ class GatewayAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:directconnect/gatewayAssociation:GatewayAssociation example 345508c3-7215-4aef-9832-07c125d5bd0f/vgw-98765432
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GatewayAssociationArgs args: The arguments to use to populate this resource's properties.

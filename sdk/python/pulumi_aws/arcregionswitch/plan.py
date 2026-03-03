@@ -36,6 +36,7 @@ class PlanArgs:
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowArgs']]]] = None):
         """
         The set of arguments for constructing a Plan resource.
+
         :param pulumi.Input[_builtins.str] execution_role: ARN of the IAM role that ARC Region Switch will assume to execute the plan.
         :param pulumi.Input[_builtins.str] recovery_approach: Recovery approach for the plan. Valid values: `activeActive`, `activePassive`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS regions involved in the plan.
@@ -255,6 +256,7 @@ class _PlanState:
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowArgs']]]] = None):
         """
         Input properties used for looking up and filtering Plan resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the plan.
         :param pulumi.Input[Sequence[pulumi.Input['PlanAssociatedAlarmArgs']]] associated_alarms: Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
         :param pulumi.Input[_builtins.str] description: Description of the plan.
@@ -672,6 +674,7 @@ class Plan(pulumi.CustomResource):
         $ pulumi import aws:arcregionswitch/plan:Plan example arn:aws:arcregionswitch:us-east-1:123456789012:plan/example-plan
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PlanAssociatedAlarmArgs', 'PlanAssociatedAlarmArgsDict']]]] associated_alarms: Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
@@ -859,6 +862,7 @@ class Plan(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:arcregionswitch/plan:Plan example arn:aws:arcregionswitch:us-east-1:123456789012:plan/example-plan
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PlanArgs args: The arguments to use to populate this resource's properties.

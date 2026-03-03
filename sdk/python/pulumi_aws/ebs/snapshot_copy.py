@@ -32,6 +32,7 @@ class SnapshotCopyArgs:
                  temporary_restore_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a SnapshotCopy resource.
+
         :param pulumi.Input[_builtins.str] source_region: The region of the source snapshot.
         :param pulumi.Input[_builtins.str] source_snapshot_id: The ARN for the snapshot to be copied.
         :param pulumi.Input[_builtins.int] completion_duration_minutes: Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
@@ -222,6 +223,7 @@ class _SnapshotCopyState:
                  volume_size: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering SnapshotCopy resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the EBS Snapshot.
         :param pulumi.Input[_builtins.int] completion_duration_minutes: Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
         :param pulumi.Input[_builtins.str] data_encryption_key_id: The data encryption key identifier for the snapshot.
@@ -548,6 +550,7 @@ class SnapshotCopy(pulumi.CustomResource):
             })
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] completion_duration_minutes: Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
@@ -595,6 +598,7 @@ class SnapshotCopy(pulumi.CustomResource):
                 "Name": "HelloWorld_copy_snap",
             })
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SnapshotCopyArgs args: The arguments to use to populate this resource's properties.

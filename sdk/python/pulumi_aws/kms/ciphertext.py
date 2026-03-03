@@ -27,6 +27,7 @@ class CiphertextArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Ciphertext resource.
+
         :param pulumi.Input[_builtins.str] key_id: Globally unique key ID for the customer master key.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] context: An optional mapping that makes up the encryption context.
         :param pulumi.Input[_builtins.str] plaintext: Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
@@ -133,6 +134,7 @@ class _CiphertextState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Ciphertext resources.
+
         :param pulumi.Input[_builtins.str] ciphertext_blob: Base64 encoded ciphertext
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] context: An optional mapping that makes up the encryption context.
         :param pulumi.Input[_builtins.str] key_id: Globally unique key ID for the customer master key.
@@ -280,6 +282,7 @@ class Ciphertext(pulumi.CustomResource):
         \"\"\")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] context: An optional mapping that makes up the encryption context.
@@ -319,6 +322,7 @@ class Ciphertext(pulumi.CustomResource):
         }
         \"\"\")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CiphertextArgs args: The arguments to use to populate this resource's properties.

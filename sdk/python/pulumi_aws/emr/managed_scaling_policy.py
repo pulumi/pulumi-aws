@@ -28,6 +28,7 @@ class ManagedScalingPolicyArgs:
                  utilization_performance_index: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a ManagedScalingPolicy resource.
+
         :param pulumi.Input[_builtins.str] cluster_id: ID of the EMR cluster
         :param pulumi.Input[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]] compute_limits: Configuration block with compute limit settings. Described below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -114,6 +115,7 @@ class _ManagedScalingPolicyState:
                  utilization_performance_index: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering ManagedScalingPolicy resources.
+
         :param pulumi.Input[_builtins.str] cluster_id: ID of the EMR cluster
         :param pulumi.Input[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]] compute_limits: Configuration block with compute limit settings. Described below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -241,6 +243,7 @@ class ManagedScalingPolicy(pulumi.CustomResource):
         $ pulumi import aws:emr/managedScalingPolicy:ManagedScalingPolicy example j-123456ABCDEF
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_id: ID of the EMR cluster
@@ -291,6 +294,7 @@ class ManagedScalingPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:emr/managedScalingPolicy:ManagedScalingPolicy example j-123456ABCDEF
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedScalingPolicyArgs args: The arguments to use to populate this resource's properties.

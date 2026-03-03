@@ -25,6 +25,7 @@ class DomainNameArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DomainName resource.
+
         :param pulumi.Input[_builtins.str] certificate_arn: ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
         :param pulumi.Input[_builtins.str] domain_name: Domain name.
         :param pulumi.Input[_builtins.str] description: A description of the Domain Name.
@@ -97,6 +98,7 @@ class _DomainNameState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DomainName resources.
+
         :param pulumi.Input[_builtins.str] appsync_domain_name: Domain name that AppSync provides.
         :param pulumi.Input[_builtins.str] certificate_arn: ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
         :param pulumi.Input[_builtins.str] description: A description of the Domain Name.
@@ -223,6 +225,7 @@ class DomainName(pulumi.CustomResource):
         $ pulumi import aws:appsync/domainName:DomainName example example.com
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_arn: ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
@@ -257,6 +260,7 @@ class DomainName(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appsync/domainName:DomainName example example.com
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DomainNameArgs args: The arguments to use to populate this resource's properties.

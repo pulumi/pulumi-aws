@@ -34,6 +34,7 @@ class StateMachineArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a StateMachine resource.
+
         :param pulumi.Input[_builtins.str] definition: The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
         :param pulumi.Input['StateMachineEncryptionConfigurationArgs'] encryption_configuration: Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
@@ -224,6 +225,7 @@ class _StateMachineState:
                  version_description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StateMachine resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the state machine.
         :param pulumi.Input[_builtins.str] creation_date: The date the state machine was created.
         :param pulumi.Input[_builtins.str] definition: The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
@@ -674,6 +676,7 @@ class StateMachine(pulumi.CustomResource):
         $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] definition: The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
@@ -849,6 +852,7 @@ class StateMachine(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StateMachineArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class BrowserSettingsArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BrowserSettings resource.
+
         :param pulumi.Input[_builtins.str] browser_policy: Browser policy for the browser settings. This is a JSON string that defines the browser settings policy.
                
                The following arguments are optional:
@@ -120,6 +121,7 @@ class _BrowserSettingsState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering BrowserSettings resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the browser settings.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_portal_arns: List of web portal ARNs to associate with the browser settings.
         :param pulumi.Input[_builtins.str] browser_policy: Browser policy for the browser settings. This is a JSON string that defines the browser settings policy.
@@ -315,6 +317,7 @@ class BrowserSettings(pulumi.CustomResource):
         $ pulumi import aws:workspacesweb/browserSettings:BrowserSettings example arn:aws:workspacesweb:us-west-2:123456789012:browsersettings/abcdef12345
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context for the browser settings.
@@ -386,6 +389,7 @@ class BrowserSettings(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:workspacesweb/browserSettings:BrowserSettings example arn:aws:workspacesweb:us-west-2:123456789012:browsersettings/abcdef12345
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BrowserSettingsArgs args: The arguments to use to populate this resource's properties.

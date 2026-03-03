@@ -32,6 +32,7 @@ class FeatureArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Feature resource.
+
         :param pulumi.Input[_builtins.str] project: The name or ARN of the project that is to contain the new feature.
         :param pulumi.Input[Sequence[pulumi.Input['FeatureVariationArgs']]] variations: One or more blocks that contain the configuration of the feature's different variations. Detailed below
         :param pulumi.Input[_builtins.str] default_variation: The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `default_variation`, the first variation listed in the `variations` structure is used as the default variation.
@@ -189,6 +190,7 @@ class _FeatureState:
                  variations: Optional[pulumi.Input[Sequence[pulumi.Input['FeatureVariationArgs']]]] = None):
         """
         Input properties used for looking up and filtering Feature resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the feature.
         :param pulumi.Input[_builtins.str] created_time: The date and time that the feature is created.
         :param pulumi.Input[_builtins.str] default_variation: The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `default_variation`, the first variation listed in the `variations` structure is used as the default variation.
@@ -559,6 +561,7 @@ class Feature(pulumi.CustomResource):
         $ pulumi import aws:evidently/feature:Feature example exampleFeatureName:arn:aws:evidently:us-east-1:123456789012:project/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] default_variation: The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `default_variation`, the first variation listed in the `variations` structure is used as the default variation.
@@ -687,6 +690,7 @@ class Feature(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:evidently/feature:Feature example exampleFeatureName:arn:aws:evidently:us-east-1:123456789012:project/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FeatureArgs args: The arguments to use to populate this resource's properties.

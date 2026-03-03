@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
  *             .build());
  * 
- *         final var distributionId = config.get("distributionId");
+ *         final var distributionId = config.require("distributionId");
  *         var example = new ApplicationLayerAutomaticResponse("example", ApplicationLayerAutomaticResponseArgs.builder()
  *             .resourceArn(String.format("arn:%s:cloudfront:%s:distribution/%s", currentGetPartition.partition(),currentGetCallerIdentity.accountId(),distributionId))
  *             .action("COUNT")

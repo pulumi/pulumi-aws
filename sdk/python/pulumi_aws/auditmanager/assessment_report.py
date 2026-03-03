@@ -25,6 +25,7 @@ class AssessmentReportArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AssessmentReport resource.
+
         :param pulumi.Input[_builtins.str] assessment_id: Unique identifier of the assessment to create the report from.
                
                The following arguments are optional:
@@ -102,6 +103,7 @@ class _AssessmentReportState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AssessmentReport resources.
+
         :param pulumi.Input[_builtins.str] assessment_id: Unique identifier of the assessment to create the report from.
                
                The following arguments are optional:
@@ -234,6 +236,7 @@ class AssessmentReport(pulumi.CustomResource):
         $ pulumi import aws:auditmanager/assessmentReport:AssessmentReport example abc123-de45
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] assessment_id: Unique identifier of the assessment to create the report from.
@@ -272,6 +275,7 @@ class AssessmentReport(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:auditmanager/assessmentReport:AssessmentReport example abc123-de45
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AssessmentReportArgs args: The arguments to use to populate this resource's properties.

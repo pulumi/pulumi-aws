@@ -23,6 +23,7 @@ class InvitationAccepterArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a InvitationAccepter resource.
+
         :param pulumi.Input[_builtins.str] graph_arn: ARN of the behavior graph that the member account is accepting the invitation for.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -62,6 +63,7 @@ class _InvitationAccepterState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering InvitationAccepter resources.
+
         :param pulumi.Input[_builtins.str] graph_arn: ARN of the behavior graph that the member account is accepting the invitation for.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -131,6 +133,7 @@ class InvitationAccepter(pulumi.CustomResource):
         $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] graph_arn: ARN of the behavior graph that the member account is accepting the invitation for.
@@ -168,6 +171,7 @@ class InvitationAccepter(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InvitationAccepterArgs args: The arguments to use to populate this resource's properties.

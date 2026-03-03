@@ -26,6 +26,7 @@ class DeploymentArgs:
                  timeouts: Optional[pulumi.Input['DeploymentTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Deployment resource.
+
         :param pulumi.Input[_builtins.str] service_arn: The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -79,6 +80,7 @@ class _DeploymentState:
                  timeouts: Optional[pulumi.Input['DeploymentTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Deployment resources.
+
         :param pulumi.Input[_builtins.str] operation_id: The unique ID of the operation associated with deployment.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] service_arn: The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
@@ -175,6 +177,7 @@ class Deployment(pulumi.CustomResource):
         example = aws.apprunner.Deployment("example", service_arn=example_aws_apprunner_service["arn"])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -197,6 +200,7 @@ class Deployment(pulumi.CustomResource):
 
         example = aws.apprunner.Deployment("example", service_arn=example_aws_apprunner_service["arn"])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.

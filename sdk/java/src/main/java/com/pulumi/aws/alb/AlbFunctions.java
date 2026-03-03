@@ -54,7 +54,7 @@ public final class AlbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var listenerArn = config.get("listenerArn");
+     *         final var listenerArn = config.require("listenerArn");
      *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
      *             .arn(listenerArn)
      *             .build());
@@ -111,7 +111,7 @@ public final class AlbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var listenerArn = config.get("listenerArn");
+     *         final var listenerArn = config.require("listenerArn");
      *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
      *             .arn(listenerArn)
      *             .build());
@@ -168,7 +168,7 @@ public final class AlbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var listenerArn = config.get("listenerArn");
+     *         final var listenerArn = config.require("listenerArn");
      *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
      *             .arn(listenerArn)
      *             .build());
@@ -225,7 +225,7 @@ public final class AlbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var listenerArn = config.get("listenerArn");
+     *         final var listenerArn = config.require("listenerArn");
      *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
      *             .arn(listenerArn)
      *             .build());
@@ -282,7 +282,7 @@ public final class AlbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var listenerArn = config.get("listenerArn");
+     *         final var listenerArn = config.require("listenerArn");
      *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
      *             .arn(listenerArn)
      *             .build());
@@ -339,7 +339,7 @@ public final class AlbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var listenerArn = config.get("listenerArn");
+     *         final var listenerArn = config.require("listenerArn");
      *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
      *             .arn(listenerArn)
      *             .build());
@@ -396,7 +396,7 @@ public final class AlbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var listenerArn = config.get("listenerArn");
+     *         final var listenerArn = config.require("listenerArn");
      *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
      *             .arn(listenerArn)
      *             .build());

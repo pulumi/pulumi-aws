@@ -28,6 +28,7 @@ class ApiCacheArgs:
                  transit_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ApiCache resource.
+
         :param pulumi.Input[_builtins.str] api_caching_behavior: Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
         :param pulumi.Input[_builtins.str] api_id: GraphQL API ID.
         :param pulumi.Input[_builtins.int] ttl: TTL in seconds for cache entries.
@@ -144,6 +145,7 @@ class _ApiCacheState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiCache resources.
+
         :param pulumi.Input[_builtins.str] api_caching_behavior: Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
         :param pulumi.Input[_builtins.str] api_id: GraphQL API ID.
         :param pulumi.Input[_builtins.bool] at_rest_encryption_enabled: At-rest encryption flag for cache. You cannot update this setting after creation.
@@ -293,6 +295,7 @@ class ApiCache(pulumi.CustomResource):
         $ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_caching_behavior: Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
@@ -335,6 +338,7 @@ class ApiCache(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApiCacheArgs args: The arguments to use to populate this resource's properties.

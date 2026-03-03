@@ -24,6 +24,7 @@ class EncryptionConfigArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EncryptionConfig resource.
+
         :param pulumi.Input[_builtins.str] type: The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
         :param pulumi.Input[_builtins.str] key_id: An AWS KMS customer master key (CMK) ARN.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -79,6 +80,7 @@ class _EncryptionConfigState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EncryptionConfig resources.
+
         :param pulumi.Input[_builtins.str] key_id: An AWS KMS customer master key (CMK) ARN.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] type: The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
@@ -185,6 +187,7 @@ class EncryptionConfig(pulumi.CustomResource):
         $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] key_id: An AWS KMS customer master key (CMK) ARN.
@@ -244,6 +247,7 @@ class EncryptionConfig(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EncryptionConfigArgs args: The arguments to use to populate this resource's properties.

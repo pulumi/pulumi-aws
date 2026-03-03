@@ -27,6 +27,7 @@ class DomainArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Domain resource.
+
         :param pulumi.Input[_builtins.str] workflow_execution_retention_period_in_days: Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
         :param pulumi.Input[_builtins.str] description: The domain description.
         :param pulumi.Input[_builtins.str] name: The name of the domain. If omitted, this provider will assign a random, unique name.
@@ -132,6 +133,7 @@ class _DomainState:
                  workflow_execution_retention_period_in_days: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Domain resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN)
         :param pulumi.Input[_builtins.str] description: The domain description.
         :param pulumi.Input[_builtins.str] name: The name of the domain. If omitted, this provider will assign a random, unique name.
@@ -293,6 +295,7 @@ class Domain(pulumi.CustomResource):
         $ pulumi import aws:swf/domain:Domain foo test-domain
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The domain description.
@@ -332,6 +335,7 @@ class Domain(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:swf/domain:Domain foo test-domain
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.

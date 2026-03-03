@@ -30,6 +30,7 @@ class RateBasedRuleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RateBasedRule resource.
+
         :param pulumi.Input[_builtins.str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
         :param pulumi.Input[_builtins.str] rate_key: Valid value is IP.
         :param pulumi.Input[_builtins.int] rate_limit: The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
@@ -149,6 +150,7 @@ class _RateBasedRuleState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RateBasedRule resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the WAF Regional Rate Based Rule.
         :param pulumi.Input[_builtins.str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
         :param pulumi.Input[_builtins.str] name: The name or description of the rule.
@@ -337,6 +339,7 @@ class RateBasedRule(pulumi.CustomResource):
         $ pulumi import aws:wafregional/rateBasedRule:RateBasedRule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
@@ -388,6 +391,7 @@ class RateBasedRule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:wafregional/rateBasedRule:RateBasedRule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RateBasedRuleArgs args: The arguments to use to populate this resource's properties.

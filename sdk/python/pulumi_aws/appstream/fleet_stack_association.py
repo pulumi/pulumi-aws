@@ -24,6 +24,7 @@ class FleetStackAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FleetStackAssociation resource.
+
         :param pulumi.Input[_builtins.str] fleet_name: Name of the fleet.
         :param pulumi.Input[_builtins.str] stack_name: Name of the stack.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _FleetStackAssociationState:
                  stack_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FleetStackAssociation resources.
+
         :param pulumi.Input[_builtins.str] fleet_name: Name of the fleet.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] stack_name: Name of the stack.
@@ -166,6 +168,7 @@ class FleetStackAssociation(pulumi.CustomResource):
         $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] fleet_name: Name of the fleet.
@@ -207,6 +210,7 @@ class FleetStackAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FleetStackAssociationArgs args: The arguments to use to populate this resource's properties.

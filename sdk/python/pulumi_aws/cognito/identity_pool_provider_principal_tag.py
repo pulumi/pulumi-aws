@@ -26,6 +26,7 @@ class IdentityPoolProviderPrincipalTagArgs:
                  use_defaults: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a IdentityPoolProviderPrincipalTag resource.
+
         :param pulumi.Input[_builtins.str] identity_pool_id: An identity pool ID.
         :param pulumi.Input[_builtins.str] identity_provider_name: The name of the identity provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] principal_tags: String to string map of variables.
@@ -112,6 +113,7 @@ class _IdentityPoolProviderPrincipalTagState:
                  use_defaults: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering IdentityPoolProviderPrincipalTag resources.
+
         :param pulumi.Input[_builtins.str] identity_pool_id: An identity pool ID.
         :param pulumi.Input[_builtins.str] identity_provider_name: The name of the identity provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] principal_tags: String to string map of variables.
@@ -244,6 +246,7 @@ class IdentityPoolProviderPrincipalTag(pulumi.CustomResource):
         $ pulumi import aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag example us-west-2_abc123:CorpAD
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] identity_pool_id: An identity pool ID.
@@ -299,6 +302,7 @@ class IdentityPoolProviderPrincipalTag(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag example us-west-2_abc123:CorpAD
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IdentityPoolProviderPrincipalTagArgs args: The arguments to use to populate this resource's properties.

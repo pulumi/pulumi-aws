@@ -38,6 +38,7 @@ class UserArgs:
                  user_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a User resource.
+
         :param pulumi.Input[_builtins.str] display_name: The name that is typically displayed when the user is referenced.
         :param pulumi.Input[_builtins.str] identity_store_id: The globally unique identifier for the identity store that this user is in.
         :param pulumi.Input[_builtins.str] user_name: A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
@@ -293,6 +294,7 @@ class _UserState:
                  user_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering User resources.
+
         :param pulumi.Input['UserAddressesArgs'] addresses: Details about the user's address. At most 1 address is allowed. Detailed below.
         :param pulumi.Input[_builtins.str] display_name: The name that is typically displayed when the user is referenced.
         :param pulumi.Input['UserEmailsArgs'] emails: Details about the user's email. At most 1 email is allowed. Detailed below.
@@ -618,6 +620,7 @@ class User(pulumi.CustomResource):
         $ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['UserAddressesArgs', 'UserAddressesArgsDict']] addresses: Details about the user's address. At most 1 address is allowed. Detailed below.
@@ -682,6 +685,7 @@ class User(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

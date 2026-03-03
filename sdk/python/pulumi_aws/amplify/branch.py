@@ -40,6 +40,7 @@ class BranchArgs:
                  ttl: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Branch resource.
+
         :param pulumi.Input[_builtins.str] app_id: Unique ID for an Amplify app.
         :param pulumi.Input[_builtins.str] branch_name: Name for the branch.
         :param pulumi.Input[_builtins.str] backend_environment_arn: ARN for a backend environment that is part of an Amplify app.
@@ -356,6 +357,7 @@ class _BranchState:
                  ttl: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Branch resources.
+
         :param pulumi.Input[_builtins.str] app_id: Unique ID for an Amplify app.
         :param pulumi.Input[_builtins.str] arn: ARN for the branch.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_resources: A list of custom resources that are linked to this branch.
@@ -869,6 +871,7 @@ class Branch(pulumi.CustomResource):
         $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: Unique ID for an Amplify app.
@@ -1005,6 +1008,7 @@ class Branch(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BranchArgs args: The arguments to use to populate this resource's properties.

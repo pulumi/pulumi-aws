@@ -26,6 +26,7 @@ class ContinuousDeploymentPolicyArgs:
                  traffic_config: Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs']] = None):
         """
         The set of arguments for constructing a ContinuousDeploymentPolicy resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Whether this continuous deployment policy is enabled.
         :param pulumi.Input['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs'] staging_distribution_dns_names: CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
         :param pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs'] traffic_config: Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
@@ -83,6 +84,7 @@ class _ContinuousDeploymentPolicyState:
                  traffic_config: Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs']] = None):
         """
         Input properties used for looking up and filtering ContinuousDeploymentPolicy resources.
+
         :param pulumi.Input[_builtins.str] arn: The continuous deployment policy ARN.
         :param pulumi.Input[_builtins.bool] enabled: Whether this continuous deployment policy is enabled.
         :param pulumi.Input[_builtins.str] etag: Current version of the continuous distribution policy.
@@ -270,6 +272,7 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Whether this continuous deployment policy is enabled.
@@ -365,6 +368,7 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ContinuousDeploymentPolicyArgs args: The arguments to use to populate this resource's properties.

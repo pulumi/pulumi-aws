@@ -30,6 +30,7 @@ class FargateProfileArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FargateProfile resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[_builtins.str] pod_execution_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
         :param pulumi.Input[Sequence[pulumi.Input['FargateProfileSelectorArgs']]] selectors: Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
@@ -154,6 +155,7 @@ class _FargateProfileState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering FargateProfile resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the EKS Fargate Profile.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[_builtins.str] fargate_profile_name: Name of the EKS Fargate Profile.
@@ -376,6 +378,7 @@ class FargateProfile(pulumi.CustomResource):
         $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
@@ -444,6 +447,7 @@ class FargateProfile(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FargateProfileArgs args: The arguments to use to populate this resource's properties.

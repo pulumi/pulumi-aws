@@ -31,6 +31,7 @@ class SpaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Space resource.
+
         :param pulumi.Input[_builtins.str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[_builtins.str] space_name: The name of the space.
         :param pulumi.Input['SpaceOwnershipSettingsArgs'] ownership_settings: A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
@@ -169,6 +170,7 @@ class _SpaceState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Space resources.
+
         :param pulumi.Input[_builtins.str] arn: The space's Amazon Resource Name (ARN).
         :param pulumi.Input[_builtins.str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[_builtins.str] home_efs_file_system_uid: The ID of the space's profile in the Amazon Elastic File System volume.
@@ -391,6 +393,7 @@ class Space(pulumi.CustomResource):
         $ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_id: The ID of the associated Domain.
@@ -431,6 +434,7 @@ class Space(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpaceArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class PartitionArgs:
                  storage_descriptor: Optional[pulumi.Input['PartitionStorageDescriptorArgs']] = None):
         """
         The set of arguments for constructing a Partition resource.
+
         :param pulumi.Input[_builtins.str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] partition_values: The values that define the partition.
         :param pulumi.Input[_builtins.str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
@@ -146,6 +147,7 @@ class _PartitionState:
                  table_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Partition resources.
+
         :param pulumi.Input[_builtins.str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         :param pulumi.Input[_builtins.str] creation_time: The time at which the partition was created.
         :param pulumi.Input[_builtins.str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
@@ -332,6 +334,7 @@ class Partition(pulumi.CustomResource):
         $ pulumi import aws:glue/partition:Partition part 123456789012:MyDatabase:MyTable:val1#val2
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
@@ -369,6 +372,7 @@ class Partition(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:glue/partition:Partition part 123456789012:MyDatabase:MyTable:val1#val2
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PartitionArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class NetworkInterfacePermissionArgs:
                  timeouts: Optional[pulumi.Input['NetworkInterfacePermissionTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a NetworkInterfacePermission resource.
+
         :param pulumi.Input[_builtins.str] aws_account_id: The Amazon Web Services account ID.
         :param pulumi.Input[_builtins.str] network_interface_id: The ID of the network interface.
         :param pulumi.Input[_builtins.str] permission: The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
@@ -110,6 +111,7 @@ class _NetworkInterfacePermissionState:
                  timeouts: Optional[pulumi.Input['NetworkInterfacePermissionTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering NetworkInterfacePermission resources.
+
         :param pulumi.Input[_builtins.str] aws_account_id: The Amazon Web Services account ID.
         :param pulumi.Input[_builtins.str] network_interface_id: The ID of the network interface.
         :param pulumi.Input[_builtins.str] network_interface_permission_id: ENI permission ID.
@@ -242,6 +244,7 @@ class NetworkInterfacePermission(pulumi.CustomResource):
         $ pulumi import aws:ec2/networkInterfacePermission:NetworkInterfacePermission example eni-perm-056ad97ce2ac377ed
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: The Amazon Web Services account ID.
@@ -285,6 +288,7 @@ class NetworkInterfacePermission(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/networkInterfacePermission:NetworkInterfacePermission example eni-perm-056ad97ce2ac377ed
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkInterfacePermissionArgs args: The arguments to use to populate this resource's properties.

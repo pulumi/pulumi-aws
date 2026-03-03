@@ -25,6 +25,7 @@ class VpcIpamScopeArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpcIpamScope resource.
+
         :param pulumi.Input[_builtins.str] ipam_id: The ID of the IPAM for which you're creating this scope.
         :param pulumi.Input[_builtins.str] description: A description for the scope you're creating.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -102,6 +103,7 @@ class _VpcIpamScopeState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering VpcIpamScope resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the scope.
         :param pulumi.Input[_builtins.str] description: A description for the scope you're creating.
         :param pulumi.Input[_builtins.str] ipam_arn: The ARN of the IPAM for which you're creating this scope.
@@ -286,6 +288,7 @@ class VpcIpamScope(pulumi.CustomResource):
         $ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the scope you're creating.
@@ -326,6 +329,7 @@ class VpcIpamScope(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpcIpamScopeArgs args: The arguments to use to populate this resource's properties.

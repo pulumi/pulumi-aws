@@ -30,6 +30,7 @@ class TrafficMirrorSessionArgs:
                  virtual_network_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a TrafficMirrorSession resource.
+
         :param pulumi.Input[_builtins.str] network_interface_id: ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
         :param pulumi.Input[_builtins.int] session_number: The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
         :param pulumi.Input[_builtins.str] traffic_mirror_filter_id: ID of the traffic mirror filter to be used
@@ -181,6 +182,7 @@ class _TrafficMirrorSessionState:
                  virtual_network_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering TrafficMirrorSession resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the traffic mirror session.
         :param pulumi.Input[_builtins.str] description: A description of the traffic mirror session.
         :param pulumi.Input[_builtins.str] network_interface_id: ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
@@ -412,6 +414,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
         $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the traffic mirror session.
@@ -461,6 +464,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TrafficMirrorSessionArgs args: The arguments to use to populate this resource's properties.

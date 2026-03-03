@@ -26,6 +26,7 @@ class HsmArgs:
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Hsm resource.
+
         :param pulumi.Input[_builtins.str] cluster_id: The ID of Cloud HSM v2 cluster to which HSM will be added.
         :param pulumi.Input[_builtins.str] availability_zone: The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
         :param pulumi.Input[_builtins.str] ip_address: The IP address of HSM module. Must be within the CIDR of selected subnet.
@@ -120,6 +121,7 @@ class _HsmState:
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Hsm resources.
+
         :param pulumi.Input[_builtins.str] availability_zone: The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
         :param pulumi.Input[_builtins.str] cluster_id: The ID of Cloud HSM v2 cluster to which HSM will be added.
         :param pulumi.Input[_builtins.str] hsm_eni_id: The id of the ENI interface allocated for HSM module.
@@ -284,6 +286,7 @@ class Hsm(pulumi.CustomResource):
         $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability_zone: The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
@@ -324,6 +327,7 @@ class Hsm(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HsmArgs args: The arguments to use to populate this resource's properties.

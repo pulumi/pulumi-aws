@@ -24,6 +24,7 @@ class FunctionRecursionConfigArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FunctionRecursionConfig resource.
+
         :param pulumi.Input[_builtins.str] function_name: Name of the Lambda function.
         :param pulumi.Input[_builtins.str] recursive_loop: Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
                
@@ -82,6 +83,7 @@ class _FunctionRecursionConfigState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FunctionRecursionConfig resources.
+
         :param pulumi.Input[_builtins.str] function_name: Name of the Lambda function.
         :param pulumi.Input[_builtins.str] recursive_loop: Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
                
@@ -201,6 +203,7 @@ class FunctionRecursionConfig(pulumi.CustomResource):
         $ pulumi import aws:lambda/functionRecursionConfig:FunctionRecursionConfig example recursive_processor
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] function_name: Name of the Lambda function.
@@ -271,6 +274,7 @@ class FunctionRecursionConfig(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lambda/functionRecursionConfig:FunctionRecursionConfig example recursive_processor
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FunctionRecursionConfigArgs args: The arguments to use to populate this resource's properties.

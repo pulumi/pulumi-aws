@@ -35,6 +35,7 @@ class V2modelsSlotTypeArgs:
                  value_selection_setting: Optional[pulumi.Input['V2modelsSlotTypeValueSelectionSettingArgs']] = None):
         """
         The set of arguments for constructing a V2modelsSlotType resource.
+
         :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot associated with this slot type.
         :param pulumi.Input[_builtins.str] bot_version: Version of the bot associated with this slot type.
         :param pulumi.Input[_builtins.str] locale_id: Identifier of the language and locale where this slot type is used.
@@ -249,6 +250,7 @@ class _V2modelsSlotTypeState:
                  value_selection_setting: Optional[pulumi.Input['V2modelsSlotTypeValueSelectionSettingArgs']] = None):
         """
         Input properties used for looking up and filtering V2modelsSlotType resources.
+
         :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot associated with this slot type.
         :param pulumi.Input[_builtins.str] bot_version: Version of the bot associated with this slot type.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeCompositeSlotTypeSettingArgs']]] composite_slot_type_settings: Specifications for a composite slot type.
@@ -551,6 +553,7 @@ class V2modelsSlotType(pulumi.CustomResource):
         $ pulumi import aws:lex/v2modelsSlotType:V2modelsSlotType example bot-1234,DRAFT,en_US,slot_type-id-12345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bot_id: Identifier of the bot associated with this slot type.
@@ -649,6 +652,7 @@ class V2modelsSlotType(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lex/v2modelsSlotType:V2modelsSlotType example bot-1234,DRAFT,en_US,slot_type-id-12345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param V2modelsSlotTypeArgs args: The arguments to use to populate this resource's properties.

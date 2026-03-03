@@ -30,6 +30,7 @@ class ResponseHeadersPolicyArgs:
                  server_timing_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs']] = None):
         """
         The set of arguments for constructing a ResponseHeadersPolicy resource.
+
         :param pulumi.Input[_builtins.str] comment: A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
         :param pulumi.Input['ResponseHeadersPolicyCorsConfigArgs'] cors_config: A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
         :param pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs'] custom_headers_config: Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
@@ -152,6 +153,7 @@ class _ResponseHeadersPolicyState:
                  server_timing_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs']] = None):
         """
         Input properties used for looking up and filtering ResponseHeadersPolicy resources.
+
         :param pulumi.Input[_builtins.str] arn: The response headers policy ARN.
         :param pulumi.Input[_builtins.str] comment: A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
         :param pulumi.Input['ResponseHeadersPolicyCorsConfigArgs'] cors_config: A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
@@ -394,6 +396,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         $ pulumi import aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f9
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
@@ -499,6 +502,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f9
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResponseHeadersPolicyArgs args: The arguments to use to populate this resource's properties.

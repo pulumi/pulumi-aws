@@ -30,6 +30,7 @@ class ConnectPeerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConnectPeer resource.
+
         :param pulumi.Input[_builtins.str] connect_attachment_id: ID of the connection attachment.
         :param pulumi.Input[_builtins.str] peer_address: Connect peer address.
                
@@ -160,6 +161,7 @@ class _ConnectPeerState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ConnectPeer resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Connect peer.
         :param pulumi.Input['ConnectPeerBgpOptionsArgs'] bgp_options: Connect peer BGP options. See bgp_options for more information.
         :param pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationArgs']]] configurations: Configuration of the Connect peer.
@@ -507,6 +509,7 @@ class ConnectPeer(pulumi.CustomResource):
         $ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict']] bgp_options: Connect peer BGP options. See bgp_options for more information.
@@ -625,6 +628,7 @@ class ConnectPeer(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConnectPeerArgs args: The arguments to use to populate this resource's properties.

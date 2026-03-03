@@ -24,6 +24,7 @@ class ProtectionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Protection resource.
+
         :param pulumi.Input[_builtins.str] resource_arn: The ARN (Amazon Resource Name) of the resource to be protected.
         :param pulumi.Input[_builtins.str] name: A friendly name for the Protection you are creating.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -81,6 +82,7 @@ class _ProtectionState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Protection resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the Protection.
         :param pulumi.Input[_builtins.str] name: A friendly name for the Protection you are creating.
         :param pulumi.Input[_builtins.str] resource_arn: The ARN (Amazon Resource Name) of the resource to be protected.
@@ -201,6 +203,7 @@ class Protection(pulumi.CustomResource):
         $ pulumi import aws:shield/protection:Protection example ff9592dc-22f3-4e88-afa1-7b29fde9669a
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: A friendly name for the Protection you are creating.
@@ -244,6 +247,7 @@ class Protection(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:shield/protection:Protection example ff9592dc-22f3-4e88-afa1-7b29fde9669a
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProtectionArgs args: The arguments to use to populate this resource's properties.

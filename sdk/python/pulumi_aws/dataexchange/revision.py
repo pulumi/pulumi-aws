@@ -25,6 +25,7 @@ class RevisionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Revision resource.
+
         :param pulumi.Input[_builtins.str] data_set_id: The dataset id.
         :param pulumi.Input[_builtins.str] comment: An optional comment about the revision.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -99,6 +100,7 @@ class _RevisionState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Revision resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of this data set.
         :param pulumi.Input[_builtins.str] comment: An optional comment about the revision.
         :param pulumi.Input[_builtins.str] data_set_id: The dataset id.
@@ -238,6 +240,7 @@ class Revision(pulumi.CustomResource):
         $ pulumi import aws:dataexchange/revision:Revision example 4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: An optional comment about the revision.
@@ -270,6 +273,7 @@ class Revision(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:dataexchange/revision:Revision example 4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RevisionArgs args: The arguments to use to populate this resource's properties.

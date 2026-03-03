@@ -27,6 +27,7 @@ class NamedQueryArgs:
                  workgroup: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NamedQuery resource.
+
         :param pulumi.Input[_builtins.str] database: Database to which the query belongs.
         :param pulumi.Input[_builtins.str] query: Text of the query itself. In other words, all query statements. Maximum length of 262144.
         :param pulumi.Input[_builtins.str] description: Brief explanation of the query. Maximum length of 1024.
@@ -129,6 +130,7 @@ class _NamedQueryState:
                  workgroup: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NamedQuery resources.
+
         :param pulumi.Input[_builtins.str] database: Database to which the query belongs.
         :param pulumi.Input[_builtins.str] description: Brief explanation of the query. Maximum length of 1024.
         :param pulumi.Input[_builtins.str] name: Plain language name for the query. Maximum length of 128.
@@ -276,6 +278,7 @@ class NamedQuery(pulumi.CustomResource):
         $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] database: Database to which the query belongs.
@@ -331,6 +334,7 @@ class NamedQuery(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NamedQueryArgs args: The arguments to use to populate this resource's properties.

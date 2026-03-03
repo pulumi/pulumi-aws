@@ -28,6 +28,7 @@ class CustomerManagedPolicyAttachmentsExclusiveArgs:
                  timeouts: Optional[pulumi.Input['CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a CustomerManagedPolicyAttachmentsExclusive resource.
+
         :param pulumi.Input[_builtins.str] instance_arn: ARN of the SSO Instance.
         :param pulumi.Input[_builtins.str] permission_set_arn: ARN of the Permission Set.
                
@@ -114,6 +115,7 @@ class _CustomerManagedPolicyAttachmentsExclusiveState:
                  timeouts: Optional[pulumi.Input['CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering CustomerManagedPolicyAttachmentsExclusive resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs']]] customer_managed_policy_references: Specifies the names and paths of the customer managed policies to attach. See Customer Managed Policy Reference below.
         :param pulumi.Input[_builtins.str] instance_arn: ARN of the SSO Instance.
         :param pulumi.Input[_builtins.str] permission_set_arn: ARN of the Permission Set.
@@ -280,6 +282,7 @@ class CustomerManagedPolicyAttachmentsExclusive(pulumi.CustomResource):
         $ pulumi import aws:ssoadmin/customerManagedPolicyAttachmentsExclusive:CustomerManagedPolicyAttachmentsExclusive example arn:aws:sso:::instance/ssoins-1234567890abcdef,arn:aws:sso:::permissionSet/ssoins-1234567890abcdef/ps-1234567890abcdef
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs', 'CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgsDict']]]] customer_managed_policy_references: Specifies the names and paths of the customer managed policies to attach. See Customer Managed Policy Reference below.
@@ -370,6 +373,7 @@ class CustomerManagedPolicyAttachmentsExclusive(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ssoadmin/customerManagedPolicyAttachmentsExclusive:CustomerManagedPolicyAttachmentsExclusive example arn:aws:sso:::instance/ssoins-1234567890abcdef,arn:aws:sso:::permissionSet/ssoins-1234567890abcdef/ps-1234567890abcdef
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomerManagedPolicyAttachmentsExclusiveArgs args: The arguments to use to populate this resource's properties.

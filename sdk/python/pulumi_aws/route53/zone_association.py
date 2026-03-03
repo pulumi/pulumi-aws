@@ -24,6 +24,7 @@ class ZoneAssociationArgs:
                  vpc_region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ZoneAssociation resource.
+
         :param pulumi.Input[_builtins.str] vpc_id: The VPC to associate with the private hosted zone.
         :param pulumi.Input[_builtins.str] zone_id: The private hosted zone to associate.
         :param pulumi.Input[_builtins.str] vpc_region: The VPC's region. Defaults to the region of the AWS provider.
@@ -79,6 +80,7 @@ class _ZoneAssociationState:
                  zone_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ZoneAssociation resources.
+
         :param pulumi.Input[_builtins.str] owning_account: The account ID of the account that created the hosted zone.
         :param pulumi.Input[_builtins.str] vpc_id: The VPC to associate with the private hosted zone.
         :param pulumi.Input[_builtins.str] vpc_region: The VPC's region. Defaults to the region of the AWS provider.
@@ -201,6 +203,7 @@ class ZoneAssociation(pulumi.CustomResource):
         $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] vpc_id: The VPC to associate with the private hosted zone.
@@ -261,6 +264,7 @@ class ZoneAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ZoneAssociationArgs args: The arguments to use to populate this resource's properties.

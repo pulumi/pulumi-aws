@@ -27,6 +27,7 @@ class DataShareConsumerAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataShareConsumerAssociation resource.
+
         :param pulumi.Input[_builtins.str] data_share_arn: Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
                
                The following arguments are optional:
@@ -136,6 +137,7 @@ class _DataShareConsumerAssociationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataShareConsumerAssociation resources.
+
         :param pulumi.Input[_builtins.bool] allow_writes: Whether to allow write operations for a datashare.
         :param pulumi.Input[_builtins.bool] associate_entire_account: Whether the datashare is associated with the entire account. Conflicts with `consumer_arn` and `consumer_region`.
         :param pulumi.Input[_builtins.str] consumer_arn: Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associate_entire_account` and `consumer_region`.
@@ -311,6 +313,7 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
         $ pulumi import aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation example arn:aws:redshift:us-west-2:123456789012:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example,,,us-west-2
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_writes: Whether to allow write operations for a datashare.
@@ -362,6 +365,7 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation example arn:aws:redshift:us-west-2:123456789012:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example,,,us-west-2
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataShareConsumerAssociationArgs args: The arguments to use to populate this resource's properties.

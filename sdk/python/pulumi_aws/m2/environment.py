@@ -40,6 +40,7 @@ class EnvironmentArgs:
                  timeouts: Optional[pulumi.Input['EnvironmentTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Environment resource.
+
         :param pulumi.Input[_builtins.str] engine_type: Engine type must be `microfocus` or `bluage`.
         :param pulumi.Input[_builtins.str] instance_type: M2 Instance Type.
                
@@ -306,6 +307,7 @@ class _EnvironmentState:
                  timeouts: Optional[pulumi.Input['EnvironmentTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Environment resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Environment.
         :param pulumi.Input[_builtins.str] engine_type: Engine type must be `microfocus` or `bluage`.
         :param pulumi.Input[_builtins.str] engine_version: The specific version of the engine for the Environment.
@@ -724,6 +726,7 @@ class Environment(pulumi.CustomResource):
         $ pulumi import aws:m2/environment:Environment example 01234567890abcdef012345678
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] engine_type: Engine type must be `microfocus` or `bluage`.
@@ -842,6 +845,7 @@ class Environment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:m2/environment:Environment example 01234567890abcdef012345678
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.

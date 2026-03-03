@@ -25,6 +25,7 @@ class AccessGrantsInstanceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AccessGrantsInstance resource.
+
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] identity_center_arn: The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -101,6 +102,7 @@ class _AccessGrantsInstanceState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AccessGrantsInstance resources.
+
         :param pulumi.Input[_builtins.str] access_grants_instance_arn: Amazon Resource Name (ARN) of the S3 Access Grants instance.
         :param pulumi.Input[_builtins.str] access_grants_instance_id: Unique ID of the S3 Access Grants instance.
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
@@ -267,6 +269,7 @@ class AccessGrantsInstance(pulumi.CustomResource):
         $ pulumi import aws:s3control/accessGrantsInstance:AccessGrantsInstance example 123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
@@ -311,6 +314,7 @@ class AccessGrantsInstance(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3control/accessGrantsInstance:AccessGrantsInstance example 123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccessGrantsInstanceArgs args: The arguments to use to populate this resource's properties.

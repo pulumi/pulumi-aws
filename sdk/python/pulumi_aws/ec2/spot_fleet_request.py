@@ -49,6 +49,7 @@ class SpotFleetRequestArgs:
                  wait_for_fulfillment: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SpotFleetRequest resource.
+
         :param pulumi.Input[_builtins.str] iam_fleet_role: Grants the Spot fleet permission to terminate
                Spot instances on your behalf when you cancel its Spot fleet request using
                CancelSpotFleetRequests or when the Spot fleet request expires, if you set
@@ -530,6 +531,7 @@ class _SpotFleetRequestState:
                  wait_for_fulfillment: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SpotFleetRequest resources.
+
         :param pulumi.Input[_builtins.str] allocation_strategy: Indicates how to allocate the target capacity across
                the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
                `lowestPrice`.
@@ -1241,6 +1243,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         $ pulumi import aws:ec2/spotFleetRequest:SpotFleetRequest fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allocation_strategy: Indicates how to allocate the target capacity across
@@ -1491,6 +1494,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/spotFleetRequest:SpotFleetRequest fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpotFleetRequestArgs args: The arguments to use to populate this resource's properties.

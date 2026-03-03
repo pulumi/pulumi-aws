@@ -30,6 +30,7 @@ class ZoneArgs:
                  vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['ZoneVpcArgs']]]] = None):
         """
         The set of arguments for constructing a Zone resource.
+
         :param pulumi.Input[_builtins.str] comment: A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
         :param pulumi.Input[_builtins.str] delegation_set_id: The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
         :param pulumi.Input[_builtins.bool] enable_accelerated_recovery: Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
@@ -157,6 +158,7 @@ class _ZoneState:
                  zone_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Zone resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Hosted Zone.
         :param pulumi.Input[_builtins.str] comment: A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
         :param pulumi.Input[_builtins.str] delegation_set_id: The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
@@ -434,6 +436,7 @@ class Zone(pulumi.CustomResource):
         $ pulumi import aws:route53/zone:Zone myzone Z1D633PJN98FT9
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
@@ -525,6 +528,7 @@ class Zone(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:route53/zone:Zone myzone Z1D633PJN98FT9
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ZoneArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class SigningJobArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SigningJob resource.
+
         :param pulumi.Input['SigningJobDestinationArgs'] destination: The S3 bucket in which to save your signed object. See Destination below for details.
         :param pulumi.Input[_builtins.str] profile_name: The name of the profile to initiate the signing operation.
         :param pulumi.Input['SigningJobSourceArgs'] source: The S3 bucket that contains the object to sign. See Source below for details.
@@ -127,6 +128,7 @@ class _SigningJobState:
                  status_reason: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SigningJob resources.
+
         :param pulumi.Input[_builtins.str] completed_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was completed.
         :param pulumi.Input[_builtins.str] created_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was created.
         :param pulumi.Input['SigningJobDestinationArgs'] destination: The S3 bucket in which to save your signed object. See Destination below for details.
@@ -463,6 +465,7 @@ class SigningJob(pulumi.CustomResource):
         $ pulumi import aws:signer/signingJob:SigningJob test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SigningJobDestinationArgs', 'SigningJobDestinationArgsDict']] destination: The S3 bucket in which to save your signed object. See Destination below for details.
@@ -512,6 +515,7 @@ class SigningJob(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:signer/signingJob:SigningJob test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SigningJobArgs args: The arguments to use to populate this resource's properties.

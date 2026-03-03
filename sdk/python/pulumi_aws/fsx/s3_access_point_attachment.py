@@ -29,6 +29,7 @@ class S3AccessPointAttachmentArgs:
                  timeouts: Optional[pulumi.Input['S3AccessPointAttachmentTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a S3AccessPointAttachment resource.
+
         :param pulumi.Input['S3AccessPointAttachmentOpenzfsConfigurationArgs'] openzfs_configuration: Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfs_configuration` Block for details.
         :param pulumi.Input[_builtins.str] type: Type of S3 access point. Valid values: `OpenZFS`.
                
@@ -133,6 +134,7 @@ class _S3AccessPointAttachmentState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering S3AccessPointAttachment resources.
+
         :param pulumi.Input[_builtins.str] name: Name of the S3 access point.
         :param pulumi.Input['S3AccessPointAttachmentOpenzfsConfigurationArgs'] openzfs_configuration: Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfs_configuration` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -301,6 +303,7 @@ class S3AccessPointAttachment(pulumi.CustomResource):
         $ pulumi import aws:fsx/s3AccessPointAttachment:S3AccessPointAttachment example example-attachment
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the S3 access point.
@@ -348,6 +351,7 @@ class S3AccessPointAttachment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:fsx/s3AccessPointAttachment:S3AccessPointAttachment example example-attachment
         ```
+
 
         :param str resource_name: The name of the resource.
         :param S3AccessPointAttachmentArgs args: The arguments to use to populate this resource's properties.

@@ -64,6 +64,7 @@ class ReplicationGroupArgs:
                  user_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReplicationGroup resource.
+
         :param pulumi.Input[_builtins.str] description: User-created description for the replication group. Must not be empty.
         :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
         :param pulumi.Input[_builtins.bool] at_rest_encryption_enabled: Whether to enable encryption at rest.
@@ -801,6 +802,7 @@ class _ReplicationGroupState:
                  user_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ReplicationGroup resources.
+
         :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
         :param pulumi.Input[_builtins.str] arn: ARN of the created ElastiCache Replication Group.
         :param pulumi.Input[_builtins.bool] at_rest_encryption_enabled: Whether to enable encryption at rest.
@@ -1873,6 +1875,7 @@ class ReplicationGroup(pulumi.CustomResource):
         $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
@@ -2175,6 +2178,7 @@ class ReplicationGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReplicationGroupArgs args: The arguments to use to populate this resource's properties.

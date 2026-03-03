@@ -28,6 +28,7 @@ class IdentityProviderArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IdentityProvider resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] provider_details: The map of identity details, such as access token
         :param pulumi.Input[_builtins.str] provider_name: The provider name
         :param pulumi.Input[_builtins.str] provider_type: The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
@@ -144,6 +145,7 @@ class _IdentityProviderState:
                  user_pool_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IdentityProvider resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attribute_mapping: The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] idp_identifiers: The list of identity providers.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] provider_details: The map of identity details, such as access token
@@ -301,6 +303,7 @@ class IdentityProvider(pulumi.CustomResource):
         $ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attribute_mapping: The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
@@ -351,6 +354,7 @@ class IdentityProvider(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IdentityProviderArgs args: The arguments to use to populate this resource's properties.

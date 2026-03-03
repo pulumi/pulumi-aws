@@ -26,6 +26,7 @@ class RequestValidatorArgs:
                  validate_request_parameters: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a RequestValidator resource.
+
         :param pulumi.Input[_builtins.str] rest_api: ID of the associated Rest API
         :param pulumi.Input[_builtins.str] name: Name of the request validator
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -113,6 +114,7 @@ class _RequestValidatorState:
                  validate_request_parameters: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering RequestValidator resources.
+
         :param pulumi.Input[_builtins.str] name: Name of the request validator
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] rest_api: ID of the associated Rest API
@@ -227,6 +229,7 @@ class RequestValidator(pulumi.CustomResource):
         $ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the request validator
@@ -264,6 +267,7 @@ class RequestValidator(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RequestValidatorArgs args: The arguments to use to populate this resource's properties.

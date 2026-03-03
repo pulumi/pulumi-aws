@@ -30,6 +30,7 @@ class AssessmentTemplateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AssessmentTemplate resource.
+
         :param pulumi.Input[_builtins.int] duration: The duration of the inspector run.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rules_package_arns: The rules to be used during the run.
         :param pulumi.Input[_builtins.str] target_arn: The assessment target ARN to attach the template to.
@@ -149,6 +150,7 @@ class _AssessmentTemplateState:
                  target_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AssessmentTemplate resources.
+
         :param pulumi.Input[_builtins.str] arn: The template assessment ARN.
         :param pulumi.Input[_builtins.int] duration: The duration of the inspector run.
         :param pulumi.Input[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]] event_subscriptions: A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
@@ -340,6 +342,7 @@ class AssessmentTemplate(pulumi.CustomResource):
         $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] duration: The duration of the inspector run.
@@ -394,6 +397,7 @@ class AssessmentTemplate(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AssessmentTemplateArgs args: The arguments to use to populate this resource's properties.

@@ -23,6 +23,7 @@ class ChannelAssociationArgs:
                  notification_configuration_arn: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ChannelAssociation resource.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
         :param pulumi.Input[_builtins.str] notification_configuration_arn: ARN of the notification configuration to associate the channel with.
         """
@@ -61,6 +62,7 @@ class _ChannelAssociationState:
                  notification_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ChannelAssociation resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
         :param pulumi.Input[_builtins.str] notification_configuration_arn: ARN of the notification configuration to associate the channel with.
         """
@@ -133,6 +135,7 @@ class ChannelAssociation(pulumi.CustomResource):
         $ pulumi import aws:notifications/channelAssociation:ChannelAssociation example arn:aws:notifications:us-west-2:123456789012:configuration:example-notification-config,arn:aws:notificationscontacts:us-west-2:123456789012:emailcontact:example-contact
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
@@ -173,6 +176,7 @@ class ChannelAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:notifications/channelAssociation:ChannelAssociation example arn:aws:notifications:us-west-2:123456789012:configuration:example-notification-config,arn:aws:notificationscontacts:us-west-2:123456789012:emailcontact:example-contact
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ChannelAssociationArgs args: The arguments to use to populate this resource's properties.

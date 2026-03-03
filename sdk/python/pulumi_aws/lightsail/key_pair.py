@@ -27,6 +27,7 @@ class KeyPairArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a KeyPair resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] pgp_key: PGP key to encrypt the resulting private key material. Only used when creating a new key pair.
@@ -141,6 +142,7 @@ class _KeyPairState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering KeyPair resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the Lightsail key pair.
         :param pulumi.Input[_builtins.str] encrypted_fingerprint: MD5 public key fingerprint for the encrypted private key.
         :param pulumi.Input[_builtins.str] encrypted_private_key: Private key material, base 64 encoded and encrypted with the given `pgp_key`. This is only populated when creating a new key and `pgp_key` is supplied.
@@ -384,6 +386,7 @@ class KeyPair(pulumi.CustomResource):
 
         You cannot import Lightsail Key Pairs because the private and public key are only available on initial creation.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the Lightsail Key Pair. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -443,6 +446,7 @@ class KeyPair(pulumi.CustomResource):
         ## Import
 
         You cannot import Lightsail Key Pairs because the private and public key are only available on initial creation.
+
 
         :param str resource_name: The name of the resource.
         :param KeyPairArgs args: The arguments to use to populate this resource's properties.

@@ -34,6 +34,7 @@ class SecurityGroupRuleArgs:
                  source_security_group_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurityGroupRule resource.
+
         :param pulumi.Input[_builtins.int] from_port: Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
         :param pulumi.Input[Union[_builtins.str, 'ProtocolType']] protocol: Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
         :param pulumi.Input[_builtins.str] security_group_id: Security group to apply this rule to.
@@ -238,6 +239,7 @@ class _SecurityGroupRuleState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SecurityGroupRule resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_blocks: List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         :param pulumi.Input[_builtins.str] description: Description of the rule.
         :param pulumi.Input[_builtins.int] from_port: Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
@@ -594,6 +596,7 @@ class SecurityGroupRule(pulumi.CustomResource):
         $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule rule_name sg-656c65616e6f72_ingress_tcp_80_80_self_2001:db8::/48
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_blocks: List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
@@ -749,6 +752,7 @@ class SecurityGroupRule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule rule_name sg-656c65616e6f72_ingress_tcp_80_80_self_2001:db8::/48
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecurityGroupRuleArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class CertificateArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
+
         :param pulumi.Input[_builtins.bool] active: Boolean flag to indicate if the certificate should be active
         :param pulumi.Input[_builtins.str] ca_pem: The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
         :param pulumi.Input[_builtins.str] certificate_pem: The certificate to be registered. If `ca_pem` is unspecified, review
@@ -133,6 +134,7 @@ class _CertificateState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
+
         :param pulumi.Input[_builtins.bool] active: Boolean flag to indicate if the certificate should be active
         :param pulumi.Input[_builtins.str] arn: The ARN of the created certificate.
         :param pulumi.Input[_builtins.str] ca_certificate_id: The certificate ID of the CA certificate used to sign the certificate.
@@ -337,6 +339,7 @@ class Certificate(pulumi.CustomResource):
             active=True)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] active: Boolean flag to indicate if the certificate should be active
@@ -396,6 +399,7 @@ class Certificate(pulumi.CustomResource):
             certificate_pem=std.file(input="/my/cert.pem").result,
             active=True)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

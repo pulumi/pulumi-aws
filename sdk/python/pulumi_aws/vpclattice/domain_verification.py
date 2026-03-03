@@ -24,6 +24,7 @@ class DomainVerificationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DomainVerification resource.
+
         :param pulumi.Input[_builtins.str] domain_name: The domain name to verify ownership for.
                
                The following arguments are optional:
@@ -90,6 +91,7 @@ class _DomainVerificationState:
                  txt_record_value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DomainVerification resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the domain verification.
         :param pulumi.Input[_builtins.str] created_at: The date and time that the domain verification was created, in ISO-8601 format.
         :param pulumi.Input[_builtins.str] domain_name: The domain name to verify ownership for.
@@ -302,6 +304,7 @@ class DomainVerification(pulumi.CustomResource):
         $ pulumi import aws:vpclattice/domainVerification:DomainVerification example dv-0a1b2c3d4e5f
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_name: The domain name to verify ownership for.
@@ -360,6 +363,7 @@ class DomainVerification(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:vpclattice/domainVerification:DomainVerification example dv-0a1b2c3d4e5f
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DomainVerificationArgs args: The arguments to use to populate this resource's properties.

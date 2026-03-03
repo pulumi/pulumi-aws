@@ -28,6 +28,7 @@ class StorageLensConfigurationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a StorageLensConfiguration resource.
+
         :param pulumi.Input[_builtins.str] config_id: The ID of the S3 Storage Lens configuration.
         :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationArgs'] storage_lens_configuration: The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
@@ -116,6 +117,7 @@ class _StorageLensConfigurationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering StorageLensConfiguration resources.
+
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
         :param pulumi.Input[_builtins.str] config_id: The ID of the S3 Storage Lens configuration.
@@ -292,6 +294,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
         $ pulumi import aws:s3control/storageLensConfiguration:StorageLensConfiguration example 123456789012:example-1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
@@ -361,6 +364,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3control/storageLensConfiguration:StorageLensConfiguration example 123456789012:example-1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StorageLensConfigurationArgs args: The arguments to use to populate this resource's properties.

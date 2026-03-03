@@ -28,6 +28,7 @@ class AnalyzerArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Analyzer resource.
+
         :param pulumi.Input[_builtins.str] analyzer_name: Name of the Analyzer.
                
                The following arguments are optional:
@@ -121,6 +122,7 @@ class _AnalyzerState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Analyzer resources.
+
         :param pulumi.Input[_builtins.str] analyzer_name: Name of the Analyzer.
                
                The following arguments are optional:
@@ -361,6 +363,7 @@ class Analyzer(pulumi.CustomResource):
         $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] analyzer_name: Name of the Analyzer.
@@ -492,6 +495,7 @@ class Analyzer(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AnalyzerArgs args: The arguments to use to populate this resource's properties.

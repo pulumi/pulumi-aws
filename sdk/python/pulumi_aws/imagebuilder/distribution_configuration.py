@@ -28,6 +28,7 @@ class DistributionConfigurationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DistributionConfiguration resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArgs']]] distributions: One or more configuration blocks with distribution settings. Detailed below.
                
                The following arguments are optional:
@@ -123,6 +124,7 @@ class _DistributionConfigurationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DistributionConfiguration resources.
+
         :param pulumi.Input[_builtins.str] arn: (Required) Amazon Resource Name (ARN) of the distribution configuration.
         :param pulumi.Input[_builtins.str] date_created: Date the distribution configuration was created.
         :param pulumi.Input[_builtins.str] date_updated: Date the distribution configuration was updated.
@@ -319,6 +321,7 @@ class DistributionConfiguration(pulumi.CustomResource):
         $ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the distribution configuration.
@@ -376,6 +379,7 @@ class DistributionConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DistributionConfigurationArgs args: The arguments to use to populate this resource's properties.

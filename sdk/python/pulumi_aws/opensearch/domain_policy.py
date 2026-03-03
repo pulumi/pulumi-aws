@@ -24,6 +24,7 @@ class DomainPolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DomainPolicy resource.
+
         :param pulumi.Input[_builtins.str] access_policies: IAM policy document specifying the access policies for the domain
         :param pulumi.Input[_builtins.str] domain_name: Name of the domain.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -78,6 +79,7 @@ class _DomainPolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DomainPolicy resources.
+
         :param pulumi.Input[_builtins.str] access_policies: IAM policy document specifying the access policies for the domain
         :param pulumi.Input[_builtins.str] domain_name: Name of the domain.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -175,6 +177,7 @@ class DomainPolicy(pulumi.CustomResource):
         $ pulumi import aws:opensearch/domainPolicy:DomainPolicy example esd-policy-tf-test
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_policies: IAM policy document specifying the access policies for the domain
@@ -225,6 +228,7 @@ class DomainPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:opensearch/domainPolicy:DomainPolicy example esd-policy-tf-test
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DomainPolicyArgs args: The arguments to use to populate this resource's properties.

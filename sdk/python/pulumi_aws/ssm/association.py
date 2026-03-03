@@ -40,6 +40,7 @@ class AssociationArgs:
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Association resource.
+
         :param pulumi.Input[_builtins.bool] apply_only_at_cron_interval: By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
         :param pulumi.Input[_builtins.str] association_name: The descriptive name for the association.
         :param pulumi.Input[_builtins.str] automation_target_parameter_name: Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
@@ -327,6 +328,7 @@ class _AssociationState:
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Association resources.
+
         :param pulumi.Input[_builtins.bool] apply_only_at_cron_interval: By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
         :param pulumi.Input[_builtins.str] arn: The ARN of the SSM association
         :param pulumi.Input[_builtins.str] association_id: The ID of the SSM association.
@@ -888,6 +890,7 @@ class Association(pulumi.CustomResource):
         $ pulumi import aws:ssm/association:Association example 10abcdef-0abc-1234-5678-90abcdef123456
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] apply_only_at_cron_interval: By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
@@ -1145,6 +1148,7 @@ class Association(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ssm/association:Association example 10abcdef-0abc-1234-5678-90abcdef123456
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AssociationArgs args: The arguments to use to populate this resource's properties.

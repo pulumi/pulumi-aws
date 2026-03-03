@@ -30,6 +30,7 @@ class ConnectorProfileArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConnectorProfile resource.
+
         :param pulumi.Input[_builtins.str] connection_mode: Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
         :param pulumi.Input['ConnectorProfileConnectorProfileConfigArgs'] connector_profile_config: Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
         :param pulumi.Input[_builtins.str] connector_type: The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
@@ -147,6 +148,7 @@ class _ConnectorProfileState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConnectorProfile resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the connector profile.
         :param pulumi.Input[_builtins.str] connection_mode: Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
         :param pulumi.Input[_builtins.str] connector_label: The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
@@ -381,6 +383,7 @@ class ConnectorProfile(pulumi.CustomResource):
         [1]: https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html
         [2]: https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connection_mode: Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
@@ -480,6 +483,7 @@ class ConnectorProfile(pulumi.CustomResource):
 
         [1]: https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html
         [2]: https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html
+
 
         :param str resource_name: The name of the resource.
         :param ConnectorProfileArgs args: The arguments to use to populate this resource's properties.

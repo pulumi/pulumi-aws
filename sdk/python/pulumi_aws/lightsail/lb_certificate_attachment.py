@@ -24,6 +24,7 @@ class LbCertificateAttachmentArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LbCertificateAttachment resource.
+
         :param pulumi.Input[_builtins.str] certificate_name: Name of your SSL/TLS certificate.
         :param pulumi.Input[_builtins.str] lb_name: Name of the load balancer to which you want to associate the SSL/TLS certificate.
                
@@ -82,6 +83,7 @@ class _LbCertificateAttachmentState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LbCertificateAttachment resources.
+
         :param pulumi.Input[_builtins.str] certificate_name: Name of your SSL/TLS certificate.
         :param pulumi.Input[_builtins.str] lb_name: Name of the load balancer to which you want to associate the SSL/TLS certificate.
                
@@ -179,6 +181,7 @@ class LbCertificateAttachment(pulumi.CustomResource):
         $ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment example example-load-balancer,example-certificate
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_name: Name of your SSL/TLS certificate.
@@ -227,6 +230,7 @@ class LbCertificateAttachment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment example example-load-balancer,example-certificate
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LbCertificateAttachmentArgs args: The arguments to use to populate this resource's properties.

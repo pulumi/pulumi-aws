@@ -28,6 +28,7 @@ class TableReplicaInitArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TableReplica resource.
+
         :param pulumi.Input[_builtins.str] global_table_arn: ARN of the _main_ or global table which this resource will replicate.
                
                The following arguments are optional:
@@ -153,6 +154,7 @@ class _TableReplicaState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering TableReplica resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the table replica.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Whether deletion protection is enabled (true) or disabled (false) on the table replica.
         :param pulumi.Input[_builtins.str] global_table_arn: ARN of the _main_ or global table which this resource will replicate.
@@ -352,6 +354,7 @@ class TableReplica(pulumi.CustomResource):
         $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Whether deletion protection is enabled (true) or disabled (false) on the table replica.
@@ -412,6 +415,7 @@ class TableReplica(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TableReplicaInitArgs args: The arguments to use to populate this resource's properties.

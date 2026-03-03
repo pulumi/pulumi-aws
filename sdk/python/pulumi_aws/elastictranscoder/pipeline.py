@@ -34,6 +34,7 @@ class PipelineArgs:
                  thumbnail_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]]] = None):
         """
         The set of arguments for constructing a Pipeline resource.
+
         :param pulumi.Input[_builtins.str] input_bucket: The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
         :param pulumi.Input[_builtins.str] role: The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
         :param pulumi.Input[_builtins.str] aws_kms_key_arn: The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
@@ -235,6 +236,7 @@ class _PipelineState:
                  thumbnail_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]]] = None):
         """
         Input properties used for looking up and filtering Pipeline resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the Elastictranscoder pipeline.
         :param pulumi.Input[_builtins.str] aws_kms_key_arn: The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
         :param pulumi.Input['PipelineContentConfigArgs'] content_config: The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
@@ -487,6 +489,7 @@ class Pipeline(pulumi.CustomResource):
         $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_kms_key_arn: The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
@@ -548,6 +551,7 @@ class Pipeline(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PipelineArgs args: The arguments to use to populate this resource's properties.

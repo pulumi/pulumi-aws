@@ -40,6 +40,7 @@ class QueueArgs:
                  visibility_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Queue resource.
+
         :param pulumi.Input[_builtins.bool] content_based_deduplication: Enables content-based deduplication for FIFO queues. For more information, see the [related documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing).
         :param pulumi.Input[_builtins.str] deduplication_scope: Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `queue` (default).
         :param pulumi.Input[_builtins.int] delay_seconds: Time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 seconds.
@@ -355,6 +356,7 @@ class _QueueState:
                  visibility_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Queue resources.
+
         :param pulumi.Input[_builtins.str] arn: ARN of the SQS queue.
         :param pulumi.Input[_builtins.bool] content_based_deduplication: Enables content-based deduplication for FIFO queues. For more information, see the [related documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing).
         :param pulumi.Input[_builtins.str] deduplication_scope: Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `queue` (default).
@@ -827,6 +829,7 @@ class Queue(pulumi.CustomResource):
         $ pulumi import aws:sqs/queue:Queue example https://queue.amazonaws.com/80398EXAMPLE/MyQueue
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] content_based_deduplication: Enables content-based deduplication for FIFO queues. For more information, see the [related documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing).
@@ -967,6 +970,7 @@ class Queue(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sqs/queue:Queue example https://queue.amazonaws.com/80398EXAMPLE/MyQueue
         ```
+
 
         :param str resource_name: The name of the resource.
         :param QueueArgs args: The arguments to use to populate this resource's properties.

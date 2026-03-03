@@ -26,6 +26,7 @@ class ClusterSnapshotArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ClusterSnapshot resource.
+
         :param pulumi.Input[_builtins.str] db_cluster_identifier: The DB Cluster Identifier from which to take the snapshot.
         :param pulumi.Input[_builtins.str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -126,6 +127,7 @@ class _ClusterSnapshotState:
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterSnapshot resources.
+
         :param pulumi.Input[_builtins.int] allocated_storage: Allocated storage size in gigabytes (GB).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
         :param pulumi.Input[_builtins.str] db_cluster_identifier: The DB Cluster Identifier from which to take the snapshot.
@@ -440,6 +442,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         $ pulumi import aws:rds/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] db_cluster_identifier: The DB Cluster Identifier from which to take the snapshot.
@@ -475,6 +478,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:rds/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterSnapshotArgs args: The arguments to use to populate this resource's properties.

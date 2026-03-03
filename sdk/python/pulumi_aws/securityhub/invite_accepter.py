@@ -23,6 +23,7 @@ class InviteAccepterArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a InviteAccepter resource.
+
         :param pulumi.Input[_builtins.str] master_id: The account ID of the master Security Hub account whose invitation you're accepting.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -63,6 +64,7 @@ class _InviteAccepterState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering InviteAccepter resources.
+
         :param pulumi.Input[_builtins.str] invitation_id: The ID of the invitation.
         :param pulumi.Input[_builtins.str] master_id: The account ID of the master Security Hub account whose invitation you're accepting.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -149,6 +151,7 @@ class InviteAccepter(pulumi.CustomResource):
         $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] master_id: The account ID of the master Security Hub account whose invitation you're accepting.
@@ -188,6 +191,7 @@ class InviteAccepter(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InviteAccepterArgs args: The arguments to use to populate this resource's properties.

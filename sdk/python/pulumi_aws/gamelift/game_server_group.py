@@ -35,6 +35,7 @@ class GameServerGroupArgs:
                  vpc_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a GameServerGroup resource.
+
         :param pulumi.Input[_builtins.str] game_server_group_name: Name of the game server group.
                This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
         :param pulumi.Input[_builtins.int] max_size: The maximum number of instances allowed in the EC2 Auto Scaling group.
@@ -240,6 +241,7 @@ class _GameServerGroupState:
                  vpc_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering GameServerGroup resources.
+
         :param pulumi.Input[_builtins.str] arn: The ARN of the GameLift Game Server Group.
         :param pulumi.Input[_builtins.str] auto_scaling_group_arn: The ARN of the created EC2 Auto Scaling group.
         :param pulumi.Input[_builtins.str] balancing_strategy: Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
@@ -596,6 +598,7 @@ class GameServerGroup(pulumi.CustomResource):
         $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] balancing_strategy: Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
@@ -728,6 +731,7 @@ class GameServerGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GameServerGroupArgs args: The arguments to use to populate this resource's properties.

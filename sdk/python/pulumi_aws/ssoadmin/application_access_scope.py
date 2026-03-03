@@ -25,6 +25,7 @@ class ApplicationAccessScopeArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApplicationAccessScope resource.
+
         :param pulumi.Input[_builtins.str] application_arn: Specifies the ARN of the application with the access scope with the targets to add or update.
         :param pulumi.Input[_builtins.str] scope: Specifies the name of the access scope to be associated with the specified targets.
                
@@ -99,6 +100,7 @@ class _ApplicationAccessScopeState:
                  scope: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApplicationAccessScope resources.
+
         :param pulumi.Input[_builtins.str] application_arn: Specifies the ARN of the application with the access scope with the targets to add or update.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorized_targets: Specifies an array list of ARNs that represent the authorized targets for this access scope.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -207,6 +209,7 @@ class ApplicationAccessScope(pulumi.CustomResource):
         $ pulumi import aws:ssoadmin/applicationAccessScope:ApplicationAccessScope example arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012,sso:account:access
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_arn: Specifies the ARN of the application with the access scope with the targets to add or update.
@@ -251,6 +254,7 @@ class ApplicationAccessScope(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ssoadmin/applicationAccessScope:ApplicationAccessScope example arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012,sso:account:access
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationAccessScopeArgs args: The arguments to use to populate this resource's properties.

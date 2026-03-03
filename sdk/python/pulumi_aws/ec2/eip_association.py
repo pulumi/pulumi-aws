@@ -28,6 +28,7 @@ class EipAssociationArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EipAssociation resource.
+
         :param pulumi.Input[_builtins.str] allocation_id: ID of the associated Elastic IP.
                This argument is required despite being optional at the resource level due to legacy support for EC2-Classic networking.
         :param pulumi.Input[_builtins.bool] allow_reassociation: Whether to allow an Elastic IP address to be re-associated.
@@ -162,6 +163,7 @@ class _EipAssociationState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EipAssociation resources.
+
         :param pulumi.Input[_builtins.str] allocation_id: ID of the associated Elastic IP.
                This argument is required despite being optional at the resource level due to legacy support for EC2-Classic networking.
         :param pulumi.Input[_builtins.bool] allow_reassociation: Whether to allow an Elastic IP address to be re-associated.
@@ -332,6 +334,7 @@ class EipAssociation(pulumi.CustomResource):
         $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allocation_id: ID of the associated Elastic IP.
@@ -388,6 +391,7 @@ class EipAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EipAssociationArgs args: The arguments to use to populate this resource's properties.

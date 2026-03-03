@@ -32,6 +32,7 @@ class OrganizationManagedRuleArgs:
                  tag_value_scope: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OrganizationManagedRule resource.
+
         :param pulumi.Input[_builtins.str] rule_identifier: Identifier of an available AWS Config Managed Rule to call. For available values, see the [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) documentation
         :param pulumi.Input[_builtins.str] description: Description of the rule
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_accounts: List of AWS account identifiers to exclude from the rule
@@ -216,6 +217,7 @@ class _OrganizationManagedRuleState:
                  tag_value_scope: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationManagedRule resources.
+
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the rule
         :param pulumi.Input[_builtins.str] description: Description of the rule
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_accounts: List of AWS account identifiers to exclude from the rule
@@ -447,6 +449,7 @@ class OrganizationManagedRule(pulumi.CustomResource):
         $ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the rule
@@ -496,6 +499,7 @@ class OrganizationManagedRule(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationManagedRuleArgs args: The arguments to use to populate this resource's properties.

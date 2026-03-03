@@ -31,6 +31,7 @@ class FlowDefinitionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FlowDefinition resource.
+
         :param pulumi.Input[_builtins.str] flow_definition_name: The name of your flow definition.
         :param pulumi.Input['FlowDefinitionHumanLoopConfigArgs'] human_loop_config: An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
         :param pulumi.Input['FlowDefinitionOutputConfigArgs'] output_config: An object containing information about where the human review results will be uploaded. See Output Config details below.
@@ -165,6 +166,7 @@ class _FlowDefinitionState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering FlowDefinition resources.
+
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
         :param pulumi.Input[_builtins.str] flow_definition_name: The name of your flow definition.
         :param pulumi.Input['FlowDefinitionHumanLoopActivationConfigArgs'] human_loop_activation_config: An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
@@ -436,6 +438,7 @@ class FlowDefinition(pulumi.CustomResource):
         $ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] flow_definition_name: The name of your flow definition.
@@ -555,6 +558,7 @@ class FlowDefinition(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FlowDefinitionArgs args: The arguments to use to populate this resource's properties.

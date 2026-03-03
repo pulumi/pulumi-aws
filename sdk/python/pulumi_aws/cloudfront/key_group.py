@@ -24,6 +24,7 @@ class KeyGroupArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a KeyGroup resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] items: A list of the identifiers of the public keys in the key group.
         :param pulumi.Input[_builtins.str] comment: A comment to describe the key group..
         :param pulumi.Input[_builtins.str] name: A name to identify the key group.
@@ -80,6 +81,7 @@ class _KeyGroupState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering KeyGroup resources.
+
         :param pulumi.Input[_builtins.str] comment: A comment to describe the key group..
         :param pulumi.Input[_builtins.str] etag: The identifier for this version of the key group.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] items: A list of the identifiers of the public keys in the key group.
@@ -181,6 +183,7 @@ class KeyGroup(pulumi.CustomResource):
         $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: A comment to describe the key group..
@@ -220,6 +223,7 @@ class KeyGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
         ```
+
 
         :param str resource_name: The name of the resource.
         :param KeyGroupArgs args: The arguments to use to populate this resource's properties.

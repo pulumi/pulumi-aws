@@ -39,6 +39,7 @@ class EndpointArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
+
         :param pulumi.Input[_builtins.str] attachment_type: The type of attachment. Currently, only `vpc` is supported.
         :param pulumi.Input[_builtins.str] endpoint_type: The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
         :param pulumi.Input[_builtins.str] verified_access_group_id: The ID of the Verified Access group to associate the endpoint with.
@@ -304,6 +305,7 @@ class _EndpointState:
                  verified_access_instance_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Endpoint resources.
+
         :param pulumi.Input[_builtins.str] application_domain: The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
         :param pulumi.Input[_builtins.str] attachment_type: The type of attachment. Currently, only `vpc` is supported.
         :param pulumi.Input['EndpointCidrOptionsArgs'] cidr_options: The CIDR block details. This parameter is required if the endpoint type is `cidr`.
@@ -703,6 +705,7 @@ class Endpoint(pulumi.CustomResource):
         $ pulumi import aws:verifiedaccess/endpoint:Endpoint example vae-8012925589
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_domain: The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
@@ -809,6 +812,7 @@ class Endpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:verifiedaccess/endpoint:Endpoint example vae-8012925589
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EndpointArgs args: The arguments to use to populate this resource's properties.

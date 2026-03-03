@@ -22,6 +22,7 @@ class AdminAccountArgs:
                  account_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AdminAccount resource.
+
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
         """
         if account_id is not None:
@@ -46,6 +47,7 @@ class _AdminAccountState:
                  account_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AdminAccount resources.
+
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
         """
         if account_id is not None:
@@ -92,6 +94,7 @@ class AdminAccount(pulumi.CustomResource):
         $ pulumi import aws:fms/adminAccount:AdminAccount example 123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
@@ -121,6 +124,7 @@ class AdminAccount(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:fms/adminAccount:AdminAccount example 123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AdminAccountArgs args: The arguments to use to populate this resource's properties.
