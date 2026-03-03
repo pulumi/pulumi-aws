@@ -22,10 +22,30 @@ Please refer to the [main Pulumi repo](https://github.com/pulumi/pulumi/)'s [CON
 
 You must generate and check in the SDKs on each pull request containing a code change, e.g. adding a new resource to `resources.go`.
 
-1. Run `make tfgen` to re-generate the provider binary.
-1. Run `make build_sdks` from the root of this repository
-1. Open a pull request containing all changes
+1. Run `make schema && make provider` to regenerate schema artifacts and the provider binary.
+1. Run `make tfgen` to regenerate SDK source from schema artifacts.
+1. Run `make build_sdks` from the root of this repository.
+1. Open a pull request containing all changes.
 1. *Note:* If a large number of seemingly-unrelated diffs are produced by `make build_sdks` (for example, lots of changes to comments unrelated to the change you are making), ensure that the latest dependencies for the provider are installed by running `go mod tidy` in the `provider/` directory of this repository.
+
+## Local Verification Loop
+
+For most provider-code changes, run this loop before opening a pull request:
+
+1. `make lint`
+1. `make test_provider`
+1. If schema-affecting files changed (for example `provider/resources.go`, overlays, or mappings):
+   1. `make schema`
+   1. `make build_sdks`
+
+## AI-Assisted Contributions
+
+If you are using an AI coding assistant:
+
+1. Read `AGENTS.md` first.
+1. Keep changes scoped and avoid unrelated refactors.
+1. Do not manually edit generated files under `sdk/`.
+1. Include exact validation commands and outcomes in the pull request description.
 
 ## Running Integration Tests
 
