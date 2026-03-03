@@ -14,7 +14,7 @@ This repository builds the Pulumi AWS provider (`pulumi-resource-aws`) by bridgi
 ## Command canon
 - Prepare workspace: `make prepare_local_workspace`
 - Lint provider code: `make lint`
-- Fast targeted provider test: `cd provider && go test -run TestFast -short ./...`
+- Fast targeted provider test (example; replace with the test you are touching): `cd provider && go test -run TestProvider -short ./...`
 - Provider tests: `make test_provider`
 - Regenerate schema artifacts: `make schema`
 - Build provider binary: `make provider`
