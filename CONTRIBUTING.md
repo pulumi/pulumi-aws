@@ -34,9 +34,9 @@ For most provider-code changes, run this loop before opening a pull request:
 
 1. `make lint`
 1. `make test_provider`
-1. If schema-affecting files changed (for example `provider/resources.go`, overlays, or mappings):
-   1. `make schema`
-   1. `make build_sdks`
+1. If schema-affecting files changed (for example `provider/resources.go`, overlays, or mappings), also run:
+   - `make schema`
+   - `make build_sdks`
 
 ## AI-Assisted Contributions
 
