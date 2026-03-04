@@ -80,6 +80,8 @@ type LookupWorkspaceResult struct {
 	GrafanaVersion string `pulumi:"grafanaVersion"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// The ID or ARN of the AWS KMS key for encrypting workspace data.
+	KmsKeyId string `pulumi:"kmsKeyId"`
 	// Last updated date of the Grafana workspace.
 	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
 	// Grafana workspace name.
@@ -186,6 +188,11 @@ func (o LookupWorkspaceResultOutput) GrafanaVersion() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupWorkspaceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The ID or ARN of the AWS KMS key for encrypting workspace data.
+func (o LookupWorkspaceResultOutput) KmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
 // Last updated date of the Grafana workspace.

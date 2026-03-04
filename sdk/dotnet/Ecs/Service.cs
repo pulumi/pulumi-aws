@@ -268,7 +268,80 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// 
+    /// ### Service Connect with Access Logs
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("example", new()
+    ///     {
+    ///         Name = "/ecs/example/service-connect",
+    ///     });
+    /// 
+    ///     var current = Aws.GetRegion.Invoke();
+    /// 
+    ///     var example = new Aws.Ecs.Service("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         Cluster = exampleAwsEcsCluster.Id,
+    ///         TaskDefinition = exampleAwsEcsTaskDefinition.Arn,
+    ///         DesiredCount = 1,
+    ///         ServiceConnectConfiguration = new Aws.Ecs.Inputs.ServiceServiceConnectConfigurationArgs
+    ///         {
+    ///             Enabled = true,
+    ///             Namespace = exampleAwsServiceDiscoveryHttpNamespace.Arn,
+    ///             LogConfiguration = new Aws.Ecs.Inputs.ServiceServiceConnectConfigurationLogConfigurationArgs
+    ///             {
+    ///                 LogDriver = "awslogs",
+    ///                 Options = 
+    ///                 {
+    ///                     { "awslogs-group", exampleLogGroup.Name },
+    ///                     { "awslogs-region", current.Apply(getRegionResult =&gt; getRegionResult.Name) },
+    ///                     { "awslogs-stream-prefix", "service-connect" },
+    ///                 },
+    ///             },
+    ///             AccessLogConfiguration = new Aws.Ecs.Inputs.ServiceServiceConnectConfigurationAccessLogConfigurationArgs
+    ///             {
+    ///                 Format = "TEXT",
+    ///                 IncludeQueryParameters = "ENABLED",
+    ///             },
+    ///             Services = new[]
+    ///             {
+    ///                 new Aws.Ecs.Inputs.ServiceServiceConnectConfigurationServiceArgs
+    ///                 {
+    ///                     PortName = "http",
+    ///                     DiscoveryName = "example",
+    ///                     ClientAlias = 
+    ///                     {
+    ///                         { "dnsName", "example" },
+    ///                         { "port", 8080 },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
+    /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Cluster` (String) The name of the cluster.
+    /// * `Name` (String) The name of the service.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
     /// Using `pulumi import`, import ECS services using the `Name` together with ecs cluster `Name`. For example:
     /// 

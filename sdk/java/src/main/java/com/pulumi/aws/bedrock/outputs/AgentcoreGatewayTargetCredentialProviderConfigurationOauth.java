@@ -9,6 +9,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -19,7 +20,17 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauth {
      */
     private @Nullable Map<String,String> customParameters;
     /**
-     * @return ARN of the OIDC provider for OAuth authentication.
+     * @return The URL where the end user&#39;s browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
+     * 
+     */
+    private @Nullable String defaultReturnUrl;
+    /**
+     * @return The OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+     * 
+     */
+    private @Nullable String grantType;
+    /**
+     * @return ARN of the Oauth credential provider for OAuth authentication.
      * 
      */
     private String providerArn;
@@ -38,7 +49,21 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauth {
         return this.customParameters == null ? Map.of() : this.customParameters;
     }
     /**
-     * @return ARN of the OIDC provider for OAuth authentication.
+     * @return The URL where the end user&#39;s browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
+     * 
+     */
+    public Optional<String> defaultReturnUrl() {
+        return Optional.ofNullable(this.defaultReturnUrl);
+    }
+    /**
+     * @return The OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+     * 
+     */
+    public Optional<String> grantType() {
+        return Optional.ofNullable(this.grantType);
+    }
+    /**
+     * @return ARN of the Oauth credential provider for OAuth authentication.
      * 
      */
     public String providerArn() {
@@ -62,12 +87,16 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauth {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,String> customParameters;
+        private @Nullable String defaultReturnUrl;
+        private @Nullable String grantType;
         private String providerArn;
         private List<String> scopes;
         public Builder() {}
         public Builder(AgentcoreGatewayTargetCredentialProviderConfigurationOauth defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customParameters = defaults.customParameters;
+    	      this.defaultReturnUrl = defaults.defaultReturnUrl;
+    	      this.grantType = defaults.grantType;
     	      this.providerArn = defaults.providerArn;
     	      this.scopes = defaults.scopes;
         }
@@ -76,6 +105,18 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauth {
         public Builder customParameters(@Nullable Map<String,String> customParameters) {
 
             this.customParameters = customParameters;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder defaultReturnUrl(@Nullable String defaultReturnUrl) {
+
+            this.defaultReturnUrl = defaultReturnUrl;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder grantType(@Nullable String grantType) {
+
+            this.grantType = grantType;
             return this;
         }
         @CustomType.Setter
@@ -100,6 +141,8 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauth {
         public AgentcoreGatewayTargetCredentialProviderConfigurationOauth build() {
             final var _resultValue = new AgentcoreGatewayTargetCredentialProviderConfigurationOauth();
             _resultValue.customParameters = customParameters;
+            _resultValue.defaultReturnUrl = defaultReturnUrl;
+            _resultValue.grantType = grantType;
             _resultValue.providerArn = providerArn;
             _resultValue.scopes = scopes;
             return _resultValue;

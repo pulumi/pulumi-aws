@@ -151,15 +151,31 @@ public class AppMonitor extends com.pulumi.resources.CustomResource {
     public Output<String> cwLogGroup() {
         return this.cwLogGroup;
     }
+    /**
+     * The top-level internet domain name for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
+     * 
+     */
     @Export(name="domain", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> domain;
 
+    /**
+     * @return The top-level internet domain name for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
+     * 
+     */
     public Output<Optional<String>> domain() {
         return Codegen.optional(this.domain);
     }
+    /**
+     * A list of internet domain names for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
+     * 
+     */
     @Export(name="domainLists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> domainLists;
 
+    /**
+     * @return A list of internet domain names for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
+     * 
+     */
     public Output<Optional<List<String>>> domainLists() {
         return Codegen.optional(this.domainLists);
     }

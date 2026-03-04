@@ -171,7 +171,25 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * You cannot import Target Group Attachments.
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `targetGroupArn` - (String) ARN of the target group.
+ * * `targetId` - (String) ID of the target (instance ID, IP address, Lambda ARN, or ALB ARN).
+ * 
+ * #### Optional
+ * 
+ * * `port` - (Number) Port on which targets receive traffic.
+ * * `availabilityZone` - (String) Availability zone where the target is registered.
+ * * `accountId` - (String) AWS Account where this resource is managed.
+ * * `region` - (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import Target Group Attachments using the same format. For example:
+ * 
+ * ```sh
+ * $ pulumi import aws:alb/targetGroupAttachment:TargetGroupAttachment example arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-tg/abc123,i-0123456789abcdef0,8080
+ * ```
  * 
  */
 @ResourceType(type="aws:alb/targetGroupAttachment:TargetGroupAttachment")

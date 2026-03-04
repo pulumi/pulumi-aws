@@ -13,6 +13,12 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class ServiceServiceConnectConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configuration for Service Connect access logs. See below.
+        /// </summary>
+        [Input("accessLogConfiguration")]
+        public Input<Inputs.ServiceServiceConnectConfigurationAccessLogConfigurationArgs>? AccessLogConfiguration { get; set; }
+
+        /// <summary>
         /// Whether to use Service Connect with this service.
         /// </summary>
         [Input("enabled", required: true)]

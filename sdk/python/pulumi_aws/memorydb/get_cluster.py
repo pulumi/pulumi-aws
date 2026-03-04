@@ -27,7 +27,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, acl_name=None, arn=None, auto_minor_version_upgrade=None, cluster_endpoints=None, data_tiering=None, description=None, engine=None, engine_patch_version=None, engine_version=None, final_snapshot_name=None, id=None, kms_key_arn=None, maintenance_window=None, name=None, node_type=None, num_replicas_per_shard=None, num_shards=None, parameter_group_name=None, port=None, region=None, security_group_ids=None, shards=None, snapshot_retention_limit=None, snapshot_window=None, sns_topic_arn=None, subnet_group_name=None, tags=None, tls_enabled=None):
+    def __init__(__self__, acl_name=None, arn=None, auto_minor_version_upgrade=None, cluster_endpoints=None, data_tiering=None, description=None, engine=None, engine_patch_version=None, engine_version=None, final_snapshot_name=None, id=None, ip_discovery=None, kms_key_arn=None, maintenance_window=None, name=None, network_type=None, node_type=None, num_replicas_per_shard=None, num_shards=None, parameter_group_name=None, port=None, region=None, security_group_ids=None, shards=None, snapshot_retention_limit=None, snapshot_window=None, sns_topic_arn=None, subnet_group_name=None, tags=None, tls_enabled=None):
         if acl_name and not isinstance(acl_name, str):
             raise TypeError("Expected argument 'acl_name' to be a str")
         pulumi.set(__self__, "acl_name", acl_name)
@@ -61,6 +61,9 @@ class GetClusterResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if ip_discovery and not isinstance(ip_discovery, str):
+            raise TypeError("Expected argument 'ip_discovery' to be a str")
+        pulumi.set(__self__, "ip_discovery", ip_discovery)
         if kms_key_arn and not isinstance(kms_key_arn, str):
             raise TypeError("Expected argument 'kms_key_arn' to be a str")
         pulumi.set(__self__, "kms_key_arn", kms_key_arn)
@@ -70,6 +73,9 @@ class GetClusterResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_type and not isinstance(network_type, str):
+            raise TypeError("Expected argument 'network_type' to be a str")
+        pulumi.set(__self__, "network_type", network_type)
         if node_type and not isinstance(node_type, str):
             raise TypeError("Expected argument 'node_type' to be a str")
         pulumi.set(__self__, "node_type", node_type)
@@ -199,6 +205,14 @@ class GetClusterResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter(name="ipDiscovery")
+    def ip_discovery(self) -> _builtins.str:
+        """
+        Mechanism that the cluster uses to discover IP addresses.
+        """
+        return pulumi.get(self, "ip_discovery")
+
+    @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> _builtins.str:
         """
@@ -221,6 +235,14 @@ class GetClusterResult:
         Name of this node.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> _builtins.str:
+        """
+        IP address type for the cluster.
+        """
+        return pulumi.get(self, "network_type")
 
     @_builtins.property
     @pulumi.getter(name="nodeType")
@@ -349,9 +371,11 @@ class AwaitableGetClusterResult(GetClusterResult):
             engine_version=self.engine_version,
             final_snapshot_name=self.final_snapshot_name,
             id=self.id,
+            ip_discovery=self.ip_discovery,
             kms_key_arn=self.kms_key_arn,
             maintenance_window=self.maintenance_window,
             name=self.name,
+            network_type=self.network_type,
             node_type=self.node_type,
             num_replicas_per_shard=self.num_replicas_per_shard,
             num_shards=self.num_shards,
@@ -408,9 +432,11 @@ def get_cluster(name: Optional[_builtins.str] = None,
         engine_version=pulumi.get(__ret__, 'engine_version'),
         final_snapshot_name=pulumi.get(__ret__, 'final_snapshot_name'),
         id=pulumi.get(__ret__, 'id'),
+        ip_discovery=pulumi.get(__ret__, 'ip_discovery'),
         kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
         maintenance_window=pulumi.get(__ret__, 'maintenance_window'),
         name=pulumi.get(__ret__, 'name'),
+        network_type=pulumi.get(__ret__, 'network_type'),
         node_type=pulumi.get(__ret__, 'node_type'),
         num_replicas_per_shard=pulumi.get(__ret__, 'num_replicas_per_shard'),
         num_shards=pulumi.get(__ret__, 'num_shards'),
@@ -464,9 +490,11 @@ def get_cluster_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         engine_version=pulumi.get(__response__, 'engine_version'),
         final_snapshot_name=pulumi.get(__response__, 'final_snapshot_name'),
         id=pulumi.get(__response__, 'id'),
+        ip_discovery=pulumi.get(__response__, 'ip_discovery'),
         kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
         maintenance_window=pulumi.get(__response__, 'maintenance_window'),
         name=pulumi.get(__response__, 'name'),
+        network_type=pulumi.get(__response__, 'network_type'),
         node_type=pulumi.get(__response__, 'node_type'),
         num_replicas_per_shard=pulumi.get(__response__, 'num_replicas_per_shard'),
         num_shards=pulumi.get(__response__, 'num_shards'),

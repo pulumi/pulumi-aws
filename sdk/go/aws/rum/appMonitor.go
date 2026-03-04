@@ -61,8 +61,10 @@ type AppMonitor struct {
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
 	CwLogEnabled pulumi.BoolPtrOutput `pulumi:"cwLogEnabled"`
 	// The name of the log group where the copies are stored.
-	CwLogGroup  pulumi.StringOutput      `pulumi:"cwLogGroup"`
-	Domain      pulumi.StringPtrOutput   `pulumi:"domain"`
+	CwLogGroup pulumi.StringOutput `pulumi:"cwLogGroup"`
+	// The top-level internet domain name for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
+	Domain pulumi.StringPtrOutput `pulumi:"domain"`
+	// A list of internet domain names for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
 	DomainLists pulumi.StringArrayOutput `pulumi:"domainLists"`
 	// The name of the log stream.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -115,8 +117,10 @@ type appMonitorState struct {
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
 	CwLogEnabled *bool `pulumi:"cwLogEnabled"`
 	// The name of the log group where the copies are stored.
-	CwLogGroup  *string  `pulumi:"cwLogGroup"`
-	Domain      *string  `pulumi:"domain"`
+	CwLogGroup *string `pulumi:"cwLogGroup"`
+	// The top-level internet domain name for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
+	Domain *string `pulumi:"domain"`
+	// A list of internet domain names for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
 	DomainLists []string `pulumi:"domainLists"`
 	// The name of the log stream.
 	Name *string `pulumi:"name"`
@@ -140,8 +144,10 @@ type AppMonitorState struct {
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
 	CwLogEnabled pulumi.BoolPtrInput
 	// The name of the log group where the copies are stored.
-	CwLogGroup  pulumi.StringPtrInput
-	Domain      pulumi.StringPtrInput
+	CwLogGroup pulumi.StringPtrInput
+	// The top-level internet domain name for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
+	Domain pulumi.StringPtrInput
+	// A list of internet domain names for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
 	DomainLists pulumi.StringArrayInput
 	// The name of the log stream.
 	Name pulumi.StringPtrInput
@@ -163,9 +169,11 @@ type appMonitorArgs struct {
 	// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See customEvents below.
 	CustomEvents *AppMonitorCustomEvents `pulumi:"customEvents"`
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
-	CwLogEnabled *bool    `pulumi:"cwLogEnabled"`
-	Domain       *string  `pulumi:"domain"`
-	DomainLists  []string `pulumi:"domainLists"`
+	CwLogEnabled *bool `pulumi:"cwLogEnabled"`
+	// The top-level internet domain name for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
+	Domain *string `pulumi:"domain"`
+	// A list of internet domain names for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
+	DomainLists []string `pulumi:"domainLists"`
 	// The name of the log stream.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -182,8 +190,10 @@ type AppMonitorArgs struct {
 	CustomEvents AppMonitorCustomEventsPtrInput
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
 	CwLogEnabled pulumi.BoolPtrInput
-	Domain       pulumi.StringPtrInput
-	DomainLists  pulumi.StringArrayInput
+	// The top-level internet domain name for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
+	Domain pulumi.StringPtrInput
+	// A list of internet domain names for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
+	DomainLists pulumi.StringArrayInput
 	// The name of the log stream.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -309,10 +319,12 @@ func (o AppMonitorOutput) CwLogGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppMonitor) pulumi.StringOutput { return v.CwLogGroup }).(pulumi.StringOutput)
 }
 
+// The top-level internet domain name for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
 func (o AppMonitorOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppMonitor) pulumi.StringPtrOutput { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
+// A list of internet domain names for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
 func (o AppMonitorOutput) DomainLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AppMonitor) pulumi.StringArrayOutput { return v.DomainLists }).(pulumi.StringArrayOutput)
 }

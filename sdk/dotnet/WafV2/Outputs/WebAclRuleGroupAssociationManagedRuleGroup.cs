@@ -14,6 +14,10 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleGroupAssociationManagedRuleGroup
     {
         /// <summary>
+        /// Additional information that's used by a managed rule group. Only one rule attribute is allowed in each config. See below.
+        /// </summary>
+        public readonly Outputs.WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigs? ManagedRuleGroupConfigs;
+        /// <summary>
         /// Name of the managed rule group.
         /// </summary>
         public readonly string Name;
@@ -32,6 +36,8 @@ namespace Pulumi.Aws.WafV2.Outputs
 
         [OutputConstructor]
         private WebAclRuleGroupAssociationManagedRuleGroup(
+            Outputs.WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigs? managedRuleGroupConfigs,
+
             string name,
 
             ImmutableArray<Outputs.WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverride> ruleActionOverrides,
@@ -40,6 +46,7 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             string? version)
         {
+            ManagedRuleGroupConfigs = managedRuleGroupConfigs;
             Name = name;
             RuleActionOverrides = ruleActionOverrides;
             VendorName = vendorName;

@@ -124,7 +124,7 @@ namespace Pulumi.Aws.SecurityLake
         public Output<string> AccessType { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the Data Lake.
+        /// The ARN of the subscriber.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -328,7 +328,7 @@ namespace Pulumi.Aws.SecurityLake
         public Input<string>? AccessType { get; set; }
 
         /// <summary>
-        /// ARN of the Data Lake.
+        /// The ARN of the subscriber.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

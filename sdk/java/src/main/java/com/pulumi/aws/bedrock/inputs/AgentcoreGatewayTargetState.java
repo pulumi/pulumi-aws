@@ -4,6 +4,7 @@
 package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetCredentialProviderConfigurationArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetMetadataConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTimeoutsArgs;
 import com.pulumi.core.Output;
@@ -61,6 +62,21 @@ public final class AgentcoreGatewayTargetState extends com.pulumi.resources.Reso
      */
     public Optional<Output<String>> gatewayIdentifier() {
         return Optional.ofNullable(this.gatewayIdentifier);
+    }
+
+    /**
+     * Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+     * 
+     */
+    @Import(name="metadataConfiguration")
+    private @Nullable Output<AgentcoreGatewayTargetMetadataConfigurationArgs> metadataConfiguration;
+
+    /**
+     * @return Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+     * 
+     */
+    public Optional<Output<AgentcoreGatewayTargetMetadataConfigurationArgs>> metadataConfiguration() {
+        return Optional.ofNullable(this.metadataConfiguration);
     }
 
     /**
@@ -140,6 +156,7 @@ public final class AgentcoreGatewayTargetState extends com.pulumi.resources.Reso
         this.credentialProviderConfiguration = $.credentialProviderConfiguration;
         this.description = $.description;
         this.gatewayIdentifier = $.gatewayIdentifier;
+        this.metadataConfiguration = $.metadataConfiguration;
         this.name = $.name;
         this.region = $.region;
         this.targetConfiguration = $.targetConfiguration;
@@ -226,6 +243,27 @@ public final class AgentcoreGatewayTargetState extends com.pulumi.resources.Reso
          */
         public Builder gatewayIdentifier(String gatewayIdentifier) {
             return gatewayIdentifier(Output.of(gatewayIdentifier));
+        }
+
+        /**
+         * @param metadataConfiguration Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metadataConfiguration(@Nullable Output<AgentcoreGatewayTargetMetadataConfigurationArgs> metadataConfiguration) {
+            $.metadataConfiguration = metadataConfiguration;
+            return this;
+        }
+
+        /**
+         * @param metadataConfiguration Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metadataConfiguration(AgentcoreGatewayTargetMetadataConfigurationArgs metadataConfiguration) {
+            return metadataConfiguration(Output.of(metadataConfiguration));
         }
 
         /**

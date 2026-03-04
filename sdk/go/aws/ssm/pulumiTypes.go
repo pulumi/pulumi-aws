@@ -197,9 +197,9 @@ func (o AssociationOutputLocationPtrOutput) S3Region() pulumi.StringPtrOutput {
 }
 
 type AssociationTarget struct {
-	// Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
+	// User-defined criteria for sending commands that target managed nodes that meet the criteria. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for the list of available keys.
 	Key string `pulumi:"key"`
-	// User-defined criteria that maps to Key. A list of instance IDs or tag values.
+	// List of values that correspond to the specified `key`. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for details.
 	Values []string `pulumi:"values"`
 }
 
@@ -215,9 +215,9 @@ type AssociationTargetInput interface {
 }
 
 type AssociationTargetArgs struct {
-	// Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
+	// User-defined criteria for sending commands that target managed nodes that meet the criteria. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for the list of available keys.
 	Key pulumi.StringInput `pulumi:"key"`
-	// User-defined criteria that maps to Key. A list of instance IDs or tag values.
+	// List of values that correspond to the specified `key`. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for details.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -272,12 +272,12 @@ func (o AssociationTargetOutput) ToAssociationTargetOutputWithContext(ctx contex
 	return o
 }
 
-// Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
+// User-defined criteria for sending commands that target managed nodes that meet the criteria. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for the list of available keys.
 func (o AssociationTargetOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v AssociationTarget) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// User-defined criteria that maps to Key. A list of instance IDs or tag values.
+// List of values that correspond to the specified `key`. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for details.
 func (o AssociationTargetOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AssociationTarget) []string { return v.Values }).(pulumi.StringArrayOutput)
 }

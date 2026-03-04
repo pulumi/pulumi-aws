@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class ServiceServiceConnectConfiguration
     {
         /// <summary>
+        /// Configuration for Service Connect access logs. See below.
+        /// </summary>
+        public readonly Outputs.ServiceServiceConnectConfigurationAccessLogConfiguration? AccessLogConfiguration;
+        /// <summary>
         /// Whether to use Service Connect with this service.
         /// </summary>
         public readonly bool Enabled;
@@ -32,6 +36,8 @@ namespace Pulumi.Aws.Ecs.Outputs
 
         [OutputConstructor]
         private ServiceServiceConnectConfiguration(
+            Outputs.ServiceServiceConnectConfigurationAccessLogConfiguration? accessLogConfiguration,
+
             bool enabled,
 
             Outputs.ServiceServiceConnectConfigurationLogConfiguration? logConfiguration,
@@ -40,6 +46,7 @@ namespace Pulumi.Aws.Ecs.Outputs
 
             ImmutableArray<Outputs.ServiceServiceConnectConfigurationService> services)
         {
+            AccessLogConfiguration = accessLogConfiguration;
             Enabled = enabled;
             LogConfiguration = logConfiguration;
             Namespace = @namespace;

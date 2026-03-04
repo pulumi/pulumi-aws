@@ -143,8 +143,8 @@ class AssociationTarget(dict):
                  key: _builtins.str,
                  values: Sequence[_builtins.str]):
         """
-        :param _builtins.str key: Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
-        :param Sequence[_builtins.str] values: User-defined criteria that maps to Key. A list of instance IDs or tag values.
+        :param _builtins.str key: User-defined criteria for sending commands that target managed nodes that meet the criteria. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for the list of available keys.
+        :param Sequence[_builtins.str] values: List of values that correspond to the specified `key`. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for details.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -153,7 +153,7 @@ class AssociationTarget(dict):
     @pulumi.getter
     def key(self) -> _builtins.str:
         """
-        Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
+        User-defined criteria for sending commands that target managed nodes that meet the criteria. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for the list of available keys.
         """
         return pulumi.get(self, "key")
 
@@ -161,7 +161,7 @@ class AssociationTarget(dict):
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         """
-        User-defined criteria that maps to Key. A list of instance IDs or tag values.
+        List of values that correspond to the specified `key`. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for details.
         """
         return pulumi.get(self, "values")
 

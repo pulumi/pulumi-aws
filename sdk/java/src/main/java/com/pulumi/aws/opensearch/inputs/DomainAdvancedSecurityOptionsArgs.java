@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.opensearch.inputs;
 
+import com.pulumi.aws.opensearch.inputs.DomainAdvancedSecurityOptionsJwtOptionsArgs;
 import com.pulumi.aws.opensearch.inputs.DomainAdvancedSecurityOptionsMasterUserOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -63,6 +64,21 @@ public final class DomainAdvancedSecurityOptionsArgs extends com.pulumi.resource
     }
 
     /**
+     * Configuration block for JWT authentication. Requires OpenSearch 2.11 or later. Detailed below.
+     * 
+     */
+    @Import(name="jwtOptions")
+    private @Nullable Output<DomainAdvancedSecurityOptionsJwtOptionsArgs> jwtOptions;
+
+    /**
+     * @return Configuration block for JWT authentication. Requires OpenSearch 2.11 or later. Detailed below.
+     * 
+     */
+    public Optional<Output<DomainAdvancedSecurityOptionsJwtOptionsArgs>> jwtOptions() {
+        return Optional.ofNullable(this.jwtOptions);
+    }
+
+    /**
      * Configuration block for the main user. Detailed below.
      * 
      */
@@ -83,6 +99,7 @@ public final class DomainAdvancedSecurityOptionsArgs extends com.pulumi.resource
         this.anonymousAuthEnabled = $.anonymousAuthEnabled;
         this.enabled = $.enabled;
         this.internalUserDatabaseEnabled = $.internalUserDatabaseEnabled;
+        this.jwtOptions = $.jwtOptions;
         this.masterUserOptions = $.masterUserOptions;
     }
 
@@ -165,6 +182,27 @@ public final class DomainAdvancedSecurityOptionsArgs extends com.pulumi.resource
          */
         public Builder internalUserDatabaseEnabled(Boolean internalUserDatabaseEnabled) {
             return internalUserDatabaseEnabled(Output.of(internalUserDatabaseEnabled));
+        }
+
+        /**
+         * @param jwtOptions Configuration block for JWT authentication. Requires OpenSearch 2.11 or later. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jwtOptions(@Nullable Output<DomainAdvancedSecurityOptionsJwtOptionsArgs> jwtOptions) {
+            $.jwtOptions = jwtOptions;
+            return this;
+        }
+
+        /**
+         * @param jwtOptions Configuration block for JWT authentication. Requires OpenSearch 2.11 or later. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jwtOptions(DomainAdvancedSecurityOptionsJwtOptionsArgs jwtOptions) {
+            return jwtOptions(Output.of(jwtOptions));
         }
 
         /**

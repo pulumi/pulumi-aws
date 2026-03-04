@@ -9023,6 +9023,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "networkmanager/prefixListAssociation",
+  "fqn": "pulumi_aws.networkmanager",
+  "classes": {
+   "aws:networkmanager/prefixListAssociation:PrefixListAssociation": "PrefixListAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "networkmanager/site",
   "fqn": "pulumi_aws.networkmanager",
   "classes": {

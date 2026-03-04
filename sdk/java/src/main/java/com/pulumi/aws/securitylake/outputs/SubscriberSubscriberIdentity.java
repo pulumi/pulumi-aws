@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class SubscriberSubscriberIdentity {
     /**
-     * @return The AWS Regions where Security Lake is automatically enabled.
+     * @return The external ID used to establish trust relationship with the AWS identity.
      * 
      */
     private String externalId;
     /**
-     * @return Provides encryption details of Amazon Security Lake object.
+     * @return The AWS identity principal.
      * 
      */
     private String principal;
 
     private SubscriberSubscriberIdentity() {}
     /**
-     * @return The AWS Regions where Security Lake is automatically enabled.
+     * @return The external ID used to establish trust relationship with the AWS identity.
      * 
      */
     public String externalId() {
         return this.externalId;
     }
     /**
-     * @return Provides encryption details of Amazon Security Lake object.
+     * @return The AWS identity principal.
      * 
      */
     public String principal() {

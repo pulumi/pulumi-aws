@@ -18,9 +18,15 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         [Input("identityCenterInstanceArn")]
         public Input<string>? IdentityCenterInstanceArn { get; set; }
 
+        /// <summary>
+        /// Element of the JWT assertion to use for roles. Default is `Roles`.
+        /// </summary>
         [Input("rolesKey")]
         public Input<string>? RolesKey { get; set; }
 
+        /// <summary>
+        /// Element of the JWT assertion to use for the user name. Default is `Sub`.
+        /// </summary>
         [Input("subjectKey")]
         public Input<string>? SubjectKey { get; set; }
 

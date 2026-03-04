@@ -201,6 +201,14 @@ class EipDomainName(pulumi.CustomResource):
             domain_name=example_record.fqdn)
         ```
 
+        ## Import
+
+        Using `pulumi import`, import a static reverse DNS record to an Elastic IP addresses using their association IDs. For example:
+
+        ```sh
+        $ pulumi import aws:ec2/eipDomainName:EipDomainName test eipassoc-ab12c345
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -232,6 +240,14 @@ class EipDomainName(pulumi.CustomResource):
         example_eip_domain_name = aws.ec2.EipDomainName("example",
             allocation_id=example.allocation_id,
             domain_name=example_record.fqdn)
+        ```
+
+        ## Import
+
+        Using `pulumi import`, import a static reverse DNS record to an Elastic IP addresses using their association IDs. For example:
+
+        ```sh
+        $ pulumi import aws:ec2/eipDomainName:EipDomainName test eipassoc-ab12c345
         ```
 
 

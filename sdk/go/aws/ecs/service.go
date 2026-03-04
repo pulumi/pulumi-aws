@@ -322,7 +322,86 @@ import (
 //
 // ```
 //
+// ### Service Connect with Access Logs
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
+//				Name: pulumi.String("/ecs/example/service-connect"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ecs.NewService(ctx, "example", &ecs.ServiceArgs{
+//				Name:           pulumi.String("example"),
+//				Cluster:        pulumi.Any(exampleAwsEcsCluster.Id),
+//				TaskDefinition: pulumi.Any(exampleAwsEcsTaskDefinition.Arn),
+//				DesiredCount:   pulumi.Int(1),
+//				ServiceConnectConfiguration: &ecs.ServiceServiceConnectConfigurationArgs{
+//					Enabled:   pulumi.Bool(true),
+//					Namespace: pulumi.Any(exampleAwsServiceDiscoveryHttpNamespace.Arn),
+//					LogConfiguration: &ecs.ServiceServiceConnectConfigurationLogConfigurationArgs{
+//						LogDriver: pulumi.String("awslogs"),
+//						Options: pulumi.StringMap{
+//							"awslogs-group":         exampleLogGroup.Name,
+//							"awslogs-region":        pulumi.String(current.Name),
+//							"awslogs-stream-prefix": pulumi.String("service-connect"),
+//						},
+//					},
+//					AccessLogConfiguration: &ecs.ServiceServiceConnectConfigurationAccessLogConfigurationArgs{
+//						Format:                 pulumi.String("TEXT"),
+//						IncludeQueryParameters: pulumi.String("ENABLED"),
+//					},
+//					Services: ecs.ServiceServiceConnectConfigurationServiceArray{
+//						&ecs.ServiceServiceConnectConfigurationServiceArgs{
+//							PortName:      pulumi.String("http"),
+//							DiscoveryName: pulumi.String("example"),
+//							ClientAlias: ecs.ServiceServiceConnectConfigurationServiceClientAliasArray{
+//								DnsName: "example",
+//								Port:    8080,
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
+//
+// ### Identity Schema
+//
+// #### Required
+//
+// * `cluster` (String) The name of the cluster.
+// * `name` (String) The name of the service.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
 //
 // Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For example:
 //

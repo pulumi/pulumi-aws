@@ -22,6 +22,10 @@ namespace Pulumi.Aws.CloudWatch.Outputs
         /// </summary>
         public readonly Outputs.EventConnectionAuthParametersBasic? Basic;
         /// <summary>
+        /// Parameters used for `Oauth` with private API. Documented below.
+        /// </summary>
+        public readonly Outputs.EventConnectionAuthParametersConnectivityParameters? ConnectivityParameters;
+        /// <summary>
         /// Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
         /// </summary>
         public readonly Outputs.EventConnectionAuthParametersInvocationHttpParameters? InvocationHttpParameters;
@@ -36,12 +40,15 @@ namespace Pulumi.Aws.CloudWatch.Outputs
 
             Outputs.EventConnectionAuthParametersBasic? basic,
 
+            Outputs.EventConnectionAuthParametersConnectivityParameters? connectivityParameters,
+
             Outputs.EventConnectionAuthParametersInvocationHttpParameters? invocationHttpParameters,
 
             Outputs.EventConnectionAuthParametersOauth? oauth)
         {
             ApiKey = apiKey;
             Basic = basic;
+            ConnectivityParameters = connectivityParameters;
             InvocationHttpParameters = invocationHttpParameters;
             Oauth = oauth;
         }

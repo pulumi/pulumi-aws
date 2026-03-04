@@ -112,6 +112,12 @@ namespace Pulumi.Aws.MemoryDb
         public Output<string?> FinalSnapshotName { get; private set; } = null!;
 
         /// <summary>
+        /// Mechanism that the cluster uses to discover IP addresses. Valid values are `Ipv4` and `Ipv6`. Defaults to `Ipv4`. To specify `Ipv6`, `NetworkType` must be `Ipv6` or `DualStack`.
+        /// </summary>
+        [Output("ipDiscovery")]
+        public Output<string> IpDiscovery { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the KMS key used to encrypt the cluster at rest.
         /// </summary>
         [Output("kmsKeyArn")]
@@ -140,6 +146,12 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
+
+        /// <summary>
+        /// IP address type for the cluster. Valid values are `Ipv4`, `Ipv6` and `DualStack`. Defaults to `Ipv4`.
+        /// </summary>
+        [Output("networkType")]
+        public Output<string> NetworkType { get; private set; } = null!;
 
         /// <summary>
         /// The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
@@ -334,6 +346,12 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string>? FinalSnapshotName { get; set; }
 
         /// <summary>
+        /// Mechanism that the cluster uses to discover IP addresses. Valid values are `Ipv4` and `Ipv6`. Defaults to `Ipv4`. To specify `Ipv6`, `NetworkType` must be `Ipv6` or `DualStack`.
+        /// </summary>
+        [Input("ipDiscovery")]
+        public Input<string>? IpDiscovery { get; set; }
+
+        /// <summary>
         /// ARN of the KMS key used to encrypt the cluster at rest.
         /// </summary>
         [Input("kmsKeyArn")]
@@ -362,6 +380,12 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
+
+        /// <summary>
+        /// IP address type for the cluster. Valid values are `Ipv4`, `Ipv6` and `DualStack`. Defaults to `Ipv4`.
+        /// </summary>
+        [Input("networkType")]
+        public Input<string>? NetworkType { get; set; }
 
         /// <summary>
         /// The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
@@ -544,6 +568,12 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string>? FinalSnapshotName { get; set; }
 
         /// <summary>
+        /// Mechanism that the cluster uses to discover IP addresses. Valid values are `Ipv4` and `Ipv6`. Defaults to `Ipv4`. To specify `Ipv6`, `NetworkType` must be `Ipv6` or `DualStack`.
+        /// </summary>
+        [Input("ipDiscovery")]
+        public Input<string>? IpDiscovery { get; set; }
+
+        /// <summary>
         /// ARN of the KMS key used to encrypt the cluster at rest.
         /// </summary>
         [Input("kmsKeyArn")]
@@ -572,6 +602,12 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
+
+        /// <summary>
+        /// IP address type for the cluster. Valid values are `Ipv4`, `Ipv6` and `DualStack`. Defaults to `Ipv4`.
+        /// </summary>
+        [Input("networkType")]
+        public Input<string>? NetworkType { get; set; }
 
         /// <summary>
         /// The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).

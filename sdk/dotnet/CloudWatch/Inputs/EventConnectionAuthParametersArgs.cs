@@ -25,6 +25,12 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public Input<Inputs.EventConnectionAuthParametersBasicArgs>? Basic { get; set; }
 
         /// <summary>
+        /// Parameters used for `Oauth` with private API. Documented below.
+        /// </summary>
+        [Input("connectivityParameters")]
+        public Input<Inputs.EventConnectionAuthParametersConnectivityParametersArgs>? ConnectivityParameters { get; set; }
+
+        /// <summary>
         /// Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
         /// </summary>
         [Input("invocationHttpParameters")]

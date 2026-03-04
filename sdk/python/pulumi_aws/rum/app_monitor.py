@@ -35,6 +35,8 @@ class AppMonitorArgs:
         :param pulumi.Input['AppMonitorAppMonitorConfigurationArgs'] app_monitor_configuration: configuration data for the app monitor. See app_monitor_configuration below.
         :param pulumi.Input['AppMonitorCustomEventsArgs'] custom_events: Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
         :param pulumi.Input[_builtins.bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+        :param pulumi.Input[_builtins.str] domain: The top-level internet domain name for which your application has administrative authority. Exactly one of `domain` or `domain_list` must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domain_lists: A list of internet domain names for which your application has administrative authority. Exactly one of `domain` or `domain_list` must be specified.
         :param pulumi.Input[_builtins.str] name: The name of the log stream.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -95,6 +97,9 @@ class AppMonitorArgs:
     @_builtins.property
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The top-level internet domain name for which your application has administrative authority. Exactly one of `domain` or `domain_list` must be specified.
+        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -104,6 +109,9 @@ class AppMonitorArgs:
     @_builtins.property
     @pulumi.getter(name="domainLists")
     def domain_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of internet domain names for which your application has administrative authority. Exactly one of `domain` or `domain_list` must be specified.
+        """
         return pulumi.get(self, "domain_lists")
 
     @domain_lists.setter
@@ -171,6 +179,8 @@ class _AppMonitorState:
         :param pulumi.Input['AppMonitorCustomEventsArgs'] custom_events: Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
         :param pulumi.Input[_builtins.bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
         :param pulumi.Input[_builtins.str] cw_log_group: The name of the log group where the copies are stored.
+        :param pulumi.Input[_builtins.str] domain: The top-level internet domain name for which your application has administrative authority. Exactly one of `domain` or `domain_list` must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domain_lists: A list of internet domain names for which your application has administrative authority. Exactly one of `domain` or `domain_list` must be specified.
         :param pulumi.Input[_builtins.str] name: The name of the log stream.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -276,6 +286,9 @@ class _AppMonitorState:
     @_builtins.property
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The top-level internet domain name for which your application has administrative authority. Exactly one of `domain` or `domain_list` must be specified.
+        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -285,6 +298,9 @@ class _AppMonitorState:
     @_builtins.property
     @pulumi.getter(name="domainLists")
     def domain_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of internet domain names for which your application has administrative authority. Exactly one of `domain` or `domain_list` must be specified.
+        """
         return pulumi.get(self, "domain_lists")
 
     @domain_lists.setter
@@ -383,6 +399,8 @@ class AppMonitor(pulumi.CustomResource):
         :param pulumi.Input[Union['AppMonitorAppMonitorConfigurationArgs', 'AppMonitorAppMonitorConfigurationArgsDict']] app_monitor_configuration: configuration data for the app monitor. See app_monitor_configuration below.
         :param pulumi.Input[Union['AppMonitorCustomEventsArgs', 'AppMonitorCustomEventsArgsDict']] custom_events: Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
         :param pulumi.Input[_builtins.bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+        :param pulumi.Input[_builtins.str] domain: The top-level internet domain name for which your application has administrative authority. Exactly one of `domain` or `domain_list` must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domain_lists: A list of internet domain names for which your application has administrative authority. Exactly one of `domain` or `domain_list` must be specified.
         :param pulumi.Input[_builtins.str] name: The name of the log stream.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -495,6 +513,8 @@ class AppMonitor(pulumi.CustomResource):
         :param pulumi.Input[Union['AppMonitorCustomEventsArgs', 'AppMonitorCustomEventsArgsDict']] custom_events: Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
         :param pulumi.Input[_builtins.bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
         :param pulumi.Input[_builtins.str] cw_log_group: The name of the log group where the copies are stored.
+        :param pulumi.Input[_builtins.str] domain: The top-level internet domain name for which your application has administrative authority. Exactly one of `domain` or `domain_list` must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domain_lists: A list of internet domain names for which your application has administrative authority. Exactly one of `domain` or `domain_list` must be specified.
         :param pulumi.Input[_builtins.str] name: The name of the log stream.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -569,11 +589,17 @@ class AppMonitor(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def domain(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The top-level internet domain name for which your application has administrative authority. Exactly one of `domain` or `domain_list` must be specified.
+        """
         return pulumi.get(self, "domain")
 
     @_builtins.property
     @pulumi.getter(name="domainLists")
     def domain_lists(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        A list of internet domain names for which your application has administrative authority. Exactly one of `domain` or `domain_list` must be specified.
+        """
         return pulumi.get(self, "domain_lists")
 
     @_builtins.property

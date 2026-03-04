@@ -36,14 +36,14 @@ public final class SubscriberState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the Data Lake.
+     * The ARN of the subscriber.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the Data Lake.
+     * @return The ARN of the subscriber.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -313,7 +313,7 @@ public final class SubscriberState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the Data Lake.
+         * @param arn The ARN of the subscriber.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class SubscriberState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the Data Lake.
+         * @param arn The ARN of the subscriber.
          * 
          * @return builder
          * 

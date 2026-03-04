@@ -94,6 +94,10 @@ export interface GetClusterResult {
      */
     readonly id: string;
     /**
+     * Mechanism that the cluster uses to discover IP addresses.
+     */
+    readonly ipDiscovery: string;
+    /**
      * ARN of the KMS key used to encrypt the cluster at rest.
      */
     readonly kmsKeyArn: string;
@@ -105,6 +109,10 @@ export interface GetClusterResult {
      * Name of this node.
      */
     readonly name: string;
+    /**
+     * IP address type for the cluster.
+     */
+    readonly networkType: string;
     /**
      * Compute and memory capacity of the nodes in the cluster.
      */

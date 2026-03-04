@@ -14,11 +14,11 @@ namespace Pulumi.Aws.SecurityLake.Outputs
     public sealed class SubscriberSubscriberIdentity
     {
         /// <summary>
-        /// The AWS Regions where Security Lake is automatically enabled.
+        /// The external ID used to establish trust relationship with the AWS identity.
         /// </summary>
         public readonly string ExternalId;
         /// <summary>
-        /// Provides encryption details of Amazon Security Lake object.
+        /// The AWS identity principal.
         /// </summary>
         public readonly string Principal;
 

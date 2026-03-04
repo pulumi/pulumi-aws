@@ -146,6 +146,14 @@ export class AgentcoreOauth2CredentialProvider extends pulumi.CustomResource {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a AgentcoreOauth2CredentialProvider resource with the given unique name, arguments, and options.
@@ -166,6 +174,8 @@ export class AgentcoreOauth2CredentialProvider extends pulumi.CustomResource {
             resourceInputs["name"] = state?.name;
             resourceInputs["oauth2ProviderConfig"] = state?.oauth2ProviderConfig;
             resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as AgentcoreOauth2CredentialProviderArgs | undefined;
             if (args?.credentialProviderVendor === undefined && !opts.urn) {
@@ -175,8 +185,10 @@ export class AgentcoreOauth2CredentialProvider extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["oauth2ProviderConfig"] = args?.oauth2ProviderConfig;
             resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["clientSecretArns"] = undefined /*out*/;
             resourceInputs["credentialProviderArn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AgentcoreOauth2CredentialProvider.__pulumiType, name, resourceInputs, opts);
@@ -213,6 +225,14 @@ export interface AgentcoreOauth2CredentialProviderState {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -237,4 +257,8 @@ export interface AgentcoreOauth2CredentialProviderArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

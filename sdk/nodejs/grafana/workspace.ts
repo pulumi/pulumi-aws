@@ -135,6 +135,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     declare public readonly grafanaVersion: pulumi.Output<string>;
     /**
+     * The ARN of the AWS KMS key for encrypting workspace data.
+     */
+    declare public readonly kmsKeyId: pulumi.Output<string>;
+    /**
      * The Grafana workspace name.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -207,6 +211,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["description"] = state?.description;
             resourceInputs["endpoint"] = state?.endpoint;
             resourceInputs["grafanaVersion"] = state?.grafanaVersion;
+            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
             resourceInputs["name"] = state?.name;
             resourceInputs["networkAccessControl"] = state?.networkAccessControl;
             resourceInputs["notificationDestinations"] = state?.notificationDestinations;
@@ -237,6 +242,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["dataSources"] = args?.dataSources;
             resourceInputs["description"] = args?.description;
             resourceInputs["grafanaVersion"] = args?.grafanaVersion;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
             resourceInputs["name"] = args?.name;
             resourceInputs["networkAccessControl"] = args?.networkAccessControl;
             resourceInputs["notificationDestinations"] = args?.notificationDestinations;
@@ -294,6 +300,10 @@ export interface WorkspaceState {
      * Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
      */
     grafanaVersion?: pulumi.Input<string>;
+    /**
+     * The ARN of the AWS KMS key for encrypting workspace data.
+     */
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * The Grafana workspace name.
      */
@@ -375,6 +385,10 @@ export interface WorkspaceArgs {
      * Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
      */
     grafanaVersion?: pulumi.Input<string>;
+    /**
+     * The ARN of the AWS KMS key for encrypting workspace data.
+     */
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * The Grafana workspace name.
      */

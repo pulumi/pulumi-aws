@@ -13,6 +13,12 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleGroupAssociationManagedRuleGroupGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Additional information that's used by a managed rule group. Only one rule attribute is allowed in each config. See below.
+        /// </summary>
+        [Input("managedRuleGroupConfigs")]
+        public Input<Inputs.WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigsGetArgs>? ManagedRuleGroupConfigs { get; set; }
+
+        /// <summary>
         /// Name of the managed rule group.
         /// </summary>
         [Input("name", required: true)]

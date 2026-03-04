@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Dms.Outputs
         public readonly string DocsToInvestigate;
         public readonly string ExtractDocId;
         public readonly string NestingLevel;
+        public readonly bool UseUpdateLookup;
 
         [OutputConstructor]
         private GetEndpointMongodbSettingResult(
@@ -32,7 +33,9 @@ namespace Pulumi.Aws.Dms.Outputs
 
             string extractDocId,
 
-            string nestingLevel)
+            string nestingLevel,
+
+            bool useUpdateLookup)
         {
             AuthMechanism = authMechanism;
             AuthSource = authSource;
@@ -40,6 +43,7 @@ namespace Pulumi.Aws.Dms.Outputs
             DocsToInvestigate = docsToInvestigate;
             ExtractDocId = extractDocId;
             NestingLevel = nestingLevel;
+            UseUpdateLookup = useUpdateLookup;
         }
     }
 }

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
+import com.pulumi.aws.wafv2.outputs.WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigs;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverride;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -14,6 +15,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleGroupAssociationManagedRuleGroup {
+    /**
+     * @return Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See below.
+     * 
+     */
+    private @Nullable WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigs managedRuleGroupConfigs;
     /**
      * @return Name of the managed rule group.
      * 
@@ -36,6 +42,13 @@ public final class WebAclRuleGroupAssociationManagedRuleGroup {
     private @Nullable String version;
 
     private WebAclRuleGroupAssociationManagedRuleGroup() {}
+    /**
+     * @return Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See below.
+     * 
+     */
+    public Optional<WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigs> managedRuleGroupConfigs() {
+        return Optional.ofNullable(this.managedRuleGroupConfigs);
+    }
     /**
      * @return Name of the managed rule group.
      * 
@@ -74,6 +87,7 @@ public final class WebAclRuleGroupAssociationManagedRuleGroup {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigs managedRuleGroupConfigs;
         private String name;
         private @Nullable List<WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverride> ruleActionOverrides;
         private String vendorName;
@@ -81,12 +95,19 @@ public final class WebAclRuleGroupAssociationManagedRuleGroup {
         public Builder() {}
         public Builder(WebAclRuleGroupAssociationManagedRuleGroup defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.managedRuleGroupConfigs = defaults.managedRuleGroupConfigs;
     	      this.name = defaults.name;
     	      this.ruleActionOverrides = defaults.ruleActionOverrides;
     	      this.vendorName = defaults.vendorName;
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
+        public Builder managedRuleGroupConfigs(@Nullable WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigs managedRuleGroupConfigs) {
+
+            this.managedRuleGroupConfigs = managedRuleGroupConfigs;
+            return this;
+        }
         @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
@@ -120,6 +141,7 @@ public final class WebAclRuleGroupAssociationManagedRuleGroup {
         }
         public WebAclRuleGroupAssociationManagedRuleGroup build() {
             final var _resultValue = new WebAclRuleGroupAssociationManagedRuleGroup();
+            _resultValue.managedRuleGroupConfigs = managedRuleGroupConfigs;
             _resultValue.name = name;
             _resultValue.ruleActionOverrides = ruleActionOverrides;
             _resultValue.vendorName = vendorName;

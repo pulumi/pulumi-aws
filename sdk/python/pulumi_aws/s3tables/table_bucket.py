@@ -520,7 +520,7 @@ class TableBucket(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
-    def encryption_configuration(self) -> pulumi.Output[Optional['outputs.TableBucketEncryptionConfiguration']]:
+    def encryption_configuration(self) -> pulumi.Output['outputs.TableBucketEncryptionConfiguration']:
         """
         A single table bucket encryption configuration object.
         See `encryption_configuration` below.

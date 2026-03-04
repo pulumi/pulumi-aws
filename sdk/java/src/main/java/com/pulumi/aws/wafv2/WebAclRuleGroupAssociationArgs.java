@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleGroupAssociationManagedRuleGroupArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleGroupAssociationRuleGroupReferenceArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleGroupAssociationTimeoutsArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleGroupAssociationVisibilityConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -118,6 +119,21 @@ public final class WebAclRuleGroupAssociationArgs extends com.pulumi.resources.R
     }
 
     /**
+     * Defines and enables Amazon CloudWatch metrics and web request sample collection. See below.
+     * 
+     */
+    @Import(name="visibilityConfig")
+    private @Nullable Output<WebAclRuleGroupAssociationVisibilityConfigArgs> visibilityConfig;
+
+    /**
+     * @return Defines and enables Amazon CloudWatch metrics and web request sample collection. See below.
+     * 
+     */
+    public Optional<Output<WebAclRuleGroupAssociationVisibilityConfigArgs>> visibilityConfig() {
+        return Optional.ofNullable(this.visibilityConfig);
+    }
+
+    /**
      * ARN of the Web ACL to associate the Rule Group with.
      * 
      * The following arguments are optional:
@@ -146,6 +162,7 @@ public final class WebAclRuleGroupAssociationArgs extends com.pulumi.resources.R
         this.ruleGroupReference = $.ruleGroupReference;
         this.ruleName = $.ruleName;
         this.timeouts = $.timeouts;
+        this.visibilityConfig = $.visibilityConfig;
         this.webAclArn = $.webAclArn;
     }
 
@@ -300,6 +317,27 @@ public final class WebAclRuleGroupAssociationArgs extends com.pulumi.resources.R
 
         public Builder timeouts(WebAclRuleGroupAssociationTimeoutsArgs timeouts) {
             return timeouts(Output.of(timeouts));
+        }
+
+        /**
+         * @param visibilityConfig Defines and enables Amazon CloudWatch metrics and web request sample collection. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder visibilityConfig(@Nullable Output<WebAclRuleGroupAssociationVisibilityConfigArgs> visibilityConfig) {
+            $.visibilityConfig = visibilityConfig;
+            return this;
+        }
+
+        /**
+         * @param visibilityConfig Defines and enables Amazon CloudWatch metrics and web request sample collection. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder visibilityConfig(WebAclRuleGroupAssociationVisibilityConfigArgs visibilityConfig) {
+            return visibilityConfig(Output.of(visibilityConfig));
         }
 
         /**

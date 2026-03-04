@@ -240,6 +240,69 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### OAuth Authorization With Connectivity Parameters
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.EventConnection;
+ * import com.pulumi.aws.cloudwatch.EventConnectionArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersConnectivityParametersArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersConnectivityParametersResourceParametersArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersOauthArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersOauthClientParametersArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersOauthOauthHttpParametersArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new EventConnection("test", EventConnectionArgs.builder()
+ *             .name("private-api-connection")
+ *             .description("A connection to a private API")
+ *             .authorizationType("OAUTH_CLIENT_CREDENTIALS")
+ *             .authParameters(EventConnectionAuthParametersArgs.builder()
+ *                 .connectivityParameters(EventConnectionAuthParametersConnectivityParametersArgs.builder()
+ *                     .resourceParameters(EventConnectionAuthParametersConnectivityParametersResourceParametersArgs.builder()
+ *                         .resourceConfigurationArn("arn:aws:vpc-lattice:us-east-1:12345678910:resourceconfiguration/rcfg-12345678910")
+ *                         .build())
+ *                     .build())
+ *                 .oauth(EventConnectionAuthParametersOauthArgs.builder()
+ *                     .authorizationEndpoint("https://private-api.example.com/auth")
+ *                     .httpMethod("POST")
+ *                     .clientParameters(EventConnectionAuthParametersOauthClientParametersArgs.builder()
+ *                         .clientId("1234567890")
+ *                         .clientSecret("Pass1234!")
+ *                         .build())
+ *                     .oauthHttpParameters(EventConnectionAuthParametersOauthOauthHttpParametersArgs.builder()
+ *                         .bodies(EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs.builder()
+ *                             .key("grant_type")
+ *                             .value("client_credentials")
+ *                             .isValueSecret(false)
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### CMK Encryption
  * 
  * <pre>

@@ -159,14 +159,14 @@ public class Subscriber extends com.pulumi.resources.CustomResource {
         return this.accessType;
     }
     /**
-     * ARN of the Data Lake.
+     * The ARN of the subscriber.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN of the Data Lake.
+     * @return The ARN of the subscriber.
      * 
      */
     public Output<String> arn() {
