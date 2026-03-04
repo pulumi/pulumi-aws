@@ -1,44 +1,72 @@
-# Agent Instructions
+# Pulumi aws Provider
 
-## What this repo is
-This repository builds the Pulumi AWS provider (`pulumi-resource-aws`) by bridging Terraform AWS provider code (`upstream/`) into Pulumi schema and generated SDKs (`sdk/`).
+This is a Go-based Pulumi resource provider that bridges the Terraform provider to Pulumi. It generates SDKs for TypeScript/JavaScript, Python, .NET, Go, and Java. The provider uses the Terraform provider as an upstream source via git submodules.
 
-## Start here
-- `Makefile` for canonical commands
-- `provider/` for hand-written provider logic
-- `provider/resources.go` for core resource and data source mappings
-- `patches/` and `scripts/upstream.sh` for upstream patch management
-- `.ci-mgmt.yaml` as source of truth for generated GitHub workflows
-- `CONTRIBUTING.md` for contributor process details
+## Build Commands
 
-## Command canon
-- Prepare workspace: `make prepare_local_workspace`
-- Lint provider code: `make lint`
-- Fast targeted provider test (example; replace with the test you are touching): `cd provider && go test -run TestProvider -short ./...`
-- Provider tests: `make test_provider`
-- Regenerate schema artifacts: `make schema`
-- Build provider binary: `make provider`
-- Build SDKs: `make build_sdks`
+**Always use `make` targets. Never run custom commands unless explicitly instructed.**
 
-## Key invariants
-- Do not edit files under `sdk/` manually; regenerate them.
-- Keep behavior changes in `provider/`, not generated SDKs.
-- Edit `.ci-mgmt.yaml` (not generated `.github/workflows/*.yml`) when changing CI design.
+### Primary Targets
+- `make build` - Build provider and all SDKs
+- `make provider` - Build provider binary
+- `make schema` - Generate provider schema
+- `make tfgen` - Generate SDKs from schema
+- `make upstream` - Initialize upstream submodule
 
-## If you change...
-- Any `.go` file in `provider/`: run `make lint && make test_provider`.
-- `provider/resources.go` or schema shaping logic: run `make schema && make provider && make build_sdks`.
-- `provider/go.mod` or `provider/go.sum`: run `cd provider && go mod tidy` and commit both files.
-- Files in `patches/` or `upstream/`: run `./scripts/upstream.sh init -f` and then `make schema && make test_provider`.
-- `.ci-mgmt.yaml`: run `make ci-mgmt` and commit generated workflow updates.
+### SDK Targets
+- `make build_sdks` - Build all SDK packages
+- `make build_nodejs` - Build TypeScript/Node.js SDK
+- `make build_python` - Build Python SDK
+- `make build_dotnet` - Build .NET SDK
+- `make build_go` - Build Go SDK
+- `make build_java` - Build Java SDK
 
-## Forbidden actions
-- Do not run destructive git commands (for example `git reset --hard`) unless explicitly requested.
-- Do not claim tests pass without running them.
-- Do not run `make test` unless AWS credentials and cloud cost impact are intended.
+### Development Targets
+- `make lint_provider` - Lint provider Go code
+- `make test_provider` - Run provider unit tests
 
-## Escalate immediately if
-- `make schema` or `make build_sdks` creates large unrelated drift.
-- `scripts/upstream.sh` workflow fails because of patch conflicts.
-- Requirements are ambiguous or conflict with current behavior.
-- You are unsure about a `provider/resources.go` mapping decision.
+## Repository Structure
+
+```
+provider/             -- Go provider implementation
+sdk/                  -- Generated SDKs (never edit directly)
+upstream/             -- Terraform provider submodule
+scripts/              -- Build utilities
+examples/             -- Example Pulumi programs
+.ci-mgmt.yaml         -- CI management configuration
+Makefile              -- Build orchestration
+```
+
+### Key Files
+- `provider/resources.go` - Resource definitions
+- `provider/resources_test.go` - Unit tests
+
+## Development Workflow
+
+1. Initialize repository: `make upstream`
+2. Make changes in `provider/`
+3. Lint: `make lint_provider`
+4. Test: `make test_provider`
+5. Build provider: `make provider`
+6. Build SDKs: `make build_sdks`
+
+## Rules
+
+- **Never work directly in `sdk/` folders** - All SDK generation is automated through `make`
+- **Never cancel running builds** - Builds may take several minutes
+- **Do not run tests in `examples/`** - They require cloud credentials and run in CI
+- **Set timeouts to 300+ seconds** for build operations
+
+## CI Notes
+
+- The GitHub Action checks out the PR head automatically when the event is tied to a PR.
+- Use `rg` for search. Avoid `cd ... &&` in bash; prefer `git -C`, `make -C`, or direct paths.
+- Avoid Python scripts in CI; use `rg`, `grep`, `sed`, and `awk` instead.
+- Good (CI-safe):
+  - `rg "pattern" upstream/`
+  - `git -C upstream log -1`
+  - `make -C provider build`
+- Bad (will often be blocked in CI):
+  - `cd upstream && rg "pattern"`
+  - `cd provider && go test ./...`
+  - `python3 - <<'EOF' ... EOF`
