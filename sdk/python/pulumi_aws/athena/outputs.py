@@ -30,6 +30,7 @@ __all__ = [
     'WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogType',
     'WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfiguration',
     'WorkgroupConfigurationMonitoringConfigurationS3LoggingConfiguration',
+    'WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration',
     'WorkgroupConfigurationResultConfiguration',
     'WorkgroupConfigurationResultConfigurationAclConfiguration',
     'WorkgroupConfigurationResultConfigurationEncryptionConfiguration',
@@ -191,6 +192,8 @@ class WorkgroupConfiguration(dict):
             suggest = "monitoring_configuration"
         elif key == "publishCloudwatchMetricsEnabled":
             suggest = "publish_cloudwatch_metrics_enabled"
+        elif key == "queryResultsS3AccessGrantsConfiguration":
+            suggest = "query_results_s3_access_grants_configuration"
         elif key == "requesterPaysEnabled":
             suggest = "requester_pays_enabled"
         elif key == "resultConfiguration":
@@ -218,6 +221,7 @@ class WorkgroupConfiguration(dict):
                  managed_query_results_configuration: Optional['outputs.WorkgroupConfigurationManagedQueryResultsConfiguration'] = None,
                  monitoring_configuration: Optional['outputs.WorkgroupConfigurationMonitoringConfiguration'] = None,
                  publish_cloudwatch_metrics_enabled: Optional[_builtins.bool] = None,
+                 query_results_s3_access_grants_configuration: Optional['outputs.WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration'] = None,
                  requester_pays_enabled: Optional[_builtins.bool] = None,
                  result_configuration: Optional['outputs.WorkgroupConfigurationResultConfiguration'] = None):
         """
@@ -231,6 +235,7 @@ class WorkgroupConfiguration(dict):
         :param 'WorkgroupConfigurationManagedQueryResultsConfigurationArgs' managed_query_results_configuration: Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
         :param 'WorkgroupConfigurationMonitoringConfigurationArgs' monitoring_configuration: Configuration block for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc. Only applicable to Apache Spark engine. See Monitoring Configuration below.
         :param _builtins.bool publish_cloudwatch_metrics_enabled: Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
+        :param 'WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs' query_results_s3_access_grants_configuration: Configuration block for S3 access grants. See Query Results S3 Access Grants Configuration below.
         :param _builtins.bool requester_pays_enabled: If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
         :param 'WorkgroupConfigurationResultConfigurationArgs' result_configuration: Configuration block with result settings. See Result Configuration below.
         """
@@ -254,6 +259,8 @@ class WorkgroupConfiguration(dict):
             pulumi.set(__self__, "monitoring_configuration", monitoring_configuration)
         if publish_cloudwatch_metrics_enabled is not None:
             pulumi.set(__self__, "publish_cloudwatch_metrics_enabled", publish_cloudwatch_metrics_enabled)
+        if query_results_s3_access_grants_configuration is not None:
+            pulumi.set(__self__, "query_results_s3_access_grants_configuration", query_results_s3_access_grants_configuration)
         if requester_pays_enabled is not None:
             pulumi.set(__self__, "requester_pays_enabled", requester_pays_enabled)
         if result_configuration is not None:
@@ -338,6 +345,14 @@ class WorkgroupConfiguration(dict):
         Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
         """
         return pulumi.get(self, "publish_cloudwatch_metrics_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="queryResultsS3AccessGrantsConfiguration")
+    def query_results_s3_access_grants_configuration(self) -> Optional['outputs.WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration']:
+        """
+        Configuration block for S3 access grants. See Query Results S3 Access Grants Configuration below.
+        """
+        return pulumi.get(self, "query_results_s3_access_grants_configuration")
 
     @_builtins.property
     @pulumi.getter(name="requesterPaysEnabled")
@@ -830,6 +845,68 @@ class WorkgroupConfigurationMonitoringConfigurationS3LoggingConfiguration(dict):
         Amazon S3 destination URI (`s3://bucket/prefix`) for log publishing.
         """
         return pulumi.get(self, "log_location")
+
+
+@pulumi.output_type
+class WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "enableS3AccessGrants":
+            suggest = "enable_s3_access_grants"
+        elif key == "createUserLevelPrefix":
+            suggest = "create_user_level_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication_type: _builtins.str,
+                 enable_s3_access_grants: _builtins.bool,
+                 create_user_level_prefix: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str authentication_type: The authentication type used for Amazon S3 access grants. Currently, only `DIRECTORY_IDENTITY` is supported.
+        :param _builtins.bool enable_s3_access_grants: Specifies whether Amazon S3 access grants are enabled for query results.
+        :param _builtins.bool create_user_level_prefix: When enabled, appends the user ID as an Amazon S3 path prefix to the query result output location. Defaults to `false`.
+        """
+        pulumi.set(__self__, "authentication_type", authentication_type)
+        pulumi.set(__self__, "enable_s3_access_grants", enable_s3_access_grants)
+        if create_user_level_prefix is not None:
+            pulumi.set(__self__, "create_user_level_prefix", create_user_level_prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> _builtins.str:
+        """
+        The authentication type used for Amazon S3 access grants. Currently, only `DIRECTORY_IDENTITY` is supported.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @_builtins.property
+    @pulumi.getter(name="enableS3AccessGrants")
+    def enable_s3_access_grants(self) -> _builtins.bool:
+        """
+        Specifies whether Amazon S3 access grants are enabled for query results.
+        """
+        return pulumi.get(self, "enable_s3_access_grants")
+
+    @_builtins.property
+    @pulumi.getter(name="createUserLevelPrefix")
+    def create_user_level_prefix(self) -> Optional[_builtins.bool]:
+        """
+        When enabled, appends the user ID as an Amazon S3 path prefix to the query result output location. Defaults to `false`.
+        """
+        return pulumi.get(self, "create_user_level_prefix")
 
 
 @pulumi.output_type

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.opensearch.outputs;
 
+import com.pulumi.aws.opensearch.outputs.DomainAdvancedSecurityOptionsJwtOptions;
 import com.pulumi.aws.opensearch.outputs.DomainAdvancedSecurityOptionsMasterUserOptions;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -28,6 +29,11 @@ public final class DomainAdvancedSecurityOptions {
      * 
      */
     private @Nullable Boolean internalUserDatabaseEnabled;
+    /**
+     * @return Configuration block for JWT authentication. Requires OpenSearch 2.11 or later. Detailed below.
+     * 
+     */
+    private @Nullable DomainAdvancedSecurityOptionsJwtOptions jwtOptions;
     /**
      * @return Configuration block for the main user. Detailed below.
      * 
@@ -57,6 +63,13 @@ public final class DomainAdvancedSecurityOptions {
         return Optional.ofNullable(this.internalUserDatabaseEnabled);
     }
     /**
+     * @return Configuration block for JWT authentication. Requires OpenSearch 2.11 or later. Detailed below.
+     * 
+     */
+    public Optional<DomainAdvancedSecurityOptionsJwtOptions> jwtOptions() {
+        return Optional.ofNullable(this.jwtOptions);
+    }
+    /**
      * @return Configuration block for the main user. Detailed below.
      * 
      */
@@ -76,6 +89,7 @@ public final class DomainAdvancedSecurityOptions {
         private @Nullable Boolean anonymousAuthEnabled;
         private Boolean enabled;
         private @Nullable Boolean internalUserDatabaseEnabled;
+        private @Nullable DomainAdvancedSecurityOptionsJwtOptions jwtOptions;
         private @Nullable DomainAdvancedSecurityOptionsMasterUserOptions masterUserOptions;
         public Builder() {}
         public Builder(DomainAdvancedSecurityOptions defaults) {
@@ -83,6 +97,7 @@ public final class DomainAdvancedSecurityOptions {
     	      this.anonymousAuthEnabled = defaults.anonymousAuthEnabled;
     	      this.enabled = defaults.enabled;
     	      this.internalUserDatabaseEnabled = defaults.internalUserDatabaseEnabled;
+    	      this.jwtOptions = defaults.jwtOptions;
     	      this.masterUserOptions = defaults.masterUserOptions;
         }
 
@@ -107,6 +122,12 @@ public final class DomainAdvancedSecurityOptions {
             return this;
         }
         @CustomType.Setter
+        public Builder jwtOptions(@Nullable DomainAdvancedSecurityOptionsJwtOptions jwtOptions) {
+
+            this.jwtOptions = jwtOptions;
+            return this;
+        }
+        @CustomType.Setter
         public Builder masterUserOptions(@Nullable DomainAdvancedSecurityOptionsMasterUserOptions masterUserOptions) {
 
             this.masterUserOptions = masterUserOptions;
@@ -117,6 +138,7 @@ public final class DomainAdvancedSecurityOptions {
             _resultValue.anonymousAuthEnabled = anonymousAuthEnabled;
             _resultValue.enabled = enabled;
             _resultValue.internalUserDatabaseEnabled = internalUserDatabaseEnabled;
+            _resultValue.jwtOptions = jwtOptions;
             _resultValue.masterUserOptions = masterUserOptions;
             return _resultValue;
         }

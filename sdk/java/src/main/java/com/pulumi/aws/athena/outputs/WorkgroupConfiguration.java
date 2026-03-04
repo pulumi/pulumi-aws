@@ -8,6 +8,7 @@ import com.pulumi.aws.athena.outputs.WorkgroupConfigurationEngineVersion;
 import com.pulumi.aws.athena.outputs.WorkgroupConfigurationIdentityCenterConfiguration;
 import com.pulumi.aws.athena.outputs.WorkgroupConfigurationManagedQueryResultsConfiguration;
 import com.pulumi.aws.athena.outputs.WorkgroupConfigurationMonitoringConfiguration;
+import com.pulumi.aws.athena.outputs.WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration;
 import com.pulumi.aws.athena.outputs.WorkgroupConfigurationResultConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
@@ -69,6 +70,11 @@ public final class WorkgroupConfiguration {
      * 
      */
     private @Nullable Boolean publishCloudwatchMetricsEnabled;
+    /**
+     * @return Configuration block for S3 access grants. See Query Results S3 Access Grants Configuration below.
+     * 
+     */
+    private @Nullable WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration queryResultsS3AccessGrantsConfiguration;
     /**
      * @return If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
      * 
@@ -152,6 +158,13 @@ public final class WorkgroupConfiguration {
         return Optional.ofNullable(this.publishCloudwatchMetricsEnabled);
     }
     /**
+     * @return Configuration block for S3 access grants. See Query Results S3 Access Grants Configuration below.
+     * 
+     */
+    public Optional<WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration> queryResultsS3AccessGrantsConfiguration() {
+        return Optional.ofNullable(this.queryResultsS3AccessGrantsConfiguration);
+    }
+    /**
      * @return If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
      * 
      */
@@ -185,6 +198,7 @@ public final class WorkgroupConfiguration {
         private @Nullable WorkgroupConfigurationManagedQueryResultsConfiguration managedQueryResultsConfiguration;
         private @Nullable WorkgroupConfigurationMonitoringConfiguration monitoringConfiguration;
         private @Nullable Boolean publishCloudwatchMetricsEnabled;
+        private @Nullable WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration queryResultsS3AccessGrantsConfiguration;
         private @Nullable Boolean requesterPaysEnabled;
         private @Nullable WorkgroupConfigurationResultConfiguration resultConfiguration;
         public Builder() {}
@@ -200,6 +214,7 @@ public final class WorkgroupConfiguration {
     	      this.managedQueryResultsConfiguration = defaults.managedQueryResultsConfiguration;
     	      this.monitoringConfiguration = defaults.monitoringConfiguration;
     	      this.publishCloudwatchMetricsEnabled = defaults.publishCloudwatchMetricsEnabled;
+    	      this.queryResultsS3AccessGrantsConfiguration = defaults.queryResultsS3AccessGrantsConfiguration;
     	      this.requesterPaysEnabled = defaults.requesterPaysEnabled;
     	      this.resultConfiguration = defaults.resultConfiguration;
         }
@@ -265,6 +280,12 @@ public final class WorkgroupConfiguration {
             return this;
         }
         @CustomType.Setter
+        public Builder queryResultsS3AccessGrantsConfiguration(@Nullable WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration queryResultsS3AccessGrantsConfiguration) {
+
+            this.queryResultsS3AccessGrantsConfiguration = queryResultsS3AccessGrantsConfiguration;
+            return this;
+        }
+        @CustomType.Setter
         public Builder requesterPaysEnabled(@Nullable Boolean requesterPaysEnabled) {
 
             this.requesterPaysEnabled = requesterPaysEnabled;
@@ -288,6 +309,7 @@ public final class WorkgroupConfiguration {
             _resultValue.managedQueryResultsConfiguration = managedQueryResultsConfiguration;
             _resultValue.monitoringConfiguration = monitoringConfiguration;
             _resultValue.publishCloudwatchMetricsEnabled = publishCloudwatchMetricsEnabled;
+            _resultValue.queryResultsS3AccessGrantsConfiguration = queryResultsS3AccessGrantsConfiguration;
             _resultValue.requesterPaysEnabled = requesterPaysEnabled;
             _resultValue.resultConfiguration = resultConfiguration;
             return _resultValue;

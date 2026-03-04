@@ -65,16 +65,32 @@ public final class AppMonitorArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.cwLogEnabled);
     }
 
+    /**
+     * The top-level internet domain name for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
+     * 
+     */
     @Import(name="domain")
     private @Nullable Output<String> domain;
 
+    /**
+     * @return The top-level internet domain name for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
+     * 
+     */
     public Optional<Output<String>> domain() {
         return Optional.ofNullable(this.domain);
     }
 
+    /**
+     * A list of internet domain names for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
+     * 
+     */
     @Import(name="domainLists")
     private @Nullable Output<List<String>> domainLists;
 
+    /**
+     * @return A list of internet domain names for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
+     * 
+     */
     public Optional<Output<List<String>>> domainLists() {
         return Optional.ofNullable(this.domainLists);
     }
@@ -218,24 +234,54 @@ public final class AppMonitorArgs extends com.pulumi.resources.ResourceArgs {
             return cwLogEnabled(Output.of(cwLogEnabled));
         }
 
+        /**
+         * @param domain The top-level internet domain name for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domain(@Nullable Output<String> domain) {
             $.domain = domain;
             return this;
         }
 
+        /**
+         * @param domain The top-level internet domain name for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
         }
 
+        /**
+         * @param domainLists A list of internet domain names for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainLists(@Nullable Output<List<String>> domainLists) {
             $.domainLists = domainLists;
             return this;
         }
 
+        /**
+         * @param domainLists A list of internet domain names for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainLists(List<String> domainLists) {
             return domainLists(Output.of(domainLists));
         }
 
+        /**
+         * @param domainLists A list of internet domain names for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainLists(String... domainLists) {
             return domainLists(List.of(domainLists));
         }

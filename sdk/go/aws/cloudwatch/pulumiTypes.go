@@ -487,6 +487,8 @@ type EventConnectionAuthParameters struct {
 	ApiKey *EventConnectionAuthParametersApiKey `pulumi:"apiKey"`
 	// Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `apiKey` and `oauth`. Documented below.
 	Basic *EventConnectionAuthParametersBasic `pulumi:"basic"`
+	// Parameters used for `oauth` with private API. Documented below.
+	ConnectivityParameters *EventConnectionAuthParametersConnectivityParameters `pulumi:"connectivityParameters"`
 	// Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
 	InvocationHttpParameters *EventConnectionAuthParametersInvocationHttpParameters `pulumi:"invocationHttpParameters"`
 	// Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `apiKey`. Documented below.
@@ -509,6 +511,8 @@ type EventConnectionAuthParametersArgs struct {
 	ApiKey EventConnectionAuthParametersApiKeyPtrInput `pulumi:"apiKey"`
 	// Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `apiKey` and `oauth`. Documented below.
 	Basic EventConnectionAuthParametersBasicPtrInput `pulumi:"basic"`
+	// Parameters used for `oauth` with private API. Documented below.
+	ConnectivityParameters EventConnectionAuthParametersConnectivityParametersPtrInput `pulumi:"connectivityParameters"`
 	// Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
 	InvocationHttpParameters EventConnectionAuthParametersInvocationHttpParametersPtrInput `pulumi:"invocationHttpParameters"`
 	// Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `apiKey`. Documented below.
@@ -602,6 +606,13 @@ func (o EventConnectionAuthParametersOutput) Basic() EventConnectionAuthParamete
 	return o.ApplyT(func(v EventConnectionAuthParameters) *EventConnectionAuthParametersBasic { return v.Basic }).(EventConnectionAuthParametersBasicPtrOutput)
 }
 
+// Parameters used for `oauth` with private API. Documented below.
+func (o EventConnectionAuthParametersOutput) ConnectivityParameters() EventConnectionAuthParametersConnectivityParametersPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParameters) *EventConnectionAuthParametersConnectivityParameters {
+		return v.ConnectivityParameters
+	}).(EventConnectionAuthParametersConnectivityParametersPtrOutput)
+}
+
 // Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
 func (o EventConnectionAuthParametersOutput) InvocationHttpParameters() EventConnectionAuthParametersInvocationHttpParametersPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParameters) *EventConnectionAuthParametersInvocationHttpParameters {
@@ -656,6 +667,16 @@ func (o EventConnectionAuthParametersPtrOutput) Basic() EventConnectionAuthParam
 		}
 		return v.Basic
 	}).(EventConnectionAuthParametersBasicPtrOutput)
+}
+
+// Parameters used for `oauth` with private API. Documented below.
+func (o EventConnectionAuthParametersPtrOutput) ConnectivityParameters() EventConnectionAuthParametersConnectivityParametersPtrOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParameters) *EventConnectionAuthParametersConnectivityParameters {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectivityParameters
+	}).(EventConnectionAuthParametersConnectivityParametersPtrOutput)
 }
 
 // Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
@@ -987,6 +1008,301 @@ func (o EventConnectionAuthParametersBasicPtrOutput) Username() pulumi.StringPtr
 			return nil
 		}
 		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventConnectionAuthParametersConnectivityParameters struct {
+	// The parameters for EventBridge to use when invoking the authentication endpoint. Documented below.
+	ResourceParameters EventConnectionAuthParametersConnectivityParametersResourceParameters `pulumi:"resourceParameters"`
+}
+
+// EventConnectionAuthParametersConnectivityParametersInput is an input type that accepts EventConnectionAuthParametersConnectivityParametersArgs and EventConnectionAuthParametersConnectivityParametersOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersConnectivityParametersInput` via:
+//
+//	EventConnectionAuthParametersConnectivityParametersArgs{...}
+type EventConnectionAuthParametersConnectivityParametersInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersConnectivityParametersOutput() EventConnectionAuthParametersConnectivityParametersOutput
+	ToEventConnectionAuthParametersConnectivityParametersOutputWithContext(context.Context) EventConnectionAuthParametersConnectivityParametersOutput
+}
+
+type EventConnectionAuthParametersConnectivityParametersArgs struct {
+	// The parameters for EventBridge to use when invoking the authentication endpoint. Documented below.
+	ResourceParameters EventConnectionAuthParametersConnectivityParametersResourceParametersInput `pulumi:"resourceParameters"`
+}
+
+func (EventConnectionAuthParametersConnectivityParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersConnectivityParameters)(nil)).Elem()
+}
+
+func (i EventConnectionAuthParametersConnectivityParametersArgs) ToEventConnectionAuthParametersConnectivityParametersOutput() EventConnectionAuthParametersConnectivityParametersOutput {
+	return i.ToEventConnectionAuthParametersConnectivityParametersOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersConnectivityParametersArgs) ToEventConnectionAuthParametersConnectivityParametersOutputWithContext(ctx context.Context) EventConnectionAuthParametersConnectivityParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersConnectivityParametersOutput)
+}
+
+func (i EventConnectionAuthParametersConnectivityParametersArgs) ToEventConnectionAuthParametersConnectivityParametersPtrOutput() EventConnectionAuthParametersConnectivityParametersPtrOutput {
+	return i.ToEventConnectionAuthParametersConnectivityParametersPtrOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersConnectivityParametersArgs) ToEventConnectionAuthParametersConnectivityParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersConnectivityParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersConnectivityParametersOutput).ToEventConnectionAuthParametersConnectivityParametersPtrOutputWithContext(ctx)
+}
+
+// EventConnectionAuthParametersConnectivityParametersPtrInput is an input type that accepts EventConnectionAuthParametersConnectivityParametersArgs, EventConnectionAuthParametersConnectivityParametersPtr and EventConnectionAuthParametersConnectivityParametersPtrOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersConnectivityParametersPtrInput` via:
+//
+//	        EventConnectionAuthParametersConnectivityParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventConnectionAuthParametersConnectivityParametersPtrInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersConnectivityParametersPtrOutput() EventConnectionAuthParametersConnectivityParametersPtrOutput
+	ToEventConnectionAuthParametersConnectivityParametersPtrOutputWithContext(context.Context) EventConnectionAuthParametersConnectivityParametersPtrOutput
+}
+
+type eventConnectionAuthParametersConnectivityParametersPtrType EventConnectionAuthParametersConnectivityParametersArgs
+
+func EventConnectionAuthParametersConnectivityParametersPtr(v *EventConnectionAuthParametersConnectivityParametersArgs) EventConnectionAuthParametersConnectivityParametersPtrInput {
+	return (*eventConnectionAuthParametersConnectivityParametersPtrType)(v)
+}
+
+func (*eventConnectionAuthParametersConnectivityParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventConnectionAuthParametersConnectivityParameters)(nil)).Elem()
+}
+
+func (i *eventConnectionAuthParametersConnectivityParametersPtrType) ToEventConnectionAuthParametersConnectivityParametersPtrOutput() EventConnectionAuthParametersConnectivityParametersPtrOutput {
+	return i.ToEventConnectionAuthParametersConnectivityParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *eventConnectionAuthParametersConnectivityParametersPtrType) ToEventConnectionAuthParametersConnectivityParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersConnectivityParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersConnectivityParametersPtrOutput)
+}
+
+type EventConnectionAuthParametersConnectivityParametersOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersConnectivityParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersConnectivityParameters)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersConnectivityParametersOutput) ToEventConnectionAuthParametersConnectivityParametersOutput() EventConnectionAuthParametersConnectivityParametersOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersConnectivityParametersOutput) ToEventConnectionAuthParametersConnectivityParametersOutputWithContext(ctx context.Context) EventConnectionAuthParametersConnectivityParametersOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersConnectivityParametersOutput) ToEventConnectionAuthParametersConnectivityParametersPtrOutput() EventConnectionAuthParametersConnectivityParametersPtrOutput {
+	return o.ToEventConnectionAuthParametersConnectivityParametersPtrOutputWithContext(context.Background())
+}
+
+func (o EventConnectionAuthParametersConnectivityParametersOutput) ToEventConnectionAuthParametersConnectivityParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersConnectivityParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventConnectionAuthParametersConnectivityParameters) *EventConnectionAuthParametersConnectivityParameters {
+		return &v
+	}).(EventConnectionAuthParametersConnectivityParametersPtrOutput)
+}
+
+// The parameters for EventBridge to use when invoking the authentication endpoint. Documented below.
+func (o EventConnectionAuthParametersConnectivityParametersOutput) ResourceParameters() EventConnectionAuthParametersConnectivityParametersResourceParametersOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersConnectivityParameters) EventConnectionAuthParametersConnectivityParametersResourceParameters {
+		return v.ResourceParameters
+	}).(EventConnectionAuthParametersConnectivityParametersResourceParametersOutput)
+}
+
+type EventConnectionAuthParametersConnectivityParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersConnectivityParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventConnectionAuthParametersConnectivityParameters)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersConnectivityParametersPtrOutput) ToEventConnectionAuthParametersConnectivityParametersPtrOutput() EventConnectionAuthParametersConnectivityParametersPtrOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersConnectivityParametersPtrOutput) ToEventConnectionAuthParametersConnectivityParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersConnectivityParametersPtrOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersConnectivityParametersPtrOutput) Elem() EventConnectionAuthParametersConnectivityParametersOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParametersConnectivityParameters) EventConnectionAuthParametersConnectivityParameters {
+		if v != nil {
+			return *v
+		}
+		var ret EventConnectionAuthParametersConnectivityParameters
+		return ret
+	}).(EventConnectionAuthParametersConnectivityParametersOutput)
+}
+
+// The parameters for EventBridge to use when invoking the authentication endpoint. Documented below.
+func (o EventConnectionAuthParametersConnectivityParametersPtrOutput) ResourceParameters() EventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParametersConnectivityParameters) *EventConnectionAuthParametersConnectivityParametersResourceParameters {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceParameters
+	}).(EventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput)
+}
+
+type EventConnectionAuthParametersConnectivityParametersResourceParameters struct {
+	ResourceAssociationArn *string `pulumi:"resourceAssociationArn"`
+	// ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
+	ResourceConfigurationArn string `pulumi:"resourceConfigurationArn"`
+}
+
+// EventConnectionAuthParametersConnectivityParametersResourceParametersInput is an input type that accepts EventConnectionAuthParametersConnectivityParametersResourceParametersArgs and EventConnectionAuthParametersConnectivityParametersResourceParametersOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersConnectivityParametersResourceParametersInput` via:
+//
+//	EventConnectionAuthParametersConnectivityParametersResourceParametersArgs{...}
+type EventConnectionAuthParametersConnectivityParametersResourceParametersInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersConnectivityParametersResourceParametersOutput() EventConnectionAuthParametersConnectivityParametersResourceParametersOutput
+	ToEventConnectionAuthParametersConnectivityParametersResourceParametersOutputWithContext(context.Context) EventConnectionAuthParametersConnectivityParametersResourceParametersOutput
+}
+
+type EventConnectionAuthParametersConnectivityParametersResourceParametersArgs struct {
+	ResourceAssociationArn pulumi.StringPtrInput `pulumi:"resourceAssociationArn"`
+	// ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
+	ResourceConfigurationArn pulumi.StringInput `pulumi:"resourceConfigurationArn"`
+}
+
+func (EventConnectionAuthParametersConnectivityParametersResourceParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersConnectivityParametersResourceParameters)(nil)).Elem()
+}
+
+func (i EventConnectionAuthParametersConnectivityParametersResourceParametersArgs) ToEventConnectionAuthParametersConnectivityParametersResourceParametersOutput() EventConnectionAuthParametersConnectivityParametersResourceParametersOutput {
+	return i.ToEventConnectionAuthParametersConnectivityParametersResourceParametersOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersConnectivityParametersResourceParametersArgs) ToEventConnectionAuthParametersConnectivityParametersResourceParametersOutputWithContext(ctx context.Context) EventConnectionAuthParametersConnectivityParametersResourceParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersConnectivityParametersResourceParametersOutput)
+}
+
+func (i EventConnectionAuthParametersConnectivityParametersResourceParametersArgs) ToEventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput() EventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput {
+	return i.ToEventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersConnectivityParametersResourceParametersArgs) ToEventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersConnectivityParametersResourceParametersOutput).ToEventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutputWithContext(ctx)
+}
+
+// EventConnectionAuthParametersConnectivityParametersResourceParametersPtrInput is an input type that accepts EventConnectionAuthParametersConnectivityParametersResourceParametersArgs, EventConnectionAuthParametersConnectivityParametersResourceParametersPtr and EventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersConnectivityParametersResourceParametersPtrInput` via:
+//
+//	        EventConnectionAuthParametersConnectivityParametersResourceParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventConnectionAuthParametersConnectivityParametersResourceParametersPtrInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput() EventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput
+	ToEventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutputWithContext(context.Context) EventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput
+}
+
+type eventConnectionAuthParametersConnectivityParametersResourceParametersPtrType EventConnectionAuthParametersConnectivityParametersResourceParametersArgs
+
+func EventConnectionAuthParametersConnectivityParametersResourceParametersPtr(v *EventConnectionAuthParametersConnectivityParametersResourceParametersArgs) EventConnectionAuthParametersConnectivityParametersResourceParametersPtrInput {
+	return (*eventConnectionAuthParametersConnectivityParametersResourceParametersPtrType)(v)
+}
+
+func (*eventConnectionAuthParametersConnectivityParametersResourceParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventConnectionAuthParametersConnectivityParametersResourceParameters)(nil)).Elem()
+}
+
+func (i *eventConnectionAuthParametersConnectivityParametersResourceParametersPtrType) ToEventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput() EventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput {
+	return i.ToEventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *eventConnectionAuthParametersConnectivityParametersResourceParametersPtrType) ToEventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput)
+}
+
+type EventConnectionAuthParametersConnectivityParametersResourceParametersOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersConnectivityParametersResourceParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersConnectivityParametersResourceParameters)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersConnectivityParametersResourceParametersOutput) ToEventConnectionAuthParametersConnectivityParametersResourceParametersOutput() EventConnectionAuthParametersConnectivityParametersResourceParametersOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersConnectivityParametersResourceParametersOutput) ToEventConnectionAuthParametersConnectivityParametersResourceParametersOutputWithContext(ctx context.Context) EventConnectionAuthParametersConnectivityParametersResourceParametersOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersConnectivityParametersResourceParametersOutput) ToEventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput() EventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput {
+	return o.ToEventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutputWithContext(context.Background())
+}
+
+func (o EventConnectionAuthParametersConnectivityParametersResourceParametersOutput) ToEventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventConnectionAuthParametersConnectivityParametersResourceParameters) *EventConnectionAuthParametersConnectivityParametersResourceParameters {
+		return &v
+	}).(EventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput)
+}
+
+func (o EventConnectionAuthParametersConnectivityParametersResourceParametersOutput) ResourceAssociationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersConnectivityParametersResourceParameters) *string {
+		return v.ResourceAssociationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
+func (o EventConnectionAuthParametersConnectivityParametersResourceParametersOutput) ResourceConfigurationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersConnectivityParametersResourceParameters) string {
+		return v.ResourceConfigurationArn
+	}).(pulumi.StringOutput)
+}
+
+type EventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventConnectionAuthParametersConnectivityParametersResourceParameters)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput) ToEventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput() EventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput) ToEventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput) Elem() EventConnectionAuthParametersConnectivityParametersResourceParametersOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParametersConnectivityParametersResourceParameters) EventConnectionAuthParametersConnectivityParametersResourceParameters {
+		if v != nil {
+			return *v
+		}
+		var ret EventConnectionAuthParametersConnectivityParametersResourceParameters
+		return ret
+	}).(EventConnectionAuthParametersConnectivityParametersResourceParametersOutput)
+}
+
+func (o EventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput) ResourceAssociationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParametersConnectivityParametersResourceParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceAssociationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
+func (o EventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput) ResourceConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParametersConnectivityParametersResourceParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceConfigurationArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -14293,6 +14609,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersApiKeyPtrInput)(nil)).Elem(), EventConnectionAuthParametersApiKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersBasicInput)(nil)).Elem(), EventConnectionAuthParametersBasicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersBasicPtrInput)(nil)).Elem(), EventConnectionAuthParametersBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersConnectivityParametersInput)(nil)).Elem(), EventConnectionAuthParametersConnectivityParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersConnectivityParametersPtrInput)(nil)).Elem(), EventConnectionAuthParametersConnectivityParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersConnectivityParametersResourceParametersInput)(nil)).Elem(), EventConnectionAuthParametersConnectivityParametersResourceParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersConnectivityParametersResourceParametersPtrInput)(nil)).Elem(), EventConnectionAuthParametersConnectivityParametersResourceParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersInvocationHttpParametersInput)(nil)).Elem(), EventConnectionAuthParametersInvocationHttpParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersInvocationHttpParametersPtrInput)(nil)).Elem(), EventConnectionAuthParametersInvocationHttpParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersInvocationHttpParametersBodyInput)(nil)).Elem(), EventConnectionAuthParametersInvocationHttpParametersBodyArgs{})
@@ -14496,6 +14816,10 @@ func init() {
 	pulumi.RegisterOutputType(EventConnectionAuthParametersApiKeyPtrOutput{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersBasicOutput{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersBasicPtrOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersConnectivityParametersOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersConnectivityParametersPtrOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersConnectivityParametersResourceParametersOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersConnectivityParametersResourceParametersPtrOutput{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersInvocationHttpParametersOutput{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersInvocationHttpParametersPtrOutput{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersInvocationHttpParametersBodyOutput{})

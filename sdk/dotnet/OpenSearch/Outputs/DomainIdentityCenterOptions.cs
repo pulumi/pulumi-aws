@@ -15,7 +15,13 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     {
         public readonly bool? EnabledApiAccess;
         public readonly string? IdentityCenterInstanceArn;
+        /// <summary>
+        /// Element of the JWT assertion to use for roles. Default is `Roles`.
+        /// </summary>
         public readonly string? RolesKey;
+        /// <summary>
+        /// Element of the JWT assertion to use for the user name. Default is `Sub`.
+        /// </summary>
         public readonly string? SubjectKey;
 
         [OutputConstructor]

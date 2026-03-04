@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.bedrock.AgentcoreGatewayTargetArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetState;
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetCredentialProviderConfiguration;
+import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetMetadataConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetTargetConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetTimeouts;
 import com.pulumi.core.Output;
@@ -284,10 +285,9 @@ import javax.annotation.Nullable;
  *                     .scopes(                    
  *                         "read",
  *                         "write")
- *                     .customParameters(Map.ofEntries(
- *                         Map.entry("client_type", "confidential"),
- *                         Map.entry("grant_type", "authorization_code")
- *                     ))
+ *                     .grantType("authorization_code")
+ *                     .defaultReturnUrl("https://myapp.example.com/callback")
+ *                     .customParameters(Map.of("client_type", "confidential"))
  *                     .build())
  *                 .build())
  *             .targetConfiguration(AgentcoreGatewayTargetTargetConfigurationArgs.builder()
@@ -416,6 +416,59 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### MCP Server Target with Header Propagation
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentcoreGatewayTarget;
+ * import com.pulumi.aws.bedrock.AgentcoreGatewayTargetArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetMetadataConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var mcpWithHeaders = new AgentcoreGatewayTarget("mcpWithHeaders", AgentcoreGatewayTargetArgs.builder()
+ *             .name("mcp-target-with-headers")
+ *             .gatewayIdentifier(example.gatewayId())
+ *             .description("MCP server target with header propagation")
+ *             .targetConfiguration(AgentcoreGatewayTargetTargetConfigurationArgs.builder()
+ *                 .mcp(AgentcoreGatewayTargetTargetConfigurationMcpArgs.builder()
+ *                     .mcpServer(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs.builder()
+ *                         .endpoint("https://example.com/mcp")
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .metadataConfiguration(AgentcoreGatewayTargetMetadataConfigurationArgs.builder()
+ *                 .allowedRequestHeaders(                
+ *                     "x-correlation-id",
+ *                     "x-tenant-id")
+ *                 .allowedResponseHeaders("x-rate-limit-remaining")
+ *                 .allowedQueryParameters("version")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Bedrock AgentCore Gateway Target using the gateway identifier and target ID separated by a comma. For example:
@@ -468,6 +521,20 @@ public class AgentcoreGatewayTarget extends com.pulumi.resources.CustomResource 
      */
     public Output<String> gatewayIdentifier() {
         return this.gatewayIdentifier;
+    }
+    /**
+     * Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+     * 
+     */
+    @Export(name="metadataConfiguration", refs={AgentcoreGatewayTargetMetadataConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ AgentcoreGatewayTargetMetadataConfiguration> metadataConfiguration;
+
+    /**
+     * @return Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+     * 
+     */
+    public Output<Optional<AgentcoreGatewayTargetMetadataConfiguration>> metadataConfiguration() {
+        return Codegen.optional(this.metadataConfiguration);
     }
     /**
      * Name of the gateway target.

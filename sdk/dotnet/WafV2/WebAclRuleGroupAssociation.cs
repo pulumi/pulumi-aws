@@ -24,7 +24,7 @@ namespace Pulumi.Aws.WafV2
     /// &gt; **Note:** This resource creates a rule within the Web ACL that references the entire Rule Group. The rule group's individual rules are evaluated as a unit when requests are processed by the Web ACL.
     /// ## Example Usage
     /// 
-    /// ### Custom Rule Group - Basic Usage
+    /// ### Basic Usage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -34,87 +34,7 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.WafV2.RuleGroup("example", new()
-    ///     {
-    ///         Name = "example-rule-group",
-    ///         Scope = "REGIONAL",
-    ///         Capacity = 10,
-    ///         Rules = new[]
-    ///         {
-    ///             new Aws.WafV2.Inputs.RuleGroupRuleArgs
-    ///             {
-    ///                 Name = "block-suspicious-requests",
-    ///                 Priority = 1,
-    ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
-    ///                 {
-    ///                     Block = null,
-    ///                 },
-    ///                 Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
-    ///                 {
-    ///                     GeoMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementGeoMatchStatementArgs
-    ///                     {
-    ///                         CountryCodes = new[]
-    ///                         {
-    ///                             "CN",
-    ///                             "RU",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
-    ///                 {
-    ///                     CloudwatchMetricsEnabled = true,
-    ///                     MetricName = "block-suspicious-requests",
-    ///                     SampledRequestsEnabled = true,
-    ///                 },
-    ///             },
-    ///         },
-    ///         VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupVisibilityConfigArgs
-    ///         {
-    ///             CloudwatchMetricsEnabled = true,
-    ///             MetricName = "example-rule-group",
-    ///             SampledRequestsEnabled = true,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleWebAcl = new Aws.WafV2.WebAcl("example", new()
-    ///     {
-    ///         Name = "example-web-acl",
-    ///         Scope = "REGIONAL",
-    ///         DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
-    ///         {
-    ///             Allow = null,
-    ///         },
-    ///         VisibilityConfig = new Aws.WafV2.Inputs.WebAclVisibilityConfigArgs
-    ///         {
-    ///             CloudwatchMetricsEnabled = true,
-    ///             MetricName = "example-web-acl",
-    ///             SampledRequestsEnabled = true,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleWebAclRuleGroupAssociation = new Aws.WafV2.WebAclRuleGroupAssociation("example", new()
-    ///     {
-    ///         RuleName = "example-rule-group-rule",
-    ///         Priority = 100,
-    ///         WebAclArn = exampleWebAcl.Arn,
-    ///         RuleGroupReference = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceArgs
-    ///         {
-    ///             Arn = example.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Managed Rule Group - Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
+    ///     // Web ACL must use lifecycle.ignore_changes to prevent drift from this resource
     ///     var example = new Aws.WafV2.WebAcl("example", new()
     ///     {
     ///         Name = "example-web-acl",
@@ -131,21 +51,21 @@ namespace Pulumi.Aws.WafV2
     ///         },
     ///     });
     /// 
-    ///     var managedExample = new Aws.WafV2.WebAclRuleGroupAssociation("managed_example", new()
+    ///     // Associate a custom rule group
+    ///     var exampleWebAclRuleGroupAssociation = new Aws.WafV2.WebAclRuleGroupAssociation("example", new()
     ///     {
-    ///         RuleName = "aws-common-rule-set",
-    ///         Priority = 50,
+    ///         RuleName = "example-rule-group-rule",
+    ///         Priority = 100,
     ///         WebAclArn = example.Arn,
-    ///         ManagedRuleGroup = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationManagedRuleGroupArgs
+    ///         RuleGroupReference = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceArgs
     ///         {
-    ///             Name = "AWSManagedRulesCommonRuleSet",
-    ///             VendorName = "AWS",
+    ///             Arn = exampleAwsWafv2RuleGroup.Arn,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// ### Managed Rule Group - With Version
+    /// ### Managed Rule Group
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -155,11 +75,35 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var managedVersioned = new Aws.WafV2.WebAclRuleGroupAssociation("managed_versioned", new()
+    ///     var example = new Aws.WafV2.WebAclRuleGroupAssociation("example", new()
+    ///     {
+    ///         RuleName = "aws-common-rule-set",
+    ///         Priority = 50,
+    ///         WebAclArn = exampleAwsWafv2WebAcl.Arn,
+    ///         ManagedRuleGroup = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationManagedRuleGroupArgs
+    ///         {
+    ///             Name = "AWSManagedRulesCommonRuleSet",
+    ///             VendorName = "AWS",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Managed Rule Group With Version
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.WafV2.WebAclRuleGroupAssociation("example", new()
     ///     {
     ///         RuleName = "aws-common-rule-set-versioned",
     ///         Priority = 60,
-    ///         WebAclArn = example.Arn,
+    ///         WebAclArn = exampleAwsWafv2WebAcl.Arn,
     ///         ManagedRuleGroup = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationManagedRuleGroupArgs
     ///         {
     ///             Name = "AWSManagedRulesCommonRuleSet",
@@ -170,7 +114,7 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// });
     /// ```
-    /// ### Managed Rule Group - With Rule Action Overrides
+    /// ### Managed Rule Group With Rule Action Overrides
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -180,11 +124,11 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var managedWithOverrides = new Aws.WafV2.WebAclRuleGroupAssociation("managed_with_overrides", new()
+    ///     var example = new Aws.WafV2.WebAclRuleGroupAssociation("example", new()
     ///     {
     ///         RuleName = "aws-common-rule-set-with-overrides",
     ///         Priority = 70,
-    ///         WebAclArn = example.Arn,
+    ///         WebAclArn = exampleAwsWafv2WebAcl.Arn,
     ///         ManagedRuleGroup = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationManagedRuleGroupArgs
     ///         {
     ///             Name = "AWSManagedRulesCommonRuleSet",
@@ -226,7 +170,77 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// });
     /// ```
-    /// ### Custom Rule Group - With Override Action
+    /// ### Managed Rule Group With Managed Rule Group Configs
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.WafV2.WebAclRuleGroupAssociation("example", new()
+    ///     {
+    ///         RuleName = "acfp-ruleset-with-rule-config",
+    ///         Priority = 70,
+    ///         WebAclArn = exampleAwsWafv2WebAcl.Arn,
+    ///         ManagedRuleGroup = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationManagedRuleGroupArgs
+    ///         {
+    ///             Name = "AWSManagedRulesACFPRuleSet",
+    ///             VendorName = "AWS",
+    ///             ManagedRuleGroupConfigs = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigsArgs
+    ///             {
+    ///                 AwsManagedRulesAcfpRuleSet = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigsAwsManagedRulesAcfpRuleSetArgs
+    ///                 {
+    ///                     CreationPath = "/creation",
+    ///                     RegistrationPagePath = "/registration",
+    ///                     RequestInspection = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigsAwsManagedRulesAcfpRuleSetRequestInspectionArgs
+    ///                     {
+    ///                         EmailField = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigsAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldArgs
+    ///                         {
+    ///                             Identifier = "/email",
+    ///                         },
+    ///                         PasswordField = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigsAwsManagedRulesAcfpRuleSetRequestInspectionPasswordFieldArgs
+    ///                         {
+    ///                             Identifier = "/password",
+    ///                         },
+    ///                         PhoneNumberFields = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigsAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsArgs
+    ///                         {
+    ///                             Identifiers = new[]
+    ///                             {
+    ///                                 "/phone1",
+    ///                                 "/phone2",
+    ///                             },
+    ///                         },
+    ///                         AddressFields = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigsAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgs
+    ///                         {
+    ///                             Identifiers = new[]
+    ///                             {
+    ///                                 "home",
+    ///                                 "work",
+    ///                             },
+    ///                         },
+    ///                         PayloadType = "JSON",
+    ///                         UsernameField = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigsAwsManagedRulesAcfpRuleSetRequestInspectionUsernameFieldArgs
+    ///                         {
+    ///                             Identifier = "/username",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         VisibilityConfig = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationVisibilityConfigArgs
+    ///         {
+    ///             CloudwatchMetricsEnabled = true,
+    ///             MetricName = "friendly-metric-name",
+    ///             SampledRequestsEnabled = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Custom Rule Group With Override Action
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -242,6 +256,97 @@ namespace Pulumi.Aws.WafV2
     ///         Priority = 100,
     ///         WebAclArn = exampleAwsWafv2WebAcl.Arn,
     ///         OverrideAction = "count",
+    ///         RuleGroupReference = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceArgs
+    ///         {
+    ///             Arn = exampleAwsWafv2RuleGroup.Arn,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Custom Rule Group With Rule Action Overrides
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.WafV2.WebAclRuleGroupAssociation("example", new()
+    ///     {
+    ///         RuleName = "example-rule-group-rule",
+    ///         Priority = 100,
+    ///         WebAclArn = exampleAwsWafv2WebAcl.Arn,
+    ///         RuleGroupReference = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceArgs
+    ///         {
+    ///             Arn = exampleAwsWafv2RuleGroup.Arn,
+    ///             RuleActionOverrides = new[]
+    ///             {
+    ///                 new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArgs
+    ///                 {
+    ///                     Name = "geo-block-rule",
+    ///                     ActionToUse = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseArgs
+    ///                     {
+    ///                         Count = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountArgs
+    ///                         {
+    ///                             CustomRequestHandling = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingArgs
+    ///                             {
+    ///                                 InsertHeaders = new[]
+    ///                                 {
+    ///                                     new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgs
+    ///                                     {
+    ///                                         Name = "X-Geo-Block-Override",
+    ///                                         Value = "counted",
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArgs
+    ///                 {
+    ///                     Name = "rate-limit-rule",
+    ///                     ActionToUse = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseArgs
+    ///                     {
+    ///                         Captcha = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaArgs
+    ///                         {
+    ///                             CustomRequestHandling = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs
+    ///                             {
+    ///                                 InsertHeaders = new[]
+    ///                                 {
+    ///                                     new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs
+    ///                                     {
+    ///                                         Name = "X-Rate-Limit-Override",
+    ///                                         Value = "captcha-required",
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### CloudFront Web ACL
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.WafV2.WebAclRuleGroupAssociation("example", new()
+    ///     {
+    ///         RuleName = "cloudfront-rule-group-rule",
+    ///         Priority = 50,
+    ///         WebAclArn = exampleAwsWafv2WebAcl.Arn,
     ///         RuleGroupReference = new Aws.WafV2.Inputs.WebAclRuleGroupAssociationRuleGroupReferenceArgs
     ///         {
     ///             Arn = exampleAwsWafv2RuleGroup.Arn,
@@ -306,6 +411,12 @@ namespace Pulumi.Aws.WafV2
 
         [Output("timeouts")]
         public Output<Outputs.WebAclRuleGroupAssociationTimeouts?> Timeouts { get; private set; } = null!;
+
+        /// <summary>
+        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See below.
+        /// </summary>
+        [Output("visibilityConfig")]
+        public Output<Outputs.WebAclRuleGroupAssociationVisibilityConfig?> VisibilityConfig { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the Web ACL to associate the Rule Group with.
@@ -401,6 +512,12 @@ namespace Pulumi.Aws.WafV2
         public Input<Inputs.WebAclRuleGroupAssociationTimeoutsArgs>? Timeouts { get; set; }
 
         /// <summary>
+        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See below.
+        /// </summary>
+        [Input("visibilityConfig")]
+        public Input<Inputs.WebAclRuleGroupAssociationVisibilityConfigArgs>? VisibilityConfig { get; set; }
+
+        /// <summary>
         /// ARN of the Web ACL to associate the Rule Group with.
         /// 
         /// The following arguments are optional:
@@ -454,6 +571,12 @@ namespace Pulumi.Aws.WafV2
 
         [Input("timeouts")]
         public Input<Inputs.WebAclRuleGroupAssociationTimeoutsGetArgs>? Timeouts { get; set; }
+
+        /// <summary>
+        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See below.
+        /// </summary>
+        [Input("visibilityConfig")]
+        public Input<Inputs.WebAclRuleGroupAssociationVisibilityConfigGetArgs>? VisibilityConfig { get; set; }
 
         /// <summary>
         /// ARN of the Web ACL to associate the Rule Group with.

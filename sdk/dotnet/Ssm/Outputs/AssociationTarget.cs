@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Ssm.Outputs
     public sealed class AssociationTarget
     {
         /// <summary>
-        /// Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
+        /// User-defined criteria for sending commands that target managed nodes that meet the criteria. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for the list of available keys.
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// User-defined criteria that maps to Key. A list of instance IDs or tag values.
+        /// List of values that correspond to the specified `Key`. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for details.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

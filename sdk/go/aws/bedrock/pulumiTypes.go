@@ -33826,7 +33826,11 @@ func (o AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOu
 type AgentcoreGatewayTargetCredentialProviderConfigurationOauth struct {
 	// Map of custom parameters to include in OAuth requests.
 	CustomParameters map[string]string `pulumi:"customParameters"`
-	// ARN of the OIDC provider for OAuth authentication.
+	// The URL where the end user's browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
+	DefaultReturnUrl *string `pulumi:"defaultReturnUrl"`
+	// The OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+	GrantType *string `pulumi:"grantType"`
+	// ARN of the Oauth credential provider for OAuth authentication.
 	ProviderArn string `pulumi:"providerArn"`
 	// Set of OAuth scopes to request.
 	Scopes []string `pulumi:"scopes"`
@@ -33846,7 +33850,11 @@ type AgentcoreGatewayTargetCredentialProviderConfigurationOauthInput interface {
 type AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs struct {
 	// Map of custom parameters to include in OAuth requests.
 	CustomParameters pulumi.StringMapInput `pulumi:"customParameters"`
-	// ARN of the OIDC provider for OAuth authentication.
+	// The URL where the end user's browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
+	DefaultReturnUrl pulumi.StringPtrInput `pulumi:"defaultReturnUrl"`
+	// The OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+	GrantType pulumi.StringPtrInput `pulumi:"grantType"`
+	// ARN of the Oauth credential provider for OAuth authentication.
 	ProviderArn pulumi.StringInput `pulumi:"providerArn"`
 	// Set of OAuth scopes to request.
 	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
@@ -33936,7 +33944,17 @@ func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput) Custom
 	}).(pulumi.StringMapOutput)
 }
 
-// ARN of the OIDC provider for OAuth authentication.
+// The URL where the end user's browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput) DefaultReturnUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetCredentialProviderConfigurationOauth) *string { return v.DefaultReturnUrl }).(pulumi.StringPtrOutput)
+}
+
+// The OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput) GrantType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetCredentialProviderConfigurationOauth) *string { return v.GrantType }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the Oauth credential provider for OAuth authentication.
 func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput) ProviderArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetCredentialProviderConfigurationOauth) string { return v.ProviderArn }).(pulumi.StringOutput)
 }
@@ -33980,7 +33998,27 @@ func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput) Cus
 	}).(pulumi.StringMapOutput)
 }
 
-// ARN of the OIDC provider for OAuth authentication.
+// The URL where the end user's browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput) DefaultReturnUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetCredentialProviderConfigurationOauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultReturnUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput) GrantType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetCredentialProviderConfigurationOauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GrantType
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the Oauth credential provider for OAuth authentication.
 func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput) ProviderArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetCredentialProviderConfigurationOauth) *string {
 		if v == nil {
@@ -33997,6 +34035,189 @@ func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput) Sco
 			return nil
 		}
 		return v.Scopes
+	}).(pulumi.StringArrayOutput)
+}
+
+type AgentcoreGatewayTargetMetadataConfiguration struct {
+	// A set of URL query parameters that are allowed to be propagated from incoming gateway URL to the target. Maximum of 10 parameters.
+	AllowedQueryParameters []string `pulumi:"allowedQueryParameters"`
+	// A set of HTTP headers that are allowed to be propagated from incoming client requests to the target. Maximum of 10 headers.
+	AllowedRequestHeaders []string `pulumi:"allowedRequestHeaders"`
+	// A set of HTTP headers that are allowed to be propagated from the target response back to the client. Maximum of 10 headers.
+	//
+	// > **Note:** Header names must contain only alphanumeric characters, hyphens, and underscores. A large number of standard HTTP headers are restricted and cannot be configured for propagation, including authentication, content negotiation, caching, security, CORS, and connection management headers. Headers starting with `X-Amzn-` are prohibited except for `X-Amzn-Bedrock-AgentCore-Runtime-Custom-*` headers. These restrictions are enforced by schema validation. For the full list of restricted headers, see the [AWS documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-headers.html).
+	AllowedResponseHeaders []string `pulumi:"allowedResponseHeaders"`
+}
+
+// AgentcoreGatewayTargetMetadataConfigurationInput is an input type that accepts AgentcoreGatewayTargetMetadataConfigurationArgs and AgentcoreGatewayTargetMetadataConfigurationOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetMetadataConfigurationInput` via:
+//
+//	AgentcoreGatewayTargetMetadataConfigurationArgs{...}
+type AgentcoreGatewayTargetMetadataConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetMetadataConfigurationOutput() AgentcoreGatewayTargetMetadataConfigurationOutput
+	ToAgentcoreGatewayTargetMetadataConfigurationOutputWithContext(context.Context) AgentcoreGatewayTargetMetadataConfigurationOutput
+}
+
+type AgentcoreGatewayTargetMetadataConfigurationArgs struct {
+	// A set of URL query parameters that are allowed to be propagated from incoming gateway URL to the target. Maximum of 10 parameters.
+	AllowedQueryParameters pulumi.StringArrayInput `pulumi:"allowedQueryParameters"`
+	// A set of HTTP headers that are allowed to be propagated from incoming client requests to the target. Maximum of 10 headers.
+	AllowedRequestHeaders pulumi.StringArrayInput `pulumi:"allowedRequestHeaders"`
+	// A set of HTTP headers that are allowed to be propagated from the target response back to the client. Maximum of 10 headers.
+	//
+	// > **Note:** Header names must contain only alphanumeric characters, hyphens, and underscores. A large number of standard HTTP headers are restricted and cannot be configured for propagation, including authentication, content negotiation, caching, security, CORS, and connection management headers. Headers starting with `X-Amzn-` are prohibited except for `X-Amzn-Bedrock-AgentCore-Runtime-Custom-*` headers. These restrictions are enforced by schema validation. For the full list of restricted headers, see the [AWS documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-headers.html).
+	AllowedResponseHeaders pulumi.StringArrayInput `pulumi:"allowedResponseHeaders"`
+}
+
+func (AgentcoreGatewayTargetMetadataConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetMetadataConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetMetadataConfigurationArgs) ToAgentcoreGatewayTargetMetadataConfigurationOutput() AgentcoreGatewayTargetMetadataConfigurationOutput {
+	return i.ToAgentcoreGatewayTargetMetadataConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetMetadataConfigurationArgs) ToAgentcoreGatewayTargetMetadataConfigurationOutputWithContext(ctx context.Context) AgentcoreGatewayTargetMetadataConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetMetadataConfigurationOutput)
+}
+
+func (i AgentcoreGatewayTargetMetadataConfigurationArgs) ToAgentcoreGatewayTargetMetadataConfigurationPtrOutput() AgentcoreGatewayTargetMetadataConfigurationPtrOutput {
+	return i.ToAgentcoreGatewayTargetMetadataConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetMetadataConfigurationArgs) ToAgentcoreGatewayTargetMetadataConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetMetadataConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetMetadataConfigurationOutput).ToAgentcoreGatewayTargetMetadataConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetMetadataConfigurationPtrInput is an input type that accepts AgentcoreGatewayTargetMetadataConfigurationArgs, AgentcoreGatewayTargetMetadataConfigurationPtr and AgentcoreGatewayTargetMetadataConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetMetadataConfigurationPtrInput` via:
+//
+//	        AgentcoreGatewayTargetMetadataConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetMetadataConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetMetadataConfigurationPtrOutput() AgentcoreGatewayTargetMetadataConfigurationPtrOutput
+	ToAgentcoreGatewayTargetMetadataConfigurationPtrOutputWithContext(context.Context) AgentcoreGatewayTargetMetadataConfigurationPtrOutput
+}
+
+type agentcoreGatewayTargetMetadataConfigurationPtrType AgentcoreGatewayTargetMetadataConfigurationArgs
+
+func AgentcoreGatewayTargetMetadataConfigurationPtr(v *AgentcoreGatewayTargetMetadataConfigurationArgs) AgentcoreGatewayTargetMetadataConfigurationPtrInput {
+	return (*agentcoreGatewayTargetMetadataConfigurationPtrType)(v)
+}
+
+func (*agentcoreGatewayTargetMetadataConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetMetadataConfiguration)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetMetadataConfigurationPtrType) ToAgentcoreGatewayTargetMetadataConfigurationPtrOutput() AgentcoreGatewayTargetMetadataConfigurationPtrOutput {
+	return i.ToAgentcoreGatewayTargetMetadataConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetMetadataConfigurationPtrType) ToAgentcoreGatewayTargetMetadataConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetMetadataConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetMetadataConfigurationPtrOutput)
+}
+
+type AgentcoreGatewayTargetMetadataConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetMetadataConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetMetadataConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetMetadataConfigurationOutput) ToAgentcoreGatewayTargetMetadataConfigurationOutput() AgentcoreGatewayTargetMetadataConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetMetadataConfigurationOutput) ToAgentcoreGatewayTargetMetadataConfigurationOutputWithContext(ctx context.Context) AgentcoreGatewayTargetMetadataConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetMetadataConfigurationOutput) ToAgentcoreGatewayTargetMetadataConfigurationPtrOutput() AgentcoreGatewayTargetMetadataConfigurationPtrOutput {
+	return o.ToAgentcoreGatewayTargetMetadataConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetMetadataConfigurationOutput) ToAgentcoreGatewayTargetMetadataConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetMetadataConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetMetadataConfiguration) *AgentcoreGatewayTargetMetadataConfiguration {
+		return &v
+	}).(AgentcoreGatewayTargetMetadataConfigurationPtrOutput)
+}
+
+// A set of URL query parameters that are allowed to be propagated from incoming gateway URL to the target. Maximum of 10 parameters.
+func (o AgentcoreGatewayTargetMetadataConfigurationOutput) AllowedQueryParameters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetMetadataConfiguration) []string { return v.AllowedQueryParameters }).(pulumi.StringArrayOutput)
+}
+
+// A set of HTTP headers that are allowed to be propagated from incoming client requests to the target. Maximum of 10 headers.
+func (o AgentcoreGatewayTargetMetadataConfigurationOutput) AllowedRequestHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetMetadataConfiguration) []string { return v.AllowedRequestHeaders }).(pulumi.StringArrayOutput)
+}
+
+// A set of HTTP headers that are allowed to be propagated from the target response back to the client. Maximum of 10 headers.
+//
+// > **Note:** Header names must contain only alphanumeric characters, hyphens, and underscores. A large number of standard HTTP headers are restricted and cannot be configured for propagation, including authentication, content negotiation, caching, security, CORS, and connection management headers. Headers starting with `X-Amzn-` are prohibited except for `X-Amzn-Bedrock-AgentCore-Runtime-Custom-*` headers. These restrictions are enforced by schema validation. For the full list of restricted headers, see the [AWS documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-headers.html).
+func (o AgentcoreGatewayTargetMetadataConfigurationOutput) AllowedResponseHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetMetadataConfiguration) []string { return v.AllowedResponseHeaders }).(pulumi.StringArrayOutput)
+}
+
+type AgentcoreGatewayTargetMetadataConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetMetadataConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetMetadataConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetMetadataConfigurationPtrOutput) ToAgentcoreGatewayTargetMetadataConfigurationPtrOutput() AgentcoreGatewayTargetMetadataConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetMetadataConfigurationPtrOutput) ToAgentcoreGatewayTargetMetadataConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetMetadataConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetMetadataConfigurationPtrOutput) Elem() AgentcoreGatewayTargetMetadataConfigurationOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetMetadataConfiguration) AgentcoreGatewayTargetMetadataConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetMetadataConfiguration
+		return ret
+	}).(AgentcoreGatewayTargetMetadataConfigurationOutput)
+}
+
+// A set of URL query parameters that are allowed to be propagated from incoming gateway URL to the target. Maximum of 10 parameters.
+func (o AgentcoreGatewayTargetMetadataConfigurationPtrOutput) AllowedQueryParameters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetMetadataConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedQueryParameters
+	}).(pulumi.StringArrayOutput)
+}
+
+// A set of HTTP headers that are allowed to be propagated from incoming client requests to the target. Maximum of 10 headers.
+func (o AgentcoreGatewayTargetMetadataConfigurationPtrOutput) AllowedRequestHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetMetadataConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedRequestHeaders
+	}).(pulumi.StringArrayOutput)
+}
+
+// A set of HTTP headers that are allowed to be propagated from the target response back to the client. Maximum of 10 headers.
+//
+// > **Note:** Header names must contain only alphanumeric characters, hyphens, and underscores. A large number of standard HTTP headers are restricted and cannot be configured for propagation, including authentication, content negotiation, caching, security, CORS, and connection management headers. Headers starting with `X-Amzn-` are prohibited except for `X-Amzn-Bedrock-AgentCore-Runtime-Custom-*` headers. These restrictions are enforced by schema validation. For the full list of restricted headers, see the [AWS documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-headers.html).
+func (o AgentcoreGatewayTargetMetadataConfigurationPtrOutput) AllowedResponseHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetMetadataConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedResponseHeaders
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -49604,6 +49825,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrInput)(nil)).Elem(), AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetCredentialProviderConfigurationOauthInput)(nil)).Elem(), AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrInput)(nil)).Elem(), AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetMetadataConfigurationInput)(nil)).Elem(), AgentcoreGatewayTargetMetadataConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetMetadataConfigurationPtrInput)(nil)).Elem(), AgentcoreGatewayTargetMetadataConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpArgs{})
@@ -50251,6 +50474,8 @@ func init() {
 	pulumi.RegisterOutputType(AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput{})
 	pulumi.RegisterOutputType(AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetMetadataConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetMetadataConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpOutput{})

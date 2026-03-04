@@ -78,9 +78,15 @@ namespace Pulumi.Aws.Rum
         [Output("cwLogGroup")]
         public Output<string> CwLogGroup { get; private set; } = null!;
 
+        /// <summary>
+        /// The top-level internet domain name for which your application has administrative authority. Exactly one of `Domain` or `DomainList` must be specified.
+        /// </summary>
         [Output("domain")]
         public Output<string?> Domain { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of internet domain names for which your application has administrative authority. Exactly one of `Domain` or `DomainList` must be specified.
+        /// </summary>
         [Output("domainLists")]
         public Output<ImmutableArray<string>> DomainLists { get; private set; } = null!;
 
@@ -172,11 +178,18 @@ namespace Pulumi.Aws.Rum
         [Input("cwLogEnabled")]
         public Input<bool>? CwLogEnabled { get; set; }
 
+        /// <summary>
+        /// The top-level internet domain name for which your application has administrative authority. Exactly one of `Domain` or `DomainList` must be specified.
+        /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
         [Input("domainLists")]
         private InputList<string>? _domainLists;
+
+        /// <summary>
+        /// A list of internet domain names for which your application has administrative authority. Exactly one of `Domain` or `DomainList` must be specified.
+        /// </summary>
         public InputList<string> DomainLists
         {
             get => _domainLists ?? (_domainLists = new InputList<string>());
@@ -251,11 +264,18 @@ namespace Pulumi.Aws.Rum
         [Input("cwLogGroup")]
         public Input<string>? CwLogGroup { get; set; }
 
+        /// <summary>
+        /// The top-level internet domain name for which your application has administrative authority. Exactly one of `Domain` or `DomainList` must be specified.
+        /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
         [Input("domainLists")]
         private InputList<string>? _domainLists;
+
+        /// <summary>
+        /// A list of internet domain names for which your application has administrative authority. Exactly one of `Domain` or `DomainList` must be specified.
+        /// </summary>
         public InputList<string> DomainLists
         {
             get => _domainLists ?? (_domainLists = new InputList<string>());

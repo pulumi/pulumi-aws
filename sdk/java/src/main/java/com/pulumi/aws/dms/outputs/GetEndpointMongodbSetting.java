@@ -5,6 +5,7 @@ package com.pulumi.aws.dms.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 
@@ -16,6 +17,7 @@ public final class GetEndpointMongodbSetting {
     private String docsToInvestigate;
     private String extractDocId;
     private String nestingLevel;
+    private Boolean useUpdateLookup;
 
     private GetEndpointMongodbSetting() {}
     public String authMechanism() {
@@ -36,6 +38,9 @@ public final class GetEndpointMongodbSetting {
     public String nestingLevel() {
         return this.nestingLevel;
     }
+    public Boolean useUpdateLookup() {
+        return this.useUpdateLookup;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -52,6 +57,7 @@ public final class GetEndpointMongodbSetting {
         private String docsToInvestigate;
         private String extractDocId;
         private String nestingLevel;
+        private Boolean useUpdateLookup;
         public Builder() {}
         public Builder(GetEndpointMongodbSetting defaults) {
     	      Objects.requireNonNull(defaults);
@@ -61,6 +67,7 @@ public final class GetEndpointMongodbSetting {
     	      this.docsToInvestigate = defaults.docsToInvestigate;
     	      this.extractDocId = defaults.extractDocId;
     	      this.nestingLevel = defaults.nestingLevel;
+    	      this.useUpdateLookup = defaults.useUpdateLookup;
         }
 
         @CustomType.Setter
@@ -111,6 +118,14 @@ public final class GetEndpointMongodbSetting {
             this.nestingLevel = nestingLevel;
             return this;
         }
+        @CustomType.Setter
+        public Builder useUpdateLookup(Boolean useUpdateLookup) {
+            if (useUpdateLookup == null) {
+              throw new MissingRequiredPropertyException("GetEndpointMongodbSetting", "useUpdateLookup");
+            }
+            this.useUpdateLookup = useUpdateLookup;
+            return this;
+        }
         public GetEndpointMongodbSetting build() {
             final var _resultValue = new GetEndpointMongodbSetting();
             _resultValue.authMechanism = authMechanism;
@@ -119,6 +134,7 @@ public final class GetEndpointMongodbSetting {
             _resultValue.docsToInvestigate = docsToInvestigate;
             _resultValue.extractDocId = extractDocId;
             _resultValue.nestingLevel = nestingLevel;
+            _resultValue.useUpdateLookup = useUpdateLookup;
             return _resultValue;
         }
     }

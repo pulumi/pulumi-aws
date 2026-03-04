@@ -58,6 +58,11 @@ public final class GetWorkspaceResult {
      */
     private String id;
     /**
+     * @return The ID or ARN of the AWS KMS key for encrypting workspace data.
+     * 
+     */
+    private String kmsKeyId;
+    /**
      * @return Last updated date of the Grafana workspace.
      * 
      */
@@ -176,6 +181,13 @@ public final class GetWorkspaceResult {
         return this.id;
     }
     /**
+     * @return The ID or ARN of the AWS KMS key for encrypting workspace data.
+     * 
+     */
+    public String kmsKeyId() {
+        return this.kmsKeyId;
+    }
+    /**
      * @return Last updated date of the Grafana workspace.
      * 
      */
@@ -273,6 +285,7 @@ public final class GetWorkspaceResult {
         private String endpoint;
         private String grafanaVersion;
         private String id;
+        private String kmsKeyId;
         private String lastUpdatedDate;
         private String name;
         private List<String> notificationDestinations;
@@ -298,6 +311,7 @@ public final class GetWorkspaceResult {
     	      this.endpoint = defaults.endpoint;
     	      this.grafanaVersion = defaults.grafanaVersion;
     	      this.id = defaults.id;
+    	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.lastUpdatedDate = defaults.lastUpdatedDate;
     	      this.name = defaults.name;
     	      this.notificationDestinations = defaults.notificationDestinations;
@@ -389,6 +403,14 @@ public final class GetWorkspaceResult {
               throw new MissingRequiredPropertyException("GetWorkspaceResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder kmsKeyId(String kmsKeyId) {
+            if (kmsKeyId == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "kmsKeyId");
+            }
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
@@ -512,6 +534,7 @@ public final class GetWorkspaceResult {
             _resultValue.endpoint = endpoint;
             _resultValue.grafanaVersion = grafanaVersion;
             _resultValue.id = id;
+            _resultValue.kmsKeyId = kmsKeyId;
             _resultValue.lastUpdatedDate = lastUpdatedDate;
             _resultValue.name = name;
             _resultValue.notificationDestinations = notificationDestinations;

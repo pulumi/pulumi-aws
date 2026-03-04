@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudwatch.inputs;
 
 import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersApiKeyArgs;
 import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersBasicArgs;
+import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersConnectivityParametersArgs;
 import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersInvocationHttpParametersArgs;
 import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersOauthArgs;
 import com.pulumi.core.Output;
@@ -49,6 +50,21 @@ public final class EventConnectionAuthParametersArgs extends com.pulumi.resource
     }
 
     /**
+     * Parameters used for `oauth` with private API. Documented below.
+     * 
+     */
+    @Import(name="connectivityParameters")
+    private @Nullable Output<EventConnectionAuthParametersConnectivityParametersArgs> connectivityParameters;
+
+    /**
+     * @return Parameters used for `oauth` with private API. Documented below.
+     * 
+     */
+    public Optional<Output<EventConnectionAuthParametersConnectivityParametersArgs>> connectivityParameters() {
+        return Optional.ofNullable(this.connectivityParameters);
+    }
+
+    /**
      * Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
      * 
      */
@@ -83,6 +99,7 @@ public final class EventConnectionAuthParametersArgs extends com.pulumi.resource
     private EventConnectionAuthParametersArgs(EventConnectionAuthParametersArgs $) {
         this.apiKey = $.apiKey;
         this.basic = $.basic;
+        this.connectivityParameters = $.connectivityParameters;
         this.invocationHttpParameters = $.invocationHttpParameters;
         this.oauth = $.oauth;
     }
@@ -145,6 +162,27 @@ public final class EventConnectionAuthParametersArgs extends com.pulumi.resource
          */
         public Builder basic(EventConnectionAuthParametersBasicArgs basic) {
             return basic(Output.of(basic));
+        }
+
+        /**
+         * @param connectivityParameters Parameters used for `oauth` with private API. Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectivityParameters(@Nullable Output<EventConnectionAuthParametersConnectivityParametersArgs> connectivityParameters) {
+            $.connectivityParameters = connectivityParameters;
+            return this;
+        }
+
+        /**
+         * @param connectivityParameters Parameters used for `oauth` with private API. Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectivityParameters(EventConnectionAuthParametersConnectivityParametersArgs connectivityParameters) {
+            return connectivityParameters(Output.of(connectivityParameters));
         }
 
         /**

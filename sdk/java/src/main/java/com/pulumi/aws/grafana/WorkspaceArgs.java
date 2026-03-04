@@ -111,6 +111,21 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ARN of the AWS KMS key for encrypting workspace data.
+     * 
+     */
+    @Import(name="kmsKeyId")
+    private @Nullable Output<String> kmsKeyId;
+
+    /**
+     * @return The ARN of the AWS KMS key for encrypting workspace data.
+     * 
+     */
+    public Optional<Output<String>> kmsKeyId() {
+        return Optional.ofNullable(this.kmsKeyId);
+    }
+
+    /**
      * The Grafana workspace name.
      * 
      */
@@ -288,6 +303,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         this.dataSources = $.dataSources;
         this.description = $.description;
         this.grafanaVersion = $.grafanaVersion;
+        this.kmsKeyId = $.kmsKeyId;
         this.name = $.name;
         this.networkAccessControl = $.networkAccessControl;
         this.notificationDestinations = $.notificationDestinations;
@@ -463,6 +479,27 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder grafanaVersion(String grafanaVersion) {
             return grafanaVersion(Output.of(grafanaVersion));
+        }
+
+        /**
+         * @param kmsKeyId The ARN of the AWS KMS key for encrypting workspace data.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
+            $.kmsKeyId = kmsKeyId;
+            return this;
+        }
+
+        /**
+         * @param kmsKeyId The ARN of the AWS KMS key for encrypting workspace data.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyId(String kmsKeyId) {
+            return kmsKeyId(Output.of(kmsKeyId));
         }
 
         /**

@@ -34,14 +34,44 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauthArg
     }
 
     /**
-     * ARN of the OIDC provider for OAuth authentication.
+     * The URL where the end user&#39;s browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
+     * 
+     */
+    @Import(name="defaultReturnUrl")
+    private @Nullable Output<String> defaultReturnUrl;
+
+    /**
+     * @return The URL where the end user&#39;s browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
+     * 
+     */
+    public Optional<Output<String>> defaultReturnUrl() {
+        return Optional.ofNullable(this.defaultReturnUrl);
+    }
+
+    /**
+     * The OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+     * 
+     */
+    @Import(name="grantType")
+    private @Nullable Output<String> grantType;
+
+    /**
+     * @return The OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+     * 
+     */
+    public Optional<Output<String>> grantType() {
+        return Optional.ofNullable(this.grantType);
+    }
+
+    /**
+     * ARN of the Oauth credential provider for OAuth authentication.
      * 
      */
     @Import(name="providerArn", required=true)
     private Output<String> providerArn;
 
     /**
-     * @return ARN of the OIDC provider for OAuth authentication.
+     * @return ARN of the Oauth credential provider for OAuth authentication.
      * 
      */
     public Output<String> providerArn() {
@@ -67,6 +97,8 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauthArg
 
     private AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs(AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs $) {
         this.customParameters = $.customParameters;
+        this.defaultReturnUrl = $.defaultReturnUrl;
+        this.grantType = $.grantType;
         this.providerArn = $.providerArn;
         this.scopes = $.scopes;
     }
@@ -111,7 +143,49 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauthArg
         }
 
         /**
-         * @param providerArn ARN of the OIDC provider for OAuth authentication.
+         * @param defaultReturnUrl The URL where the end user&#39;s browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultReturnUrl(@Nullable Output<String> defaultReturnUrl) {
+            $.defaultReturnUrl = defaultReturnUrl;
+            return this;
+        }
+
+        /**
+         * @param defaultReturnUrl The URL where the end user&#39;s browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultReturnUrl(String defaultReturnUrl) {
+            return defaultReturnUrl(Output.of(defaultReturnUrl));
+        }
+
+        /**
+         * @param grantType The OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder grantType(@Nullable Output<String> grantType) {
+            $.grantType = grantType;
+            return this;
+        }
+
+        /**
+         * @param grantType The OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder grantType(String grantType) {
+            return grantType(Output.of(grantType));
+        }
+
+        /**
+         * @param providerArn ARN of the Oauth credential provider for OAuth authentication.
          * 
          * @return builder
          * 
@@ -122,7 +196,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauthArg
         }
 
         /**
-         * @param providerArn ARN of the OIDC provider for OAuth authentication.
+         * @param providerArn ARN of the Oauth credential provider for OAuth authentication.
          * 
          * @return builder
          * 

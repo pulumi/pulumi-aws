@@ -2347,13 +2347,15 @@ class GetEndpointMongodbSettingResult(dict):
                  auth_type: _builtins.str,
                  docs_to_investigate: _builtins.str,
                  extract_doc_id: _builtins.str,
-                 nesting_level: _builtins.str):
+                 nesting_level: _builtins.str,
+                 use_update_lookup: _builtins.bool):
         pulumi.set(__self__, "auth_mechanism", auth_mechanism)
         pulumi.set(__self__, "auth_source", auth_source)
         pulumi.set(__self__, "auth_type", auth_type)
         pulumi.set(__self__, "docs_to_investigate", docs_to_investigate)
         pulumi.set(__self__, "extract_doc_id", extract_doc_id)
         pulumi.set(__self__, "nesting_level", nesting_level)
+        pulumi.set(__self__, "use_update_lookup", use_update_lookup)
 
     @_builtins.property
     @pulumi.getter(name="authMechanism")
@@ -2384,6 +2386,11 @@ class GetEndpointMongodbSettingResult(dict):
     @pulumi.getter(name="nestingLevel")
     def nesting_level(self) -> _builtins.str:
         return pulumi.get(self, "nesting_level")
+
+    @_builtins.property
+    @pulumi.getter(name="useUpdateLookup")
+    def use_update_lookup(self) -> _builtins.bool:
+        return pulumi.get(self, "use_update_lookup")
 
 
 @pulumi.output_type

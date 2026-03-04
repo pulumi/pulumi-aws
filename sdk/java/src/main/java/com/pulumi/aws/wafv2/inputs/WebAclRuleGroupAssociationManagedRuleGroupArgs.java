@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
+import com.pulumi.aws.wafv2.inputs.WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigsArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -17,6 +18,21 @@ import javax.annotation.Nullable;
 public final class WebAclRuleGroupAssociationManagedRuleGroupArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final WebAclRuleGroupAssociationManagedRuleGroupArgs Empty = new WebAclRuleGroupAssociationManagedRuleGroupArgs();
+
+    /**
+     * Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See below.
+     * 
+     */
+    @Import(name="managedRuleGroupConfigs")
+    private @Nullable Output<WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigsArgs> managedRuleGroupConfigs;
+
+    /**
+     * @return Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See below.
+     * 
+     */
+    public Optional<Output<WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigsArgs>> managedRuleGroupConfigs() {
+        return Optional.ofNullable(this.managedRuleGroupConfigs);
+    }
 
     /**
      * Name of the managed rule group.
@@ -81,6 +97,7 @@ public final class WebAclRuleGroupAssociationManagedRuleGroupArgs extends com.pu
     private WebAclRuleGroupAssociationManagedRuleGroupArgs() {}
 
     private WebAclRuleGroupAssociationManagedRuleGroupArgs(WebAclRuleGroupAssociationManagedRuleGroupArgs $) {
+        this.managedRuleGroupConfigs = $.managedRuleGroupConfigs;
         this.name = $.name;
         this.ruleActionOverrides = $.ruleActionOverrides;
         this.vendorName = $.vendorName;
@@ -103,6 +120,27 @@ public final class WebAclRuleGroupAssociationManagedRuleGroupArgs extends com.pu
 
         public Builder(WebAclRuleGroupAssociationManagedRuleGroupArgs defaults) {
             $ = new WebAclRuleGroupAssociationManagedRuleGroupArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param managedRuleGroupConfigs Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedRuleGroupConfigs(@Nullable Output<WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigsArgs> managedRuleGroupConfigs) {
+            $.managedRuleGroupConfigs = managedRuleGroupConfigs;
+            return this;
+        }
+
+        /**
+         * @param managedRuleGroupConfigs Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedRuleGroupConfigs(WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigsArgs managedRuleGroupConfigs) {
+            return managedRuleGroupConfigs(Output.of(managedRuleGroupConfigs));
         }
 
         /**

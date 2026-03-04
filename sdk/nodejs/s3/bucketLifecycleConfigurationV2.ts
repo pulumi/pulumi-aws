@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketLifecycleConfiguration("example", {
- *     bucket: bucket.id,
+ *     bucket: bucket.bucket,
  *     rules: [{
  *         id: "rule-1",
  *         status: "Enabled",
@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketLifecycleConfiguration("example", {
- *     bucket: bucket.id,
+ *     bucket: bucket.bucket,
  *     rules: [{
  *         id: "rule-1",
  *         filter: {},
@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketLifecycleConfiguration("example", {
- *     bucket: bucket.id,
+ *     bucket: bucket.bucket,
  *     rules: [{
  *         id: "rule-1",
  *         filter: {
@@ -88,7 +88,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketLifecycleConfiguration("example", {
- *     bucket: bucket.id,
+ *     bucket: bucket.bucket,
  *     rules: [
  *         {
  *             id: "rule-1",
@@ -117,7 +117,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketLifecycleConfiguration("example", {
- *     bucket: bucket.id,
+ *     bucket: bucket.bucket,
  *     rules: [{
  *         id: "rule-1",
  *         filter: {
@@ -140,7 +140,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketLifecycleConfiguration("example", {
- *     bucket: bucket.id,
+ *     bucket: bucket.bucket,
  *     rules: [{
  *         id: "rule-1",
  *         filter: {
@@ -165,7 +165,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketLifecycleConfiguration("example", {
- *     bucket: bucket.id,
+ *     bucket: bucket.bucket,
  *     rules: [{
  *         id: "rule-1",
  *         filter: {
@@ -191,7 +191,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketLifecycleConfiguration("example", {
- *     bucket: bucket.id,
+ *     bucket: bucket.bucket,
  *     rules: [{
  *         id: "Allow small object transitions",
  *         filter: {
@@ -215,7 +215,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketLifecycleConfiguration("example", {
- *     bucket: bucket.id,
+ *     bucket: bucket.bucket,
  *     rules: [{
  *         id: "rule-1",
  *         filter: {
@@ -238,11 +238,11 @@ import * as utilities from "../utilities";
  *
  * const bucket = new aws.s3.Bucket("bucket", {bucket: "my-bucket"});
  * const bucketAcl = new aws.s3.BucketAcl("bucket_acl", {
- *     bucket: bucket.id,
+ *     bucket: bucket.bucket,
  *     acl: "private",
  * });
  * const bucket_config = new aws.s3.BucketLifecycleConfiguration("bucket-config", {
- *     bucket: bucket.id,
+ *     bucket: bucket.bucket,
  *     rules: [
  *         {
  *             id: "log",
@@ -284,17 +284,17 @@ import * as utilities from "../utilities";
  * });
  * const versioningBucket = new aws.s3.Bucket("versioning_bucket", {bucket: "my-versioning-bucket"});
  * const versioningBucketAcl = new aws.s3.BucketAcl("versioning_bucket_acl", {
- *     bucket: versioningBucket.id,
+ *     bucket: versioningBucket.bucket,
  *     acl: "private",
  * });
  * const versioning = new aws.s3.BucketVersioning("versioning", {
- *     bucket: versioningBucket.id,
+ *     bucket: versioningBucket.bucket,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
  * });
  * const versioning_bucket_config = new aws.s3.BucketLifecycleConfiguration("versioning-bucket-config", {
- *     bucket: versioningBucket.id,
+ *     bucket: versioningBucket.bucket,
  *     rules: [{
  *         id: "config",
  *         filter: {
@@ -321,6 +321,17 @@ import * as utilities from "../utilities";
  * ```
  *
  * ## Import
+ *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `bucket` (String) S3 bucket name.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
  *
  * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expectedBucketOwner` separated by a comma (`,`):
  *

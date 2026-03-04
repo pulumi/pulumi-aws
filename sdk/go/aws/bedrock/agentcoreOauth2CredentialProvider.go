@@ -163,6 +163,10 @@ type AgentcoreOauth2CredentialProvider struct {
 	Oauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput `pulumi:"oauth2ProviderConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewAgentcoreOauth2CredentialProvider registers a new resource with the given unique name, arguments, and options.
@@ -212,6 +216,10 @@ type agentcoreOauth2CredentialProviderState struct {
 	Oauth2ProviderConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfig `pulumi:"oauth2ProviderConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type AgentcoreOauth2CredentialProviderState struct {
@@ -229,6 +237,10 @@ type AgentcoreOauth2CredentialProviderState struct {
 	Oauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (AgentcoreOauth2CredentialProviderState) ElementType() reflect.Type {
@@ -246,6 +258,8 @@ type agentcoreOauth2CredentialProviderArgs struct {
 	Oauth2ProviderConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfig `pulumi:"oauth2ProviderConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AgentcoreOauth2CredentialProvider resource.
@@ -260,6 +274,8 @@ type AgentcoreOauth2CredentialProviderArgs struct {
 	Oauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (AgentcoreOauth2CredentialProviderArgs) ElementType() reflect.Type {
@@ -383,6 +399,16 @@ func (o AgentcoreOauth2CredentialProviderOutput) Oauth2ProviderConfig() Agentcor
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AgentcoreOauth2CredentialProviderOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProvider) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o AgentcoreOauth2CredentialProviderOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProvider) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+func (o AgentcoreOauth2CredentialProviderOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProvider) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 type AgentcoreOauth2CredentialProviderArrayOutput struct{ *pulumi.OutputState }

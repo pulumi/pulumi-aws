@@ -4270,6 +4270,7 @@ type GetEndpointMongodbSetting struct {
 	DocsToInvestigate string `pulumi:"docsToInvestigate"`
 	ExtractDocId      string `pulumi:"extractDocId"`
 	NestingLevel      string `pulumi:"nestingLevel"`
+	UseUpdateLookup   bool   `pulumi:"useUpdateLookup"`
 }
 
 // GetEndpointMongodbSettingInput is an input type that accepts GetEndpointMongodbSettingArgs and GetEndpointMongodbSettingOutput values.
@@ -4290,6 +4291,7 @@ type GetEndpointMongodbSettingArgs struct {
 	DocsToInvestigate pulumi.StringInput `pulumi:"docsToInvestigate"`
 	ExtractDocId      pulumi.StringInput `pulumi:"extractDocId"`
 	NestingLevel      pulumi.StringInput `pulumi:"nestingLevel"`
+	UseUpdateLookup   pulumi.BoolInput   `pulumi:"useUpdateLookup"`
 }
 
 func (GetEndpointMongodbSettingArgs) ElementType() reflect.Type {
@@ -4365,6 +4367,10 @@ func (o GetEndpointMongodbSettingOutput) ExtractDocId() pulumi.StringOutput {
 
 func (o GetEndpointMongodbSettingOutput) NestingLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEndpointMongodbSetting) string { return v.NestingLevel }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointMongodbSettingOutput) UseUpdateLookup() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointMongodbSetting) bool { return v.UseUpdateLookup }).(pulumi.BoolOutput)
 }
 
 type GetEndpointMongodbSettingArrayOutput struct{ *pulumi.OutputState }

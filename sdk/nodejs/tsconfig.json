@@ -1645,6 +1645,7 @@
         "networkmanager/index.ts",
         "networkmanager/link.ts",
         "networkmanager/linkAssociation.ts",
+        "networkmanager/prefixListAssociation.ts",
         "networkmanager/site.ts",
         "networkmanager/siteToSiteVpnAttachment.ts",
         "networkmanager/transitGatewayConnectPeerAssociation.ts",

@@ -182,9 +182,10 @@ import * as utilities from "../utilities";
  *                 "read",
  *                 "write",
  *             ],
+ *             grantType: "authorization_code",
+ *             defaultReturnUrl: "https://myapp.example.com/callback",
  *             customParameters: {
  *                 client_type: "confidential",
- *                 grant_type: "authorization_code",
  *             },
  *         },
  *     },
@@ -280,6 +281,34 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### MCP Server Target with Header Propagation
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const mcpWithHeaders = new aws.bedrock.AgentcoreGatewayTarget("mcp_with_headers", {
+ *     name: "mcp-target-with-headers",
+ *     gatewayIdentifier: example.gatewayId,
+ *     description: "MCP server target with header propagation",
+ *     targetConfiguration: {
+ *         mcp: {
+ *             mcpServer: {
+ *                 endpoint: "https://example.com/mcp",
+ *             },
+ *         },
+ *     },
+ *     metadataConfiguration: {
+ *         allowedRequestHeaders: [
+ *             "x-correlation-id",
+ *             "x-tenant-id",
+ *         ],
+ *         allowedResponseHeaders: ["x-rate-limit-remaining"],
+ *         allowedQueryParameters: ["version"],
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Bedrock AgentCore Gateway Target using the gateway identifier and target ID separated by a comma. For example:
@@ -329,6 +358,10 @@ export class AgentcoreGatewayTarget extends pulumi.CustomResource {
      */
     declare public readonly gatewayIdentifier: pulumi.Output<string>;
     /**
+     * Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+     */
+    declare public readonly metadataConfiguration: pulumi.Output<outputs.bedrock.AgentcoreGatewayTargetMetadataConfiguration | undefined>;
+    /**
      * Name of the gateway target.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -364,6 +397,7 @@ export class AgentcoreGatewayTarget extends pulumi.CustomResource {
             resourceInputs["credentialProviderConfiguration"] = state?.credentialProviderConfiguration;
             resourceInputs["description"] = state?.description;
             resourceInputs["gatewayIdentifier"] = state?.gatewayIdentifier;
+            resourceInputs["metadataConfiguration"] = state?.metadataConfiguration;
             resourceInputs["name"] = state?.name;
             resourceInputs["region"] = state?.region;
             resourceInputs["targetConfiguration"] = state?.targetConfiguration;
@@ -380,6 +414,7 @@ export class AgentcoreGatewayTarget extends pulumi.CustomResource {
             resourceInputs["credentialProviderConfiguration"] = args?.credentialProviderConfiguration;
             resourceInputs["description"] = args?.description;
             resourceInputs["gatewayIdentifier"] = args?.gatewayIdentifier;
+            resourceInputs["metadataConfiguration"] = args?.metadataConfiguration;
             resourceInputs["name"] = args?.name;
             resourceInputs["region"] = args?.region;
             resourceInputs["targetConfiguration"] = args?.targetConfiguration;
@@ -407,6 +442,10 @@ export interface AgentcoreGatewayTargetState {
      * Identifier of the gateway that this target belongs to.
      */
     gatewayIdentifier?: pulumi.Input<string>;
+    /**
+     * Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+     */
+    metadataConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetMetadataConfiguration>;
     /**
      * Name of the gateway target.
      */
@@ -444,6 +483,10 @@ export interface AgentcoreGatewayTargetArgs {
      * Identifier of the gateway that this target belongs to.
      */
     gatewayIdentifier: pulumi.Input<string>;
+    /**
+     * Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+     */
+    metadataConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetMetadataConfiguration>;
     /**
      * Name of the gateway target.
      */

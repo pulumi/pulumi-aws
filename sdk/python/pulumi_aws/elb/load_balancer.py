@@ -821,10 +821,21 @@ class LoadBalancer(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the ELB.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import ELBs using the `name`. For example:
 
         ```sh
-        $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
+        $ pulumi import aws:elb/loadBalancer:LoadBalancer example elb-production-12345
         ```
 
 
@@ -935,10 +946,21 @@ class LoadBalancer(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the ELB.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import ELBs using the `name`. For example:
 
         ```sh
-        $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
+        $ pulumi import aws:elb/loadBalancer:LoadBalancer example elb-production-12345
         ```
 
 

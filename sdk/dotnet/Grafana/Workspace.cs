@@ -161,6 +161,12 @@ namespace Pulumi.Aws.Grafana
         public Output<string> GrafanaVersion { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the AWS KMS key for encrypting workspace data.
+        /// </summary>
+        [Output("kmsKeyId")]
+        public Output<string> KmsKeyId { get; private set; } = null!;
+
+        /// <summary>
         /// The Grafana workspace name.
         /// </summary>
         [Output("name")]
@@ -332,6 +338,12 @@ namespace Pulumi.Aws.Grafana
         public Input<string>? GrafanaVersion { get; set; }
 
         /// <summary>
+        /// The ARN of the AWS KMS key for encrypting workspace data.
+        /// </summary>
+        [Input("kmsKeyId")]
+        public Input<string>? KmsKeyId { get; set; }
+
+        /// <summary>
         /// The Grafana workspace name.
         /// </summary>
         [Input("name")]
@@ -484,6 +496,12 @@ namespace Pulumi.Aws.Grafana
         /// </summary>
         [Input("grafanaVersion")]
         public Input<string>? GrafanaVersion { get; set; }
+
+        /// <summary>
+        /// The ARN of the AWS KMS key for encrypting workspace data.
+        /// </summary>
+        [Input("kmsKeyId")]
+        public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
         /// The Grafana workspace name.

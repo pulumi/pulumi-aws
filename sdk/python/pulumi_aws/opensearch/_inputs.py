@@ -27,6 +27,8 @@ __all__ = [
     'AuthorizeVpcEndpointAccessAuthorizedPrincipalArgsDict',
     'DomainAdvancedSecurityOptionsArgs',
     'DomainAdvancedSecurityOptionsArgsDict',
+    'DomainAdvancedSecurityOptionsJwtOptionsArgs',
+    'DomainAdvancedSecurityOptionsJwtOptionsArgsDict',
     'DomainAdvancedSecurityOptionsMasterUserOptionsArgs',
     'DomainAdvancedSecurityOptionsMasterUserOptionsArgsDict',
     'DomainAimlOptionsArgs',
@@ -414,6 +416,10 @@ class DomainAdvancedSecurityOptionsArgsDict(TypedDict):
     """
     Whether the internal user database is enabled. Default is `false`.
     """
+    jwt_options: NotRequired[pulumi.Input['DomainAdvancedSecurityOptionsJwtOptionsArgsDict']]
+    """
+    Configuration block for JWT authentication. Requires OpenSearch 2.11 or later. Detailed below.
+    """
     master_user_options: NotRequired[pulumi.Input['DomainAdvancedSecurityOptionsMasterUserOptionsArgsDict']]
     """
     Configuration block for the main user. Detailed below.
@@ -425,11 +431,13 @@ class DomainAdvancedSecurityOptionsArgs:
                  enabled: pulumi.Input[_builtins.bool],
                  anonymous_auth_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  internal_user_database_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 jwt_options: Optional[pulumi.Input['DomainAdvancedSecurityOptionsJwtOptionsArgs']] = None,
                  master_user_options: Optional[pulumi.Input['DomainAdvancedSecurityOptionsMasterUserOptionsArgs']] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Whether advanced security is enabled.
         :param pulumi.Input[_builtins.bool] anonymous_auth_enabled: Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
         :param pulumi.Input[_builtins.bool] internal_user_database_enabled: Whether the internal user database is enabled. Default is `false`.
+        :param pulumi.Input['DomainAdvancedSecurityOptionsJwtOptionsArgs'] jwt_options: Configuration block for JWT authentication. Requires OpenSearch 2.11 or later. Detailed below.
         :param pulumi.Input['DomainAdvancedSecurityOptionsMasterUserOptionsArgs'] master_user_options: Configuration block for the main user. Detailed below.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -437,6 +445,8 @@ class DomainAdvancedSecurityOptionsArgs:
             pulumi.set(__self__, "anonymous_auth_enabled", anonymous_auth_enabled)
         if internal_user_database_enabled is not None:
             pulumi.set(__self__, "internal_user_database_enabled", internal_user_database_enabled)
+        if jwt_options is not None:
+            pulumi.set(__self__, "jwt_options", jwt_options)
         if master_user_options is not None:
             pulumi.set(__self__, "master_user_options", master_user_options)
 
@@ -477,6 +487,18 @@ class DomainAdvancedSecurityOptionsArgs:
         pulumi.set(self, "internal_user_database_enabled", value)
 
     @_builtins.property
+    @pulumi.getter(name="jwtOptions")
+    def jwt_options(self) -> Optional[pulumi.Input['DomainAdvancedSecurityOptionsJwtOptionsArgs']]:
+        """
+        Configuration block for JWT authentication. Requires OpenSearch 2.11 or later. Detailed below.
+        """
+        return pulumi.get(self, "jwt_options")
+
+    @jwt_options.setter
+    def jwt_options(self, value: Optional[pulumi.Input['DomainAdvancedSecurityOptionsJwtOptionsArgs']]):
+        pulumi.set(self, "jwt_options", value)
+
+    @_builtins.property
     @pulumi.getter(name="masterUserOptions")
     def master_user_options(self) -> Optional[pulumi.Input['DomainAdvancedSecurityOptionsMasterUserOptionsArgs']]:
         """
@@ -487,6 +509,95 @@ class DomainAdvancedSecurityOptionsArgs:
     @master_user_options.setter
     def master_user_options(self, value: Optional[pulumi.Input['DomainAdvancedSecurityOptionsMasterUserOptionsArgs']]):
         pulumi.set(self, "master_user_options", value)
+
+
+class DomainAdvancedSecurityOptionsJwtOptionsArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether JWT authentication is enabled.
+    """
+    public_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    PEM-encoded public key used to verify JWT signatures.
+    """
+    roles_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Element of the JWT assertion to use for roles. Default is `roles`.
+    """
+    subject_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Element of the JWT assertion to use for the user name. Default is `sub`.
+    """
+
+@pulumi.input_type
+class DomainAdvancedSecurityOptionsJwtOptionsArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 roles_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 subject_key: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: Whether JWT authentication is enabled.
+        :param pulumi.Input[_builtins.str] public_key: PEM-encoded public key used to verify JWT signatures.
+        :param pulumi.Input[_builtins.str] roles_key: Element of the JWT assertion to use for roles. Default is `roles`.
+        :param pulumi.Input[_builtins.str] subject_key: Element of the JWT assertion to use for the user name. Default is `sub`.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if public_key is not None:
+            pulumi.set(__self__, "public_key", public_key)
+        if roles_key is not None:
+            pulumi.set(__self__, "roles_key", roles_key)
+        if subject_key is not None:
+            pulumi.set(__self__, "subject_key", subject_key)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether JWT authentication is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="publicKey")
+    def public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        PEM-encoded public key used to verify JWT signatures.
+        """
+        return pulumi.get(self, "public_key")
+
+    @public_key.setter
+    def public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "public_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rolesKey")
+    def roles_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Element of the JWT assertion to use for roles. Default is `roles`.
+        """
+        return pulumi.get(self, "roles_key")
+
+    @roles_key.setter
+    def roles_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "roles_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subjectKey")
+    def subject_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Element of the JWT assertion to use for the user name. Default is `sub`.
+        """
+        return pulumi.get(self, "subject_key")
+
+    @subject_key.setter
+    def subject_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "subject_key", value)
 
 
 class DomainAdvancedSecurityOptionsMasterUserOptionsArgsDict(TypedDict):
@@ -1721,7 +1832,13 @@ class DomainIdentityCenterOptionsArgsDict(TypedDict):
     enabled_api_access: NotRequired[pulumi.Input[_builtins.bool]]
     identity_center_instance_arn: NotRequired[pulumi.Input[_builtins.str]]
     roles_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Element of the JWT assertion to use for roles. Default is `roles`.
+    """
     subject_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Element of the JWT assertion to use for the user name. Default is `sub`.
+    """
 
 @pulumi.input_type
 class DomainIdentityCenterOptionsArgs:
@@ -1730,6 +1847,10 @@ class DomainIdentityCenterOptionsArgs:
                  identity_center_instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  roles_key: Optional[pulumi.Input[_builtins.str]] = None,
                  subject_key: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] roles_key: Element of the JWT assertion to use for roles. Default is `roles`.
+        :param pulumi.Input[_builtins.str] subject_key: Element of the JWT assertion to use for the user name. Default is `sub`.
+        """
         if enabled_api_access is not None:
             pulumi.set(__self__, "enabled_api_access", enabled_api_access)
         if identity_center_instance_arn is not None:
@@ -1760,6 +1881,9 @@ class DomainIdentityCenterOptionsArgs:
     @_builtins.property
     @pulumi.getter(name="rolesKey")
     def roles_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Element of the JWT assertion to use for roles. Default is `roles`.
+        """
         return pulumi.get(self, "roles_key")
 
     @roles_key.setter
@@ -1769,6 +1893,9 @@ class DomainIdentityCenterOptionsArgs:
     @_builtins.property
     @pulumi.getter(name="subjectKey")
     def subject_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Element of the JWT assertion to use for the user name. Default is `sub`.
+        """
         return pulumi.get(self, "subject_key")
 
     @subject_key.setter

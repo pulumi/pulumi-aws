@@ -703,6 +703,8 @@ type DomainAdvancedSecurityOptions struct {
 	Enabled bool `pulumi:"enabled"`
 	// Whether the internal user database is enabled. Default is `false`.
 	InternalUserDatabaseEnabled *bool `pulumi:"internalUserDatabaseEnabled"`
+	// Configuration block for JWT authentication. Requires OpenSearch 2.11 or later. Detailed below.
+	JwtOptions *DomainAdvancedSecurityOptionsJwtOptions `pulumi:"jwtOptions"`
 	// Configuration block for the main user. Detailed below.
 	MasterUserOptions *DomainAdvancedSecurityOptionsMasterUserOptions `pulumi:"masterUserOptions"`
 }
@@ -725,6 +727,8 @@ type DomainAdvancedSecurityOptionsArgs struct {
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Whether the internal user database is enabled. Default is `false`.
 	InternalUserDatabaseEnabled pulumi.BoolPtrInput `pulumi:"internalUserDatabaseEnabled"`
+	// Configuration block for JWT authentication. Requires OpenSearch 2.11 or later. Detailed below.
+	JwtOptions DomainAdvancedSecurityOptionsJwtOptionsPtrInput `pulumi:"jwtOptions"`
 	// Configuration block for the main user. Detailed below.
 	MasterUserOptions DomainAdvancedSecurityOptionsMasterUserOptionsPtrInput `pulumi:"masterUserOptions"`
 }
@@ -821,6 +825,11 @@ func (o DomainAdvancedSecurityOptionsOutput) InternalUserDatabaseEnabled() pulum
 	return o.ApplyT(func(v DomainAdvancedSecurityOptions) *bool { return v.InternalUserDatabaseEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Configuration block for JWT authentication. Requires OpenSearch 2.11 or later. Detailed below.
+func (o DomainAdvancedSecurityOptionsOutput) JwtOptions() DomainAdvancedSecurityOptionsJwtOptionsPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptions) *DomainAdvancedSecurityOptionsJwtOptions { return v.JwtOptions }).(DomainAdvancedSecurityOptionsJwtOptionsPtrOutput)
+}
+
 // Configuration block for the main user. Detailed below.
 func (o DomainAdvancedSecurityOptionsOutput) MasterUserOptions() DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput {
 	return o.ApplyT(func(v DomainAdvancedSecurityOptions) *DomainAdvancedSecurityOptionsMasterUserOptions {
@@ -882,6 +891,16 @@ func (o DomainAdvancedSecurityOptionsPtrOutput) InternalUserDatabaseEnabled() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Configuration block for JWT authentication. Requires OpenSearch 2.11 or later. Detailed below.
+func (o DomainAdvancedSecurityOptionsPtrOutput) JwtOptions() DomainAdvancedSecurityOptionsJwtOptionsPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptions) *DomainAdvancedSecurityOptionsJwtOptions {
+		if v == nil {
+			return nil
+		}
+		return v.JwtOptions
+	}).(DomainAdvancedSecurityOptionsJwtOptionsPtrOutput)
+}
+
 // Configuration block for the main user. Detailed below.
 func (o DomainAdvancedSecurityOptionsPtrOutput) MasterUserOptions() DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput {
 	return o.ApplyT(func(v *DomainAdvancedSecurityOptions) *DomainAdvancedSecurityOptionsMasterUserOptions {
@@ -890,6 +909,200 @@ func (o DomainAdvancedSecurityOptionsPtrOutput) MasterUserOptions() DomainAdvanc
 		}
 		return v.MasterUserOptions
 	}).(DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput)
+}
+
+type DomainAdvancedSecurityOptionsJwtOptions struct {
+	// Whether JWT authentication is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// PEM-encoded public key used to verify JWT signatures.
+	PublicKey *string `pulumi:"publicKey"`
+	// Element of the JWT assertion to use for roles. Default is `roles`.
+	RolesKey *string `pulumi:"rolesKey"`
+	// Element of the JWT assertion to use for the user name. Default is `sub`.
+	SubjectKey *string `pulumi:"subjectKey"`
+}
+
+// DomainAdvancedSecurityOptionsJwtOptionsInput is an input type that accepts DomainAdvancedSecurityOptionsJwtOptionsArgs and DomainAdvancedSecurityOptionsJwtOptionsOutput values.
+// You can construct a concrete instance of `DomainAdvancedSecurityOptionsJwtOptionsInput` via:
+//
+//	DomainAdvancedSecurityOptionsJwtOptionsArgs{...}
+type DomainAdvancedSecurityOptionsJwtOptionsInput interface {
+	pulumi.Input
+
+	ToDomainAdvancedSecurityOptionsJwtOptionsOutput() DomainAdvancedSecurityOptionsJwtOptionsOutput
+	ToDomainAdvancedSecurityOptionsJwtOptionsOutputWithContext(context.Context) DomainAdvancedSecurityOptionsJwtOptionsOutput
+}
+
+type DomainAdvancedSecurityOptionsJwtOptionsArgs struct {
+	// Whether JWT authentication is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// PEM-encoded public key used to verify JWT signatures.
+	PublicKey pulumi.StringPtrInput `pulumi:"publicKey"`
+	// Element of the JWT assertion to use for roles. Default is `roles`.
+	RolesKey pulumi.StringPtrInput `pulumi:"rolesKey"`
+	// Element of the JWT assertion to use for the user name. Default is `sub`.
+	SubjectKey pulumi.StringPtrInput `pulumi:"subjectKey"`
+}
+
+func (DomainAdvancedSecurityOptionsJwtOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAdvancedSecurityOptionsJwtOptions)(nil)).Elem()
+}
+
+func (i DomainAdvancedSecurityOptionsJwtOptionsArgs) ToDomainAdvancedSecurityOptionsJwtOptionsOutput() DomainAdvancedSecurityOptionsJwtOptionsOutput {
+	return i.ToDomainAdvancedSecurityOptionsJwtOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainAdvancedSecurityOptionsJwtOptionsArgs) ToDomainAdvancedSecurityOptionsJwtOptionsOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsJwtOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAdvancedSecurityOptionsJwtOptionsOutput)
+}
+
+func (i DomainAdvancedSecurityOptionsJwtOptionsArgs) ToDomainAdvancedSecurityOptionsJwtOptionsPtrOutput() DomainAdvancedSecurityOptionsJwtOptionsPtrOutput {
+	return i.ToDomainAdvancedSecurityOptionsJwtOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainAdvancedSecurityOptionsJwtOptionsArgs) ToDomainAdvancedSecurityOptionsJwtOptionsPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsJwtOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAdvancedSecurityOptionsJwtOptionsOutput).ToDomainAdvancedSecurityOptionsJwtOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainAdvancedSecurityOptionsJwtOptionsPtrInput is an input type that accepts DomainAdvancedSecurityOptionsJwtOptionsArgs, DomainAdvancedSecurityOptionsJwtOptionsPtr and DomainAdvancedSecurityOptionsJwtOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainAdvancedSecurityOptionsJwtOptionsPtrInput` via:
+//
+//	        DomainAdvancedSecurityOptionsJwtOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainAdvancedSecurityOptionsJwtOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainAdvancedSecurityOptionsJwtOptionsPtrOutput() DomainAdvancedSecurityOptionsJwtOptionsPtrOutput
+	ToDomainAdvancedSecurityOptionsJwtOptionsPtrOutputWithContext(context.Context) DomainAdvancedSecurityOptionsJwtOptionsPtrOutput
+}
+
+type domainAdvancedSecurityOptionsJwtOptionsPtrType DomainAdvancedSecurityOptionsJwtOptionsArgs
+
+func DomainAdvancedSecurityOptionsJwtOptionsPtr(v *DomainAdvancedSecurityOptionsJwtOptionsArgs) DomainAdvancedSecurityOptionsJwtOptionsPtrInput {
+	return (*domainAdvancedSecurityOptionsJwtOptionsPtrType)(v)
+}
+
+func (*domainAdvancedSecurityOptionsJwtOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAdvancedSecurityOptionsJwtOptions)(nil)).Elem()
+}
+
+func (i *domainAdvancedSecurityOptionsJwtOptionsPtrType) ToDomainAdvancedSecurityOptionsJwtOptionsPtrOutput() DomainAdvancedSecurityOptionsJwtOptionsPtrOutput {
+	return i.ToDomainAdvancedSecurityOptionsJwtOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainAdvancedSecurityOptionsJwtOptionsPtrType) ToDomainAdvancedSecurityOptionsJwtOptionsPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsJwtOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAdvancedSecurityOptionsJwtOptionsPtrOutput)
+}
+
+type DomainAdvancedSecurityOptionsJwtOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainAdvancedSecurityOptionsJwtOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAdvancedSecurityOptionsJwtOptions)(nil)).Elem()
+}
+
+func (o DomainAdvancedSecurityOptionsJwtOptionsOutput) ToDomainAdvancedSecurityOptionsJwtOptionsOutput() DomainAdvancedSecurityOptionsJwtOptionsOutput {
+	return o
+}
+
+func (o DomainAdvancedSecurityOptionsJwtOptionsOutput) ToDomainAdvancedSecurityOptionsJwtOptionsOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsJwtOptionsOutput {
+	return o
+}
+
+func (o DomainAdvancedSecurityOptionsJwtOptionsOutput) ToDomainAdvancedSecurityOptionsJwtOptionsPtrOutput() DomainAdvancedSecurityOptionsJwtOptionsPtrOutput {
+	return o.ToDomainAdvancedSecurityOptionsJwtOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAdvancedSecurityOptionsJwtOptionsOutput) ToDomainAdvancedSecurityOptionsJwtOptionsPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsJwtOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAdvancedSecurityOptionsJwtOptions) *DomainAdvancedSecurityOptionsJwtOptions {
+		return &v
+	}).(DomainAdvancedSecurityOptionsJwtOptionsPtrOutput)
+}
+
+// Whether JWT authentication is enabled.
+func (o DomainAdvancedSecurityOptionsJwtOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptionsJwtOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// PEM-encoded public key used to verify JWT signatures.
+func (o DomainAdvancedSecurityOptionsJwtOptionsOutput) PublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptionsJwtOptions) *string { return v.PublicKey }).(pulumi.StringPtrOutput)
+}
+
+// Element of the JWT assertion to use for roles. Default is `roles`.
+func (o DomainAdvancedSecurityOptionsJwtOptionsOutput) RolesKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptionsJwtOptions) *string { return v.RolesKey }).(pulumi.StringPtrOutput)
+}
+
+// Element of the JWT assertion to use for the user name. Default is `sub`.
+func (o DomainAdvancedSecurityOptionsJwtOptionsOutput) SubjectKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptionsJwtOptions) *string { return v.SubjectKey }).(pulumi.StringPtrOutput)
+}
+
+type DomainAdvancedSecurityOptionsJwtOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainAdvancedSecurityOptionsJwtOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAdvancedSecurityOptionsJwtOptions)(nil)).Elem()
+}
+
+func (o DomainAdvancedSecurityOptionsJwtOptionsPtrOutput) ToDomainAdvancedSecurityOptionsJwtOptionsPtrOutput() DomainAdvancedSecurityOptionsJwtOptionsPtrOutput {
+	return o
+}
+
+func (o DomainAdvancedSecurityOptionsJwtOptionsPtrOutput) ToDomainAdvancedSecurityOptionsJwtOptionsPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsJwtOptionsPtrOutput {
+	return o
+}
+
+func (o DomainAdvancedSecurityOptionsJwtOptionsPtrOutput) Elem() DomainAdvancedSecurityOptionsJwtOptionsOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsJwtOptions) DomainAdvancedSecurityOptionsJwtOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainAdvancedSecurityOptionsJwtOptions
+		return ret
+	}).(DomainAdvancedSecurityOptionsJwtOptionsOutput)
+}
+
+// Whether JWT authentication is enabled.
+func (o DomainAdvancedSecurityOptionsJwtOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsJwtOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// PEM-encoded public key used to verify JWT signatures.
+func (o DomainAdvancedSecurityOptionsJwtOptionsPtrOutput) PublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsJwtOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Element of the JWT assertion to use for roles. Default is `roles`.
+func (o DomainAdvancedSecurityOptionsJwtOptionsPtrOutput) RolesKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsJwtOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RolesKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Element of the JWT assertion to use for the user name. Default is `sub`.
+func (o DomainAdvancedSecurityOptionsJwtOptionsPtrOutput) SubjectKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsJwtOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubjectKey
+	}).(pulumi.StringPtrOutput)
 }
 
 type DomainAdvancedSecurityOptionsMasterUserOptions struct {
@@ -3738,8 +3951,10 @@ func (o DomainEncryptAtRestPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 type DomainIdentityCenterOptions struct {
 	EnabledApiAccess          *bool   `pulumi:"enabledApiAccess"`
 	IdentityCenterInstanceArn *string `pulumi:"identityCenterInstanceArn"`
-	RolesKey                  *string `pulumi:"rolesKey"`
-	SubjectKey                *string `pulumi:"subjectKey"`
+	// Element of the JWT assertion to use for roles. Default is `roles`.
+	RolesKey *string `pulumi:"rolesKey"`
+	// Element of the JWT assertion to use for the user name. Default is `sub`.
+	SubjectKey *string `pulumi:"subjectKey"`
 }
 
 // DomainIdentityCenterOptionsInput is an input type that accepts DomainIdentityCenterOptionsArgs and DomainIdentityCenterOptionsOutput values.
@@ -3756,8 +3971,10 @@ type DomainIdentityCenterOptionsInput interface {
 type DomainIdentityCenterOptionsArgs struct {
 	EnabledApiAccess          pulumi.BoolPtrInput   `pulumi:"enabledApiAccess"`
 	IdentityCenterInstanceArn pulumi.StringPtrInput `pulumi:"identityCenterInstanceArn"`
-	RolesKey                  pulumi.StringPtrInput `pulumi:"rolesKey"`
-	SubjectKey                pulumi.StringPtrInput `pulumi:"subjectKey"`
+	// Element of the JWT assertion to use for roles. Default is `roles`.
+	RolesKey pulumi.StringPtrInput `pulumi:"rolesKey"`
+	// Element of the JWT assertion to use for the user name. Default is `sub`.
+	SubjectKey pulumi.StringPtrInput `pulumi:"subjectKey"`
 }
 
 func (DomainIdentityCenterOptionsArgs) ElementType() reflect.Type {
@@ -3845,10 +4062,12 @@ func (o DomainIdentityCenterOptionsOutput) IdentityCenterInstanceArn() pulumi.St
 	return o.ApplyT(func(v DomainIdentityCenterOptions) *string { return v.IdentityCenterInstanceArn }).(pulumi.StringPtrOutput)
 }
 
+// Element of the JWT assertion to use for roles. Default is `roles`.
 func (o DomainIdentityCenterOptionsOutput) RolesKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainIdentityCenterOptions) *string { return v.RolesKey }).(pulumi.StringPtrOutput)
 }
 
+// Element of the JWT assertion to use for the user name. Default is `sub`.
 func (o DomainIdentityCenterOptionsOutput) SubjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainIdentityCenterOptions) *string { return v.SubjectKey }).(pulumi.StringPtrOutput)
 }
@@ -3895,6 +4114,7 @@ func (o DomainIdentityCenterOptionsPtrOutput) IdentityCenterInstanceArn() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// Element of the JWT assertion to use for roles. Default is `roles`.
 func (o DomainIdentityCenterOptionsPtrOutput) RolesKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainIdentityCenterOptions) *string {
 		if v == nil {
@@ -3904,6 +4124,7 @@ func (o DomainIdentityCenterOptionsPtrOutput) RolesKey() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Element of the JWT assertion to use for the user name. Default is `sub`.
 func (o DomainIdentityCenterOptionsPtrOutput) SubjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainIdentityCenterOptions) *string {
 		if v == nil {
@@ -9503,6 +9724,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayInput)(nil)).Elem(), AuthorizeVpcEndpointAccessAuthorizedPrincipalArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAdvancedSecurityOptionsInput)(nil)).Elem(), DomainAdvancedSecurityOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAdvancedSecurityOptionsPtrInput)(nil)).Elem(), DomainAdvancedSecurityOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAdvancedSecurityOptionsJwtOptionsInput)(nil)).Elem(), DomainAdvancedSecurityOptionsJwtOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAdvancedSecurityOptionsJwtOptionsPtrInput)(nil)).Elem(), DomainAdvancedSecurityOptionsJwtOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAdvancedSecurityOptionsMasterUserOptionsInput)(nil)).Elem(), DomainAdvancedSecurityOptionsMasterUserOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAdvancedSecurityOptionsMasterUserOptionsPtrInput)(nil)).Elem(), DomainAdvancedSecurityOptionsMasterUserOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAimlOptionsInput)(nil)).Elem(), DomainAimlOptionsArgs{})
@@ -9631,6 +9854,8 @@ func init() {
 	pulumi.RegisterOutputType(AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsOutput{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsJwtOptionsOutput{})
+	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsJwtOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsMasterUserOptionsOutput{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainAimlOptionsOutput{})

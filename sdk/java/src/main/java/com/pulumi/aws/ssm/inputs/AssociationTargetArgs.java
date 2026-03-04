@@ -16,14 +16,14 @@ public final class AssociationTargetArgs extends com.pulumi.resources.ResourceAr
     public static final AssociationTargetArgs Empty = new AssociationTargetArgs();
 
     /**
-     * Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
+     * User-defined criteria for sending commands that target managed nodes that meet the criteria. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for the list of available keys.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
+     * @return User-defined criteria for sending commands that target managed nodes that meet the criteria. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for the list of available keys.
      * 
      */
     public Output<String> key() {
@@ -31,14 +31,14 @@ public final class AssociationTargetArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * User-defined criteria that maps to Key. A list of instance IDs or tag values.
+     * List of values that correspond to the specified `key`. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for details.
      * 
      */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
     /**
-     * @return User-defined criteria that maps to Key. A list of instance IDs or tag values.
+     * @return List of values that correspond to the specified `key`. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for details.
      * 
      */
     public Output<List<String>> values() {
@@ -71,7 +71,7 @@ public final class AssociationTargetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param key Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
+         * @param key User-defined criteria for sending commands that target managed nodes that meet the criteria. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for the list of available keys.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class AssociationTargetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param key Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
+         * @param key User-defined criteria for sending commands that target managed nodes that meet the criteria. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for the list of available keys.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class AssociationTargetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param values User-defined criteria that maps to Key. A list of instance IDs or tag values.
+         * @param values List of values that correspond to the specified `key`. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for details.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class AssociationTargetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param values User-defined criteria that maps to Key. A list of instance IDs or tag values.
+         * @param values List of values that correspond to the specified `key`. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for details.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class AssociationTargetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param values User-defined criteria that maps to Key. A list of instance IDs or tag values.
+         * @param values List of values that correspond to the specified `key`. See the [AWS documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) for details.
          * 
          * @return builder
          * 

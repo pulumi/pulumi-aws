@@ -54,6 +54,10 @@ namespace Pulumi.Aws.Athena.Outputs
         /// </summary>
         public readonly bool? PublishCloudwatchMetricsEnabled;
         /// <summary>
+        /// Configuration block for S3 access grants. See Query Results S3 Access Grants Configuration below.
+        /// </summary>
+        public readonly Outputs.WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration? QueryResultsS3AccessGrantsConfiguration;
+        /// <summary>
         /// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
         /// </summary>
         public readonly bool? RequesterPaysEnabled;
@@ -84,6 +88,8 @@ namespace Pulumi.Aws.Athena.Outputs
 
             bool? publishCloudwatchMetricsEnabled,
 
+            Outputs.WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration? queryResultsS3AccessGrantsConfiguration,
+
             bool? requesterPaysEnabled,
 
             Outputs.WorkgroupConfigurationResultConfiguration? resultConfiguration)
@@ -98,6 +104,7 @@ namespace Pulumi.Aws.Athena.Outputs
             ManagedQueryResultsConfiguration = managedQueryResultsConfiguration;
             MonitoringConfiguration = monitoringConfiguration;
             PublishCloudwatchMetricsEnabled = publishCloudwatchMetricsEnabled;
+            QueryResultsS3AccessGrantsConfiguration = queryResultsS3AccessGrantsConfiguration;
             RequesterPaysEnabled = requesterPaysEnabled;
             ResultConfiguration = resultConfiguration;
         }

@@ -15,14 +15,14 @@ public final class SubscriberSubscriberIdentityArgs extends com.pulumi.resources
     public static final SubscriberSubscriberIdentityArgs Empty = new SubscriberSubscriberIdentityArgs();
 
     /**
-     * The AWS Regions where Security Lake is automatically enabled.
+     * The external ID used to establish trust relationship with the AWS identity.
      * 
      */
     @Import(name="externalId", required=true)
     private Output<String> externalId;
 
     /**
-     * @return The AWS Regions where Security Lake is automatically enabled.
+     * @return The external ID used to establish trust relationship with the AWS identity.
      * 
      */
     public Output<String> externalId() {
@@ -30,14 +30,14 @@ public final class SubscriberSubscriberIdentityArgs extends com.pulumi.resources
     }
 
     /**
-     * Provides encryption details of Amazon Security Lake object.
+     * The AWS identity principal.
      * 
      */
     @Import(name="principal", required=true)
     private Output<String> principal;
 
     /**
-     * @return Provides encryption details of Amazon Security Lake object.
+     * @return The AWS identity principal.
      * 
      */
     public Output<String> principal() {
@@ -70,7 +70,7 @@ public final class SubscriberSubscriberIdentityArgs extends com.pulumi.resources
         }
 
         /**
-         * @param externalId The AWS Regions where Security Lake is automatically enabled.
+         * @param externalId The external ID used to establish trust relationship with the AWS identity.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class SubscriberSubscriberIdentityArgs extends com.pulumi.resources
         }
 
         /**
-         * @param externalId The AWS Regions where Security Lake is automatically enabled.
+         * @param externalId The external ID used to establish trust relationship with the AWS identity.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class SubscriberSubscriberIdentityArgs extends com.pulumi.resources
         }
 
         /**
-         * @param principal Provides encryption details of Amazon Security Lake object.
+         * @param principal The AWS identity principal.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class SubscriberSubscriberIdentityArgs extends com.pulumi.resources
         }
 
         /**
-         * @param principal Provides encryption details of Amazon Security Lake object.
+         * @param principal The AWS identity principal.
          * 
          * @return builder
          * 

@@ -29,6 +29,10 @@ __all__ = [
     'EventConnectionAuthParametersApiKeyArgsDict',
     'EventConnectionAuthParametersBasicArgs',
     'EventConnectionAuthParametersBasicArgsDict',
+    'EventConnectionAuthParametersConnectivityParametersArgs',
+    'EventConnectionAuthParametersConnectivityParametersArgsDict',
+    'EventConnectionAuthParametersConnectivityParametersResourceParametersArgs',
+    'EventConnectionAuthParametersConnectivityParametersResourceParametersArgsDict',
     'EventConnectionAuthParametersInvocationHttpParametersArgs',
     'EventConnectionAuthParametersInvocationHttpParametersArgsDict',
     'EventConnectionAuthParametersInvocationHttpParametersBodyArgs',
@@ -366,6 +370,10 @@ class EventConnectionAuthParametersArgsDict(TypedDict):
     """
     Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `api_key` and `oauth`. Documented below.
     """
+    connectivity_parameters: NotRequired[pulumi.Input['EventConnectionAuthParametersConnectivityParametersArgsDict']]
+    """
+    Parameters used for `oauth` with private API. Documented below.
+    """
     invocation_http_parameters: NotRequired[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersArgsDict']]
     """
     Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
@@ -380,11 +388,13 @@ class EventConnectionAuthParametersArgs:
     def __init__(__self__, *,
                  api_key: Optional[pulumi.Input['EventConnectionAuthParametersApiKeyArgs']] = None,
                  basic: Optional[pulumi.Input['EventConnectionAuthParametersBasicArgs']] = None,
+                 connectivity_parameters: Optional[pulumi.Input['EventConnectionAuthParametersConnectivityParametersArgs']] = None,
                  invocation_http_parameters: Optional[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersArgs']] = None,
                  oauth: Optional[pulumi.Input['EventConnectionAuthParametersOauthArgs']] = None):
         """
         :param pulumi.Input['EventConnectionAuthParametersApiKeyArgs'] api_key: Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
         :param pulumi.Input['EventConnectionAuthParametersBasicArgs'] basic: Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `api_key` and `oauth`. Documented below.
+        :param pulumi.Input['EventConnectionAuthParametersConnectivityParametersArgs'] connectivity_parameters: Parameters used for `oauth` with private API. Documented below.
         :param pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersArgs'] invocation_http_parameters: Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
         :param pulumi.Input['EventConnectionAuthParametersOauthArgs'] oauth: Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `api_key`. Documented below.
         """
@@ -392,6 +402,8 @@ class EventConnectionAuthParametersArgs:
             pulumi.set(__self__, "api_key", api_key)
         if basic is not None:
             pulumi.set(__self__, "basic", basic)
+        if connectivity_parameters is not None:
+            pulumi.set(__self__, "connectivity_parameters", connectivity_parameters)
         if invocation_http_parameters is not None:
             pulumi.set(__self__, "invocation_http_parameters", invocation_http_parameters)
         if oauth is not None:
@@ -420,6 +432,18 @@ class EventConnectionAuthParametersArgs:
     @basic.setter
     def basic(self, value: Optional[pulumi.Input['EventConnectionAuthParametersBasicArgs']]):
         pulumi.set(self, "basic", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectivityParameters")
+    def connectivity_parameters(self) -> Optional[pulumi.Input['EventConnectionAuthParametersConnectivityParametersArgs']]:
+        """
+        Parameters used for `oauth` with private API. Documented below.
+        """
+        return pulumi.get(self, "connectivity_parameters")
+
+    @connectivity_parameters.setter
+    def connectivity_parameters(self, value: Optional[pulumi.Input['EventConnectionAuthParametersConnectivityParametersArgs']]):
+        pulumi.set(self, "connectivity_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="invocationHttpParameters")
@@ -538,6 +562,75 @@ class EventConnectionAuthParametersBasicArgs:
     @username.setter
     def username(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "username", value)
+
+
+class EventConnectionAuthParametersConnectivityParametersArgsDict(TypedDict):
+    resource_parameters: pulumi.Input['EventConnectionAuthParametersConnectivityParametersResourceParametersArgsDict']
+    """
+    The parameters for EventBridge to use when invoking the authentication endpoint. Documented below.
+    """
+
+@pulumi.input_type
+class EventConnectionAuthParametersConnectivityParametersArgs:
+    def __init__(__self__, *,
+                 resource_parameters: pulumi.Input['EventConnectionAuthParametersConnectivityParametersResourceParametersArgs']):
+        """
+        :param pulumi.Input['EventConnectionAuthParametersConnectivityParametersResourceParametersArgs'] resource_parameters: The parameters for EventBridge to use when invoking the authentication endpoint. Documented below.
+        """
+        pulumi.set(__self__, "resource_parameters", resource_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceParameters")
+    def resource_parameters(self) -> pulumi.Input['EventConnectionAuthParametersConnectivityParametersResourceParametersArgs']:
+        """
+        The parameters for EventBridge to use when invoking the authentication endpoint. Documented below.
+        """
+        return pulumi.get(self, "resource_parameters")
+
+    @resource_parameters.setter
+    def resource_parameters(self, value: pulumi.Input['EventConnectionAuthParametersConnectivityParametersResourceParametersArgs']):
+        pulumi.set(self, "resource_parameters", value)
+
+
+class EventConnectionAuthParametersConnectivityParametersResourceParametersArgsDict(TypedDict):
+    resource_configuration_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
+    """
+    resource_association_arn: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class EventConnectionAuthParametersConnectivityParametersResourceParametersArgs:
+    def __init__(__self__, *,
+                 resource_configuration_arn: pulumi.Input[_builtins.str],
+                 resource_association_arn: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] resource_configuration_arn: ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
+        """
+        pulumi.set(__self__, "resource_configuration_arn", resource_configuration_arn)
+        if resource_association_arn is not None:
+            pulumi.set(__self__, "resource_association_arn", resource_association_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationArn")
+    def resource_configuration_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
+        """
+        return pulumi.get(self, "resource_configuration_arn")
+
+    @resource_configuration_arn.setter
+    def resource_configuration_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_configuration_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceAssociationArn")
+    def resource_association_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "resource_association_arn")
+
+    @resource_association_arn.setter
+    def resource_association_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resource_association_arn", value)
 
 
 class EventConnectionAuthParametersInvocationHttpParametersArgsDict(TypedDict):

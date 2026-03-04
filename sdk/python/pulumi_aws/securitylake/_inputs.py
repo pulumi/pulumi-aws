@@ -1233,11 +1233,11 @@ class SubscriberSourceCustomLogSourceResourceProviderArgs:
 class SubscriberSubscriberIdentityArgsDict(TypedDict):
     external_id: pulumi.Input[_builtins.str]
     """
-    The AWS Regions where Security Lake is automatically enabled.
+    The external ID used to establish trust relationship with the AWS identity.
     """
     principal: pulumi.Input[_builtins.str]
     """
-    Provides encryption details of Amazon Security Lake object.
+    The AWS identity principal.
     """
 
 @pulumi.input_type
@@ -1246,8 +1246,8 @@ class SubscriberSubscriberIdentityArgs:
                  external_id: pulumi.Input[_builtins.str],
                  principal: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] external_id: The AWS Regions where Security Lake is automatically enabled.
-        :param pulumi.Input[_builtins.str] principal: Provides encryption details of Amazon Security Lake object.
+        :param pulumi.Input[_builtins.str] external_id: The external ID used to establish trust relationship with the AWS identity.
+        :param pulumi.Input[_builtins.str] principal: The AWS identity principal.
         """
         pulumi.set(__self__, "external_id", external_id)
         pulumi.set(__self__, "principal", principal)
@@ -1256,7 +1256,7 @@ class SubscriberSubscriberIdentityArgs:
     @pulumi.getter(name="externalId")
     def external_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The AWS Regions where Security Lake is automatically enabled.
+        The external ID used to establish trust relationship with the AWS identity.
         """
         return pulumi.get(self, "external_id")
 
@@ -1268,7 +1268,7 @@ class SubscriberSubscriberIdentityArgs:
     @pulumi.getter
     def principal(self) -> pulumi.Input[_builtins.str]:
         """
-        Provides encryption details of Amazon Security Lake object.
+        The AWS identity principal.
         """
         return pulumi.get(self, "principal")
 

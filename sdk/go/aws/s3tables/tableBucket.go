@@ -57,7 +57,7 @@ type TableBucket struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// A single table bucket encryption configuration object.
 	// See `encryptionConfiguration` below.
-	EncryptionConfiguration TableBucketEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
+	EncryptionConfiguration TableBucketEncryptionConfigurationOutput `pulumi:"encryptionConfiguration"`
 	// Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
 	ForceDestroy pulumi.BoolOutput `pulumi:"forceDestroy"`
 	// A single table bucket maintenance configuration object.
@@ -317,8 +317,8 @@ func (o TableBucketOutput) CreatedAt() pulumi.StringOutput {
 
 // A single table bucket encryption configuration object.
 // See `encryptionConfiguration` below.
-func (o TableBucketOutput) EncryptionConfiguration() TableBucketEncryptionConfigurationPtrOutput {
-	return o.ApplyT(func(v *TableBucket) TableBucketEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(TableBucketEncryptionConfigurationPtrOutput)
+func (o TableBucketOutput) EncryptionConfiguration() TableBucketEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *TableBucket) TableBucketEncryptionConfigurationOutput { return v.EncryptionConfiguration }).(TableBucketEncryptionConfigurationOutput)
 }
 
 // Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.

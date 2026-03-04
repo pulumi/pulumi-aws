@@ -42,7 +42,7 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.BucketLifecycleConfiguration("example", new()
     ///     {
-    ///         Bucket = bucket.Id,
+    ///         Bucket = bucket.Bucket,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLifecycleConfigurationRuleArgs
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.BucketLifecycleConfiguration("example", new()
     ///     {
-    ///         Bucket = bucket.Id,
+    ///         Bucket = bucket.Bucket,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLifecycleConfigurationRuleArgs
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.BucketLifecycleConfiguration("example", new()
     ///     {
-    ///         Bucket = bucket.Id,
+    ///         Bucket = bucket.Bucket,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLifecycleConfigurationRuleArgs
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.BucketLifecycleConfiguration("example", new()
     ///     {
-    ///         Bucket = bucket.Id,
+    ///         Bucket = bucket.Bucket,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLifecycleConfigurationRuleArgs
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.BucketLifecycleConfiguration("example", new()
     ///     {
-    ///         Bucket = bucket.Id,
+    ///         Bucket = bucket.Bucket,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLifecycleConfigurationRuleArgs
@@ -206,7 +206,7 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.BucketLifecycleConfiguration("example", new()
     ///     {
-    ///         Bucket = bucket.Id,
+    ///         Bucket = bucket.Bucket,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLifecycleConfigurationRuleArgs
@@ -245,7 +245,7 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.BucketLifecycleConfiguration("example", new()
     ///     {
-    ///         Bucket = bucket.Id,
+    ///         Bucket = bucket.Bucket,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLifecycleConfigurationRuleArgs
@@ -285,7 +285,7 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.BucketLifecycleConfiguration("example", new()
     ///     {
-    ///         Bucket = bucket.Id,
+    ///         Bucket = bucket.Bucket,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLifecycleConfigurationRuleArgs
@@ -325,7 +325,7 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.BucketLifecycleConfiguration("example", new()
     ///     {
-    ///         Bucket = bucket.Id,
+    ///         Bucket = bucket.Bucket,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLifecycleConfigurationRuleArgs
@@ -365,13 +365,13 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var bucketAcl = new Aws.S3.BucketAcl("bucket_acl", new()
     ///     {
-    ///         Bucket = bucket.Id,
+    ///         Bucket = bucket.BucketName,
     ///         Acl = "private",
     ///     });
     /// 
     ///     var bucket_config = new Aws.S3.BucketLifecycleConfiguration("bucket-config", new()
     ///     {
-    ///         Bucket = bucket.Id,
+    ///         Bucket = bucket.BucketName,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLifecycleConfigurationRuleArgs
@@ -431,13 +431,13 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var versioningBucketAcl = new Aws.S3.BucketAcl("versioning_bucket_acl", new()
     ///     {
-    ///         Bucket = versioningBucket.Id,
+    ///         Bucket = versioningBucket.BucketName,
     ///         Acl = "private",
     ///     });
     /// 
     ///     var versioning = new Aws.S3.BucketVersioning("versioning", new()
     ///     {
-    ///         Bucket = versioningBucket.Id,
+    ///         Bucket = versioningBucket.BucketName,
     ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
@@ -446,7 +446,7 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var versioning_bucket_config = new Aws.S3.BucketLifecycleConfiguration("versioning-bucket-config", new()
     ///     {
-    ///         Bucket = versioningBucket.Id,
+    ///         Bucket = versioningBucket.BucketName,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLifecycleConfigurationRuleArgs
@@ -488,6 +488,17 @@ namespace Pulumi.Aws.S3
     /// ```
     /// 
     /// ## Import
+    /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Bucket` (String) S3 bucket name.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
     /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `Bucket` and `ExpectedBucketOwner` separated by a comma (`,`):
     /// 

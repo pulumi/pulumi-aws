@@ -26,7 +26,7 @@ class GetWorkspaceResult:
     """
     A collection of values returned by getWorkspace.
     """
-    def __init__(__self__, account_access_type=None, arn=None, authentication_providers=None, created_date=None, data_sources=None, description=None, endpoint=None, grafana_version=None, id=None, last_updated_date=None, name=None, notification_destinations=None, organization_role_name=None, organizational_units=None, permission_type=None, region=None, role_arn=None, saml_configuration_status=None, stack_set_name=None, status=None, tags=None, workspace_id=None):
+    def __init__(__self__, account_access_type=None, arn=None, authentication_providers=None, created_date=None, data_sources=None, description=None, endpoint=None, grafana_version=None, id=None, kms_key_id=None, last_updated_date=None, name=None, notification_destinations=None, organization_role_name=None, organizational_units=None, permission_type=None, region=None, role_arn=None, saml_configuration_status=None, stack_set_name=None, status=None, tags=None, workspace_id=None):
         if account_access_type and not isinstance(account_access_type, str):
             raise TypeError("Expected argument 'account_access_type' to be a str")
         pulumi.set(__self__, "account_access_type", account_access_type)
@@ -54,6 +54,9 @@ class GetWorkspaceResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if kms_key_id and not isinstance(kms_key_id, str):
+            raise TypeError("Expected argument 'kms_key_id' to be a str")
+        pulumi.set(__self__, "kms_key_id", kms_key_id)
         if last_updated_date and not isinstance(last_updated_date, str):
             raise TypeError("Expected argument 'last_updated_date' to be a str")
         pulumi.set(__self__, "last_updated_date", last_updated_date)
@@ -167,6 +170,14 @@ class GetWorkspaceResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> _builtins.str:
+        """
+        The ID or ARN of the AWS KMS key for encrypting workspace data.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @_builtins.property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> _builtins.str:
         """
@@ -277,6 +288,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             endpoint=self.endpoint,
             grafana_version=self.grafana_version,
             id=self.id,
+            kms_key_id=self.kms_key_id,
             last_updated_date=self.last_updated_date,
             name=self.name,
             notification_destinations=self.notification_destinations,
@@ -332,6 +344,7 @@ def get_workspace(region: Optional[_builtins.str] = None,
         endpoint=pulumi.get(__ret__, 'endpoint'),
         grafana_version=pulumi.get(__ret__, 'grafana_version'),
         id=pulumi.get(__ret__, 'id'),
+        kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         last_updated_date=pulumi.get(__ret__, 'last_updated_date'),
         name=pulumi.get(__ret__, 'name'),
         notification_destinations=pulumi.get(__ret__, 'notification_destinations'),
@@ -384,6 +397,7 @@ def get_workspace_output(region: Optional[pulumi.Input[Optional[_builtins.str]]]
         endpoint=pulumi.get(__response__, 'endpoint'),
         grafana_version=pulumi.get(__response__, 'grafana_version'),
         id=pulumi.get(__response__, 'id'),
+        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
         last_updated_date=pulumi.get(__response__, 'last_updated_date'),
         name=pulumi.get(__response__, 'name'),
         notification_destinations=pulumi.get(__response__, 'notification_destinations'),

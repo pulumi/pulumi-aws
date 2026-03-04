@@ -8,6 +8,7 @@ import com.pulumi.aws.athena.inputs.WorkgroupConfigurationEngineVersionArgs;
 import com.pulumi.aws.athena.inputs.WorkgroupConfigurationIdentityCenterConfigurationArgs;
 import com.pulumi.aws.athena.inputs.WorkgroupConfigurationManagedQueryResultsConfigurationArgs;
 import com.pulumi.aws.athena.inputs.WorkgroupConfigurationMonitoringConfigurationArgs;
+import com.pulumi.aws.athena.inputs.WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs;
 import com.pulumi.aws.athena.inputs.WorkgroupConfigurationResultConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -174,6 +175,21 @@ public final class WorkgroupConfigurationArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * Configuration block for S3 access grants. See Query Results S3 Access Grants Configuration below.
+     * 
+     */
+    @Import(name="queryResultsS3AccessGrantsConfiguration")
+    private @Nullable Output<WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs> queryResultsS3AccessGrantsConfiguration;
+
+    /**
+     * @return Configuration block for S3 access grants. See Query Results S3 Access Grants Configuration below.
+     * 
+     */
+    public Optional<Output<WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs>> queryResultsS3AccessGrantsConfiguration() {
+        return Optional.ofNullable(this.queryResultsS3AccessGrantsConfiguration);
+    }
+
+    /**
      * If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
      * 
      */
@@ -216,6 +232,7 @@ public final class WorkgroupConfigurationArgs extends com.pulumi.resources.Resou
         this.managedQueryResultsConfiguration = $.managedQueryResultsConfiguration;
         this.monitoringConfiguration = $.monitoringConfiguration;
         this.publishCloudwatchMetricsEnabled = $.publishCloudwatchMetricsEnabled;
+        this.queryResultsS3AccessGrantsConfiguration = $.queryResultsS3AccessGrantsConfiguration;
         this.requesterPaysEnabled = $.requesterPaysEnabled;
         this.resultConfiguration = $.resultConfiguration;
     }
@@ -446,6 +463,27 @@ public final class WorkgroupConfigurationArgs extends com.pulumi.resources.Resou
          */
         public Builder publishCloudwatchMetricsEnabled(Boolean publishCloudwatchMetricsEnabled) {
             return publishCloudwatchMetricsEnabled(Output.of(publishCloudwatchMetricsEnabled));
+        }
+
+        /**
+         * @param queryResultsS3AccessGrantsConfiguration Configuration block for S3 access grants. See Query Results S3 Access Grants Configuration below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queryResultsS3AccessGrantsConfiguration(@Nullable Output<WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs> queryResultsS3AccessGrantsConfiguration) {
+            $.queryResultsS3AccessGrantsConfiguration = queryResultsS3AccessGrantsConfiguration;
+            return this;
+        }
+
+        /**
+         * @param queryResultsS3AccessGrantsConfiguration Configuration block for S3 access grants. See Query Results S3 Access Grants Configuration below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queryResultsS3AccessGrantsConfiguration(WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs queryResultsS3AccessGrantsConfiguration) {
+            return queryResultsS3AccessGrantsConfiguration(Output.of(queryResultsS3AccessGrantsConfiguration));
         }
 
         /**

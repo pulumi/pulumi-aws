@@ -1108,8 +1108,8 @@ class SubscriberSubscriberIdentity(dict):
                  external_id: _builtins.str,
                  principal: _builtins.str):
         """
-        :param _builtins.str external_id: The AWS Regions where Security Lake is automatically enabled.
-        :param _builtins.str principal: Provides encryption details of Amazon Security Lake object.
+        :param _builtins.str external_id: The external ID used to establish trust relationship with the AWS identity.
+        :param _builtins.str principal: The AWS identity principal.
         """
         pulumi.set(__self__, "external_id", external_id)
         pulumi.set(__self__, "principal", principal)
@@ -1118,7 +1118,7 @@ class SubscriberSubscriberIdentity(dict):
     @pulumi.getter(name="externalId")
     def external_id(self) -> _builtins.str:
         """
-        The AWS Regions where Security Lake is automatically enabled.
+        The external ID used to establish trust relationship with the AWS identity.
         """
         return pulumi.get(self, "external_id")
 
@@ -1126,7 +1126,7 @@ class SubscriberSubscriberIdentity(dict):
     @pulumi.getter
     def principal(self) -> _builtins.str:
         """
-        Provides encryption details of Amazon Security Lake object.
+        The AWS identity principal.
         """
         return pulumi.get(self, "principal")
 

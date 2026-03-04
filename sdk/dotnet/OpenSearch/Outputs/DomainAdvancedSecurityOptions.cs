@@ -26,6 +26,10 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// </summary>
         public readonly bool? InternalUserDatabaseEnabled;
         /// <summary>
+        /// Configuration block for JWT authentication. Requires OpenSearch 2.11 or later. Detailed below.
+        /// </summary>
+        public readonly Outputs.DomainAdvancedSecurityOptionsJwtOptions? JwtOptions;
+        /// <summary>
         /// Configuration block for the main user. Detailed below.
         /// </summary>
         public readonly Outputs.DomainAdvancedSecurityOptionsMasterUserOptions? MasterUserOptions;
@@ -38,11 +42,14 @@ namespace Pulumi.Aws.OpenSearch.Outputs
 
             bool? internalUserDatabaseEnabled,
 
+            Outputs.DomainAdvancedSecurityOptionsJwtOptions? jwtOptions,
+
             Outputs.DomainAdvancedSecurityOptionsMasterUserOptions? masterUserOptions)
         {
             AnonymousAuthEnabled = anonymousAuthEnabled;
             Enabled = enabled;
             InternalUserDatabaseEnabled = internalUserDatabaseEnabled;
+            JwtOptions = jwtOptions;
             MasterUserOptions = masterUserOptions;
         }
     }
