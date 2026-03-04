@@ -1,4 +1,0 @@
-[submodule "upstream"]
-	path = upstream
-	url = https://github.com/hashicorp/terraform-provider-aws.git
-    ignore = dirty

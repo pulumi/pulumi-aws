@@ -1,4 +1,0 @@
-name: lambda-container-image
-description: Basic example of a creating an AWS Lambda function using a container
-runtime: nodejs
-

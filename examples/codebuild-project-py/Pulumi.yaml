@@ -1,3 +1,0 @@
-name: codebuild-project-py
-runtime: python
-description: A minimal Python Pulumi program
