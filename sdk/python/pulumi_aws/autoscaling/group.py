@@ -1965,7 +1965,7 @@ class Group(pulumi.CustomResource):
             traffic_sources=[{
                 "identifier": entry["value"]["arn"],
                 "type": "vpc-lattice",
-            } for entry in [{"key": k, "value": v} for k, v in [__item for __item in test_aws_vpclattice_target_group]]],
+            } for entry in [{"key": k, "value": v} for k, v in [__item for __item in test_aws_vpclattice_target_group].items()]],
             vpc_zone_identifiers=test_aws_subnet["id"],
             max_size=1,
             min_size=1,
@@ -2481,7 +2481,7 @@ class Group(pulumi.CustomResource):
             traffic_sources=[{
                 "identifier": entry["value"]["arn"],
                 "type": "vpc-lattice",
-            } for entry in [{"key": k, "value": v} for k, v in [__item for __item in test_aws_vpclattice_target_group]]],
+            } for entry in [{"key": k, "value": v} for k, v in [__item for __item in test_aws_vpclattice_target_group].items()]],
             vpc_zone_identifiers=test_aws_subnet["id"],
             max_size=1,
             min_size=1,

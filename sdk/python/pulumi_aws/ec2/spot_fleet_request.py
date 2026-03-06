@@ -1185,7 +1185,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                 },
             } for entry in [{"key": k, "value": v} for k, v in [{
                 "subnetId": s[1],
-            } for s in subnets]]],
+            } for s in subnets].items()]],
             iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
             target_capacity=3,
             valid_until="2019-11-04T20:44:20Z",
@@ -1437,7 +1437,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                 },
             } for entry in [{"key": k, "value": v} for k, v in [{
                 "subnetId": s[1],
-            } for s in subnets]]],
+            } for s in subnets].items()]],
             iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
             target_capacity=3,
             valid_until="2019-11-04T20:44:20Z",

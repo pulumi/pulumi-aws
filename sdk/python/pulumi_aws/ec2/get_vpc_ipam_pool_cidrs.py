@@ -133,7 +133,7 @@ def get_vpc_ipam_pool_cidrs(filters: Optional[Sequence[Union['GetVpcIpamPoolCidr
         }])
     mycidrs = [cidr.cidr for cidr in c.ipam_pool_cidrs if cidr.state == "provisioned"]
     pls = aws.ec2.ManagedPrefixList("pls",
-        entries=[{"key": k, "value": v} for k, v in mycidrs].apply(lambda entries: [{
+        entries=[{"key": k, "value": v} for k, v in mycidrs.items()].apply(lambda entries: [{
             "cidr": entry["value"],
             "description": entry["value"],
         } for entry in entries]),
@@ -203,7 +203,7 @@ def get_vpc_ipam_pool_cidrs_output(filters: Optional[pulumi.Input[Optional[Seque
         }])
     mycidrs = [cidr.cidr for cidr in c.ipam_pool_cidrs if cidr.state == "provisioned"]
     pls = aws.ec2.ManagedPrefixList("pls",
-        entries=[{"key": k, "value": v} for k, v in mycidrs].apply(lambda entries: [{
+        entries=[{"key": k, "value": v} for k, v in mycidrs.items()].apply(lambda entries: [{
             "cidr": entry["value"],
             "description": entry["value"],
         } for entry in entries]),

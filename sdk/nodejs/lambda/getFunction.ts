@@ -53,8 +53,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * function singleOrNone<T>(elements: pulumi.Input<T>[]): pulumi.Input<T> {
- *     if (elements.length != 1) {
+ * function singleOrNone<T>(elements: pulumi.Input<T>[]): pulumi.Input<T> | undefined {
+ *     if (elements.length > 1) {
  *         throw new Error("singleOrNone expected input list to have a single element");
  *     }
  *     return elements[0];
@@ -365,8 +365,8 @@ export interface GetFunctionResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * function singleOrNone<T>(elements: pulumi.Input<T>[]): pulumi.Input<T> {
- *     if (elements.length != 1) {
+ * function singleOrNone<T>(elements: pulumi.Input<T>[]): pulumi.Input<T> | undefined {
+ *     if (elements.length > 1) {
  *         throw new Error("singleOrNone expected input list to have a single element");
  *     }
  *     return elements[0];
