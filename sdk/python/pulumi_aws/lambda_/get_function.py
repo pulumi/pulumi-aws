@@ -566,7 +566,7 @@ def get_function(function_name: Optional[_builtins.str] = None,
     reference = aws.lambda.get_function(function_name="existing-function")
     # Create new function with similar configuration
     example = aws.lambda_.Function("example",
-        durable_config=single_or_none([{"key": k, "value": v} for k, v in reference.durable_configs].apply(lambda entries: [{
+        durable_config=single_or_none([{"key": k, "value": v} for k, v in reference.durable_configs.items()].apply(lambda entries: [{
             "executionTimeout": entry["value"].execution_timeout,
             "retentionPeriod": entry["value"].retention_period,
         } for entry in entries])),
@@ -733,7 +733,7 @@ def get_function_output(function_name: Optional[pulumi.Input[_builtins.str]] = N
     reference = aws.lambda.get_function(function_name="existing-function")
     # Create new function with similar configuration
     example = aws.lambda_.Function("example",
-        durable_config=single_or_none([{"key": k, "value": v} for k, v in reference.durable_configs].apply(lambda entries: [{
+        durable_config=single_or_none([{"key": k, "value": v} for k, v in reference.durable_configs.items()].apply(lambda entries: [{
             "executionTimeout": entry["value"].execution_timeout,
             "retentionPeriod": entry["value"].retention_period,
         } for entry in entries])),

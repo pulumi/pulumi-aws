@@ -447,7 +447,7 @@ class RuleGroup(pulumi.CustomResource):
                             "keyword": "sid",
                             "settings": ["1"],
                         }],
-                    } for entry in [{"key": k, "value": v} for k, v in ips]],
+                    } for entry in [{"key": k, "value": v} for k, v in ips.items()]],
                 },
             },
             tags={
@@ -789,7 +789,7 @@ class RuleGroup(pulumi.CustomResource):
                             "keyword": "sid",
                             "settings": ["1"],
                         }],
-                    } for entry in [{"key": k, "value": v} for k, v in ips]],
+                    } for entry in [{"key": k, "value": v} for k, v in ips.items()]],
                 },
             },
             tags={
