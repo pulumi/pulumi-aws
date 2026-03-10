@@ -247,6 +247,9 @@ namespace Pulumi.Aws.EmrServerless
         [Output("interactiveConfiguration")]
         public Output<Outputs.ApplicationInteractiveConfiguration> InteractiveConfiguration { get; private set; } = null!;
 
+        [Output("jobLevelCostAllocationConfiguration")]
+        public Output<Outputs.ApplicationJobLevelCostAllocationConfiguration> JobLevelCostAllocationConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
         /// </summary>
@@ -401,6 +404,9 @@ namespace Pulumi.Aws.EmrServerless
         [Input("interactiveConfiguration")]
         public Input<Inputs.ApplicationInteractiveConfigurationArgs>? InteractiveConfiguration { get; set; }
 
+        [Input("jobLevelCostAllocationConfiguration")]
+        public Input<Inputs.ApplicationJobLevelCostAllocationConfigurationArgs>? JobLevelCostAllocationConfiguration { get; set; }
+
         /// <summary>
         /// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
         /// </summary>
@@ -528,6 +534,9 @@ namespace Pulumi.Aws.EmrServerless
         /// </summary>
         [Input("interactiveConfiguration")]
         public Input<Inputs.ApplicationInteractiveConfigurationGetArgs>? InteractiveConfiguration { get; set; }
+
+        [Input("jobLevelCostAllocationConfiguration")]
+        public Input<Inputs.ApplicationJobLevelCostAllocationConfigurationGetArgs>? JobLevelCostAllocationConfiguration { get; set; }
 
         /// <summary>
         /// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.

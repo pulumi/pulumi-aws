@@ -6,6 +6,7 @@ package com.pulumi.aws.ram;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ram.ResourceShareArgs;
 import com.pulumi.aws.ram.inputs.ResourceShareState;
+import com.pulumi.aws.ram.outputs.ResourceShareResourceShareConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -135,6 +136,20 @@ public class ResourceShare extends com.pulumi.resources.CustomResource {
      */
     public Output<String> region() {
         return this.region;
+    }
+    /**
+     * A block that specifies the configuration of the resource share. See `resourceShareConfiguration` Block for details.
+     * 
+     */
+    @Export(name="resourceShareConfiguration", refs={ResourceShareResourceShareConfiguration.class}, tree="[0]")
+    private Output<ResourceShareResourceShareConfiguration> resourceShareConfiguration;
+
+    /**
+     * @return A block that specifies the configuration of the resource share. See `resourceShareConfiguration` Block for details.
+     * 
+     */
+    public Output<ResourceShareResourceShareConfiguration> resourceShareConfiguration() {
+        return this.resourceShareConfiguration;
     }
     /**
      * A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

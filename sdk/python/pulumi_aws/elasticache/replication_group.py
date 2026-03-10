@@ -117,7 +117,7 @@ class ReplicationGroupArgs:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] replicas_per_node_group: Number of replica nodes in each node group.
                Changing this number will trigger a resizing operation before other settings modifications.
-               Valid values are 0 to 5.
+               Default AWS limit is 5. Higher values may be available with a quota increase.
                Conflicts with `num_cache_clusters`.
                Can only be set if `num_node_groups` is set.
         :param pulumi.Input[_builtins.str] replication_group_id: Replication group identifier. This parameter is stored as a lowercase string.
@@ -586,7 +586,7 @@ class ReplicationGroupArgs:
         """
         Number of replica nodes in each node group.
         Changing this number will trigger a resizing operation before other settings modifications.
-        Valid values are 0 to 5.
+        Default AWS limit is 5. Higher values may be available with a quota increase.
         Conflicts with `num_cache_clusters`.
         Can only be set if `num_node_groups` is set.
         """
@@ -862,7 +862,7 @@ class _ReplicationGroupState:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] replicas_per_node_group: Number of replica nodes in each node group.
                Changing this number will trigger a resizing operation before other settings modifications.
-               Valid values are 0 to 5.
+               Default AWS limit is 5. Higher values may be available with a quota increase.
                Conflicts with `num_cache_clusters`.
                Can only be set if `num_node_groups` is set.
         :param pulumi.Input[_builtins.str] replication_group_id: Replication group identifier. This parameter is stored as a lowercase string.
@@ -1433,7 +1433,7 @@ class _ReplicationGroupState:
         """
         Number of replica nodes in each node group.
         Changing this number will trigger a resizing operation before other settings modifications.
-        Valid values are 0 to 5.
+        Default AWS limit is 5. Higher values may be available with a quota increase.
         Conflicts with `num_cache_clusters`.
         Can only be set if `num_node_groups` is set.
         """
@@ -1930,7 +1930,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] replicas_per_node_group: Number of replica nodes in each node group.
                Changing this number will trigger a resizing operation before other settings modifications.
-               Valid values are 0 to 5.
+               Default AWS limit is 5. Higher values may be available with a quota increase.
                Conflicts with `num_cache_clusters`.
                Can only be set if `num_node_groups` is set.
         :param pulumi.Input[_builtins.str] replication_group_id: Replication group identifier. This parameter is stored as a lowercase string.
@@ -2423,7 +2423,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] replicas_per_node_group: Number of replica nodes in each node group.
                Changing this number will trigger a resizing operation before other settings modifications.
-               Valid values are 0 to 5.
+               Default AWS limit is 5. Higher values may be available with a quota increase.
                Conflicts with `num_cache_clusters`.
                Can only be set if `num_node_groups` is set.
         :param pulumi.Input[_builtins.str] replication_group_id: Replication group identifier. This parameter is stored as a lowercase string.
@@ -2810,7 +2810,7 @@ class ReplicationGroup(pulumi.CustomResource):
         """
         Number of replica nodes in each node group.
         Changing this number will trigger a resizing operation before other settings modifications.
-        Valid values are 0 to 5.
+        Default AWS limit is 5. Higher values may be available with a quota increase.
         Conflicts with `num_cache_clusters`.
         Can only be set if `num_node_groups` is set.
         """

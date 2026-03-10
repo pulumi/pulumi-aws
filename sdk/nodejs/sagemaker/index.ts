@@ -90,6 +90,11 @@ export type LabelingJob = import("./labelingJob").LabelingJob;
 export const LabelingJob: typeof import("./labelingJob").LabelingJob = null as any;
 utilities.lazyLoad(exports, ["LabelingJob"], () => require("./labelingJob"));
 
+export { MlflowAppArgs, MlflowAppState } from "./mlflowApp";
+export type MlflowApp = import("./mlflowApp").MlflowApp;
+export const MlflowApp: typeof import("./mlflowApp").MlflowApp = null as any;
+utilities.lazyLoad(exports, ["MlflowApp"], () => require("./mlflowApp"));
+
 export { MlflowTrackingServerArgs, MlflowTrackingServerState } from "./mlflowTrackingServer";
 export type MlflowTrackingServer = import("./mlflowTrackingServer").MlflowTrackingServer;
 export const MlflowTrackingServer: typeof import("./mlflowTrackingServer").MlflowTrackingServer = null as any;
@@ -212,6 +217,8 @@ const _module = {
                 return new ImageVersion(name, <any>undefined, { urn })
             case "aws:sagemaker/labelingJob:LabelingJob":
                 return new LabelingJob(name, <any>undefined, { urn })
+            case "aws:sagemaker/mlflowApp:MlflowApp":
+                return new MlflowApp(name, <any>undefined, { urn })
             case "aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer":
                 return new MlflowTrackingServer(name, <any>undefined, { urn })
             case "aws:sagemaker/model:Model":
@@ -267,6 +274,7 @@ pulumi.runtime.registerResourceModule("aws", "sagemaker/humanTaskUI", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/image", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/imageVersion", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/labelingJob", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/mlflowApp", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/mlflowTrackingServer", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/model", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/modelCard", _module)

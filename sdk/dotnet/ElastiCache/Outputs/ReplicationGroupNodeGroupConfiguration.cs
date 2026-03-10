@@ -30,7 +30,7 @@ namespace Pulumi.Aws.ElastiCache.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ReplicaAvailabilityZones;
         /// <summary>
-        /// Number of replica nodes in this node group.
+        /// Number of replica nodes in this node group. Default AWS limit is 5. Higher values may be available with a quota increase.
         /// </summary>
         public readonly int? ReplicaCount;
         /// <summary>

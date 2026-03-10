@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Msk.Outputs
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
         /// <summary>
-        /// A block that contains information about storage volumes attached to MSK broker nodes. See BrokerNodeGroupInfo storage_info Argument Reference below.
+        /// A block that contains information about storage volumes attached to MSK broker nodes. See BrokerNodeGroupInfo storage_info Argument Reference below. This block must not be specified when an Express instance type is specified for `InstanceType`.
         /// </summary>
         public readonly Outputs.ClusterBrokerNodeGroupInfoStorageInfo? StorageInfo;
 

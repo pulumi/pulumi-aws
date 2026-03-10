@@ -107,7 +107,7 @@ class ClusterBrokerNodeGroupInfo(dict):
         :param Sequence[_builtins.str] security_groups: A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
         :param _builtins.str az_distribution: The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently, the only valid value is `DEFAULT`.
         :param 'ClusterBrokerNodeGroupInfoConnectivityInfoArgs' connectivity_info: Information about the cluster access configuration. See broker_node_group_info connectivity_info Argument Reference below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
-        :param 'ClusterBrokerNodeGroupInfoStorageInfoArgs' storage_info: A block that contains information about storage volumes attached to MSK broker nodes. See broker_node_group_info storage_info Argument Reference below.
+        :param 'ClusterBrokerNodeGroupInfoStorageInfoArgs' storage_info: A block that contains information about storage volumes attached to MSK broker nodes. See broker_node_group_info storage_info Argument Reference below. This block must not be specified when an Express instance type is specified for `instance_type`.
         """
         pulumi.set(__self__, "client_subnets", client_subnets)
         pulumi.set(__self__, "instance_type", instance_type)
@@ -163,7 +163,7 @@ class ClusterBrokerNodeGroupInfo(dict):
     @pulumi.getter(name="storageInfo")
     def storage_info(self) -> Optional['outputs.ClusterBrokerNodeGroupInfoStorageInfo']:
         """
-        A block that contains information about storage volumes attached to MSK broker nodes. See broker_node_group_info storage_info Argument Reference below.
+        A block that contains information about storage volumes attached to MSK broker nodes. See broker_node_group_info storage_info Argument Reference below. This block must not be specified when an Express instance type is specified for `instance_type`.
         """
         return pulumi.get(self, "storage_info")
 

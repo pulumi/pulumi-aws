@@ -16,6 +16,7 @@ from .. import _utilities
 
 __all__ = [
     'PermissionTimeouts',
+    'ResourceShareResourceShareConfiguration',
     'GetResourceShareFilterResult',
 ]
 
@@ -36,6 +37,42 @@ class PermissionTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
+
+
+@pulumi.output_type
+class ResourceShareResourceShareConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retainSharingOnAccountLeaveOrganization":
+            suggest = "retain_sharing_on_account_leave_organization"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceShareResourceShareConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceShareResourceShareConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceShareResourceShareConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 retain_sharing_on_account_leave_organization: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool retain_sharing_on_account_leave_organization: Specifies whether consumer account retains access to resource share after leaving AWS organization.
+        """
+        if retain_sharing_on_account_leave_organization is not None:
+            pulumi.set(__self__, "retain_sharing_on_account_leave_organization", retain_sharing_on_account_leave_organization)
+
+    @_builtins.property
+    @pulumi.getter(name="retainSharingOnAccountLeaveOrganization")
+    def retain_sharing_on_account_leave_organization(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether consumer account retains access to resource share after leaving AWS organization.
+        """
+        return pulumi.get(self, "retain_sharing_on_account_leave_organization")
 
 
 @pulumi.output_type

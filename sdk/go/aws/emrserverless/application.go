@@ -240,7 +240,8 @@ type Application struct {
 	// The capacity to initialize when the application is created.
 	InitialCapacities ApplicationInitialCapacityArrayOutput `pulumi:"initialCapacities"`
 	// Enables the interactive use cases to use when running an application.
-	InteractiveConfiguration ApplicationInteractiveConfigurationOutput `pulumi:"interactiveConfiguration"`
+	InteractiveConfiguration            ApplicationInteractiveConfigurationOutput            `pulumi:"interactiveConfiguration"`
+	JobLevelCostAllocationConfiguration ApplicationJobLevelCostAllocationConfigurationOutput `pulumi:"jobLevelCostAllocationConfiguration"`
 	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
 	MaximumCapacity ApplicationMaximumCapacityOutput `pulumi:"maximumCapacity"`
 	// The configuration setting for monitoring.
@@ -314,7 +315,8 @@ type applicationState struct {
 	// The capacity to initialize when the application is created.
 	InitialCapacities []ApplicationInitialCapacity `pulumi:"initialCapacities"`
 	// Enables the interactive use cases to use when running an application.
-	InteractiveConfiguration *ApplicationInteractiveConfiguration `pulumi:"interactiveConfiguration"`
+	InteractiveConfiguration            *ApplicationInteractiveConfiguration            `pulumi:"interactiveConfiguration"`
+	JobLevelCostAllocationConfiguration *ApplicationJobLevelCostAllocationConfiguration `pulumi:"jobLevelCostAllocationConfiguration"`
 	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
 	MaximumCapacity *ApplicationMaximumCapacity `pulumi:"maximumCapacity"`
 	// The configuration setting for monitoring.
@@ -353,7 +355,8 @@ type ApplicationState struct {
 	// The capacity to initialize when the application is created.
 	InitialCapacities ApplicationInitialCapacityArrayInput
 	// Enables the interactive use cases to use when running an application.
-	InteractiveConfiguration ApplicationInteractiveConfigurationPtrInput
+	InteractiveConfiguration            ApplicationInteractiveConfigurationPtrInput
+	JobLevelCostAllocationConfiguration ApplicationJobLevelCostAllocationConfigurationPtrInput
 	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
 	MaximumCapacity ApplicationMaximumCapacityPtrInput
 	// The configuration setting for monitoring.
@@ -394,7 +397,8 @@ type applicationArgs struct {
 	// The capacity to initialize when the application is created.
 	InitialCapacities []ApplicationInitialCapacity `pulumi:"initialCapacities"`
 	// Enables the interactive use cases to use when running an application.
-	InteractiveConfiguration *ApplicationInteractiveConfiguration `pulumi:"interactiveConfiguration"`
+	InteractiveConfiguration            *ApplicationInteractiveConfiguration            `pulumi:"interactiveConfiguration"`
+	JobLevelCostAllocationConfiguration *ApplicationJobLevelCostAllocationConfiguration `pulumi:"jobLevelCostAllocationConfiguration"`
 	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
 	MaximumCapacity *ApplicationMaximumCapacity `pulumi:"maximumCapacity"`
 	// The configuration setting for monitoring.
@@ -430,7 +434,8 @@ type ApplicationArgs struct {
 	// The capacity to initialize when the application is created.
 	InitialCapacities ApplicationInitialCapacityArrayInput
 	// Enables the interactive use cases to use when running an application.
-	InteractiveConfiguration ApplicationInteractiveConfigurationPtrInput
+	InteractiveConfiguration            ApplicationInteractiveConfigurationPtrInput
+	JobLevelCostAllocationConfiguration ApplicationJobLevelCostAllocationConfigurationPtrInput
 	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
 	MaximumCapacity ApplicationMaximumCapacityPtrInput
 	// The configuration setting for monitoring.
@@ -573,6 +578,12 @@ func (o ApplicationOutput) InitialCapacities() ApplicationInitialCapacityArrayOu
 // Enables the interactive use cases to use when running an application.
 func (o ApplicationOutput) InteractiveConfiguration() ApplicationInteractiveConfigurationOutput {
 	return o.ApplyT(func(v *Application) ApplicationInteractiveConfigurationOutput { return v.InteractiveConfiguration }).(ApplicationInteractiveConfigurationOutput)
+}
+
+func (o ApplicationOutput) JobLevelCostAllocationConfiguration() ApplicationJobLevelCostAllocationConfigurationOutput {
+	return o.ApplyT(func(v *Application) ApplicationJobLevelCostAllocationConfigurationOutput {
+		return v.JobLevelCostAllocationConfiguration
+	}).(ApplicationJobLevelCostAllocationConfigurationOutput)
 }
 
 // The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.

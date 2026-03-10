@@ -29,6 +29,7 @@ class ApplicationArgs:
                  image_configuration: Optional[pulumi.Input['ApplicationImageConfigurationArgs']] = None,
                  initial_capacities: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]]] = None,
                  interactive_configuration: Optional[pulumi.Input['ApplicationInteractiveConfigurationArgs']] = None,
+                 job_level_cost_allocation_configuration: Optional[pulumi.Input['ApplicationJobLevelCostAllocationConfigurationArgs']] = None,
                  maximum_capacity: Optional[pulumi.Input['ApplicationMaximumCapacityArgs']] = None,
                  monitoring_configuration: Optional[pulumi.Input['ApplicationMonitoringConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -71,6 +72,8 @@ class ApplicationArgs:
             pulumi.set(__self__, "initial_capacities", initial_capacities)
         if interactive_configuration is not None:
             pulumi.set(__self__, "interactive_configuration", interactive_configuration)
+        if job_level_cost_allocation_configuration is not None:
+            pulumi.set(__self__, "job_level_cost_allocation_configuration", job_level_cost_allocation_configuration)
         if maximum_capacity is not None:
             pulumi.set(__self__, "maximum_capacity", maximum_capacity)
         if monitoring_configuration is not None:
@@ -185,6 +188,15 @@ class ApplicationArgs:
         pulumi.set(self, "interactive_configuration", value)
 
     @_builtins.property
+    @pulumi.getter(name="jobLevelCostAllocationConfiguration")
+    def job_level_cost_allocation_configuration(self) -> Optional[pulumi.Input['ApplicationJobLevelCostAllocationConfigurationArgs']]:
+        return pulumi.get(self, "job_level_cost_allocation_configuration")
+
+    @job_level_cost_allocation_configuration.setter
+    def job_level_cost_allocation_configuration(self, value: Optional[pulumi.Input['ApplicationJobLevelCostAllocationConfigurationArgs']]):
+        pulumi.set(self, "job_level_cost_allocation_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="maximumCapacity")
     def maximum_capacity(self) -> Optional[pulumi.Input['ApplicationMaximumCapacityArgs']]:
         """
@@ -291,6 +303,7 @@ class _ApplicationState:
                  image_configuration: Optional[pulumi.Input['ApplicationImageConfigurationArgs']] = None,
                  initial_capacities: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]]] = None,
                  interactive_configuration: Optional[pulumi.Input['ApplicationInteractiveConfigurationArgs']] = None,
+                 job_level_cost_allocation_configuration: Optional[pulumi.Input['ApplicationJobLevelCostAllocationConfigurationArgs']] = None,
                  maximum_capacity: Optional[pulumi.Input['ApplicationMaximumCapacityArgs']] = None,
                  monitoring_configuration: Optional[pulumi.Input['ApplicationMonitoringConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -338,6 +351,8 @@ class _ApplicationState:
             pulumi.set(__self__, "initial_capacities", initial_capacities)
         if interactive_configuration is not None:
             pulumi.set(__self__, "interactive_configuration", interactive_configuration)
+        if job_level_cost_allocation_configuration is not None:
+            pulumi.set(__self__, "job_level_cost_allocation_configuration", job_level_cost_allocation_configuration)
         if maximum_capacity is not None:
             pulumi.set(__self__, "maximum_capacity", maximum_capacity)
         if monitoring_configuration is not None:
@@ -444,6 +459,15 @@ class _ApplicationState:
     @interactive_configuration.setter
     def interactive_configuration(self, value: Optional[pulumi.Input['ApplicationInteractiveConfigurationArgs']]):
         pulumi.set(self, "interactive_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jobLevelCostAllocationConfiguration")
+    def job_level_cost_allocation_configuration(self) -> Optional[pulumi.Input['ApplicationJobLevelCostAllocationConfigurationArgs']]:
+        return pulumi.get(self, "job_level_cost_allocation_configuration")
+
+    @job_level_cost_allocation_configuration.setter
+    def job_level_cost_allocation_configuration(self, value: Optional[pulumi.Input['ApplicationJobLevelCostAllocationConfigurationArgs']]):
+        pulumi.set(self, "job_level_cost_allocation_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumCapacity")
@@ -590,6 +614,7 @@ class Application(pulumi.CustomResource):
                  image_configuration: Optional[pulumi.Input[Union['ApplicationImageConfigurationArgs', 'ApplicationImageConfigurationArgsDict']]] = None,
                  initial_capacities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationInitialCapacityArgs', 'ApplicationInitialCapacityArgsDict']]]]] = None,
                  interactive_configuration: Optional[pulumi.Input[Union['ApplicationInteractiveConfigurationArgs', 'ApplicationInteractiveConfigurationArgsDict']]] = None,
+                 job_level_cost_allocation_configuration: Optional[pulumi.Input[Union['ApplicationJobLevelCostAllocationConfigurationArgs', 'ApplicationJobLevelCostAllocationConfigurationArgsDict']]] = None,
                  maximum_capacity: Optional[pulumi.Input[Union['ApplicationMaximumCapacityArgs', 'ApplicationMaximumCapacityArgsDict']]] = None,
                  monitoring_configuration: Optional[pulumi.Input[Union['ApplicationMonitoringConfigurationArgs', 'ApplicationMonitoringConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -909,6 +934,7 @@ class Application(pulumi.CustomResource):
                  image_configuration: Optional[pulumi.Input[Union['ApplicationImageConfigurationArgs', 'ApplicationImageConfigurationArgsDict']]] = None,
                  initial_capacities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationInitialCapacityArgs', 'ApplicationInitialCapacityArgsDict']]]]] = None,
                  interactive_configuration: Optional[pulumi.Input[Union['ApplicationInteractiveConfigurationArgs', 'ApplicationInteractiveConfigurationArgsDict']]] = None,
+                 job_level_cost_allocation_configuration: Optional[pulumi.Input[Union['ApplicationJobLevelCostAllocationConfigurationArgs', 'ApplicationJobLevelCostAllocationConfigurationArgsDict']]] = None,
                  maximum_capacity: Optional[pulumi.Input[Union['ApplicationMaximumCapacityArgs', 'ApplicationMaximumCapacityArgsDict']]] = None,
                  monitoring_configuration: Optional[pulumi.Input[Union['ApplicationMonitoringConfigurationArgs', 'ApplicationMonitoringConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -934,6 +960,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["image_configuration"] = image_configuration
             __props__.__dict__["initial_capacities"] = initial_capacities
             __props__.__dict__["interactive_configuration"] = interactive_configuration
+            __props__.__dict__["job_level_cost_allocation_configuration"] = job_level_cost_allocation_configuration
             __props__.__dict__["maximum_capacity"] = maximum_capacity
             __props__.__dict__["monitoring_configuration"] = monitoring_configuration
             __props__.__dict__["name"] = name
@@ -967,6 +994,7 @@ class Application(pulumi.CustomResource):
             image_configuration: Optional[pulumi.Input[Union['ApplicationImageConfigurationArgs', 'ApplicationImageConfigurationArgsDict']]] = None,
             initial_capacities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationInitialCapacityArgs', 'ApplicationInitialCapacityArgsDict']]]]] = None,
             interactive_configuration: Optional[pulumi.Input[Union['ApplicationInteractiveConfigurationArgs', 'ApplicationInteractiveConfigurationArgsDict']]] = None,
+            job_level_cost_allocation_configuration: Optional[pulumi.Input[Union['ApplicationJobLevelCostAllocationConfigurationArgs', 'ApplicationJobLevelCostAllocationConfigurationArgsDict']]] = None,
             maximum_capacity: Optional[pulumi.Input[Union['ApplicationMaximumCapacityArgs', 'ApplicationMaximumCapacityArgsDict']]] = None,
             monitoring_configuration: Optional[pulumi.Input[Union['ApplicationMonitoringConfigurationArgs', 'ApplicationMonitoringConfigurationArgsDict']]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1015,6 +1043,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["image_configuration"] = image_configuration
         __props__.__dict__["initial_capacities"] = initial_capacities
         __props__.__dict__["interactive_configuration"] = interactive_configuration
+        __props__.__dict__["job_level_cost_allocation_configuration"] = job_level_cost_allocation_configuration
         __props__.__dict__["maximum_capacity"] = maximum_capacity
         __props__.__dict__["monitoring_configuration"] = monitoring_configuration
         __props__.__dict__["name"] = name
@@ -1083,6 +1112,11 @@ class Application(pulumi.CustomResource):
         Enables the interactive use cases to use when running an application.
         """
         return pulumi.get(self, "interactive_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="jobLevelCostAllocationConfiguration")
+    def job_level_cost_allocation_configuration(self) -> pulumi.Output['outputs.ApplicationJobLevelCostAllocationConfiguration']:
+        return pulumi.get(self, "job_level_cost_allocation_configuration")
 
     @_builtins.property
     @pulumi.getter(name="maximumCapacity")

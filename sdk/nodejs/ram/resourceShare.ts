@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -79,6 +82,10 @@ export class ResourceShare extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
+     * A block that specifies the configuration of the resource share. See `resourceShareConfiguration` Block for details.
+     */
+    declare public readonly resourceShareConfiguration: pulumi.Output<outputs.ram.ResourceShareResourceShareConfiguration>;
+    /**
      * A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
@@ -105,6 +112,7 @@ export class ResourceShare extends pulumi.CustomResource {
             resourceInputs["name"] = state?.name;
             resourceInputs["permissionArns"] = state?.permissionArns;
             resourceInputs["region"] = state?.region;
+            resourceInputs["resourceShareConfiguration"] = state?.resourceShareConfiguration;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
@@ -113,6 +121,7 @@ export class ResourceShare extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["permissionArns"] = args?.permissionArns;
             resourceInputs["region"] = args?.region;
+            resourceInputs["resourceShareConfiguration"] = args?.resourceShareConfiguration;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -147,6 +156,10 @@ export interface ResourceShareState {
      */
     region?: pulumi.Input<string>;
     /**
+     * A block that specifies the configuration of the resource share. See `resourceShareConfiguration` Block for details.
+     */
+    resourceShareConfiguration?: pulumi.Input<inputs.ram.ResourceShareResourceShareConfiguration>;
+    /**
      * A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -176,6 +189,10 @@ export interface ResourceShareArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
+    /**
+     * A block that specifies the configuration of the resource share. See `resourceShareConfiguration` Block for details.
+     */
+    resourceShareConfiguration?: pulumi.Input<inputs.ram.ResourceShareResourceShareConfiguration>;
     /**
      * A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

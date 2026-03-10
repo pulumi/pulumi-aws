@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.ram;
 
+import com.pulumi.aws.ram.inputs.ResourceShareResourceShareConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -79,6 +80,21 @@ public final class ResourceShareArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A block that specifies the configuration of the resource share. See `resourceShareConfiguration` Block for details.
+     * 
+     */
+    @Import(name="resourceShareConfiguration")
+    private @Nullable Output<ResourceShareResourceShareConfigurationArgs> resourceShareConfiguration;
+
+    /**
+     * @return A block that specifies the configuration of the resource share. See `resourceShareConfiguration` Block for details.
+     * 
+     */
+    public Optional<Output<ResourceShareResourceShareConfigurationArgs>> resourceShareConfiguration() {
+        return Optional.ofNullable(this.resourceShareConfiguration);
+    }
+
+    /**
      * A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -100,6 +116,7 @@ public final class ResourceShareArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.permissionArns = $.permissionArns;
         this.region = $.region;
+        this.resourceShareConfiguration = $.resourceShareConfiguration;
         this.tags = $.tags;
     }
 
@@ -213,6 +230,27 @@ public final class ResourceShareArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param resourceShareConfiguration A block that specifies the configuration of the resource share. See `resourceShareConfiguration` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceShareConfiguration(@Nullable Output<ResourceShareResourceShareConfigurationArgs> resourceShareConfiguration) {
+            $.resourceShareConfiguration = resourceShareConfiguration;
+            return this;
+        }
+
+        /**
+         * @param resourceShareConfiguration A block that specifies the configuration of the resource share. See `resourceShareConfiguration` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceShareConfiguration(ResourceShareResourceShareConfigurationArgs resourceShareConfiguration) {
+            return resourceShareConfiguration(Output.of(resourceShareConfiguration));
         }
 
         /**

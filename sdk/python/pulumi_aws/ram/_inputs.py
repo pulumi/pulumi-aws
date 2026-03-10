@@ -17,6 +17,8 @@ from .. import _utilities
 __all__ = [
     'PermissionTimeoutsArgs',
     'PermissionTimeoutsArgsDict',
+    'ResourceShareResourceShareConfigurationArgs',
+    'ResourceShareResourceShareConfigurationArgsDict',
     'GetResourceShareFilterArgs',
     'GetResourceShareFilterArgsDict',
 ]
@@ -48,6 +50,35 @@ class PermissionTimeoutsArgs:
     @delete.setter
     def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "delete", value)
+
+
+class ResourceShareResourceShareConfigurationArgsDict(TypedDict):
+    retain_sharing_on_account_leave_organization: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether consumer account retains access to resource share after leaving AWS organization.
+    """
+
+@pulumi.input_type
+class ResourceShareResourceShareConfigurationArgs:
+    def __init__(__self__, *,
+                 retain_sharing_on_account_leave_organization: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] retain_sharing_on_account_leave_organization: Specifies whether consumer account retains access to resource share after leaving AWS organization.
+        """
+        if retain_sharing_on_account_leave_organization is not None:
+            pulumi.set(__self__, "retain_sharing_on_account_leave_organization", retain_sharing_on_account_leave_organization)
+
+    @_builtins.property
+    @pulumi.getter(name="retainSharingOnAccountLeaveOrganization")
+    def retain_sharing_on_account_leave_organization(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether consumer account retains access to resource share after leaving AWS organization.
+        """
+        return pulumi.get(self, "retain_sharing_on_account_leave_organization")
+
+    @retain_sharing_on_account_leave_organization.setter
+    def retain_sharing_on_account_leave_organization(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "retain_sharing_on_account_leave_organization", value)
 
 
 class GetResourceShareFilterArgsDict(TypedDict):

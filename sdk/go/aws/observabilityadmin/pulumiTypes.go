@@ -1344,6 +1344,318 @@ func (o CentralizationRuleForOrganizationTimeoutsPtrOutput) Update() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+type TelemetryPipelineConfiguration struct {
+	// The pipeline configuration body. This is a YAML-encoded string defining the pipeline source, optional processors, and sinks.
+	Body string `pulumi:"body"`
+}
+
+// TelemetryPipelineConfigurationInput is an input type that accepts TelemetryPipelineConfigurationArgs and TelemetryPipelineConfigurationOutput values.
+// You can construct a concrete instance of `TelemetryPipelineConfigurationInput` via:
+//
+//	TelemetryPipelineConfigurationArgs{...}
+type TelemetryPipelineConfigurationInput interface {
+	pulumi.Input
+
+	ToTelemetryPipelineConfigurationOutput() TelemetryPipelineConfigurationOutput
+	ToTelemetryPipelineConfigurationOutputWithContext(context.Context) TelemetryPipelineConfigurationOutput
+}
+
+type TelemetryPipelineConfigurationArgs struct {
+	// The pipeline configuration body. This is a YAML-encoded string defining the pipeline source, optional processors, and sinks.
+	Body pulumi.StringInput `pulumi:"body"`
+}
+
+func (TelemetryPipelineConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryPipelineConfiguration)(nil)).Elem()
+}
+
+func (i TelemetryPipelineConfigurationArgs) ToTelemetryPipelineConfigurationOutput() TelemetryPipelineConfigurationOutput {
+	return i.ToTelemetryPipelineConfigurationOutputWithContext(context.Background())
+}
+
+func (i TelemetryPipelineConfigurationArgs) ToTelemetryPipelineConfigurationOutputWithContext(ctx context.Context) TelemetryPipelineConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryPipelineConfigurationOutput)
+}
+
+func (i TelemetryPipelineConfigurationArgs) ToTelemetryPipelineConfigurationPtrOutput() TelemetryPipelineConfigurationPtrOutput {
+	return i.ToTelemetryPipelineConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryPipelineConfigurationArgs) ToTelemetryPipelineConfigurationPtrOutputWithContext(ctx context.Context) TelemetryPipelineConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryPipelineConfigurationOutput).ToTelemetryPipelineConfigurationPtrOutputWithContext(ctx)
+}
+
+// TelemetryPipelineConfigurationPtrInput is an input type that accepts TelemetryPipelineConfigurationArgs, TelemetryPipelineConfigurationPtr and TelemetryPipelineConfigurationPtrOutput values.
+// You can construct a concrete instance of `TelemetryPipelineConfigurationPtrInput` via:
+//
+//	        TelemetryPipelineConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryPipelineConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryPipelineConfigurationPtrOutput() TelemetryPipelineConfigurationPtrOutput
+	ToTelemetryPipelineConfigurationPtrOutputWithContext(context.Context) TelemetryPipelineConfigurationPtrOutput
+}
+
+type telemetryPipelineConfigurationPtrType TelemetryPipelineConfigurationArgs
+
+func TelemetryPipelineConfigurationPtr(v *TelemetryPipelineConfigurationArgs) TelemetryPipelineConfigurationPtrInput {
+	return (*telemetryPipelineConfigurationPtrType)(v)
+}
+
+func (*telemetryPipelineConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryPipelineConfiguration)(nil)).Elem()
+}
+
+func (i *telemetryPipelineConfigurationPtrType) ToTelemetryPipelineConfigurationPtrOutput() TelemetryPipelineConfigurationPtrOutput {
+	return i.ToTelemetryPipelineConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryPipelineConfigurationPtrType) ToTelemetryPipelineConfigurationPtrOutputWithContext(ctx context.Context) TelemetryPipelineConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryPipelineConfigurationPtrOutput)
+}
+
+type TelemetryPipelineConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TelemetryPipelineConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryPipelineConfiguration)(nil)).Elem()
+}
+
+func (o TelemetryPipelineConfigurationOutput) ToTelemetryPipelineConfigurationOutput() TelemetryPipelineConfigurationOutput {
+	return o
+}
+
+func (o TelemetryPipelineConfigurationOutput) ToTelemetryPipelineConfigurationOutputWithContext(ctx context.Context) TelemetryPipelineConfigurationOutput {
+	return o
+}
+
+func (o TelemetryPipelineConfigurationOutput) ToTelemetryPipelineConfigurationPtrOutput() TelemetryPipelineConfigurationPtrOutput {
+	return o.ToTelemetryPipelineConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryPipelineConfigurationOutput) ToTelemetryPipelineConfigurationPtrOutputWithContext(ctx context.Context) TelemetryPipelineConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryPipelineConfiguration) *TelemetryPipelineConfiguration {
+		return &v
+	}).(TelemetryPipelineConfigurationPtrOutput)
+}
+
+// The pipeline configuration body. This is a YAML-encoded string defining the pipeline source, optional processors, and sinks.
+func (o TelemetryPipelineConfigurationOutput) Body() pulumi.StringOutput {
+	return o.ApplyT(func(v TelemetryPipelineConfiguration) string { return v.Body }).(pulumi.StringOutput)
+}
+
+type TelemetryPipelineConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryPipelineConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryPipelineConfiguration)(nil)).Elem()
+}
+
+func (o TelemetryPipelineConfigurationPtrOutput) ToTelemetryPipelineConfigurationPtrOutput() TelemetryPipelineConfigurationPtrOutput {
+	return o
+}
+
+func (o TelemetryPipelineConfigurationPtrOutput) ToTelemetryPipelineConfigurationPtrOutputWithContext(ctx context.Context) TelemetryPipelineConfigurationPtrOutput {
+	return o
+}
+
+func (o TelemetryPipelineConfigurationPtrOutput) Elem() TelemetryPipelineConfigurationOutput {
+	return o.ApplyT(func(v *TelemetryPipelineConfiguration) TelemetryPipelineConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryPipelineConfiguration
+		return ret
+	}).(TelemetryPipelineConfigurationOutput)
+}
+
+// The pipeline configuration body. This is a YAML-encoded string defining the pipeline source, optional processors, and sinks.
+func (o TelemetryPipelineConfigurationPtrOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryPipelineConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Body
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryPipelineTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// TelemetryPipelineTimeoutsInput is an input type that accepts TelemetryPipelineTimeoutsArgs and TelemetryPipelineTimeoutsOutput values.
+// You can construct a concrete instance of `TelemetryPipelineTimeoutsInput` via:
+//
+//	TelemetryPipelineTimeoutsArgs{...}
+type TelemetryPipelineTimeoutsInput interface {
+	pulumi.Input
+
+	ToTelemetryPipelineTimeoutsOutput() TelemetryPipelineTimeoutsOutput
+	ToTelemetryPipelineTimeoutsOutputWithContext(context.Context) TelemetryPipelineTimeoutsOutput
+}
+
+type TelemetryPipelineTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (TelemetryPipelineTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryPipelineTimeouts)(nil)).Elem()
+}
+
+func (i TelemetryPipelineTimeoutsArgs) ToTelemetryPipelineTimeoutsOutput() TelemetryPipelineTimeoutsOutput {
+	return i.ToTelemetryPipelineTimeoutsOutputWithContext(context.Background())
+}
+
+func (i TelemetryPipelineTimeoutsArgs) ToTelemetryPipelineTimeoutsOutputWithContext(ctx context.Context) TelemetryPipelineTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryPipelineTimeoutsOutput)
+}
+
+func (i TelemetryPipelineTimeoutsArgs) ToTelemetryPipelineTimeoutsPtrOutput() TelemetryPipelineTimeoutsPtrOutput {
+	return i.ToTelemetryPipelineTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryPipelineTimeoutsArgs) ToTelemetryPipelineTimeoutsPtrOutputWithContext(ctx context.Context) TelemetryPipelineTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryPipelineTimeoutsOutput).ToTelemetryPipelineTimeoutsPtrOutputWithContext(ctx)
+}
+
+// TelemetryPipelineTimeoutsPtrInput is an input type that accepts TelemetryPipelineTimeoutsArgs, TelemetryPipelineTimeoutsPtr and TelemetryPipelineTimeoutsPtrOutput values.
+// You can construct a concrete instance of `TelemetryPipelineTimeoutsPtrInput` via:
+//
+//	        TelemetryPipelineTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryPipelineTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryPipelineTimeoutsPtrOutput() TelemetryPipelineTimeoutsPtrOutput
+	ToTelemetryPipelineTimeoutsPtrOutputWithContext(context.Context) TelemetryPipelineTimeoutsPtrOutput
+}
+
+type telemetryPipelineTimeoutsPtrType TelemetryPipelineTimeoutsArgs
+
+func TelemetryPipelineTimeoutsPtr(v *TelemetryPipelineTimeoutsArgs) TelemetryPipelineTimeoutsPtrInput {
+	return (*telemetryPipelineTimeoutsPtrType)(v)
+}
+
+func (*telemetryPipelineTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryPipelineTimeouts)(nil)).Elem()
+}
+
+func (i *telemetryPipelineTimeoutsPtrType) ToTelemetryPipelineTimeoutsPtrOutput() TelemetryPipelineTimeoutsPtrOutput {
+	return i.ToTelemetryPipelineTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryPipelineTimeoutsPtrType) ToTelemetryPipelineTimeoutsPtrOutputWithContext(ctx context.Context) TelemetryPipelineTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryPipelineTimeoutsPtrOutput)
+}
+
+type TelemetryPipelineTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (TelemetryPipelineTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryPipelineTimeouts)(nil)).Elem()
+}
+
+func (o TelemetryPipelineTimeoutsOutput) ToTelemetryPipelineTimeoutsOutput() TelemetryPipelineTimeoutsOutput {
+	return o
+}
+
+func (o TelemetryPipelineTimeoutsOutput) ToTelemetryPipelineTimeoutsOutputWithContext(ctx context.Context) TelemetryPipelineTimeoutsOutput {
+	return o
+}
+
+func (o TelemetryPipelineTimeoutsOutput) ToTelemetryPipelineTimeoutsPtrOutput() TelemetryPipelineTimeoutsPtrOutput {
+	return o.ToTelemetryPipelineTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryPipelineTimeoutsOutput) ToTelemetryPipelineTimeoutsPtrOutputWithContext(ctx context.Context) TelemetryPipelineTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryPipelineTimeouts) *TelemetryPipelineTimeouts {
+		return &v
+	}).(TelemetryPipelineTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TelemetryPipelineTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryPipelineTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o TelemetryPipelineTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryPipelineTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TelemetryPipelineTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryPipelineTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type TelemetryPipelineTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryPipelineTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryPipelineTimeouts)(nil)).Elem()
+}
+
+func (o TelemetryPipelineTimeoutsPtrOutput) ToTelemetryPipelineTimeoutsPtrOutput() TelemetryPipelineTimeoutsPtrOutput {
+	return o
+}
+
+func (o TelemetryPipelineTimeoutsPtrOutput) ToTelemetryPipelineTimeoutsPtrOutputWithContext(ctx context.Context) TelemetryPipelineTimeoutsPtrOutput {
+	return o
+}
+
+func (o TelemetryPipelineTimeoutsPtrOutput) Elem() TelemetryPipelineTimeoutsOutput {
+	return o.ApplyT(func(v *TelemetryPipelineTimeouts) TelemetryPipelineTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryPipelineTimeouts
+		return ret
+	}).(TelemetryPipelineTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TelemetryPipelineTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryPipelineTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o TelemetryPipelineTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryPipelineTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TelemetryPipelineTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryPipelineTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CentralizationRuleForOrganizationRuleInput)(nil)).Elem(), CentralizationRuleForOrganizationRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CentralizationRuleForOrganizationRulePtrInput)(nil)).Elem(), CentralizationRuleForOrganizationRuleArgs{})
@@ -1361,6 +1673,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrInput)(nil)).Elem(), CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CentralizationRuleForOrganizationTimeoutsInput)(nil)).Elem(), CentralizationRuleForOrganizationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CentralizationRuleForOrganizationTimeoutsPtrInput)(nil)).Elem(), CentralizationRuleForOrganizationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryPipelineConfigurationInput)(nil)).Elem(), TelemetryPipelineConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryPipelineConfigurationPtrInput)(nil)).Elem(), TelemetryPipelineConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryPipelineTimeoutsInput)(nil)).Elem(), TelemetryPipelineTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryPipelineTimeoutsPtrInput)(nil)).Elem(), TelemetryPipelineTimeoutsArgs{})
 	pulumi.RegisterOutputType(CentralizationRuleForOrganizationRuleOutput{})
 	pulumi.RegisterOutputType(CentralizationRuleForOrganizationRulePtrOutput{})
 	pulumi.RegisterOutputType(CentralizationRuleForOrganizationRuleDestinationOutput{})
@@ -1377,4 +1693,8 @@ func init() {
 	pulumi.RegisterOutputType(CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CentralizationRuleForOrganizationTimeoutsOutput{})
 	pulumi.RegisterOutputType(CentralizationRuleForOrganizationTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryPipelineConfigurationOutput{})
+	pulumi.RegisterOutputType(TelemetryPipelineConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryPipelineTimeoutsOutput{})
+	pulumi.RegisterOutputType(TelemetryPipelineTimeoutsPtrOutput{})
 }

@@ -57,6 +57,7 @@ public final class GetLayerVersionResult {
      */
     private String layerArn;
     private String layerName;
+    private String layerVersionArn;
     /**
      * @return License info associated with the specific Lambda Layer version.
      * 
@@ -87,10 +88,6 @@ public final class GetLayerVersionResult {
      * 
      */
     private Integer sourceCodeSize;
-    /**
-     * @return Lambda Layer version.
-     * 
-     */
     private Integer version;
 
     private GetLayerVersionResult() {}
@@ -159,6 +156,9 @@ public final class GetLayerVersionResult {
     public String layerName() {
         return this.layerName;
     }
+    public String layerVersionArn() {
+        return this.layerVersionArn;
+    }
     /**
      * @return License info associated with the specific Lambda Layer version.
      * 
@@ -201,10 +201,6 @@ public final class GetLayerVersionResult {
     public Integer sourceCodeSize() {
         return this.sourceCodeSize;
     }
-    /**
-     * @return Lambda Layer version.
-     * 
-     */
     public Integer version() {
         return this.version;
     }
@@ -229,6 +225,7 @@ public final class GetLayerVersionResult {
         private String id;
         private String layerArn;
         private String layerName;
+        private String layerVersionArn;
         private String licenseInfo;
         private String region;
         private String signingJobArn;
@@ -250,6 +247,7 @@ public final class GetLayerVersionResult {
     	      this.id = defaults.id;
     	      this.layerArn = defaults.layerArn;
     	      this.layerName = defaults.layerName;
+    	      this.layerVersionArn = defaults.layerVersionArn;
     	      this.licenseInfo = defaults.licenseInfo;
     	      this.region = defaults.region;
     	      this.signingJobArn = defaults.signingJobArn;
@@ -350,6 +348,14 @@ public final class GetLayerVersionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder layerVersionArn(String layerVersionArn) {
+            if (layerVersionArn == null) {
+              throw new MissingRequiredPropertyException("GetLayerVersionResult", "layerVersionArn");
+            }
+            this.layerVersionArn = layerVersionArn;
+            return this;
+        }
+        @CustomType.Setter
         public Builder licenseInfo(String licenseInfo) {
             if (licenseInfo == null) {
               throw new MissingRequiredPropertyException("GetLayerVersionResult", "licenseInfo");
@@ -418,6 +424,7 @@ public final class GetLayerVersionResult {
             _resultValue.id = id;
             _resultValue.layerArn = layerArn;
             _resultValue.layerName = layerName;
+            _resultValue.layerVersionArn = layerVersionArn;
             _resultValue.licenseInfo = licenseInfo;
             _resultValue.region = region;
             _resultValue.signingJobArn = signingJobArn;

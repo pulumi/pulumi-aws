@@ -606,7 +606,7 @@ type ReplicationGroupNodeGroupConfiguration struct {
 	PrimaryOutpostArn *string `pulumi:"primaryOutpostArn"`
 	// List of availability zones for the replica nodes.
 	ReplicaAvailabilityZones []string `pulumi:"replicaAvailabilityZones"`
-	// Number of replica nodes in this node group.
+	// Number of replica nodes in this node group. Default AWS limit is 5. Higher values may be available with a quota increase.
 	ReplicaCount *int `pulumi:"replicaCount"`
 	// List of ARNs of the Outposts for the replica nodes.
 	ReplicaOutpostArns []string `pulumi:"replicaOutpostArns"`
@@ -634,7 +634,7 @@ type ReplicationGroupNodeGroupConfigurationArgs struct {
 	PrimaryOutpostArn pulumi.StringPtrInput `pulumi:"primaryOutpostArn"`
 	// List of availability zones for the replica nodes.
 	ReplicaAvailabilityZones pulumi.StringArrayInput `pulumi:"replicaAvailabilityZones"`
-	// Number of replica nodes in this node group.
+	// Number of replica nodes in this node group. Default AWS limit is 5. Higher values may be available with a quota increase.
 	ReplicaCount pulumi.IntPtrInput `pulumi:"replicaCount"`
 	// List of ARNs of the Outposts for the replica nodes.
 	ReplicaOutpostArns pulumi.StringArrayInput `pulumi:"replicaOutpostArns"`
@@ -713,7 +713,7 @@ func (o ReplicationGroupNodeGroupConfigurationOutput) ReplicaAvailabilityZones()
 	return o.ApplyT(func(v ReplicationGroupNodeGroupConfiguration) []string { return v.ReplicaAvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-// Number of replica nodes in this node group.
+// Number of replica nodes in this node group. Default AWS limit is 5. Higher values may be available with a quota increase.
 func (o ReplicationGroupNodeGroupConfigurationOutput) ReplicaCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ReplicationGroupNodeGroupConfiguration) *int { return v.ReplicaCount }).(pulumi.IntPtrOutput)
 }

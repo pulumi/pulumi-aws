@@ -10,6 +10,11 @@ export type CentralizationRuleForOrganization = import("./centralizationRuleForO
 export const CentralizationRuleForOrganization: typeof import("./centralizationRuleForOrganization").CentralizationRuleForOrganization = null as any;
 utilities.lazyLoad(exports, ["CentralizationRuleForOrganization"], () => require("./centralizationRuleForOrganization"));
 
+export { TelemetryPipelineArgs, TelemetryPipelineState } from "./telemetryPipeline";
+export type TelemetryPipeline = import("./telemetryPipeline").TelemetryPipeline;
+export const TelemetryPipeline: typeof import("./telemetryPipeline").TelemetryPipeline = null as any;
+utilities.lazyLoad(exports, ["TelemetryPipeline"], () => require("./telemetryPipeline"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +22,12 @@ const _module = {
         switch (type) {
             case "aws:observabilityadmin/centralizationRuleForOrganization:CentralizationRuleForOrganization":
                 return new CentralizationRuleForOrganization(name, <any>undefined, { urn })
+            case "aws:observabilityadmin/telemetryPipeline:TelemetryPipeline":
+                return new TelemetryPipeline(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "observabilityadmin/centralizationRuleForOrganization", _module)
+pulumi.runtime.registerResourceModule("aws", "observabilityadmin/telemetryPipeline", _module)

@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:observabilityadmin/centralizationRuleForOrganization:CentralizationRuleForOrganization":
 		r = &CentralizationRuleForOrganization{}
+	case "aws:observabilityadmin/telemetryPipeline:TelemetryPipeline":
+		r = &TelemetryPipeline{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"observabilityadmin/centralizationRuleForOrganization",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"observabilityadmin/telemetryPipeline",
 		&module{version},
 	)
 }

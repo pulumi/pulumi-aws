@@ -1040,6 +1040,139 @@ func (o ApplicationInteractiveConfigurationPtrOutput) StudioEnabled() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+type ApplicationJobLevelCostAllocationConfiguration struct {
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// ApplicationJobLevelCostAllocationConfigurationInput is an input type that accepts ApplicationJobLevelCostAllocationConfigurationArgs and ApplicationJobLevelCostAllocationConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationJobLevelCostAllocationConfigurationInput` via:
+//
+//	ApplicationJobLevelCostAllocationConfigurationArgs{...}
+type ApplicationJobLevelCostAllocationConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationJobLevelCostAllocationConfigurationOutput() ApplicationJobLevelCostAllocationConfigurationOutput
+	ToApplicationJobLevelCostAllocationConfigurationOutputWithContext(context.Context) ApplicationJobLevelCostAllocationConfigurationOutput
+}
+
+type ApplicationJobLevelCostAllocationConfigurationArgs struct {
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (ApplicationJobLevelCostAllocationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationJobLevelCostAllocationConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationJobLevelCostAllocationConfigurationArgs) ToApplicationJobLevelCostAllocationConfigurationOutput() ApplicationJobLevelCostAllocationConfigurationOutput {
+	return i.ToApplicationJobLevelCostAllocationConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationJobLevelCostAllocationConfigurationArgs) ToApplicationJobLevelCostAllocationConfigurationOutputWithContext(ctx context.Context) ApplicationJobLevelCostAllocationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJobLevelCostAllocationConfigurationOutput)
+}
+
+func (i ApplicationJobLevelCostAllocationConfigurationArgs) ToApplicationJobLevelCostAllocationConfigurationPtrOutput() ApplicationJobLevelCostAllocationConfigurationPtrOutput {
+	return i.ToApplicationJobLevelCostAllocationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationJobLevelCostAllocationConfigurationArgs) ToApplicationJobLevelCostAllocationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationJobLevelCostAllocationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJobLevelCostAllocationConfigurationOutput).ToApplicationJobLevelCostAllocationConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationJobLevelCostAllocationConfigurationPtrInput is an input type that accepts ApplicationJobLevelCostAllocationConfigurationArgs, ApplicationJobLevelCostAllocationConfigurationPtr and ApplicationJobLevelCostAllocationConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationJobLevelCostAllocationConfigurationPtrInput` via:
+//
+//	        ApplicationJobLevelCostAllocationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationJobLevelCostAllocationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationJobLevelCostAllocationConfigurationPtrOutput() ApplicationJobLevelCostAllocationConfigurationPtrOutput
+	ToApplicationJobLevelCostAllocationConfigurationPtrOutputWithContext(context.Context) ApplicationJobLevelCostAllocationConfigurationPtrOutput
+}
+
+type applicationJobLevelCostAllocationConfigurationPtrType ApplicationJobLevelCostAllocationConfigurationArgs
+
+func ApplicationJobLevelCostAllocationConfigurationPtr(v *ApplicationJobLevelCostAllocationConfigurationArgs) ApplicationJobLevelCostAllocationConfigurationPtrInput {
+	return (*applicationJobLevelCostAllocationConfigurationPtrType)(v)
+}
+
+func (*applicationJobLevelCostAllocationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationJobLevelCostAllocationConfiguration)(nil)).Elem()
+}
+
+func (i *applicationJobLevelCostAllocationConfigurationPtrType) ToApplicationJobLevelCostAllocationConfigurationPtrOutput() ApplicationJobLevelCostAllocationConfigurationPtrOutput {
+	return i.ToApplicationJobLevelCostAllocationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationJobLevelCostAllocationConfigurationPtrType) ToApplicationJobLevelCostAllocationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationJobLevelCostAllocationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJobLevelCostAllocationConfigurationPtrOutput)
+}
+
+type ApplicationJobLevelCostAllocationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationJobLevelCostAllocationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationJobLevelCostAllocationConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationJobLevelCostAllocationConfigurationOutput) ToApplicationJobLevelCostAllocationConfigurationOutput() ApplicationJobLevelCostAllocationConfigurationOutput {
+	return o
+}
+
+func (o ApplicationJobLevelCostAllocationConfigurationOutput) ToApplicationJobLevelCostAllocationConfigurationOutputWithContext(ctx context.Context) ApplicationJobLevelCostAllocationConfigurationOutput {
+	return o
+}
+
+func (o ApplicationJobLevelCostAllocationConfigurationOutput) ToApplicationJobLevelCostAllocationConfigurationPtrOutput() ApplicationJobLevelCostAllocationConfigurationPtrOutput {
+	return o.ToApplicationJobLevelCostAllocationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationJobLevelCostAllocationConfigurationOutput) ToApplicationJobLevelCostAllocationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationJobLevelCostAllocationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationJobLevelCostAllocationConfiguration) *ApplicationJobLevelCostAllocationConfiguration {
+		return &v
+	}).(ApplicationJobLevelCostAllocationConfigurationPtrOutput)
+}
+
+func (o ApplicationJobLevelCostAllocationConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationJobLevelCostAllocationConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type ApplicationJobLevelCostAllocationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationJobLevelCostAllocationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationJobLevelCostAllocationConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationJobLevelCostAllocationConfigurationPtrOutput) ToApplicationJobLevelCostAllocationConfigurationPtrOutput() ApplicationJobLevelCostAllocationConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationJobLevelCostAllocationConfigurationPtrOutput) ToApplicationJobLevelCostAllocationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationJobLevelCostAllocationConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationJobLevelCostAllocationConfigurationPtrOutput) Elem() ApplicationJobLevelCostAllocationConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationJobLevelCostAllocationConfiguration) ApplicationJobLevelCostAllocationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationJobLevelCostAllocationConfiguration
+		return ret
+	}).(ApplicationJobLevelCostAllocationConfigurationOutput)
+}
+
+func (o ApplicationJobLevelCostAllocationConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationJobLevelCostAllocationConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ApplicationMaximumCapacity struct {
 	// The maximum allowed CPU for an application.
 	Cpu string `pulumi:"cpu"`
@@ -2634,6 +2767,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrInput)(nil)).Elem(), ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInteractiveConfigurationInput)(nil)).Elem(), ApplicationInteractiveConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInteractiveConfigurationPtrInput)(nil)).Elem(), ApplicationInteractiveConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationJobLevelCostAllocationConfigurationInput)(nil)).Elem(), ApplicationJobLevelCostAllocationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationJobLevelCostAllocationConfigurationPtrInput)(nil)).Elem(), ApplicationJobLevelCostAllocationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMaximumCapacityInput)(nil)).Elem(), ApplicationMaximumCapacityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMaximumCapacityPtrInput)(nil)).Elem(), ApplicationMaximumCapacityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMonitoringConfigurationInput)(nil)).Elem(), ApplicationMonitoringConfigurationArgs{})
@@ -2668,6 +2803,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationInteractiveConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationInteractiveConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationJobLevelCostAllocationConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationJobLevelCostAllocationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationMaximumCapacityOutput{})
 	pulumi.RegisterOutputType(ApplicationMaximumCapacityPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationMonitoringConfigurationOutput{})

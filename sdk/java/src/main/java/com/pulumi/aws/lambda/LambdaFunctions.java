@@ -5004,6 +5004,635 @@ public final class LambdaFunctions {
      * }
      * </pre>
      * 
+     * ### Cross-Account Layer Access
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Reference a layer from another AWS account using full ARN with version
+     *         final var sharedLayer = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerVersionArn("arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities:5")
+     *             .build());
+     * 
+     *         // Use in your Lambda function
+     *         var example = new Function("example", FunctionArgs.builder()
+     *             .code(new FileArchive("function.zip"))
+     *             .name("cross_account_example")
+     *             .role(lambdaRole.arn())
+     *             .handler("index.handler")
+     *             .runtime("nodejs20.x")
+     *             .layers(sharedLayer.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Reference a layer ARN without version (requires ListLayerVersions permission)
+     *         final var latestShared = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerVersionArn("arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetLayerVersionResult> getLayerVersion() {
+        return getLayerVersion(GetLayerVersionArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS Lambda Layer Version. Use this data source to retrieve information about a specific layer version or find the latest version compatible with your runtime and architecture requirements.
+     * 
+     * ## Example Usage
+     * 
+     * ### Get Latest Layer Version
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("my-shared-utilities")
+     *             .build());
+     * 
+     *         // Use the layer in a Lambda function
+     *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
+     *             .code(new FileArchive("function.zip"))
+     *             .name("example_function")
+     *             .role(lambdaRole.arn())
+     *             .handler("index.handler")
+     *             .runtime("nodejs20.x")
+     *             .layers(example.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Get Specific Layer Version
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("production-utilities")
+     *             .version(5)
+     *             .build());
+     * 
+     *         ctx.export("layerInfo", Map.ofEntries(
+     *             Map.entry("arn", example.arn()),
+     *             Map.entry("version", example.version()),
+     *             Map.entry("description", example.description())
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Get Latest Compatible Layer Version
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Find latest layer version compatible with Python 3.12
+     *         final var pythonLayer = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("python-dependencies")
+     *             .compatibleRuntime("python3.12")
+     *             .build());
+     * 
+     *         // Find latest layer version compatible with ARM64 architecture
+     *         final var armLayer = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("optimized-libraries")
+     *             .compatibleArchitecture("arm64")
+     *             .build());
+     * 
+     *         // Use both layers in a function
+     *         var example = new Function("example", FunctionArgs.builder()
+     *             .code(new FileArchive("function.zip"))
+     *             .name("multi_layer_function")
+     *             .role(lambdaRole.arn())
+     *             .handler("app.handler")
+     *             .runtime("python3.12")
+     *             .architectures("arm64")
+     *             .layers(            
+     *                 pythonLayer.arn(),
+     *                 armLayer.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Compare Layer Versions
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get latest version
+     *         final var latest = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("shared-layer")
+     *             .build());
+     * 
+     *         // Get specific version for comparison
+     *         final var stable = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("shared-layer")
+     *             .version(3)
+     *             .build());
+     * 
+     *         final var useLatestLayer = latest.version() > 5;
+     * 
+     *         final var selectedLayer = useLatestLayer ? latest.arn() : stable.arn();
+     * 
+     *         ctx.export("selectedLayerVersion", useLatestLayer ? latest.version() : stable.version());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Cross-Account Layer Access
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Reference a layer from another AWS account using full ARN with version
+     *         final var sharedLayer = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerVersionArn("arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities:5")
+     *             .build());
+     * 
+     *         // Use in your Lambda function
+     *         var example = new Function("example", FunctionArgs.builder()
+     *             .code(new FileArchive("function.zip"))
+     *             .name("cross_account_example")
+     *             .role(lambdaRole.arn())
+     *             .handler("index.handler")
+     *             .runtime("nodejs20.x")
+     *             .layers(sharedLayer.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Reference a layer ARN without version (requires ListLayerVersions permission)
+     *         final var latestShared = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerVersionArn("arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetLayerVersionResult> getLayerVersionPlain() {
+        return getLayerVersionPlain(GetLayerVersionPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS Lambda Layer Version. Use this data source to retrieve information about a specific layer version or find the latest version compatible with your runtime and architecture requirements.
+     * 
+     * ## Example Usage
+     * 
+     * ### Get Latest Layer Version
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("my-shared-utilities")
+     *             .build());
+     * 
+     *         // Use the layer in a Lambda function
+     *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
+     *             .code(new FileArchive("function.zip"))
+     *             .name("example_function")
+     *             .role(lambdaRole.arn())
+     *             .handler("index.handler")
+     *             .runtime("nodejs20.x")
+     *             .layers(example.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Get Specific Layer Version
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("production-utilities")
+     *             .version(5)
+     *             .build());
+     * 
+     *         ctx.export("layerInfo", Map.ofEntries(
+     *             Map.entry("arn", example.arn()),
+     *             Map.entry("version", example.version()),
+     *             Map.entry("description", example.description())
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Get Latest Compatible Layer Version
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Find latest layer version compatible with Python 3.12
+     *         final var pythonLayer = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("python-dependencies")
+     *             .compatibleRuntime("python3.12")
+     *             .build());
+     * 
+     *         // Find latest layer version compatible with ARM64 architecture
+     *         final var armLayer = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("optimized-libraries")
+     *             .compatibleArchitecture("arm64")
+     *             .build());
+     * 
+     *         // Use both layers in a function
+     *         var example = new Function("example", FunctionArgs.builder()
+     *             .code(new FileArchive("function.zip"))
+     *             .name("multi_layer_function")
+     *             .role(lambdaRole.arn())
+     *             .handler("app.handler")
+     *             .runtime("python3.12")
+     *             .architectures("arm64")
+     *             .layers(            
+     *                 pythonLayer.arn(),
+     *                 armLayer.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Compare Layer Versions
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get latest version
+     *         final var latest = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("shared-layer")
+     *             .build());
+     * 
+     *         // Get specific version for comparison
+     *         final var stable = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("shared-layer")
+     *             .version(3)
+     *             .build());
+     * 
+     *         final var useLatestLayer = latest.version() > 5;
+     * 
+     *         final var selectedLayer = useLatestLayer ? latest.arn() : stable.arn();
+     * 
+     *         ctx.export("selectedLayerVersion", useLatestLayer ? latest.version() : stable.version());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Cross-Account Layer Access
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Reference a layer from another AWS account using full ARN with version
+     *         final var sharedLayer = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerVersionArn("arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities:5")
+     *             .build());
+     * 
+     *         // Use in your Lambda function
+     *         var example = new Function("example", FunctionArgs.builder()
+     *             .code(new FileArchive("function.zip"))
+     *             .name("cross_account_example")
+     *             .role(lambdaRole.arn())
+     *             .handler("index.handler")
+     *             .runtime("nodejs20.x")
+     *             .layers(sharedLayer.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Reference a layer ARN without version (requires ListLayerVersions permission)
+     *         final var latestShared = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerVersionArn("arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetLayerVersionResult> getLayerVersion(GetLayerVersionArgs args) {
         return getLayerVersion(args, InvokeOptions.Empty);
@@ -5195,6 +5824,85 @@ public final class LambdaFunctions {
      *         final var selectedLayer = useLatestLayer ? latest.arn() : stable.arn();
      * 
      *         ctx.export("selectedLayerVersion", useLatestLayer ? latest.version() : stable.version());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Cross-Account Layer Access
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Reference a layer from another AWS account using full ARN with version
+     *         final var sharedLayer = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerVersionArn("arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities:5")
+     *             .build());
+     * 
+     *         // Use in your Lambda function
+     *         var example = new Function("example", FunctionArgs.builder()
+     *             .code(new FileArchive("function.zip"))
+     *             .name("cross_account_example")
+     *             .role(lambdaRole.arn())
+     *             .handler("index.handler")
+     *             .runtime("nodejs20.x")
+     *             .layers(sharedLayer.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Reference a layer ARN without version (requires ListLayerVersions permission)
+     *         final var latestShared = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerVersionArn("arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities")
+     *             .build());
+     * 
      *     }
      * }
      * }
@@ -5396,6 +6104,85 @@ public final class LambdaFunctions {
      * }
      * </pre>
      * 
+     * ### Cross-Account Layer Access
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Reference a layer from another AWS account using full ARN with version
+     *         final var sharedLayer = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerVersionArn("arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities:5")
+     *             .build());
+     * 
+     *         // Use in your Lambda function
+     *         var example = new Function("example", FunctionArgs.builder()
+     *             .code(new FileArchive("function.zip"))
+     *             .name("cross_account_example")
+     *             .role(lambdaRole.arn())
+     *             .handler("index.handler")
+     *             .runtime("nodejs20.x")
+     *             .layers(sharedLayer.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Reference a layer ARN without version (requires ListLayerVersions permission)
+     *         final var latestShared = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerVersionArn("arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetLayerVersionResult> getLayerVersion(GetLayerVersionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:lambda/getLayerVersion:getLayerVersion", TypeShape.of(GetLayerVersionResult.class), args, Utilities.withVersion(options));
@@ -5592,6 +6379,85 @@ public final class LambdaFunctions {
      * }
      * </pre>
      * 
+     * ### Cross-Account Layer Access
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Reference a layer from another AWS account using full ARN with version
+     *         final var sharedLayer = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerVersionArn("arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities:5")
+     *             .build());
+     * 
+     *         // Use in your Lambda function
+     *         var example = new Function("example", FunctionArgs.builder()
+     *             .code(new FileArchive("function.zip"))
+     *             .name("cross_account_example")
+     *             .role(lambdaRole.arn())
+     *             .handler("index.handler")
+     *             .runtime("nodejs20.x")
+     *             .layers(sharedLayer.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Reference a layer ARN without version (requires ListLayerVersions permission)
+     *         final var latestShared = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerVersionArn("arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetLayerVersionResult> getLayerVersion(GetLayerVersionArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:lambda/getLayerVersion:getLayerVersion", TypeShape.of(GetLayerVersionResult.class), args, Utilities.withVersion(options));
@@ -5783,6 +6649,85 @@ public final class LambdaFunctions {
      *         final var selectedLayer = useLatestLayer ? latest.arn() : stable.arn();
      * 
      *         ctx.export("selectedLayerVersion", useLatestLayer ? latest.version() : stable.version());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Cross-Account Layer Access
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Reference a layer from another AWS account using full ARN with version
+     *         final var sharedLayer = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerVersionArn("arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities:5")
+     *             .build());
+     * 
+     *         // Use in your Lambda function
+     *         var example = new Function("example", FunctionArgs.builder()
+     *             .code(new FileArchive("function.zip"))
+     *             .name("cross_account_example")
+     *             .role(lambdaRole.arn())
+     *             .handler("index.handler")
+     *             .runtime("nodejs20.x")
+     *             .layers(sharedLayer.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Reference a layer ARN without version (requires ListLayerVersions permission)
+     *         final var latestShared = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerVersionArn("arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities")
+     *             .build());
+     * 
      *     }
      * }
      * }

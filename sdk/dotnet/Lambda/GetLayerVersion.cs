@@ -155,8 +155,58 @@ namespace Pulumi.Aws.Lambda
         ///     };
         /// });
         /// ```
+        /// 
+        /// ### Cross-Account Layer Access
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Reference a layer from another AWS account using full ARN with version
+        ///     var sharedLayer = Aws.Lambda.GetLayerVersion.Invoke(new()
+        ///     {
+        ///         LayerVersionArn = "arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities:5",
+        ///     });
+        /// 
+        ///     // Use in your Lambda function
+        ///     var example = new Aws.Lambda.Function("example", new()
+        ///     {
+        ///         Code = new FileArchive("function.zip"),
+        ///         Name = "cross_account_example",
+        ///         Role = lambdaRole.Arn,
+        ///         Handler = "index.handler",
+        ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+        ///         Layers = new[]
+        ///         {
+        ///             sharedLayer.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn),
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Reference a layer ARN without version (requires ListLayerVersions permission)
+        ///     var latestShared = Aws.Lambda.GetLayerVersion.Invoke(new()
+        ///     {
+        ///         LayerVersionArn = "arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
-        public static Task<GetLayerVersionResult> InvokeAsync(GetLayerVersionArgs args, InvokeOptions? options = null)
+        public static Task<GetLayerVersionResult> InvokeAsync(GetLayerVersionArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLayerVersionResult>("aws:lambda/getLayerVersion:getLayerVersion", args ?? new GetLayerVersionArgs(), options.WithDefaults());
 
         /// <summary>
@@ -303,8 +353,58 @@ namespace Pulumi.Aws.Lambda
         ///     };
         /// });
         /// ```
+        /// 
+        /// ### Cross-Account Layer Access
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Reference a layer from another AWS account using full ARN with version
+        ///     var sharedLayer = Aws.Lambda.GetLayerVersion.Invoke(new()
+        ///     {
+        ///         LayerVersionArn = "arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities:5",
+        ///     });
+        /// 
+        ///     // Use in your Lambda function
+        ///     var example = new Aws.Lambda.Function("example", new()
+        ///     {
+        ///         Code = new FileArchive("function.zip"),
+        ///         Name = "cross_account_example",
+        ///         Role = lambdaRole.Arn,
+        ///         Handler = "index.handler",
+        ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+        ///         Layers = new[]
+        ///         {
+        ///             sharedLayer.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn),
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Reference a layer ARN without version (requires ListLayerVersions permission)
+        ///     var latestShared = Aws.Lambda.GetLayerVersion.Invoke(new()
+        ///     {
+        ///         LayerVersionArn = "arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
-        public static Output<GetLayerVersionResult> Invoke(GetLayerVersionInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetLayerVersionResult> Invoke(GetLayerVersionInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLayerVersionResult>("aws:lambda/getLayerVersion:getLayerVersion", args ?? new GetLayerVersionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -451,6 +551,56 @@ namespace Pulumi.Aws.Lambda
         ///     };
         /// });
         /// ```
+        /// 
+        /// ### Cross-Account Layer Access
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Reference a layer from another AWS account using full ARN with version
+        ///     var sharedLayer = Aws.Lambda.GetLayerVersion.Invoke(new()
+        ///     {
+        ///         LayerVersionArn = "arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities:5",
+        ///     });
+        /// 
+        ///     // Use in your Lambda function
+        ///     var example = new Aws.Lambda.Function("example", new()
+        ///     {
+        ///         Code = new FileArchive("function.zip"),
+        ///         Name = "cross_account_example",
+        ///         Role = lambdaRole.Arn,
+        ///         Handler = "index.handler",
+        ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+        ///         Layers = new[]
+        ///         {
+        ///             sharedLayer.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn),
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Reference a layer ARN without version (requires ListLayerVersions permission)
+        ///     var latestShared = Aws.Lambda.GetLayerVersion.Invoke(new()
+        ///     {
+        ///         LayerVersionArn = "arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetLayerVersionResult> Invoke(GetLayerVersionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLayerVersionResult>("aws:lambda/getLayerVersion:getLayerVersion", args ?? new GetLayerVersionInvokeArgs(), options.WithDefaults());
@@ -460,24 +610,30 @@ namespace Pulumi.Aws.Lambda
     public sealed class GetLayerVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specific architecture the layer version must support. Conflicts with `Version`. If specified, the latest available layer version supporting the provided architecture will be used.
+        /// Specific architecture the layer version must support. Conflicts with `Version` and `LayerVersionArn`. If specified, the latest available layer version supporting the provided architecture will be used.
         /// </summary>
         [Input("compatibleArchitecture")]
         public string? CompatibleArchitecture { get; set; }
 
         /// <summary>
-        /// Specific runtime the layer version must support. Conflicts with `Version`. If specified, the latest available layer version supporting the provided runtime will be used.
+        /// Specific runtime the layer version must support. Conflicts with `Version` and `LayerVersionArn`. If specified, the latest available layer version supporting the provided runtime will be used.
         /// </summary>
         [Input("compatibleRuntime")]
         public string? CompatibleRuntime { get; set; }
 
         /// <summary>
         /// Name of the Lambda layer.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
-        [Input("layerName", required: true)]
-        public string LayerName { get; set; } = null!;
+        [Input("layerName")]
+        public string? LayerName { get; set; }
+
+        /// <summary>
+        /// ARN of the Lambda layer version. Can be a full ARN with version (e.g., `arn:aws:lambda:region:account:layer:name:1`) or without version (e.g., `arn:aws:lambda:region:account:layer:name`). When the version is omitted, the latest version will be retrieved (requires `lambda:ListLayerVersions` permission). Use the full ARN with version for cross-account layers where you don't have list permissions.
+        /// 
+        /// The following are optional when using `LayerName`:
+        /// </summary>
+        [Input("layerVersionArn")]
+        public string? LayerVersionArn { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -486,7 +642,7 @@ namespace Pulumi.Aws.Lambda
         public string? Region { get; set; }
 
         /// <summary>
-        /// Specific layer version. Conflicts with `CompatibleRuntime` and `CompatibleArchitecture`. If omitted, the latest available layer version will be used.
+        /// Specific layer version. Conflicts with `CompatibleRuntime`, `CompatibleArchitecture`, and `LayerVersionArn`. If omitted, the latest available layer version will be used.
         /// </summary>
         [Input("version")]
         public int? Version { get; set; }
@@ -500,24 +656,30 @@ namespace Pulumi.Aws.Lambda
     public sealed class GetLayerVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specific architecture the layer version must support. Conflicts with `Version`. If specified, the latest available layer version supporting the provided architecture will be used.
+        /// Specific architecture the layer version must support. Conflicts with `Version` and `LayerVersionArn`. If specified, the latest available layer version supporting the provided architecture will be used.
         /// </summary>
         [Input("compatibleArchitecture")]
         public Input<string>? CompatibleArchitecture { get; set; }
 
         /// <summary>
-        /// Specific runtime the layer version must support. Conflicts with `Version`. If specified, the latest available layer version supporting the provided runtime will be used.
+        /// Specific runtime the layer version must support. Conflicts with `Version` and `LayerVersionArn`. If specified, the latest available layer version supporting the provided runtime will be used.
         /// </summary>
         [Input("compatibleRuntime")]
         public Input<string>? CompatibleRuntime { get; set; }
 
         /// <summary>
         /// Name of the Lambda layer.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
-        [Input("layerName", required: true)]
-        public Input<string> LayerName { get; set; } = null!;
+        [Input("layerName")]
+        public Input<string>? LayerName { get; set; }
+
+        /// <summary>
+        /// ARN of the Lambda layer version. Can be a full ARN with version (e.g., `arn:aws:lambda:region:account:layer:name:1`) or without version (e.g., `arn:aws:lambda:region:account:layer:name`). When the version is omitted, the latest version will be retrieved (requires `lambda:ListLayerVersions` permission). Use the full ARN with version for cross-account layers where you don't have list permissions.
+        /// 
+        /// The following are optional when using `LayerName`:
+        /// </summary>
+        [Input("layerVersionArn")]
+        public Input<string>? LayerVersionArn { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -526,7 +688,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specific layer version. Conflicts with `CompatibleRuntime` and `CompatibleArchitecture`. If omitted, the latest available layer version will be used.
+        /// Specific layer version. Conflicts with `CompatibleRuntime`, `CompatibleArchitecture`, and `LayerVersionArn`. If omitted, the latest available layer version will be used.
         /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
@@ -576,6 +738,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string LayerArn;
         public readonly string LayerName;
+        public readonly string LayerVersionArn;
         /// <summary>
         /// License info associated with the specific Lambda Layer version.
         /// </summary>
@@ -597,9 +760,6 @@ namespace Pulumi.Aws.Lambda
         /// Size in bytes of the function .zip file.
         /// </summary>
         public readonly int SourceCodeSize;
-        /// <summary>
-        /// Lambda Layer version.
-        /// </summary>
         public readonly int Version;
 
         [OutputConstructor]
@@ -626,6 +786,8 @@ namespace Pulumi.Aws.Lambda
 
             string layerName,
 
+            string layerVersionArn,
+
             string licenseInfo,
 
             string region,
@@ -651,6 +813,7 @@ namespace Pulumi.Aws.Lambda
             Id = id;
             LayerArn = layerArn;
             LayerName = layerName;
+            LayerVersionArn = layerVersionArn;
             LicenseInfo = licenseInfo;
             Region = region;
             SigningJobArn = signingJobArn;

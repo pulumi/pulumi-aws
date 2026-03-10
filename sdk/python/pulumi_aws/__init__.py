@@ -9207,6 +9207,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "observabilityadmin/telemetryPipeline",
+  "fqn": "pulumi_aws.observabilityadmin",
+  "classes": {
+   "aws:observabilityadmin/telemetryPipeline:TelemetryPipeline": "TelemetryPipeline"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "odb/cloudAutonomousVmCluster",
   "fqn": "pulumi_aws.odb",
   "classes": {
@@ -11419,6 +11427,14 @@ _utilities.register(
   "fqn": "pulumi_aws.sagemaker",
   "classes": {
    "aws:sagemaker/labelingJob:LabelingJob": "LabelingJob"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sagemaker/mlflowApp",
+  "fqn": "pulumi_aws.sagemaker",
+  "classes": {
+   "aws:sagemaker/mlflowApp:MlflowApp": "MlflowApp"
   }
  },
  {

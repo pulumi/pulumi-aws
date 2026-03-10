@@ -78,14 +78,14 @@ public final class ReplicationGroupNodeGroupConfigurationArgs extends com.pulumi
     }
 
     /**
-     * Number of replica nodes in this node group.
+     * Number of replica nodes in this node group. Default AWS limit is 5. Higher values may be available with a quota increase.
      * 
      */
     @Import(name="replicaCount")
     private @Nullable Output<Integer> replicaCount;
 
     /**
-     * @return Number of replica nodes in this node group.
+     * @return Number of replica nodes in this node group. Default AWS limit is 5. Higher values may be available with a quota increase.
      * 
      */
     public Optional<Output<Integer>> replicaCount() {
@@ -247,7 +247,7 @@ public final class ReplicationGroupNodeGroupConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param replicaCount Number of replica nodes in this node group.
+         * @param replicaCount Number of replica nodes in this node group. Default AWS limit is 5. Higher values may be available with a quota increase.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class ReplicationGroupNodeGroupConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param replicaCount Number of replica nodes in this node group.
+         * @param replicaCount Number of replica nodes in this node group. Default AWS limit is 5. Higher values may be available with a quota increase.
          * 
          * @return builder
          * 
