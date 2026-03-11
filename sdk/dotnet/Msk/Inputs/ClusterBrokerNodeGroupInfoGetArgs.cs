@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Msk.Inputs
         }
 
         /// <summary>
-        /// A block that contains information about storage volumes attached to MSK broker nodes. See BrokerNodeGroupInfo storage_info Argument Reference below.
+        /// A block that contains information about storage volumes attached to MSK broker nodes. See BrokerNodeGroupInfo storage_info Argument Reference below. This block must not be specified when an Express instance type is specified for `InstanceType`.
         /// </summary>
         [Input("storageInfo")]
         public Input<Inputs.ClusterBrokerNodeGroupInfoStorageInfoGetArgs>? StorageInfo { get; set; }

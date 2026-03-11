@@ -198,6 +198,7 @@ export class Application extends pulumi.CustomResource {
      * Enables the interactive use cases to use when running an application.
      */
     declare public readonly interactiveConfiguration: pulumi.Output<outputs.emrserverless.ApplicationInteractiveConfiguration>;
+    declare public readonly jobLevelCostAllocationConfiguration: pulumi.Output<outputs.emrserverless.ApplicationJobLevelCostAllocationConfiguration>;
     /**
      * The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
      */
@@ -263,6 +264,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["imageConfiguration"] = state?.imageConfiguration;
             resourceInputs["initialCapacities"] = state?.initialCapacities;
             resourceInputs["interactiveConfiguration"] = state?.interactiveConfiguration;
+            resourceInputs["jobLevelCostAllocationConfiguration"] = state?.jobLevelCostAllocationConfiguration;
             resourceInputs["maximumCapacity"] = state?.maximumCapacity;
             resourceInputs["monitoringConfiguration"] = state?.monitoringConfiguration;
             resourceInputs["name"] = state?.name;
@@ -288,6 +290,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["imageConfiguration"] = args?.imageConfiguration;
             resourceInputs["initialCapacities"] = args?.initialCapacities;
             resourceInputs["interactiveConfiguration"] = args?.interactiveConfiguration;
+            resourceInputs["jobLevelCostAllocationConfiguration"] = args?.jobLevelCostAllocationConfiguration;
             resourceInputs["maximumCapacity"] = args?.maximumCapacity;
             resourceInputs["monitoringConfiguration"] = args?.monitoringConfiguration;
             resourceInputs["name"] = args?.name;
@@ -338,6 +341,7 @@ export interface ApplicationState {
      * Enables the interactive use cases to use when running an application.
      */
     interactiveConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationInteractiveConfiguration>;
+    jobLevelCostAllocationConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationJobLevelCostAllocationConfiguration>;
     /**
      * The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
      */
@@ -412,6 +416,7 @@ export interface ApplicationArgs {
      * Enables the interactive use cases to use when running an application.
      */
     interactiveConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationInteractiveConfiguration>;
+    jobLevelCostAllocationConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationJobLevelCostAllocationConfiguration>;
     /**
      * The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
      */

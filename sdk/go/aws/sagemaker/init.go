@@ -53,6 +53,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ImageVersion{}
 	case "aws:sagemaker/labelingJob:LabelingJob":
 		r = &LabelingJob{}
+	case "aws:sagemaker/mlflowApp:MlflowApp":
+		r = &MlflowApp{}
 	case "aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer":
 		r = &MlflowTrackingServer{}
 	case "aws:sagemaker/model:Model":
@@ -178,6 +180,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"sagemaker/labelingJob",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sagemaker/mlflowApp",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

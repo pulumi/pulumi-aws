@@ -26687,6 +26687,181 @@ func (o LabelingJobStoppingConditionArrayOutput) Index(i pulumi.IntInput) Labeli
 	}).(LabelingJobStoppingConditionOutput)
 }
 
+type MlflowAppTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// MlflowAppTimeoutsInput is an input type that accepts MlflowAppTimeoutsArgs and MlflowAppTimeoutsOutput values.
+// You can construct a concrete instance of `MlflowAppTimeoutsInput` via:
+//
+//	MlflowAppTimeoutsArgs{...}
+type MlflowAppTimeoutsInput interface {
+	pulumi.Input
+
+	ToMlflowAppTimeoutsOutput() MlflowAppTimeoutsOutput
+	ToMlflowAppTimeoutsOutputWithContext(context.Context) MlflowAppTimeoutsOutput
+}
+
+type MlflowAppTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (MlflowAppTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlflowAppTimeouts)(nil)).Elem()
+}
+
+func (i MlflowAppTimeoutsArgs) ToMlflowAppTimeoutsOutput() MlflowAppTimeoutsOutput {
+	return i.ToMlflowAppTimeoutsOutputWithContext(context.Background())
+}
+
+func (i MlflowAppTimeoutsArgs) ToMlflowAppTimeoutsOutputWithContext(ctx context.Context) MlflowAppTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlflowAppTimeoutsOutput)
+}
+
+func (i MlflowAppTimeoutsArgs) ToMlflowAppTimeoutsPtrOutput() MlflowAppTimeoutsPtrOutput {
+	return i.ToMlflowAppTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i MlflowAppTimeoutsArgs) ToMlflowAppTimeoutsPtrOutputWithContext(ctx context.Context) MlflowAppTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlflowAppTimeoutsOutput).ToMlflowAppTimeoutsPtrOutputWithContext(ctx)
+}
+
+// MlflowAppTimeoutsPtrInput is an input type that accepts MlflowAppTimeoutsArgs, MlflowAppTimeoutsPtr and MlflowAppTimeoutsPtrOutput values.
+// You can construct a concrete instance of `MlflowAppTimeoutsPtrInput` via:
+//
+//	        MlflowAppTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MlflowAppTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToMlflowAppTimeoutsPtrOutput() MlflowAppTimeoutsPtrOutput
+	ToMlflowAppTimeoutsPtrOutputWithContext(context.Context) MlflowAppTimeoutsPtrOutput
+}
+
+type mlflowAppTimeoutsPtrType MlflowAppTimeoutsArgs
+
+func MlflowAppTimeoutsPtr(v *MlflowAppTimeoutsArgs) MlflowAppTimeoutsPtrInput {
+	return (*mlflowAppTimeoutsPtrType)(v)
+}
+
+func (*mlflowAppTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MlflowAppTimeouts)(nil)).Elem()
+}
+
+func (i *mlflowAppTimeoutsPtrType) ToMlflowAppTimeoutsPtrOutput() MlflowAppTimeoutsPtrOutput {
+	return i.ToMlflowAppTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *mlflowAppTimeoutsPtrType) ToMlflowAppTimeoutsPtrOutputWithContext(ctx context.Context) MlflowAppTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlflowAppTimeoutsPtrOutput)
+}
+
+type MlflowAppTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (MlflowAppTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlflowAppTimeouts)(nil)).Elem()
+}
+
+func (o MlflowAppTimeoutsOutput) ToMlflowAppTimeoutsOutput() MlflowAppTimeoutsOutput {
+	return o
+}
+
+func (o MlflowAppTimeoutsOutput) ToMlflowAppTimeoutsOutputWithContext(ctx context.Context) MlflowAppTimeoutsOutput {
+	return o
+}
+
+func (o MlflowAppTimeoutsOutput) ToMlflowAppTimeoutsPtrOutput() MlflowAppTimeoutsPtrOutput {
+	return o.ToMlflowAppTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o MlflowAppTimeoutsOutput) ToMlflowAppTimeoutsPtrOutputWithContext(ctx context.Context) MlflowAppTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MlflowAppTimeouts) *MlflowAppTimeouts {
+		return &v
+	}).(MlflowAppTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MlflowAppTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MlflowAppTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o MlflowAppTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MlflowAppTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MlflowAppTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MlflowAppTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type MlflowAppTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (MlflowAppTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MlflowAppTimeouts)(nil)).Elem()
+}
+
+func (o MlflowAppTimeoutsPtrOutput) ToMlflowAppTimeoutsPtrOutput() MlflowAppTimeoutsPtrOutput {
+	return o
+}
+
+func (o MlflowAppTimeoutsPtrOutput) ToMlflowAppTimeoutsPtrOutputWithContext(ctx context.Context) MlflowAppTimeoutsPtrOutput {
+	return o
+}
+
+func (o MlflowAppTimeoutsPtrOutput) Elem() MlflowAppTimeoutsOutput {
+	return o.ApplyT(func(v *MlflowAppTimeouts) MlflowAppTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret MlflowAppTimeouts
+		return ret
+	}).(MlflowAppTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MlflowAppTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MlflowAppTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o MlflowAppTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MlflowAppTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MlflowAppTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MlflowAppTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type ModelCardExportJobExportArtifact struct {
 	// Amazon S3 URI of the exported model artifacts.
 	S3ExportArtifacts string `pulumi:"s3ExportArtifacts"`
@@ -47755,6 +47930,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobOutputConfigPtrInput)(nil)).Elem(), LabelingJobOutputConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobStoppingConditionInput)(nil)).Elem(), LabelingJobStoppingConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobStoppingConditionArrayInput)(nil)).Elem(), LabelingJobStoppingConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MlflowAppTimeoutsInput)(nil)).Elem(), MlflowAppTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MlflowAppTimeoutsPtrInput)(nil)).Elem(), MlflowAppTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardExportJobExportArtifactInput)(nil)).Elem(), ModelCardExportJobExportArtifactArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardExportJobExportArtifactArrayInput)(nil)).Elem(), ModelCardExportJobExportArtifactArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardExportJobOutputConfigInput)(nil)).Elem(), ModelCardExportJobOutputConfigArgs{})
@@ -48326,6 +48503,8 @@ func init() {
 	pulumi.RegisterOutputType(LabelingJobOutputConfigPtrOutput{})
 	pulumi.RegisterOutputType(LabelingJobStoppingConditionOutput{})
 	pulumi.RegisterOutputType(LabelingJobStoppingConditionArrayOutput{})
+	pulumi.RegisterOutputType(MlflowAppTimeoutsOutput{})
+	pulumi.RegisterOutputType(MlflowAppTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ModelCardExportJobExportArtifactOutput{})
 	pulumi.RegisterOutputType(ModelCardExportJobExportArtifactArrayOutput{})
 	pulumi.RegisterOutputType(ModelCardExportJobOutputConfigOutput{})

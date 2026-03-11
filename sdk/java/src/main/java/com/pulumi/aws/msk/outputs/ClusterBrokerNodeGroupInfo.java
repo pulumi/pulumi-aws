@@ -41,7 +41,7 @@ public final class ClusterBrokerNodeGroupInfo {
      */
     private List<String> securityGroups;
     /**
-     * @return A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below.
+     * @return A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below. This block must not be specified when an Express instance type is specified for `instanceType`.
      * 
      */
     private @Nullable ClusterBrokerNodeGroupInfoStorageInfo storageInfo;
@@ -83,7 +83,7 @@ public final class ClusterBrokerNodeGroupInfo {
         return this.securityGroups;
     }
     /**
-     * @return A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below.
+     * @return A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below. This block must not be specified when an Express instance type is specified for `instanceType`.
      * 
      */
     public Optional<ClusterBrokerNodeGroupInfoStorageInfo> storageInfo() {

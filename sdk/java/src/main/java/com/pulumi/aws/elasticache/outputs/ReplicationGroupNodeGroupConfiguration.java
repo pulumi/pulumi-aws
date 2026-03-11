@@ -34,7 +34,7 @@ public final class ReplicationGroupNodeGroupConfiguration {
      */
     private @Nullable List<String> replicaAvailabilityZones;
     /**
-     * @return Number of replica nodes in this node group.
+     * @return Number of replica nodes in this node group. Default AWS limit is 5. Higher values may be available with a quota increase.
      * 
      */
     private @Nullable Integer replicaCount;
@@ -79,7 +79,7 @@ public final class ReplicationGroupNodeGroupConfiguration {
         return this.replicaAvailabilityZones == null ? List.of() : this.replicaAvailabilityZones;
     }
     /**
-     * @return Number of replica nodes in this node group.
+     * @return Number of replica nodes in this node group. Default AWS limit is 5. Higher values may be available with a quota increase.
      * 
      */
     public Optional<Integer> replicaCount() {

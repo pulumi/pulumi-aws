@@ -23,6 +23,7 @@ __all__ = [
     'ApplicationInitialCapacityInitialCapacityConfig',
     'ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration',
     'ApplicationInteractiveConfiguration',
+    'ApplicationJobLevelCostAllocationConfiguration',
     'ApplicationMaximumCapacity',
     'ApplicationMonitoringConfiguration',
     'ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration',
@@ -324,6 +325,19 @@ class ApplicationInteractiveConfiguration(dict):
         Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
         """
         return pulumi.get(self, "studio_enabled")
+
+
+@pulumi.output_type
+class ApplicationJobLevelCostAllocationConfiguration(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[_builtins.bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type

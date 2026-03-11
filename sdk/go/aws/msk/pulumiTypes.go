@@ -24,7 +24,7 @@ type ClusterBrokerNodeGroupInfo struct {
 	InstanceType string `pulumi:"instanceType"`
 	// A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below.
+	// A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below. This block must not be specified when an Express instance type is specified for `instanceType`.
 	StorageInfo *ClusterBrokerNodeGroupInfoStorageInfo `pulumi:"storageInfo"`
 }
 
@@ -50,7 +50,7 @@ type ClusterBrokerNodeGroupInfoArgs struct {
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	// A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below.
+	// A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below. This block must not be specified when an Express instance type is specified for `instanceType`.
 	StorageInfo ClusterBrokerNodeGroupInfoStorageInfoPtrInput `pulumi:"storageInfo"`
 }
 
@@ -158,7 +158,7 @@ func (o ClusterBrokerNodeGroupInfoOutput) SecurityGroups() pulumi.StringArrayOut
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below.
+// A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below. This block must not be specified when an Express instance type is specified for `instanceType`.
 func (o ClusterBrokerNodeGroupInfoOutput) StorageInfo() ClusterBrokerNodeGroupInfoStorageInfoPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) *ClusterBrokerNodeGroupInfoStorageInfo { return v.StorageInfo }).(ClusterBrokerNodeGroupInfoStorageInfoPtrOutput)
 }
@@ -237,7 +237,7 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) SecurityGroups() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below.
+// A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below. This block must not be specified when an Express instance type is specified for `instanceType`.
 func (o ClusterBrokerNodeGroupInfoPtrOutput) StorageInfo() ClusterBrokerNodeGroupInfoStorageInfoPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) *ClusterBrokerNodeGroupInfoStorageInfo {
 		if v == nil {

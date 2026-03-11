@@ -593,7 +593,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
     /**
      * Number of replica nodes in each node group.
      * Changing this number will trigger a resizing operation before other settings modifications.
-     * Valid values are 0 to 5.
+     * Default AWS limit is 5. Higher values may be available with a quota increase.
      * Conflicts with `numCacheClusters`.
      * Can only be set if `numNodeGroups` is set.
      * 
@@ -604,7 +604,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
     /**
      * @return Number of replica nodes in each node group.
      * Changing this number will trigger a resizing operation before other settings modifications.
-     * Valid values are 0 to 5.
+     * Default AWS limit is 5. Higher values may be available with a quota increase.
      * Conflicts with `numCacheClusters`.
      * Can only be set if `numNodeGroups` is set.
      * 
@@ -1716,7 +1716,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         /**
          * @param replicasPerNodeGroup Number of replica nodes in each node group.
          * Changing this number will trigger a resizing operation before other settings modifications.
-         * Valid values are 0 to 5.
+         * Default AWS limit is 5. Higher values may be available with a quota increase.
          * Conflicts with `numCacheClusters`.
          * Can only be set if `numNodeGroups` is set.
          * 
@@ -1731,7 +1731,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         /**
          * @param replicasPerNodeGroup Number of replica nodes in each node group.
          * Changing this number will trigger a resizing operation before other settings modifications.
-         * Valid values are 0 to 5.
+         * Default AWS limit is 5. Higher values may be available with a quota increase.
          * Conflicts with `numCacheClusters`.
          * Can only be set if `numNodeGroups` is set.
          * 

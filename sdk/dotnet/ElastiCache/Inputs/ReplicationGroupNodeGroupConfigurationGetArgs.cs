@@ -43,7 +43,7 @@ namespace Pulumi.Aws.ElastiCache.Inputs
         }
 
         /// <summary>
-        /// Number of replica nodes in this node group.
+        /// Number of replica nodes in this node group. Default AWS limit is 5. Higher values may be available with a quota increase.
         /// </summary>
         [Input("replicaCount")]
         public Input<int>? ReplicaCount { get; set; }

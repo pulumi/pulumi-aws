@@ -150,6 +150,145 @@ func (o PermissionTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ResourceShareResourceShareConfiguration struct {
+	// Specifies whether consumer account retains access to resource share after leaving AWS organization.
+	RetainSharingOnAccountLeaveOrganization *bool `pulumi:"retainSharingOnAccountLeaveOrganization"`
+}
+
+// ResourceShareResourceShareConfigurationInput is an input type that accepts ResourceShareResourceShareConfigurationArgs and ResourceShareResourceShareConfigurationOutput values.
+// You can construct a concrete instance of `ResourceShareResourceShareConfigurationInput` via:
+//
+//	ResourceShareResourceShareConfigurationArgs{...}
+type ResourceShareResourceShareConfigurationInput interface {
+	pulumi.Input
+
+	ToResourceShareResourceShareConfigurationOutput() ResourceShareResourceShareConfigurationOutput
+	ToResourceShareResourceShareConfigurationOutputWithContext(context.Context) ResourceShareResourceShareConfigurationOutput
+}
+
+type ResourceShareResourceShareConfigurationArgs struct {
+	// Specifies whether consumer account retains access to resource share after leaving AWS organization.
+	RetainSharingOnAccountLeaveOrganization pulumi.BoolPtrInput `pulumi:"retainSharingOnAccountLeaveOrganization"`
+}
+
+func (ResourceShareResourceShareConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceShareResourceShareConfiguration)(nil)).Elem()
+}
+
+func (i ResourceShareResourceShareConfigurationArgs) ToResourceShareResourceShareConfigurationOutput() ResourceShareResourceShareConfigurationOutput {
+	return i.ToResourceShareResourceShareConfigurationOutputWithContext(context.Background())
+}
+
+func (i ResourceShareResourceShareConfigurationArgs) ToResourceShareResourceShareConfigurationOutputWithContext(ctx context.Context) ResourceShareResourceShareConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceShareResourceShareConfigurationOutput)
+}
+
+func (i ResourceShareResourceShareConfigurationArgs) ToResourceShareResourceShareConfigurationPtrOutput() ResourceShareResourceShareConfigurationPtrOutput {
+	return i.ToResourceShareResourceShareConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceShareResourceShareConfigurationArgs) ToResourceShareResourceShareConfigurationPtrOutputWithContext(ctx context.Context) ResourceShareResourceShareConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceShareResourceShareConfigurationOutput).ToResourceShareResourceShareConfigurationPtrOutputWithContext(ctx)
+}
+
+// ResourceShareResourceShareConfigurationPtrInput is an input type that accepts ResourceShareResourceShareConfigurationArgs, ResourceShareResourceShareConfigurationPtr and ResourceShareResourceShareConfigurationPtrOutput values.
+// You can construct a concrete instance of `ResourceShareResourceShareConfigurationPtrInput` via:
+//
+//	        ResourceShareResourceShareConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceShareResourceShareConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToResourceShareResourceShareConfigurationPtrOutput() ResourceShareResourceShareConfigurationPtrOutput
+	ToResourceShareResourceShareConfigurationPtrOutputWithContext(context.Context) ResourceShareResourceShareConfigurationPtrOutput
+}
+
+type resourceShareResourceShareConfigurationPtrType ResourceShareResourceShareConfigurationArgs
+
+func ResourceShareResourceShareConfigurationPtr(v *ResourceShareResourceShareConfigurationArgs) ResourceShareResourceShareConfigurationPtrInput {
+	return (*resourceShareResourceShareConfigurationPtrType)(v)
+}
+
+func (*resourceShareResourceShareConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceShareResourceShareConfiguration)(nil)).Elem()
+}
+
+func (i *resourceShareResourceShareConfigurationPtrType) ToResourceShareResourceShareConfigurationPtrOutput() ResourceShareResourceShareConfigurationPtrOutput {
+	return i.ToResourceShareResourceShareConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceShareResourceShareConfigurationPtrType) ToResourceShareResourceShareConfigurationPtrOutputWithContext(ctx context.Context) ResourceShareResourceShareConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceShareResourceShareConfigurationPtrOutput)
+}
+
+type ResourceShareResourceShareConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ResourceShareResourceShareConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceShareResourceShareConfiguration)(nil)).Elem()
+}
+
+func (o ResourceShareResourceShareConfigurationOutput) ToResourceShareResourceShareConfigurationOutput() ResourceShareResourceShareConfigurationOutput {
+	return o
+}
+
+func (o ResourceShareResourceShareConfigurationOutput) ToResourceShareResourceShareConfigurationOutputWithContext(ctx context.Context) ResourceShareResourceShareConfigurationOutput {
+	return o
+}
+
+func (o ResourceShareResourceShareConfigurationOutput) ToResourceShareResourceShareConfigurationPtrOutput() ResourceShareResourceShareConfigurationPtrOutput {
+	return o.ToResourceShareResourceShareConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceShareResourceShareConfigurationOutput) ToResourceShareResourceShareConfigurationPtrOutputWithContext(ctx context.Context) ResourceShareResourceShareConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceShareResourceShareConfiguration) *ResourceShareResourceShareConfiguration {
+		return &v
+	}).(ResourceShareResourceShareConfigurationPtrOutput)
+}
+
+// Specifies whether consumer account retains access to resource share after leaving AWS organization.
+func (o ResourceShareResourceShareConfigurationOutput) RetainSharingOnAccountLeaveOrganization() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ResourceShareResourceShareConfiguration) *bool {
+		return v.RetainSharingOnAccountLeaveOrganization
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ResourceShareResourceShareConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceShareResourceShareConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceShareResourceShareConfiguration)(nil)).Elem()
+}
+
+func (o ResourceShareResourceShareConfigurationPtrOutput) ToResourceShareResourceShareConfigurationPtrOutput() ResourceShareResourceShareConfigurationPtrOutput {
+	return o
+}
+
+func (o ResourceShareResourceShareConfigurationPtrOutput) ToResourceShareResourceShareConfigurationPtrOutputWithContext(ctx context.Context) ResourceShareResourceShareConfigurationPtrOutput {
+	return o
+}
+
+func (o ResourceShareResourceShareConfigurationPtrOutput) Elem() ResourceShareResourceShareConfigurationOutput {
+	return o.ApplyT(func(v *ResourceShareResourceShareConfiguration) ResourceShareResourceShareConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceShareResourceShareConfiguration
+		return ret
+	}).(ResourceShareResourceShareConfigurationOutput)
+}
+
+// Specifies whether consumer account retains access to resource share after leaving AWS organization.
+func (o ResourceShareResourceShareConfigurationPtrOutput) RetainSharingOnAccountLeaveOrganization() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ResourceShareResourceShareConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RetainSharingOnAccountLeaveOrganization
+	}).(pulumi.BoolPtrOutput)
+}
+
 type GetResourceShareFilter struct {
 	// Name of the tag key to filter on.
 	Name string `pulumi:"name"`
@@ -259,10 +398,14 @@ func (o GetResourceShareFilterArrayOutput) Index(i pulumi.IntInput) GetResourceS
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionTimeoutsInput)(nil)).Elem(), PermissionTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionTimeoutsPtrInput)(nil)).Elem(), PermissionTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceShareResourceShareConfigurationInput)(nil)).Elem(), ResourceShareResourceShareConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceShareResourceShareConfigurationPtrInput)(nil)).Elem(), ResourceShareResourceShareConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResourceShareFilterInput)(nil)).Elem(), GetResourceShareFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResourceShareFilterArrayInput)(nil)).Elem(), GetResourceShareFilterArray{})
 	pulumi.RegisterOutputType(PermissionTimeoutsOutput{})
 	pulumi.RegisterOutputType(PermissionTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(ResourceShareResourceShareConfigurationOutput{})
+	pulumi.RegisterOutputType(ResourceShareResourceShareConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GetResourceShareFilterOutput{})
 	pulumi.RegisterOutputType(GetResourceShareFilterArrayOutput{})
 }

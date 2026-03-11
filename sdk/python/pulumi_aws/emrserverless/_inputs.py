@@ -29,6 +29,8 @@ __all__ = [
     'ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgsDict',
     'ApplicationInteractiveConfigurationArgs',
     'ApplicationInteractiveConfigurationArgsDict',
+    'ApplicationJobLevelCostAllocationConfigurationArgs',
+    'ApplicationJobLevelCostAllocationConfigurationArgsDict',
     'ApplicationMaximumCapacityArgs',
     'ApplicationMaximumCapacityArgsDict',
     'ApplicationMonitoringConfigurationArgs',
@@ -367,6 +369,26 @@ class ApplicationInteractiveConfigurationArgs:
     @studio_enabled.setter
     def studio_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "studio_enabled", value)
+
+
+class ApplicationJobLevelCostAllocationConfigurationArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+
+@pulumi.input_type
+class ApplicationJobLevelCostAllocationConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 class ApplicationMaximumCapacityArgsDict(TypedDict):

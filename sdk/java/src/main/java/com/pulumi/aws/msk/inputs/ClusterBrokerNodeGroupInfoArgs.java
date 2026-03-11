@@ -95,14 +95,14 @@ public final class ClusterBrokerNodeGroupInfoArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below.
+     * A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below. This block must not be specified when an Express instance type is specified for `instanceType`.
      * 
      */
     @Import(name="storageInfo")
     private @Nullable Output<ClusterBrokerNodeGroupInfoStorageInfoArgs> storageInfo;
 
     /**
-     * @return A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below.
+     * @return A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below. This block must not be specified when an Express instance type is specified for `instanceType`.
      * 
      */
     public Optional<Output<ClusterBrokerNodeGroupInfoStorageInfoArgs>> storageInfo() {
@@ -264,7 +264,7 @@ public final class ClusterBrokerNodeGroupInfoArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param storageInfo A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below.
+         * @param storageInfo A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below. This block must not be specified when an Express instance type is specified for `instanceType`.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class ClusterBrokerNodeGroupInfoArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param storageInfo A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below.
+         * @param storageInfo A block that contains information about storage volumes attached to MSK broker nodes. See brokerNodeGroupInfo storage_info Argument Reference below. This block must not be specified when an Express instance type is specified for `instanceType`.
          * 
          * @return builder
          * 

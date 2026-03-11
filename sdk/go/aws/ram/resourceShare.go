@@ -63,6 +63,8 @@ type ResourceShare struct {
 	PermissionArns pulumi.StringArrayOutput `pulumi:"permissionArns"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
+	// A block that specifies the configuration of the resource share. See `resourceShareConfiguration` Block for details.
+	ResourceShareConfiguration ResourceShareResourceShareConfigurationOutput `pulumi:"resourceShareConfiguration"`
 	// A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -109,6 +111,8 @@ type resourceShareState struct {
 	PermissionArns []string `pulumi:"permissionArns"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// A block that specifies the configuration of the resource share. See `resourceShareConfiguration` Block for details.
+	ResourceShareConfiguration *ResourceShareResourceShareConfiguration `pulumi:"resourceShareConfiguration"`
 	// A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -126,6 +130,8 @@ type ResourceShareState struct {
 	PermissionArns pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// A block that specifies the configuration of the resource share. See `resourceShareConfiguration` Block for details.
+	ResourceShareConfiguration ResourceShareResourceShareConfigurationPtrInput
 	// A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -145,6 +151,8 @@ type resourceShareArgs struct {
 	PermissionArns []string `pulumi:"permissionArns"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// A block that specifies the configuration of the resource share. See `resourceShareConfiguration` Block for details.
+	ResourceShareConfiguration *ResourceShareResourceShareConfiguration `pulumi:"resourceShareConfiguration"`
 	// A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -159,6 +167,8 @@ type ResourceShareArgs struct {
 	PermissionArns pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// A block that specifies the configuration of the resource share. See `resourceShareConfiguration` Block for details.
+	ResourceShareConfiguration ResourceShareResourceShareConfigurationPtrInput
 	// A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -273,6 +283,13 @@ func (o ResourceShareOutput) PermissionArns() pulumi.StringArrayOutput {
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResourceShareOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceShare) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
+// A block that specifies the configuration of the resource share. See `resourceShareConfiguration` Block for details.
+func (o ResourceShareOutput) ResourceShareConfiguration() ResourceShareResourceShareConfigurationOutput {
+	return o.ApplyT(func(v *ResourceShare) ResourceShareResourceShareConfigurationOutput {
+		return v.ResourceShareConfiguration
+	}).(ResourceShareResourceShareConfigurationOutput)
 }
 
 // A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

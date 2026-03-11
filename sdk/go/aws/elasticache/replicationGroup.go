@@ -463,7 +463,7 @@ type ReplicationGroup struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Number of replica nodes in each node group.
 	// Changing this number will trigger a resizing operation before other settings modifications.
-	// Valid values are 0 to 5.
+	// Default AWS limit is 5. Higher values may be available with a quota increase.
 	// Conflicts with `numCacheClusters`.
 	// Can only be set if `numNodeGroups` is set.
 	ReplicasPerNodeGroup pulumi.IntOutput `pulumi:"replicasPerNodeGroup"`
@@ -636,7 +636,7 @@ type replicationGroupState struct {
 	Region *string `pulumi:"region"`
 	// Number of replica nodes in each node group.
 	// Changing this number will trigger a resizing operation before other settings modifications.
-	// Valid values are 0 to 5.
+	// Default AWS limit is 5. Higher values may be available with a quota increase.
 	// Conflicts with `numCacheClusters`.
 	// Can only be set if `numNodeGroups` is set.
 	ReplicasPerNodeGroup *int `pulumi:"replicasPerNodeGroup"`
@@ -770,7 +770,7 @@ type ReplicationGroupState struct {
 	Region pulumi.StringPtrInput
 	// Number of replica nodes in each node group.
 	// Changing this number will trigger a resizing operation before other settings modifications.
-	// Valid values are 0 to 5.
+	// Default AWS limit is 5. Higher values may be available with a quota increase.
 	// Conflicts with `numCacheClusters`.
 	// Can only be set if `numNodeGroups` is set.
 	ReplicasPerNodeGroup pulumi.IntPtrInput
@@ -894,7 +894,7 @@ type replicationGroupArgs struct {
 	Region *string `pulumi:"region"`
 	// Number of replica nodes in each node group.
 	// Changing this number will trigger a resizing operation before other settings modifications.
-	// Valid values are 0 to 5.
+	// Default AWS limit is 5. Higher values may be available with a quota increase.
 	// Conflicts with `numCacheClusters`.
 	// Can only be set if `numNodeGroups` is set.
 	ReplicasPerNodeGroup *int `pulumi:"replicasPerNodeGroup"`
@@ -1013,7 +1013,7 @@ type ReplicationGroupArgs struct {
 	Region pulumi.StringPtrInput
 	// Number of replica nodes in each node group.
 	// Changing this number will trigger a resizing operation before other settings modifications.
-	// Valid values are 0 to 5.
+	// Default AWS limit is 5. Higher values may be available with a quota increase.
 	// Conflicts with `numCacheClusters`.
 	// Can only be set if `numNodeGroups` is set.
 	ReplicasPerNodeGroup pulumi.IntPtrInput
@@ -1340,7 +1340,7 @@ func (o ReplicationGroupOutput) Region() pulumi.StringOutput {
 
 // Number of replica nodes in each node group.
 // Changing this number will trigger a resizing operation before other settings modifications.
-// Valid values are 0 to 5.
+// Default AWS limit is 5. Higher values may be available with a quota increase.
 // Conflicts with `numCacheClusters`.
 // Can only be set if `numNodeGroups` is set.
 func (o ReplicationGroupOutput) ReplicasPerNodeGroup() pulumi.IntOutput {

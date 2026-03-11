@@ -422,7 +422,7 @@ class ReplicationGroupNodeGroupConfigurationArgsDict(TypedDict):
     """
     replica_count: NotRequired[pulumi.Input[_builtins.int]]
     """
-    Number of replica nodes in this node group.
+    Number of replica nodes in this node group. Default AWS limit is 5. Higher values may be available with a quota increase.
     """
     replica_outpost_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
@@ -448,7 +448,7 @@ class ReplicationGroupNodeGroupConfigurationArgs:
         :param pulumi.Input[_builtins.str] primary_availability_zone: Availability zone for the primary node.
         :param pulumi.Input[_builtins.str] primary_outpost_arn: ARN of the Outpost for the primary node.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] replica_availability_zones: List of availability zones for the replica nodes.
-        :param pulumi.Input[_builtins.int] replica_count: Number of replica nodes in this node group.
+        :param pulumi.Input[_builtins.int] replica_count: Number of replica nodes in this node group. Default AWS limit is 5. Higher values may be available with a quota increase.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] replica_outpost_arns: List of ARNs of the Outposts for the replica nodes.
         :param pulumi.Input[_builtins.str] slots: Keyspace for this node group. Format is `start-end` (e.g., `0-5460`). For Redis (cluster mode disabled) replication groups, this value is ignored.
         """
@@ -519,7 +519,7 @@ class ReplicationGroupNodeGroupConfigurationArgs:
     @pulumi.getter(name="replicaCount")
     def replica_count(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Number of replica nodes in this node group.
+        Number of replica nodes in this node group. Default AWS limit is 5. Higher values may be available with a quota increase.
         """
         return pulumi.get(self, "replica_count")
 

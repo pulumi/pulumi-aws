@@ -5,7 +5,6 @@ package com.pulumi.aws.lambda.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -18,14 +17,14 @@ public final class GetLayerVersionArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetLayerVersionArgs Empty = new GetLayerVersionArgs();
 
     /**
-     * Specific architecture the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
+     * Specific architecture the layer version must support. Conflicts with `version` and `layerVersionArn`. If specified, the latest available layer version supporting the provided architecture will be used.
      * 
      */
     @Import(name="compatibleArchitecture")
     private @Nullable Output<String> compatibleArchitecture;
 
     /**
-     * @return Specific architecture the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
+     * @return Specific architecture the layer version must support. Conflicts with `version` and `layerVersionArn`. If specified, the latest available layer version supporting the provided architecture will be used.
      * 
      */
     public Optional<Output<String>> compatibleArchitecture() {
@@ -33,14 +32,14 @@ public final class GetLayerVersionArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
+     * Specific runtime the layer version must support. Conflicts with `version` and `layerVersionArn`. If specified, the latest available layer version supporting the provided runtime will be used.
      * 
      */
     @Import(name="compatibleRuntime")
     private @Nullable Output<String> compatibleRuntime;
 
     /**
-     * @return Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
+     * @return Specific runtime the layer version must support. Conflicts with `version` and `layerVersionArn`. If specified, the latest available layer version supporting the provided runtime will be used.
      * 
      */
     public Optional<Output<String>> compatibleRuntime() {
@@ -50,20 +49,35 @@ public final class GetLayerVersionArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Name of the Lambda layer.
      * 
-     * The following arguments are optional:
-     * 
      */
-    @Import(name="layerName", required=true)
-    private Output<String> layerName;
+    @Import(name="layerName")
+    private @Nullable Output<String> layerName;
 
     /**
      * @return Name of the Lambda layer.
      * 
-     * The following arguments are optional:
+     */
+    public Optional<Output<String>> layerName() {
+        return Optional.ofNullable(this.layerName);
+    }
+
+    /**
+     * ARN of the Lambda layer version. Can be a full ARN with version (e.g., `arn:aws:lambda:region:account:layer:name:1`) or without version (e.g., `arn:aws:lambda:region:account:layer:name`). When the version is omitted, the latest version will be retrieved (requires `lambda:ListLayerVersions` permission). Use the full ARN with version for cross-account layers where you don&#39;t have list permissions.
+     * 
+     * The following are optional when using `layerName`:
      * 
      */
-    public Output<String> layerName() {
-        return this.layerName;
+    @Import(name="layerVersionArn")
+    private @Nullable Output<String> layerVersionArn;
+
+    /**
+     * @return ARN of the Lambda layer version. Can be a full ARN with version (e.g., `arn:aws:lambda:region:account:layer:name:1`) or without version (e.g., `arn:aws:lambda:region:account:layer:name`). When the version is omitted, the latest version will be retrieved (requires `lambda:ListLayerVersions` permission). Use the full ARN with version for cross-account layers where you don&#39;t have list permissions.
+     * 
+     * The following are optional when using `layerName`:
+     * 
+     */
+    public Optional<Output<String>> layerVersionArn() {
+        return Optional.ofNullable(this.layerVersionArn);
     }
 
     /**
@@ -82,14 +96,14 @@ public final class GetLayerVersionArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Specific layer version. Conflicts with `compatibleRuntime` and `compatibleArchitecture`. If omitted, the latest available layer version will be used.
+     * Specific layer version. Conflicts with `compatibleRuntime`, `compatibleArchitecture`, and `layerVersionArn`. If omitted, the latest available layer version will be used.
      * 
      */
     @Import(name="version")
     private @Nullable Output<Integer> version;
 
     /**
-     * @return Specific layer version. Conflicts with `compatibleRuntime` and `compatibleArchitecture`. If omitted, the latest available layer version will be used.
+     * @return Specific layer version. Conflicts with `compatibleRuntime`, `compatibleArchitecture`, and `layerVersionArn`. If omitted, the latest available layer version will be used.
      * 
      */
     public Optional<Output<Integer>> version() {
@@ -102,6 +116,7 @@ public final class GetLayerVersionArgs extends com.pulumi.resources.InvokeArgs {
         this.compatibleArchitecture = $.compatibleArchitecture;
         this.compatibleRuntime = $.compatibleRuntime;
         this.layerName = $.layerName;
+        this.layerVersionArn = $.layerVersionArn;
         this.region = $.region;
         this.version = $.version;
     }
@@ -125,7 +140,7 @@ public final class GetLayerVersionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param compatibleArchitecture Specific architecture the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
+         * @param compatibleArchitecture Specific architecture the layer version must support. Conflicts with `version` and `layerVersionArn`. If specified, the latest available layer version supporting the provided architecture will be used.
          * 
          * @return builder
          * 
@@ -136,7 +151,7 @@ public final class GetLayerVersionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param compatibleArchitecture Specific architecture the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
+         * @param compatibleArchitecture Specific architecture the layer version must support. Conflicts with `version` and `layerVersionArn`. If specified, the latest available layer version supporting the provided architecture will be used.
          * 
          * @return builder
          * 
@@ -146,7 +161,7 @@ public final class GetLayerVersionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param compatibleRuntime Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
+         * @param compatibleRuntime Specific runtime the layer version must support. Conflicts with `version` and `layerVersionArn`. If specified, the latest available layer version supporting the provided runtime will be used.
          * 
          * @return builder
          * 
@@ -157,7 +172,7 @@ public final class GetLayerVersionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param compatibleRuntime Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
+         * @param compatibleRuntime Specific runtime the layer version must support. Conflicts with `version` and `layerVersionArn`. If specified, the latest available layer version supporting the provided runtime will be used.
          * 
          * @return builder
          * 
@@ -169,12 +184,10 @@ public final class GetLayerVersionArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param layerName Name of the Lambda layer.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
-        public Builder layerName(Output<String> layerName) {
+        public Builder layerName(@Nullable Output<String> layerName) {
             $.layerName = layerName;
             return this;
         }
@@ -182,13 +195,36 @@ public final class GetLayerVersionArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param layerName Name of the Lambda layer.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
         public Builder layerName(String layerName) {
             return layerName(Output.of(layerName));
+        }
+
+        /**
+         * @param layerVersionArn ARN of the Lambda layer version. Can be a full ARN with version (e.g., `arn:aws:lambda:region:account:layer:name:1`) or without version (e.g., `arn:aws:lambda:region:account:layer:name`). When the version is omitted, the latest version will be retrieved (requires `lambda:ListLayerVersions` permission). Use the full ARN with version for cross-account layers where you don&#39;t have list permissions.
+         * 
+         * The following are optional when using `layerName`:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder layerVersionArn(@Nullable Output<String> layerVersionArn) {
+            $.layerVersionArn = layerVersionArn;
+            return this;
+        }
+
+        /**
+         * @param layerVersionArn ARN of the Lambda layer version. Can be a full ARN with version (e.g., `arn:aws:lambda:region:account:layer:name:1`) or without version (e.g., `arn:aws:lambda:region:account:layer:name`). When the version is omitted, the latest version will be retrieved (requires `lambda:ListLayerVersions` permission). Use the full ARN with version for cross-account layers where you don&#39;t have list permissions.
+         * 
+         * The following are optional when using `layerName`:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder layerVersionArn(String layerVersionArn) {
+            return layerVersionArn(Output.of(layerVersionArn));
         }
 
         /**
@@ -213,7 +249,7 @@ public final class GetLayerVersionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param version Specific layer version. Conflicts with `compatibleRuntime` and `compatibleArchitecture`. If omitted, the latest available layer version will be used.
+         * @param version Specific layer version. Conflicts with `compatibleRuntime`, `compatibleArchitecture`, and `layerVersionArn`. If omitted, the latest available layer version will be used.
          * 
          * @return builder
          * 
@@ -224,7 +260,7 @@ public final class GetLayerVersionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param version Specific layer version. Conflicts with `compatibleRuntime` and `compatibleArchitecture`. If omitted, the latest available layer version will be used.
+         * @param version Specific layer version. Conflicts with `compatibleRuntime`, `compatibleArchitecture`, and `layerVersionArn`. If omitted, the latest available layer version will be used.
          * 
          * @return builder
          * 
@@ -234,9 +270,6 @@ public final class GetLayerVersionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetLayerVersionArgs build() {
-            if ($.layerName == null) {
-                throw new MissingRequiredPropertyException("GetLayerVersionArgs", "layerName");
-            }
             return $;
         }
     }

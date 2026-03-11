@@ -77,6 +77,12 @@ namespace Pulumi.Aws.Ram
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
+        /// A block that specifies the configuration of the resource share. See `ResourceShareConfiguration` Block for details.
+        /// </summary>
+        [Output("resourceShareConfiguration")]
+        public Output<Outputs.ResourceShareResourceShareConfiguration> ResourceShareConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// A map of tags to assign to the resource share. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -164,6 +170,12 @@ namespace Pulumi.Aws.Ram
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// A block that specifies the configuration of the resource share. See `ResourceShareConfiguration` Block for details.
+        /// </summary>
+        [Input("resourceShareConfiguration")]
+        public Input<Inputs.ResourceShareResourceShareConfigurationArgs>? ResourceShareConfiguration { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -219,6 +231,12 @@ namespace Pulumi.Aws.Ram
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// A block that specifies the configuration of the resource share. See `ResourceShareConfiguration` Block for details.
+        /// </summary>
+        [Input("resourceShareConfiguration")]
+        public Input<Inputs.ResourceShareResourceShareConfigurationGetArgs>? ResourceShareConfiguration { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

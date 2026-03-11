@@ -431,7 +431,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
     /**
      * Number of replica nodes in each node group.
      * Changing this number will trigger a resizing operation before other settings modifications.
-     * Valid values are 0 to 5.
+     * Default AWS limit is 5. Higher values may be available with a quota increase.
      * Conflicts with `numCacheClusters`.
      * Can only be set if `numNodeGroups` is set.
      */
@@ -789,7 +789,7 @@ export interface ReplicationGroupState {
     /**
      * Number of replica nodes in each node group.
      * Changing this number will trigger a resizing operation before other settings modifications.
-     * Valid values are 0 to 5.
+     * Default AWS limit is 5. Higher values may be available with a quota increase.
      * Conflicts with `numCacheClusters`.
      * Can only be set if `numNodeGroups` is set.
      */
@@ -996,7 +996,7 @@ export interface ReplicationGroupArgs {
     /**
      * Number of replica nodes in each node group.
      * Changing this number will trigger a resizing operation before other settings modifications.
-     * Valid values are 0 to 5.
+     * Default AWS limit is 5. Higher values may be available with a quota increase.
      * Conflicts with `numCacheClusters`.
      * Can only be set if `numNodeGroups` is set.
      */

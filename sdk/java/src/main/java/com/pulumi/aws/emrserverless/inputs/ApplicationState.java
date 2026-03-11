@@ -8,6 +8,7 @@ import com.pulumi.aws.emrserverless.inputs.ApplicationAutoStopConfigurationArgs;
 import com.pulumi.aws.emrserverless.inputs.ApplicationImageConfigurationArgs;
 import com.pulumi.aws.emrserverless.inputs.ApplicationInitialCapacityArgs;
 import com.pulumi.aws.emrserverless.inputs.ApplicationInteractiveConfigurationArgs;
+import com.pulumi.aws.emrserverless.inputs.ApplicationJobLevelCostAllocationConfigurationArgs;
 import com.pulumi.aws.emrserverless.inputs.ApplicationMaximumCapacityArgs;
 import com.pulumi.aws.emrserverless.inputs.ApplicationMonitoringConfigurationArgs;
 import com.pulumi.aws.emrserverless.inputs.ApplicationNetworkConfigurationArgs;
@@ -130,6 +131,13 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<ApplicationInteractiveConfigurationArgs>> interactiveConfiguration() {
         return Optional.ofNullable(this.interactiveConfiguration);
+    }
+
+    @Import(name="jobLevelCostAllocationConfiguration")
+    private @Nullable Output<ApplicationJobLevelCostAllocationConfigurationArgs> jobLevelCostAllocationConfiguration;
+
+    public Optional<Output<ApplicationJobLevelCostAllocationConfigurationArgs>> jobLevelCostAllocationConfiguration() {
+        return Optional.ofNullable(this.jobLevelCostAllocationConfiguration);
     }
 
     /**
@@ -307,6 +315,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         this.imageConfiguration = $.imageConfiguration;
         this.initialCapacities = $.initialCapacities;
         this.interactiveConfiguration = $.interactiveConfiguration;
+        this.jobLevelCostAllocationConfiguration = $.jobLevelCostAllocationConfiguration;
         this.maximumCapacity = $.maximumCapacity;
         this.monitoringConfiguration = $.monitoringConfiguration;
         this.name = $.name;
@@ -493,6 +502,15 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder interactiveConfiguration(ApplicationInteractiveConfigurationArgs interactiveConfiguration) {
             return interactiveConfiguration(Output.of(interactiveConfiguration));
+        }
+
+        public Builder jobLevelCostAllocationConfiguration(@Nullable Output<ApplicationJobLevelCostAllocationConfigurationArgs> jobLevelCostAllocationConfiguration) {
+            $.jobLevelCostAllocationConfiguration = jobLevelCostAllocationConfiguration;
+            return this;
+        }
+
+        public Builder jobLevelCostAllocationConfiguration(ApplicationJobLevelCostAllocationConfigurationArgs jobLevelCostAllocationConfiguration) {
+            return jobLevelCostAllocationConfiguration(Output.of(jobLevelCostAllocationConfiguration));
         }
 
         /**
