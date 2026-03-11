@@ -8,6 +8,7 @@ import (
 	"bytes"
 	"context"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"strings"
 	"testing"
@@ -15,6 +16,9 @@ import (
 
 	"github.com/aws/aws-sdk-go-v2/config"
 	iamsdk "github.com/aws/aws-sdk-go-v2/service/iam"
+	"github.com/pulumi/providertest/pulumitest"
+	"github.com/pulumi/providertest/pulumitest/optnewstack"
+	"github.com/pulumi/providertest/pulumitest/opttest"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
 	"github.com/stretchr/testify/assert"
@@ -174,8 +178,18 @@ func TestRegress3887(t *testing.T) {
 
 // Make sure that importing an AWS targetGroup succeeds.
 func TestRegress2534(t *testing.T) {
-	t.Skipf("TODO[pulumi/pulumi-aws#5106]")
-	ptest := pulumiTest(t, filepath.Join("test-programs", "regress-2534"))
+	skipIfShort(t)
+	cwd := getCwd(t)
+	ptest := pulumitest.NewPulumiTest(t, filepath.Join(cwd, "test-programs", "regress-2534"),
+		opttest.SkipInstall(),
+		opttest.SkipStackCreate(),
+		opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
+	)
+
+	setupPythonVenv(t, ptest.WorkingDir(), filepath.Join(cwd, "..", "sdk", "python"))
+	ptest.NewStack(t, "test", optnewstack.EnableAutoDestroy())
+	ptest.SetConfig(t, "aws:region", getEnvRegion(t))
+
 	upResult := ptest.Up(t)
 	targetGroupArn := upResult.Outputs["targetGroupArn"].Value.(string)
 	targetGroupUrn := upResult.Outputs["targetGroupUrn"].Value.(string)
@@ -184,8 +198,53 @@ func TestRegress2534(t *testing.T) {
 	workdir := workspace.WorkDir()
 	t.Logf("workdir = %s", workdir)
 
-	execPulumi(t, ptest, workdir, "import", "aws:lb/targetGroup:TargetGroup", "newtg", targetGroupArn, "--yes")
+	importResult := ptest.Import(t, "aws:lb/targetGroup:TargetGroup", "newtg", targetGroupArn, "" /* providerUrn */)
 	execPulumi(t, ptest, workdir, "state", "unprotect", strings.ReplaceAll(targetGroupUrn, "::test", "::newtg"), "--yes")
+
+	t.Logf("Editing the program to add the code recommended by import")
+	i := strings.Index(importResult.Stdout, "import pulumi")
+	require.NotEqual(t, -1, i, "expected Python import code in pulumi import output")
+	require.NotContains(t, importResult.Stdout, "targetFailovers[0].onDeregistration")
+	require.NotContains(t, importResult.Stdout, "targetFailovers[0].onUnhealthy")
+	require.NotContains(t, importResult.Stdout, "targetHealthStates[0].enableUnhealthyConnectionTermination")
+
+	mainPy := filepath.Join(ptest.WorkingDir(), "__main__.py")
+	pyBytes, err := os.ReadFile(mainPy)
+	require.NoError(t, err)
+	updatedPyBytes := bytes.ReplaceAll(pyBytes, []byte("# EXTRA CODE HERE"), []byte(importResult.Stdout[i:]))
+	err = os.WriteFile(mainPy, updatedPyBytes, 0o600)
+	require.NoError(t, err)
+
+	t.Logf("Previewing the edited program")
+	previewResult := ptest.Preview(t)
+	t.Logf("%s", previewResult.StdOut)
+	t.Logf("%s", previewResult.StdErr)
+	require.NotContains(t, previewResult.StdOut, "targetFailovers[0].onDeregistration")
+	require.NotContains(t, previewResult.StdOut, "targetFailovers[0].onUnhealthy")
+	require.NotContains(t, previewResult.StdOut, "targetHealthStates[0].enableUnhealthyConnectionTermination")
+	require.NotContains(t, previewResult.StdErr, "targetFailovers[0].onDeregistration")
+	require.NotContains(t, previewResult.StdErr, "targetFailovers[0].onUnhealthy")
+	require.NotContains(t, previewResult.StdErr, "targetHealthStates[0].enableUnhealthyConnectionTermination")
+}
+
+func setupPythonVenv(t *testing.T, workdir, sdkPath string) {
+	t.Helper()
+
+	venvDir := filepath.Join(workdir, "venv")
+	runCmd := func(args ...string) {
+		t.Helper()
+		cmd := exec.Command(args[0], args[1:]...)
+		cmd.Dir = workdir
+		out, err := cmd.CombinedOutput()
+		require.NoErrorf(t, err, "command failed: %s\n%s", strings.Join(args, " "), out)
+	}
+
+	runCmd("python3", "-m", "venv", venvDir)
+
+	pythonBin := filepath.Join(venvDir, "bin", "python")
+	runCmd(pythonBin, "-m", "pip", "install", "--upgrade", "pip")
+	runCmd(pythonBin, "-m", "pip", "install", "-r", "requirements.txt")
+	runCmd(pythonBin, "-m", "pip", "install", "-e", sdkPath)
 }
 
 func TestRegress4457(t *testing.T) {
