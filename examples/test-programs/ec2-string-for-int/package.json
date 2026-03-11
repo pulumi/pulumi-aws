@@ -5,8 +5,8 @@
         "@types/node": "^18"
     },
     "dependencies": {
-        "@pulumi/aws": "6.33.1",
-        "@pulumi/awsx": "^2.0.2",
+        "@pulumi/aws": "7.10.0",
+        "@pulumi/awsx": "^3.0.0",
         "@pulumi/pulumi": "^3.113.0",
         "typescript": "^5.0.0"
     }
