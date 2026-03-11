@@ -180,12 +180,18 @@ func TestRegress3887(t *testing.T) {
 func TestRegress2534(t *testing.T) {
 	skipIfShort(t)
 	cwd := getCwd(t)
+	// We need explicit control over Python setup here because this test exercises
+	// `pulumi import` end-to-end against the local provider and local SDK rather
+	// than the older integration.ProgramTest harness used by most Python examples.
 	ptest := pulumitest.NewPulumiTest(t, filepath.Join(cwd, "test-programs", "regress-2534"),
 		opttest.SkipInstall(),
 		opttest.SkipStackCreate(),
 		opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
 	)
 
+	// The program under test uses `virtualenv: venv` in Pulumi.yaml, so install
+	// both the generic Python deps and the local editable `sdk/python` package
+	// into that same venv before creating the stack.
 	setupPythonVenv(t, ptest.WorkingDir(), filepath.Join(cwd, "..", "sdk", "python"))
 	ptest.NewStack(t, "test", optnewstack.EnableAutoDestroy())
 	ptest.SetConfig(t, "aws:region", getEnvRegion(t))
@@ -198,12 +204,18 @@ func TestRegress2534(t *testing.T) {
 	workdir := workspace.WorkDir()
 	t.Logf("workdir = %s", workdir)
 
+	// Import the target group and capture the language-specific code snippet that
+	// Pulumi prints. The original regression was not just "import exits non-zero";
+	// it was that the generated Python code encoded invalid nested values for
+	// target failover / target health state on imported target groups.
 	importResult := ptest.Import(t, "aws:lb/targetGroup:TargetGroup", "newtg", targetGroupArn, "" /* providerUrn */)
 	execPulumi(t, ptest, workdir, "state", "unprotect", strings.ReplaceAll(targetGroupUrn, "::test", "::newtg"), "--yes")
 
 	t.Logf("Editing the program to add the code recommended by import")
 	i := strings.Index(importResult.Stdout, "import pulumi")
 	require.NotEqual(t, -1, i, "expected Python import code in pulumi import output")
+	// These strings correspond to the broken import shape this regression guards:
+	// phantom nested blocks like targetFailovers[0] with missing required fields.
 	require.NotContains(t, importResult.Stdout, "targetFailovers[0].onDeregistration")
 	require.NotContains(t, importResult.Stdout, "targetFailovers[0].onUnhealthy")
 	require.NotContains(t, importResult.Stdout, "targetHealthStates[0].enableUnhealthyConnectionTermination")
@@ -215,6 +227,10 @@ func TestRegress2534(t *testing.T) {
 	err = os.WriteFile(mainPy, updatedPyBytes, 0o600)
 	require.NoError(t, err)
 
+	// Run a follow-up preview with the generated import code in place. We do not
+	// assert "no diff" here because unrelated imported defaults can still drift;
+	// the assertion we care about is that preview no longer reports the old
+	// invalid nested-block validation errors.
 	t.Logf("Previewing the edited program")
 	previewResult := ptest.Preview(t)
 	t.Logf("%s", previewResult.StdOut)
