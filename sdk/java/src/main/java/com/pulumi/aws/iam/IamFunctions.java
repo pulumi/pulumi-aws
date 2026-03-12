@@ -42,6 +42,7 @@ import com.pulumi.aws.iam.outputs.GetGroupResult;
 import com.pulumi.aws.iam.outputs.GetInstanceProfileResult;
 import com.pulumi.aws.iam.outputs.GetInstanceProfilesResult;
 import com.pulumi.aws.iam.outputs.GetOpenIdConnectProviderResult;
+import com.pulumi.aws.iam.outputs.GetOutboundWebIdentityFederationResult;
 import com.pulumi.aws.iam.outputs.GetPolicyDocumentResult;
 import com.pulumi.aws.iam.outputs.GetPolicyResult;
 import com.pulumi.aws.iam.outputs.GetPrincipalPolicySimulationInvokeResult;
@@ -1680,6 +1681,265 @@ public final class IamFunctions {
      */
     public static CompletableFuture<GetOpenIdConnectProviderResult> getOpenIdConnectProviderPlain(GetOpenIdConnectProviderPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:iam/getOpenIdConnectProvider:getOpenIdConnectProvider", TypeShape.of(GetOpenIdConnectProviderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an AWS IAM (Identity &amp; Access Management) Outbound Web Identity Federation.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IamFunctions.getOutboundWebIdentityFederation(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOutboundWebIdentityFederationResult> getOutboundWebIdentityFederation() {
+        return getOutboundWebIdentityFederation(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an AWS IAM (Identity &amp; Access Management) Outbound Web Identity Federation.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IamFunctions.getOutboundWebIdentityFederation(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOutboundWebIdentityFederationResult> getOutboundWebIdentityFederationPlain() {
+        return getOutboundWebIdentityFederationPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an AWS IAM (Identity &amp; Access Management) Outbound Web Identity Federation.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IamFunctions.getOutboundWebIdentityFederation(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOutboundWebIdentityFederationResult> getOutboundWebIdentityFederation(InvokeArgs args) {
+        return getOutboundWebIdentityFederation(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an AWS IAM (Identity &amp; Access Management) Outbound Web Identity Federation.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IamFunctions.getOutboundWebIdentityFederation(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOutboundWebIdentityFederationResult> getOutboundWebIdentityFederationPlain(InvokeArgs args) {
+        return getOutboundWebIdentityFederationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an AWS IAM (Identity &amp; Access Management) Outbound Web Identity Federation.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IamFunctions.getOutboundWebIdentityFederation(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOutboundWebIdentityFederationResult> getOutboundWebIdentityFederation(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:iam/getOutboundWebIdentityFederation:getOutboundWebIdentityFederation", TypeShape.of(GetOutboundWebIdentityFederationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an AWS IAM (Identity &amp; Access Management) Outbound Web Identity Federation.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IamFunctions.getOutboundWebIdentityFederation(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOutboundWebIdentityFederationResult> getOutboundWebIdentityFederation(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:iam/getOutboundWebIdentityFederation:getOutboundWebIdentityFederation", TypeShape.of(GetOutboundWebIdentityFederationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an AWS IAM (Identity &amp; Access Management) Outbound Web Identity Federation.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IamFunctions.getOutboundWebIdentityFederation(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOutboundWebIdentityFederationResult> getOutboundWebIdentityFederationPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:iam/getOutboundWebIdentityFederation:getOutboundWebIdentityFederation", TypeShape.of(GetOutboundWebIdentityFederationResult.class), args, Utilities.withVersion(options));
     }
     /**
      * This data source can be used to fetch information about a specific

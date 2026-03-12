@@ -8989,6 +8989,8 @@ class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer(dict):
             suggest = "allowed_audiences"
         elif key == "allowedClients":
             suggest = "allowed_clients"
+        elif key == "allowedScopes":
+            suggest = "allowed_scopes"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer. Access the value via the '{suggest}' property getter instead.")
@@ -9004,17 +9006,21 @@ class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer(dict):
     def __init__(__self__, *,
                  discovery_url: _builtins.str,
                  allowed_audiences: Optional[Sequence[_builtins.str]] = None,
-                 allowed_clients: Optional[Sequence[_builtins.str]] = None):
+                 allowed_clients: Optional[Sequence[_builtins.str]] = None,
+                 allowed_scopes: Optional[Sequence[_builtins.str]] = None):
         """
         :param _builtins.str discovery_url: URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
         :param Sequence[_builtins.str] allowed_audiences: Set of allowed audience values for JWT token validation.
         :param Sequence[_builtins.str] allowed_clients: Set of allowed client IDs for JWT token validation.
+        :param Sequence[_builtins.str] allowed_scopes: Set of scopes that are allowed to access the token.
         """
         pulumi.set(__self__, "discovery_url", discovery_url)
         if allowed_audiences is not None:
             pulumi.set(__self__, "allowed_audiences", allowed_audiences)
         if allowed_clients is not None:
             pulumi.set(__self__, "allowed_clients", allowed_clients)
+        if allowed_scopes is not None:
+            pulumi.set(__self__, "allowed_scopes", allowed_scopes)
 
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")
@@ -9039,6 +9045,14 @@ class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer(dict):
         Set of allowed client IDs for JWT token validation.
         """
         return pulumi.get(self, "allowed_clients")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedScopes")
+    def allowed_scopes(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of scopes that are allowed to access the token.
+        """
+        return pulumi.get(self, "allowed_scopes")
 
 
 @pulumi.output_type
@@ -9782,7 +9796,9 @@ class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "discoveryUrl":
+        if key == "allowedScopes":
+            suggest = "allowed_scopes"
+        elif key == "discoveryUrl":
             suggest = "discovery_url"
         elif key == "allowedAudiences":
             suggest = "allowed_audiences"
@@ -9801,6 +9817,7 @@ class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 allowed_scopes: Sequence[_builtins.str],
                  discovery_url: _builtins.str,
                  allowed_audiences: Optional[Sequence[_builtins.str]] = None,
                  allowed_clients: Optional[Sequence[_builtins.str]] = None):
@@ -9809,11 +9826,17 @@ class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer(dict):
         :param Sequence[_builtins.str] allowed_audiences: Set of allowed audience values for JWT token validation.
         :param Sequence[_builtins.str] allowed_clients: Set of allowed client IDs for JWT token validation.
         """
+        pulumi.set(__self__, "allowed_scopes", allowed_scopes)
         pulumi.set(__self__, "discovery_url", discovery_url)
         if allowed_audiences is not None:
             pulumi.set(__self__, "allowed_audiences", allowed_audiences)
         if allowed_clients is not None:
             pulumi.set(__self__, "allowed_clients", allowed_clients)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedScopes")
+    def allowed_scopes(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "allowed_scopes")
 
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")

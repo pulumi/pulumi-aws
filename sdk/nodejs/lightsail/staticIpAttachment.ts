@@ -25,8 +25,8 @@ import * as utilities from "../utilities";
  *     bundleId: "nano_2_0",
  * });
  * const exampleStaticIpAttachment = new aws.lightsail.StaticIpAttachment("example", {
- *     staticIpName: example.id,
- *     instanceName: exampleInstance.id,
+ *     staticIpName: example.name,
+ *     instanceName: exampleInstance.name,
  * });
  * ```
  *

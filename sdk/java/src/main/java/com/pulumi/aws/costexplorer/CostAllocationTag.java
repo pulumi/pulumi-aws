@@ -16,7 +16,11 @@ import javax.annotation.Nullable;
 /**
  * Provides a CE Cost Allocation Tag.
  * 
+ * &gt; **NOTE:** After the user-defined tags are created and applied to resources, it can take up to 24 hours for the tag keys to appear on Cost Allocation tag page for activation.
+ * 
  * ## Example Usage
+ * 
+ * ### Basic Usage
  * 
  * <pre>
  * {@code
@@ -42,6 +46,42 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new CostAllocationTag("example", CostAllocationTagArgs.builder()
  *             .tagKey("example")
+ *             .status("Active")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Account Tags as Cost Allocation Tags
+ * 
+ * Cost Allocation tags support account tags to utilize existing AWS Organizations account tags directly in cost management tools. To activate account tags as Cost Allocation Tags the `tagKey` value needs to be prefixed with `accountTag/`.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.costexplorer.CostAllocationTag;
+ * import com.pulumi.aws.costexplorer.CostAllocationTagArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new CostAllocationTag("example", CostAllocationTagArgs.builder()
+ *             .tagKey("accountTag/example")
  *             .status("Active")
  *             .build());
  * 

@@ -48,8 +48,8 @@ import (
 //				return err
 //			}
 //			_, err = lightsail.NewStaticIpAttachment(ctx, "example", &lightsail.StaticIpAttachmentArgs{
-//				StaticIpName: example.ID(),
-//				InstanceName: exampleInstance.ID(),
+//				StaticIpName: example.Name,
+//				InstanceName: exampleInstance.Name,
 //			})
 //			if err != nil {
 //				return err

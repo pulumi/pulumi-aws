@@ -1234,6 +1234,7 @@
         "iam/getInstanceProfile.ts",
         "iam/getInstanceProfiles.ts",
         "iam/getOpenIdConnectProvider.ts",
+        "iam/getOutboundWebIdentityFederation.ts",
         "iam/getPolicy.ts",
         "iam/getPolicyDocument.ts",
         "iam/getPrincipalPolicySimulation.ts",

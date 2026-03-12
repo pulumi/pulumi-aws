@@ -273,7 +273,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
     declare public /*out*/ readonly prefixListId: pulumi.Output<string>;
     /**
      * Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
-     * Defaults to `false`.
+     * Defaults to `false`. If `vpcEndpointType` is anything other than `Interface`, changing this value forces a new resource to be created.
      */
     declare public readonly privateDnsEnabled: pulumi.Output<boolean>;
     /**
@@ -460,7 +460,7 @@ export interface VpcEndpointState {
     prefixListId?: pulumi.Input<string>;
     /**
      * Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
-     * Defaults to `false`.
+     * Defaults to `false`. If `vpcEndpointType` is anything other than `Interface`, changing this value forces a new resource to be created.
      */
     privateDnsEnabled?: pulumi.Input<boolean>;
     /**
@@ -548,7 +548,7 @@ export interface VpcEndpointArgs {
     policy?: pulumi.Input<string>;
     /**
      * Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
-     * Defaults to `false`.
+     * Defaults to `false`. If `vpcEndpointType` is anything other than `Interface`, changing this value forces a new resource to be created.
      */
     privateDnsEnabled?: pulumi.Input<boolean>;
     /**

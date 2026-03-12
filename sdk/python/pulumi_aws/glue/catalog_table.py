@@ -35,6 +35,7 @@ class CatalogTableArgs:
                  storage_descriptor: Optional[pulumi.Input['CatalogTableStorageDescriptorArgs']] = None,
                  table_type: Optional[pulumi.Input[_builtins.str]] = None,
                  target_table: Optional[pulumi.Input['CatalogTableTargetTableArgs']] = None,
+                 view_definition: Optional[pulumi.Input['CatalogTableViewDefinitionArgs']] = None,
                  view_expanded_text: Optional[pulumi.Input[_builtins.str]] = None,
                  view_original_text: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -56,6 +57,7 @@ class CatalogTableArgs:
         :param pulumi.Input['CatalogTableStorageDescriptorArgs'] storage_descriptor: Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         :param pulumi.Input[_builtins.str] table_type: Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
         :param pulumi.Input['CatalogTableTargetTableArgs'] target_table: Configuration block of a target table for resource linking. See `target_table` below.
+        :param pulumi.Input['CatalogTableViewDefinitionArgs'] view_definition: A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `view_definition` below.
         :param pulumi.Input[_builtins.str] view_expanded_text: If the table is a view, the expanded text of the view; otherwise null.
         :param pulumi.Input[_builtins.str] view_original_text: If the table is a view, the original text of the view; otherwise null.
         """
@@ -86,6 +88,8 @@ class CatalogTableArgs:
             pulumi.set(__self__, "table_type", table_type)
         if target_table is not None:
             pulumi.set(__self__, "target_table", target_table)
+        if view_definition is not None:
+            pulumi.set(__self__, "view_definition", view_definition)
         if view_expanded_text is not None:
             pulumi.set(__self__, "view_expanded_text", view_expanded_text)
         if view_original_text is not None:
@@ -262,6 +266,18 @@ class CatalogTableArgs:
         pulumi.set(self, "target_table", value)
 
     @_builtins.property
+    @pulumi.getter(name="viewDefinition")
+    def view_definition(self) -> Optional[pulumi.Input['CatalogTableViewDefinitionArgs']]:
+        """
+        A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `view_definition` below.
+        """
+        return pulumi.get(self, "view_definition")
+
+    @view_definition.setter
+    def view_definition(self, value: Optional[pulumi.Input['CatalogTableViewDefinitionArgs']]):
+        pulumi.set(self, "view_definition", value)
+
+    @_builtins.property
     @pulumi.getter(name="viewExpandedText")
     def view_expanded_text(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -304,6 +320,7 @@ class _CatalogTableState:
                  storage_descriptor: Optional[pulumi.Input['CatalogTableStorageDescriptorArgs']] = None,
                  table_type: Optional[pulumi.Input[_builtins.str]] = None,
                  target_table: Optional[pulumi.Input['CatalogTableTargetTableArgs']] = None,
+                 view_definition: Optional[pulumi.Input['CatalogTableViewDefinitionArgs']] = None,
                  view_expanded_text: Optional[pulumi.Input[_builtins.str]] = None,
                  view_original_text: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -326,6 +343,7 @@ class _CatalogTableState:
         :param pulumi.Input['CatalogTableStorageDescriptorArgs'] storage_descriptor: Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         :param pulumi.Input[_builtins.str] table_type: Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
         :param pulumi.Input['CatalogTableTargetTableArgs'] target_table: Configuration block of a target table for resource linking. See `target_table` below.
+        :param pulumi.Input['CatalogTableViewDefinitionArgs'] view_definition: A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `view_definition` below.
         :param pulumi.Input[_builtins.str] view_expanded_text: If the table is a view, the expanded text of the view; otherwise null.
         :param pulumi.Input[_builtins.str] view_original_text: If the table is a view, the original text of the view; otherwise null.
         """
@@ -359,6 +377,8 @@ class _CatalogTableState:
             pulumi.set(__self__, "table_type", table_type)
         if target_table is not None:
             pulumi.set(__self__, "target_table", target_table)
+        if view_definition is not None:
+            pulumi.set(__self__, "view_definition", view_definition)
         if view_expanded_text is not None:
             pulumi.set(__self__, "view_expanded_text", view_expanded_text)
         if view_original_text is not None:
@@ -547,6 +567,18 @@ class _CatalogTableState:
         pulumi.set(self, "target_table", value)
 
     @_builtins.property
+    @pulumi.getter(name="viewDefinition")
+    def view_definition(self) -> Optional[pulumi.Input['CatalogTableViewDefinitionArgs']]:
+        """
+        A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `view_definition` below.
+        """
+        return pulumi.get(self, "view_definition")
+
+    @view_definition.setter
+    def view_definition(self, value: Optional[pulumi.Input['CatalogTableViewDefinitionArgs']]):
+        pulumi.set(self, "view_definition", value)
+
+    @_builtins.property
     @pulumi.getter(name="viewExpandedText")
     def view_expanded_text(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -591,6 +623,7 @@ class CatalogTable(pulumi.CustomResource):
                  storage_descriptor: Optional[pulumi.Input[Union['CatalogTableStorageDescriptorArgs', 'CatalogTableStorageDescriptorArgsDict']]] = None,
                  table_type: Optional[pulumi.Input[_builtins.str]] = None,
                  target_table: Optional[pulumi.Input[Union['CatalogTableTargetTableArgs', 'CatalogTableTargetTableArgsDict']]] = None,
+                 view_definition: Optional[pulumi.Input[Union['CatalogTableViewDefinitionArgs', 'CatalogTableViewDefinitionArgsDict']]] = None,
                  view_expanded_text: Optional[pulumi.Input[_builtins.str]] = None,
                  view_original_text: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -605,7 +638,7 @@ class CatalogTable(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        aws_glue_catalog_table = aws.glue.CatalogTable("aws_glue_catalog_table",
+        example = aws.glue.CatalogTable("example",
             name="MyCatalogTable",
             database_name="MyCatalogDatabase")
         ```
@@ -616,7 +649,7 @@ class CatalogTable(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        aws_glue_catalog_table = aws.glue.CatalogTable("aws_glue_catalog_table",
+        example = aws.glue.CatalogTable("example",
             name="MyCatalogTable",
             database_name="MyCatalogDatabase",
             table_type="EXTERNAL_TABLE",
@@ -663,6 +696,67 @@ class CatalogTable(pulumi.CustomResource):
             })
         ```
 
+        ### Iceberg Table
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.CatalogTable("example",
+            name="transactiontable1",
+            database_name="bankdata_icebergdb",
+            open_table_format_input={
+                "iceberg_input": {
+                    "metadata_operation": "CREATE",
+                    "version": "2",
+                    "iceberg_table_input": {
+                        "location": "s3://sampledatabucket/bankdataiceberg/transactiontable1/",
+                        "schema": {
+                            "schema_id": 0,
+                            "type": "struct",
+                            "fields": [
+                                {
+                                    "id": 1,
+                                    "name": "transaction_id",
+                                    "required": True,
+                                    "type": "            \\\\\\"string\\\\\\"\\n",
+                                },
+                                {
+                                    "id": 2,
+                                    "name": "transaction_date",
+                                    "required": True,
+                                    "type": "            \\\\\\"date\\\\\\"\\n",
+                                },
+                                {
+                                    "id": 3,
+                                    "name": "monthly_balance",
+                                    "required": True,
+                                    "type": "            \\\\\\"float\\\\\\"\\n",
+                                },
+                            ],
+                        },
+                        "partition_spec": {
+                            "fields": [{
+                                "name": "by_year",
+                                "source_id": 2,
+                                "transform": "year",
+                            }],
+                            "spec_id": 0,
+                        },
+                        "sort_order": {
+                            "fields": [{
+                                "direction": "asc",
+                                "null_order": "nulls-last",
+                                "source_id": 1,
+                                "transform": "none",
+                            }],
+                            "order_id": 1,
+                        },
+                    },
+                },
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:
@@ -690,6 +784,7 @@ class CatalogTable(pulumi.CustomResource):
         :param pulumi.Input[Union['CatalogTableStorageDescriptorArgs', 'CatalogTableStorageDescriptorArgsDict']] storage_descriptor: Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         :param pulumi.Input[_builtins.str] table_type: Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
         :param pulumi.Input[Union['CatalogTableTargetTableArgs', 'CatalogTableTargetTableArgsDict']] target_table: Configuration block of a target table for resource linking. See `target_table` below.
+        :param pulumi.Input[Union['CatalogTableViewDefinitionArgs', 'CatalogTableViewDefinitionArgsDict']] view_definition: A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `view_definition` below.
         :param pulumi.Input[_builtins.str] view_expanded_text: If the table is a view, the expanded text of the view; otherwise null.
         :param pulumi.Input[_builtins.str] view_original_text: If the table is a view, the original text of the view; otherwise null.
         """
@@ -710,7 +805,7 @@ class CatalogTable(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        aws_glue_catalog_table = aws.glue.CatalogTable("aws_glue_catalog_table",
+        example = aws.glue.CatalogTable("example",
             name="MyCatalogTable",
             database_name="MyCatalogDatabase")
         ```
@@ -721,7 +816,7 @@ class CatalogTable(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        aws_glue_catalog_table = aws.glue.CatalogTable("aws_glue_catalog_table",
+        example = aws.glue.CatalogTable("example",
             name="MyCatalogTable",
             database_name="MyCatalogDatabase",
             table_type="EXTERNAL_TABLE",
@@ -765,6 +860,67 @@ class CatalogTable(pulumi.CustomResource):
                         "comment": "",
                     },
                 ],
+            })
+        ```
+
+        ### Iceberg Table
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.CatalogTable("example",
+            name="transactiontable1",
+            database_name="bankdata_icebergdb",
+            open_table_format_input={
+                "iceberg_input": {
+                    "metadata_operation": "CREATE",
+                    "version": "2",
+                    "iceberg_table_input": {
+                        "location": "s3://sampledatabucket/bankdataiceberg/transactiontable1/",
+                        "schema": {
+                            "schema_id": 0,
+                            "type": "struct",
+                            "fields": [
+                                {
+                                    "id": 1,
+                                    "name": "transaction_id",
+                                    "required": True,
+                                    "type": "            \\\\\\"string\\\\\\"\\n",
+                                },
+                                {
+                                    "id": 2,
+                                    "name": "transaction_date",
+                                    "required": True,
+                                    "type": "            \\\\\\"date\\\\\\"\\n",
+                                },
+                                {
+                                    "id": 3,
+                                    "name": "monthly_balance",
+                                    "required": True,
+                                    "type": "            \\\\\\"float\\\\\\"\\n",
+                                },
+                            ],
+                        },
+                        "partition_spec": {
+                            "fields": [{
+                                "name": "by_year",
+                                "source_id": 2,
+                                "transform": "year",
+                            }],
+                            "spec_id": 0,
+                        },
+                        "sort_order": {
+                            "fields": [{
+                                "direction": "asc",
+                                "null_order": "nulls-last",
+                                "source_id": 1,
+                                "transform": "none",
+                            }],
+                            "order_id": 1,
+                        },
+                    },
+                },
             })
         ```
 
@@ -806,6 +962,7 @@ class CatalogTable(pulumi.CustomResource):
                  storage_descriptor: Optional[pulumi.Input[Union['CatalogTableStorageDescriptorArgs', 'CatalogTableStorageDescriptorArgsDict']]] = None,
                  table_type: Optional[pulumi.Input[_builtins.str]] = None,
                  target_table: Optional[pulumi.Input[Union['CatalogTableTargetTableArgs', 'CatalogTableTargetTableArgsDict']]] = None,
+                 view_definition: Optional[pulumi.Input[Union['CatalogTableViewDefinitionArgs', 'CatalogTableViewDefinitionArgsDict']]] = None,
                  view_expanded_text: Optional[pulumi.Input[_builtins.str]] = None,
                  view_original_text: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -833,6 +990,7 @@ class CatalogTable(pulumi.CustomResource):
             __props__.__dict__["storage_descriptor"] = storage_descriptor
             __props__.__dict__["table_type"] = table_type
             __props__.__dict__["target_table"] = target_table
+            __props__.__dict__["view_definition"] = view_definition
             __props__.__dict__["view_expanded_text"] = view_expanded_text
             __props__.__dict__["view_original_text"] = view_original_text
             __props__.__dict__["arn"] = None
@@ -861,6 +1019,7 @@ class CatalogTable(pulumi.CustomResource):
             storage_descriptor: Optional[pulumi.Input[Union['CatalogTableStorageDescriptorArgs', 'CatalogTableStorageDescriptorArgsDict']]] = None,
             table_type: Optional[pulumi.Input[_builtins.str]] = None,
             target_table: Optional[pulumi.Input[Union['CatalogTableTargetTableArgs', 'CatalogTableTargetTableArgsDict']]] = None,
+            view_definition: Optional[pulumi.Input[Union['CatalogTableViewDefinitionArgs', 'CatalogTableViewDefinitionArgsDict']]] = None,
             view_expanded_text: Optional[pulumi.Input[_builtins.str]] = None,
             view_original_text: Optional[pulumi.Input[_builtins.str]] = None) -> 'CatalogTable':
         """
@@ -887,6 +1046,7 @@ class CatalogTable(pulumi.CustomResource):
         :param pulumi.Input[Union['CatalogTableStorageDescriptorArgs', 'CatalogTableStorageDescriptorArgsDict']] storage_descriptor: Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         :param pulumi.Input[_builtins.str] table_type: Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
         :param pulumi.Input[Union['CatalogTableTargetTableArgs', 'CatalogTableTargetTableArgsDict']] target_table: Configuration block of a target table for resource linking. See `target_table` below.
+        :param pulumi.Input[Union['CatalogTableViewDefinitionArgs', 'CatalogTableViewDefinitionArgsDict']] view_definition: A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `view_definition` below.
         :param pulumi.Input[_builtins.str] view_expanded_text: If the table is a view, the expanded text of the view; otherwise null.
         :param pulumi.Input[_builtins.str] view_original_text: If the table is a view, the original text of the view; otherwise null.
         """
@@ -909,6 +1069,7 @@ class CatalogTable(pulumi.CustomResource):
         __props__.__dict__["storage_descriptor"] = storage_descriptor
         __props__.__dict__["table_type"] = table_type
         __props__.__dict__["target_table"] = target_table
+        __props__.__dict__["view_definition"] = view_definition
         __props__.__dict__["view_expanded_text"] = view_expanded_text
         __props__.__dict__["view_original_text"] = view_original_text
         return CatalogTable(resource_name, opts=opts, __props__=__props__)
@@ -973,7 +1134,7 @@ class CatalogTable(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+    def parameters(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
         Properties associated with this table, as a list of key-value pairs.
         """
@@ -1013,7 +1174,7 @@ class CatalogTable(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="storageDescriptor")
-    def storage_descriptor(self) -> pulumi.Output[Optional['outputs.CatalogTableStorageDescriptor']]:
+    def storage_descriptor(self) -> pulumi.Output['outputs.CatalogTableStorageDescriptor']:
         """
         Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         """
@@ -1021,7 +1182,7 @@ class CatalogTable(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="tableType")
-    def table_type(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def table_type(self) -> pulumi.Output[_builtins.str]:
         """
         Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
         """
@@ -1034,6 +1195,14 @@ class CatalogTable(pulumi.CustomResource):
         Configuration block of a target table for resource linking. See `target_table` below.
         """
         return pulumi.get(self, "target_table")
+
+    @_builtins.property
+    @pulumi.getter(name="viewDefinition")
+    def view_definition(self) -> pulumi.Output[Optional['outputs.CatalogTableViewDefinition']]:
+        """
+        A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `view_definition` below.
+        """
+        return pulumi.get(self, "view_definition")
 
     @_builtins.property
     @pulumi.getter(name="viewExpandedText")

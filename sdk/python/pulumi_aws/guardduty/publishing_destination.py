@@ -23,7 +23,8 @@ class PublishingDestinationArgs:
                  detector_id: pulumi.Input[_builtins.str],
                  kms_key_arn: pulumi.Input[_builtins.str],
                  destination_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PublishingDestination resource.
 
@@ -31,9 +32,10 @@ class PublishingDestinationArgs:
         :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty.
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
         :param pulumi.Input[_builtins.str] destination_type: Currently there is only "S3" available as destination type which is also the default value
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "destination_arn", destination_arn)
         pulumi.set(__self__, "detector_id", detector_id)
@@ -42,6 +44,8 @@ class PublishingDestinationArgs:
             pulumi.set(__self__, "destination_type", destination_type)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="destinationArn")
@@ -84,8 +88,6 @@ class PublishingDestinationArgs:
     def destination_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Currently there is only "S3" available as destination type which is also the default value
-
-        > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         """
         return pulumi.get(self, "destination_type")
 
@@ -105,28 +107,54 @@ class PublishingDestinationArgs:
     def region(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "region", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _PublishingDestinationState:
     def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[_builtins.str]] = None,
                  destination_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_id: Optional[pulumi.Input[_builtins.str]] = None,
                  destination_type: Optional[pulumi.Input[_builtins.str]] = None,
                  detector_id: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering PublishingDestination resources.
 
+        :param pulumi.Input[_builtins.str] arn: Resource ARN.
         :param pulumi.Input[_builtins.str] destination_arn: The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+        :param pulumi.Input[_builtins.str] destination_id: Destination ID.
         :param pulumi.Input[_builtins.str] destination_type: Currently there is only "S3" available as destination type which is also the default value
-               
-               > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty.
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if destination_arn is not None:
             pulumi.set(__self__, "destination_arn", destination_arn)
+        if destination_id is not None:
+            pulumi.set(__self__, "destination_id", destination_id)
         if destination_type is not None:
             pulumi.set(__self__, "destination_type", destination_type)
         if detector_id is not None:
@@ -135,6 +163,22 @@ class _PublishingDestinationState:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource ARN.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationArn")
@@ -149,12 +193,22 @@ class _PublishingDestinationState:
         pulumi.set(self, "destination_arn", value)
 
     @_builtins.property
+    @pulumi.getter(name="destinationId")
+    def destination_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Destination ID.
+        """
+        return pulumi.get(self, "destination_id")
+
+    @destination_id.setter
+    def destination_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "destination_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="destinationType")
     def destination_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Currently there is only "S3" available as destination type which is also the default value
-
-        > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         """
         return pulumi.get(self, "destination_type")
 
@@ -198,6 +252,32 @@ class _PublishingDestinationState:
     def region(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "region", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.type_token("aws:guardduty/publishingDestination:PublishingDestination")
 class PublishingDestination(pulumi.CustomResource):
@@ -210,6 +290,7 @@ class PublishingDestination(pulumi.CustomResource):
                  detector_id: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a resource to manage a GuardDuty PublishingDestination. Requires an existing GuardDuty Detector.
@@ -298,11 +379,12 @@ class PublishingDestination(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] destination_arn: The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
         :param pulumi.Input[_builtins.str] destination_type: Currently there is only "S3" available as destination type which is also the default value
-               
-               > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty.
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         """
         ...
     @overload
@@ -413,6 +495,7 @@ class PublishingDestination(pulumi.CustomResource):
                  detector_id: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -433,6 +516,10 @@ class PublishingDestination(pulumi.CustomResource):
                 raise TypeError("Missing required property 'kms_key_arn'")
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["region"] = region
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["destination_id"] = None
+            __props__.__dict__["tags_all"] = None
         super(PublishingDestination, __self__).__init__(
             'aws:guardduty/publishingDestination:PublishingDestination',
             resource_name,
@@ -443,11 +530,15 @@ class PublishingDestination(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[_builtins.str]] = None,
             destination_arn: Optional[pulumi.Input[_builtins.str]] = None,
+            destination_id: Optional[pulumi.Input[_builtins.str]] = None,
             destination_type: Optional[pulumi.Input[_builtins.str]] = None,
             detector_id: Optional[pulumi.Input[_builtins.str]] = None,
             kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'PublishingDestination':
+            region: Optional[pulumi.Input[_builtins.str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'PublishingDestination':
         """
         Get an existing PublishingDestination resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -455,24 +546,40 @@ class PublishingDestination(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] arn: Resource ARN.
         :param pulumi.Input[_builtins.str] destination_arn: The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+        :param pulumi.Input[_builtins.str] destination_id: Destination ID.
         :param pulumi.Input[_builtins.str] destination_type: Currently there is only "S3" available as destination type which is also the default value
-               
-               > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty.
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _PublishingDestinationState.__new__(_PublishingDestinationState)
 
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["destination_arn"] = destination_arn
+        __props__.__dict__["destination_id"] = destination_id
         __props__.__dict__["destination_type"] = destination_type
         __props__.__dict__["detector_id"] = detector_id
         __props__.__dict__["kms_key_arn"] = kms_key_arn
         __props__.__dict__["region"] = region
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         return PublishingDestination(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        Resource ARN.
+        """
+        return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="destinationArn")
@@ -483,12 +590,18 @@ class PublishingDestination(pulumi.CustomResource):
         return pulumi.get(self, "destination_arn")
 
     @_builtins.property
+    @pulumi.getter(name="destinationId")
+    def destination_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        Destination ID.
+        """
+        return pulumi.get(self, "destination_id")
+
+    @_builtins.property
     @pulumi.getter(name="destinationType")
     def destination_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         Currently there is only "S3" available as destination type which is also the default value
-
-        > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         """
         return pulumi.get(self, "destination_type")
 
@@ -515,4 +628,22 @@ class PublishingDestination(pulumi.CustomResource):
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
 

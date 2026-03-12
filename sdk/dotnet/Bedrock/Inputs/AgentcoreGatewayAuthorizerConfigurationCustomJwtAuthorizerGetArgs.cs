@@ -36,6 +36,14 @@ namespace Pulumi.Aws.Bedrock.Inputs
             set => _allowedClients = value;
         }
 
+        [Input("allowedScopes", required: true)]
+        private InputList<string>? _allowedScopes;
+        public InputList<string> AllowedScopes
+        {
+            get => _allowedScopes ?? (_allowedScopes = new InputList<string>());
+            set => _allowedScopes = value;
+        }
+
         /// <summary>
         /// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
         /// </summary>

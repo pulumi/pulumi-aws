@@ -156,6 +156,11 @@ namespace Pulumi.Aws.Bedrock
     ///                     "client-123",
     ///                     "client-456",
     ///                 },
+    ///                 AllowedScopes = new[]
+    ///                 {
+    ///                     "openid",
+    ///                     "email",
+    ///                 },
     ///             },
     ///         },
     ///         NetworkConfiguration = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeNetworkConfigurationArgs

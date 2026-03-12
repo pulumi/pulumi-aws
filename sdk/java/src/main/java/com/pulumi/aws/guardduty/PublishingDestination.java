@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -159,6 +160,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:guardduty/publishingDestination:PublishingDestination")
 public class PublishingDestination extends com.pulumi.resources.CustomResource {
     /**
+     * Resource ARN.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return Resource ARN.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
      * The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
      * 
      */
@@ -173,9 +188,21 @@ public class PublishingDestination extends com.pulumi.resources.CustomResource {
         return this.destinationArn;
     }
     /**
-     * Currently there is only &#34;S3&#34; available as destination type which is also the default value
+     * Destination ID.
      * 
-     * &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the &#34;DescribePublishingDestination&#34; call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+     */
+    @Export(name="destinationId", refs={String.class}, tree="[0]")
+    private Output<String> destinationId;
+
+    /**
+     * @return Destination ID.
+     * 
+     */
+    public Output<String> destinationId() {
+        return this.destinationId;
+    }
+    /**
+     * Currently there is only &#34;S3&#34; available as destination type which is also the default value
      * 
      */
     @Export(name="destinationType", refs={String.class}, tree="[0]")
@@ -183,8 +210,6 @@ public class PublishingDestination extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Currently there is only &#34;S3&#34; available as destination type which is also the default value
-     * 
-     * &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the &#34;DescribePublishingDestination&#34; call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
      * 
      */
     public Output<Optional<String>> destinationType() {
@@ -231,6 +256,38 @@ public class PublishingDestination extends com.pulumi.resources.CustomResource {
      */
     public Output<String> region() {
         return this.region;
+    }
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the &#34;DescribePublishingDestination&#34; call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+     * 
+     */
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> tags;
+
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the &#34;DescribePublishingDestination&#34; call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+     * 
+     */
+    public Output<Optional<Map<String,String>>> tags() {
+        return Codegen.optional(this.tags);
+    }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * 
+     */
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * 
+     */
+    public Output<Map<String,String>> tagsAll() {
+        return this.tagsAll;
     }
 
     /**

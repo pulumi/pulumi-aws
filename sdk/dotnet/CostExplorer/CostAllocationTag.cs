@@ -12,7 +12,11 @@ namespace Pulumi.Aws.CostExplorer
     /// <summary>
     /// Provides a CE Cost Allocation Tag.
     /// 
+    /// &gt; **NOTE:** After the user-defined tags are created and applied to resources, it can take up to 24 hours for the tag keys to appear on Cost Allocation tag page for activation.
+    /// 
     /// ## Example Usage
+    /// 
+    /// ### Basic Usage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -25,6 +29,27 @@ namespace Pulumi.Aws.CostExplorer
     ///     var example = new Aws.CostExplorer.CostAllocationTag("example", new()
     ///     {
     ///         TagKey = "example",
+    ///         Status = "Active",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Account Tags as Cost Allocation Tags
+    /// 
+    /// Cost Allocation tags support account tags to utilize existing AWS Organizations account tags directly in cost management tools. To activate account tags as Cost Allocation Tags the `TagKey` value needs to be prefixed with `accountTag/`.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.CostExplorer.CostAllocationTag("example", new()
+    ///     {
+    ///         TagKey = "accountTag/example",
     ///         Status = "Active",
     ///     });
     /// 

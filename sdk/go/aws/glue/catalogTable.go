@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.NewCatalogTable(ctx, "aws_glue_catalog_table", &glue.CatalogTableArgs{
+//			_, err := glue.NewCatalogTable(ctx, "example", &glue.CatalogTableArgs{
 //				Name:         pulumi.String("MyCatalogTable"),
 //				DatabaseName: pulumi.String("MyCatalogDatabase"),
 //			})
@@ -57,7 +57,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.NewCatalogTable(ctx, "aws_glue_catalog_table", &glue.CatalogTableArgs{
+//			_, err := glue.NewCatalogTable(ctx, "example", &glue.CatalogTableArgs{
 //				Name:         pulumi.String("MyCatalogTable"),
 //				DatabaseName: pulumi.String("MyCatalogDatabase"),
 //				TableType:    pulumi.String("EXTERNAL_TABLE"),
@@ -112,6 +112,87 @@ import (
 //
 // ```
 //
+// ### Iceberg Table
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := glue.NewCatalogTable(ctx, "example", &glue.CatalogTableArgs{
+//				Name:         pulumi.String("transactiontable1"),
+//				DatabaseName: pulumi.String("bankdata_icebergdb"),
+//				OpenTableFormatInput: &glue.CatalogTableOpenTableFormatInputArgs{
+//					IcebergInput: &glue.CatalogTableOpenTableFormatInputIcebergInputArgs{
+//						MetadataOperation: pulumi.String("CREATE"),
+//						Version:           pulumi.String("2"),
+//						IcebergTableInput: &glue.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs{
+//							Location: pulumi.String("s3://sampledatabucket/bankdataiceberg/transactiontable1/"),
+//							Schema: &glue.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs{
+//								SchemaId: pulumi.Int(0),
+//								Type:     pulumi.String("struct"),
+//								Fields: glue.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArray{
+//									&glue.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs{
+//										Id:       pulumi.Int(1),
+//										Name:     pulumi.String("transaction_id"),
+//										Required: pulumi.Bool(true),
+//										Type:     pulumi.String("            \\\"string\\\"\n"),
+//									},
+//									&glue.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs{
+//										Id:       pulumi.Int(2),
+//										Name:     pulumi.String("transaction_date"),
+//										Required: pulumi.Bool(true),
+//										Type:     pulumi.String("            \\\"date\\\"\n"),
+//									},
+//									&glue.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs{
+//										Id:       pulumi.Int(3),
+//										Name:     pulumi.String("monthly_balance"),
+//										Required: pulumi.Bool(true),
+//										Type:     pulumi.String("            \\\"float\\\"\n"),
+//									},
+//								},
+//							},
+//							PartitionSpec: &glue.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs{
+//								Fields: glue.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArray{
+//									&glue.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArgs{
+//										Name:      pulumi.String("by_year"),
+//										SourceId:  pulumi.Int(2),
+//										Transform: pulumi.String("year"),
+//									},
+//								},
+//								SpecId: pulumi.Int(0),
+//							},
+//							SortOrder: &glue.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs{
+//								Fields: glue.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArray{
+//									&glue.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArgs{
+//										Direction: pulumi.String("asc"),
+//										NullOrder: pulumi.String("nulls-last"),
+//										SourceId:  pulumi.Int(1),
+//										Transform: pulumi.String("none"),
+//									},
+//								},
+//								OrderId: pulumi.Int(1),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:
@@ -149,11 +230,13 @@ type CatalogTable struct {
 	// Retention time for this table.
 	Retention pulumi.IntPtrOutput `pulumi:"retention"`
 	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
-	StorageDescriptor CatalogTableStorageDescriptorPtrOutput `pulumi:"storageDescriptor"`
+	StorageDescriptor CatalogTableStorageDescriptorOutput `pulumi:"storageDescriptor"`
 	// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
-	TableType pulumi.StringPtrOutput `pulumi:"tableType"`
+	TableType pulumi.StringOutput `pulumi:"tableType"`
 	// Configuration block of a target table for resource linking. See `targetTable` below.
 	TargetTable CatalogTableTargetTablePtrOutput `pulumi:"targetTable"`
+	// A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+	ViewDefinition CatalogTableViewDefinitionPtrOutput `pulumi:"viewDefinition"`
 	// If the table is a view, the expanded text of the view; otherwise null.
 	ViewExpandedText pulumi.StringPtrOutput `pulumi:"viewExpandedText"`
 	// If the table is a view, the original text of the view; otherwise null.
@@ -225,6 +308,8 @@ type catalogTableState struct {
 	TableType *string `pulumi:"tableType"`
 	// Configuration block of a target table for resource linking. See `targetTable` below.
 	TargetTable *CatalogTableTargetTable `pulumi:"targetTable"`
+	// A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+	ViewDefinition *CatalogTableViewDefinition `pulumi:"viewDefinition"`
 	// If the table is a view, the expanded text of the view; otherwise null.
 	ViewExpandedText *string `pulumi:"viewExpandedText"`
 	// If the table is a view, the original text of the view; otherwise null.
@@ -264,6 +349,8 @@ type CatalogTableState struct {
 	TableType pulumi.StringPtrInput
 	// Configuration block of a target table for resource linking. See `targetTable` below.
 	TargetTable CatalogTableTargetTablePtrInput
+	// A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+	ViewDefinition CatalogTableViewDefinitionPtrInput
 	// If the table is a view, the expanded text of the view; otherwise null.
 	ViewExpandedText pulumi.StringPtrInput
 	// If the table is a view, the original text of the view; otherwise null.
@@ -305,6 +392,8 @@ type catalogTableArgs struct {
 	TableType *string `pulumi:"tableType"`
 	// Configuration block of a target table for resource linking. See `targetTable` below.
 	TargetTable *CatalogTableTargetTable `pulumi:"targetTable"`
+	// A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+	ViewDefinition *CatalogTableViewDefinition `pulumi:"viewDefinition"`
 	// If the table is a view, the expanded text of the view; otherwise null.
 	ViewExpandedText *string `pulumi:"viewExpandedText"`
 	// If the table is a view, the original text of the view; otherwise null.
@@ -343,6 +432,8 @@ type CatalogTableArgs struct {
 	TableType pulumi.StringPtrInput
 	// Configuration block of a target table for resource linking. See `targetTable` below.
 	TargetTable CatalogTableTargetTablePtrInput
+	// A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+	ViewDefinition CatalogTableViewDefinitionPtrInput
 	// If the table is a view, the expanded text of the view; otherwise null.
 	ViewExpandedText pulumi.StringPtrInput
 	// If the table is a view, the original text of the view; otherwise null.
@@ -499,18 +590,23 @@ func (o CatalogTableOutput) Retention() pulumi.IntPtrOutput {
 }
 
 // Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
-func (o CatalogTableOutput) StorageDescriptor() CatalogTableStorageDescriptorPtrOutput {
-	return o.ApplyT(func(v *CatalogTable) CatalogTableStorageDescriptorPtrOutput { return v.StorageDescriptor }).(CatalogTableStorageDescriptorPtrOutput)
+func (o CatalogTableOutput) StorageDescriptor() CatalogTableStorageDescriptorOutput {
+	return o.ApplyT(func(v *CatalogTable) CatalogTableStorageDescriptorOutput { return v.StorageDescriptor }).(CatalogTableStorageDescriptorOutput)
 }
 
 // Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
-func (o CatalogTableOutput) TableType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CatalogTable) pulumi.StringPtrOutput { return v.TableType }).(pulumi.StringPtrOutput)
+func (o CatalogTableOutput) TableType() pulumi.StringOutput {
+	return o.ApplyT(func(v *CatalogTable) pulumi.StringOutput { return v.TableType }).(pulumi.StringOutput)
 }
 
 // Configuration block of a target table for resource linking. See `targetTable` below.
 func (o CatalogTableOutput) TargetTable() CatalogTableTargetTablePtrOutput {
 	return o.ApplyT(func(v *CatalogTable) CatalogTableTargetTablePtrOutput { return v.TargetTable }).(CatalogTableTargetTablePtrOutput)
+}
+
+// A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+func (o CatalogTableOutput) ViewDefinition() CatalogTableViewDefinitionPtrOutput {
+	return o.ApplyT(func(v *CatalogTable) CatalogTableViewDefinitionPtrOutput { return v.ViewDefinition }).(CatalogTableViewDefinitionPtrOutput)
 }
 
 // If the table is a view, the expanded text of the view; otherwise null.

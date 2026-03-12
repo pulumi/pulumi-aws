@@ -29504,6 +29504,8 @@ type AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer struct {
 	AllowedAudiences []string `pulumi:"allowedAudiences"`
 	// Set of allowed client IDs for JWT token validation.
 	AllowedClients []string `pulumi:"allowedClients"`
+	// Set of scopes that are allowed to access the token.
+	AllowedScopes []string `pulumi:"allowedScopes"`
 	// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
 	DiscoveryUrl string `pulumi:"discoveryUrl"`
 }
@@ -29524,6 +29526,8 @@ type AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs struct 
 	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
 	// Set of allowed client IDs for JWT token validation.
 	AllowedClients pulumi.StringArrayInput `pulumi:"allowedClients"`
+	// Set of scopes that are allowed to access the token.
+	AllowedScopes pulumi.StringArrayInput `pulumi:"allowedScopes"`
 	// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
 	DiscoveryUrl pulumi.StringInput `pulumi:"discoveryUrl"`
 }
@@ -29619,6 +29623,13 @@ func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput) A
 	}).(pulumi.StringArrayOutput)
 }
 
+// Set of scopes that are allowed to access the token.
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput) AllowedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer) []string {
+		return v.AllowedScopes
+	}).(pulumi.StringArrayOutput)
+}
+
 // URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
 func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput) DiscoveryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer) string { return v.DiscoveryUrl }).(pulumi.StringOutput)
@@ -29665,6 +29676,16 @@ func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput
 			return nil
 		}
 		return v.AllowedClients
+	}).(pulumi.StringArrayOutput)
+}
+
+// Set of scopes that are allowed to access the token.
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) AllowedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedScopes
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -32312,6 +32333,7 @@ type AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer struct {
 	AllowedAudiences []string `pulumi:"allowedAudiences"`
 	// Set of allowed client IDs for JWT token validation.
 	AllowedClients []string `pulumi:"allowedClients"`
+	AllowedScopes  []string `pulumi:"allowedScopes"`
 	// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
 	DiscoveryUrl string `pulumi:"discoveryUrl"`
 }
@@ -32332,6 +32354,7 @@ type AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs struct {
 	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
 	// Set of allowed client IDs for JWT token validation.
 	AllowedClients pulumi.StringArrayInput `pulumi:"allowedClients"`
+	AllowedScopes  pulumi.StringArrayInput `pulumi:"allowedScopes"`
 	// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
 	DiscoveryUrl pulumi.StringInput `pulumi:"discoveryUrl"`
 }
@@ -32423,6 +32446,10 @@ func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput) Allowe
 	return o.ApplyT(func(v AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer) []string { return v.AllowedClients }).(pulumi.StringArrayOutput)
 }
 
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput) AllowedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer) []string { return v.AllowedScopes }).(pulumi.StringArrayOutput)
+}
+
 // URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
 func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput) DiscoveryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer) string { return v.DiscoveryUrl }).(pulumi.StringOutput)
@@ -32469,6 +32496,15 @@ func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) All
 			return nil
 		}
 		return v.AllowedClients
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) AllowedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedScopes
 	}).(pulumi.StringArrayOutput)
 }
 

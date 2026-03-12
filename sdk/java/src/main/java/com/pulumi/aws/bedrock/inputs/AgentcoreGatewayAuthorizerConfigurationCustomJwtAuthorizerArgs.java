@@ -47,6 +47,13 @@ public final class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArg
         return Optional.ofNullable(this.allowedClients);
     }
 
+    @Import(name="allowedScopes", required=true)
+    private Output<List<String>> allowedScopes;
+
+    public Output<List<String>> allowedScopes() {
+        return this.allowedScopes;
+    }
+
     /**
      * URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
      * 
@@ -67,6 +74,7 @@ public final class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArg
     private AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs $) {
         this.allowedAudiences = $.allowedAudiences;
         this.allowedClients = $.allowedClients;
+        this.allowedScopes = $.allowedScopes;
         this.discoveryUrl = $.discoveryUrl;
     }
 
@@ -150,6 +158,19 @@ public final class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArg
             return allowedClients(List.of(allowedClients));
         }
 
+        public Builder allowedScopes(Output<List<String>> allowedScopes) {
+            $.allowedScopes = allowedScopes;
+            return this;
+        }
+
+        public Builder allowedScopes(List<String> allowedScopes) {
+            return allowedScopes(Output.of(allowedScopes));
+        }
+
+        public Builder allowedScopes(String... allowedScopes) {
+            return allowedScopes(List.of(allowedScopes));
+        }
+
         /**
          * @param discoveryUrl URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
          * 
@@ -172,6 +193,9 @@ public final class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArg
         }
 
         public AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs build() {
+            if ($.allowedScopes == null) {
+                throw new MissingRequiredPropertyException("AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs", "allowedScopes");
+            }
             if ($.discoveryUrl == null) {
                 throw new MissingRequiredPropertyException("AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs", "discoveryUrl");
             }

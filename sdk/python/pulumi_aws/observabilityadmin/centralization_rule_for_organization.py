@@ -277,7 +277,7 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
             })
         ```
 
-        ### Advanced Configuration with Encryption and Backup
+        ### Advanced Configuration with Encryption, Backup and Log Group Name Configuration
 
         ```python
         import pulumi
@@ -297,6 +297,9 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
                         },
                         "backup_configuration": {
                             "region": "us-west-1",
+                        },
+                        "log_group_name_configuration": {
+                            "log_group_name_pattern": "/centralized-logs/${source.accountId}/${source.region}/${source.logGroup}",
                         },
                     },
                 },
@@ -415,7 +418,7 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
             })
         ```
 
-        ### Advanced Configuration with Encryption and Backup
+        ### Advanced Configuration with Encryption, Backup and Log Group Name Configuration
 
         ```python
         import pulumi
@@ -435,6 +438,9 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
                         },
                         "backup_configuration": {
                             "region": "us-west-1",
+                        },
+                        "log_group_name_configuration": {
+                            "log_group_name_pattern": "/centralized-logs/${source.accountId}/${source.region}/${source.logGroup}",
                         },
                     },
                 },

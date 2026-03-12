@@ -78,6 +78,21 @@ public final class IPSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * ID of the GuardDuty IPSet.
+     * 
+     */
+    @Import(name="ipSetId")
+    private @Nullable Output<String> ipSetId;
+
+    /**
+     * @return ID of the GuardDuty IPSet.
+     * 
+     */
+    public Optional<Output<String>> ipSetId() {
+        return Optional.ofNullable(this.ipSetId);
+    }
+
+    /**
      * The URI of the file that contains the IPSet.
      * 
      */
@@ -159,6 +174,7 @@ public final class IPSetState extends com.pulumi.resources.ResourceArgs {
         this.arn = $.arn;
         this.detectorId = $.detectorId;
         this.format = $.format;
+        this.ipSetId = $.ipSetId;
         this.location = $.location;
         this.name = $.name;
         this.region = $.region;
@@ -266,6 +282,27 @@ public final class IPSetState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder format(String format) {
             return format(Output.of(format));
+        }
+
+        /**
+         * @param ipSetId ID of the GuardDuty IPSet.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipSetId(@Nullable Output<String> ipSetId) {
+            $.ipSetId = ipSetId;
+            return this;
+        }
+
+        /**
+         * @param ipSetId ID of the GuardDuty IPSet.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipSetId(String ipSetId) {
+            return ipSetId(Output.of(ipSetId));
         }
 
         /**

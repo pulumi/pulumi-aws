@@ -48,6 +48,21 @@ public final class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthoriz
     }
 
     /**
+     * Set of scopes that are allowed to access the token.
+     * 
+     */
+    @Import(name="allowedScopes")
+    private @Nullable Output<List<String>> allowedScopes;
+
+    /**
+     * @return Set of scopes that are allowed to access the token.
+     * 
+     */
+    public Optional<Output<List<String>>> allowedScopes() {
+        return Optional.ofNullable(this.allowedScopes);
+    }
+
+    /**
      * URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
      * 
      */
@@ -67,6 +82,7 @@ public final class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthoriz
     private AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs $) {
         this.allowedAudiences = $.allowedAudiences;
         this.allowedClients = $.allowedClients;
+        this.allowedScopes = $.allowedScopes;
         this.discoveryUrl = $.discoveryUrl;
     }
 
@@ -148,6 +164,37 @@ public final class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthoriz
          */
         public Builder allowedClients(String... allowedClients) {
             return allowedClients(List.of(allowedClients));
+        }
+
+        /**
+         * @param allowedScopes Set of scopes that are allowed to access the token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedScopes(@Nullable Output<List<String>> allowedScopes) {
+            $.allowedScopes = allowedScopes;
+            return this;
+        }
+
+        /**
+         * @param allowedScopes Set of scopes that are allowed to access the token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedScopes(List<String> allowedScopes) {
+            return allowedScopes(Output.of(allowedScopes));
+        }
+
+        /**
+         * @param allowedScopes Set of scopes that are allowed to access the token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedScopes(String... allowedScopes) {
+            return allowedScopes(List.of(allowedScopes));
         }
 
         /**

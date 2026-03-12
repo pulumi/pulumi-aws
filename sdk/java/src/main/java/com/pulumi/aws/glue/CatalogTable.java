@@ -11,6 +11,7 @@ import com.pulumi.aws.glue.outputs.CatalogTablePartitionIndex;
 import com.pulumi.aws.glue.outputs.CatalogTablePartitionKey;
 import com.pulumi.aws.glue.outputs.CatalogTableStorageDescriptor;
 import com.pulumi.aws.glue.outputs.CatalogTableTargetTable;
+import com.pulumi.aws.glue.outputs.CatalogTableViewDefinition;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -51,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var awsGlueCatalogTable = new CatalogTable("awsGlueCatalogTable", CatalogTableArgs.builder()
+ *         var example = new CatalogTable("example", CatalogTableArgs.builder()
  *             .name("MyCatalogTable")
  *             .databaseName("MyCatalogDatabase")
  *             .build());
@@ -87,7 +88,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var awsGlueCatalogTable = new CatalogTable("awsGlueCatalogTable", CatalogTableArgs.builder()
+ *         var example = new CatalogTable("example", CatalogTableArgs.builder()
  *             .name("MyCatalogTable")
  *             .databaseName("MyCatalogDatabase")
  *             .tableType("EXTERNAL_TABLE")
@@ -128,6 +129,101 @@ import javax.annotation.Nullable;
  *                         .type("struct<my_nested_string:string>")
  *                         .comment("")
  *                         .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Iceberg Table
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.glue.CatalogTable;
+ * import com.pulumi.aws.glue.CatalogTableArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableOpenTableFormatInputArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableOpenTableFormatInputIcebergInputArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new CatalogTable("example", CatalogTableArgs.builder()
+ *             .name("transactiontable1")
+ *             .databaseName("bankdata_icebergdb")
+ *             .openTableFormatInput(CatalogTableOpenTableFormatInputArgs.builder()
+ *                 .icebergInput(CatalogTableOpenTableFormatInputIcebergInputArgs.builder()
+ *                     .metadataOperation("CREATE")
+ *                     .version("2")
+ *                     .icebergTableInput(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs.builder()
+ *                         .location("s3://sampledatabucket/bankdataiceberg/transactiontable1/")
+ *                         .schema(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs.builder()
+ *                             .schemaId(0)
+ *                             .type("struct")
+ *                             .fields(                            
+ *                                 CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs.builder()
+ *                                     .id(1)
+ *                                     .name("transaction_id")
+ *                                     .required(true)
+ *                                     .type("""
+ *             \"string\"
+ *                                     """)
+ *                                     .build(),
+ *                                 CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs.builder()
+ *                                     .id(2)
+ *                                     .name("transaction_date")
+ *                                     .required(true)
+ *                                     .type("""
+ *             \"date\"
+ *                                     """)
+ *                                     .build(),
+ *                                 CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs.builder()
+ *                                     .id(3)
+ *                                     .name("monthly_balance")
+ *                                     .required(true)
+ *                                     .type("""
+ *             \"float\"
+ *                                     """)
+ *                                     .build())
+ *                             .build())
+ *                         .partitionSpec(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs.builder()
+ *                             .fields(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArgs.builder()
+ *                                 .name("by_year")
+ *                                 .sourceId(2)
+ *                                 .transform("year")
+ *                                 .build())
+ *                             .specId(0)
+ *                             .build())
+ *                         .sortOrder(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs.builder()
+ *                             .fields(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArgs.builder()
+ *                                 .direction("asc")
+ *                                 .nullOrder("nulls-last")
+ *                                 .sourceId(1)
+ *                                 .transform("none")
+ *                                 .build())
+ *                             .orderId(1)
+ *                             .build())
+ *                         .build())
+ *                     .build())
  *                 .build())
  *             .build());
  * 
@@ -254,14 +350,14 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output</* @Nullable */ Map<String,String>> parameters;
+    private Output<Map<String,String>> parameters;
 
     /**
      * @return Properties associated with this table, as a list of key-value pairs.
      * 
      */
-    public Output<Optional<Map<String,String>>> parameters() {
-        return Codegen.optional(this.parameters);
+    public Output<Map<String,String>> parameters() {
+        return this.parameters;
     }
     /**
      * Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
@@ -324,28 +420,28 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="storageDescriptor", refs={CatalogTableStorageDescriptor.class}, tree="[0]")
-    private Output</* @Nullable */ CatalogTableStorageDescriptor> storageDescriptor;
+    private Output<CatalogTableStorageDescriptor> storageDescriptor;
 
     /**
      * @return Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
      * 
      */
-    public Output<Optional<CatalogTableStorageDescriptor>> storageDescriptor() {
-        return Codegen.optional(this.storageDescriptor);
+    public Output<CatalogTableStorageDescriptor> storageDescriptor() {
+        return this.storageDescriptor;
     }
     /**
      * Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
      * 
      */
     @Export(name="tableType", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> tableType;
+    private Output<String> tableType;
 
     /**
      * @return Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
      * 
      */
-    public Output<Optional<String>> tableType() {
-        return Codegen.optional(this.tableType);
+    public Output<String> tableType() {
+        return this.tableType;
     }
     /**
      * Configuration block of a target table for resource linking. See `targetTable` below.
@@ -360,6 +456,20 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<CatalogTableTargetTable>> targetTable() {
         return Codegen.optional(this.targetTable);
+    }
+    /**
+     * A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+     * 
+     */
+    @Export(name="viewDefinition", refs={CatalogTableViewDefinition.class}, tree="[0]")
+    private Output</* @Nullable */ CatalogTableViewDefinition> viewDefinition;
+
+    /**
+     * @return A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+     * 
+     */
+    public Output<Optional<CatalogTableViewDefinition>> viewDefinition() {
+        return Codegen.optional(this.viewDefinition);
     }
     /**
      * If the table is a view, the expanded text of the view; otherwise null.

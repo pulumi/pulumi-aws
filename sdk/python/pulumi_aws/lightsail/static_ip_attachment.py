@@ -182,8 +182,8 @@ class StaticIpAttachment(pulumi.CustomResource):
             blueprint_id="ubuntu_20_04",
             bundle_id="nano_2_0")
         example_static_ip_attachment = aws.lightsail.StaticIpAttachment("example",
-            static_ip_name=example.id,
-            instance_name=example_instance.id)
+            static_ip_name=example.name,
+            instance_name=example_instance.name)
         ```
 
         ## Import
@@ -229,8 +229,8 @@ class StaticIpAttachment(pulumi.CustomResource):
             blueprint_id="ubuntu_20_04",
             bundle_id="nano_2_0")
         example_static_ip_attachment = aws.lightsail.StaticIpAttachment("example",
-            static_ip_name=example.id,
-            instance_name=example_instance.id)
+            static_ip_name=example.name,
+            instance_name=example_instance.name)
         ```
 
         ## Import

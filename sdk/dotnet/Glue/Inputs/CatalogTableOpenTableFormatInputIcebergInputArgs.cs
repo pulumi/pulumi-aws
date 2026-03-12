@@ -13,6 +13,12 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class CatalogTableOpenTableFormatInputIcebergInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configuration parameters, including table properties and metadata specifications. See `IcebergTableInput` below.
+        /// </summary>
+        [Input("icebergTableInput")]
+        public Input<Inputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs>? IcebergTableInput { get; set; }
+
+        /// <summary>
         /// A required metadata operation. Can only be set to CREATE.
         /// </summary>
         [Input("metadataOperation", required: true)]

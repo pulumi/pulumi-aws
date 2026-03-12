@@ -23,6 +23,11 @@ public final class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthoriz
      */
     private @Nullable List<String> allowedClients;
     /**
+     * @return Set of scopes that are allowed to access the token.
+     * 
+     */
+    private @Nullable List<String> allowedScopes;
+    /**
      * @return URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
      * 
      */
@@ -44,6 +49,13 @@ public final class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthoriz
         return this.allowedClients == null ? List.of() : this.allowedClients;
     }
     /**
+     * @return Set of scopes that are allowed to access the token.
+     * 
+     */
+    public List<String> allowedScopes() {
+        return this.allowedScopes == null ? List.of() : this.allowedScopes;
+    }
+    /**
      * @return URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
      * 
      */
@@ -62,12 +74,14 @@ public final class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthoriz
     public static final class Builder {
         private @Nullable List<String> allowedAudiences;
         private @Nullable List<String> allowedClients;
+        private @Nullable List<String> allowedScopes;
         private String discoveryUrl;
         public Builder() {}
         public Builder(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedAudiences = defaults.allowedAudiences;
     	      this.allowedClients = defaults.allowedClients;
+    	      this.allowedScopes = defaults.allowedScopes;
     	      this.discoveryUrl = defaults.discoveryUrl;
         }
 
@@ -90,6 +104,15 @@ public final class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthoriz
             return allowedClients(List.of(allowedClients));
         }
         @CustomType.Setter
+        public Builder allowedScopes(@Nullable List<String> allowedScopes) {
+
+            this.allowedScopes = allowedScopes;
+            return this;
+        }
+        public Builder allowedScopes(String... allowedScopes) {
+            return allowedScopes(List.of(allowedScopes));
+        }
+        @CustomType.Setter
         public Builder discoveryUrl(String discoveryUrl) {
             if (discoveryUrl == null) {
               throw new MissingRequiredPropertyException("AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer", "discoveryUrl");
@@ -101,6 +124,7 @@ public final class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthoriz
             final var _resultValue = new AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer();
             _resultValue.allowedAudiences = allowedAudiences;
             _resultValue.allowedClients = allowedClients;
+            _resultValue.allowedScopes = allowedScopes;
             _resultValue.discoveryUrl = discoveryUrl;
             return _resultValue;
         }

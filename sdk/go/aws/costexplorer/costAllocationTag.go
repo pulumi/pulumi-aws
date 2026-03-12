@@ -14,7 +14,11 @@ import (
 
 // Provides a CE Cost Allocation Tag.
 //
+// > **NOTE:** After the user-defined tags are created and applied to resources, it can take up to 24 hours for the tag keys to appear on Cost Allocation tag page for activation.
+//
 // ## Example Usage
+//
+// ### Basic Usage
 //
 // ```go
 // package main
@@ -30,6 +34,35 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := costexplorer.NewCostAllocationTag(ctx, "example", &costexplorer.CostAllocationTagArgs{
 //				TagKey: pulumi.String("example"),
+//				Status: pulumi.String("Active"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Account Tags as Cost Allocation Tags
+//
+// Cost Allocation tags support account tags to utilize existing AWS Organizations account tags directly in cost management tools. To activate account tags as Cost Allocation Tags the `tagKey` value needs to be prefixed with `accountTag/`.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/costexplorer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := costexplorer.NewCostAllocationTag(ctx, "example", &costexplorer.CostAllocationTagArgs{
+//				TagKey: pulumi.String("accountTag/example"),
 //				Status: pulumi.String("Active"),
 //			})
 //			if err != nil {

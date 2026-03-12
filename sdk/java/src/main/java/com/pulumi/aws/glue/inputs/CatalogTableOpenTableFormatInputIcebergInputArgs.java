@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.glue.inputs;
 
+import com.pulumi.aws.glue.inputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class CatalogTableOpenTableFormatInputIcebergInputArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final CatalogTableOpenTableFormatInputIcebergInputArgs Empty = new CatalogTableOpenTableFormatInputIcebergInputArgs();
+
+    /**
+     * Configuration parameters, including table properties and metadata specifications. See `icebergTableInput` below.
+     * 
+     */
+    @Import(name="icebergTableInput")
+    private @Nullable Output<CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs> icebergTableInput;
+
+    /**
+     * @return Configuration parameters, including table properties and metadata specifications. See `icebergTableInput` below.
+     * 
+     */
+    public Optional<Output<CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs>> icebergTableInput() {
+        return Optional.ofNullable(this.icebergTableInput);
+    }
 
     /**
      * A required metadata operation. Can only be set to CREATE.
@@ -49,6 +65,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputArgs extends com.
     private CatalogTableOpenTableFormatInputIcebergInputArgs() {}
 
     private CatalogTableOpenTableFormatInputIcebergInputArgs(CatalogTableOpenTableFormatInputIcebergInputArgs $) {
+        this.icebergTableInput = $.icebergTableInput;
         this.metadataOperation = $.metadataOperation;
         this.version = $.version;
     }
@@ -69,6 +86,27 @@ public final class CatalogTableOpenTableFormatInputIcebergInputArgs extends com.
 
         public Builder(CatalogTableOpenTableFormatInputIcebergInputArgs defaults) {
             $ = new CatalogTableOpenTableFormatInputIcebergInputArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param icebergTableInput Configuration parameters, including table properties and metadata specifications. See `icebergTableInput` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder icebergTableInput(@Nullable Output<CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs> icebergTableInput) {
+            $.icebergTableInput = icebergTableInput;
+            return this;
+        }
+
+        /**
+         * @param icebergTableInput Configuration parameters, including table properties and metadata specifications. See `icebergTableInput` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder icebergTableInput(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs icebergTableInput) {
+            return icebergTableInput(Output.of(icebergTableInput));
         }
 
         /**

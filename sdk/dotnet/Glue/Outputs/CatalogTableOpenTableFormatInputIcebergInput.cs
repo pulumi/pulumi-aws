@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CatalogTableOpenTableFormatInputIcebergInput
     {
         /// <summary>
+        /// Configuration parameters, including table properties and metadata specifications. See `IcebergTableInput` below.
+        /// </summary>
+        public readonly Outputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput? IcebergTableInput;
+        /// <summary>
         /// A required metadata operation. Can only be set to CREATE.
         /// </summary>
         public readonly string MetadataOperation;
@@ -24,10 +28,13 @@ namespace Pulumi.Aws.Glue.Outputs
 
         [OutputConstructor]
         private CatalogTableOpenTableFormatInputIcebergInput(
+            Outputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput? icebergTableInput,
+
             string metadataOperation,
 
             string? version)
         {
+            IcebergTableInput = icebergTableInput;
             MetadataOperation = metadataOperation;
             Version = version;
         }

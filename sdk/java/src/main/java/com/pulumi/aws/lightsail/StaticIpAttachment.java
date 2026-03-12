@@ -60,8 +60,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleStaticIpAttachment = new StaticIpAttachment("exampleStaticIpAttachment", StaticIpAttachmentArgs.builder()
- *             .staticIpName(example.id())
- *             .instanceName(exampleInstance.id())
+ *             .staticIpName(example.name())
+ *             .instanceName(exampleInstance.name())
  *             .build());
  * 
  *     }

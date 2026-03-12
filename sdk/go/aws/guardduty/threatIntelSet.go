@@ -107,6 +107,8 @@ type ThreatIntelSet struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// ID of the GuardDuty ThreatIntelSet.
+	ThreatIntelSetId pulumi.StringOutput `pulumi:"threatIntelSetId"`
 }
 
 // NewThreatIntelSet registers a new resource with the given unique name, arguments, and options.
@@ -169,6 +171,8 @@ type threatIntelSetState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// ID of the GuardDuty ThreatIntelSet.
+	ThreatIntelSetId *string `pulumi:"threatIntelSetId"`
 }
 
 type ThreatIntelSetState struct {
@@ -190,6 +194,8 @@ type ThreatIntelSetState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
+	// ID of the GuardDuty ThreatIntelSet.
+	ThreatIntelSetId pulumi.StringPtrInput
 }
 
 func (ThreatIntelSetState) ElementType() reflect.Type {
@@ -361,6 +367,11 @@ func (o ThreatIntelSetOutput) Tags() pulumi.StringMapOutput {
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ThreatIntelSetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// ID of the GuardDuty ThreatIntelSet.
+func (o ThreatIntelSetOutput) ThreatIntelSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringOutput { return v.ThreatIntelSetId }).(pulumi.StringOutput)
 }
 
 type ThreatIntelSetArrayOutput struct{ *pulumi.OutputState }

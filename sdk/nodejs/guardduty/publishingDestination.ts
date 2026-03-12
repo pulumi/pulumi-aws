@@ -125,13 +125,19 @@ export class PublishingDestination extends pulumi.CustomResource {
     }
 
     /**
+     * Resource ARN.
+     */
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
      * The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
      */
     declare public readonly destinationArn: pulumi.Output<string>;
     /**
+     * Destination ID.
+     */
+    declare public /*out*/ readonly destinationId: pulumi.Output<string>;
+    /**
      * Currently there is only "S3" available as destination type which is also the default value
-     *
-     * > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
      */
     declare public readonly destinationType: pulumi.Output<string | undefined>;
     /**
@@ -146,6 +152,16 @@ export class PublishingDestination extends pulumi.CustomResource {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+     */
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a PublishingDestination resource with the given unique name, arguments, and options.
@@ -160,11 +176,15 @@ export class PublishingDestination extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PublishingDestinationState | undefined;
+            resourceInputs["arn"] = state?.arn;
             resourceInputs["destinationArn"] = state?.destinationArn;
+            resourceInputs["destinationId"] = state?.destinationId;
             resourceInputs["destinationType"] = state?.destinationType;
             resourceInputs["detectorId"] = state?.detectorId;
             resourceInputs["kmsKeyArn"] = state?.kmsKeyArn;
             resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as PublishingDestinationArgs | undefined;
             if (args?.destinationArn === undefined && !opts.urn) {
@@ -181,6 +201,10 @@ export class PublishingDestination extends pulumi.CustomResource {
             resourceInputs["detectorId"] = args?.detectorId;
             resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
             resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["destinationId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PublishingDestination.__pulumiType, name, resourceInputs, opts);
@@ -192,13 +216,19 @@ export class PublishingDestination extends pulumi.CustomResource {
  */
 export interface PublishingDestinationState {
     /**
+     * Resource ARN.
+     */
+    arn?: pulumi.Input<string>;
+    /**
      * The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
      */
     destinationArn?: pulumi.Input<string>;
     /**
+     * Destination ID.
+     */
+    destinationId?: pulumi.Input<string>;
+    /**
      * Currently there is only "S3" available as destination type which is also the default value
-     *
-     * > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
      */
     destinationType?: pulumi.Input<string>;
     /**
@@ -213,6 +243,16 @@ export interface PublishingDestinationState {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -225,8 +265,6 @@ export interface PublishingDestinationArgs {
     destinationArn: pulumi.Input<string>;
     /**
      * Currently there is only "S3" available as destination type which is also the default value
-     *
-     * > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
      */
     destinationType?: pulumi.Input<string>;
     /**
@@ -241,4 +279,10 @@ export interface PublishingDestinationArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

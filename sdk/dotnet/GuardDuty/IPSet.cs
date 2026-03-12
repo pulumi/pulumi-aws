@@ -98,6 +98,12 @@ namespace Pulumi.Aws.GuardDuty
         public Output<string> Format { get; private set; } = null!;
 
         /// <summary>
+        /// ID of the GuardDuty IPSet.
+        /// </summary>
+        [Output("ipSetId")]
+        public Output<string> IpSetId { get; private set; } = null!;
+
+        /// <summary>
         /// The URI of the file that contains the IPSet.
         /// </summary>
         [Output("location")]
@@ -252,6 +258,12 @@ namespace Pulumi.Aws.GuardDuty
         /// </summary>
         [Input("format")]
         public Input<string>? Format { get; set; }
+
+        /// <summary>
+        /// ID of the GuardDuty IPSet.
+        /// </summary>
+        [Input("ipSetId")]
+        public Input<string>? IpSetId { get; set; }
 
         /// <summary>
         /// The URI of the file that contains the IPSet.

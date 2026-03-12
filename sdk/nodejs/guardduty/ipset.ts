@@ -88,6 +88,10 @@ export class IPSet extends pulumi.CustomResource {
      */
     declare public readonly format: pulumi.Output<string>;
     /**
+     * ID of the GuardDuty IPSet.
+     */
+    declare public /*out*/ readonly ipSetId: pulumi.Output<string>;
+    /**
      * The URI of the file that contains the IPSet.
      */
     declare public readonly location: pulumi.Output<string>;
@@ -125,6 +129,7 @@ export class IPSet extends pulumi.CustomResource {
             resourceInputs["arn"] = state?.arn;
             resourceInputs["detectorId"] = state?.detectorId;
             resourceInputs["format"] = state?.format;
+            resourceInputs["ipSetId"] = state?.ipSetId;
             resourceInputs["location"] = state?.location;
             resourceInputs["name"] = state?.name;
             resourceInputs["region"] = state?.region;
@@ -152,6 +157,7 @@ export class IPSet extends pulumi.CustomResource {
             resourceInputs["region"] = args?.region;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["ipSetId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -179,6 +185,10 @@ export interface IPSetState {
      * The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
      */
     format?: pulumi.Input<string>;
+    /**
+     * ID of the GuardDuty IPSet.
+     */
+    ipSetId?: pulumi.Input<string>;
     /**
      * The URI of the file that contains the IPSet.
      */

@@ -192,15 +192,25 @@ namespace Pulumi.Aws.GuardDuty
     public partial class PublishingDestination : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Resource ARN.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
         /// </summary>
         [Output("destinationArn")]
         public Output<string> DestinationArn { get; private set; } = null!;
 
         /// <summary>
+        /// Destination ID.
+        /// </summary>
+        [Output("destinationId")]
+        public Output<string> DestinationId { get; private set; } = null!;
+
+        /// <summary>
         /// Currently there is only "S3" available as destination type which is also the default value
-        /// 
-        /// &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         /// </summary>
         [Output("destinationType")]
         public Output<string?> DestinationType { get; private set; } = null!;
@@ -222,6 +232,20 @@ namespace Pulumi.Aws.GuardDuty
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// </summary>
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
 
         /// <summary>
@@ -277,8 +301,6 @@ namespace Pulumi.Aws.GuardDuty
 
         /// <summary>
         /// Currently there is only "S3" available as destination type which is also the default value
-        /// 
-        /// &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         /// </summary>
         [Input("destinationType")]
         public Input<string>? DestinationType { get; set; }
@@ -301,6 +323,20 @@ namespace Pulumi.Aws.GuardDuty
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public PublishingDestinationArgs()
         {
         }
@@ -310,15 +346,25 @@ namespace Pulumi.Aws.GuardDuty
     public sealed class PublishingDestinationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Resource ARN.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
         /// The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
         /// </summary>
         [Input("destinationArn")]
         public Input<string>? DestinationArn { get; set; }
 
         /// <summary>
+        /// Destination ID.
+        /// </summary>
+        [Input("destinationId")]
+        public Input<string>? DestinationId { get; set; }
+
+        /// <summary>
         /// Currently there is only "S3" available as destination type which is also the default value
-        /// 
-        /// &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         /// </summary>
         [Input("destinationType")]
         public Input<string>? DestinationType { get; set; }
@@ -340,6 +386,32 @@ namespace Pulumi.Aws.GuardDuty
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
 
         public PublishingDestinationState()
         {

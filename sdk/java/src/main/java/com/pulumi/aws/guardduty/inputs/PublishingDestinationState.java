@@ -6,6 +6,7 @@ package com.pulumi.aws.guardduty.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class PublishingDestinationState extends com.pulumi.resources.ResourceArgs {
 
     public static final PublishingDestinationState Empty = new PublishingDestinationState();
+
+    /**
+     * Resource ARN.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return Resource ARN.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
 
     /**
      * The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
@@ -31,9 +47,22 @@ public final class PublishingDestinationState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Currently there is only &#34;S3&#34; available as destination type which is also the default value
+     * Destination ID.
      * 
-     * &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the &#34;DescribePublishingDestination&#34; call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+     */
+    @Import(name="destinationId")
+    private @Nullable Output<String> destinationId;
+
+    /**
+     * @return Destination ID.
+     * 
+     */
+    public Optional<Output<String>> destinationId() {
+        return Optional.ofNullable(this.destinationId);
+    }
+
+    /**
+     * Currently there is only &#34;S3&#34; available as destination type which is also the default value
      * 
      */
     @Import(name="destinationType")
@@ -41,8 +70,6 @@ public final class PublishingDestinationState extends com.pulumi.resources.Resou
 
     /**
      * @return Currently there is only &#34;S3&#34; available as destination type which is also the default value
-     * 
-     * &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the &#34;DescribePublishingDestination&#34; call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
      * 
      */
     public Optional<Output<String>> destinationType() {
@@ -94,14 +121,52 @@ public final class PublishingDestinationState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.region);
     }
 
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the &#34;DescribePublishingDestination&#34; call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Output<Map<String,String>> tags;
+
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the &#34;DescribePublishingDestination&#34; call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
     private PublishingDestinationState() {}
 
     private PublishingDestinationState(PublishingDestinationState $) {
+        this.arn = $.arn;
         this.destinationArn = $.destinationArn;
+        this.destinationId = $.destinationId;
         this.destinationType = $.destinationType;
         this.detectorId = $.detectorId;
         this.kmsKeyArn = $.kmsKeyArn;
         this.region = $.region;
+        this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -120,6 +185,27 @@ public final class PublishingDestinationState extends com.pulumi.resources.Resou
 
         public Builder(PublishingDestinationState defaults) {
             $ = new PublishingDestinationState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param arn Resource ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn Resource ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**
@@ -144,9 +230,28 @@ public final class PublishingDestinationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param destinationType Currently there is only &#34;S3&#34; available as destination type which is also the default value
+         * @param destinationId Destination ID.
          * 
-         * &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the &#34;DescribePublishingDestination&#34; call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+         * @return builder
+         * 
+         */
+        public Builder destinationId(@Nullable Output<String> destinationId) {
+            $.destinationId = destinationId;
+            return this;
+        }
+
+        /**
+         * @param destinationId Destination ID.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder destinationId(String destinationId) {
+            return destinationId(Output.of(destinationId));
+        }
+
+        /**
+         * @param destinationType Currently there is only &#34;S3&#34; available as destination type which is also the default value
          * 
          * @return builder
          * 
@@ -158,8 +263,6 @@ public final class PublishingDestinationState extends com.pulumi.resources.Resou
 
         /**
          * @param destinationType Currently there is only &#34;S3&#34; available as destination type which is also the default value
-         * 
-         * &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the &#34;DescribePublishingDestination&#34; call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
          * 
          * @return builder
          * 
@@ -229,6 +332,52 @@ public final class PublishingDestinationState extends com.pulumi.resources.Resou
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the &#34;DescribePublishingDestination&#34; call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Output<Map<String,String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the &#34;DescribePublishingDestination&#34; call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(Map<String,String> tags) {
+            return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         public PublishingDestinationState build() {

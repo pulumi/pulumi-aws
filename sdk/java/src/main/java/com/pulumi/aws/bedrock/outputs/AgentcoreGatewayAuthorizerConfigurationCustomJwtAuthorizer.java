@@ -22,6 +22,7 @@ public final class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer {
      * 
      */
     private @Nullable List<String> allowedClients;
+    private List<String> allowedScopes;
     /**
      * @return URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
      * 
@@ -43,6 +44,9 @@ public final class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer {
     public List<String> allowedClients() {
         return this.allowedClients == null ? List.of() : this.allowedClients;
     }
+    public List<String> allowedScopes() {
+        return this.allowedScopes;
+    }
     /**
      * @return URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
      * 
@@ -62,12 +66,14 @@ public final class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer {
     public static final class Builder {
         private @Nullable List<String> allowedAudiences;
         private @Nullable List<String> allowedClients;
+        private List<String> allowedScopes;
         private String discoveryUrl;
         public Builder() {}
         public Builder(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedAudiences = defaults.allowedAudiences;
     	      this.allowedClients = defaults.allowedClients;
+    	      this.allowedScopes = defaults.allowedScopes;
     	      this.discoveryUrl = defaults.discoveryUrl;
         }
 
@@ -90,6 +96,17 @@ public final class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer {
             return allowedClients(List.of(allowedClients));
         }
         @CustomType.Setter
+        public Builder allowedScopes(List<String> allowedScopes) {
+            if (allowedScopes == null) {
+              throw new MissingRequiredPropertyException("AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer", "allowedScopes");
+            }
+            this.allowedScopes = allowedScopes;
+            return this;
+        }
+        public Builder allowedScopes(String... allowedScopes) {
+            return allowedScopes(List.of(allowedScopes));
+        }
+        @CustomType.Setter
         public Builder discoveryUrl(String discoveryUrl) {
             if (discoveryUrl == null) {
               throw new MissingRequiredPropertyException("AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer", "discoveryUrl");
@@ -101,6 +118,7 @@ public final class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer {
             final var _resultValue = new AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer();
             _resultValue.allowedAudiences = allowedAudiences;
             _resultValue.allowedClients = allowedClients;
+            _resultValue.allowedScopes = allowedScopes;
             _resultValue.discoveryUrl = discoveryUrl;
             return _resultValue;
         }

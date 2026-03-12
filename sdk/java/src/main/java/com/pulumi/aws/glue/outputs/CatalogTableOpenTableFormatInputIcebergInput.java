@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.glue.outputs;
 
+import com.pulumi.aws.glue.outputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -12,6 +13,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CatalogTableOpenTableFormatInputIcebergInput {
+    /**
+     * @return Configuration parameters, including table properties and metadata specifications. See `icebergTableInput` below.
+     * 
+     */
+    private @Nullable CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput icebergTableInput;
     /**
      * @return A required metadata operation. Can only be set to CREATE.
      * 
@@ -24,6 +30,13 @@ public final class CatalogTableOpenTableFormatInputIcebergInput {
     private @Nullable String version;
 
     private CatalogTableOpenTableFormatInputIcebergInput() {}
+    /**
+     * @return Configuration parameters, including table properties and metadata specifications. See `icebergTableInput` below.
+     * 
+     */
+    public Optional<CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput> icebergTableInput() {
+        return Optional.ofNullable(this.icebergTableInput);
+    }
     /**
      * @return A required metadata operation. Can only be set to CREATE.
      * 
@@ -48,15 +61,23 @@ public final class CatalogTableOpenTableFormatInputIcebergInput {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput icebergTableInput;
         private String metadataOperation;
         private @Nullable String version;
         public Builder() {}
         public Builder(CatalogTableOpenTableFormatInputIcebergInput defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.icebergTableInput = defaults.icebergTableInput;
     	      this.metadataOperation = defaults.metadataOperation;
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
+        public Builder icebergTableInput(@Nullable CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput icebergTableInput) {
+
+            this.icebergTableInput = icebergTableInput;
+            return this;
+        }
         @CustomType.Setter
         public Builder metadataOperation(String metadataOperation) {
             if (metadataOperation == null) {
@@ -73,6 +94,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInput {
         }
         public CatalogTableOpenTableFormatInputIcebergInput build() {
             final var _resultValue = new CatalogTableOpenTableFormatInputIcebergInput();
+            _resultValue.icebergTableInput = icebergTableInput;
             _resultValue.metadataOperation = metadataOperation;
             _resultValue.version = version;
             return _resultValue;

@@ -173,7 +173,7 @@ public final class VpcEndpointState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
-     * Defaults to `false`.
+     * Defaults to `false`. If `vpcEndpointType` is anything other than `Interface`, changing this value forces a new resource to be created.
      * 
      */
     @Import(name="privateDnsEnabled")
@@ -181,7 +181,7 @@ public final class VpcEndpointState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
-     * Defaults to `false`.
+     * Defaults to `false`. If `vpcEndpointType` is anything other than `Interface`, changing this value forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> privateDnsEnabled() {
@@ -706,7 +706,7 @@ public final class VpcEndpointState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param privateDnsEnabled Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
-         * Defaults to `false`.
+         * Defaults to `false`. If `vpcEndpointType` is anything other than `Interface`, changing this value forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -718,7 +718,7 @@ public final class VpcEndpointState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param privateDnsEnabled Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
-         * Defaults to `false`.
+         * Defaults to `false`. If `vpcEndpointType` is anything other than `Interface`, changing this value forces a new resource to be created.
          * 
          * @return builder
          * 

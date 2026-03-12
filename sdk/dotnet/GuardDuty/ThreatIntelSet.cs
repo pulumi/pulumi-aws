@@ -128,6 +128,12 @@ namespace Pulumi.Aws.GuardDuty
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// ID of the GuardDuty ThreatIntelSet.
+        /// </summary>
+        [Output("threatIntelSetId")]
+        public Output<string> ThreatIntelSetId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ThreatIntelSet resource with the given unique name, arguments, and options.
@@ -295,6 +301,12 @@ namespace Pulumi.Aws.GuardDuty
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// ID of the GuardDuty ThreatIntelSet.
+        /// </summary>
+        [Input("threatIntelSetId")]
+        public Input<string>? ThreatIntelSetId { get; set; }
 
         public ThreatIntelSetState()
         {

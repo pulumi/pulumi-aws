@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Observabilityadmin
     /// });
     /// ```
     /// 
-    /// ### Advanced Configuration with Encryption and Backup
+    /// ### Advanced Configuration with Encryption, Backup and Log Group Name Configuration
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -98,6 +98,10 @@ namespace Pulumi.Aws.Observabilityadmin
     ///                     BackupConfiguration = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs
     ///                     {
     ///                         Region = "us-west-1",
+    ///                     },
+    ///                     LogGroupNameConfiguration = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgs
+    ///                     {
+    ///                         LogGroupNamePattern = "/centralized-logs/${source.accountId}/${source.region}/${source.logGroup}",
     ///                     },
     ///                 },
     ///             },

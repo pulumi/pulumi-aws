@@ -169,6 +169,9 @@ import javax.annotation.Nullable;
  *                     .allowedClients(                    
  *                         "client-123",
  *                         "client-456")
+ *                     .allowedScopes(                    
+ *                         "openid",
+ *                         "email")
  *                     .build())
  *                 .build())
  *             .networkConfiguration(AgentcoreAgentRuntimeNetworkConfigurationArgs.builder()

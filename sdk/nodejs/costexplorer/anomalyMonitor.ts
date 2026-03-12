@@ -95,7 +95,7 @@ export class AnomalyMonitor extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The dimensions to evaluate. Valid values: `SERVICE`.
+     * The dimensions to evaluate. Valid values: `COST_CATEGORY`, `LINKED_ACCOUNT`, `SERVICE`, `TAG`.
      */
     declare public readonly monitorDimension: pulumi.Output<string | undefined>;
     /**
@@ -166,7 +166,7 @@ export interface AnomalyMonitorState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The dimensions to evaluate. Valid values: `SERVICE`.
+     * The dimensions to evaluate. Valid values: `COST_CATEGORY`, `LINKED_ACCOUNT`, `SERVICE`, `TAG`.
      */
     monitorDimension?: pulumi.Input<string>;
     /**
@@ -196,7 +196,7 @@ export interface AnomalyMonitorState {
  */
 export interface AnomalyMonitorArgs {
     /**
-     * The dimensions to evaluate. Valid values: `SERVICE`.
+     * The dimensions to evaluate. Valid values: `COST_CATEGORY`, `LINKED_ACCOUNT`, `SERVICE`, `TAG`.
      */
     monitorDimension?: pulumi.Input<string>;
     /**
