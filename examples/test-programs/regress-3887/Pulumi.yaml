@@ -1,5 +1,0 @@
-name: regress-3887
-runtime:
-  name: python
-  options:
-    virtualenv: venv
