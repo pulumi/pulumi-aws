@@ -96,6 +96,8 @@ type IPSet struct {
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
 	// The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
 	Format pulumi.StringOutput `pulumi:"format"`
+	// ID of the GuardDuty IPSet.
+	IpSetId pulumi.StringOutput `pulumi:"ipSetId"`
 	// The URI of the file that contains the IPSet.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The friendly name to identify the IPSet.
@@ -158,6 +160,8 @@ type ipsetState struct {
 	DetectorId *string `pulumi:"detectorId"`
 	// The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
 	Format *string `pulumi:"format"`
+	// ID of the GuardDuty IPSet.
+	IpSetId *string `pulumi:"ipSetId"`
 	// The URI of the file that contains the IPSet.
 	Location *string `pulumi:"location"`
 	// The friendly name to identify the IPSet.
@@ -179,6 +183,8 @@ type IPSetState struct {
 	DetectorId pulumi.StringPtrInput
 	// The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
 	Format pulumi.StringPtrInput
+	// ID of the GuardDuty IPSet.
+	IpSetId pulumi.StringPtrInput
 	// The URI of the file that contains the IPSet.
 	Location pulumi.StringPtrInput
 	// The friendly name to identify the IPSet.
@@ -335,6 +341,11 @@ func (o IPSetOutput) DetectorId() pulumi.StringOutput {
 // The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
 func (o IPSetOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v *IPSet) pulumi.StringOutput { return v.Format }).(pulumi.StringOutput)
+}
+
+// ID of the GuardDuty IPSet.
+func (o IPSetOutput) IpSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IPSet) pulumi.StringOutput { return v.IpSetId }).(pulumi.StringOutput)
 }
 
 // The URI of the file that contains the IPSet.

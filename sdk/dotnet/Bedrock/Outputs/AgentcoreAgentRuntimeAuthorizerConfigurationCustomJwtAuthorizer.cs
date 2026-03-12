@@ -22,6 +22,10 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AllowedClients;
         /// <summary>
+        /// Set of scopes that are allowed to access the token.
+        /// </summary>
+        public readonly ImmutableArray<string> AllowedScopes;
+        /// <summary>
         /// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
         /// </summary>
         public readonly string DiscoveryUrl;
@@ -32,10 +36,13 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
             ImmutableArray<string> allowedClients,
 
+            ImmutableArray<string> allowedScopes,
+
             string discoveryUrl)
         {
             AllowedAudiences = allowedAudiences;
             AllowedClients = allowedClients;
+            AllowedScopes = allowedScopes;
             DiscoveryUrl = discoveryUrl;
         }
     }

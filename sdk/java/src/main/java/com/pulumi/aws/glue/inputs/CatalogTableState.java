@@ -8,6 +8,7 @@ import com.pulumi.aws.glue.inputs.CatalogTablePartitionIndexArgs;
 import com.pulumi.aws.glue.inputs.CatalogTablePartitionKeyArgs;
 import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorArgs;
 import com.pulumi.aws.glue.inputs.CatalogTableTargetTableArgs;
+import com.pulumi.aws.glue.inputs.CatalogTableViewDefinitionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -253,6 +254,21 @@ public final class CatalogTableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+     * 
+     */
+    @Import(name="viewDefinition")
+    private @Nullable Output<CatalogTableViewDefinitionArgs> viewDefinition;
+
+    /**
+     * @return A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+     * 
+     */
+    public Optional<Output<CatalogTableViewDefinitionArgs>> viewDefinition() {
+        return Optional.ofNullable(this.viewDefinition);
+    }
+
+    /**
      * If the table is a view, the expanded text of the view; otherwise null.
      * 
      */
@@ -300,6 +316,7 @@ public final class CatalogTableState extends com.pulumi.resources.ResourceArgs {
         this.storageDescriptor = $.storageDescriptor;
         this.tableType = $.tableType;
         this.targetTable = $.targetTable;
+        this.viewDefinition = $.viewDefinition;
         this.viewExpandedText = $.viewExpandedText;
         this.viewOriginalText = $.viewOriginalText;
     }
@@ -659,6 +676,27 @@ public final class CatalogTableState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder targetTable(CatalogTableTargetTableArgs targetTable) {
             return targetTable(Output.of(targetTable));
+        }
+
+        /**
+         * @param viewDefinition A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder viewDefinition(@Nullable Output<CatalogTableViewDefinitionArgs> viewDefinition) {
+            $.viewDefinition = viewDefinition;
+            return this;
+        }
+
+        /**
+         * @param viewDefinition A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder viewDefinition(CatalogTableViewDefinitionArgs viewDefinition) {
+            return viewDefinition(Output.of(viewDefinition));
         }
 
         /**

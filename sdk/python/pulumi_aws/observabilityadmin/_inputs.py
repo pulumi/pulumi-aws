@@ -23,6 +23,8 @@ __all__ = [
     'CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgsDict',
     'CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs',
     'CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgsDict',
+    'CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgs',
+    'CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgsDict',
     'CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs',
     'CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgsDict',
     'CentralizationRuleForOrganizationRuleSourceArgs',
@@ -156,6 +158,10 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
     """
     Configuration block for backup settings. See `backup_configuration` below.
     """
+    log_group_name_configuration: NotRequired[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgsDict']]
+    """
+    Configuration block for a naming pattern for destination log groups created during centralization. See `log_group_name_configuration` below.
+    """
     logs_encryption_configuration: NotRequired[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgsDict']]
     """
     Configuration block for logs encryption settings. See `logs_encryption_configuration` below.
@@ -165,13 +171,17 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
 class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs:
     def __init__(__self__, *,
                  backup_configuration: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs']] = None,
+                 log_group_name_configuration: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgs']] = None,
                  logs_encryption_configuration: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs']] = None):
         """
         :param pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs'] backup_configuration: Configuration block for backup settings. See `backup_configuration` below.
+        :param pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgs'] log_group_name_configuration: Configuration block for a naming pattern for destination log groups created during centralization. See `log_group_name_configuration` below.
         :param pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs'] logs_encryption_configuration: Configuration block for logs encryption settings. See `logs_encryption_configuration` below.
         """
         if backup_configuration is not None:
             pulumi.set(__self__, "backup_configuration", backup_configuration)
+        if log_group_name_configuration is not None:
+            pulumi.set(__self__, "log_group_name_configuration", log_group_name_configuration)
         if logs_encryption_configuration is not None:
             pulumi.set(__self__, "logs_encryption_configuration", logs_encryption_configuration)
 
@@ -186,6 +196,18 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
     @backup_configuration.setter
     def backup_configuration(self, value: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs']]):
         pulumi.set(self, "backup_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupNameConfiguration")
+    def log_group_name_configuration(self) -> Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgs']]:
+        """
+        Configuration block for a naming pattern for destination log groups created during centralization. See `log_group_name_configuration` below.
+        """
+        return pulumi.get(self, "log_group_name_configuration")
+
+    @log_group_name_configuration.setter
+    def log_group_name_configuration(self, value: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgs']]):
+        pulumi.set(self, "log_group_name_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="logsEncryptionConfiguration")
@@ -247,6 +269,34 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
     @region.setter
     def region(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "region", value)
+
+
+class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgsDict(TypedDict):
+    log_group_name_pattern: pulumi.Input[_builtins.str]
+    """
+    Pattern used for generating destination log group names during centralization. The pattern can contain static text and dynamic variables that are replaced with source attributes. For supported dynamic variables, see the [AWS documentation](https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_LogGroupNameConfiguration.html). Note that `$` used in dynamic variables must be escaped as `$$` in Terraform configuration.
+    """
+
+@pulumi.input_type
+class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgs:
+    def __init__(__self__, *,
+                 log_group_name_pattern: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] log_group_name_pattern: Pattern used for generating destination log group names during centralization. The pattern can contain static text and dynamic variables that are replaced with source attributes. For supported dynamic variables, see the [AWS documentation](https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_LogGroupNameConfiguration.html). Note that `$` used in dynamic variables must be escaped as `$$` in Terraform configuration.
+        """
+        pulumi.set(__self__, "log_group_name_pattern", log_group_name_pattern)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupNamePattern")
+    def log_group_name_pattern(self) -> pulumi.Input[_builtins.str]:
+        """
+        Pattern used for generating destination log group names during centralization. The pattern can contain static text and dynamic variables that are replaced with source attributes. For supported dynamic variables, see the [AWS documentation](https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_LogGroupNameConfiguration.html). Note that `$` used in dynamic variables must be escaped as `$$` in Terraform configuration.
+        """
+        return pulumi.get(self, "log_group_name_pattern")
+
+    @log_group_name_pattern.setter
+    def log_group_name_pattern(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "log_group_name_pattern", value)
 
 
 class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgsDict(TypedDict):

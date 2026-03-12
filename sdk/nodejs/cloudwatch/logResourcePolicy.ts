@@ -65,10 +65,14 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import CloudWatch log resource policies using the policy name. For example:
+ * Using `pulumi import`, import CloudWatch log resource policies using the policy name for account-scoped policies, or the ARN of the CloudWatch Logs resource to which the policy is attached for resource-scoped policies. For example:
  *
  * ```sh
- * $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
+ * $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy my_policy_account_scoped my_policy
+ * ```
+ *
+ * ```sh
+ * $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy my_policy_resource_scoped "arn:aws:logs:us-west-2:123456789012:log-group:/my-log-group"
  * ```
  */
 export class LogResourcePolicy extends pulumi.CustomResource {
@@ -104,13 +108,25 @@ export class LogResourcePolicy extends pulumi.CustomResource {
      */
     declare public readonly policyDocument: pulumi.Output<string>;
     /**
-     * Name of the resource policy.
+     * Name of the resource policy. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for account-scoped policies. Note that the number of resource policies without `resourceArn` is limited to 10 per region.
      */
-    declare public readonly policyName: pulumi.Output<string>;
+    declare public readonly policyName: pulumi.Output<string | undefined>;
+    /**
+     * Scope of the resource policy (`ACCOUNT` or `RESOURCE`).
+     */
+    declare public /*out*/ readonly policyScope: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
+    /**
+     * ARN of the CloudWatch Logs resource to which the resource policy is attached. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for resource-scoped policies. Only one policy can be attached per log group resource ARN.
+     */
+    declare public readonly resourceArn: pulumi.Output<string | undefined>;
+    /**
+     * Revision ID of the resource policy. Only populated for resource-scoped policies.
+     */
+    declare public /*out*/ readonly revisionId: pulumi.Output<string>;
 
     /**
      * Create a LogResourcePolicy resource with the given unique name, arguments, and options.
@@ -127,18 +143,21 @@ export class LogResourcePolicy extends pulumi.CustomResource {
             const state = argsOrState as LogResourcePolicyState | undefined;
             resourceInputs["policyDocument"] = state?.policyDocument;
             resourceInputs["policyName"] = state?.policyName;
+            resourceInputs["policyScope"] = state?.policyScope;
             resourceInputs["region"] = state?.region;
+            resourceInputs["resourceArn"] = state?.resourceArn;
+            resourceInputs["revisionId"] = state?.revisionId;
         } else {
             const args = argsOrState as LogResourcePolicyArgs | undefined;
             if (args?.policyDocument === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            if (args?.policyName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'policyName'");
-            }
             resourceInputs["policyDocument"] = args?.policyDocument;
             resourceInputs["policyName"] = args?.policyName;
             resourceInputs["region"] = args?.region;
+            resourceInputs["resourceArn"] = args?.resourceArn;
+            resourceInputs["policyScope"] = undefined /*out*/;
+            resourceInputs["revisionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogResourcePolicy.__pulumiType, name, resourceInputs, opts);
@@ -154,13 +173,25 @@ export interface LogResourcePolicyState {
      */
     policyDocument?: pulumi.Input<string | inputs.cloudwatch.PolicyDocument>;
     /**
-     * Name of the resource policy.
+     * Name of the resource policy. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for account-scoped policies. Note that the number of resource policies without `resourceArn` is limited to 10 per region.
      */
     policyName?: pulumi.Input<string>;
+    /**
+     * Scope of the resource policy (`ACCOUNT` or `RESOURCE`).
+     */
+    policyScope?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
+    /**
+     * ARN of the CloudWatch Logs resource to which the resource policy is attached. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for resource-scoped policies. Only one policy can be attached per log group resource ARN.
+     */
+    resourceArn?: pulumi.Input<string>;
+    /**
+     * Revision ID of the resource policy. Only populated for resource-scoped policies.
+     */
+    revisionId?: pulumi.Input<string>;
 }
 
 /**
@@ -172,11 +203,15 @@ export interface LogResourcePolicyArgs {
      */
     policyDocument: pulumi.Input<string | inputs.cloudwatch.PolicyDocument>;
     /**
-     * Name of the resource policy.
+     * Name of the resource policy. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for account-scoped policies. Note that the number of resource policies without `resourceArn` is limited to 10 per region.
      */
-    policyName: pulumi.Input<string>;
+    policyName?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
+    /**
+     * ARN of the CloudWatch Logs resource to which the resource policy is attached. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for resource-scoped policies. Only one policy can be attached per log group resource ARN.
+     */
+    resourceArn?: pulumi.Input<string>;
 }

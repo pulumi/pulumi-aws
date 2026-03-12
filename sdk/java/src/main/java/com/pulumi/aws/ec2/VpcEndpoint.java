@@ -567,7 +567,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
     }
     /**
      * Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
-     * Defaults to `false`.
+     * Defaults to `false`. If `vpcEndpointType` is anything other than `Interface`, changing this value forces a new resource to be created.
      * 
      */
     @Export(name="privateDnsEnabled", refs={Boolean.class}, tree="[0]")
@@ -575,7 +575,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
-     * Defaults to `false`.
+     * Defaults to `false`. If `vpcEndpointType` is anything other than `Interface`, changing this value forces a new resource to be created.
      * 
      */
     public Output<Boolean> privateDnsEnabled() {

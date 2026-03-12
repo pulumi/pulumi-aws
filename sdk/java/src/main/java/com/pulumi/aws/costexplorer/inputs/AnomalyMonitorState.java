@@ -32,14 +32,14 @@ public final class AnomalyMonitorState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The dimensions to evaluate. Valid values: `SERVICE`.
+     * The dimensions to evaluate. Valid values: `COST_CATEGORY`, `LINKED_ACCOUNT`, `SERVICE`, `TAG`.
      * 
      */
     @Import(name="monitorDimension")
     private @Nullable Output<String> monitorDimension;
 
     /**
-     * @return The dimensions to evaluate. Valid values: `SERVICE`.
+     * @return The dimensions to evaluate. Valid values: `COST_CATEGORY`, `LINKED_ACCOUNT`, `SERVICE`, `TAG`.
      * 
      */
     public Optional<Output<String>> monitorDimension() {
@@ -173,7 +173,7 @@ public final class AnomalyMonitorState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param monitorDimension The dimensions to evaluate. Valid values: `SERVICE`.
+         * @param monitorDimension The dimensions to evaluate. Valid values: `COST_CATEGORY`, `LINKED_ACCOUNT`, `SERVICE`, `TAG`.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class AnomalyMonitorState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param monitorDimension The dimensions to evaluate. Valid values: `SERVICE`.
+         * @param monitorDimension The dimensions to evaluate. Valid values: `COST_CATEGORY`, `LINKED_ACCOUNT`, `SERVICE`, `TAG`.
          * 
          * @return builder
          * 

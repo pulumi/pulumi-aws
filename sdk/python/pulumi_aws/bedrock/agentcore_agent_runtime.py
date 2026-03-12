@@ -631,6 +631,10 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
                         "client-123",
                         "client-456",
                     ],
+                    "allowed_scopes": [
+                        "openid",
+                        "email",
+                    ],
                 },
             },
             network_configuration={
@@ -781,6 +785,10 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
                     "allowed_clients": [
                         "client-123",
                         "client-456",
+                    ],
+                    "allowed_scopes": [
+                        "openid",
+                        "email",
                     ],
                 },
             },

@@ -97,7 +97,7 @@ namespace Pulumi.Aws.CostExplorer
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The dimensions to evaluate. Valid values: `SERVICE`.
+        /// The dimensions to evaluate. Valid values: `COST_CATEGORY`, `LINKED_ACCOUNT`, `SERVICE`, `TAG`.
         /// </summary>
         [Output("monitorDimension")]
         public Output<string?> MonitorDimension { get; private set; } = null!;
@@ -179,7 +179,7 @@ namespace Pulumi.Aws.CostExplorer
     public sealed class AnomalyMonitorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The dimensions to evaluate. Valid values: `SERVICE`.
+        /// The dimensions to evaluate. Valid values: `COST_CATEGORY`, `LINKED_ACCOUNT`, `SERVICE`, `TAG`.
         /// </summary>
         [Input("monitorDimension")]
         public Input<string>? MonitorDimension { get; set; }
@@ -229,7 +229,7 @@ namespace Pulumi.Aws.CostExplorer
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The dimensions to evaluate. Valid values: `SERVICE`.
+        /// The dimensions to evaluate. Valid values: `COST_CATEGORY`, `LINKED_ACCOUNT`, `SERVICE`, `TAG`.
         /// </summary>
         [Input("monitorDimension")]
         public Input<string>? MonitorDimension { get; set; }

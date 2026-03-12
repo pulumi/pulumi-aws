@@ -22,6 +22,13 @@ __all__ = [
     'CatalogDatabaseTargetDatabase',
     'CatalogTableOpenTableFormatInput',
     'CatalogTableOpenTableFormatInputIcebergInput',
+    'CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput',
+    'CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec',
+    'CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField',
+    'CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema',
+    'CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField',
+    'CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder',
+    'CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField',
     'CatalogTableOptimizerConfiguration',
     'CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration',
     'CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration',
@@ -37,6 +44,8 @@ __all__ = [
     'CatalogTableStorageDescriptorSkewedInfo',
     'CatalogTableStorageDescriptorSortColumn',
     'CatalogTableTargetTable',
+    'CatalogTableViewDefinition',
+    'CatalogTableViewDefinitionRepresentation',
     'ClassifierCsvClassifier',
     'ClassifierGrokClassifier',
     'ClassifierJsonClassifier',
@@ -318,6 +327,8 @@ class CatalogTableOpenTableFormatInputIcebergInput(dict):
         suggest = None
         if key == "metadataOperation":
             suggest = "metadata_operation"
+        elif key == "icebergTableInput":
+            suggest = "iceberg_table_input"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CatalogTableOpenTableFormatInputIcebergInput. Access the value via the '{suggest}' property getter instead.")
@@ -332,12 +343,16 @@ class CatalogTableOpenTableFormatInputIcebergInput(dict):
 
     def __init__(__self__, *,
                  metadata_operation: _builtins.str,
+                 iceberg_table_input: Optional['outputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput'] = None,
                  version: Optional[_builtins.str] = None):
         """
         :param _builtins.str metadata_operation: A required metadata operation. Can only be set to CREATE.
+        :param 'CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs' iceberg_table_input: Configuration parameters, including table properties and metadata specifications. See `iceberg_table_input` below.
         :param _builtins.str version: The table version for the Iceberg table. Defaults to 2.
         """
         pulumi.set(__self__, "metadata_operation", metadata_operation)
+        if iceberg_table_input is not None:
+            pulumi.set(__self__, "iceberg_table_input", iceberg_table_input)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -350,12 +365,497 @@ class CatalogTableOpenTableFormatInputIcebergInput(dict):
         return pulumi.get(self, "metadata_operation")
 
     @_builtins.property
+    @pulumi.getter(name="icebergTableInput")
+    def iceberg_table_input(self) -> Optional['outputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput']:
+        """
+        Configuration parameters, including table properties and metadata specifications. See `iceberg_table_input` below.
+        """
+        return pulumi.get(self, "iceberg_table_input")
+
+    @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[_builtins.str]:
         """
         The table version for the Iceberg table. Defaults to 2.
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "partitionSpec":
+            suggest = "partition_spec"
+        elif key == "sortOrder":
+            suggest = "sort_order"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 location: _builtins.str,
+                 schema: 'outputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema',
+                 partition_spec: Optional['outputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec'] = None,
+                 properties: Optional[Mapping[str, _builtins.str]] = None,
+                 sort_order: Optional['outputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder'] = None):
+        """
+        :param _builtins.str location: The S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
+        :param 'CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs' schema: The schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
+        :param 'CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs' partition_spec: The partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partition_spec` below.
+        :param Mapping[str, _builtins.str] properties: Key-value pairs of additional table properties and configuration settings for the Iceberg table.
+        :param 'CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs' sort_order: The sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sort_order` below.
+        """
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "schema", schema)
+        if partition_spec is not None:
+            pulumi.set(__self__, "partition_spec", partition_spec)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if sort_order is not None:
+            pulumi.set(__self__, "sort_order", sort_order)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> _builtins.str:
+        """
+        The S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
+        """
+        return pulumi.get(self, "location")
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> 'outputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema':
+        """
+        The schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
+        """
+        return pulumi.get(self, "schema")
+
+    @_builtins.property
+    @pulumi.getter(name="partitionSpec")
+    def partition_spec(self) -> Optional['outputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec']:
+        """
+        The partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partition_spec` below.
+        """
+        return pulumi.get(self, "partition_spec")
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Key-value pairs of additional table properties and configuration settings for the Iceberg table.
+        """
+        return pulumi.get(self, "properties")
+
+    @_builtins.property
+    @pulumi.getter(name="sortOrder")
+    def sort_order(self) -> Optional['outputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder']:
+        """
+        The sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sort_order` below.
+        """
+        return pulumi.get(self, "sort_order")
+
+
+@pulumi.output_type
+class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "specId":
+            suggest = "spec_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fields: Sequence['outputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField'],
+                 spec_id: Optional[_builtins.int] = None):
+        """
+        :param Sequence['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArgs'] fields: The list of partition fields that define how the table data should be partitioned. See `fields` below.
+        :param _builtins.int spec_id: The unique identifier for this partition specification within the Iceberg table's metadata history.
+        """
+        pulumi.set(__self__, "fields", fields)
+        if spec_id is not None:
+            pulumi.set(__self__, "spec_id", spec_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def fields(self) -> Sequence['outputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField']:
+        """
+        The list of partition fields that define how the table data should be partitioned. See `fields` below.
+        """
+        return pulumi.get(self, "fields")
+
+    @_builtins.property
+    @pulumi.getter(name="specId")
+    def spec_id(self) -> Optional[_builtins.int]:
+        """
+        The unique identifier for this partition specification within the Iceberg table's metadata history.
+        """
+        return pulumi.get(self, "spec_id")
+
+
+@pulumi.output_type
+class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceId":
+            suggest = "source_id"
+        elif key == "fieldId":
+            suggest = "field_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 source_id: _builtins.int,
+                 transform: _builtins.str,
+                 field_id: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str name: Name of the table. For Hive compatibility, this must be entirely lowercase.
+        :param _builtins.int field_id: The unique identifier assigned to this partition field within the Iceberg table's partition specification.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "source_id", source_id)
+        pulumi.set(__self__, "transform", transform)
+        if field_id is not None:
+            pulumi.set(__self__, "field_id", field_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the table. For Hive compatibility, this must be entirely lowercase.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> _builtins.int:
+        return pulumi.get(self, "source_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def transform(self) -> _builtins.str:
+        return pulumi.get(self, "transform")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> Optional[_builtins.int]:
+        """
+        The unique identifier assigned to this partition field within the Iceberg table's partition specification.
+        """
+        return pulumi.get(self, "field_id")
+
+
+@pulumi.output_type
+class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identifierFieldIds":
+            suggest = "identifier_field_ids"
+        elif key == "schemaId":
+            suggest = "schema_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fields: Sequence['outputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField'],
+                 identifier_field_ids: Optional[Sequence[_builtins.int]] = None,
+                 schema_id: Optional[_builtins.int] = None,
+                 type: Optional[_builtins.str] = None):
+        """
+        :param Sequence['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs'] fields: The list of field definitions that make up the table schema. See `fields` below.
+        :param Sequence[_builtins.int] identifier_field_ids: The list of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
+        :param _builtins.int schema_id: The unique identifier for this schema version within the Iceberg table's schema evolution history.
+        :param _builtins.str type: The data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `"long"`, `"string"`, `"timestamp"`, `"decimal(10,2)"`.
+        """
+        pulumi.set(__self__, "fields", fields)
+        if identifier_field_ids is not None:
+            pulumi.set(__self__, "identifier_field_ids", identifier_field_ids)
+        if schema_id is not None:
+            pulumi.set(__self__, "schema_id", schema_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def fields(self) -> Sequence['outputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField']:
+        """
+        The list of field definitions that make up the table schema. See `fields` below.
+        """
+        return pulumi.get(self, "fields")
+
+    @_builtins.property
+    @pulumi.getter(name="identifierFieldIds")
+    def identifier_field_ids(self) -> Optional[Sequence[_builtins.int]]:
+        """
+        The list of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
+        """
+        return pulumi.get(self, "identifier_field_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaId")
+    def schema_id(self) -> Optional[_builtins.int]:
+        """
+        The unique identifier for this schema version within the Iceberg table's schema evolution history.
+        """
+        return pulumi.get(self, "schema_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        The data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `"long"`, `"string"`, `"timestamp"`, `"decimal(10,2)"`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "initialDefault":
+            suggest = "initial_default"
+        elif key == "writeDefault":
+            suggest = "write_default"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: _builtins.int,
+                 name: _builtins.str,
+                 required: _builtins.bool,
+                 type: _builtins.str,
+                 doc: Optional[_builtins.str] = None,
+                 initial_default: Optional[_builtins.str] = None,
+                 write_default: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int id: Catalog ID, Database name and of the name table.
+        :param _builtins.str name: Name of the table. For Hive compatibility, this must be entirely lowercase.
+        :param _builtins.bool required: Indicates whether this field is required (non-nullable) or optional (nullable) in the table schema.
+        :param _builtins.str doc: Optional documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
+        :param _builtins.str initial_default: Default value as JSON used to populate the field's value for all records that were written before the field was added to the schema.
+        :param _builtins.str write_default: Default value as JSON used to populate the field's value for any records written after the field was added to the schema, if the writer does not supply the field's value.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "required", required)
+        pulumi.set(__self__, "type", type)
+        if doc is not None:
+            pulumi.set(__self__, "doc", doc)
+        if initial_default is not None:
+            pulumi.set(__self__, "initial_default", initial_default)
+        if write_default is not None:
+            pulumi.set(__self__, "write_default", write_default)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.int:
+        """
+        Catalog ID, Database name and of the name table.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the table. For Hive compatibility, this must be entirely lowercase.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def required(self) -> _builtins.bool:
+        """
+        Indicates whether this field is required (non-nullable) or optional (nullable) in the table schema.
+        """
+        return pulumi.get(self, "required")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def doc(self) -> Optional[_builtins.str]:
+        """
+        Optional documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
+        """
+        return pulumi.get(self, "doc")
+
+    @_builtins.property
+    @pulumi.getter(name="initialDefault")
+    def initial_default(self) -> Optional[_builtins.str]:
+        """
+        Default value as JSON used to populate the field's value for all records that were written before the field was added to the schema.
+        """
+        return pulumi.get(self, "initial_default")
+
+    @_builtins.property
+    @pulumi.getter(name="writeDefault")
+    def write_default(self) -> Optional[_builtins.str]:
+        """
+        Default value as JSON used to populate the field's value for any records written after the field was added to the schema, if the writer does not supply the field's value.
+        """
+        return pulumi.get(self, "write_default")
+
+
+@pulumi.output_type
+class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "orderId":
+            suggest = "order_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fields: Sequence['outputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField'],
+                 order_id: _builtins.int):
+        """
+        :param Sequence['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArgs'] fields: The list of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `fields` below.
+        :param _builtins.int order_id: The unique identifier for this sort order specification within the Iceberg table's metadata.
+        """
+        pulumi.set(__self__, "fields", fields)
+        pulumi.set(__self__, "order_id", order_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def fields(self) -> Sequence['outputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField']:
+        """
+        The list of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `fields` below.
+        """
+        return pulumi.get(self, "fields")
+
+    @_builtins.property
+    @pulumi.getter(name="orderId")
+    def order_id(self) -> _builtins.int:
+        """
+        The unique identifier for this sort order specification within the Iceberg table's metadata.
+        """
+        return pulumi.get(self, "order_id")
+
+
+@pulumi.output_type
+class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullOrder":
+            suggest = "null_order"
+        elif key == "sourceId":
+            suggest = "source_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 direction: _builtins.str,
+                 null_order: _builtins.str,
+                 source_id: _builtins.int,
+                 transform: _builtins.str):
+        """
+        :param _builtins.str direction: The sort direction for this field. Valid values: `asc`, `desc`.
+        :param _builtins.str null_order: The ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "null_order", null_order)
+        pulumi.set(__self__, "source_id", source_id)
+        pulumi.set(__self__, "transform", transform)
+
+    @_builtins.property
+    @pulumi.getter
+    def direction(self) -> _builtins.str:
+        """
+        The sort direction for this field. Valid values: `asc`, `desc`.
+        """
+        return pulumi.get(self, "direction")
+
+    @_builtins.property
+    @pulumi.getter(name="nullOrder")
+    def null_order(self) -> _builtins.str:
+        """
+        The ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
+        """
+        return pulumi.get(self, "null_order")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> _builtins.int:
+        return pulumi.get(self, "source_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def transform(self) -> _builtins.str:
+        return pulumi.get(self, "transform")
 
 
 @pulumi.output_type
@@ -1384,6 +1884,240 @@ class CatalogTableTargetTable(dict):
         Region of the target table.
         """
         return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class CatalogTableViewDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isProtected":
+            suggest = "is_protected"
+        elif key == "lastRefreshType":
+            suggest = "last_refresh_type"
+        elif key == "refreshSeconds":
+            suggest = "refresh_seconds"
+        elif key == "subObjectVersionIds":
+            suggest = "sub_object_version_ids"
+        elif key == "subObjects":
+            suggest = "sub_objects"
+        elif key == "viewVersionId":
+            suggest = "view_version_id"
+        elif key == "viewVersionToken":
+            suggest = "view_version_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogTableViewDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogTableViewDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogTableViewDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 definer: Optional[_builtins.str] = None,
+                 is_protected: Optional[_builtins.bool] = None,
+                 last_refresh_type: Optional[_builtins.str] = None,
+                 refresh_seconds: Optional[_builtins.int] = None,
+                 representations: Optional[Sequence['outputs.CatalogTableViewDefinitionRepresentation']] = None,
+                 sub_object_version_ids: Optional[Sequence[_builtins.int]] = None,
+                 sub_objects: Optional[Sequence[_builtins.str]] = None,
+                 view_version_id: Optional[_builtins.int] = None,
+                 view_version_token: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str definer: The definer of a view in SQL.
+        :param _builtins.bool is_protected: You can set this flag as true to instruct the engine not to push user-provided operations into the logical plan of the view during query planning. However, setting this flag does not guarantee that the engine will comply. Refer to the engine's documentation to understand the guarantees provided, if any.
+        :param _builtins.str last_refresh_type: Type of the materialized view's last refresh. Valid values: `Full`, `Incremental`.
+        :param _builtins.int refresh_seconds: Auto refresh interval in seconds for the materialized view.
+        :param Sequence['CatalogTableViewDefinitionRepresentationArgs'] representations: A list of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
+        :param Sequence[_builtins.int] sub_object_version_ids: List of the Apache Iceberg table versions referenced by the materialized view.
+        :param Sequence[_builtins.str] sub_objects: A list of base table ARNs that make up the view.
+        :param _builtins.int view_version_id: ID value that identifies this view's version. For materialized views, the version ID is the Apache Iceberg table's snapshot ID.
+        :param _builtins.str view_version_token: Version ID of the Apache Iceberg table.
+        """
+        if definer is not None:
+            pulumi.set(__self__, "definer", definer)
+        if is_protected is not None:
+            pulumi.set(__self__, "is_protected", is_protected)
+        if last_refresh_type is not None:
+            pulumi.set(__self__, "last_refresh_type", last_refresh_type)
+        if refresh_seconds is not None:
+            pulumi.set(__self__, "refresh_seconds", refresh_seconds)
+        if representations is not None:
+            pulumi.set(__self__, "representations", representations)
+        if sub_object_version_ids is not None:
+            pulumi.set(__self__, "sub_object_version_ids", sub_object_version_ids)
+        if sub_objects is not None:
+            pulumi.set(__self__, "sub_objects", sub_objects)
+        if view_version_id is not None:
+            pulumi.set(__self__, "view_version_id", view_version_id)
+        if view_version_token is not None:
+            pulumi.set(__self__, "view_version_token", view_version_token)
+
+    @_builtins.property
+    @pulumi.getter
+    def definer(self) -> Optional[_builtins.str]:
+        """
+        The definer of a view in SQL.
+        """
+        return pulumi.get(self, "definer")
+
+    @_builtins.property
+    @pulumi.getter(name="isProtected")
+    def is_protected(self) -> Optional[_builtins.bool]:
+        """
+        You can set this flag as true to instruct the engine not to push user-provided operations into the logical plan of the view during query planning. However, setting this flag does not guarantee that the engine will comply. Refer to the engine's documentation to understand the guarantees provided, if any.
+        """
+        return pulumi.get(self, "is_protected")
+
+    @_builtins.property
+    @pulumi.getter(name="lastRefreshType")
+    def last_refresh_type(self) -> Optional[_builtins.str]:
+        """
+        Type of the materialized view's last refresh. Valid values: `Full`, `Incremental`.
+        """
+        return pulumi.get(self, "last_refresh_type")
+
+    @_builtins.property
+    @pulumi.getter(name="refreshSeconds")
+    def refresh_seconds(self) -> Optional[_builtins.int]:
+        """
+        Auto refresh interval in seconds for the materialized view.
+        """
+        return pulumi.get(self, "refresh_seconds")
+
+    @_builtins.property
+    @pulumi.getter
+    def representations(self) -> Optional[Sequence['outputs.CatalogTableViewDefinitionRepresentation']]:
+        """
+        A list of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
+        """
+        return pulumi.get(self, "representations")
+
+    @_builtins.property
+    @pulumi.getter(name="subObjectVersionIds")
+    def sub_object_version_ids(self) -> Optional[Sequence[_builtins.int]]:
+        """
+        List of the Apache Iceberg table versions referenced by the materialized view.
+        """
+        return pulumi.get(self, "sub_object_version_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="subObjects")
+    def sub_objects(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of base table ARNs that make up the view.
+        """
+        return pulumi.get(self, "sub_objects")
+
+    @_builtins.property
+    @pulumi.getter(name="viewVersionId")
+    def view_version_id(self) -> Optional[_builtins.int]:
+        """
+        ID value that identifies this view's version. For materialized views, the version ID is the Apache Iceberg table's snapshot ID.
+        """
+        return pulumi.get(self, "view_version_id")
+
+    @_builtins.property
+    @pulumi.getter(name="viewVersionToken")
+    def view_version_token(self) -> Optional[_builtins.str]:
+        """
+        Version ID of the Apache Iceberg table.
+        """
+        return pulumi.get(self, "view_version_token")
+
+
+@pulumi.output_type
+class CatalogTableViewDefinitionRepresentation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dialectVersion":
+            suggest = "dialect_version"
+        elif key == "validationConnection":
+            suggest = "validation_connection"
+        elif key == "viewExpandedText":
+            suggest = "view_expanded_text"
+        elif key == "viewOriginalText":
+            suggest = "view_original_text"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogTableViewDefinitionRepresentation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogTableViewDefinitionRepresentation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogTableViewDefinitionRepresentation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dialect: Optional[_builtins.str] = None,
+                 dialect_version: Optional[_builtins.str] = None,
+                 validation_connection: Optional[_builtins.str] = None,
+                 view_expanded_text: Optional[_builtins.str] = None,
+                 view_original_text: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str dialect: A parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
+        :param _builtins.str dialect_version: A parameter that specifies the version of the engine of a specific representation.
+        :param _builtins.str validation_connection: The name of the connection to be used to validate the specific representation of the view.
+        :param _builtins.str view_expanded_text: A string that represents the SQL query that describes the view with expanded resource ARNs.
+        :param _builtins.str view_original_text: A string that represents the original SQL query that describes the view.
+        """
+        if dialect is not None:
+            pulumi.set(__self__, "dialect", dialect)
+        if dialect_version is not None:
+            pulumi.set(__self__, "dialect_version", dialect_version)
+        if validation_connection is not None:
+            pulumi.set(__self__, "validation_connection", validation_connection)
+        if view_expanded_text is not None:
+            pulumi.set(__self__, "view_expanded_text", view_expanded_text)
+        if view_original_text is not None:
+            pulumi.set(__self__, "view_original_text", view_original_text)
+
+    @_builtins.property
+    @pulumi.getter
+    def dialect(self) -> Optional[_builtins.str]:
+        """
+        A parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
+        """
+        return pulumi.get(self, "dialect")
+
+    @_builtins.property
+    @pulumi.getter(name="dialectVersion")
+    def dialect_version(self) -> Optional[_builtins.str]:
+        """
+        A parameter that specifies the version of the engine of a specific representation.
+        """
+        return pulumi.get(self, "dialect_version")
+
+    @_builtins.property
+    @pulumi.getter(name="validationConnection")
+    def validation_connection(self) -> Optional[_builtins.str]:
+        """
+        The name of the connection to be used to validate the specific representation of the view.
+        """
+        return pulumi.get(self, "validation_connection")
+
+    @_builtins.property
+    @pulumi.getter(name="viewExpandedText")
+    def view_expanded_text(self) -> Optional[_builtins.str]:
+        """
+        A string that represents the SQL query that describes the view with expanded resource ARNs.
+        """
+        return pulumi.get(self, "view_expanded_text")
+
+    @_builtins.property
+    @pulumi.getter(name="viewOriginalText")
+    def view_original_text(self) -> Optional[_builtins.str]:
+        """
+        A string that represents the original SQL query that describes the view.
+        """
+        return pulumi.get(self, "view_original_text")
 
 
 @pulumi.output_type

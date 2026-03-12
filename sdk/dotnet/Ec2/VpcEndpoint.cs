@@ -373,7 +373,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
-        /// Defaults to `False`.
+        /// Defaults to `False`. If `VpcEndpointType` is anything other than `Interface`, changing this value forces a new resource to be created.
         /// </summary>
         [Output("privateDnsEnabled")]
         public Output<bool> PrivateDnsEnabled { get; private set; } = null!;
@@ -541,7 +541,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
-        /// Defaults to `False`.
+        /// Defaults to `False`. If `VpcEndpointType` is anything other than `Interface`, changing this value forces a new resource to be created.
         /// </summary>
         [Input("privateDnsEnabled")]
         public Input<bool>? PrivateDnsEnabled { get; set; }
@@ -737,7 +737,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
-        /// Defaults to `False`.
+        /// Defaults to `False`. If `VpcEndpointType` is anything other than `Interface`, changing this value forces a new resource to be created.
         /// </summary>
         [Input("privateDnsEnabled")]
         public Input<bool>? PrivateDnsEnabled { get; set; }

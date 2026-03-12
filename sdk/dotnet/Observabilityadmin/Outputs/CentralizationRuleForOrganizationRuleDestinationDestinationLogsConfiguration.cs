@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Observabilityadmin.Outputs
         /// </summary>
         public readonly Outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration? BackupConfiguration;
         /// <summary>
+        /// Configuration block for a naming pattern for destination log groups created during centralization. See `LogGroupNameConfiguration` below.
+        /// </summary>
+        public readonly Outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfiguration? LogGroupNameConfiguration;
+        /// <summary>
         /// Configuration block for logs encryption settings. See `LogsEncryptionConfiguration` below.
         /// </summary>
         public readonly Outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration? LogsEncryptionConfiguration;
@@ -26,9 +30,12 @@ namespace Pulumi.Aws.Observabilityadmin.Outputs
         private CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration(
             Outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration? backupConfiguration,
 
+            Outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfiguration? logGroupNameConfiguration,
+
             Outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration? logsEncryptionConfiguration)
         {
             BackupConfiguration = backupConfiguration;
+            LogGroupNameConfiguration = logGroupNameConfiguration;
             LogsEncryptionConfiguration = logsEncryptionConfiguration;
         }
     }

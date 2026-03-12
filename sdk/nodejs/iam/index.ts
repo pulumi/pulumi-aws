@@ -51,6 +51,11 @@ export const getOpenIdConnectProvider: typeof import("./getOpenIdConnectProvider
 export const getOpenIdConnectProviderOutput: typeof import("./getOpenIdConnectProvider").getOpenIdConnectProviderOutput = null as any;
 utilities.lazyLoad(exports, ["getOpenIdConnectProvider","getOpenIdConnectProviderOutput"], () => require("./getOpenIdConnectProvider"));
 
+export { GetOutboundWebIdentityFederationResult } from "./getOutboundWebIdentityFederation";
+export const getOutboundWebIdentityFederation: typeof import("./getOutboundWebIdentityFederation").getOutboundWebIdentityFederation = null as any;
+export const getOutboundWebIdentityFederationOutput: typeof import("./getOutboundWebIdentityFederation").getOutboundWebIdentityFederationOutput = null as any;
+utilities.lazyLoad(exports, ["getOutboundWebIdentityFederation","getOutboundWebIdentityFederationOutput"], () => require("./getOutboundWebIdentityFederation"));
+
 export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
 export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
 export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;

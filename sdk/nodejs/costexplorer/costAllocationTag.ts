@@ -7,7 +7,11 @@ import * as utilities from "../utilities";
 /**
  * Provides a CE Cost Allocation Tag.
  *
+ * > **NOTE:** After the user-defined tags are created and applied to resources, it can take up to 24 hours for the tag keys to appear on Cost Allocation tag page for activation.
+ *
  * ## Example Usage
+ *
+ * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -15,6 +19,20 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.costexplorer.CostAllocationTag("example", {
  *     tagKey: "example",
+ *     status: "Active",
+ * });
+ * ```
+ *
+ * ### Account Tags as Cost Allocation Tags
+ *
+ * Cost Allocation tags support account tags to utilize existing AWS Organizations account tags directly in cost management tools. To activate account tags as Cost Allocation Tags the `tagKey` value needs to be prefixed with `accountTag/`.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.costexplorer.CostAllocationTag("example", {
+ *     tagKey: "accountTag/example",
  *     status: "Active",
  * });
  * ```

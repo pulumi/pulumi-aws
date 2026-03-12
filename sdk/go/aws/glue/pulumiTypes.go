@@ -731,6 +731,8 @@ func (o CatalogTableOpenTableFormatInputPtrOutput) IcebergInput() CatalogTableOp
 }
 
 type CatalogTableOpenTableFormatInputIcebergInput struct {
+	// Configuration parameters, including table properties and metadata specifications. See `icebergTableInput` below.
+	IcebergTableInput *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput `pulumi:"icebergTableInput"`
 	// A required metadata operation. Can only be set to CREATE.
 	MetadataOperation string `pulumi:"metadataOperation"`
 	// The table version for the Iceberg table. Defaults to 2.
@@ -749,6 +751,8 @@ type CatalogTableOpenTableFormatInputIcebergInputInput interface {
 }
 
 type CatalogTableOpenTableFormatInputIcebergInputArgs struct {
+	// Configuration parameters, including table properties and metadata specifications. See `icebergTableInput` below.
+	IcebergTableInput CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrInput `pulumi:"icebergTableInput"`
 	// A required metadata operation. Can only be set to CREATE.
 	MetadataOperation pulumi.StringInput `pulumi:"metadataOperation"`
 	// The table version for the Iceberg table. Defaults to 2.
@@ -832,6 +836,13 @@ func (o CatalogTableOpenTableFormatInputIcebergInputOutput) ToCatalogTableOpenTa
 	}).(CatalogTableOpenTableFormatInputIcebergInputPtrOutput)
 }
 
+// Configuration parameters, including table properties and metadata specifications. See `icebergTableInput` below.
+func (o CatalogTableOpenTableFormatInputIcebergInputOutput) IcebergTableInput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInput) *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput {
+		return v.IcebergTableInput
+	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput)
+}
+
 // A required metadata operation. Can only be set to CREATE.
 func (o CatalogTableOpenTableFormatInputIcebergInputOutput) MetadataOperation() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInput) string { return v.MetadataOperation }).(pulumi.StringOutput)
@@ -866,6 +877,16 @@ func (o CatalogTableOpenTableFormatInputIcebergInputPtrOutput) Elem() CatalogTab
 	}).(CatalogTableOpenTableFormatInputIcebergInputOutput)
 }
 
+// Configuration parameters, including table properties and metadata specifications. See `icebergTableInput` below.
+func (o CatalogTableOpenTableFormatInputIcebergInputPtrOutput) IcebergTableInput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInput) *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput {
+		if v == nil {
+			return nil
+		}
+		return v.IcebergTableInput
+	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput)
+}
+
 // A required metadata operation. Can only be set to CREATE.
 func (o CatalogTableOpenTableFormatInputIcebergInputPtrOutput) MetadataOperation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInput) *string {
@@ -884,6 +905,1149 @@ func (o CatalogTableOpenTableFormatInputIcebergInputPtrOutput) Version() pulumi.
 		}
 		return v.Version
 	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput struct {
+	// The S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
+	Location string `pulumi:"location"`
+	// The partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partitionSpec` below.
+	PartitionSpec *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec `pulumi:"partitionSpec"`
+	// Key-value pairs of additional table properties and configuration settings for the Iceberg table.
+	Properties map[string]string `pulumi:"properties"`
+	// The schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
+	Schema CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema `pulumi:"schema"`
+	// The sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sortOrder` below.
+	SortOrder *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder `pulumi:"sortOrder"`
+}
+
+// CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputInput is an input type that accepts CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs and CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput values.
+// You can construct a concrete instance of `CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputInput` via:
+//
+//	CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs{...}
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputInput interface {
+	pulumi.Input
+
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutputWithContext(context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs struct {
+	// The S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
+	Location pulumi.StringInput `pulumi:"location"`
+	// The partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partitionSpec` below.
+	PartitionSpec CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrInput `pulumi:"partitionSpec"`
+	// Key-value pairs of additional table properties and configuration settings for the Iceberg table.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// The schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
+	Schema CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaInput `pulumi:"schema"`
+	// The sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sortOrder` below.
+	SortOrder CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrInput `pulumi:"sortOrder"`
+}
+
+func (CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput)(nil)).Elem()
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput {
+	return i.ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput)
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput {
+	return i.ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput).ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutputWithContext(ctx)
+}
+
+// CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrInput is an input type that accepts CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs, CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtr and CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput values.
+// You can construct a concrete instance of `CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrInput` via:
+//
+//	        CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrInput interface {
+	pulumi.Input
+
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutputWithContext(context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput
+}
+
+type catalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrType CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs
+
+func CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtr(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrInput {
+	return (*catalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrType)(v)
+}
+
+func (*catalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput)(nil)).Elem()
+}
+
+func (i *catalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrType) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput {
+	return i.ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrType) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput)
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput)(nil)).Elem()
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput {
+	return o.ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput) *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput {
+		return &v
+	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput)
+}
+
+// The S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partitionSpec` below.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput) PartitionSpec() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput) *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec {
+		return v.PartitionSpec
+	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput)
+}
+
+// Key-value pairs of additional table properties and configuration settings for the Iceberg table.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput) map[string]string {
+		return v.Properties
+	}).(pulumi.StringMapOutput)
+}
+
+// The schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput) Schema() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema {
+		return v.Schema
+	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput)
+}
+
+// The sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sortOrder` below.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput) SortOrder() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput) *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder {
+		return v.SortOrder
+	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput)
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput)(nil)).Elem()
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput) Elem() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput {
+	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
+		return ret
+	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput)
+}
+
+// The S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Location
+	}).(pulumi.StringPtrOutput)
+}
+
+// The partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partitionSpec` below.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput) PartitionSpec() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput) *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionSpec
+	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput)
+}
+
+// Key-value pairs of additional table properties and configuration settings for the Iceberg table.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(pulumi.StringMapOutput)
+}
+
+// The schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput) Schema() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput) *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema {
+		if v == nil {
+			return nil
+		}
+		return &v.Schema
+	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput)
+}
+
+// The sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sortOrder` below.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput) SortOrder() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput) *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder {
+		if v == nil {
+			return nil
+		}
+		return v.SortOrder
+	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput)
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec struct {
+	// The list of partition fields that define how the table data should be partitioned. See `fields` below.
+	Fields []CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField `pulumi:"fields"`
+	// The unique identifier for this partition specification within the Iceberg table's metadata history.
+	SpecId *int `pulumi:"specId"`
+}
+
+// CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecInput is an input type that accepts CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs and CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutput values.
+// You can construct a concrete instance of `CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecInput` via:
+//
+//	CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs{...}
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecInput interface {
+	pulumi.Input
+
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutput
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutputWithContext(context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutput
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs struct {
+	// The list of partition fields that define how the table data should be partitioned. See `fields` below.
+	Fields CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayInput `pulumi:"fields"`
+	// The unique identifier for this partition specification within the Iceberg table's metadata history.
+	SpecId pulumi.IntPtrInput `pulumi:"specId"`
+}
+
+func (CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec)(nil)).Elem()
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutput {
+	return i.ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutput)
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput {
+	return i.ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutput).ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutputWithContext(ctx)
+}
+
+// CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrInput is an input type that accepts CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs, CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtr and CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput values.
+// You can construct a concrete instance of `CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrInput` via:
+//
+//	        CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrInput interface {
+	pulumi.Input
+
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutputWithContext(context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput
+}
+
+type catalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrType CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs
+
+func CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtr(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrInput {
+	return (*catalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrType)(v)
+}
+
+func (*catalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec)(nil)).Elem()
+}
+
+func (i *catalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrType) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput {
+	return i.ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrType) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput)
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec)(nil)).Elem()
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput {
+	return o.ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec) *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec {
+		return &v
+	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput)
+}
+
+// The list of partition fields that define how the table data should be partitioned. See `fields` below.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutput) Fields() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec) []CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField {
+		return v.Fields
+	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutput)
+}
+
+// The unique identifier for this partition specification within the Iceberg table's metadata history.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutput) SpecId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec) *int {
+		return v.SpecId
+	}).(pulumi.IntPtrOutput)
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec)(nil)).Elem()
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput) Elem() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutput {
+	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec
+		return ret
+	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutput)
+}
+
+// The list of partition fields that define how the table data should be partitioned. See `fields` below.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput) Fields() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutput {
+	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec) []CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField {
+		if v == nil {
+			return nil
+		}
+		return v.Fields
+	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutput)
+}
+
+// The unique identifier for this partition specification within the Iceberg table's metadata history.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput) SpecId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SpecId
+	}).(pulumi.IntPtrOutput)
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField struct {
+	// The unique identifier assigned to this partition field within the Iceberg table's partition specification.
+	FieldId *int `pulumi:"fieldId"`
+	// Name of the table. For Hive compatibility, this must be entirely lowercase.
+	Name      string `pulumi:"name"`
+	SourceId  int    `pulumi:"sourceId"`
+	Transform string `pulumi:"transform"`
+}
+
+// CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldInput is an input type that accepts CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArgs and CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutput values.
+// You can construct a concrete instance of `CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldInput` via:
+//
+//	CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArgs{...}
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldInput interface {
+	pulumi.Input
+
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutput
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutputWithContext(context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutput
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArgs struct {
+	// The unique identifier assigned to this partition field within the Iceberg table's partition specification.
+	FieldId pulumi.IntPtrInput `pulumi:"fieldId"`
+	// Name of the table. For Hive compatibility, this must be entirely lowercase.
+	Name      pulumi.StringInput `pulumi:"name"`
+	SourceId  pulumi.IntInput    `pulumi:"sourceId"`
+	Transform pulumi.StringInput `pulumi:"transform"`
+}
+
+func (CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField)(nil)).Elem()
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArgs) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutput {
+	return i.ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArgs) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutput)
+}
+
+// CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayInput is an input type that accepts CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArray and CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutput values.
+// You can construct a concrete instance of `CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayInput` via:
+//
+//	CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArray{ CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArgs{...} }
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayInput interface {
+	pulumi.Input
+
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutput
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutputWithContext(context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutput
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArray []CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldInput
+
+func (CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField)(nil)).Elem()
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArray) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutput {
+	return i.ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArray) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutput)
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField)(nil)).Elem()
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutput {
+	return o
+}
+
+// The unique identifier assigned to this partition field within the Iceberg table's partition specification.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutput) FieldId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField) *int {
+		return v.FieldId
+	}).(pulumi.IntPtrOutput)
+}
+
+// Name of the table. For Hive compatibility, this must be entirely lowercase.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutput) SourceId() pulumi.IntOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField) int {
+		return v.SourceId
+	}).(pulumi.IntOutput)
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutput) Transform() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField) string {
+		return v.Transform
+	}).(pulumi.StringOutput)
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField)(nil)).Elem()
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutput) Index(i pulumi.IntInput) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField {
+		return vs[0].([]CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField)[vs[1].(int)]
+	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutput)
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema struct {
+	// The list of field definitions that make up the table schema. See `fields` below.
+	Fields []CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField `pulumi:"fields"`
+	// The list of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
+	IdentifierFieldIds []int `pulumi:"identifierFieldIds"`
+	// The unique identifier for this schema version within the Iceberg table's schema evolution history.
+	SchemaId *int `pulumi:"schemaId"`
+	// The data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `"long"`, `"string"`, `"timestamp"`, `"decimal(10,2)"`.
+	Type *string `pulumi:"type"`
+}
+
+// CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaInput is an input type that accepts CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs and CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput values.
+// You can construct a concrete instance of `CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaInput` via:
+//
+//	CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs{...}
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaInput interface {
+	pulumi.Input
+
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutputWithContext(context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs struct {
+	// The list of field definitions that make up the table schema. See `fields` below.
+	Fields CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayInput `pulumi:"fields"`
+	// The list of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
+	IdentifierFieldIds pulumi.IntArrayInput `pulumi:"identifierFieldIds"`
+	// The unique identifier for this schema version within the Iceberg table's schema evolution history.
+	SchemaId pulumi.IntPtrInput `pulumi:"schemaId"`
+	// The data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `"long"`, `"string"`, `"timestamp"`, `"decimal(10,2)"`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema)(nil)).Elem()
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput {
+	return i.ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput)
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput {
+	return i.ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput).ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutputWithContext(ctx)
+}
+
+// CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrInput is an input type that accepts CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs, CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtr and CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput values.
+// You can construct a concrete instance of `CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrInput` via:
+//
+//	        CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrInput interface {
+	pulumi.Input
+
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutputWithContext(context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput
+}
+
+type catalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrType CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs
+
+func CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtr(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrInput {
+	return (*catalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrType)(v)
+}
+
+func (*catalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema)(nil)).Elem()
+}
+
+func (i *catalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrType) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput {
+	return i.ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrType) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput)
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema)(nil)).Elem()
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput {
+	return o.ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema) *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema {
+		return &v
+	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput)
+}
+
+// The list of field definitions that make up the table schema. See `fields` below.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput) Fields() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema) []CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField {
+		return v.Fields
+	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutput)
+}
+
+// The list of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput) IdentifierFieldIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema) []int {
+		return v.IdentifierFieldIds
+	}).(pulumi.IntArrayOutput)
+}
+
+// The unique identifier for this schema version within the Iceberg table's schema evolution history.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput) SchemaId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema) *int { return v.SchemaId }).(pulumi.IntPtrOutput)
+}
+
+// The data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `"long"`, `"string"`, `"timestamp"`, `"decimal(10,2)"`.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema)(nil)).Elem()
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput) Elem() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput {
+	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema
+		return ret
+	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput)
+}
+
+// The list of field definitions that make up the table schema. See `fields` below.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput) Fields() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutput {
+	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema) []CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField {
+		if v == nil {
+			return nil
+		}
+		return v.Fields
+	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutput)
+}
+
+// The list of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput) IdentifierFieldIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema) []int {
+		if v == nil {
+			return nil
+		}
+		return v.IdentifierFieldIds
+	}).(pulumi.IntArrayOutput)
+}
+
+// The unique identifier for this schema version within the Iceberg table's schema evolution history.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput) SchemaId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaId
+	}).(pulumi.IntPtrOutput)
+}
+
+// The data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `"long"`, `"string"`, `"timestamp"`, `"decimal(10,2)"`.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField struct {
+	// Optional documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
+	Doc *string `pulumi:"doc"`
+	// Catalog ID, Database name and of the name table.
+	Id int `pulumi:"id"`
+	// Default value as JSON used to populate the field's value for all records that were written before the field was added to the schema.
+	InitialDefault *string `pulumi:"initialDefault"`
+	// Name of the table. For Hive compatibility, this must be entirely lowercase.
+	Name string `pulumi:"name"`
+	// Indicates whether this field is required (non-nullable) or optional (nullable) in the table schema.
+	Required bool   `pulumi:"required"`
+	Type     string `pulumi:"type"`
+	// Default value as JSON used to populate the field's value for any records written after the field was added to the schema, if the writer does not supply the field's value.
+	WriteDefault *string `pulumi:"writeDefault"`
+}
+
+// CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldInput is an input type that accepts CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs and CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput values.
+// You can construct a concrete instance of `CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldInput` via:
+//
+//	CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs{...}
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldInput interface {
+	pulumi.Input
+
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutputWithContext(context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs struct {
+	// Optional documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
+	Doc pulumi.StringPtrInput `pulumi:"doc"`
+	// Catalog ID, Database name and of the name table.
+	Id pulumi.IntInput `pulumi:"id"`
+	// Default value as JSON used to populate the field's value for all records that were written before the field was added to the schema.
+	InitialDefault pulumi.StringPtrInput `pulumi:"initialDefault"`
+	// Name of the table. For Hive compatibility, this must be entirely lowercase.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Indicates whether this field is required (non-nullable) or optional (nullable) in the table schema.
+	Required pulumi.BoolInput   `pulumi:"required"`
+	Type     pulumi.StringInput `pulumi:"type"`
+	// Default value as JSON used to populate the field's value for any records written after the field was added to the schema, if the writer does not supply the field's value.
+	WriteDefault pulumi.StringPtrInput `pulumi:"writeDefault"`
+}
+
+func (CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField)(nil)).Elem()
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput {
+	return i.ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput)
+}
+
+// CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayInput is an input type that accepts CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArray and CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutput values.
+// You can construct a concrete instance of `CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayInput` via:
+//
+//	CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArray{ CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs{...} }
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayInput interface {
+	pulumi.Input
+
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutput
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutputWithContext(context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutput
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArray []CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldInput
+
+func (CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField)(nil)).Elem()
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArray) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutput {
+	return i.ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArray) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutput)
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField)(nil)).Elem()
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput {
+	return o
+}
+
+// Optional documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput) Doc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField) *string { return v.Doc }).(pulumi.StringPtrOutput)
+}
+
+// Catalog ID, Database name and of the name table.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Default value as JSON used to populate the field's value for all records that were written before the field was added to the schema.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput) InitialDefault() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField) *string {
+		return v.InitialDefault
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the table. For Hive compatibility, this must be entirely lowercase.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicates whether this field is required (non-nullable) or optional (nullable) in the table schema.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput) Required() pulumi.BoolOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField) bool {
+		return v.Required
+	}).(pulumi.BoolOutput)
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Default value as JSON used to populate the field's value for any records written after the field was added to the schema, if the writer does not supply the field's value.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput) WriteDefault() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField) *string {
+		return v.WriteDefault
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField)(nil)).Elem()
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutput) Index(i pulumi.IntInput) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField {
+		return vs[0].([]CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField)[vs[1].(int)]
+	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput)
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder struct {
+	// The list of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `fields` below.
+	Fields []CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField `pulumi:"fields"`
+	// The unique identifier for this sort order specification within the Iceberg table's metadata.
+	OrderId int `pulumi:"orderId"`
+}
+
+// CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderInput is an input type that accepts CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs and CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutput values.
+// You can construct a concrete instance of `CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderInput` via:
+//
+//	CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs{...}
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderInput interface {
+	pulumi.Input
+
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutput
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutputWithContext(context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutput
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs struct {
+	// The list of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `fields` below.
+	Fields CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayInput `pulumi:"fields"`
+	// The unique identifier for this sort order specification within the Iceberg table's metadata.
+	OrderId pulumi.IntInput `pulumi:"orderId"`
+}
+
+func (CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder)(nil)).Elem()
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutput {
+	return i.ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutput)
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput {
+	return i.ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutput).ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutputWithContext(ctx)
+}
+
+// CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrInput is an input type that accepts CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs, CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtr and CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput values.
+// You can construct a concrete instance of `CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrInput` via:
+//
+//	        CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrInput interface {
+	pulumi.Input
+
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutputWithContext(context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput
+}
+
+type catalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrType CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs
+
+func CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtr(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrInput {
+	return (*catalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrType)(v)
+}
+
+func (*catalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder)(nil)).Elem()
+}
+
+func (i *catalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrType) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput {
+	return i.ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrType) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput)
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder)(nil)).Elem()
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput {
+	return o.ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder) *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder {
+		return &v
+	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput)
+}
+
+// The list of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `fields` below.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutput) Fields() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder) []CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField {
+		return v.Fields
+	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutput)
+}
+
+// The unique identifier for this sort order specification within the Iceberg table's metadata.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutput) OrderId() pulumi.IntOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder) int { return v.OrderId }).(pulumi.IntOutput)
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder)(nil)).Elem()
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput) Elem() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutput {
+	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder
+		return ret
+	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutput)
+}
+
+// The list of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `fields` below.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput) Fields() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutput {
+	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder) []CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField {
+		if v == nil {
+			return nil
+		}
+		return v.Fields
+	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutput)
+}
+
+// The unique identifier for this sort order specification within the Iceberg table's metadata.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput) OrderId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.OrderId
+	}).(pulumi.IntPtrOutput)
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField struct {
+	// The sort direction for this field. Valid values: `asc`, `desc`.
+	Direction string `pulumi:"direction"`
+	// The ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
+	NullOrder string `pulumi:"nullOrder"`
+	SourceId  int    `pulumi:"sourceId"`
+	Transform string `pulumi:"transform"`
+}
+
+// CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldInput is an input type that accepts CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArgs and CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutput values.
+// You can construct a concrete instance of `CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldInput` via:
+//
+//	CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArgs{...}
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldInput interface {
+	pulumi.Input
+
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutput
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutputWithContext(context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutput
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArgs struct {
+	// The sort direction for this field. Valid values: `asc`, `desc`.
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// The ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
+	NullOrder pulumi.StringInput `pulumi:"nullOrder"`
+	SourceId  pulumi.IntInput    `pulumi:"sourceId"`
+	Transform pulumi.StringInput `pulumi:"transform"`
+}
+
+func (CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField)(nil)).Elem()
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArgs) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutput {
+	return i.ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArgs) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutput)
+}
+
+// CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayInput is an input type that accepts CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArray and CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutput values.
+// You can construct a concrete instance of `CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayInput` via:
+//
+//	CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArray{ CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArgs{...} }
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayInput interface {
+	pulumi.Input
+
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutput
+	ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutputWithContext(context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutput
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArray []CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldInput
+
+func (CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField)(nil)).Elem()
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArray) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutput {
+	return i.ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArray) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutput)
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField)(nil)).Elem()
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutput {
+	return o
+}
+
+// The sort direction for this field. Valid values: `asc`, `desc`.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField) string {
+		return v.Direction
+	}).(pulumi.StringOutput)
+}
+
+// The ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutput) NullOrder() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField) string {
+		return v.NullOrder
+	}).(pulumi.StringOutput)
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutput) SourceId() pulumi.IntOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField) int {
+		return v.SourceId
+	}).(pulumi.IntOutput)
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutput) Transform() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField) string {
+		return v.Transform
+	}).(pulumi.StringOutput)
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField)(nil)).Elem()
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutput() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutput) ToCatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutput) Index(i pulumi.IntInput) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField {
+		return vs[0].([]CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField)[vs[1].(int)]
+	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutput)
 }
 
 type CatalogTableOptimizerConfiguration struct {
@@ -3493,6 +4657,430 @@ func (o CatalogTableTargetTablePtrOutput) Region() pulumi.StringPtrOutput {
 		}
 		return v.Region
 	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogTableViewDefinition struct {
+	// The definer of a view in SQL.
+	Definer *string `pulumi:"definer"`
+	// You can set this flag as true to instruct the engine not to push user-provided operations into the logical plan of the view during query planning. However, setting this flag does not guarantee that the engine will comply. Refer to the engine's documentation to understand the guarantees provided, if any.
+	IsProtected *bool `pulumi:"isProtected"`
+	// Type of the materialized view's last refresh. Valid values: `Full`, `Incremental`.
+	LastRefreshType *string `pulumi:"lastRefreshType"`
+	// Auto refresh interval in seconds for the materialized view.
+	RefreshSeconds *int `pulumi:"refreshSeconds"`
+	// A list of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
+	Representations []CatalogTableViewDefinitionRepresentation `pulumi:"representations"`
+	// List of the Apache Iceberg table versions referenced by the materialized view.
+	SubObjectVersionIds []int `pulumi:"subObjectVersionIds"`
+	// A list of base table ARNs that make up the view.
+	SubObjects []string `pulumi:"subObjects"`
+	// ID value that identifies this view's version. For materialized views, the version ID is the Apache Iceberg table's snapshot ID.
+	ViewVersionId *int `pulumi:"viewVersionId"`
+	// Version ID of the Apache Iceberg table.
+	ViewVersionToken *string `pulumi:"viewVersionToken"`
+}
+
+// CatalogTableViewDefinitionInput is an input type that accepts CatalogTableViewDefinitionArgs and CatalogTableViewDefinitionOutput values.
+// You can construct a concrete instance of `CatalogTableViewDefinitionInput` via:
+//
+//	CatalogTableViewDefinitionArgs{...}
+type CatalogTableViewDefinitionInput interface {
+	pulumi.Input
+
+	ToCatalogTableViewDefinitionOutput() CatalogTableViewDefinitionOutput
+	ToCatalogTableViewDefinitionOutputWithContext(context.Context) CatalogTableViewDefinitionOutput
+}
+
+type CatalogTableViewDefinitionArgs struct {
+	// The definer of a view in SQL.
+	Definer pulumi.StringPtrInput `pulumi:"definer"`
+	// You can set this flag as true to instruct the engine not to push user-provided operations into the logical plan of the view during query planning. However, setting this flag does not guarantee that the engine will comply. Refer to the engine's documentation to understand the guarantees provided, if any.
+	IsProtected pulumi.BoolPtrInput `pulumi:"isProtected"`
+	// Type of the materialized view's last refresh. Valid values: `Full`, `Incremental`.
+	LastRefreshType pulumi.StringPtrInput `pulumi:"lastRefreshType"`
+	// Auto refresh interval in seconds for the materialized view.
+	RefreshSeconds pulumi.IntPtrInput `pulumi:"refreshSeconds"`
+	// A list of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
+	Representations CatalogTableViewDefinitionRepresentationArrayInput `pulumi:"representations"`
+	// List of the Apache Iceberg table versions referenced by the materialized view.
+	SubObjectVersionIds pulumi.IntArrayInput `pulumi:"subObjectVersionIds"`
+	// A list of base table ARNs that make up the view.
+	SubObjects pulumi.StringArrayInput `pulumi:"subObjects"`
+	// ID value that identifies this view's version. For materialized views, the version ID is the Apache Iceberg table's snapshot ID.
+	ViewVersionId pulumi.IntPtrInput `pulumi:"viewVersionId"`
+	// Version ID of the Apache Iceberg table.
+	ViewVersionToken pulumi.StringPtrInput `pulumi:"viewVersionToken"`
+}
+
+func (CatalogTableViewDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableViewDefinition)(nil)).Elem()
+}
+
+func (i CatalogTableViewDefinitionArgs) ToCatalogTableViewDefinitionOutput() CatalogTableViewDefinitionOutput {
+	return i.ToCatalogTableViewDefinitionOutputWithContext(context.Background())
+}
+
+func (i CatalogTableViewDefinitionArgs) ToCatalogTableViewDefinitionOutputWithContext(ctx context.Context) CatalogTableViewDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableViewDefinitionOutput)
+}
+
+func (i CatalogTableViewDefinitionArgs) ToCatalogTableViewDefinitionPtrOutput() CatalogTableViewDefinitionPtrOutput {
+	return i.ToCatalogTableViewDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogTableViewDefinitionArgs) ToCatalogTableViewDefinitionPtrOutputWithContext(ctx context.Context) CatalogTableViewDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableViewDefinitionOutput).ToCatalogTableViewDefinitionPtrOutputWithContext(ctx)
+}
+
+// CatalogTableViewDefinitionPtrInput is an input type that accepts CatalogTableViewDefinitionArgs, CatalogTableViewDefinitionPtr and CatalogTableViewDefinitionPtrOutput values.
+// You can construct a concrete instance of `CatalogTableViewDefinitionPtrInput` via:
+//
+//	        CatalogTableViewDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogTableViewDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToCatalogTableViewDefinitionPtrOutput() CatalogTableViewDefinitionPtrOutput
+	ToCatalogTableViewDefinitionPtrOutputWithContext(context.Context) CatalogTableViewDefinitionPtrOutput
+}
+
+type catalogTableViewDefinitionPtrType CatalogTableViewDefinitionArgs
+
+func CatalogTableViewDefinitionPtr(v *CatalogTableViewDefinitionArgs) CatalogTableViewDefinitionPtrInput {
+	return (*catalogTableViewDefinitionPtrType)(v)
+}
+
+func (*catalogTableViewDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableViewDefinition)(nil)).Elem()
+}
+
+func (i *catalogTableViewDefinitionPtrType) ToCatalogTableViewDefinitionPtrOutput() CatalogTableViewDefinitionPtrOutput {
+	return i.ToCatalogTableViewDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogTableViewDefinitionPtrType) ToCatalogTableViewDefinitionPtrOutputWithContext(ctx context.Context) CatalogTableViewDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableViewDefinitionPtrOutput)
+}
+
+type CatalogTableViewDefinitionOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableViewDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableViewDefinition)(nil)).Elem()
+}
+
+func (o CatalogTableViewDefinitionOutput) ToCatalogTableViewDefinitionOutput() CatalogTableViewDefinitionOutput {
+	return o
+}
+
+func (o CatalogTableViewDefinitionOutput) ToCatalogTableViewDefinitionOutputWithContext(ctx context.Context) CatalogTableViewDefinitionOutput {
+	return o
+}
+
+func (o CatalogTableViewDefinitionOutput) ToCatalogTableViewDefinitionPtrOutput() CatalogTableViewDefinitionPtrOutput {
+	return o.ToCatalogTableViewDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogTableViewDefinitionOutput) ToCatalogTableViewDefinitionPtrOutputWithContext(ctx context.Context) CatalogTableViewDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogTableViewDefinition) *CatalogTableViewDefinition {
+		return &v
+	}).(CatalogTableViewDefinitionPtrOutput)
+}
+
+// The definer of a view in SQL.
+func (o CatalogTableViewDefinitionOutput) Definer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogTableViewDefinition) *string { return v.Definer }).(pulumi.StringPtrOutput)
+}
+
+// You can set this flag as true to instruct the engine not to push user-provided operations into the logical plan of the view during query planning. However, setting this flag does not guarantee that the engine will comply. Refer to the engine's documentation to understand the guarantees provided, if any.
+func (o CatalogTableViewDefinitionOutput) IsProtected() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CatalogTableViewDefinition) *bool { return v.IsProtected }).(pulumi.BoolPtrOutput)
+}
+
+// Type of the materialized view's last refresh. Valid values: `Full`, `Incremental`.
+func (o CatalogTableViewDefinitionOutput) LastRefreshType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogTableViewDefinition) *string { return v.LastRefreshType }).(pulumi.StringPtrOutput)
+}
+
+// Auto refresh interval in seconds for the materialized view.
+func (o CatalogTableViewDefinitionOutput) RefreshSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CatalogTableViewDefinition) *int { return v.RefreshSeconds }).(pulumi.IntPtrOutput)
+}
+
+// A list of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
+func (o CatalogTableViewDefinitionOutput) Representations() CatalogTableViewDefinitionRepresentationArrayOutput {
+	return o.ApplyT(func(v CatalogTableViewDefinition) []CatalogTableViewDefinitionRepresentation {
+		return v.Representations
+	}).(CatalogTableViewDefinitionRepresentationArrayOutput)
+}
+
+// List of the Apache Iceberg table versions referenced by the materialized view.
+func (o CatalogTableViewDefinitionOutput) SubObjectVersionIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v CatalogTableViewDefinition) []int { return v.SubObjectVersionIds }).(pulumi.IntArrayOutput)
+}
+
+// A list of base table ARNs that make up the view.
+func (o CatalogTableViewDefinitionOutput) SubObjects() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CatalogTableViewDefinition) []string { return v.SubObjects }).(pulumi.StringArrayOutput)
+}
+
+// ID value that identifies this view's version. For materialized views, the version ID is the Apache Iceberg table's snapshot ID.
+func (o CatalogTableViewDefinitionOutput) ViewVersionId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CatalogTableViewDefinition) *int { return v.ViewVersionId }).(pulumi.IntPtrOutput)
+}
+
+// Version ID of the Apache Iceberg table.
+func (o CatalogTableViewDefinitionOutput) ViewVersionToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogTableViewDefinition) *string { return v.ViewVersionToken }).(pulumi.StringPtrOutput)
+}
+
+type CatalogTableViewDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableViewDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableViewDefinition)(nil)).Elem()
+}
+
+func (o CatalogTableViewDefinitionPtrOutput) ToCatalogTableViewDefinitionPtrOutput() CatalogTableViewDefinitionPtrOutput {
+	return o
+}
+
+func (o CatalogTableViewDefinitionPtrOutput) ToCatalogTableViewDefinitionPtrOutputWithContext(ctx context.Context) CatalogTableViewDefinitionPtrOutput {
+	return o
+}
+
+func (o CatalogTableViewDefinitionPtrOutput) Elem() CatalogTableViewDefinitionOutput {
+	return o.ApplyT(func(v *CatalogTableViewDefinition) CatalogTableViewDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogTableViewDefinition
+		return ret
+	}).(CatalogTableViewDefinitionOutput)
+}
+
+// The definer of a view in SQL.
+func (o CatalogTableViewDefinitionPtrOutput) Definer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogTableViewDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Definer
+	}).(pulumi.StringPtrOutput)
+}
+
+// You can set this flag as true to instruct the engine not to push user-provided operations into the logical plan of the view during query planning. However, setting this flag does not guarantee that the engine will comply. Refer to the engine's documentation to understand the guarantees provided, if any.
+func (o CatalogTableViewDefinitionPtrOutput) IsProtected() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CatalogTableViewDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsProtected
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Type of the materialized view's last refresh. Valid values: `Full`, `Incremental`.
+func (o CatalogTableViewDefinitionPtrOutput) LastRefreshType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogTableViewDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastRefreshType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Auto refresh interval in seconds for the materialized view.
+func (o CatalogTableViewDefinitionPtrOutput) RefreshSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CatalogTableViewDefinition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// A list of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
+func (o CatalogTableViewDefinitionPtrOutput) Representations() CatalogTableViewDefinitionRepresentationArrayOutput {
+	return o.ApplyT(func(v *CatalogTableViewDefinition) []CatalogTableViewDefinitionRepresentation {
+		if v == nil {
+			return nil
+		}
+		return v.Representations
+	}).(CatalogTableViewDefinitionRepresentationArrayOutput)
+}
+
+// List of the Apache Iceberg table versions referenced by the materialized view.
+func (o CatalogTableViewDefinitionPtrOutput) SubObjectVersionIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *CatalogTableViewDefinition) []int {
+		if v == nil {
+			return nil
+		}
+		return v.SubObjectVersionIds
+	}).(pulumi.IntArrayOutput)
+}
+
+// A list of base table ARNs that make up the view.
+func (o CatalogTableViewDefinitionPtrOutput) SubObjects() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CatalogTableViewDefinition) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubObjects
+	}).(pulumi.StringArrayOutput)
+}
+
+// ID value that identifies this view's version. For materialized views, the version ID is the Apache Iceberg table's snapshot ID.
+func (o CatalogTableViewDefinitionPtrOutput) ViewVersionId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CatalogTableViewDefinition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ViewVersionId
+	}).(pulumi.IntPtrOutput)
+}
+
+// Version ID of the Apache Iceberg table.
+func (o CatalogTableViewDefinitionPtrOutput) ViewVersionToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogTableViewDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ViewVersionToken
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogTableViewDefinitionRepresentation struct {
+	// A parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
+	Dialect *string `pulumi:"dialect"`
+	// A parameter that specifies the version of the engine of a specific representation.
+	DialectVersion *string `pulumi:"dialectVersion"`
+	// The name of the connection to be used to validate the specific representation of the view.
+	ValidationConnection *string `pulumi:"validationConnection"`
+	// A string that represents the SQL query that describes the view with expanded resource ARNs.
+	ViewExpandedText *string `pulumi:"viewExpandedText"`
+	// A string that represents the original SQL query that describes the view.
+	ViewOriginalText *string `pulumi:"viewOriginalText"`
+}
+
+// CatalogTableViewDefinitionRepresentationInput is an input type that accepts CatalogTableViewDefinitionRepresentationArgs and CatalogTableViewDefinitionRepresentationOutput values.
+// You can construct a concrete instance of `CatalogTableViewDefinitionRepresentationInput` via:
+//
+//	CatalogTableViewDefinitionRepresentationArgs{...}
+type CatalogTableViewDefinitionRepresentationInput interface {
+	pulumi.Input
+
+	ToCatalogTableViewDefinitionRepresentationOutput() CatalogTableViewDefinitionRepresentationOutput
+	ToCatalogTableViewDefinitionRepresentationOutputWithContext(context.Context) CatalogTableViewDefinitionRepresentationOutput
+}
+
+type CatalogTableViewDefinitionRepresentationArgs struct {
+	// A parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
+	Dialect pulumi.StringPtrInput `pulumi:"dialect"`
+	// A parameter that specifies the version of the engine of a specific representation.
+	DialectVersion pulumi.StringPtrInput `pulumi:"dialectVersion"`
+	// The name of the connection to be used to validate the specific representation of the view.
+	ValidationConnection pulumi.StringPtrInput `pulumi:"validationConnection"`
+	// A string that represents the SQL query that describes the view with expanded resource ARNs.
+	ViewExpandedText pulumi.StringPtrInput `pulumi:"viewExpandedText"`
+	// A string that represents the original SQL query that describes the view.
+	ViewOriginalText pulumi.StringPtrInput `pulumi:"viewOriginalText"`
+}
+
+func (CatalogTableViewDefinitionRepresentationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableViewDefinitionRepresentation)(nil)).Elem()
+}
+
+func (i CatalogTableViewDefinitionRepresentationArgs) ToCatalogTableViewDefinitionRepresentationOutput() CatalogTableViewDefinitionRepresentationOutput {
+	return i.ToCatalogTableViewDefinitionRepresentationOutputWithContext(context.Background())
+}
+
+func (i CatalogTableViewDefinitionRepresentationArgs) ToCatalogTableViewDefinitionRepresentationOutputWithContext(ctx context.Context) CatalogTableViewDefinitionRepresentationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableViewDefinitionRepresentationOutput)
+}
+
+// CatalogTableViewDefinitionRepresentationArrayInput is an input type that accepts CatalogTableViewDefinitionRepresentationArray and CatalogTableViewDefinitionRepresentationArrayOutput values.
+// You can construct a concrete instance of `CatalogTableViewDefinitionRepresentationArrayInput` via:
+//
+//	CatalogTableViewDefinitionRepresentationArray{ CatalogTableViewDefinitionRepresentationArgs{...} }
+type CatalogTableViewDefinitionRepresentationArrayInput interface {
+	pulumi.Input
+
+	ToCatalogTableViewDefinitionRepresentationArrayOutput() CatalogTableViewDefinitionRepresentationArrayOutput
+	ToCatalogTableViewDefinitionRepresentationArrayOutputWithContext(context.Context) CatalogTableViewDefinitionRepresentationArrayOutput
+}
+
+type CatalogTableViewDefinitionRepresentationArray []CatalogTableViewDefinitionRepresentationInput
+
+func (CatalogTableViewDefinitionRepresentationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogTableViewDefinitionRepresentation)(nil)).Elem()
+}
+
+func (i CatalogTableViewDefinitionRepresentationArray) ToCatalogTableViewDefinitionRepresentationArrayOutput() CatalogTableViewDefinitionRepresentationArrayOutput {
+	return i.ToCatalogTableViewDefinitionRepresentationArrayOutputWithContext(context.Background())
+}
+
+func (i CatalogTableViewDefinitionRepresentationArray) ToCatalogTableViewDefinitionRepresentationArrayOutputWithContext(ctx context.Context) CatalogTableViewDefinitionRepresentationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableViewDefinitionRepresentationArrayOutput)
+}
+
+type CatalogTableViewDefinitionRepresentationOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableViewDefinitionRepresentationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableViewDefinitionRepresentation)(nil)).Elem()
+}
+
+func (o CatalogTableViewDefinitionRepresentationOutput) ToCatalogTableViewDefinitionRepresentationOutput() CatalogTableViewDefinitionRepresentationOutput {
+	return o
+}
+
+func (o CatalogTableViewDefinitionRepresentationOutput) ToCatalogTableViewDefinitionRepresentationOutputWithContext(ctx context.Context) CatalogTableViewDefinitionRepresentationOutput {
+	return o
+}
+
+// A parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
+func (o CatalogTableViewDefinitionRepresentationOutput) Dialect() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogTableViewDefinitionRepresentation) *string { return v.Dialect }).(pulumi.StringPtrOutput)
+}
+
+// A parameter that specifies the version of the engine of a specific representation.
+func (o CatalogTableViewDefinitionRepresentationOutput) DialectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogTableViewDefinitionRepresentation) *string { return v.DialectVersion }).(pulumi.StringPtrOutput)
+}
+
+// The name of the connection to be used to validate the specific representation of the view.
+func (o CatalogTableViewDefinitionRepresentationOutput) ValidationConnection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogTableViewDefinitionRepresentation) *string { return v.ValidationConnection }).(pulumi.StringPtrOutput)
+}
+
+// A string that represents the SQL query that describes the view with expanded resource ARNs.
+func (o CatalogTableViewDefinitionRepresentationOutput) ViewExpandedText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogTableViewDefinitionRepresentation) *string { return v.ViewExpandedText }).(pulumi.StringPtrOutput)
+}
+
+// A string that represents the original SQL query that describes the view.
+func (o CatalogTableViewDefinitionRepresentationOutput) ViewOriginalText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogTableViewDefinitionRepresentation) *string { return v.ViewOriginalText }).(pulumi.StringPtrOutput)
+}
+
+type CatalogTableViewDefinitionRepresentationArrayOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableViewDefinitionRepresentationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogTableViewDefinitionRepresentation)(nil)).Elem()
+}
+
+func (o CatalogTableViewDefinitionRepresentationArrayOutput) ToCatalogTableViewDefinitionRepresentationArrayOutput() CatalogTableViewDefinitionRepresentationArrayOutput {
+	return o
+}
+
+func (o CatalogTableViewDefinitionRepresentationArrayOutput) ToCatalogTableViewDefinitionRepresentationArrayOutputWithContext(ctx context.Context) CatalogTableViewDefinitionRepresentationArrayOutput {
+	return o
+}
+
+func (o CatalogTableViewDefinitionRepresentationArrayOutput) Index(i pulumi.IntInput) CatalogTableViewDefinitionRepresentationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogTableViewDefinitionRepresentation {
+		return vs[0].([]CatalogTableViewDefinitionRepresentation)[vs[1].(int)]
+	}).(CatalogTableViewDefinitionRepresentationOutput)
 }
 
 type ClassifierCsvClassifier struct {
@@ -12641,6 +14229,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputPtrInput)(nil)).Elem(), CatalogTableOpenTableFormatInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputInput)(nil)).Elem(), CatalogTableOpenTableFormatInputIcebergInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputPtrInput)(nil)).Elem(), CatalogTableOpenTableFormatInputIcebergInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputInput)(nil)).Elem(), CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrInput)(nil)).Elem(), CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecInput)(nil)).Elem(), CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrInput)(nil)).Elem(), CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldInput)(nil)).Elem(), CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayInput)(nil)).Elem(), CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaInput)(nil)).Elem(), CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrInput)(nil)).Elem(), CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldInput)(nil)).Elem(), CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayInput)(nil)).Elem(), CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderInput)(nil)).Elem(), CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrInput)(nil)).Elem(), CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldInput)(nil)).Elem(), CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayInput)(nil)).Elem(), CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOptimizerConfigurationInput)(nil)).Elem(), CatalogTableOptimizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOptimizerConfigurationPtrInput)(nil)).Elem(), CatalogTableOptimizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationInput)(nil)).Elem(), CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs{})
@@ -12671,6 +14273,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableStorageDescriptorSortColumnArrayInput)(nil)).Elem(), CatalogTableStorageDescriptorSortColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableTargetTableInput)(nil)).Elem(), CatalogTableTargetTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableTargetTablePtrInput)(nil)).Elem(), CatalogTableTargetTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableViewDefinitionInput)(nil)).Elem(), CatalogTableViewDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableViewDefinitionPtrInput)(nil)).Elem(), CatalogTableViewDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableViewDefinitionRepresentationInput)(nil)).Elem(), CatalogTableViewDefinitionRepresentationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableViewDefinitionRepresentationArrayInput)(nil)).Elem(), CatalogTableViewDefinitionRepresentationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierCsvClassifierInput)(nil)).Elem(), ClassifierCsvClassifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierCsvClassifierPtrInput)(nil)).Elem(), ClassifierCsvClassifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierGrokClassifierInput)(nil)).Elem(), ClassifierGrokClassifierArgs{})
@@ -12807,6 +14413,20 @@ func init() {
 	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputPtrOutput{})
 	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputIcebergInputOutput{})
 	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputIcebergInputPtrOutput{})
+	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput{})
+	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput{})
+	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutput{})
+	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput{})
+	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutput{})
+	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutput{})
+	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput{})
+	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput{})
+	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput{})
+	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutput{})
+	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutput{})
+	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput{})
+	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutput{})
+	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutput{})
 	pulumi.RegisterOutputType(CatalogTableOptimizerConfigurationOutput{})
 	pulumi.RegisterOutputType(CatalogTableOptimizerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutput{})
@@ -12837,6 +14457,10 @@ func init() {
 	pulumi.RegisterOutputType(CatalogTableStorageDescriptorSortColumnArrayOutput{})
 	pulumi.RegisterOutputType(CatalogTableTargetTableOutput{})
 	pulumi.RegisterOutputType(CatalogTableTargetTablePtrOutput{})
+	pulumi.RegisterOutputType(CatalogTableViewDefinitionOutput{})
+	pulumi.RegisterOutputType(CatalogTableViewDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(CatalogTableViewDefinitionRepresentationOutput{})
+	pulumi.RegisterOutputType(CatalogTableViewDefinitionRepresentationArrayOutput{})
 	pulumi.RegisterOutputType(ClassifierCsvClassifierOutput{})
 	pulumi.RegisterOutputType(ClassifierCsvClassifierPtrOutput{})
 	pulumi.RegisterOutputType(ClassifierGrokClassifierOutput{})

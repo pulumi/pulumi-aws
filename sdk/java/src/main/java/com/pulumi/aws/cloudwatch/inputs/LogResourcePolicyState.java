@@ -33,18 +33,33 @@ public final class LogResourcePolicyState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Name of the resource policy.
+     * Name of the resource policy. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for account-scoped policies. Note that the number of resource policies without `resourceArn` is limited to 10 per region.
      * 
      */
     @Import(name="policyName")
     private @Nullable Output<String> policyName;
 
     /**
-     * @return Name of the resource policy.
+     * @return Name of the resource policy. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for account-scoped policies. Note that the number of resource policies without `resourceArn` is limited to 10 per region.
      * 
      */
     public Optional<Output<String>> policyName() {
         return Optional.ofNullable(this.policyName);
+    }
+
+    /**
+     * Scope of the resource policy (`ACCOUNT` or `RESOURCE`).
+     * 
+     */
+    @Import(name="policyScope")
+    private @Nullable Output<String> policyScope;
+
+    /**
+     * @return Scope of the resource policy (`ACCOUNT` or `RESOURCE`).
+     * 
+     */
+    public Optional<Output<String>> policyScope() {
+        return Optional.ofNullable(this.policyScope);
     }
 
     /**
@@ -62,12 +77,45 @@ public final class LogResourcePolicyState extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.region);
     }
 
+    /**
+     * ARN of the CloudWatch Logs resource to which the resource policy is attached. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for resource-scoped policies. Only one policy can be attached per log group resource ARN.
+     * 
+     */
+    @Import(name="resourceArn")
+    private @Nullable Output<String> resourceArn;
+
+    /**
+     * @return ARN of the CloudWatch Logs resource to which the resource policy is attached. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for resource-scoped policies. Only one policy can be attached per log group resource ARN.
+     * 
+     */
+    public Optional<Output<String>> resourceArn() {
+        return Optional.ofNullable(this.resourceArn);
+    }
+
+    /**
+     * Revision ID of the resource policy. Only populated for resource-scoped policies.
+     * 
+     */
+    @Import(name="revisionId")
+    private @Nullable Output<String> revisionId;
+
+    /**
+     * @return Revision ID of the resource policy. Only populated for resource-scoped policies.
+     * 
+     */
+    public Optional<Output<String>> revisionId() {
+        return Optional.ofNullable(this.revisionId);
+    }
+
     private LogResourcePolicyState() {}
 
     private LogResourcePolicyState(LogResourcePolicyState $) {
         this.policyDocument = $.policyDocument;
         this.policyName = $.policyName;
+        this.policyScope = $.policyScope;
         this.region = $.region;
+        this.resourceArn = $.resourceArn;
+        this.revisionId = $.revisionId;
     }
 
     public static Builder builder() {
@@ -130,7 +178,7 @@ public final class LogResourcePolicyState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param policyName Name of the resource policy.
+         * @param policyName Name of the resource policy. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for account-scoped policies. Note that the number of resource policies without `resourceArn` is limited to 10 per region.
          * 
          * @return builder
          * 
@@ -141,13 +189,34 @@ public final class LogResourcePolicyState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param policyName Name of the resource policy.
+         * @param policyName Name of the resource policy. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for account-scoped policies. Note that the number of resource policies without `resourceArn` is limited to 10 per region.
          * 
          * @return builder
          * 
          */
         public Builder policyName(String policyName) {
             return policyName(Output.of(policyName));
+        }
+
+        /**
+         * @param policyScope Scope of the resource policy (`ACCOUNT` or `RESOURCE`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policyScope(@Nullable Output<String> policyScope) {
+            $.policyScope = policyScope;
+            return this;
+        }
+
+        /**
+         * @param policyScope Scope of the resource policy (`ACCOUNT` or `RESOURCE`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policyScope(String policyScope) {
+            return policyScope(Output.of(policyScope));
         }
 
         /**
@@ -169,6 +238,48 @@ public final class LogResourcePolicyState extends com.pulumi.resources.ResourceA
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param resourceArn ARN of the CloudWatch Logs resource to which the resource policy is attached. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for resource-scoped policies. Only one policy can be attached per log group resource ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceArn(@Nullable Output<String> resourceArn) {
+            $.resourceArn = resourceArn;
+            return this;
+        }
+
+        /**
+         * @param resourceArn ARN of the CloudWatch Logs resource to which the resource policy is attached. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for resource-scoped policies. Only one policy can be attached per log group resource ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceArn(String resourceArn) {
+            return resourceArn(Output.of(resourceArn));
+        }
+
+        /**
+         * @param revisionId Revision ID of the resource policy. Only populated for resource-scoped policies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder revisionId(@Nullable Output<String> revisionId) {
+            $.revisionId = revisionId;
+            return this;
+        }
+
+        /**
+         * @param revisionId Revision ID of the resource policy. Only populated for resource-scoped policies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder revisionId(String revisionId) {
+            return revisionId(Output.of(revisionId));
         }
 
         public LogResourcePolicyState build() {

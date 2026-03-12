@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const awsGlueCatalogTable = new aws.glue.CatalogTable("aws_glue_catalog_table", {
+ * const example = new aws.glue.CatalogTable("example", {
  *     name: "MyCatalogTable",
  *     databaseName: "MyCatalogDatabase",
  * });
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const awsGlueCatalogTable = new aws.glue.CatalogTable("aws_glue_catalog_table", {
+ * const example = new aws.glue.CatalogTable("example", {
  *     name: "MyCatalogTable",
  *     databaseName: "MyCatalogDatabase",
  *     tableType: "EXTERNAL_TABLE",
@@ -74,6 +74,68 @@ import * as utilities from "../utilities";
  *                 comment: "",
  *             },
  *         ],
+ *     },
+ * });
+ * ```
+ *
+ * ### Iceberg Table
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.glue.CatalogTable("example", {
+ *     name: "transactiontable1",
+ *     databaseName: "bankdata_icebergdb",
+ *     openTableFormatInput: {
+ *         icebergInput: {
+ *             metadataOperation: "CREATE",
+ *             version: "2",
+ *             icebergTableInput: {
+ *                 location: "s3://sampledatabucket/bankdataiceberg/transactiontable1/",
+ *                 schema: {
+ *                     schemaId: 0,
+ *                     type: "struct",
+ *                     fields: [
+ *                         {
+ *                             id: 1,
+ *                             name: "transaction_id",
+ *                             required: true,
+ *                             type: "            \\\"string\\\"\n",
+ *                         },
+ *                         {
+ *                             id: 2,
+ *                             name: "transaction_date",
+ *                             required: true,
+ *                             type: "            \\\"date\\\"\n",
+ *                         },
+ *                         {
+ *                             id: 3,
+ *                             name: "monthly_balance",
+ *                             required: true,
+ *                             type: "            \\\"float\\\"\n",
+ *                         },
+ *                     ],
+ *                 },
+ *                 partitionSpec: {
+ *                     fields: [{
+ *                         name: "by_year",
+ *                         sourceId: 2,
+ *                         transform: "year",
+ *                     }],
+ *                     specId: 0,
+ *                 },
+ *                 sortOrder: {
+ *                     fields: [{
+ *                         direction: "asc",
+ *                         nullOrder: "nulls-last",
+ *                         sourceId: 1,
+ *                         transform: "none",
+ *                     }],
+ *                     orderId: 1,
+ *                 },
+ *             },
+ *         },
  *     },
  * });
  * ```
@@ -147,7 +209,7 @@ export class CatalogTable extends pulumi.CustomResource {
     /**
      * Properties associated with this table, as a list of key-value pairs.
      */
-    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
      */
@@ -167,15 +229,19 @@ export class CatalogTable extends pulumi.CustomResource {
     /**
      * Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
      */
-    declare public readonly storageDescriptor: pulumi.Output<outputs.glue.CatalogTableStorageDescriptor | undefined>;
+    declare public readonly storageDescriptor: pulumi.Output<outputs.glue.CatalogTableStorageDescriptor>;
     /**
      * Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
      */
-    declare public readonly tableType: pulumi.Output<string | undefined>;
+    declare public readonly tableType: pulumi.Output<string>;
     /**
      * Configuration block of a target table for resource linking. See `targetTable` below.
      */
     declare public readonly targetTable: pulumi.Output<outputs.glue.CatalogTableTargetTable | undefined>;
+    /**
+     * A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+     */
+    declare public readonly viewDefinition: pulumi.Output<outputs.glue.CatalogTableViewDefinition | undefined>;
     /**
      * If the table is a view, the expanded text of the view; otherwise null.
      */
@@ -213,6 +279,7 @@ export class CatalogTable extends pulumi.CustomResource {
             resourceInputs["storageDescriptor"] = state?.storageDescriptor;
             resourceInputs["tableType"] = state?.tableType;
             resourceInputs["targetTable"] = state?.targetTable;
+            resourceInputs["viewDefinition"] = state?.viewDefinition;
             resourceInputs["viewExpandedText"] = state?.viewExpandedText;
             resourceInputs["viewOriginalText"] = state?.viewOriginalText;
         } else {
@@ -234,6 +301,7 @@ export class CatalogTable extends pulumi.CustomResource {
             resourceInputs["storageDescriptor"] = args?.storageDescriptor;
             resourceInputs["tableType"] = args?.tableType;
             resourceInputs["targetTable"] = args?.targetTable;
+            resourceInputs["viewDefinition"] = args?.viewDefinition;
             resourceInputs["viewExpandedText"] = args?.viewExpandedText;
             resourceInputs["viewOriginalText"] = args?.viewOriginalText;
             resourceInputs["arn"] = undefined /*out*/;
@@ -310,6 +378,10 @@ export interface CatalogTableState {
      */
     targetTable?: pulumi.Input<inputs.glue.CatalogTableTargetTable>;
     /**
+     * A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+     */
+    viewDefinition?: pulumi.Input<inputs.glue.CatalogTableViewDefinition>;
+    /**
      * If the table is a view, the expanded text of the view; otherwise null.
      */
     viewExpandedText?: pulumi.Input<string>;
@@ -381,6 +453,10 @@ export interface CatalogTableArgs {
      * Configuration block of a target table for resource linking. See `targetTable` below.
      */
     targetTable?: pulumi.Input<inputs.glue.CatalogTableTargetTable>;
+    /**
+     * A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+     */
+    viewDefinition?: pulumi.Input<inputs.glue.CatalogTableViewDefinition>;
     /**
      * If the table is a view, the expanded text of the view; otherwise null.
      */

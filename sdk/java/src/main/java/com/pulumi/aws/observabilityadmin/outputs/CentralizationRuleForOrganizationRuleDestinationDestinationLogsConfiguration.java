@@ -4,6 +4,7 @@
 package com.pulumi.aws.observabilityadmin.outputs;
 
 import com.pulumi.aws.observabilityadmin.outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration;
+import com.pulumi.aws.observabilityadmin.outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfiguration;
 import com.pulumi.aws.observabilityadmin.outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
@@ -18,6 +19,11 @@ public final class CentralizationRuleForOrganizationRuleDestinationDestinationLo
      */
     private @Nullable CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration backupConfiguration;
     /**
+     * @return Configuration block for a naming pattern for destination log groups created during centralization. See `logGroupNameConfiguration` below.
+     * 
+     */
+    private @Nullable CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfiguration logGroupNameConfiguration;
+    /**
      * @return Configuration block for logs encryption settings. See `logsEncryptionConfiguration` below.
      * 
      */
@@ -30,6 +36,13 @@ public final class CentralizationRuleForOrganizationRuleDestinationDestinationLo
      */
     public Optional<CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration> backupConfiguration() {
         return Optional.ofNullable(this.backupConfiguration);
+    }
+    /**
+     * @return Configuration block for a naming pattern for destination log groups created during centralization. See `logGroupNameConfiguration` below.
+     * 
+     */
+    public Optional<CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfiguration> logGroupNameConfiguration() {
+        return Optional.ofNullable(this.logGroupNameConfiguration);
     }
     /**
      * @return Configuration block for logs encryption settings. See `logsEncryptionConfiguration` below.
@@ -49,11 +62,13 @@ public final class CentralizationRuleForOrganizationRuleDestinationDestinationLo
     @CustomType.Builder
     public static final class Builder {
         private @Nullable CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration backupConfiguration;
+        private @Nullable CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfiguration logGroupNameConfiguration;
         private @Nullable CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration logsEncryptionConfiguration;
         public Builder() {}
         public Builder(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.backupConfiguration = defaults.backupConfiguration;
+    	      this.logGroupNameConfiguration = defaults.logGroupNameConfiguration;
     	      this.logsEncryptionConfiguration = defaults.logsEncryptionConfiguration;
         }
 
@@ -61,6 +76,12 @@ public final class CentralizationRuleForOrganizationRuleDestinationDestinationLo
         public Builder backupConfiguration(@Nullable CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration backupConfiguration) {
 
             this.backupConfiguration = backupConfiguration;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder logGroupNameConfiguration(@Nullable CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfiguration logGroupNameConfiguration) {
+
+            this.logGroupNameConfiguration = logGroupNameConfiguration;
             return this;
         }
         @CustomType.Setter
@@ -72,6 +93,7 @@ public final class CentralizationRuleForOrganizationRuleDestinationDestinationLo
         public CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration build() {
             final var _resultValue = new CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration();
             _resultValue.backupConfiguration = backupConfiguration;
+            _resultValue.logGroupNameConfiguration = logGroupNameConfiguration;
             _resultValue.logsEncryptionConfiguration = logsEncryptionConfiguration;
             return _resultValue;
         }

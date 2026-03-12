@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Advanced Configuration with Encryption and Backup
+ * ### Advanced Configuration with Encryption, Backup and Log Group Name Configuration
  * 
  * <pre>
  * {@code
@@ -111,6 +111,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs;
  * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs;
  * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs;
+ * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgs;
  * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleSourceArgs;
  * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs;
  * import java.util.List;
@@ -144,6 +145,9 @@ import javax.annotation.Nullable;
  *                             .build())
  *                         .backupConfiguration(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs.builder()
  *                             .region("us-west-1")
+ *                             .build())
+ *                         .logGroupNameConfiguration(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgs.builder()
+ *                             .logGroupNamePattern("/centralized-logs/${source.accountId}/${source.region}/${source.logGroup}")
  *                             .build())
  *                         .build())
  *                     .build())

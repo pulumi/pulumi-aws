@@ -137,14 +137,14 @@ public class AnomalyMonitor extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The dimensions to evaluate. Valid values: `SERVICE`.
+     * The dimensions to evaluate. Valid values: `COST_CATEGORY`, `LINKED_ACCOUNT`, `SERVICE`, `TAG`.
      * 
      */
     @Export(name="monitorDimension", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> monitorDimension;
 
     /**
-     * @return The dimensions to evaluate. Valid values: `SERVICE`.
+     * @return The dimensions to evaluate. Valid values: `COST_CATEGORY`, `LINKED_ACCOUNT`, `SERVICE`, `TAG`.
      * 
      */
     public Output<Optional<String>> monitorDimension() {

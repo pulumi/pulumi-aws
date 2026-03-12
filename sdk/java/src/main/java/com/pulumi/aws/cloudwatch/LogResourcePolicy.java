@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -119,10 +120,14 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import CloudWatch log resource policies using the policy name. For example:
+ * Using `pulumi import`, import CloudWatch log resource policies using the policy name for account-scoped policies, or the ARN of the CloudWatch Logs resource to which the policy is attached for resource-scoped policies. For example:
  * 
  * ```sh
- * $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
+ * $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy my_policy_account_scoped my_policy
+ * ```
+ * 
+ * ```sh
+ * $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy my_policy_resource_scoped &#34;arn:aws:logs:us-west-2:123456789012:log-group:/my-log-group&#34;
  * ```
  * 
  */
@@ -143,18 +148,32 @@ public class LogResourcePolicy extends com.pulumi.resources.CustomResource {
         return this.policyDocument;
     }
     /**
-     * Name of the resource policy.
+     * Name of the resource policy. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for account-scoped policies. Note that the number of resource policies without `resourceArn` is limited to 10 per region.
      * 
      */
     @Export(name="policyName", refs={String.class}, tree="[0]")
-    private Output<String> policyName;
+    private Output</* @Nullable */ String> policyName;
 
     /**
-     * @return Name of the resource policy.
+     * @return Name of the resource policy. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for account-scoped policies. Note that the number of resource policies without `resourceArn` is limited to 10 per region.
      * 
      */
-    public Output<String> policyName() {
-        return this.policyName;
+    public Output<Optional<String>> policyName() {
+        return Codegen.optional(this.policyName);
+    }
+    /**
+     * Scope of the resource policy (`ACCOUNT` or `RESOURCE`).
+     * 
+     */
+    @Export(name="policyScope", refs={String.class}, tree="[0]")
+    private Output<String> policyScope;
+
+    /**
+     * @return Scope of the resource policy (`ACCOUNT` or `RESOURCE`).
+     * 
+     */
+    public Output<String> policyScope() {
+        return this.policyScope;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -169,6 +188,34 @@ public class LogResourcePolicy extends com.pulumi.resources.CustomResource {
      */
     public Output<String> region() {
         return this.region;
+    }
+    /**
+     * ARN of the CloudWatch Logs resource to which the resource policy is attached. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for resource-scoped policies. Only one policy can be attached per log group resource ARN.
+     * 
+     */
+    @Export(name="resourceArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> resourceArn;
+
+    /**
+     * @return ARN of the CloudWatch Logs resource to which the resource policy is attached. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for resource-scoped policies. Only one policy can be attached per log group resource ARN.
+     * 
+     */
+    public Output<Optional<String>> resourceArn() {
+        return Codegen.optional(this.resourceArn);
+    }
+    /**
+     * Revision ID of the resource policy. Only populated for resource-scoped policies.
+     * 
+     */
+    @Export(name="revisionId", refs={String.class}, tree="[0]")
+    private Output<String> revisionId;
+
+    /**
+     * @return Revision ID of the resource policy. Only populated for resource-scoped policies.
+     * 
+     */
+    public Output<String> revisionId() {
+        return this.revisionId;
     }
 
     /**

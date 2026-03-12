@@ -152,6 +152,21 @@ public final class ThreatIntelSetState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * ID of the GuardDuty ThreatIntelSet.
+     * 
+     */
+    @Import(name="threatIntelSetId")
+    private @Nullable Output<String> threatIntelSetId;
+
+    /**
+     * @return ID of the GuardDuty ThreatIntelSet.
+     * 
+     */
+    public Optional<Output<String>> threatIntelSetId() {
+        return Optional.ofNullable(this.threatIntelSetId);
+    }
+
     private ThreatIntelSetState() {}
 
     private ThreatIntelSetState(ThreatIntelSetState $) {
@@ -164,6 +179,7 @@ public final class ThreatIntelSetState extends com.pulumi.resources.ResourceArgs
         this.region = $.region;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.threatIntelSetId = $.threatIntelSetId;
     }
 
     public static Builder builder() {
@@ -371,6 +387,27 @@ public final class ThreatIntelSetState extends com.pulumi.resources.ResourceArgs
          */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param threatIntelSetId ID of the GuardDuty ThreatIntelSet.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder threatIntelSetId(@Nullable Output<String> threatIntelSetId) {
+            $.threatIntelSetId = threatIntelSetId;
+            return this;
+        }
+
+        /**
+         * @param threatIntelSetId ID of the GuardDuty ThreatIntelSet.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder threatIntelSetId(String threatIntelSetId) {
+            return threatIntelSetId(Output.of(threatIntelSetId));
         }
 
         public ThreatIntelSetState build() {

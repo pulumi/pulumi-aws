@@ -226,6 +226,20 @@ public class ThreatIntelSet extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * ID of the GuardDuty ThreatIntelSet.
+     * 
+     */
+    @Export(name="threatIntelSetId", refs={String.class}, tree="[0]")
+    private Output<String> threatIntelSetId;
+
+    /**
+     * @return ID of the GuardDuty ThreatIntelSet.
+     * 
+     */
+    public Output<String> threatIntelSetId() {
+        return this.threatIntelSetId;
+    }
 
     /**
      *

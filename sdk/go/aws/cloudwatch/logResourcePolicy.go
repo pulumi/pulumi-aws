@@ -123,20 +123,30 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import CloudWatch log resource policies using the policy name. For example:
+// Using `pulumi import`, import CloudWatch log resource policies using the policy name for account-scoped policies, or the ARN of the CloudWatch Logs resource to which the policy is attached for resource-scoped policies. For example:
 //
 // ```sh
-// $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
+// $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy my_policy_account_scoped my_policy
+// ```
+//
+// ```sh
+// $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy my_policy_resource_scoped "arn:aws:logs:us-west-2:123456789012:log-group:/my-log-group"
 // ```
 type LogResourcePolicy struct {
 	pulumi.CustomResourceState
 
 	// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
 	PolicyDocument pulumi.StringOutput `pulumi:"policyDocument"`
-	// Name of the resource policy.
-	PolicyName pulumi.StringOutput `pulumi:"policyName"`
+	// Name of the resource policy. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for account-scoped policies. Note that the number of resource policies without `resourceArn` is limited to 10 per region.
+	PolicyName pulumi.StringPtrOutput `pulumi:"policyName"`
+	// Scope of the resource policy (`ACCOUNT` or `RESOURCE`).
+	PolicyScope pulumi.StringOutput `pulumi:"policyScope"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
+	// ARN of the CloudWatch Logs resource to which the resource policy is attached. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for resource-scoped policies. Only one policy can be attached per log group resource ARN.
+	ResourceArn pulumi.StringPtrOutput `pulumi:"resourceArn"`
+	// Revision ID of the resource policy. Only populated for resource-scoped policies.
+	RevisionId pulumi.StringOutput `pulumi:"revisionId"`
 }
 
 // NewLogResourcePolicy registers a new resource with the given unique name, arguments, and options.
@@ -148,9 +158,6 @@ func NewLogResourcePolicy(ctx *pulumi.Context,
 
 	if args.PolicyDocument == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyDocument'")
-	}
-	if args.PolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'PolicyName'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LogResourcePolicy
@@ -177,19 +184,31 @@ func GetLogResourcePolicy(ctx *pulumi.Context,
 type logResourcePolicyState struct {
 	// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
-	// Name of the resource policy.
+	// Name of the resource policy. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for account-scoped policies. Note that the number of resource policies without `resourceArn` is limited to 10 per region.
 	PolicyName *string `pulumi:"policyName"`
+	// Scope of the resource policy (`ACCOUNT` or `RESOURCE`).
+	PolicyScope *string `pulumi:"policyScope"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// ARN of the CloudWatch Logs resource to which the resource policy is attached. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for resource-scoped policies. Only one policy can be attached per log group resource ARN.
+	ResourceArn *string `pulumi:"resourceArn"`
+	// Revision ID of the resource policy. Only populated for resource-scoped policies.
+	RevisionId *string `pulumi:"revisionId"`
 }
 
 type LogResourcePolicyState struct {
 	// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
 	PolicyDocument pulumi.Input
-	// Name of the resource policy.
+	// Name of the resource policy. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for account-scoped policies. Note that the number of resource policies without `resourceArn` is limited to 10 per region.
 	PolicyName pulumi.StringPtrInput
+	// Scope of the resource policy (`ACCOUNT` or `RESOURCE`).
+	PolicyScope pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// ARN of the CloudWatch Logs resource to which the resource policy is attached. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for resource-scoped policies. Only one policy can be attached per log group resource ARN.
+	ResourceArn pulumi.StringPtrInput
+	// Revision ID of the resource policy. Only populated for resource-scoped policies.
+	RevisionId pulumi.StringPtrInput
 }
 
 func (LogResourcePolicyState) ElementType() reflect.Type {
@@ -199,20 +218,24 @@ func (LogResourcePolicyState) ElementType() reflect.Type {
 type logResourcePolicyArgs struct {
 	// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
-	// Name of the resource policy.
-	PolicyName string `pulumi:"policyName"`
+	// Name of the resource policy. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for account-scoped policies. Note that the number of resource policies without `resourceArn` is limited to 10 per region.
+	PolicyName *string `pulumi:"policyName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// ARN of the CloudWatch Logs resource to which the resource policy is attached. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for resource-scoped policies. Only one policy can be attached per log group resource ARN.
+	ResourceArn *string `pulumi:"resourceArn"`
 }
 
 // The set of arguments for constructing a LogResourcePolicy resource.
 type LogResourcePolicyArgs struct {
 	// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
 	PolicyDocument pulumi.Input
-	// Name of the resource policy.
-	PolicyName pulumi.StringInput
+	// Name of the resource policy. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for account-scoped policies. Note that the number of resource policies without `resourceArn` is limited to 10 per region.
+	PolicyName pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// ARN of the CloudWatch Logs resource to which the resource policy is attached. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for resource-scoped policies. Only one policy can be attached per log group resource ARN.
+	ResourceArn pulumi.StringPtrInput
 }
 
 func (LogResourcePolicyArgs) ElementType() reflect.Type {
@@ -307,14 +330,29 @@ func (o LogResourcePolicyOutput) PolicyDocument() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogResourcePolicy) pulumi.StringOutput { return v.PolicyDocument }).(pulumi.StringOutput)
 }
 
-// Name of the resource policy.
-func (o LogResourcePolicyOutput) PolicyName() pulumi.StringOutput {
-	return o.ApplyT(func(v *LogResourcePolicy) pulumi.StringOutput { return v.PolicyName }).(pulumi.StringOutput)
+// Name of the resource policy. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for account-scoped policies. Note that the number of resource policies without `resourceArn` is limited to 10 per region.
+func (o LogResourcePolicyOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogResourcePolicy) pulumi.StringPtrOutput { return v.PolicyName }).(pulumi.StringPtrOutput)
+}
+
+// Scope of the resource policy (`ACCOUNT` or `RESOURCE`).
+func (o LogResourcePolicyOutput) PolicyScope() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogResourcePolicy) pulumi.StringOutput { return v.PolicyScope }).(pulumi.StringOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LogResourcePolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogResourcePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
+// ARN of the CloudWatch Logs resource to which the resource policy is attached. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for resource-scoped policies. Only one policy can be attached per log group resource ARN.
+func (o LogResourcePolicyOutput) ResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogResourcePolicy) pulumi.StringPtrOutput { return v.ResourceArn }).(pulumi.StringPtrOutput)
+}
+
+// Revision ID of the resource policy. Only populated for resource-scoped policies.
+func (o LogResourcePolicyOutput) RevisionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogResourcePolicy) pulumi.StringOutput { return v.RevisionId }).(pulumi.StringOutput)
 }
 
 type LogResourcePolicyArrayOutput struct{ *pulumi.OutputState }

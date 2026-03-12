@@ -108,6 +108,10 @@ export class ThreatIntelSet extends pulumi.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    /**
+     * ID of the GuardDuty ThreatIntelSet.
+     */
+    declare public /*out*/ readonly threatIntelSetId: pulumi.Output<string>;
 
     /**
      * Create a ThreatIntelSet resource with the given unique name, arguments, and options.
@@ -131,6 +135,7 @@ export class ThreatIntelSet extends pulumi.CustomResource {
             resourceInputs["region"] = state?.region;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["threatIntelSetId"] = state?.threatIntelSetId;
         } else {
             const args = argsOrState as ThreatIntelSetArgs | undefined;
             if (args?.activate === undefined && !opts.urn) {
@@ -154,6 +159,7 @@ export class ThreatIntelSet extends pulumi.CustomResource {
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["threatIntelSetId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ThreatIntelSet.__pulumiType, name, resourceInputs, opts);
@@ -200,6 +206,10 @@ export interface ThreatIntelSetState {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * ID of the GuardDuty ThreatIntelSet.
+     */
+    threatIntelSetId?: pulumi.Input<string>;
 }
 
 /**

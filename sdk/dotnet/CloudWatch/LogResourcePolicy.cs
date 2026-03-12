@@ -115,10 +115,14 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CloudWatch log resource policies using the policy name. For example:
+    /// Using `pulumi import`, import CloudWatch log resource policies using the policy name for account-scoped policies, or the ARN of the CloudWatch Logs resource to which the policy is attached for resource-scoped policies. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
+    /// $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy my_policy_account_scoped my_policy
+    /// ```
+    /// 
+    /// ```sh
+    /// $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy my_policy_resource_scoped "arn:aws:logs:us-west-2:123456789012:log-group:/my-log-group"
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/logResourcePolicy:LogResourcePolicy")]
@@ -131,16 +135,34 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> PolicyDocument { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the resource policy.
+        /// Name of the resource policy. Exactly one of `PolicyName` or `ResourceArn` must be specified and this argument is required for account-scoped policies. Note that the number of resource policies without `ResourceArn` is limited to 10 per region.
         /// </summary>
         [Output("policyName")]
-        public Output<string> PolicyName { get; private set; } = null!;
+        public Output<string?> PolicyName { get; private set; } = null!;
+
+        /// <summary>
+        /// Scope of the resource policy (`ACCOUNT` or `RESOURCE`).
+        /// </summary>
+        [Output("policyScope")]
+        public Output<string> PolicyScope { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
+        /// ARN of the CloudWatch Logs resource to which the resource policy is attached. Exactly one of `PolicyName` or `ResourceArn` must be specified and this argument is required for resource-scoped policies. Only one policy can be attached per log group resource ARN.
+        /// </summary>
+        [Output("resourceArn")]
+        public Output<string?> ResourceArn { get; private set; } = null!;
+
+        /// <summary>
+        /// Revision ID of the resource policy. Only populated for resource-scoped policies.
+        /// </summary>
+        [Output("revisionId")]
+        public Output<string> RevisionId { get; private set; } = null!;
 
 
         /// <summary>
@@ -195,16 +217,22 @@ namespace Pulumi.Aws.CloudWatch
         public InputUnion<string, Inputs.PolicyDocumentArgs> PolicyDocument { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource policy.
+        /// Name of the resource policy. Exactly one of `PolicyName` or `ResourceArn` must be specified and this argument is required for account-scoped policies. Note that the number of resource policies without `ResourceArn` is limited to 10 per region.
         /// </summary>
-        [Input("policyName", required: true)]
-        public Input<string> PolicyName { get; set; } = null!;
+        [Input("policyName")]
+        public Input<string>? PolicyName { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// ARN of the CloudWatch Logs resource to which the resource policy is attached. Exactly one of `PolicyName` or `ResourceArn` must be specified and this argument is required for resource-scoped policies. Only one policy can be attached per log group resource ARN.
+        /// </summary>
+        [Input("resourceArn")]
+        public Input<string>? ResourceArn { get; set; }
 
         public LogResourcePolicyArgs()
         {
@@ -221,16 +249,34 @@ namespace Pulumi.Aws.CloudWatch
         public InputUnion<string, Inputs.PolicyDocumentGetArgs>? PolicyDocument { get; set; }
 
         /// <summary>
-        /// Name of the resource policy.
+        /// Name of the resource policy. Exactly one of `PolicyName` or `ResourceArn` must be specified and this argument is required for account-scoped policies. Note that the number of resource policies without `ResourceArn` is limited to 10 per region.
         /// </summary>
         [Input("policyName")]
         public Input<string>? PolicyName { get; set; }
+
+        /// <summary>
+        /// Scope of the resource policy (`ACCOUNT` or `RESOURCE`).
+        /// </summary>
+        [Input("policyScope")]
+        public Input<string>? PolicyScope { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// ARN of the CloudWatch Logs resource to which the resource policy is attached. Exactly one of `PolicyName` or `ResourceArn` must be specified and this argument is required for resource-scoped policies. Only one policy can be attached per log group resource ARN.
+        /// </summary>
+        [Input("resourceArn")]
+        public Input<string>? ResourceArn { get; set; }
+
+        /// <summary>
+        /// Revision ID of the resource policy. Only populated for resource-scoped policies.
+        /// </summary>
+        [Input("revisionId")]
+        public Input<string>? RevisionId { get; set; }
 
         public LogResourcePolicyState()
         {

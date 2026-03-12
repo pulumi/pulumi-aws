@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Advanced Configuration with Encryption and Backup
+ * ### Advanced Configuration with Encryption, Backup and Log Group Name Configuration
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -67,6 +67,9 @@ import * as utilities from "../utilities";
  *                 },
  *                 backupConfiguration: {
  *                     region: "us-west-1",
+ *                 },
+ *                 logGroupNameConfiguration: {
+ *                     logGroupNamePattern: "/centralized-logs/${source.accountId}/${source.region}/${source.logGroup}",
  *                 },
  *             },
  *         },

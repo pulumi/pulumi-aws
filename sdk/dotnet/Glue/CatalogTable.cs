@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var awsGlueCatalogTable = new Aws.Glue.CatalogTable("aws_glue_catalog_table", new()
+    ///     var example = new Aws.Glue.CatalogTable("example", new()
     ///     {
     ///         Name = "MyCatalogTable",
     ///         DatabaseName = "MyCatalogDatabase",
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var awsGlueCatalogTable = new Aws.Glue.CatalogTable("aws_glue_catalog_table", new()
+    ///     var example = new Aws.Glue.CatalogTable("example", new()
     ///     {
     ///         Name = "MyCatalogTable",
     ///         DatabaseName = "MyCatalogDatabase",
@@ -96,6 +96,96 @@ namespace Pulumi.Aws.Glue
     ///                     Name = "my_struct",
     ///                     Type = "struct&lt;my_nested_string:string&gt;",
     ///                     Comment = "",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Iceberg Table
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Glue.CatalogTable("example", new()
+    ///     {
+    ///         Name = "transactiontable1",
+    ///         DatabaseName = "bankdata_icebergdb",
+    ///         OpenTableFormatInput = new Aws.Glue.Inputs.CatalogTableOpenTableFormatInputArgs
+    ///         {
+    ///             IcebergInput = new Aws.Glue.Inputs.CatalogTableOpenTableFormatInputIcebergInputArgs
+    ///             {
+    ///                 MetadataOperation = "CREATE",
+    ///                 Version = "2",
+    ///                 IcebergTableInput = new Aws.Glue.Inputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs
+    ///                 {
+    ///                     Location = "s3://sampledatabucket/bankdataiceberg/transactiontable1/",
+    ///                     Schema = new Aws.Glue.Inputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs
+    ///                     {
+    ///                         SchemaId = 0,
+    ///                         Type = "struct",
+    ///                         Fields = new[]
+    ///                         {
+    ///                             new Aws.Glue.Inputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs
+    ///                             {
+    ///                                 Id = 1,
+    ///                                 Name = "transaction_id",
+    ///                                 Required = true,
+    ///                                 Type = @"            \""string\""
+    /// ",
+    ///                             },
+    ///                             new Aws.Glue.Inputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs
+    ///                             {
+    ///                                 Id = 2,
+    ///                                 Name = "transaction_date",
+    ///                                 Required = true,
+    ///                                 Type = @"            \""date\""
+    /// ",
+    ///                             },
+    ///                             new Aws.Glue.Inputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs
+    ///                             {
+    ///                                 Id = 3,
+    ///                                 Name = "monthly_balance",
+    ///                                 Required = true,
+    ///                                 Type = @"            \""float\""
+    /// ",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     PartitionSpec = new Aws.Glue.Inputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs
+    ///                     {
+    ///                         Fields = new[]
+    ///                         {
+    ///                             new Aws.Glue.Inputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArgs
+    ///                             {
+    ///                                 Name = "by_year",
+    ///                                 SourceId = 2,
+    ///                                 Transform = "year",
+    ///                             },
+    ///                         },
+    ///                         SpecId = 0,
+    ///                     },
+    ///                     SortOrder = new Aws.Glue.Inputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs
+    ///                     {
+    ///                         Fields = new[]
+    ///                         {
+    ///                             new Aws.Glue.Inputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArgs
+    ///                             {
+    ///                                 Direction = "asc",
+    ///                                 NullOrder = "nulls-last",
+    ///                                 SourceId = 1,
+    ///                                 Transform = "none",
+    ///                             },
+    ///                         },
+    ///                         OrderId = 1,
+    ///                     },
     ///                 },
     ///             },
     ///         },
@@ -163,7 +253,7 @@ namespace Pulumi.Aws.Glue
         /// Properties associated with this table, as a list of key-value pairs.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for a maximum of 3 partition indexes. See `PartitionIndex` below.
@@ -193,19 +283,25 @@ namespace Pulumi.Aws.Glue
         /// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `StorageDescriptor` below.
         /// </summary>
         [Output("storageDescriptor")]
-        public Output<Outputs.CatalogTableStorageDescriptor?> StorageDescriptor { get; private set; } = null!;
+        public Output<Outputs.CatalogTableStorageDescriptor> StorageDescriptor { get; private set; } = null!;
 
         /// <summary>
         /// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
         /// </summary>
         [Output("tableType")]
-        public Output<string?> TableType { get; private set; } = null!;
+        public Output<string> TableType { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block of a target table for resource linking. See `TargetTable` below.
         /// </summary>
         [Output("targetTable")]
         public Output<Outputs.CatalogTableTargetTable?> TargetTable { get; private set; } = null!;
+
+        /// <summary>
+        /// A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `ViewDefinition` below.
+        /// </summary>
+        [Output("viewDefinition")]
+        public Output<Outputs.CatalogTableViewDefinition?> ViewDefinition { get; private set; } = null!;
 
         /// <summary>
         /// If the table is a view, the expanded text of the view; otherwise null.
@@ -370,6 +466,12 @@ namespace Pulumi.Aws.Glue
         public Input<Inputs.CatalogTableTargetTableArgs>? TargetTable { get; set; }
 
         /// <summary>
+        /// A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `ViewDefinition` below.
+        /// </summary>
+        [Input("viewDefinition")]
+        public Input<Inputs.CatalogTableViewDefinitionArgs>? ViewDefinition { get; set; }
+
+        /// <summary>
         /// If the table is a view, the expanded text of the view; otherwise null.
         /// </summary>
         [Input("viewExpandedText")]
@@ -498,6 +600,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("targetTable")]
         public Input<Inputs.CatalogTableTargetTableGetArgs>? TargetTable { get; set; }
+
+        /// <summary>
+        /// A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `ViewDefinition` below.
+        /// </summary>
+        [Input("viewDefinition")]
+        public Input<Inputs.CatalogTableViewDefinitionGetArgs>? ViewDefinition { get; set; }
 
         /// <summary>
         /// If the table is a view, the expanded text of the view; otherwise null.

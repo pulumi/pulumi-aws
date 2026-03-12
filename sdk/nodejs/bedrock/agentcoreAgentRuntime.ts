@@ -97,6 +97,10 @@ import * as utilities from "../utilities";
  *                 "client-123",
  *                 "client-456",
  *             ],
+ *             allowedScopes: [
+ *                 "openid",
+ *                 "email",
+ *             ],
  *         },
  *     },
  *     networkConfiguration: {

@@ -20,6 +20,7 @@ __all__ = [
     'CentralizationRuleForOrganizationRuleDestination',
     'CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration',
     'CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration',
+    'CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfiguration',
     'CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration',
     'CentralizationRuleForOrganizationRuleSource',
     'CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration',
@@ -122,6 +123,8 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
         suggest = None
         if key == "backupConfiguration":
             suggest = "backup_configuration"
+        elif key == "logGroupNameConfiguration":
+            suggest = "log_group_name_configuration"
         elif key == "logsEncryptionConfiguration":
             suggest = "logs_encryption_configuration"
 
@@ -138,13 +141,17 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
 
     def __init__(__self__, *,
                  backup_configuration: Optional['outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration'] = None,
+                 log_group_name_configuration: Optional['outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfiguration'] = None,
                  logs_encryption_configuration: Optional['outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration'] = None):
         """
         :param 'CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs' backup_configuration: Configuration block for backup settings. See `backup_configuration` below.
+        :param 'CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgs' log_group_name_configuration: Configuration block for a naming pattern for destination log groups created during centralization. See `log_group_name_configuration` below.
         :param 'CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs' logs_encryption_configuration: Configuration block for logs encryption settings. See `logs_encryption_configuration` below.
         """
         if backup_configuration is not None:
             pulumi.set(__self__, "backup_configuration", backup_configuration)
+        if log_group_name_configuration is not None:
+            pulumi.set(__self__, "log_group_name_configuration", log_group_name_configuration)
         if logs_encryption_configuration is not None:
             pulumi.set(__self__, "logs_encryption_configuration", logs_encryption_configuration)
 
@@ -155,6 +162,14 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
         Configuration block for backup settings. See `backup_configuration` below.
         """
         return pulumi.get(self, "backup_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupNameConfiguration")
+    def log_group_name_configuration(self) -> Optional['outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfiguration']:
+        """
+        Configuration block for a naming pattern for destination log groups created during centralization. See `log_group_name_configuration` below.
+        """
+        return pulumi.get(self, "log_group_name_configuration")
 
     @_builtins.property
     @pulumi.getter(name="logsEncryptionConfiguration")
@@ -211,6 +226,41 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
         AWS region for backup storage.
         """
         return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupNamePattern":
+            suggest = "log_group_name_pattern"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_group_name_pattern: _builtins.str):
+        """
+        :param _builtins.str log_group_name_pattern: Pattern used for generating destination log group names during centralization. The pattern can contain static text and dynamic variables that are replaced with source attributes. For supported dynamic variables, see the [AWS documentation](https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_LogGroupNameConfiguration.html). Note that `$` used in dynamic variables must be escaped as `$$` in Terraform configuration.
+        """
+        pulumi.set(__self__, "log_group_name_pattern", log_group_name_pattern)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupNamePattern")
+    def log_group_name_pattern(self) -> _builtins.str:
+        """
+        Pattern used for generating destination log group names during centralization. The pattern can contain static text and dynamic variables that are replaced with source attributes. For supported dynamic variables, see the [AWS documentation](https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_LogGroupNameConfiguration.html). Note that `$` used in dynamic variables must be escaped as `$$` in Terraform configuration.
+        """
+        return pulumi.get(self, "log_group_name_pattern")
 
 
 @pulumi.output_type

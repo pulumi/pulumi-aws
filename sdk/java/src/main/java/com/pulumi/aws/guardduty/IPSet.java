@@ -156,6 +156,20 @@ public class IPSet extends com.pulumi.resources.CustomResource {
         return this.format;
     }
     /**
+     * ID of the GuardDuty IPSet.
+     * 
+     */
+    @Export(name="ipSetId", refs={String.class}, tree="[0]")
+    private Output<String> ipSetId;
+
+    /**
+     * @return ID of the GuardDuty IPSet.
+     * 
+     */
+    public Output<String> ipSetId() {
+        return this.ipSetId;
+    }
+    /**
      * The URI of the file that contains the IPSet.
      * 
      */

@@ -41,8 +41,8 @@ namespace Pulumi.Aws.LightSail
     /// 
     ///     var exampleStaticIpAttachment = new Aws.LightSail.StaticIpAttachment("example", new()
     ///     {
-    ///         StaticIpName = example.Id,
-    ///         InstanceName = exampleInstance.Id,
+    ///         StaticIpName = example.Name,
+    ///         InstanceName = exampleInstance.Name,
     ///     });
     /// 
     /// });

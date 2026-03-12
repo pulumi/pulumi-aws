@@ -124,7 +124,11 @@ class CostAllocationTag(pulumi.CustomResource):
         """
         Provides a CE Cost Allocation Tag.
 
+        > **NOTE:** After the user-defined tags are created and applied to resources, it can take up to 24 hours for the tag keys to appear on Cost Allocation tag page for activation.
+
         ## Example Usage
+
+        ### Basic Usage
 
         ```python
         import pulumi
@@ -132,6 +136,19 @@ class CostAllocationTag(pulumi.CustomResource):
 
         example = aws.costexplorer.CostAllocationTag("example",
             tag_key="example",
+            status="Active")
+        ```
+
+        ### Account Tags as Cost Allocation Tags
+
+        Cost Allocation tags support account tags to utilize existing AWS Organizations account tags directly in cost management tools. To activate account tags as Cost Allocation Tags the `tag_key` value needs to be prefixed with `accountTag/`.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.costexplorer.CostAllocationTag("example",
+            tag_key="accountTag/example",
             status="Active")
         ```
 
@@ -158,7 +175,11 @@ class CostAllocationTag(pulumi.CustomResource):
         """
         Provides a CE Cost Allocation Tag.
 
+        > **NOTE:** After the user-defined tags are created and applied to resources, it can take up to 24 hours for the tag keys to appear on Cost Allocation tag page for activation.
+
         ## Example Usage
+
+        ### Basic Usage
 
         ```python
         import pulumi
@@ -166,6 +187,19 @@ class CostAllocationTag(pulumi.CustomResource):
 
         example = aws.costexplorer.CostAllocationTag("example",
             tag_key="example",
+            status="Active")
+        ```
+
+        ### Account Tags as Cost Allocation Tags
+
+        Cost Allocation tags support account tags to utilize existing AWS Organizations account tags directly in cost management tools. To activate account tags as Cost Allocation Tags the `tag_key` value needs to be prefixed with `accountTag/`.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.costexplorer.CostAllocationTag("example",
+            tag_key="accountTag/example",
             status="Active")
         ```
 

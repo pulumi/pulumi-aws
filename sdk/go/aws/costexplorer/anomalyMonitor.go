@@ -112,7 +112,7 @@ type AnomalyMonitor struct {
 
 	// ARN of the anomaly monitor.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The dimensions to evaluate. Valid values: `SERVICE`.
+	// The dimensions to evaluate. Valid values: `COST_CATEGORY`, `LINKED_ACCOUNT`, `SERVICE`, `TAG`.
 	MonitorDimension pulumi.StringPtrOutput `pulumi:"monitorDimension"`
 	// A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
 	MonitorSpecification pulumi.StringPtrOutput `pulumi:"monitorSpecification"`
@@ -161,7 +161,7 @@ func GetAnomalyMonitor(ctx *pulumi.Context,
 type anomalyMonitorState struct {
 	// ARN of the anomaly monitor.
 	Arn *string `pulumi:"arn"`
-	// The dimensions to evaluate. Valid values: `SERVICE`.
+	// The dimensions to evaluate. Valid values: `COST_CATEGORY`, `LINKED_ACCOUNT`, `SERVICE`, `TAG`.
 	MonitorDimension *string `pulumi:"monitorDimension"`
 	// A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
 	MonitorSpecification *string `pulumi:"monitorSpecification"`
@@ -178,7 +178,7 @@ type anomalyMonitorState struct {
 type AnomalyMonitorState struct {
 	// ARN of the anomaly monitor.
 	Arn pulumi.StringPtrInput
-	// The dimensions to evaluate. Valid values: `SERVICE`.
+	// The dimensions to evaluate. Valid values: `COST_CATEGORY`, `LINKED_ACCOUNT`, `SERVICE`, `TAG`.
 	MonitorDimension pulumi.StringPtrInput
 	// A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
 	MonitorSpecification pulumi.StringPtrInput
@@ -197,7 +197,7 @@ func (AnomalyMonitorState) ElementType() reflect.Type {
 }
 
 type anomalyMonitorArgs struct {
-	// The dimensions to evaluate. Valid values: `SERVICE`.
+	// The dimensions to evaluate. Valid values: `COST_CATEGORY`, `LINKED_ACCOUNT`, `SERVICE`, `TAG`.
 	MonitorDimension *string `pulumi:"monitorDimension"`
 	// A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
 	MonitorSpecification *string `pulumi:"monitorSpecification"`
@@ -211,7 +211,7 @@ type anomalyMonitorArgs struct {
 
 // The set of arguments for constructing a AnomalyMonitor resource.
 type AnomalyMonitorArgs struct {
-	// The dimensions to evaluate. Valid values: `SERVICE`.
+	// The dimensions to evaluate. Valid values: `COST_CATEGORY`, `LINKED_ACCOUNT`, `SERVICE`, `TAG`.
 	MonitorDimension pulumi.StringPtrInput
 	// A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
 	MonitorSpecification pulumi.StringPtrInput
@@ -315,7 +315,7 @@ func (o AnomalyMonitorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnomalyMonitor) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The dimensions to evaluate. Valid values: `SERVICE`.
+// The dimensions to evaluate. Valid values: `COST_CATEGORY`, `LINKED_ACCOUNT`, `SERVICE`, `TAG`.
 func (o AnomalyMonitorOutput) MonitorDimension() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyMonitor) pulumi.StringPtrOutput { return v.MonitorDimension }).(pulumi.StringPtrOutput)
 }

@@ -140,6 +140,7 @@ class _IPSetState:
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
                  detector_id: Optional[pulumi.Input[_builtins.str]] = None,
                  format: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip_set_id: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -152,6 +153,7 @@ class _IPSetState:
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the GuardDuty IPSet.
         :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty.
         :param pulumi.Input[_builtins.str] format: The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
+        :param pulumi.Input[_builtins.str] ip_set_id: ID of the GuardDuty IPSet.
         :param pulumi.Input[_builtins.str] location: The URI of the file that contains the IPSet.
         :param pulumi.Input[_builtins.str] name: The friendly name to identify the IPSet.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -166,6 +168,8 @@ class _IPSetState:
             pulumi.set(__self__, "detector_id", detector_id)
         if format is not None:
             pulumi.set(__self__, "format", format)
+        if ip_set_id is not None:
+            pulumi.set(__self__, "ip_set_id", ip_set_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -224,6 +228,18 @@ class _IPSetState:
     @format.setter
     def format(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "format", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipSetId")
+    def ip_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ID of the GuardDuty IPSet.
+        """
+        return pulumi.get(self, "ip_set_id")
+
+    @ip_set_id.setter
+    def ip_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ip_set_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -445,6 +461,7 @@ class IPSet(pulumi.CustomResource):
             __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["ip_set_id"] = None
             __props__.__dict__["tags_all"] = None
         super(IPSet, __self__).__init__(
             'aws:guardduty/iPSet:IPSet',
@@ -460,6 +477,7 @@ class IPSet(pulumi.CustomResource):
             arn: Optional[pulumi.Input[_builtins.str]] = None,
             detector_id: Optional[pulumi.Input[_builtins.str]] = None,
             format: Optional[pulumi.Input[_builtins.str]] = None,
+            ip_set_id: Optional[pulumi.Input[_builtins.str]] = None,
             location: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -476,6 +494,7 @@ class IPSet(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the GuardDuty IPSet.
         :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty.
         :param pulumi.Input[_builtins.str] format: The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
+        :param pulumi.Input[_builtins.str] ip_set_id: ID of the GuardDuty IPSet.
         :param pulumi.Input[_builtins.str] location: The URI of the file that contains the IPSet.
         :param pulumi.Input[_builtins.str] name: The friendly name to identify the IPSet.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -490,6 +509,7 @@ class IPSet(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["detector_id"] = detector_id
         __props__.__dict__["format"] = format
+        __props__.__dict__["ip_set_id"] = ip_set_id
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["region"] = region
@@ -528,6 +548,14 @@ class IPSet(pulumi.CustomResource):
         The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
         """
         return pulumi.get(self, "format")
+
+    @_builtins.property
+    @pulumi.getter(name="ipSetId")
+    def ip_set_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        ID of the GuardDuty IPSet.
+        """
+        return pulumi.get(self, "ip_set_id")
 
     @_builtins.property
     @pulumi.getter

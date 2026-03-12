@@ -76,7 +76,7 @@ import (
 //
 // ```
 //
-// ### Advanced Configuration with Encryption and Backup
+// ### Advanced Configuration with Encryption, Backup and Log Group Name Configuration
 //
 // ```go
 // package main
@@ -112,6 +112,9 @@ import (
 //							},
 //							BackupConfiguration: &observabilityadmin.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs{
 //								Region: pulumi.String("us-west-1"),
+//							},
+//							LogGroupNameConfiguration: &observabilityadmin.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgs{
+//								LogGroupNamePattern: pulumi.String("/centralized-logs/${source.accountId}/${source.region}/${source.logGroup}"),
 //							},
 //						},
 //					},

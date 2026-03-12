@@ -34,18 +34,18 @@ public final class LogResourcePolicyArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Name of the resource policy.
+     * Name of the resource policy. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for account-scoped policies. Note that the number of resource policies without `resourceArn` is limited to 10 per region.
      * 
      */
-    @Import(name="policyName", required=true)
-    private Output<String> policyName;
+    @Import(name="policyName")
+    private @Nullable Output<String> policyName;
 
     /**
-     * @return Name of the resource policy.
+     * @return Name of the resource policy. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for account-scoped policies. Note that the number of resource policies without `resourceArn` is limited to 10 per region.
      * 
      */
-    public Output<String> policyName() {
-        return this.policyName;
+    public Optional<Output<String>> policyName() {
+        return Optional.ofNullable(this.policyName);
     }
 
     /**
@@ -63,12 +63,28 @@ public final class LogResourcePolicyArgs extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.region);
     }
 
+    /**
+     * ARN of the CloudWatch Logs resource to which the resource policy is attached. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for resource-scoped policies. Only one policy can be attached per log group resource ARN.
+     * 
+     */
+    @Import(name="resourceArn")
+    private @Nullable Output<String> resourceArn;
+
+    /**
+     * @return ARN of the CloudWatch Logs resource to which the resource policy is attached. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for resource-scoped policies. Only one policy can be attached per log group resource ARN.
+     * 
+     */
+    public Optional<Output<String>> resourceArn() {
+        return Optional.ofNullable(this.resourceArn);
+    }
+
     private LogResourcePolicyArgs() {}
 
     private LogResourcePolicyArgs(LogResourcePolicyArgs $) {
         this.policyDocument = $.policyDocument;
         this.policyName = $.policyName;
         this.region = $.region;
+        this.resourceArn = $.resourceArn;
     }
 
     public static Builder builder() {
@@ -131,18 +147,18 @@ public final class LogResourcePolicyArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param policyName Name of the resource policy.
+         * @param policyName Name of the resource policy. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for account-scoped policies. Note that the number of resource policies without `resourceArn` is limited to 10 per region.
          * 
          * @return builder
          * 
          */
-        public Builder policyName(Output<String> policyName) {
+        public Builder policyName(@Nullable Output<String> policyName) {
             $.policyName = policyName;
             return this;
         }
 
         /**
-         * @param policyName Name of the resource policy.
+         * @param policyName Name of the resource policy. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for account-scoped policies. Note that the number of resource policies without `resourceArn` is limited to 10 per region.
          * 
          * @return builder
          * 
@@ -172,12 +188,30 @@ public final class LogResourcePolicyArgs extends com.pulumi.resources.ResourceAr
             return region(Output.of(region));
         }
 
+        /**
+         * @param resourceArn ARN of the CloudWatch Logs resource to which the resource policy is attached. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for resource-scoped policies. Only one policy can be attached per log group resource ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceArn(@Nullable Output<String> resourceArn) {
+            $.resourceArn = resourceArn;
+            return this;
+        }
+
+        /**
+         * @param resourceArn ARN of the CloudWatch Logs resource to which the resource policy is attached. Exactly one of `policyName` or `resourceArn` must be specified and this argument is required for resource-scoped policies. Only one policy can be attached per log group resource ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceArn(String resourceArn) {
+            return resourceArn(Output.of(resourceArn));
+        }
+
         public LogResourcePolicyArgs build() {
             if ($.policyDocument == null) {
                 throw new MissingRequiredPropertyException("LogResourcePolicyArgs", "policyDocument");
-            }
-            if ($.policyName == null) {
-                throw new MissingRequiredPropertyException("LogResourcePolicyArgs", "policyName");
             }
             return $;
         }
