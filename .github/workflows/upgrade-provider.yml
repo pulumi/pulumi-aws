@@ -115,23 +115,9 @@ jobs:
           allow-missing-docs: false
         env:
           GH_TOKEN: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_TOKEN || steps.esc-secrets.outputs.PULUMI_BOT_TOKEN || secrets.GITHUB_TOKEN }}
-      - name: Check for existing upgrade failure issue
-        id: check_issue
-        if: failure() && steps.upgrade_provider.outcome == 'failure'
-        run: |
-          issue_count=$(gh issue list \
-            --repo "${{ github.repository }}" \
-            --search "Workflow failure: Upgrade provider in:title" \
-            --state open \
-            --json number \
-            --jq 'length')
-          echo "exists=$([[ $issue_count -gt 0 ]] && echo true || echo false)" >> "$GITHUB_OUTPUT"
-        env:
-          GH_TOKEN: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_TOKEN || steps.esc-secrets.outputs.PULUMI_BOT_TOKEN || secrets.GITHUB_TOKEN }}
-        shell: bash
       - name: Auto-fix upgrade with Claude
         id: claude_fix
-        if: failure() && steps.upgrade_provider.outcome == 'failure' && steps.check_issue.outputs.exists != 'true'
+        if: failure() && steps.upgrade_provider.outcome == 'failure'
         uses: anthropics/claude-code-action@8341a564b0c1693e9fa29c681852ee3714980098 # v1
         with:
           anthropic_api_key: ${{ steps.esc-secrets.outputs.ANTHROPIC_API_KEY }}
