@@ -35,6 +35,7 @@ permissions:
   contents: write
   issues: write
   pull-requests: write
+  actions: read
   id-token: write # For ESC secrets.
 
 jobs:
@@ -114,3 +115,58 @@ jobs:
           allow-missing-docs: false
         env:
           GH_TOKEN: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_TOKEN || steps.esc-secrets.outputs.PULUMI_BOT_TOKEN || secrets.GITHUB_TOKEN }}
+      - name: Check for existing upgrade failure issue
+        id: check_issue
+        if: failure() && steps.upgrade_provider.outcome == 'failure'
+        run: |
+          issue_count=$(gh issue list \
+            --repo "${{ github.repository }}" \
+            --search "Workflow failure: Upgrade provider in:title" \
+            --state open \
+            --json number \
+            --jq 'length')
+          echo "exists=$([[ $issue_count -gt 0 ]] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_TOKEN || steps.esc-secrets.outputs.PULUMI_BOT_TOKEN || secrets.GITHUB_TOKEN }}
+        shell: bash
+      - name: Auto-fix upgrade with Claude
+        id: claude_fix
+        if: failure() && steps.upgrade_provider.outcome == 'failure' && steps.check_issue.outputs.exists != 'true'
+        uses: anthropics/claude-code-action@8341a564b0c1693e9fa29c681852ee3714980098 # v1
+        with:
+          anthropic_api_key: ${{ steps.esc-secrets.outputs.ANTHROPIC_API_KEY }}
+          additional_permissions: |
+            actions: read
+          settings: |
+            {
+              "permissions": {
+                "allow": ["Edit(./**)", "Edit(/tmp/**)"]
+              }
+            }
+          prompt: |
+            The upgrade-provider action failed for ${{ github.repository }}.
+            Target version: ${{ steps.target_version.outputs.version }}.
+
+            The repository is already checked out in the current working directory, submodules are available, and `upgrade-provider` is already installed on PATH.
+
+            Use the pulumi-upgrade-provider skill to attempt to fix the upgrade.
+
+            Track each unique error you encounter. Stop and fail if:
+            - You've attempted the same error 3 times without progress
+            - The issue requires human judgment or isn't covered by the skill's error patterns
+            - The complexity is escalating with each fix attempt
+
+            If you need to inspect the current workflow run or job logs, use the GitHub CI tools available in this workflow.
+
+            If you successfully complete the upgrade, report the PR URL and summarize any fixes applied.
+            If you cannot complete the upgrade, summarize what you tried and why it needs human attention.
+          claude_args: |
+            --max-turns 200
+            --allowedTools "Skill,Edit,MultiEdit,Write,Read,Glob,Grep,LS,Bash(upgrade-provider *),Bash(./scripts/upstream.sh *),Bash(git *),Bash(GIT_EDITOR=* git *),Bash(make *),Bash(gh *),Bash(mkdir *),Bash(go mod tidy *),Bash(ls *),Bash(test *),Bash(cat *),Bash(pwd),Bash(head *),Bash(tail *),Bash(tee *),Bash(rg *),Bash(grep *),Bash(sed *),Bash(awk *),Bash(find *)"
+      - name: Upload Claude output on failure
+        if: failure() && steps.claude_fix.outputs.execution_file
+        uses: actions/upload-artifact@v4
+        with:
+          name: claude-upgrade-fix-execution-log
+          path: ${{ steps.claude_fix.outputs.execution_file }}
+          retention-days: 7
