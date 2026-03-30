@@ -45,7 +45,7 @@ import (
 //				MaxMessageSize:          pulumi.Int(2048),
 //				MessageRetentionSeconds: pulumi.Int(86400),
 //				ReceiveWaitTimeSeconds:  pulumi.Int(10),
-//				RedrivePolicy:           pulumi.String(json0),
+//				RedrivePolicy:           pulumi.String(pulumi.String(json0)),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("production"),
 //				},
@@ -142,7 +142,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
 //				Name:          pulumi.String("pulumi-example-queue"),
-//				RedrivePolicy: pulumi.String(json0),
+//				RedrivePolicy: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err
@@ -165,7 +165,7 @@ import (
 //			json1 := string(tmpJSON1)
 //			_, err = sqs.NewRedriveAllowPolicy(ctx, "example_queue_redrive_allow_policy", &sqs.RedriveAllowPolicyArgs{
 //				QueueUrl:           exampleQueueDeadletter.ID(),
-//				RedriveAllowPolicy: pulumi.String(json1),
+//				RedriveAllowPolicy: pulumi.String(pulumi.String(json1)),
 //			})
 //			if err != nil {
 //				return err

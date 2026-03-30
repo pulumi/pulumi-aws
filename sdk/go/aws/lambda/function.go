@@ -399,7 +399,7 @@ import (
 //			}
 //			logsLogExport, err := iam.NewRole(ctx, "logs_log_export", &iam.RoleArgs{
 //				Name:             pulumi.Sprintf("%v-lambda-log-export-role", lambdaFunctionName),
-//				AssumeRolePolicy: pulumi.String(logsAssumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(logsAssumeRole.Json)),
 //			})
 //			if err != nil {
 //				return err
@@ -439,7 +439,7 @@ import (
 //				return err
 //			}
 //			_, err = lambda.NewFunction(ctx, "log_export", &lambda.FunctionArgs{
-//				Name:    pulumi.String(lambdaFunctionName),
+//				Name:    pulumi.String(pulumi.String(lambdaFunctionName)),
 //				Handler: pulumi.String("index.lambda_handler"),
 //				Runtime: pulumi.String(lambda.RuntimePython3d13),
 //				Role:    pulumi.Any(example.Arn),
@@ -542,7 +542,7 @@ import (
 //				RetentionInDays: pulumi.Int(14),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("production"),
-//					"Function":    pulumi.String(functionName),
+//					"Function":    pulumi.String(pulumi.String(functionName)),
 //				},
 //			})
 //			if err != nil {
@@ -567,7 +567,7 @@ import (
 //			// Lambda execution role
 //			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
 //				Name:             pulumi.String("lambda_execution_role"),
-//				AssumeRolePolicy: pulumi.String(json0),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err
@@ -597,7 +597,7 @@ import (
 //				Name:        pulumi.String("lambda_logging"),
 //				Path:        pulumi.String("/"),
 //				Description: pulumi.String("IAM policy for logging from Lambda"),
-//				Policy:      pulumi.String(json1),
+//				Policy:      pulumi.String(pulumi.String(json1)),
 //			})
 //			if err != nil {
 //				return err
@@ -613,7 +613,7 @@ import (
 //			// Lambda function with logging
 //			_, err = lambda.NewFunction(ctx, "example", &lambda.FunctionArgs{
 //				Code:    pulumi.NewFileArchive("function.zip"),
-//				Name:    pulumi.String(functionName),
+//				Name:    pulumi.String(pulumi.String(functionName)),
 //				Role:    exampleRole.Arn,
 //				Handler: pulumi.String("index.handler"),
 //				Runtime: pulumi.String(lambda.RuntimeNodeJS20dX),

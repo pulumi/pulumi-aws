@@ -58,7 +58,7 @@ import (
 //			_, err = iam.NewGroupPolicy(ctx, "my_developer_policy", &iam.GroupPolicyArgs{
 //				Name:   pulumi.String("my_developer_policy"),
 //				Group:  myDevelopers.Name,
-//				Policy: pulumi.String(json0),
+//				Policy: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

@@ -52,7 +52,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
 //				Name:             pulumi.String("example"),
-//				AssumeRolePolicy: pulumi.String(json0),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(json0)),
 //				Tags: pulumi.StringMap{
 //					"created_by": pulumi.String("aws"),
 //				},

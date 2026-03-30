@@ -53,7 +53,7 @@ import (
 //				return err
 //			}
 //			_, err = apigateway.NewStage(ctx, "example", &apigateway.StageArgs{
-//				StageName: pulumi.String(stageName),
+//				StageName: pulumi.String(pulumi.String(stageName)),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleLogGroup,
 //			}))

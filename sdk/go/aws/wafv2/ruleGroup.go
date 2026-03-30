@@ -388,7 +388,7 @@ import (
 //				Name:      pulumi.String("example-rule-group"),
 //				Scope:     pulumi.String("REGIONAL"),
 //				Capacity:  pulumi.Int(100),
-//				RulesJson: pulumi.String(json0),
+//				RulesJson: pulumi.String(pulumi.String(json0)),
 //				VisibilityConfig: &wafv2.RuleGroupVisibilityConfigArgs{
 //					CloudwatchMetricsEnabled: pulumi.Bool(false),
 //					MetricName:               pulumi.String("friendly-metric-name"),

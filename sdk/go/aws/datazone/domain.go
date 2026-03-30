@@ -64,7 +64,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			domainExecutionRole, err := iam.NewRole(ctx, "domain_execution_role", &iam.RoleArgs{
 //				Name:             pulumi.String("my_domain_execution_role"),
-//				AssumeRolePolicy: pulumi.String(json0),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err
@@ -90,7 +90,7 @@ import (
 //			json1 := string(tmpJSON1)
 //			_, err = iam.NewRolePolicy(ctx, "domain_execution_role", &iam.RolePolicyArgs{
 //				Role:   domainExecutionRole.Name,
-//				Policy: pulumi.String(json1),
+//				Policy: pulumi.String(pulumi.String(json1)),
 //			})
 //			if err != nil {
 //				return err
@@ -168,7 +168,7 @@ import (
 // return err
 // }
 // domainExecution, err := iam.NewRole(ctx, "domain_execution", &iam.RoleArgs{
-// AssumeRolePolicy: pulumi.String(assumeRoleDomainExecution.Json),
+// AssumeRolePolicy: pulumi.String(pulumi.String(assumeRoleDomainExecution.Json)),
 // Name: pulumi.String("example-domain-execution-role"),
 // })
 // if err != nil {
@@ -181,7 +181,7 @@ import (
 // return err
 // }
 // _, err = iam.NewRolePolicyAttachment(ctx, "domain_execution", &iam.RolePolicyAttachmentArgs{
-// PolicyArn: pulumi.String(domainExecutionRole.Arn),
+// PolicyArn: pulumi.String(pulumi.String(domainExecutionRole.Arn)),
 // Role: domainExecution.Name,
 // })
 // if err != nil {
@@ -218,7 +218,7 @@ import (
 // return err
 // }
 // domainService, err := iam.NewRole(ctx, "domain_service", &iam.RoleArgs{
-// AssumeRolePolicy: pulumi.String(assumeRoleDomainService.Json),
+// AssumeRolePolicy: pulumi.String(pulumi.String(assumeRoleDomainService.Json)),
 // Name: pulumi.String("example-domain-service-role"),
 // })
 // if err != nil {
@@ -231,7 +231,7 @@ import (
 // return err
 // }
 // _, err = iam.NewRolePolicyAttachment(ctx, "domain_service", &iam.RolePolicyAttachmentArgs{
-// PolicyArn: pulumi.String(domainServiceRole.Arn),
+// PolicyArn: pulumi.String(pulumi.String(domainServiceRole.Arn)),
 // Role: domainService.Name,
 // })
 // if err != nil {

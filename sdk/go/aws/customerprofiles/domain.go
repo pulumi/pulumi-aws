@@ -83,7 +83,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			example, err := sqs.NewQueue(ctx, "example", &sqs.QueueArgs{
 //				Name:   pulumi.String("example"),
-//				Policy: pulumi.String(json0),
+//				Policy: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

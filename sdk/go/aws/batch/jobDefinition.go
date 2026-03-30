@@ -84,7 +84,7 @@ import (
 //			_, err = batch.NewJobDefinition(ctx, "test", &batch.JobDefinitionArgs{
 //				Name:                pulumi.String("my_test_batch_job_definition"),
 //				Type:                pulumi.String("container"),
-//				ContainerProperties: pulumi.String(json0),
+//				ContainerProperties: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err
@@ -148,7 +148,7 @@ import (
 //			_, err = batch.NewJobDefinition(ctx, "test", &batch.JobDefinitionArgs{
 //				Name:           pulumi.String("tf_test_batch_job_definition_multinode"),
 //				Type:           pulumi.String("multinode"),
-//				NodeProperties: pulumi.String(json0),
+//				NodeProperties: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err
@@ -250,7 +250,7 @@ import (
 //			}
 //			ecsTaskExecutionRole, err := iam.NewRole(ctx, "ecs_task_execution_role", &iam.RoleArgs{
 //				Name:             pulumi.String("my_test_batch_exec_role"),
-//				AssumeRolePolicy: pulumi.String(assumeRolePolicy.Json),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(assumeRolePolicy.Json)),
 //			})
 //			if err != nil {
 //				return err
@@ -409,7 +409,7 @@ import (
 //				PlatformCapabilities: pulumi.StringArray{
 //					pulumi.String("FARGATE"),
 //				},
-//				EcsProperties: pulumi.String(json0),
+//				EcsProperties: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

@@ -605,7 +605,7 @@ import (
 //				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				Configuration: &kendra.DataSourceConfigurationArgs{
 //					TemplateConfiguration: &kendra.DataSourceConfigurationTemplateConfigurationArgs{
-//						Template: pulumi.String(json0),
+//						Template: pulumi.String(pulumi.String(json0)),
 //					},
 //				},
 //			})

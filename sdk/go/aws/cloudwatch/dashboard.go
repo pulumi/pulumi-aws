@@ -71,7 +71,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = cloudwatch.NewDashboard(ctx, "main", &cloudwatch.DashboardArgs{
 //				DashboardName: pulumi.String("my-dashboard"),
-//				DashboardBody: pulumi.String(json0),
+//				DashboardBody: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

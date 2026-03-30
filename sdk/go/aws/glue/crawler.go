@@ -235,7 +235,7 @@ import (
 //				Name:          pulumi.Sprintf("events_crawler_%v", environmentName),
 //				Role:          pulumi.Any(glueRole.Arn),
 //				Tags:          pulumi.Any(tags),
-//				Configuration: pulumi.String(json0),
+//				Configuration: pulumi.String(pulumi.String(json0)),
 //				S3Targets: glue.CrawlerS3TargetArray{
 //					&glue.CrawlerS3TargetArgs{
 //						Path: pulumi.Sprintf("s3://%v", dataLakeBucket.Bucket),

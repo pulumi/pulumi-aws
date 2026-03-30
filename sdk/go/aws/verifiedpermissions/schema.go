@@ -45,7 +45,7 @@ import (
 //			_, err = verifiedpermissions.NewSchema(ctx, "example", &verifiedpermissions.SchemaArgs{
 //				PolicyStoreId: pulumi.Any(exampleAwsVerifiedpermissionsPolicyStore.PolicyStoreId),
 //				Definition: &verifiedpermissions.SchemaDefinitionArgs{
-//					Value: pulumi.String(json0),
+//					Value: pulumi.String(pulumi.String(json0)),
 //				},
 //			})
 //			if err != nil {

@@ -50,7 +50,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = redshift.NewResourcePolicy(ctx, "example", &redshift.ResourcePolicyArgs{
 //				ResourceArn: pulumi.Any(exampleAwsRedshiftCluster.ClusterNamespaceArn),
-//				Policy:      pulumi.String(json0),
+//				Policy:      pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

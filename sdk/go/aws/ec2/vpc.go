@@ -103,7 +103,7 @@ import (
 //			testVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "test", &ec2.VpcIpamPoolArgs{
 //				AddressFamily: pulumi.String("ipv4"),
 //				IpamScopeId:   test.PrivateDefaultScopeId,
-//				Locale:        pulumi.String(current.Region),
+//				Locale:        pulumi.String(pulumi.String(current.Region)),
 //			})
 //			if err != nil {
 //				return err

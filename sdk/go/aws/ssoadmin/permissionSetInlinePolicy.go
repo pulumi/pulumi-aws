@@ -40,7 +40,7 @@ import (
 //			}
 //			examplePermissionSet, err := ssoadmin.NewPermissionSet(ctx, "example", &ssoadmin.PermissionSetArgs{
 //				Name:        pulumi.String("Example"),
-//				InstanceArn: pulumi.String(example.Arns[0]),
+//				InstanceArn: pulumi.String(pulumi.String(example.Arns[0])),
 //			})
 //			if err != nil {
 //				return err
@@ -63,8 +63,8 @@ import (
 //				return err
 //			}
 //			_, err = ssoadmin.NewPermissionSetInlinePolicy(ctx, "example", &ssoadmin.PermissionSetInlinePolicyArgs{
-//				InlinePolicy:     pulumi.String(exampleGetPolicyDocument.Json),
-//				InstanceArn:      pulumi.String(example.Arns[0]),
+//				InlinePolicy:     pulumi.String(pulumi.String(exampleGetPolicyDocument.Json)),
+//				InstanceArn:      pulumi.String(pulumi.String(example.Arns[0])),
 //				PermissionSetArn: examplePermissionSet.Arn,
 //			})
 //			if err != nil {

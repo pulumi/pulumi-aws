@@ -43,7 +43,7 @@ import (
 //			_, err = servicecatalog.NewAppregistryAttributeGroup(ctx, "example", &servicecatalog.AppregistryAttributeGroupArgs{
 //				Name:        pulumi.String("example"),
 //				Description: pulumi.String("example description"),
-//				Attributes:  pulumi.String(json0),
+//				Attributes:  pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

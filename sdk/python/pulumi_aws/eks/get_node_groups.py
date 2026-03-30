@@ -93,7 +93,7 @@ def get_node_groups(cluster_name: Optional[_builtins.str] = None,
 
     example = aws.eks.get_node_groups(cluster_name="example")
     example_get_node_group = {__key: aws.eks.get_node_group(cluster_name="example",
-        node_group_name=__value) for __key, __value in example.names}
+        node_group_name=__value) for __key, __value in enumerate(example.names)}
     ```
 
 
@@ -125,7 +125,7 @@ def get_node_groups_output(cluster_name: Optional[pulumi.Input[_builtins.str]] =
 
     example = aws.eks.get_node_groups(cluster_name="example")
     example_get_node_group = {__key: aws.eks.get_node_group(cluster_name="example",
-        node_group_name=__value) for __key, __value in example.names}
+        node_group_name=__value) for __key, __value in enumerate(example.names)}
     ```
 
 

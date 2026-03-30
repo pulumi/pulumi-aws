@@ -73,7 +73,7 @@ import (
 //						DefaultResult:         pulumi.String("CONTINUE"),
 //						HeartbeatTimeout:      pulumi.Int(2000),
 //						LifecycleTransition:   pulumi.String("autoscaling:EC2_INSTANCE_LAUNCHING"),
-//						NotificationMetadata:  pulumi.String(json0),
+//						NotificationMetadata:  pulumi.String(pulumi.String(json0)),
 //						NotificationTargetArn: pulumi.String("arn:aws:sqs:us-east-1:444455556666:queue1*"),
 //						RoleArn:               pulumi.String("arn:aws:iam::123456789012:role/S3Access"),
 //					},
@@ -491,7 +491,7 @@ import (
 //				return err
 //			}
 //			exampleLaunchTemplate, err := ec2.NewLaunchTemplate(ctx, "example", &ec2.LaunchTemplateArgs{
-//				ImageId:      pulumi.String(example.Id),
+//				ImageId:      pulumi.String(pulumi.String(example.Id)),
 //				InstanceType: pulumi.String("t3.nano"),
 //			})
 //			if err != nil {

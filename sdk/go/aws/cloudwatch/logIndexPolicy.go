@@ -49,7 +49,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = cloudwatch.NewLogIndexPolicy(ctx, "example", &cloudwatch.LogIndexPolicyArgs{
 //				LogGroupName:   example.Name,
-//				PolicyDocument: pulumi.String(json0),
+//				PolicyDocument: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

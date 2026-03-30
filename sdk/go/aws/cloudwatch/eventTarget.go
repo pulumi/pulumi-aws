@@ -60,7 +60,7 @@ import (
 //			console, err := cloudwatch.NewEventRule(ctx, "console", &cloudwatch.EventRuleArgs{
 //				Name:         pulumi.String("capture-ec2-scaling-events"),
 //				Description:  pulumi.String("Capture all EC2 scaling events"),
-//				EventPattern: pulumi.String(json0),
+//				EventPattern: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err
@@ -162,7 +162,7 @@ import (
 //			stopInstance, err := ssm.NewDocument(ctx, "stop_instance", &ssm.DocumentArgs{
 //				Name:         pulumi.String("stop_instance"),
 //				DocumentType: pulumi.String("Command"),
-//				Content:      pulumi.String(json0),
+//				Content:      pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err
@@ -200,7 +200,7 @@ import (
 //			}, nil)
 //			ssmLifecycleRole, err := iam.NewRole(ctx, "ssm_lifecycle", &iam.RoleArgs{
 //				Name:             pulumi.String("SSMLifecycle"),
-//				AssumeRolePolicy: pulumi.String(ssmLifecycleTrust.Json),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(ssmLifecycleTrust.Json)),
 //			})
 //			if err != nil {
 //				return err
@@ -338,7 +338,7 @@ import (
 // }
 // ecsEvents, err := iam.NewRole(ctx, "ecs_events", &iam.RoleArgs{
 // Name: pulumi.String("ecs_events"),
-// AssumeRolePolicy: pulumi.String(assumeRole.Json),
+// AssumeRolePolicy: pulumi.String(pulumi.String(assumeRole.Json)),
 // })
 // if err != nil {
 // return err
@@ -375,7 +375,7 @@ import (
 // _, err = iam.NewRolePolicy(ctx, "ecs_events_run_task_with_any_role", &iam.RolePolicyArgs{
 // Name: pulumi.String("ecs_events_run_task_with_any_role"),
 // Role: ecsEvents.ID(),
-// Policy: pulumi.String(ecsEventsRunTaskWithAnyRole.Json),
+// Policy: pulumi.String(pulumi.String(ecsEventsRunTaskWithAnyRole.Json)),
 // })
 // if err != nil {
 // return err
@@ -404,7 +404,7 @@ import (
 // TaskCount: pulumi.Int(1),
 // TaskDefinitionArn: pulumi.Any(taskName.Arn),
 // },
-// Input: pulumi.String(json0),
+// Input: pulumi.String(pulumi.String(json0)),
 // })
 // if err != nil {
 // return err
@@ -509,7 +509,7 @@ import (
 //			}
 //			eventBusInvokeRemoteEventBusRole, err := iam.NewRole(ctx, "event_bus_invoke_remote_event_bus", &iam.RoleArgs{
 //				Name:             pulumi.String("event-bus-invoke-remote-event-bus"),
-//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(assumeRole.Json)),
 //			})
 //			if err != nil {
 //				return err
@@ -532,7 +532,7 @@ import (
 //			}
 //			eventBusInvokeRemoteEventBusPolicy, err := iam.NewPolicy(ctx, "event_bus_invoke_remote_event_bus", &iam.PolicyArgs{
 //				Name:   pulumi.String("event_bus_invoke_remote_event_bus"),
-//				Policy: pulumi.String(eventBusInvokeRemoteEventBus.Json),
+//				Policy: pulumi.String(pulumi.String(eventBusInvokeRemoteEventBus.Json)),
 //			})
 //			if err != nil {
 //				return err
@@ -680,7 +680,7 @@ import (
 //			exampleEventRule, err := cloudwatch.NewEventRule(ctx, "example", &cloudwatch.EventRuleArgs{
 //				Name:         pulumi.String("guard-duty_event_rule"),
 //				Description:  pulumi.String("GuardDuty Findings"),
-//				EventPattern: pulumi.String(json0),
+//				EventPattern: pulumi.String(pulumi.String(json0)),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("example"),
 //				},
@@ -810,7 +810,7 @@ import (
 //			}
 //			appsyncMutationRole, err := iam.NewRole(ctx, "appsync_mutation_role", &iam.RoleArgs{
 //				Name:             pulumi.String("appsync-mutation-role"),
-//				AssumeRolePolicy: pulumi.String(appsyncMutationRoleTrust.Json),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(appsyncMutationRoleTrust.Json)),
 //			})
 //			if err != nil {
 //				return err

@@ -57,7 +57,7 @@ import (
 //			}
 //			_, err = ec2.NewLaunchConfiguration(ctx, "as_conf", &ec2.LaunchConfigurationArgs{
 //				Name:         pulumi.String("web_config"),
-//				ImageId:      pulumi.String(ubuntu.Id),
+//				ImageId:      pulumi.String(pulumi.String(ubuntu.Id)),
 //				InstanceType: pulumi.String("t2.micro"),
 //			})
 //			if err != nil {

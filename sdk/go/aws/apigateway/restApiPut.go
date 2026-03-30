@@ -70,7 +70,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = apigateway.NewRestApiPut(ctx, "example", &apigateway.RestApiPutArgs{
-//				Body:           pulumi.String(json0),
+//				Body:           pulumi.String(pulumi.String(json0)),
 //				FailOnWarnings: pulumi.Bool(true),
 //				RestApiId:      pulumi.Any(exampleAwsApiGatewayRestApi.Id),
 //			})

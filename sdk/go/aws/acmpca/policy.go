@@ -88,7 +88,7 @@ import (
 // }
 // _, err = acmpca.NewPolicy(ctx, "example", &acmpca.PolicyArgs{
 // ResourceArn: pulumi.Any(exampleAwsAcmpcaCertificateAuthority.Arn),
-// Policy: pulumi.String(example.Json),
+// Policy: pulumi.String(pulumi.String(example.Json)),
 // })
 // if err != nil {
 // return err

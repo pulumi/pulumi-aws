@@ -76,7 +76,7 @@ import (
 //				Role:                 pulumi.Any(lambdaRole.Arn),
 //				Handler:              pulumi.String("index.handler"),
 //				Runtime:              pulumi.String(lambda.RuntimeNodeJS20dX),
-//				CodeSigningConfigArn: pulumi.String(securityConfig.Arn),
+//				CodeSigningConfigArn: pulumi.String(pulumi.String(securityConfig.Arn)),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("production"),
 //					"Security":    pulumi.String("code-signed"),
@@ -122,7 +122,7 @@ import (
 //			}, nil).Result
 //			// Conditional resource creation based on signing profile validation
 //			var tmp0 float64
-//			if profileAllowed {
+//			if pulumi.Bool(profileAllowed) {
 //				tmp0 = 1
 //			} else {
 //				tmp0 = 0
@@ -137,7 +137,7 @@ import (
 //					Role:                 pulumi.Any(lambdaRole.Arn),
 //					Handler:              pulumi.String("index.handler"),
 //					Runtime:              pulumi.String(lambda.RuntimePython3d12),
-//					CodeSigningConfigArn: pulumi.String(example.Arn),
+//					CodeSigningConfigArn: pulumi.String(pulumi.String(example.Arn)),
 //				})
 //				if err != nil {
 //					return err
@@ -145,7 +145,7 @@ import (
 //				conditional = append(conditional, __res)
 //			}
 //			var tmp1 string
-//			if profileAllowed {
+//			if pulumi.Bool(profileAllowed) {
 //				tmp1 = "Function deployed with valid signing profile"
 //			} else {
 //				tmp1 = "Deployment blocked - signing profile not allowed"
@@ -153,7 +153,7 @@ import (
 //			ctx.Export("deploymentStatus", pulumi.Map{
 //				"profileAllowed":  profileAllowed,
 //				"functionCreated": profileAllowed,
-//				"message":         tmp1,
+//				"message":         pulumi.String(tmp1),
 //			})
 //			return nil
 //		})

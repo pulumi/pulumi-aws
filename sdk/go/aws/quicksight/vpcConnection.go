@@ -72,11 +72,11 @@ import (
 //			}
 //			json1 := string(tmpJSON1)
 //			vpcConnectionRole, err := iam.NewRole(ctx, "vpc_connection_role", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(json0),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(json0)),
 //				InlinePolicies: iam.RoleInlinePolicyArray{
 //					&iam.RoleInlinePolicyArgs{
 //						Name:   pulumi.String("QuickSightVPCConnectionRolePolicy"),
-//						Policy: pulumi.String(json1),
+//						Policy: pulumi.String(pulumi.String(json1)),
 //					},
 //				},
 //			})

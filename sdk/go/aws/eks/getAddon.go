@@ -34,7 +34,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("eksAddonOutputs", exampleAwsEksAddon)
+//			ctx.Export("eksAddonOutputs", pulumi.Any(exampleAwsEksAddon))
 //			return nil
 //		})
 //	}

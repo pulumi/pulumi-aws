@@ -58,7 +58,7 @@ import (
 //				return err
 //			}
 //			dms_access_for_endpoint, err := iam.NewRole(ctx, "dms-access-for-endpoint", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(dmsAssumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(dmsAssumeRole.Json)),
 //				Name:             pulumi.String("dms-access-for-endpoint"),
 //			})
 //			if err != nil {
@@ -72,7 +72,7 @@ import (
 //				return err
 //			}
 //			dms_cloudwatch_logs_role, err := iam.NewRole(ctx, "dms-cloudwatch-logs-role", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(dmsAssumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(dmsAssumeRole.Json)),
 //				Name:             pulumi.String("dms-cloudwatch-logs-role"),
 //			})
 //			if err != nil {
@@ -86,7 +86,7 @@ import (
 //				return err
 //			}
 //			dms_vpc_role, err := iam.NewRole(ctx, "dms-vpc-role", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(dmsAssumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(dmsAssumeRole.Json)),
 //				Name:             pulumi.String("dms-vpc-role"),
 //			})
 //			if err != nil {

@@ -37,7 +37,7 @@ import (
 //			_, err = ssoadmin.NewPermissionSet(ctx, "example", &ssoadmin.PermissionSetArgs{
 //				Name:            pulumi.String("Example"),
 //				Description:     pulumi.String("An example"),
-//				InstanceArn:     pulumi.String(example.Arns[0]),
+//				InstanceArn:     pulumi.String(pulumi.String(example.Arns[0])),
 //				RelayState:      pulumi.String("https://s3.console.aws.amazon.com/s3/home?region=us-east-1#"),
 //				SessionDuration: pulumi.String("PT2H"),
 //			})

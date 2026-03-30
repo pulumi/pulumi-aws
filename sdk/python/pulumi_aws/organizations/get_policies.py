@@ -85,7 +85,7 @@ def get_policies(filter: Optional[_builtins.str] = None,
     import pulumi_std as std
 
     example = aws.organizations.get_policies(filter="SERVICE_CONTROL_POLICY")
-    example_get_policy = {__key: aws.organizations.get_policy(policy_id=__value) for __key, __value in std.toset(input=example.ids).result}
+    example_get_policy = {__key: aws.organizations.get_policy(policy_id=__value) for __key, __value in enumerate(std.toset(input=example.ids).result)}
     ```
 
 
@@ -115,7 +115,7 @@ def get_policies_output(filter: Optional[pulumi.Input[_builtins.str]] = None,
     import pulumi_std as std
 
     example = aws.organizations.get_policies(filter="SERVICE_CONTROL_POLICY")
-    example_get_policy = {__key: aws.organizations.get_policy(policy_id=__value) for __key, __value in std.toset(input=example.ids).result}
+    example_get_policy = {__key: aws.organizations.get_policy(policy_id=__value) for __key, __value in enumerate(std.toset(input=example.ids).result)}
     ```
 
 

@@ -43,7 +43,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewCapacityBlockReservation(ctx, "example", &ec2.CapacityBlockReservationArgs{
-//				CapacityBlockOfferingId: pulumi.String(test.CapacityBlockOfferingId),
+//				CapacityBlockOfferingId: pulumi.String(pulumi.String(test.CapacityBlockOfferingId)),
 //				InstancePlatform:        pulumi.String("Linux/UNIX"),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("dev"),

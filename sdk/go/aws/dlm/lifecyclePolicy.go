@@ -54,7 +54,7 @@ import (
 //			}
 //			dlmLifecycleRole, err := iam.NewRole(ctx, "dlm_lifecycle_role", &iam.RoleArgs{
 //				Name:             pulumi.String("dlm-lifecycle-role"),
-//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(assumeRole.Json)),
 //			})
 //			if err != nil {
 //				return err
@@ -92,7 +92,7 @@ import (
 //			_, err = iam.NewRolePolicy(ctx, "dlm_lifecycle", &iam.RolePolicyArgs{
 //				Name:   pulumi.String("dlm-lifecycle-policy"),
 //				Role:   dlmLifecycleRole.ID(),
-//				Policy: pulumi.String(dlmLifecycle.Json),
+//				Policy: pulumi.String(pulumi.String(dlmLifecycle.Json)),
 //			})
 //			if err != nil {
 //				return err
@@ -229,7 +229,7 @@ import (
 //			}
 //			dlmCrossRegionCopyCmk, err := kms.NewKey(ctx, "dlm_cross_region_copy_cmk", &kms.KeyArgs{
 //				Description: pulumi.String("Example Alternate Region KMS Key"),
-//				Policy:      pulumi.String(key.Json),
+//				Policy:      pulumi.String(pulumi.String(key.Json)),
 //			})
 //			if err != nil {
 //				return err
@@ -346,7 +346,7 @@ import (
 //			}
 //			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
 //				Role:      pulumi.Any(exampleAwsIamRole.Id),
-//				PolicyArn: pulumi.String(example.Arn),
+//				PolicyArn: pulumi.String(pulumi.String(example.Arn)),
 //			})
 //			if err != nil {
 //				return err

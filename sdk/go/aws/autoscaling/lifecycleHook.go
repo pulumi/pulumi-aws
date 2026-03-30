@@ -75,7 +75,7 @@ import (
 //				DefaultResult:         pulumi.String("CONTINUE"),
 //				HeartbeatTimeout:      pulumi.Int(2000),
 //				LifecycleTransition:   pulumi.String("autoscaling:EC2_INSTANCE_LAUNCHING"),
-//				NotificationMetadata:  pulumi.String(json0),
+//				NotificationMetadata:  pulumi.String(pulumi.String(json0)),
 //				NotificationTargetArn: pulumi.String("arn:aws:sqs:us-east-1:444455556666:queue1*"),
 //				RoleArn:               pulumi.String("arn:aws:iam::123456789012:role/S3Access"),
 //			})

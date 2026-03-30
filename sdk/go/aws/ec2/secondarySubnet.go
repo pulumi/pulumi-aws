@@ -101,7 +101,7 @@ import (
 //			_, err = ec2.NewSecondarySubnet(ctx, "example", &ec2.SecondarySubnetArgs{
 //				SecondaryNetworkId: example.ID(),
 //				Ipv4CidrBlock:      pulumi.String("10.0.1.0/24"),
-//				AvailabilityZoneId: pulumi.String(available.ZoneIds[0]),
+//				AvailabilityZoneId: pulumi.String(pulumi.String(available.ZoneIds[0])),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example-secondary-subnet"),
 //				},

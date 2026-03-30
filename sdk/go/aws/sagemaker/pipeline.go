@@ -52,7 +52,7 @@ import (
 //				PipelineName:        pulumi.String("example"),
 //				PipelineDisplayName: pulumi.String("example"),
 //				RoleArn:             pulumi.Any(exampleAwsIamRole.Arn),
-//				PipelineDefinition:  pulumi.String(json0),
+//				PipelineDefinition:  pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

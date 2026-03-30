@@ -49,7 +49,7 @@ import (
 //				return err
 //			}
 //			_, err = storagegateway.NewCache(ctx, "test", &storagegateway.CacheArgs{
-//				DiskId:     pulumi.String(test.DiskId),
+//				DiskId:     pulumi.String(pulumi.String(test.DiskId)),
 //				GatewayArn: pulumi.Any(testAwsStoragegatewayGateway.Arn),
 //			})
 //			if err != nil {

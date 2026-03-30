@@ -38,7 +38,7 @@ import (
 //			}
 //			exampleOrganizationalUnit, err := organizations.NewOrganizationalUnit(ctx, "example", &organizations.OrganizationalUnitArgs{
 //				Name:     pulumi.String("ExampleOU"),
-//				ParentId: pulumi.String(example.Roots[0].Id),
+//				ParentId: pulumi.String(pulumi.String(example.Roots[0].Id)),
 //			})
 //			if err != nil {
 //				return err

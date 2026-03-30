@@ -52,7 +52,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			assume, err := iam.NewRole(ctx, "assume", &iam.RoleArgs{
 //				Name:             pulumi.String("grafana-assume"),
-//				AssumeRolePolicy: pulumi.String(json0),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

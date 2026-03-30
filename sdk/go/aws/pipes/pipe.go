@@ -231,7 +231,7 @@ import (
 //					FilterCriteria: &pipes.PipeSourceParametersFilterCriteriaArgs{
 //						Filters: pipes.PipeSourceParametersFilterCriteriaFilterArray{
 //							&pipes.PipeSourceParametersFilterCriteriaFilterArgs{
-//								Pattern: pulumi.String(json0),
+//								Pattern: pulumi.String(pulumi.String(json0)),
 //							},
 //						},
 //					},

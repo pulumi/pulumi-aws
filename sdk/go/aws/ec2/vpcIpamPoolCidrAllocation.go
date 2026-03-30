@@ -48,7 +48,7 @@ import (
 //			exampleVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "example", &ec2.VpcIpamPoolArgs{
 //				AddressFamily: pulumi.String("ipv4"),
 //				IpamScopeId:   exampleVpcIpam.PrivateDefaultScopeId,
-//				Locale:        pulumi.String(current.Region),
+//				Locale:        pulumi.String(pulumi.String(current.Region)),
 //			})
 //			if err != nil {
 //				return err
@@ -107,7 +107,7 @@ import (
 //			exampleVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "example", &ec2.VpcIpamPoolArgs{
 //				AddressFamily: pulumi.String("ipv4"),
 //				IpamScopeId:   exampleVpcIpam.PrivateDefaultScopeId,
-//				Locale:        pulumi.String(current.Region),
+//				Locale:        pulumi.String(pulumi.String(current.Region)),
 //			})
 //			if err != nil {
 //				return err

@@ -91,7 +91,7 @@ import (
 //			dms_vpc_role, err := iam.NewRole(ctx, "dms-vpc-role", &iam.RoleArgs{
 //				Name:             pulumi.String("dms-vpc-role"),
 //				Description:      pulumi.String("Allows DMS to manage VPC"),
-//				AssumeRolePolicy: pulumi.String(json0),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

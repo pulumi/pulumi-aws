@@ -119,7 +119,7 @@ import (
 //				AddonName:                pulumi.String("coredns"),
 //				AddonVersion:             pulumi.String("v1.10.1-eksbuild.1"),
 //				ResolveConflictsOnCreate: pulumi.String("OVERWRITE"),
-//				ConfigurationValues:      pulumi.String(json0),
+//				ConfigurationValues:      pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

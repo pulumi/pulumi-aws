@@ -91,7 +91,7 @@ import (
 // return err
 // }
 // aWSCloudFormationStackSetExecutionRole, err := iam.NewRole(ctx, "AWSCloudFormationStackSetExecutionRole", &iam.RoleArgs{
-// AssumeRolePolicy: pulumi.String(aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.Json),
+// AssumeRolePolicy: pulumi.String(pulumi.String(aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.Json)),
 // Name: pulumi.String("AWSCloudFormationStackSetExecutionRole"),
 // })
 // if err != nil {
@@ -119,7 +119,7 @@ import (
 // }
 // _, err = iam.NewRolePolicy(ctx, "AWSCloudFormationStackSetExecutionRole_MinimumExecutionPolicy", &iam.RolePolicyArgs{
 // Name: pulumi.String("MinimumExecutionPolicy"),
-// Policy: pulumi.String(aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy.Json),
+// Policy: pulumi.String(pulumi.String(aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy.Json)),
 // Role: aWSCloudFormationStackSetExecutionRole.Name,
 // })
 // if err != nil {

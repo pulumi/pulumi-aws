@@ -110,8 +110,8 @@ def get_subnets(filters: Optional[Sequence[Union['GetSubnetsFilterArgs', 'GetSub
         "name": "vpc-id",
         "values": [vpc_id],
     }])
-    example_get_subnet = {__key: aws.ec2.get_subnet(id=__value) for __key, __value in std.toset(input=example.ids).result}
-    pulumi.export("subnetCidrBlocks", [s.cidr_block for s in example_get_subnet])
+    example_get_subnet = {__key: aws.ec2.get_subnet(id=__value) for __key, __value in enumerate(std.toset(input=example.ids).result)}
+    pulumi.export("subnetCidrBlocks", [s.cidr_block for s in example_get_subnet.values()])
     ```
 
     The following example retrieves a set of all subnets in a VPC with a custom
@@ -177,8 +177,8 @@ def get_subnets_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['G
         "name": "vpc-id",
         "values": [vpc_id],
     }])
-    example_get_subnet = {__key: aws.ec2.get_subnet(id=__value) for __key, __value in std.toset(input=example.ids).result}
-    pulumi.export("subnetCidrBlocks", [s.cidr_block for s in example_get_subnet])
+    example_get_subnet = {__key: aws.ec2.get_subnet(id=__value) for __key, __value in enumerate(std.toset(input=example.ids).result)}
+    pulumi.export("subnetCidrBlocks", [s.cidr_block for s in example_get_subnet.values()])
     ```
 
     The following example retrieves a set of all subnets in a VPC with a custom

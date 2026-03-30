@@ -129,7 +129,7 @@ import (
 //						}).(pulumi.StringOutput),
 //					},
 //				},
-//				AssumeRolePolicy: pulumi.String(json0),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err
@@ -262,7 +262,7 @@ import (
 //						}).(pulumi.StringOutput),
 //					},
 //				},
-//				AssumeRolePolicy: pulumi.String(json0),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

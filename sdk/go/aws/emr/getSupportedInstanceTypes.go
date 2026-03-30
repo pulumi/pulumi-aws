@@ -66,9 +66,9 @@ import (
 //				return err
 //			}
 //			_, err = emr.NewCluster(ctx, "test", &emr.ClusterArgs{
-//				ReleaseLabel: pulumi.String(releaseLabel),
+//				ReleaseLabel: pulumi.String(pulumi.String(releaseLabel)),
 //				MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
-//					InstanceType: pulumi.String(instanceType),
+//					InstanceType: pulumi.String(pulumi.String(instanceType)),
 //				},
 //			})
 //			if err != nil {

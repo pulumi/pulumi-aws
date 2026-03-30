@@ -46,7 +46,7 @@ import (
 //				PortfolioId: pulumi.Any(exampleAwsServicecatalogPortfolio.Id),
 //				ProductId:   pulumi.Any(exampleAwsServicecatalogProduct.Id),
 //				Type:        pulumi.String("LAUNCH"),
-//				Parameters:  pulumi.String(json0),
+//				Parameters:  pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

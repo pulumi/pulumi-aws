@@ -113,7 +113,7 @@ import (
 //			peerVpcPeeringConnection, err := ec2.NewVpcPeeringConnection(ctx, "peer", &ec2.VpcPeeringConnectionArgs{
 //				VpcId:       main.ID(),
 //				PeerVpcId:   peerVpc.ID(),
-//				PeerOwnerId: pulumi.String(peer.AccountId),
+//				PeerOwnerId: pulumi.String(pulumi.String(peer.AccountId)),
 //				AutoAccept:  pulumi.Bool(false),
 //				Tags: pulumi.StringMap{
 //					"Side": pulumi.String("Requester"),

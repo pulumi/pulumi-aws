@@ -135,7 +135,7 @@ import (
 //			}
 //			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				DeletionWindowInDays: pulumi.Int(10),
-//				Policy:               pulumi.String(keyPolicy.Json),
+//				Policy:               pulumi.String(pulumi.String(keyPolicy.Json)),
 //			})
 //			if err != nil {
 //				return err
