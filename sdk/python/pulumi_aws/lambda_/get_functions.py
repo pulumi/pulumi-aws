@@ -149,7 +149,7 @@ def get_functions(region: Optional[_builtins.str] = None,
         "memorySize": details.apply(lambda details: details[i].memory_size),
         "timeout": details.apply(lambda details: details[i].timeout),
         "handler": details.apply(lambda details: details[i].handler),
-    } for i, name in all.function_names]
+    } for i, name in enumerate(all.function_names)]
     pulumi.export("functionInventory", function_inventory)
     ```
 
@@ -233,7 +233,7 @@ def get_functions_output(region: Optional[pulumi.Input[Optional[_builtins.str]]]
         "memorySize": details.apply(lambda details: details[i].memory_size),
         "timeout": details.apply(lambda details: details[i].timeout),
         "handler": details.apply(lambda details: details[i].handler),
-    } for i, name in all.function_names]
+    } for i, name in enumerate(all.function_names)]
     pulumi.export("functionInventory", function_inventory)
     ```
 

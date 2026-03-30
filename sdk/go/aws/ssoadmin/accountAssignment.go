@@ -55,9 +55,9 @@ import (
 //				return err
 //			}
 //			_, err = ssoadmin.NewAccountAssignment(ctx, "example", &ssoadmin.AccountAssignmentArgs{
-//				InstanceArn:      pulumi.String(example.Arns[0]),
-//				PermissionSetArn: pulumi.String(exampleGetPermissionSet.Arn),
-//				PrincipalId:      pulumi.String(exampleGetGroup.GroupId),
+//				InstanceArn:      pulumi.String(pulumi.String(example.Arns[0])),
+//				PermissionSetArn: pulumi.String(pulumi.String(exampleGetPermissionSet.Arn)),
+//				PrincipalId:      pulumi.String(pulumi.String(exampleGetGroup.GroupId)),
 //				PrincipalType:    pulumi.String("GROUP"),
 //				TargetId:         pulumi.String("123456789012"),
 //				TargetType:       pulumi.String("AWS_ACCOUNT"),
@@ -94,13 +94,13 @@ import (
 //			}
 //			examplePermissionSet, err := ssoadmin.NewPermissionSet(ctx, "example", &ssoadmin.PermissionSetArgs{
 //				Name:        pulumi.String("Example"),
-//				InstanceArn: pulumi.String(example.Arns[0]),
+//				InstanceArn: pulumi.String(pulumi.String(example.Arns[0])),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleGroup, err := identitystore.NewGroup(ctx, "example", &identitystore.GroupArgs{
-//				IdentityStoreId: pulumi.String(example.IdentityStoreIds[0]),
+//				IdentityStoreId: pulumi.String(pulumi.String(example.IdentityStoreIds[0])),
 //				DisplayName:     pulumi.String("Admin"),
 //				Description:     pulumi.String("Admin Group"),
 //			})
@@ -108,7 +108,7 @@ import (
 //				return err
 //			}
 //			exampleAccountAssignment, err := ssoadmin.NewAccountAssignment(ctx, "example", &ssoadmin.AccountAssignmentArgs{
-//				InstanceArn:      pulumi.String(example.Arns[0]),
+//				InstanceArn:      pulumi.String(pulumi.String(example.Arns[0])),
 //				PermissionSetArn: examplePermissionSet.Arn,
 //				PrincipalId:      exampleGroup.GroupId,
 //				PrincipalType:    pulumi.String("GROUP"),
@@ -119,7 +119,7 @@ import (
 //				return err
 //			}
 //			_, err = ssoadmin.NewManagedPolicyAttachment(ctx, "example", &ssoadmin.ManagedPolicyAttachmentArgs{
-//				InstanceArn:      pulumi.String(example.Arns[0]),
+//				InstanceArn:      pulumi.String(pulumi.String(example.Arns[0])),
 //				ManagedPolicyArn: pulumi.String("arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup"),
 //				PermissionSetArn: examplePermissionSet.Arn,
 //			}, pulumi.DependsOn([]pulumi.Resource{

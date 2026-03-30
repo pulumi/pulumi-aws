@@ -57,7 +57,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudwatch.NewLogResourcePolicy(ctx, "elasticsearch-log-publishing-policy", &cloudwatch.LogResourcePolicyArgs{
-//				PolicyDocument: pulumi.String(elasticsearch_log_publishing_policy.Json),
+//				PolicyDocument: pulumi.String(pulumi.String(elasticsearch_log_publishing_policy.Json)),
 //				PolicyName:     pulumi.String("elasticsearch-log-publishing-policy"),
 //			})
 //			if err != nil {
@@ -109,7 +109,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudwatch.NewLogResourcePolicy(ctx, "route53-query-logging-policy", &cloudwatch.LogResourcePolicyArgs{
-//				PolicyDocument: pulumi.String(route53_query_logging_policy.Json),
+//				PolicyDocument: pulumi.String(pulumi.String(route53_query_logging_policy.Json)),
 //				PolicyName:     pulumi.String("route53-query-logging-policy"),
 //			})
 //			if err != nil {

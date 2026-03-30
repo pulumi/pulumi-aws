@@ -66,7 +66,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
 //				Family:               pulumi.String("service"),
-//				ContainerDefinitions: pulumi.String(json0),
+//				ContainerDefinitions: pulumi.String(pulumi.String(json0)),
 //				Volumes: ecs.TaskDefinitionVolumeArray{
 //					&ecs.TaskDefinitionVolumeArgs{
 //						Name:     pulumi.String("service-storage"),
@@ -260,7 +260,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			test, err := secretsmanager.NewSecretVersion(ctx, "test", &secretsmanager.SecretVersionArgs{
 //				SecretId:     pulumi.Any(testAwsSecretsmanagerSecret.Id),
-//				SecretString: pulumi.String(json0),
+//				SecretString: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

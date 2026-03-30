@@ -59,7 +59,7 @@ import (
 //				return err
 //			}
 //			aWSCloudFormationStackSetAdministrationRole, err := iam.NewRole(ctx, "AWSCloudFormationStackSetAdministrationRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.Json),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.Json)),
 //				Name:             pulumi.String("AWSCloudFormationStackSetAdministrationRole"),
 //			})
 //			if err != nil {
@@ -100,7 +100,7 @@ import (
 //				Parameters: pulumi.StringMap{
 //					"VPCCidr": pulumi.String("10.0.0.0/16"),
 //				},
-//				TemplateBody: pulumi.String(json0),
+//				TemplateBody: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

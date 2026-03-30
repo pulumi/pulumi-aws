@@ -57,7 +57,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = iam.NewRole(ctx, "test_role", &iam.RoleArgs{
 //				Name:             pulumi.String("test_role"),
-//				AssumeRolePolicy: pulumi.String(json0),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(json0)),
 //				Tags: pulumi.StringMap{
 //					"tag-key": pulumi.String("tag-value"),
 //				},
@@ -108,7 +108,7 @@ import (
 //			_, err = iam.NewRole(ctx, "instance", &iam.RoleArgs{
 //				Name:             pulumi.String("instance_role"),
 //				Path:             pulumi.String("/system/"),
-//				AssumeRolePolicy: pulumi.String(instanceAssumeRolePolicy.Json),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(instanceAssumeRolePolicy.Json)),
 //			})
 //			if err != nil {
 //				return err
@@ -176,7 +176,7 @@ import (
 //				InlinePolicies: iam.RoleInlinePolicyArray{
 //					&iam.RoleInlinePolicyArgs{
 //						Name:   pulumi.String("my_inline_policy"),
-//						Policy: pulumi.String(json0),
+//						Policy: pulumi.String(pulumi.String(json0)),
 //					},
 //					&iam.RoleInlinePolicyArgs{
 //						Name:   pulumi.String("policy-8675309"),
@@ -265,7 +265,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			policyOne, err := iam.NewPolicy(ctx, "policy_one", &iam.PolicyArgs{
 //				Name:   pulumi.String("policy-618033"),
-//				Policy: pulumi.String(json0),
+//				Policy: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err
@@ -290,7 +290,7 @@ import (
 //			json1 := string(tmpJSON1)
 //			policyTwo, err := iam.NewPolicy(ctx, "policy_two", &iam.PolicyArgs{
 //				Name:   pulumi.String("policy-381966"),
-//				Policy: pulumi.String(json1),
+//				Policy: pulumi.String(pulumi.String(json1)),
 //			})
 //			if err != nil {
 //				return err

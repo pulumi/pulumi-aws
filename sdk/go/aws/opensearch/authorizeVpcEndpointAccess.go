@@ -37,7 +37,7 @@ import (
 //			}
 //			_, err = opensearch.NewAuthorizeVpcEndpointAccess(ctx, "test", &opensearch.AuthorizeVpcEndpointAccessArgs{
 //				DomainName: pulumi.Any(testAwsOpensearchDomain.DomainName),
-//				Account:    pulumi.String(current.AccountId),
+//				Account:    pulumi.String(pulumi.String(current.AccountId)),
 //			})
 //			if err != nil {
 //				return err

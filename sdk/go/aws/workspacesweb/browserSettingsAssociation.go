@@ -50,7 +50,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			exampleBrowserSettings, err := workspacesweb.NewBrowserSettings(ctx, "example", &workspacesweb.BrowserSettingsArgs{
-//				BrowserPolicy: pulumi.String(json0),
+//				BrowserPolicy: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

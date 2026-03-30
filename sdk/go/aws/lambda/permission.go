@@ -52,7 +52,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			iamForLambda, err := iam.NewRole(ctx, "iam_for_lambda", &iam.RoleArgs{
 //				Name:             pulumi.String("iam_for_lambda"),
-//				AssumeRolePolicy: pulumi.String(json0),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err
@@ -136,7 +136,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			defaultRole, err := iam.NewRole(ctx, "default", &iam.RoleArgs{
 //				Name:             pulumi.String("iam_for_lambda_with_sns"),
-//				AssumeRolePolicy: pulumi.String(json0),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err
@@ -264,7 +264,7 @@ import (
 //			}
 //			defaultRole, err := iam.NewRole(ctx, "default", &iam.RoleArgs{
 //				Name:             pulumi.String("iam_for_lambda_called_from_cloudwatch_logs"),
-//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(assumeRole.Json)),
 //			})
 //			if err != nil {
 //				return err

@@ -58,7 +58,7 @@ import (
 //			_, err = iam.NewUserPolicy(ctx, "lb_ro", &iam.UserPolicyArgs{
 //				Name:   pulumi.String("test"),
 //				User:   lb.Name,
-//				Policy: pulumi.String(json0),
+//				Policy: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

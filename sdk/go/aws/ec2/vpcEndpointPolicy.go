@@ -43,7 +43,7 @@ import (
 //				return err
 //			}
 //			exampleVpcEndpoint, err := ec2.NewVpcEndpoint(ctx, "example", &ec2.VpcEndpointArgs{
-//				ServiceName: pulumi.String(example.ServiceName),
+//				ServiceName: pulumi.String(pulumi.String(example.ServiceName)),
 //				VpcId:       exampleVpc.ID(),
 //			})
 //			if err != nil {
@@ -71,7 +71,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = ec2.NewVpcEndpointPolicy(ctx, "example", &ec2.VpcEndpointPolicyArgs{
 //				VpcEndpointId: exampleVpcEndpoint.ID(),
-//				Policy:        pulumi.String(json0),
+//				Policy:        pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

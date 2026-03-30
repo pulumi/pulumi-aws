@@ -82,7 +82,7 @@ import (
 //				return err
 //			}
 //			_, err = elasticsearch.NewDomain(ctx, "example", &elasticsearch.DomainArgs{
-//				DomainName: pulumi.String(domain),
+//				DomainName: pulumi.String(pulumi.String(domain)),
 //				AccessPolicies: pulumi.Any(fmt.Sprintf(`{
 //	  \"Version\": \"2012-10-17\",
 //	  \"Statement\": [
@@ -160,7 +160,7 @@ import (
 //			}
 //			_, err = cloudwatch.NewLogResourcePolicy(ctx, "example", &cloudwatch.LogResourcePolicyArgs{
 //				PolicyName:     pulumi.String("example"),
-//				PolicyDocument: pulumi.String(example.Json),
+//				PolicyDocument: pulumi.String(pulumi.String(example.Json)),
 //			})
 //			if err != nil {
 //				return err
@@ -244,7 +244,7 @@ import (
 // es, err := ec2.NewSecurityGroup(ctx, "es", &ec2.SecurityGroupArgs{
 // Name: pulumi.Sprintf("%v-elasticsearch-%v", vpc, domain),
 // Description: pulumi.String("Managed by Pulumi"),
-// VpcId: pulumi.String(selected.Id),
+// VpcId: pulumi.String(pulumi.String(selected.Id)),
 // Ingress: ec2.SecurityGroupIngressArray{
 // &ec2.SecurityGroupIngressArgs{
 // FromPort: pulumi.Int(443),
@@ -266,7 +266,7 @@ import (
 // return err
 // }
 // _, err = elasticsearch.NewDomain(ctx, "es", &elasticsearch.DomainArgs{
-// DomainName: pulumi.String(domain),
+// DomainName: pulumi.String(pulumi.String(domain)),
 // ElasticsearchVersion: pulumi.String("6.3"),
 // ClusterConfig: &elasticsearch.DomainClusterConfigArgs{
 // InstanceType: pulumi.String("m4.large.elasticsearch"),

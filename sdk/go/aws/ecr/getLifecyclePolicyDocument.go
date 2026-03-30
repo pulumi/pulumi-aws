@@ -50,7 +50,7 @@ import (
 //			}
 //			_, err = ecr.NewLifecyclePolicy(ctx, "example", &ecr.LifecyclePolicyArgs{
 //				Repository: pulumi.Any(exampleAwsEcrRepository.Name),
-//				Policy:     pulumi.String(example.Json),
+//				Policy:     pulumi.String(pulumi.String(example.Json)),
 //			})
 //			if err != nil {
 //				return err

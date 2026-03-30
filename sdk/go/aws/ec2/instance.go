@@ -55,7 +55,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
-//				Ami:          pulumi.String(ubuntu.Id),
+//				Ami:          pulumi.String(pulumi.String(ubuntu.Id)),
 //				InstanceType: pulumi.String(ec2.InstanceType_T3_Micro),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("HelloWorld"),
@@ -138,7 +138,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
-//				Ami: pulumi.String(example.Id),
+//				Ami: pulumi.String(pulumi.String(example.Id)),
 //				InstanceMarketOptions: &ec2.InstanceInstanceMarketOptionsArgs{
 //					MarketType: pulumi.String("spot"),
 //					SpotOptions: &ec2.InstanceInstanceMarketOptionsSpotOptionsArgs{
@@ -276,7 +276,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
-//				Ami:          pulumi.String(amzn_linux_2023_ami.Id),
+//				Ami:          pulumi.String(pulumi.String(amzn_linux_2023_ami.Id)),
 //				InstanceType: pulumi.String(ec2.InstanceType_C6a_2XLarge),
 //				SubnetId:     exampleSubnet.ID(),
 //				CpuOptions: &ec2.InstanceCpuOptionsArgs{

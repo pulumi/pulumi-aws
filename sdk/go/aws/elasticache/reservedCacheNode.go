@@ -42,7 +42,7 @@ import (
 //				return err
 //			}
 //			_, err = elasticache.NewReservedCacheNode(ctx, "example", &elasticache.ReservedCacheNodeArgs{
-//				ReservedCacheNodesOfferingId: pulumi.String(example.OfferingId),
+//				ReservedCacheNodesOfferingId: pulumi.String(pulumi.String(example.OfferingId)),
 //				Id:                           "optionalCustomReservationID",
 //				CacheNodeCount:               pulumi.Int(3),
 //			})

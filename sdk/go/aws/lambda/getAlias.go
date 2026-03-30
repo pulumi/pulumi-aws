@@ -71,7 +71,7 @@ import (
 //				HttpMethod:            pulumi.Any(exampleAwsApiGatewayMethod.HttpMethod),
 //				IntegrationHttpMethod: pulumi.String("POST"),
 //				Type:                  pulumi.String("AWS_PROXY"),
-//				Uri:                   pulumi.String(apiHandler.InvokeArn),
+//				Uri:                   pulumi.String(pulumi.String(apiHandler.InvokeArn)),
 //			})
 //			if err != nil {
 //				return err
@@ -80,9 +80,9 @@ import (
 //			_, err = lambda.NewPermission(ctx, "api_gateway", &lambda.PermissionArgs{
 //				StatementId: pulumi.String("AllowExecutionFromAPIGateway"),
 //				Action:      pulumi.String("lambda:InvokeFunction"),
-//				Function:    pulumi.String(apiHandler.FunctionName),
+//				Function:    pulumi.String(pulumi.String(apiHandler.FunctionName)),
 //				Principal:   pulumi.String("apigateway.amazonaws.com"),
-//				Qualifier:   pulumi.String(apiHandler.Name),
+//				Qualifier:   pulumi.String(pulumi.String(apiHandler.Name)),
 //				SourceArn:   pulumi.Sprintf("%v/*/*", exampleAwsApiGatewayRestApi.ExecutionArn),
 //			})
 //			if err != nil {
@@ -128,7 +128,7 @@ import (
 //			ctx.Export("deploymentStatus", pulumi.Map{
 //				"productionVersion": production.FunctionVersion,
 //				"stagingVersion":    staging.FunctionVersion,
-//				"versionDrift":      versionDrift,
+//				"versionDrift":      pulumi.Bool(versionDrift),
 //				"readyForPromotion": pulumi.Bool(!versionDrift),
 //			})
 //			return nil
@@ -176,7 +176,7 @@ import (
 //			example, err := cloudwatch.NewEventRule(ctx, "example", &cloudwatch.EventRuleArgs{
 //				Name:         pulumi.String("capture-events"),
 //				Description:  pulumi.String("Capture events for processing"),
-//				EventPattern: pulumi.String(json0),
+//				EventPattern: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err
@@ -184,7 +184,7 @@ import (
 //			_, err = cloudwatch.NewEventTarget(ctx, "lambda", &cloudwatch.EventTargetArgs{
 //				Rule:     example.Name,
 //				TargetId: pulumi.String("SendToLambda"),
-//				Arn:      pulumi.String(eventProcessor.Arn),
+//				Arn:      pulumi.String(pulumi.String(eventProcessor.Arn)),
 //			})
 //			if err != nil {
 //				return err
@@ -192,9 +192,9 @@ import (
 //			_, err = lambda.NewPermission(ctx, "allow_eventbridge", &lambda.PermissionArgs{
 //				StatementId: pulumi.String("AllowExecutionFromEventBridge"),
 //				Action:      pulumi.String("lambda:InvokeFunction"),
-//				Function:    pulumi.String(eventProcessor.FunctionName),
+//				Function:    pulumi.String(pulumi.String(eventProcessor.FunctionName)),
 //				Principal:   pulumi.String("events.amazonaws.com"),
-//				Qualifier:   pulumi.String(eventProcessor.Name),
+//				Qualifier:   pulumi.String(pulumi.String(eventProcessor.Name)),
 //				SourceArn:   example.Arn,
 //			})
 //			if err != nil {

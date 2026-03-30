@@ -124,7 +124,7 @@ import (
 //			}
 //			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
 //				Name:             pulumi.String("bedrock-agentcore-browser-role"),
-//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(assumeRole.Json)),
 //			})
 //			if err != nil {
 //				return err

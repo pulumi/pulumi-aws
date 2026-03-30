@@ -67,7 +67,7 @@ import (
 //				RegistryName: test.Name,
 //				Type:         pulumi.String("OpenApi3"),
 //				Description:  pulumi.String("The schema definition for my event"),
-//				Content:      pulumi.String(json0),
+//				Content:      pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

@@ -208,7 +208,7 @@ import (
 //			}
 //			exampleKey, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				Description: pulumi.String("KMS key for WorkSpaces Web Session Logger"),
-//				Policy:      pulumi.String(kmsKeyPolicy.Json),
+//				Policy:      pulumi.String(pulumi.String(kmsKeyPolicy.Json)),
 //			})
 //			if err != nil {
 //				return err

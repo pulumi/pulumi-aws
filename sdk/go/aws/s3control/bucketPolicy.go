@@ -53,7 +53,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = s3control.NewBucketPolicy(ctx, "example", &s3control.BucketPolicyArgs{
 //				Bucket: pulumi.Any(exampleAwsS3controlBucket.Arn),
-//				Policy: pulumi.String(json0),
+//				Policy: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

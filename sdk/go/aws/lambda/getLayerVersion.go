@@ -43,7 +43,7 @@ import (
 //				Handler: pulumi.String("index.handler"),
 //				Runtime: pulumi.String(lambda.RuntimeNodeJS20dX),
 //				Layers: pulumi.StringArray{
-//					pulumi.String(example.Arn),
+//					pulumi.String(pulumi.String(example.Arn)),
 //				},
 //			})
 //			if err != nil {
@@ -128,8 +128,8 @@ import (
 //					pulumi.String("arm64"),
 //				},
 //				Layers: pulumi.StringArray{
-//					pulumi.String(pythonLayer.Arn),
-//					pulumi.String(armLayer.Arn),
+//					pulumi.String(pulumi.String(pythonLayer.Arn)),
+//					pulumi.String(pulumi.String(armLayer.Arn)),
 //				},
 //			})
 //			if err != nil {
@@ -170,7 +170,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			useLatestLayer := latest.Version > 5
+//			useLatestLayer := pulumi.Float64(latest.Version) > 5
 //			var tmp0 *string
 //			if useLatestLayer {
 //				tmp0 = latest.Arn
@@ -220,7 +220,7 @@ import (
 //				Handler: pulumi.String("index.handler"),
 //				Runtime: pulumi.String(lambda.RuntimeNodeJS20dX),
 //				Layers: pulumi.StringArray{
-//					pulumi.String(sharedLayer.Arn),
+//					pulumi.String(pulumi.String(sharedLayer.Arn)),
 //				},
 //			})
 //			if err != nil {

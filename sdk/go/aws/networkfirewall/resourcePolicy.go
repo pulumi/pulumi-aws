@@ -56,7 +56,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = networkfirewall.NewResourcePolicy(ctx, "example", &networkfirewall.ResourcePolicyArgs{
 //				ResourceArn: pulumi.Any(exampleAwsNetworkfirewallFirewallPolicy.Arn),
-//				Policy:      pulumi.String(json0),
+//				Policy:      pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err
@@ -106,7 +106,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = networkfirewall.NewResourcePolicy(ctx, "example", &networkfirewall.ResourcePolicyArgs{
 //				ResourceArn: pulumi.Any(exampleAwsNetworkfirewallRuleGroup.Arn),
-//				Policy:      pulumi.String(json0),
+//				Policy:      pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

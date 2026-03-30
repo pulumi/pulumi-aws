@@ -36,7 +36,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudtrail.NewOrganizationDelegatedAdminAccount(ctx, "example", &cloudtrail.OrganizationDelegatedAdminAccountArgs{
-//				AccountId: pulumi.String(delegated.AccountId),
+//				AccountId: pulumi.String(pulumi.String(delegated.AccountId)),
 //			})
 //			if err != nil {
 //				return err

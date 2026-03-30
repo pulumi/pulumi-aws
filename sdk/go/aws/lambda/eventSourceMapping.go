@@ -159,7 +159,7 @@ import (
 //				FilterCriteria: &lambda.EventSourceMappingFilterCriteriaArgs{
 //					Filters: lambda.EventSourceMappingFilterCriteriaFilterArray{
 //						&lambda.EventSourceMappingFilterCriteriaFilterArgs{
-//							Pattern: pulumi.String(json0),
+//							Pattern: pulumi.String(pulumi.String(json0)),
 //						},
 //					},
 //				},

@@ -45,7 +45,7 @@ import (
 //			console, err := cloudwatch.NewEventRule(ctx, "console", &cloudwatch.EventRuleArgs{
 //				Name:         pulumi.String("capture-aws-sign-in"),
 //				Description:  pulumi.String("Capture each AWS Console Sign In"),
-//				EventPattern: pulumi.String(json0),
+//				EventPattern: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

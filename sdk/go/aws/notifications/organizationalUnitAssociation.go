@@ -45,7 +45,7 @@ import (
 //			}
 //			exampleOrganizationalUnit, err := organizations.NewOrganizationalUnit(ctx, "example", &organizations.OrganizationalUnitArgs{
 //				Name:     pulumi.String("example-ou"),
-//				ParentId: pulumi.String(example.Roots[0].Id),
+//				ParentId: pulumi.String(pulumi.String(example.Roots[0].Id)),
 //			})
 //			if err != nil {
 //				return err
@@ -102,7 +102,7 @@ import (
 //				return err
 //			}
 //			_, err = notifications.NewOrganizationalUnitAssociation(ctx, "example", &notifications.OrganizationalUnitAssociationArgs{
-//				OrganizationalUnitId:         pulumi.String(example.Roots[0].Id),
+//				OrganizationalUnitId:         pulumi.String(pulumi.String(example.Roots[0].Id)),
 //				NotificationConfigurationArn: exampleNotificationConfiguration.Arn,
 //			})
 //			if err != nil {

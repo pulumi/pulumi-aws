@@ -70,7 +70,7 @@ import (
 //			}
 //			codepipelineRole, err := iam.NewRole(ctx, "codepipeline_role", &iam.RoleArgs{
 //				Name:             pulumi.String("test-role"),
-//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(assumeRole.Json)),
 //			})
 //			if err != nil {
 //				return err

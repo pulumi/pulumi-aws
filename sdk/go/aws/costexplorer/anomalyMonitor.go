@@ -83,7 +83,7 @@ import (
 //			_, err = costexplorer.NewAnomalyMonitor(ctx, "test", &costexplorer.AnomalyMonitorArgs{
 //				Name:                 pulumi.String("AWSCustomAnomalyMonitor"),
 //				MonitorType:          pulumi.String("CUSTOM"),
-//				MonitorSpecification: pulumi.String(json0),
+//				MonitorSpecification: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

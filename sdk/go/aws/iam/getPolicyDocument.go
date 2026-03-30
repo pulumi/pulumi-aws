@@ -81,7 +81,7 @@ import (
 //			_, err = iam.NewPolicy(ctx, "example", &iam.PolicyArgs{
 //				Name:   pulumi.String("example_policy"),
 //				Path:   pulumi.String("/"),
-//				Policy: pulumi.String(example.Json),
+//				Policy: pulumi.String(pulumi.String(example.Json)),
 //			})
 //			if err != nil {
 //				return err

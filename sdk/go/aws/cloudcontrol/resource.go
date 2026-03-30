@@ -45,7 +45,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = cloudcontrol.NewResource(ctx, "example", &cloudcontrol.ResourceArgs{
 //				TypeName:     pulumi.String("AWS::ECS::Cluster"),
-//				DesiredState: pulumi.String(json0),
+//				DesiredState: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

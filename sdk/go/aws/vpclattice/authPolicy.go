@@ -62,7 +62,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = vpclattice.NewAuthPolicy(ctx, "example", &vpclattice.AuthPolicyArgs{
 //				ResourceIdentifier: example.Arn,
-//				Policy:             pulumi.String(json0),
+//				Policy:             pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

@@ -140,7 +140,7 @@ import (
 //				ToPort:          pulumi.Int(443),
 //				Protocol:        pulumi.String(ec2.ProtocolTypeTCP),
 //				PrefixListIds: pulumi.StringArray{
-//					pulumi.String(s3.Id),
+//					pulumi.String(pulumi.String(s3.Id)),
 //				},
 //			})
 //			if err != nil {

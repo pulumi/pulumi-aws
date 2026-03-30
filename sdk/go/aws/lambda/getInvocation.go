@@ -103,11 +103,11 @@ import (
 //			}, nil).Result
 //			// Use dynamic configuration
 //			_, err = elasticache.NewCluster(ctx, "example", &elasticache.ClusterArgs{
-//				ClusterId:          pulumi.Any(config.Cache.ClusterId),
-//				Engine:             pulumi.Any(config.Cache.Engine),
-//				NodeType:           pulumi.Any(config.Cache.NodeType),
-//				NumCacheNodes:      pulumi.Any(config.Cache.Nodes),
-//				ParameterGroupName: pulumi.Any(config.Cache.ParameterGroup),
+//				ClusterId:          pulumi.String(pulumi.Any(config.Cache.ClusterId)),
+//				Engine:             pulumi.String(pulumi.Any(config.Cache.Engine)),
+//				NodeType:           pulumi.String(pulumi.Any(config.Cache.NodeType)),
+//				NumCacheNodes:      pulumi.Int(pulumi.Any(config.Cache.Nodes)),
+//				ParameterGroupName: pulumi.String(pulumi.Any(config.Cache.ParameterGroup)),
 //				Tags:               pulumi.Any(config.Tags),
 //			})
 //			if err != nil {

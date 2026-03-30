@@ -207,7 +207,7 @@ import (
 //			opensearchIdentityCenter, err := iam.NewPolicy(ctx, "opensearch_identity_center", &iam.PolicyArgs{
 //				Name:        pulumi.String("opensearch-identity-center-policy"),
 //				Description: pulumi.String("Policy for OpenSearch Application Identity Center integration"),
-//				Policy:      pulumi.String(json0),
+//				Policy:      pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

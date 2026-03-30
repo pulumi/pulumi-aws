@@ -122,7 +122,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			firehose, err := iam.NewRole(ctx, "firehose", &iam.RoleArgs{
 //				Name:             pulumi.String("firehose-role"),
-//				AssumeRolePolicy: pulumi.String(json0),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

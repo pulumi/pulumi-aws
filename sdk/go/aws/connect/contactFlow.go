@@ -72,7 +72,7 @@ import (
 //				Name:        pulumi.String("Test"),
 //				Description: pulumi.String("Test Contact Flow Description"),
 //				Type:        pulumi.String("CONTACT_FLOW"),
-//				Content:     pulumi.String(json0),
+//				Content:     pulumi.String(pulumi.String(json0)),
 //				Tags: pulumi.StringMap{
 //					"Name":        pulumi.String("Test Contact Flow"),
 //					"Application": pulumi.String("Example"),

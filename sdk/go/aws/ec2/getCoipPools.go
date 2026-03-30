@@ -33,7 +33,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("foo", foo.Ids)
+//			ctx.Export("foo", pulumi.Any(foo.Ids))
 //			return nil
 //		})
 //	}

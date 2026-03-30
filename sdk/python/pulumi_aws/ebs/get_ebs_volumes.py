@@ -114,8 +114,8 @@ def get_ebs_volumes(filters: Optional[Sequence[Union['GetEbsVolumesFilterArgs', 
     example_get_volume = {__key: aws.ebs.get_volume(filters=[{
         "name": "volume-id",
         "values": [__value],
-    }]) for __key, __value in example.ids}
-    pulumi.export("availabilityZoneToVolumeId", {s.id: s.availability_zone for s in example_get_volume})
+    }]) for __key, __value in enumerate(example.ids)}
+    pulumi.export("availabilityZoneToVolumeId", {s.id: s.availability_zone for s in example_get_volume.values()})
     ```
 
 
@@ -163,8 +163,8 @@ def get_ebs_volumes_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
     example_get_volume = {__key: aws.ebs.get_volume(filters=[{
         "name": "volume-id",
         "values": [__value],
-    }]) for __key, __value in example.ids}
-    pulumi.export("availabilityZoneToVolumeId", {s.id: s.availability_zone for s in example_get_volume})
+    }]) for __key, __value in enumerate(example.ids)}
+    pulumi.export("availabilityZoneToVolumeId", {s.id: s.availability_zone for s in example_get_volume.values()})
     ```
 
 

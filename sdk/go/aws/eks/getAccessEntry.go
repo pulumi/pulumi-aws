@@ -34,7 +34,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("eksAccessEntryOutputs", exampleAwsEksAccessEntry)
+//			ctx.Export("eksAccessEntryOutputs", pulumi.Any(exampleAwsEksAccessEntry))
 //			return nil
 //		})
 //	}

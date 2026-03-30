@@ -67,7 +67,7 @@ import (
 //			_, err = cloudwatch.NewLogAccountPolicy(ctx, "data_protection", &cloudwatch.LogAccountPolicyArgs{
 //				PolicyName:     pulumi.String("data-protection"),
 //				PolicyType:     pulumi.String("DATA_PROTECTION_POLICY"),
-//				PolicyDocument: pulumi.String(json0),
+//				PolicyDocument: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err
@@ -105,7 +105,7 @@ import (
 //			_, err = cloudwatch.NewLogAccountPolicy(ctx, "subscription_filter", &cloudwatch.LogAccountPolicyArgs{
 //				PolicyName:        pulumi.String("subscription-filter"),
 //				PolicyType:        pulumi.String("SUBSCRIPTION_FILTER_POLICY"),
-//				PolicyDocument:    pulumi.String(json0),
+//				PolicyDocument:    pulumi.String(pulumi.String(json0)),
 //				SelectionCriteria: pulumi.String("LogGroupName NOT IN [\"excluded_log_group_name\"]"),
 //			})
 //			if err != nil {
@@ -146,7 +146,7 @@ import (
 //			_, err = cloudwatch.NewLogAccountPolicy(ctx, "field_index", &cloudwatch.LogAccountPolicyArgs{
 //				PolicyName:     pulumi.String("field-index"),
 //				PolicyType:     pulumi.String("FIELD_INDEX_POLICY"),
-//				PolicyDocument: pulumi.String(json0),
+//				PolicyDocument: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err
