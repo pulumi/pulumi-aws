@@ -244,14 +244,14 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
+     * **`rule` blocks in this resource have several known limitations.** Consider using `aws.wafv2.WebAclRule` to manage rules as separate resources instead. Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
      * 
      */
     @Import(name="rules")
     private @Nullable Output<List<WebAclRuleArgs>> rules;
 
     /**
-     * @return Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
+     * @return **`rule` blocks in this resource have several known limitations.** Consider using `aws.wafv2.WebAclRule` to manage rules as separate resources instead. Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
      * 
      */
     public Optional<Output<List<WebAclRuleArgs>>> rules() {
@@ -691,7 +691,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rules Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
+         * @param rules **`rule` blocks in this resource have several known limitations.** Consider using `aws.wafv2.WebAclRule` to manage rules as separate resources instead. Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
          * 
          * @return builder
          * 
@@ -702,7 +702,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rules Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
+         * @param rules **`rule` blocks in this resource have several known limitations.** Consider using `aws.wafv2.WebAclRule` to manage rules as separate resources instead. Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
          * 
          * @return builder
          * 
@@ -712,7 +712,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rules Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
+         * @param rules **`rule` blocks in this resource have several known limitations.** Consider using `aws.wafv2.WebAclRule` to manage rules as separate resources instead. Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
          * 
          * @return builder
          * 

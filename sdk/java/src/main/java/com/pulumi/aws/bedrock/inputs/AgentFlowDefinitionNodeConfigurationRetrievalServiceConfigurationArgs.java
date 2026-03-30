@@ -15,9 +15,17 @@ public final class AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigura
 
     public static final AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs Empty = new AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs();
 
+    /**
+     * Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+     * 
+     */
     @Import(name="s3")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args> s3;
 
+    /**
+     * @return Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+     * 
+     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args>> s3() {
         return Optional.ofNullable(this.s3);
     }
@@ -46,11 +54,23 @@ public final class AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigura
             $ = new AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param s3 Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3(@Nullable Output<AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args> s3) {
             $.s3 = s3;
             return this;
         }
 
+        /**
+         * @param s3 Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args s3) {
             return s3(Output.of(s3));
         }

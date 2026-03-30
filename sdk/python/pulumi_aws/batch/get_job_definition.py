@@ -211,7 +211,7 @@ def get_job_definition(arn: Optional[_builtins.str] = None,
 
     ## Example Usage
 
-    ### Lookup via Arn
+    ### Lookup via ARN
 
     ```python
     import pulumi
@@ -231,7 +231,7 @@ def get_job_definition(arn: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str arn: ARN of the Job Definition. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+    :param _builtins.str arn: ARN of the Job Definition.
     :param _builtins.str name: The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.int revision: The revision of the job definition.
@@ -273,7 +273,7 @@ def get_job_definition_output(arn: Optional[pulumi.Input[Optional[_builtins.str]
 
     ## Example Usage
 
-    ### Lookup via Arn
+    ### Lookup via ARN
 
     ```python
     import pulumi
@@ -293,7 +293,7 @@ def get_job_definition_output(arn: Optional[pulumi.Input[Optional[_builtins.str]
     ```
 
 
-    :param _builtins.str arn: ARN of the Job Definition. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+    :param _builtins.str arn: ARN of the Job Definition.
     :param _builtins.str name: The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.int revision: The revision of the job definition.

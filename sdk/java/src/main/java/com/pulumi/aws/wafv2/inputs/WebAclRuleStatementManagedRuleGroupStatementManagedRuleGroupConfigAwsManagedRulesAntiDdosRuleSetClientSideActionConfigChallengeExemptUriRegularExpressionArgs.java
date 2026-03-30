@@ -16,14 +16,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     public static final WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs();
 
     /**
-     * Regular expression string.
+     * Regular expression pattern to match against the web request component.
      * 
      */
     @Import(name="regexString")
     private @Nullable Output<String> regexString;
 
     /**
-     * @return Regular expression string.
+     * @return Regular expression pattern to match against the web request component.
      * 
      */
     public Optional<Output<String>> regexString() {
@@ -55,7 +55,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
 
         /**
-         * @param regexString Regular expression string.
+         * @param regexString Regular expression pattern to match against the web request component.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
 
         /**
-         * @param regexString Regular expression string.
+         * @param regexString Regular expression pattern to match against the web request component.
          * 
          * @return builder
          * 

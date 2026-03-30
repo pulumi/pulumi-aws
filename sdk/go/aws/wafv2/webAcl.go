@@ -14,9 +14,9 @@ import (
 
 // Creates a WAFv2 Web ACL resource.
 //
-// > **Note** In `fieldToMatch` blocks, *e.g.*, in `byteMatchStatement`, the `body` block includes an optional argument `oversizeHandling`. AWS indicates this argument will be required starting February 2023. To avoid configurations breaking when that change happens, treat the `oversizeHandling` argument as **required** as soon as possible.
+// > **Note:** Inline `rule` blocks in this resource have several known limitations. Consider using `wafv2.WebAclRule` to manage rules as separate resources instead. Limitations include: **Deletion ordering errors:** When removing a rule that references an IP set or rule group, AWS requires the rule to be detached before the referenced resource is deleted. Terraform's dependency graph cannot model this correctly for inline rules, resulting in `WAFAssociatedItemException` errors. **Spurious diffs:** AWS returns rules in an unpredictable order, which can cause Terraform to detect changes even when the configuration has not changed. **Coupled updates:** Modifying one inline rule may cause all rules to be recreated, which can be disruptive.
 //
-// !> **Warning:** If you use the `wafv2.WebAclRuleGroupAssociation` resource to associate rule groups with this Web ACL, you must add `lifecycle { ignoreChanges = [rule] }` to this resource to prevent configuration drift. The association resource modifies the Web ACL's rules outside of this resource's direct management.
+// !> **Warning:** If you use the `wafv2.WebAclRule` or `wafv2.WebAclRuleGroupAssociation` resources with this Web ACL, you must add `lifecycle { ignoreChanges = [rule] }` to this resource to prevent configuration drift. Those resources manage the Web ACL's rules outside of this resource's direct management.
 //
 // ## Import
 //
@@ -57,8 +57,8 @@ type WebAcl struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `ruleJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
 	RuleJson pulumi.StringPtrOutput `pulumi:"ruleJson"`
-	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
-	Rules WebAclRuleArrayOutput `pulumi:"rules"`
+	// **`rule` blocks in this resource have several known limitations.** Consider using `wafv2.WebAclRule` to manage rules as separate resources instead. Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
+	Rules WebAclRuleTypeArrayOutput `pulumi:"rules"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringOutput `pulumi:"scope"`
 	// Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -139,8 +139,8 @@ type webAclState struct {
 	Region *string `pulumi:"region"`
 	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `ruleJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
 	RuleJson *string `pulumi:"ruleJson"`
-	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
-	Rules []WebAclRule `pulumi:"rules"`
+	// **`rule` blocks in this resource have several known limitations.** Consider using `wafv2.WebAclRule` to manage rules as separate resources instead. Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
+	Rules []WebAclRuleType `pulumi:"rules"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope *string `pulumi:"scope"`
 	// Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -183,8 +183,8 @@ type WebAclState struct {
 	Region pulumi.StringPtrInput
 	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `ruleJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
 	RuleJson pulumi.StringPtrInput
-	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
-	Rules WebAclRuleArrayInput
+	// **`rule` blocks in this resource have several known limitations.** Consider using `wafv2.WebAclRule` to manage rules as separate resources instead. Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
+	Rules WebAclRuleTypeArrayInput
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringPtrInput
 	// Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -224,8 +224,8 @@ type webAclArgs struct {
 	Region *string `pulumi:"region"`
 	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `ruleJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
 	RuleJson *string `pulumi:"ruleJson"`
-	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
-	Rules []WebAclRule `pulumi:"rules"`
+	// **`rule` blocks in this resource have several known limitations.** Consider using `wafv2.WebAclRule` to manage rules as separate resources instead. Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
+	Rules []WebAclRuleType `pulumi:"rules"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope string `pulumi:"scope"`
 	// Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -260,8 +260,8 @@ type WebAclArgs struct {
 	Region pulumi.StringPtrInput
 	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `ruleJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
 	RuleJson pulumi.StringPtrInput
-	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
-	Rules WebAclRuleArrayInput
+	// **`rule` blocks in this resource have several known limitations.** Consider using `wafv2.WebAclRule` to manage rules as separate resources instead. Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
+	Rules WebAclRuleTypeArrayInput
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringInput
 	// Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -433,9 +433,9 @@ func (o WebAclOutput) RuleJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringPtrOutput { return v.RuleJson }).(pulumi.StringPtrOutput)
 }
 
-// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
-func (o WebAclOutput) Rules() WebAclRuleArrayOutput {
-	return o.ApplyT(func(v *WebAcl) WebAclRuleArrayOutput { return v.Rules }).(WebAclRuleArrayOutput)
+// **`rule` blocks in this resource have several known limitations.** Consider using `wafv2.WebAclRule` to manage rules as separate resources instead. Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
+func (o WebAclOutput) Rules() WebAclRuleTypeArrayOutput {
+	return o.ApplyT(func(v *WebAcl) WebAclRuleTypeArrayOutput { return v.Rules }).(WebAclRuleTypeArrayOutput)
 }
 
 // Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.

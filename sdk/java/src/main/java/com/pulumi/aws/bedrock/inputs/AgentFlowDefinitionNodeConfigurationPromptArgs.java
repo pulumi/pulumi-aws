@@ -17,23 +17,31 @@ public final class AgentFlowDefinitionNodeConfigurationPromptArgs extends com.pu
     public static final AgentFlowDefinitionNodeConfigurationPromptArgs Empty = new AgentFlowDefinitionNodeConfigurationPromptArgs();
 
     /**
-     * Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+     * Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
      * 
      */
     @Import(name="guardrailConfiguration")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs> guardrailConfiguration;
 
     /**
-     * @return Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+     * @return Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs>> guardrailConfiguration() {
         return Optional.ofNullable(this.guardrailConfiguration);
     }
 
+    /**
+     * Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
+     * 
+     */
     @Import(name="sourceConfiguration")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs> sourceConfiguration;
 
+    /**
+     * @return Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
+     * 
+     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs>> sourceConfiguration() {
         return Optional.ofNullable(this.sourceConfiguration);
     }
@@ -64,7 +72,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptArgs extends com.pu
         }
 
         /**
-         * @param guardrailConfiguration Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+         * @param guardrailConfiguration Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
          * 
          * @return builder
          * 
@@ -75,7 +83,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptArgs extends com.pu
         }
 
         /**
-         * @param guardrailConfiguration Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+         * @param guardrailConfiguration Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
          * 
          * @return builder
          * 
@@ -84,11 +92,23 @@ public final class AgentFlowDefinitionNodeConfigurationPromptArgs extends com.pu
             return guardrailConfiguration(Output.of(guardrailConfiguration));
         }
 
+        /**
+         * @param sourceConfiguration Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceConfiguration(@Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs> sourceConfiguration) {
             $.sourceConfiguration = sourceConfiguration;
             return this;
         }
 
+        /**
+         * @param sourceConfiguration Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceConfiguration(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs sourceConfiguration) {
             return sourceConfiguration(Output.of(sourceConfiguration));
         }

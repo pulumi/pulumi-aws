@@ -75,6 +75,56 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Bucket In Account-Regional Namespace
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FormatArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
+ * 
+ *         final var currentGetRegion = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
+ * 
+ *         var example = new Bucket("example", BucketArgs.builder()
+ *             .bucket(StdFunctions.format(FormatArgs.builder()
+ *                 .input("my-tf-test-bucket-%s-%s-an")
+ *                 .args(                
+ *                     current.accountId(),
+ *                     currentGetRegion.name())
+ *                 .build()).result())
+ *             .bucketNamespace("account-regional")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * ### Identity Schema
@@ -176,6 +226,20 @@ public class Bucket extends com.pulumi.resources.CustomResource {
      */
     public Output<String> bucketDomainName() {
         return this.bucketDomainName;
+    }
+    /**
+     * Namespace for the bucket. Determines bucket naming scope. Valid values: `account-regional`, `global`. Defaults to `global` (AWS).
+     * 
+     */
+    @Export(name="bucketNamespace", refs={String.class}, tree="[0]")
+    private Output<String> bucketNamespace;
+
+    /**
+     * @return Namespace for the bucket. Determines bucket naming scope. Valid values: `account-regional`, `global`. Defaults to `global` (AWS).
+     * 
+     */
+    public Output<String> bucketNamespace() {
+        return this.bucketNamespace;
     }
     /**
      * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).

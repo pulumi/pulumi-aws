@@ -17,11 +17,19 @@ namespace Pulumi.Aws.DataSync.Outputs
         /// Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
         /// </summary>
         public readonly string ScheduleExpression;
+        /// <summary>
+        /// Whether to enable or disable your task schedule. Valid values: `ENABLED`, `DISABLED`. Default: `ENABLED`.
+        /// </summary>
+        public readonly string? Status;
 
         [OutputConstructor]
-        private TaskSchedule(string scheduleExpression)
+        private TaskSchedule(
+            string scheduleExpression,
+
+            string? status)
         {
             ScheduleExpression = scheduleExpression;
+            Status = status;
         }
     }
 }

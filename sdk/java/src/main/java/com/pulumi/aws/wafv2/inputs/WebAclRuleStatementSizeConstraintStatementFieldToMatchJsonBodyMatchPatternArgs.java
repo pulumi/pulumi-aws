@@ -17,24 +17,24 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBod
 
     public static final WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgs Empty = new WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgs();
 
-    /**
-     * An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     @Import(name="all")
     private @Nullable Output<WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs> all;
 
-    /**
-     * @return An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs>> all() {
         return Optional.ofNullable(this.all);
     }
 
+    /**
+     * List of JSON pointer expressions to inspect (e.g., `/foo/bar`).
+     * 
+     */
     @Import(name="includedPaths")
     private @Nullable Output<List<String>> includedPaths;
 
+    /**
+     * @return List of JSON pointer expressions to inspect (e.g., `/foo/bar`).
+     * 
+     */
     public Optional<Output<List<String>>> includedPaths() {
         return Optional.ofNullable(this.includedPaths);
     }
@@ -64,36 +64,42 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBod
             $ = new WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param all An empty configuration block that is used for inspecting all headers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder all(@Nullable Output<WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs> all) {
             $.all = all;
             return this;
         }
 
-        /**
-         * @param all An empty configuration block that is used for inspecting all headers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder all(WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs all) {
             return all(Output.of(all));
         }
 
+        /**
+         * @param includedPaths List of JSON pointer expressions to inspect (e.g., `/foo/bar`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder includedPaths(@Nullable Output<List<String>> includedPaths) {
             $.includedPaths = includedPaths;
             return this;
         }
 
+        /**
+         * @param includedPaths List of JSON pointer expressions to inspect (e.g., `/foo/bar`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder includedPaths(List<String> includedPaths) {
             return includedPaths(Output.of(includedPaths));
         }
 
+        /**
+         * @param includedPaths List of JSON pointer expressions to inspect (e.g., `/foo/bar`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder includedPaths(String... includedPaths) {
             return includedPaths(List.of(includedPaths));
         }

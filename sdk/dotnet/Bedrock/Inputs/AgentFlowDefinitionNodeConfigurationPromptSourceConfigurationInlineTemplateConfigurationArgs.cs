@@ -18,6 +18,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
         [Input("chat")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs>? Chat { get; set; }
 
+        /// <summary>
+        /// Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
+        /// </summary>
         [Input("text")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs>? Text { get; set; }
 

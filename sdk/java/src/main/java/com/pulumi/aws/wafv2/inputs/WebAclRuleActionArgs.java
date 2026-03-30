@@ -20,14 +20,14 @@ public final class WebAclRuleActionArgs extends com.pulumi.resources.ResourceArg
     public static final WebAclRuleActionArgs Empty = new WebAclRuleActionArgs();
 
     /**
-     * Instructs AWS WAF to allow the web request. See `allow` below for details.
+     * Allow the request. See Allow below.
      * 
      */
     @Import(name="allow")
     private @Nullable Output<WebAclRuleActionAllowArgs> allow;
 
     /**
-     * @return Instructs AWS WAF to allow the web request. See `allow` below for details.
+     * @return Allow the request. See Allow below.
      * 
      */
     public Optional<Output<WebAclRuleActionAllowArgs>> allow() {
@@ -35,14 +35,14 @@ public final class WebAclRuleActionArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Instructs AWS WAF to block the web request. See `block` below for details.
+     * Block the request. See Block below.
      * 
      */
     @Import(name="block")
     private @Nullable Output<WebAclRuleActionBlockArgs> block;
 
     /**
-     * @return Instructs AWS WAF to block the web request. See `block` below for details.
+     * @return Block the request. See Block below.
      * 
      */
     public Optional<Output<WebAclRuleActionBlockArgs>> block() {
@@ -50,14 +50,14 @@ public final class WebAclRuleActionArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+     * Present a CAPTCHA challenge. See Captcha below.
      * 
      */
     @Import(name="captcha")
     private @Nullable Output<WebAclRuleActionCaptchaArgs> captcha;
 
     /**
-     * @return Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+     * @return Present a CAPTCHA challenge. See Captcha below.
      * 
      */
     public Optional<Output<WebAclRuleActionCaptchaArgs>> captcha() {
@@ -65,14 +65,14 @@ public final class WebAclRuleActionArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+     * Present a silent challenge. See Challenge below.
      * 
      */
     @Import(name="challenge")
     private @Nullable Output<WebAclRuleActionChallengeArgs> challenge;
 
     /**
-     * @return Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+     * @return Present a silent challenge. See Challenge below.
      * 
      */
     public Optional<Output<WebAclRuleActionChallengeArgs>> challenge() {
@@ -80,14 +80,14 @@ public final class WebAclRuleActionArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Instructs AWS WAF to count the web request and allow it. See `count` below for details.
+     * Count the request without blocking. See Count below.
      * 
      */
     @Import(name="count")
     private @Nullable Output<WebAclRuleActionCountArgs> count;
 
     /**
-     * @return Instructs AWS WAF to count the web request and allow it. See `count` below for details.
+     * @return Count the request without blocking. See Count below.
      * 
      */
     public Optional<Output<WebAclRuleActionCountArgs>> count() {
@@ -123,7 +123,7 @@ public final class WebAclRuleActionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param allow Instructs AWS WAF to allow the web request. See `allow` below for details.
+         * @param allow Allow the request. See Allow below.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class WebAclRuleActionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param allow Instructs AWS WAF to allow the web request. See `allow` below for details.
+         * @param allow Allow the request. See Allow below.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class WebAclRuleActionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param block Instructs AWS WAF to block the web request. See `block` below for details.
+         * @param block Block the request. See Block below.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class WebAclRuleActionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param block Instructs AWS WAF to block the web request. See `block` below for details.
+         * @param block Block the request. See Block below.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class WebAclRuleActionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param captcha Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+         * @param captcha Present a CAPTCHA challenge. See Captcha below.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class WebAclRuleActionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param captcha Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+         * @param captcha Present a CAPTCHA challenge. See Captcha below.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class WebAclRuleActionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param challenge Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+         * @param challenge Present a silent challenge. See Challenge below.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class WebAclRuleActionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param challenge Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+         * @param challenge Present a silent challenge. See Challenge below.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class WebAclRuleActionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param count Instructs AWS WAF to count the web request and allow it. See `count` below for details.
+         * @param count Count the request without blocking. See Count below.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class WebAclRuleActionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param count Instructs AWS WAF to count the web request and allow it. See `count` below for details.
+         * @param count Count the request without blocking. See Count below.
          * 
          * @return builder
          * 

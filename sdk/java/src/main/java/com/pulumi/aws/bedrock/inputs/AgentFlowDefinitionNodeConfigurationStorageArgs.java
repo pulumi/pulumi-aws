@@ -15,9 +15,17 @@ public final class AgentFlowDefinitionNodeConfigurationStorageArgs extends com.p
 
     public static final AgentFlowDefinitionNodeConfigurationStorageArgs Empty = new AgentFlowDefinitionNodeConfigurationStorageArgs();
 
+    /**
+     * Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Service Configuration for more information.
+     * 
+     */
     @Import(name="serviceConfiguration")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs> serviceConfiguration;
 
+    /**
+     * @return Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Service Configuration for more information.
+     * 
+     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs>> serviceConfiguration() {
         return Optional.ofNullable(this.serviceConfiguration);
     }
@@ -46,11 +54,23 @@ public final class AgentFlowDefinitionNodeConfigurationStorageArgs extends com.p
             $ = new AgentFlowDefinitionNodeConfigurationStorageArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param serviceConfiguration Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Service Configuration for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serviceConfiguration(@Nullable Output<AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs> serviceConfiguration) {
             $.serviceConfiguration = serviceConfiguration;
             return this;
         }
 
+        /**
+         * @param serviceConfiguration Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Service Configuration for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serviceConfiguration(AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs serviceConfiguration) {
             return serviceConfiguration(Output.of(serviceConfiguration));
         }

@@ -36,6 +36,7 @@ class TableArgs:
                  read_capacity: Optional[pulumi.Input[_builtins.int]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]]] = None,
+                 restore_backup_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  restore_date_time: Optional[pulumi.Input[_builtins.str]] = None,
                  restore_source_name: Optional[pulumi.Input[_builtins.str]] = None,
                  restore_source_table_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -68,6 +69,7 @@ class TableArgs:
         :param pulumi.Input[_builtins.int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
+        :param pulumi.Input[_builtins.str] restore_backup_arn: ARN of backup to restore.
         :param pulumi.Input[_builtins.str] restore_date_time: Time of the point-in-time recovery point to restore.
         :param pulumi.Input[_builtins.str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
         :param pulumi.Input[_builtins.str] restore_source_table_arn: ARN of the source table to restore. Must be supplied for cross-region restores.
@@ -115,6 +117,8 @@ class TableArgs:
             pulumi.set(__self__, "region", region)
         if replicas is not None:
             pulumi.set(__self__, "replicas", replicas)
+        if restore_backup_arn is not None:
+            pulumi.set(__self__, "restore_backup_arn", restore_backup_arn)
         if restore_date_time is not None:
             pulumi.set(__self__, "restore_date_time", restore_date_time)
         if restore_source_name is not None:
@@ -323,6 +327,18 @@ class TableArgs:
         pulumi.set(self, "replicas", value)
 
     @_builtins.property
+    @pulumi.getter(name="restoreBackupArn")
+    def restore_backup_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN of backup to restore.
+        """
+        return pulumi.get(self, "restore_backup_arn")
+
+    @restore_backup_arn.setter
+    def restore_backup_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "restore_backup_arn", value)
+
+    @_builtins.property
     @pulumi.getter(name="restoreDateTime")
     def restore_date_time(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -490,6 +506,7 @@ class _TableState:
                  read_capacity: Optional[pulumi.Input[_builtins.int]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]]] = None,
+                 restore_backup_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  restore_date_time: Optional[pulumi.Input[_builtins.str]] = None,
                  restore_source_name: Optional[pulumi.Input[_builtins.str]] = None,
                  restore_source_table_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -526,6 +543,7 @@ class _TableState:
         :param pulumi.Input[_builtins.int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
+        :param pulumi.Input[_builtins.str] restore_backup_arn: ARN of backup to restore.
         :param pulumi.Input[_builtins.str] restore_date_time: Time of the point-in-time recovery point to restore.
         :param pulumi.Input[_builtins.str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
         :param pulumi.Input[_builtins.str] restore_source_table_arn: ARN of the source table to restore. Must be supplied for cross-region restores.
@@ -578,6 +596,8 @@ class _TableState:
             pulumi.set(__self__, "region", region)
         if replicas is not None:
             pulumi.set(__self__, "replicas", replicas)
+        if restore_backup_arn is not None:
+            pulumi.set(__self__, "restore_backup_arn", restore_backup_arn)
         if restore_date_time is not None:
             pulumi.set(__self__, "restore_date_time", restore_date_time)
         if restore_source_name is not None:
@@ -804,6 +824,18 @@ class _TableState:
         pulumi.set(self, "replicas", value)
 
     @_builtins.property
+    @pulumi.getter(name="restoreBackupArn")
+    def restore_backup_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN of backup to restore.
+        """
+        return pulumi.get(self, "restore_backup_arn")
+
+    @restore_backup_arn.setter
+    def restore_backup_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "restore_backup_arn", value)
+
+    @_builtins.property
     @pulumi.getter(name="restoreDateTime")
     def restore_date_time(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -1009,6 +1041,7 @@ class Table(pulumi.CustomResource):
                  read_capacity: Optional[pulumi.Input[_builtins.int]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaArgs', 'TableReplicaArgsDict']]]]] = None,
+                 restore_backup_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  restore_date_time: Optional[pulumi.Input[_builtins.str]] = None,
                  restore_source_name: Optional[pulumi.Input[_builtins.str]] = None,
                  restore_source_table_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1362,6 +1395,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaArgs', 'TableReplicaArgsDict']]]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
+        :param pulumi.Input[_builtins.str] restore_backup_arn: ARN of backup to restore.
         :param pulumi.Input[_builtins.str] restore_date_time: Time of the point-in-time recovery point to restore.
         :param pulumi.Input[_builtins.str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
         :param pulumi.Input[_builtins.str] restore_source_table_arn: ARN of the source table to restore. Must be supplied for cross-region restores.
@@ -1736,6 +1770,7 @@ class Table(pulumi.CustomResource):
                  read_capacity: Optional[pulumi.Input[_builtins.int]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaArgs', 'TableReplicaArgsDict']]]]] = None,
+                 restore_backup_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  restore_date_time: Optional[pulumi.Input[_builtins.str]] = None,
                  restore_source_name: Optional[pulumi.Input[_builtins.str]] = None,
                  restore_source_table_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1772,6 +1807,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["read_capacity"] = read_capacity
             __props__.__dict__["region"] = region
             __props__.__dict__["replicas"] = replicas
+            __props__.__dict__["restore_backup_arn"] = restore_backup_arn
             __props__.__dict__["restore_date_time"] = restore_date_time
             __props__.__dict__["restore_source_name"] = restore_source_name
             __props__.__dict__["restore_source_table_arn"] = restore_source_table_arn
@@ -1814,6 +1850,7 @@ class Table(pulumi.CustomResource):
             read_capacity: Optional[pulumi.Input[_builtins.int]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
             replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaArgs', 'TableReplicaArgsDict']]]]] = None,
+            restore_backup_arn: Optional[pulumi.Input[_builtins.str]] = None,
             restore_date_time: Optional[pulumi.Input[_builtins.str]] = None,
             restore_source_name: Optional[pulumi.Input[_builtins.str]] = None,
             restore_source_table_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1854,6 +1891,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaArgs', 'TableReplicaArgsDict']]]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
+        :param pulumi.Input[_builtins.str] restore_backup_arn: ARN of backup to restore.
         :param pulumi.Input[_builtins.str] restore_date_time: Time of the point-in-time recovery point to restore.
         :param pulumi.Input[_builtins.str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
         :param pulumi.Input[_builtins.str] restore_source_table_arn: ARN of the source table to restore. Must be supplied for cross-region restores.
@@ -1894,6 +1932,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["read_capacity"] = read_capacity
         __props__.__dict__["region"] = region
         __props__.__dict__["replicas"] = replicas
+        __props__.__dict__["restore_backup_arn"] = restore_backup_arn
         __props__.__dict__["restore_date_time"] = restore_date_time
         __props__.__dict__["restore_source_name"] = restore_source_name
         __props__.__dict__["restore_source_table_arn"] = restore_source_table_arn
@@ -2040,6 +2079,14 @@ class Table(pulumi.CustomResource):
         Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         """
         return pulumi.get(self, "replicas")
+
+    @_builtins.property
+    @pulumi.getter(name="restoreBackupArn")
+    def restore_backup_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        ARN of backup to restore.
+        """
+        return pulumi.get(self, "restore_backup_arn")
 
     @_builtins.property
     @pulumi.getter(name="restoreDateTime")

@@ -13,25 +13,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern {
+    private @Nullable WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll all;
     /**
-     * @return An empty configuration block that is used for inspecting all headers.
+     * @return List of cookie names to exclude from inspection.
      * 
      */
-    private @Nullable WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll all;
     private @Nullable List<String> excludedCookies;
+    /**
+     * @return List of cookie names to inspect.
+     * 
+     */
     private @Nullable List<String> includedCookies;
 
     private WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern() {}
-    /**
-     * @return An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     public Optional<WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll> all() {
         return Optional.ofNullable(this.all);
     }
+    /**
+     * @return List of cookie names to exclude from inspection.
+     * 
+     */
     public List<String> excludedCookies() {
         return this.excludedCookies == null ? List.of() : this.excludedCookies;
     }
+    /**
+     * @return List of cookie names to inspect.
+     * 
+     */
     public List<String> includedCookies() {
         return this.includedCookies == null ? List.of() : this.includedCookies;
     }

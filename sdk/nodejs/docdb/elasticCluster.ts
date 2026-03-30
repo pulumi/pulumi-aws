@@ -125,6 +125,10 @@ export class ElasticCluster extends pulumi.CustomResource {
      */
     declare public readonly shardCount: pulumi.Output<number>;
     /**
+     * Number of replica instances applying to all shards in the elastic cluster. If not specified, the default value of 2 is set.
+     */
+    declare public readonly shardInstanceCount: pulumi.Output<number>;
+    /**
      * IDs of subnets in which the Elastic DocumentDB Cluster operates.
      */
     declare public readonly subnetIds: pulumi.Output<string[]>;
@@ -168,6 +172,7 @@ export class ElasticCluster extends pulumi.CustomResource {
             resourceInputs["region"] = state?.region;
             resourceInputs["shardCapacity"] = state?.shardCapacity;
             resourceInputs["shardCount"] = state?.shardCount;
+            resourceInputs["shardInstanceCount"] = state?.shardInstanceCount;
             resourceInputs["subnetIds"] = state?.subnetIds;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
@@ -201,6 +206,7 @@ export class ElasticCluster extends pulumi.CustomResource {
             resourceInputs["region"] = args?.region;
             resourceInputs["shardCapacity"] = args?.shardCapacity;
             resourceInputs["shardCount"] = args?.shardCount;
+            resourceInputs["shardInstanceCount"] = args?.shardInstanceCount;
             resourceInputs["subnetIds"] = args?.subnetIds;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["timeouts"] = args?.timeouts;
@@ -275,6 +281,10 @@ export interface ElasticClusterState {
      */
     shardCount?: pulumi.Input<number>;
     /**
+     * Number of replica instances applying to all shards in the elastic cluster. If not specified, the default value of 2 is set.
+     */
+    shardInstanceCount?: pulumi.Input<number>;
+    /**
      * IDs of subnets in which the Elastic DocumentDB Cluster operates.
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -343,6 +353,10 @@ export interface ElasticClusterArgs {
      * The following arguments are optional:
      */
     shardCount: pulumi.Input<number>;
+    /**
+     * Number of replica instances applying to all shards in the elastic cluster. If not specified, the default value of 2 is set.
+     */
+    shardInstanceCount?: pulumi.Input<number>;
     /**
      * IDs of subnets in which the Elastic DocumentDB Cluster operates.
      */

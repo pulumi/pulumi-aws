@@ -15,14 +15,14 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader
     public static final WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs Empty = new WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs();
 
     /**
-     * Name of the query header to inspect. This setting must be provided as lower case characters.
+     * Name of the header to inspect (case insensitive).
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the query header to inspect. This setting must be provided as lower case characters.
+     * @return Name of the header to inspect (case insensitive).
      * 
      */
     public Output<String> name() {
@@ -54,7 +54,7 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader
         }
 
         /**
-         * @param name Name of the query header to inspect. This setting must be provided as lower case characters.
+         * @param name Name of the header to inspect (case insensitive).
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader
         }
 
         /**
-         * @param name Name of the query header to inspect. This setting must be provided as lower case characters.
+         * @param name Name of the header to inspect (case insensitive).
          * 
          * @return builder
          * 

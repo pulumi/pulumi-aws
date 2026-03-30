@@ -3,27 +3,27 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
-import com.pulumi.aws.wafv2.outputs.WebAclRuleStatement;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementNotStatementStatement;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementNotStatement {
     /**
-     * @return The statements to combine.
+     * @return Single statement to negate. Exactly one statement must be specified.
      * 
      */
-    private List<WebAclRuleStatement> statements;
+    private @Nullable WebAclRuleStatementNotStatementStatement statement;
 
     private WebAclRuleStatementNotStatement() {}
     /**
-     * @return The statements to combine.
+     * @return Single statement to negate. Exactly one statement must be specified.
      * 
      */
-    public List<WebAclRuleStatement> statements() {
-        return this.statements;
+    public Optional<WebAclRuleStatementNotStatementStatement> statement() {
+        return Optional.ofNullable(this.statement);
     }
 
     public static Builder builder() {
@@ -35,27 +35,22 @@ public final class WebAclRuleStatementNotStatement {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<WebAclRuleStatement> statements;
+        private @Nullable WebAclRuleStatementNotStatementStatement statement;
         public Builder() {}
         public Builder(WebAclRuleStatementNotStatement defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.statements = defaults.statements;
+    	      this.statement = defaults.statement;
         }
 
         @CustomType.Setter
-        public Builder statements(List<WebAclRuleStatement> statements) {
-            if (statements == null) {
-              throw new MissingRequiredPropertyException("WebAclRuleStatementNotStatement", "statements");
-            }
-            this.statements = statements;
+        public Builder statement(@Nullable WebAclRuleStatementNotStatementStatement statement) {
+
+            this.statement = statement;
             return this;
-        }
-        public Builder statements(WebAclRuleStatement... statements) {
-            return statements(List.of(statements));
         }
         public WebAclRuleStatementNotStatement build() {
             final var _resultValue = new WebAclRuleStatementNotStatement();
-            _resultValue.statements = statements;
+            _resultValue.statement = statement;
             return _resultValue;
         }
     }

@@ -15,9 +15,17 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
 
     public static final AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs Empty = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs();
 
+    /**
+     * Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+     * 
+     */
     @Import(name="text")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs> text;
 
+    /**
+     * @return Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+     * 
+     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs>> text() {
         return Optional.ofNullable(this.text);
     }
@@ -46,11 +54,23 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
             $ = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param text Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder text(@Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs> text) {
             $.text = text;
             return this;
         }
 
+        /**
+         * @param text Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder text(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs text) {
             return text(Output.of(text));
         }

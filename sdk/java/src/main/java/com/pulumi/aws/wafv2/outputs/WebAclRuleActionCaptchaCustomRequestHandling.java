@@ -5,25 +5,25 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleActionCaptchaCustomRequestHandling {
     /**
-     * @return The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+     * @return Custom headers to insert into the request. See Insert Header below.
      * 
      */
-    private List<WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader> insertHeaders;
+    private @Nullable List<WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader> insertHeaders;
 
     private WebAclRuleActionCaptchaCustomRequestHandling() {}
     /**
-     * @return The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+     * @return Custom headers to insert into the request. See Insert Header below.
      * 
      */
     public List<WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader> insertHeaders() {
-        return this.insertHeaders;
+        return this.insertHeaders == null ? List.of() : this.insertHeaders;
     }
 
     public static Builder builder() {
@@ -35,7 +35,7 @@ public final class WebAclRuleActionCaptchaCustomRequestHandling {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader> insertHeaders;
+        private @Nullable List<WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader> insertHeaders;
         public Builder() {}
         public Builder(WebAclRuleActionCaptchaCustomRequestHandling defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,10 +43,8 @@ public final class WebAclRuleActionCaptchaCustomRequestHandling {
         }
 
         @CustomType.Setter
-        public Builder insertHeaders(List<WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader> insertHeaders) {
-            if (insertHeaders == null) {
-              throw new MissingRequiredPropertyException("WebAclRuleActionCaptchaCustomRequestHandling", "insertHeaders");
-            }
+        public Builder insertHeaders(@Nullable List<WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader> insertHeaders) {
+
             this.insertHeaders = insertHeaders;
             return this;
         }

@@ -69,6 +69,8 @@ type LookupSavingsPlanResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The ID of the offering.
+	//
+	// Deprecated: offering_id is deprecated. Use savingsPlanOfferingId instead.
 	OfferingId string `pulumi:"offeringId"`
 	// The payment option for the Savings Plan.
 	PaymentOption string   `pulumi:"paymentOption"`
@@ -161,6 +163,8 @@ func (o LookupSavingsPlanResultOutput) Id() pulumi.StringOutput {
 }
 
 // The ID of the offering.
+//
+// Deprecated: offering_id is deprecated. Use savingsPlanOfferingId instead.
 func (o LookupSavingsPlanResultOutput) OfferingId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSavingsPlanResult) string { return v.OfferingId }).(pulumi.StringOutput)
 }

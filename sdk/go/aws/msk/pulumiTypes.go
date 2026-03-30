@@ -5427,6 +5427,181 @@ func (o ServerlessClusterVpcConfigArrayOutput) Index(i pulumi.IntInput) Serverle
 	}).(ServerlessClusterVpcConfigOutput)
 }
 
+type TopicTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// TopicTimeoutsInput is an input type that accepts TopicTimeoutsArgs and TopicTimeoutsOutput values.
+// You can construct a concrete instance of `TopicTimeoutsInput` via:
+//
+//	TopicTimeoutsArgs{...}
+type TopicTimeoutsInput interface {
+	pulumi.Input
+
+	ToTopicTimeoutsOutput() TopicTimeoutsOutput
+	ToTopicTimeoutsOutputWithContext(context.Context) TopicTimeoutsOutput
+}
+
+type TopicTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (TopicTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicTimeouts)(nil)).Elem()
+}
+
+func (i TopicTimeoutsArgs) ToTopicTimeoutsOutput() TopicTimeoutsOutput {
+	return i.ToTopicTimeoutsOutputWithContext(context.Background())
+}
+
+func (i TopicTimeoutsArgs) ToTopicTimeoutsOutputWithContext(ctx context.Context) TopicTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicTimeoutsOutput)
+}
+
+func (i TopicTimeoutsArgs) ToTopicTimeoutsPtrOutput() TopicTimeoutsPtrOutput {
+	return i.ToTopicTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i TopicTimeoutsArgs) ToTopicTimeoutsPtrOutputWithContext(ctx context.Context) TopicTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicTimeoutsOutput).ToTopicTimeoutsPtrOutputWithContext(ctx)
+}
+
+// TopicTimeoutsPtrInput is an input type that accepts TopicTimeoutsArgs, TopicTimeoutsPtr and TopicTimeoutsPtrOutput values.
+// You can construct a concrete instance of `TopicTimeoutsPtrInput` via:
+//
+//	        TopicTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TopicTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToTopicTimeoutsPtrOutput() TopicTimeoutsPtrOutput
+	ToTopicTimeoutsPtrOutputWithContext(context.Context) TopicTimeoutsPtrOutput
+}
+
+type topicTimeoutsPtrType TopicTimeoutsArgs
+
+func TopicTimeoutsPtr(v *TopicTimeoutsArgs) TopicTimeoutsPtrInput {
+	return (*topicTimeoutsPtrType)(v)
+}
+
+func (*topicTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicTimeouts)(nil)).Elem()
+}
+
+func (i *topicTimeoutsPtrType) ToTopicTimeoutsPtrOutput() TopicTimeoutsPtrOutput {
+	return i.ToTopicTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *topicTimeoutsPtrType) ToTopicTimeoutsPtrOutputWithContext(ctx context.Context) TopicTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicTimeoutsPtrOutput)
+}
+
+type TopicTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (TopicTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicTimeouts)(nil)).Elem()
+}
+
+func (o TopicTimeoutsOutput) ToTopicTimeoutsOutput() TopicTimeoutsOutput {
+	return o
+}
+
+func (o TopicTimeoutsOutput) ToTopicTimeoutsOutputWithContext(ctx context.Context) TopicTimeoutsOutput {
+	return o
+}
+
+func (o TopicTimeoutsOutput) ToTopicTimeoutsPtrOutput() TopicTimeoutsPtrOutput {
+	return o.ToTopicTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o TopicTimeoutsOutput) ToTopicTimeoutsPtrOutputWithContext(ctx context.Context) TopicTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicTimeouts) *TopicTimeouts {
+		return &v
+	}).(TopicTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TopicTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o TopicTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TopicTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type TopicTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicTimeouts)(nil)).Elem()
+}
+
+func (o TopicTimeoutsPtrOutput) ToTopicTimeoutsPtrOutput() TopicTimeoutsPtrOutput {
+	return o
+}
+
+func (o TopicTimeoutsPtrOutput) ToTopicTimeoutsPtrOutputWithContext(ctx context.Context) TopicTimeoutsPtrOutput {
+	return o
+}
+
+func (o TopicTimeoutsPtrOutput) Elem() TopicTimeoutsOutput {
+	return o.ApplyT(func(v *TopicTimeouts) TopicTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret TopicTimeouts
+		return ret
+	}).(TopicTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TopicTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o TopicTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TopicTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetBrokerNodesNodeInfoList struct {
 	// Attached elastic network interface of the broker
 	AttachedEniId string `pulumi:"attachedEniId"`
@@ -6574,6 +6749,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterClientAuthenticationSaslIamPtrInput)(nil)).Elem(), ServerlessClusterClientAuthenticationSaslIamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterVpcConfigInput)(nil)).Elem(), ServerlessClusterVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterVpcConfigArrayInput)(nil)).Elem(), ServerlessClusterVpcConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicTimeoutsInput)(nil)).Elem(), TopicTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicTimeoutsPtrInput)(nil)).Elem(), TopicTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerNodesNodeInfoListInput)(nil)).Elem(), GetBrokerNodesNodeInfoListArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerNodesNodeInfoListArrayInput)(nil)).Elem(), GetBrokerNodesNodeInfoListArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterBrokerNodeGroupInfoInput)(nil)).Elem(), GetClusterBrokerNodeGroupInfoArgs{})
@@ -6666,6 +6843,8 @@ func init() {
 	pulumi.RegisterOutputType(ServerlessClusterClientAuthenticationSaslIamPtrOutput{})
 	pulumi.RegisterOutputType(ServerlessClusterVpcConfigOutput{})
 	pulumi.RegisterOutputType(ServerlessClusterVpcConfigArrayOutput{})
+	pulumi.RegisterOutputType(TopicTimeoutsOutput{})
+	pulumi.RegisterOutputType(TopicTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GetBrokerNodesNodeInfoListOutput{})
 	pulumi.RegisterOutputType(GetBrokerNodesNodeInfoListArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterBrokerNodeGroupInfoOutput{})

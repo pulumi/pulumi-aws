@@ -10,6 +10,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesArgs extends com.pulumi.resources.ResourceArgs {
@@ -17,29 +19,29 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
     public static final WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesArgs Empty = new WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesArgs();
 
     /**
-     * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+     * Cookies to inspect. See Cookies Match Pattern below.
      * 
      */
-    @Import(name="matchPatterns", required=true)
-    private Output<List<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgs>> matchPatterns;
+    @Import(name="matchPatterns")
+    private @Nullable Output<List<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgs>> matchPatterns;
 
     /**
-     * @return The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+     * @return Cookies to inspect. See Cookies Match Pattern below.
      * 
      */
-    public Output<List<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgs>> matchPatterns() {
-        return this.matchPatterns;
+    public Optional<Output<List<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgs>>> matchPatterns() {
+        return Optional.ofNullable(this.matchPatterns);
     }
 
     /**
-     * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+     * Parts of the cookies to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
      * 
      */
     @Import(name="matchScope", required=true)
     private Output<String> matchScope;
 
     /**
-     * @return The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+     * @return Parts of the cookies to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
      * 
      */
     public Output<String> matchScope() {
@@ -47,14 +49,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
     }
 
     /**
-     * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+     * How to handle requests with cookies larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
      * 
      */
     @Import(name="oversizeHandling", required=true)
     private Output<String> oversizeHandling;
 
     /**
-     * @return What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+     * @return How to handle requests with cookies larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
      * 
      */
     public Output<String> oversizeHandling() {
@@ -88,18 +90,18 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         /**
-         * @param matchPatterns The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * @param matchPatterns Cookies to inspect. See Cookies Match Pattern below.
          * 
          * @return builder
          * 
          */
-        public Builder matchPatterns(Output<List<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgs>> matchPatterns) {
+        public Builder matchPatterns(@Nullable Output<List<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgs>> matchPatterns) {
             $.matchPatterns = matchPatterns;
             return this;
         }
 
         /**
-         * @param matchPatterns The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * @param matchPatterns Cookies to inspect. See Cookies Match Pattern below.
          * 
          * @return builder
          * 
@@ -109,7 +111,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         /**
-         * @param matchPatterns The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * @param matchPatterns Cookies to inspect. See Cookies Match Pattern below.
          * 
          * @return builder
          * 
@@ -119,7 +121,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         /**
-         * @param matchScope The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * @param matchScope Parts of the cookies to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
          * 
          * @return builder
          * 
@@ -130,7 +132,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         /**
-         * @param matchScope The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * @param matchScope Parts of the cookies to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
          * 
          * @return builder
          * 
@@ -140,7 +142,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         /**
-         * @param oversizeHandling What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         * @param oversizeHandling How to handle requests with cookies larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
          * 
          * @return builder
          * 
@@ -151,7 +153,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         /**
-         * @param oversizeHandling What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         * @param oversizeHandling How to handle requests with cookies larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
          * 
          * @return builder
          * 
@@ -161,9 +163,6 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         public WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesArgs build() {
-            if ($.matchPatterns == null) {
-                throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesArgs", "matchPatterns");
-            }
             if ($.matchScope == null) {
                 throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesArgs", "matchScope");
             }

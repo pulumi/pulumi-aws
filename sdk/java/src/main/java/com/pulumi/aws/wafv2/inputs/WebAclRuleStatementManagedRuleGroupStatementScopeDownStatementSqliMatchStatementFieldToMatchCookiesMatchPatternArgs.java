@@ -17,31 +17,39 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
 
     public static final WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgs();
 
-    /**
-     * An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     @Import(name="all")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs> all;
 
-    /**
-     * @return An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs>> all() {
         return Optional.ofNullable(this.all);
     }
 
+    /**
+     * List of cookie names to exclude from inspection.
+     * 
+     */
     @Import(name="excludedCookies")
     private @Nullable Output<List<String>> excludedCookies;
 
+    /**
+     * @return List of cookie names to exclude from inspection.
+     * 
+     */
     public Optional<Output<List<String>>> excludedCookies() {
         return Optional.ofNullable(this.excludedCookies);
     }
 
+    /**
+     * List of cookie names to inspect.
+     * 
+     */
     @Import(name="includedCookies")
     private @Nullable Output<List<String>> includedCookies;
 
+    /**
+     * @return List of cookie names to inspect.
+     * 
+     */
     public Optional<Output<List<String>>> includedCookies() {
         return Optional.ofNullable(this.includedCookies);
     }
@@ -72,49 +80,73 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
             $ = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param all An empty configuration block that is used for inspecting all headers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder all(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs> all) {
             $.all = all;
             return this;
         }
 
-        /**
-         * @param all An empty configuration block that is used for inspecting all headers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder all(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs all) {
             return all(Output.of(all));
         }
 
+        /**
+         * @param excludedCookies List of cookie names to exclude from inspection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder excludedCookies(@Nullable Output<List<String>> excludedCookies) {
             $.excludedCookies = excludedCookies;
             return this;
         }
 
+        /**
+         * @param excludedCookies List of cookie names to exclude from inspection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder excludedCookies(List<String> excludedCookies) {
             return excludedCookies(Output.of(excludedCookies));
         }
 
+        /**
+         * @param excludedCookies List of cookie names to exclude from inspection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder excludedCookies(String... excludedCookies) {
             return excludedCookies(List.of(excludedCookies));
         }
 
+        /**
+         * @param includedCookies List of cookie names to inspect.
+         * 
+         * @return builder
+         * 
+         */
         public Builder includedCookies(@Nullable Output<List<String>> includedCookies) {
             $.includedCookies = includedCookies;
             return this;
         }
 
+        /**
+         * @param includedCookies List of cookie names to inspect.
+         * 
+         * @return builder
+         * 
+         */
         public Builder includedCookies(List<String> includedCookies) {
             return includedCookies(Output.of(includedCookies));
         }
 
+        /**
+         * @param includedCookies List of cookie names to inspect.
+         * 
+         * @return builder
+         * 
+         */
         public Builder includedCookies(String... includedCookies) {
             return includedCookies(List.of(includedCookies));
         }

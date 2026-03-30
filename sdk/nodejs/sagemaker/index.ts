@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AlgorithmArgs, AlgorithmState } from "./algorithm";
+export type Algorithm = import("./algorithm").Algorithm;
+export const Algorithm: typeof import("./algorithm").Algorithm = null as any;
+utilities.lazyLoad(exports, ["Algorithm"], () => require("./algorithm"));
+
 export { AppArgs, AppState } from "./app";
 export type App = import("./app").App;
 export const App: typeof import("./app").App = null as any;
@@ -185,6 +190,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:sagemaker/algorithm:Algorithm":
+                return new Algorithm(name, <any>undefined, { urn })
             case "aws:sagemaker/app:App":
                 return new App(name, <any>undefined, { urn })
             case "aws:sagemaker/appImageConfig:AppImageConfig":
@@ -258,6 +265,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "sagemaker/algorithm", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/app", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/appImageConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/codeRepository", _module)

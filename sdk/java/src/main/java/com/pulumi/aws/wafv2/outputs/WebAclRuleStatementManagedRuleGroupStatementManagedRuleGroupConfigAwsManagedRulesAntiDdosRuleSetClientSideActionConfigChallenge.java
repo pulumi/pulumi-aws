@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallenge {
-    /**
-     * @return Block for the list of the regular expressions to match against the web request URI, used to identify requests that can&#39;t handle a silent browser challenge.
-     * 
-     */
     private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpression> exemptUriRegularExpressions;
-    /**
-     * @return Sensitivity that the rule group rule ChallengeDDoSRequests uses when matching against the DDoS suspicion labeling on a request. Valid values are `LOW`, `MEDIUM` and `HIGH` (Default).
-     * 
-     */
     private @Nullable String sensitivity;
-    /**
-     * @return Configuration whether to use the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the rule group evaluation. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     private String usageOfAction;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallenge() {}
-    /**
-     * @return Block for the list of the regular expressions to match against the web request URI, used to identify requests that can&#39;t handle a silent browser challenge.
-     * 
-     */
     public List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpression> exemptUriRegularExpressions() {
         return this.exemptUriRegularExpressions == null ? List.of() : this.exemptUriRegularExpressions;
     }
-    /**
-     * @return Sensitivity that the rule group rule ChallengeDDoSRequests uses when matching against the DDoS suspicion labeling on a request. Valid values are `LOW`, `MEDIUM` and `HIGH` (Default).
-     * 
-     */
     public Optional<String> sensitivity() {
         return Optional.ofNullable(this.sensitivity);
     }
-    /**
-     * @return Configuration whether to use the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the rule group evaluation. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public String usageOfAction() {
         return this.usageOfAction;
     }

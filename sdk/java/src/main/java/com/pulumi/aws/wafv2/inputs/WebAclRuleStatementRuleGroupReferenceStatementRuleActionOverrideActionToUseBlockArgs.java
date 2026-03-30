@@ -16,14 +16,14 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
     public static final WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockArgs Empty = new WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockArgs();
 
     /**
-     * Defines a custom response for the web request. See `customResponse` below for details.
+     * Custom response configuration. See Custom Response below.
      * 
      */
     @Import(name="customResponse")
     private @Nullable Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponseArgs> customResponse;
 
     /**
-     * @return Defines a custom response for the web request. See `customResponse` below for details.
+     * @return Custom response configuration. See Custom Response below.
      * 
      */
     public Optional<Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponseArgs>> customResponse() {
@@ -55,7 +55,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
         }
 
         /**
-         * @param customResponse Defines a custom response for the web request. See `customResponse` below for details.
+         * @param customResponse Custom response configuration. See Custom Response below.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
         }
 
         /**
-         * @param customResponse Defines a custom response for the web request. See `customResponse` below for details.
+         * @param customResponse Custom response configuration. See Custom Response below.
          * 
          * @return builder
          * 

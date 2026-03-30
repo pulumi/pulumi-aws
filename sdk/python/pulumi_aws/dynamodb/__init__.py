@@ -7,6 +7,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .contributor_insights import *
+from .get_backups import *
 from .get_table import *
 from .get_table_item import *
 from .get_tables import *

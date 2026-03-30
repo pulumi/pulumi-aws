@@ -6,9 +6,10 @@ package com.pulumi.aws.wafv2.inputs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleActionAllowCustomRequestHandlingInsertHeaderArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class WebAclRuleActionAllowCustomRequestHandlingArgs extends com.pulumi.resources.ResourceArgs {
@@ -16,18 +17,18 @@ public final class WebAclRuleActionAllowCustomRequestHandlingArgs extends com.pu
     public static final WebAclRuleActionAllowCustomRequestHandlingArgs Empty = new WebAclRuleActionAllowCustomRequestHandlingArgs();
 
     /**
-     * The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+     * Custom headers to insert into the request. See Insert Header below.
      * 
      */
-    @Import(name="insertHeaders", required=true)
-    private Output<List<WebAclRuleActionAllowCustomRequestHandlingInsertHeaderArgs>> insertHeaders;
+    @Import(name="insertHeaders")
+    private @Nullable Output<List<WebAclRuleActionAllowCustomRequestHandlingInsertHeaderArgs>> insertHeaders;
 
     /**
-     * @return The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+     * @return Custom headers to insert into the request. See Insert Header below.
      * 
      */
-    public Output<List<WebAclRuleActionAllowCustomRequestHandlingInsertHeaderArgs>> insertHeaders() {
-        return this.insertHeaders;
+    public Optional<Output<List<WebAclRuleActionAllowCustomRequestHandlingInsertHeaderArgs>>> insertHeaders() {
+        return Optional.ofNullable(this.insertHeaders);
     }
 
     private WebAclRuleActionAllowCustomRequestHandlingArgs() {}
@@ -55,18 +56,18 @@ public final class WebAclRuleActionAllowCustomRequestHandlingArgs extends com.pu
         }
 
         /**
-         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+         * @param insertHeaders Custom headers to insert into the request. See Insert Header below.
          * 
          * @return builder
          * 
          */
-        public Builder insertHeaders(Output<List<WebAclRuleActionAllowCustomRequestHandlingInsertHeaderArgs>> insertHeaders) {
+        public Builder insertHeaders(@Nullable Output<List<WebAclRuleActionAllowCustomRequestHandlingInsertHeaderArgs>> insertHeaders) {
             $.insertHeaders = insertHeaders;
             return this;
         }
 
         /**
-         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+         * @param insertHeaders Custom headers to insert into the request. See Insert Header below.
          * 
          * @return builder
          * 
@@ -76,7 +77,7 @@ public final class WebAclRuleActionAllowCustomRequestHandlingArgs extends com.pu
         }
 
         /**
-         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+         * @param insertHeaders Custom headers to insert into the request. See Insert Header below.
          * 
          * @return builder
          * 
@@ -86,9 +87,6 @@ public final class WebAclRuleActionAllowCustomRequestHandlingArgs extends com.pu
         }
 
         public WebAclRuleActionAllowCustomRequestHandlingArgs build() {
-            if ($.insertHeaders == null) {
-                throw new MissingRequiredPropertyException("WebAclRuleActionAllowCustomRequestHandlingArgs", "insertHeaders");
-            }
             return $;
         }
     }

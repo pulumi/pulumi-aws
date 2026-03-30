@@ -36,12 +36,28 @@ namespace Pulumi.Aws.Bedrock.Inputs
             set => _allowedClients = value;
         }
 
-        [Input("allowedScopes", required: true)]
+        [Input("allowedScopes")]
         private InputList<string>? _allowedScopes;
+
+        /// <summary>
+        /// Set of scopes that are allowed to access the token.
+        /// </summary>
         public InputList<string> AllowedScopes
         {
             get => _allowedScopes ?? (_allowedScopes = new InputList<string>());
             set => _allowedScopes = value;
+        }
+
+        [Input("customClaims")]
+        private InputList<Inputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimGetArgs>? _customClaims;
+
+        /// <summary>
+        /// Repeatable block to define a custom claim validation name, value, and operation. See `CustomClaim` below.
+        /// </summary>
+        public InputList<Inputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimGetArgs> CustomClaims
+        {
+            get => _customClaims ?? (_customClaims = new InputList<Inputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimGetArgs>());
+            set => _customClaims = value;
         }
 
         /// <summary>

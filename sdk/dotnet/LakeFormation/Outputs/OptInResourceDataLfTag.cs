@@ -17,8 +17,14 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
         /// </summary>
         public readonly string? CatalogId;
+        /// <summary>
+        /// (Required) Key name for the LF-Tag.
+        /// </summary>
         public readonly string Key;
-        public readonly string Value;
+        /// <summary>
+        /// (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
+        /// </summary>
+        public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]
         private OptInResourceDataLfTag(
@@ -26,11 +32,11 @@ namespace Pulumi.Aws.LakeFormation.Outputs
 
             string key,
 
-            string value)
+            ImmutableArray<string> values)
         {
             CatalogId = catalogId;
             Key = key;
-            Value = value;
+            Values = values;
         }
     }
 }

@@ -19,62 +19,30 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
     public static final WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs();
 
-    /**
-     * Whether or not to allow the use of regular expressions in the login page path.
-     * 
-     */
     @Import(name="enableRegexInPath")
     private @Nullable Output<Boolean> enableRegexInPath;
 
-    /**
-     * @return Whether or not to allow the use of regular expressions in the login page path.
-     * 
-     */
     public Optional<Output<Boolean>> enableRegexInPath() {
         return Optional.ofNullable(this.enableRegexInPath);
     }
 
-    /**
-     * The path of the login endpoint for your application.
-     * 
-     */
     @Import(name="loginPath", required=true)
     private Output<String> loginPath;
 
-    /**
-     * @return The path of the login endpoint for your application.
-     * 
-     */
     public Output<String> loginPath() {
         return this.loginPath;
     }
 
-    /**
-     * The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. See `requestInspection` for more details.
-     * 
-     */
     @Import(name="requestInspection")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs> requestInspection;
 
-    /**
-     * @return The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. See `requestInspection` for more details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs>> requestInspection() {
         return Optional.ofNullable(this.requestInspection);
     }
 
-    /**
-     * The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. Note that Response Inspection is available only on web ACLs that protect CloudFront distributions. See `responseInspection` for more details.
-     * 
-     */
     @Import(name="responseInspection")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs> responseInspection;
 
-    /**
-     * @return The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. Note that Response Inspection is available only on web ACLs that protect CloudFront distributions. See `responseInspection` for more details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs>> responseInspection() {
         return Optional.ofNullable(this.responseInspection);
     }
@@ -106,86 +74,38 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             $ = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enableRegexInPath Whether or not to allow the use of regular expressions in the login page path.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableRegexInPath(@Nullable Output<Boolean> enableRegexInPath) {
             $.enableRegexInPath = enableRegexInPath;
             return this;
         }
 
-        /**
-         * @param enableRegexInPath Whether or not to allow the use of regular expressions in the login page path.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableRegexInPath(Boolean enableRegexInPath) {
             return enableRegexInPath(Output.of(enableRegexInPath));
         }
 
-        /**
-         * @param loginPath The path of the login endpoint for your application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loginPath(Output<String> loginPath) {
             $.loginPath = loginPath;
             return this;
         }
 
-        /**
-         * @param loginPath The path of the login endpoint for your application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loginPath(String loginPath) {
             return loginPath(Output.of(loginPath));
         }
 
-        /**
-         * @param requestInspection The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. See `requestInspection` for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder requestInspection(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs> requestInspection) {
             $.requestInspection = requestInspection;
             return this;
         }
 
-        /**
-         * @param requestInspection The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. See `requestInspection` for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder requestInspection(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs requestInspection) {
             return requestInspection(Output.of(requestInspection));
         }
 
-        /**
-         * @param responseInspection The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. Note that Response Inspection is available only on web ACLs that protect CloudFront distributions. See `responseInspection` for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseInspection(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs> responseInspection) {
             $.responseInspection = responseInspection;
             return this;
         }
 
-        /**
-         * @param responseInspection The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. Note that Response Inspection is available only on web ACLs that protect CloudFront distributions. See `responseInspection` for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseInspection(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs responseInspection) {
             return responseInspection(Output.of(responseInspection));
         }

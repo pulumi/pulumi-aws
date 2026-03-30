@@ -519,6 +519,337 @@ func (o InstanceConnectEndpointTimeoutsPtrOutput) Delete() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+type MeteringPolicyEntryTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// MeteringPolicyEntryTimeoutsInput is an input type that accepts MeteringPolicyEntryTimeoutsArgs and MeteringPolicyEntryTimeoutsOutput values.
+// You can construct a concrete instance of `MeteringPolicyEntryTimeoutsInput` via:
+//
+//	MeteringPolicyEntryTimeoutsArgs{...}
+type MeteringPolicyEntryTimeoutsInput interface {
+	pulumi.Input
+
+	ToMeteringPolicyEntryTimeoutsOutput() MeteringPolicyEntryTimeoutsOutput
+	ToMeteringPolicyEntryTimeoutsOutputWithContext(context.Context) MeteringPolicyEntryTimeoutsOutput
+}
+
+type MeteringPolicyEntryTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (MeteringPolicyEntryTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MeteringPolicyEntryTimeouts)(nil)).Elem()
+}
+
+func (i MeteringPolicyEntryTimeoutsArgs) ToMeteringPolicyEntryTimeoutsOutput() MeteringPolicyEntryTimeoutsOutput {
+	return i.ToMeteringPolicyEntryTimeoutsOutputWithContext(context.Background())
+}
+
+func (i MeteringPolicyEntryTimeoutsArgs) ToMeteringPolicyEntryTimeoutsOutputWithContext(ctx context.Context) MeteringPolicyEntryTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeteringPolicyEntryTimeoutsOutput)
+}
+
+func (i MeteringPolicyEntryTimeoutsArgs) ToMeteringPolicyEntryTimeoutsPtrOutput() MeteringPolicyEntryTimeoutsPtrOutput {
+	return i.ToMeteringPolicyEntryTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i MeteringPolicyEntryTimeoutsArgs) ToMeteringPolicyEntryTimeoutsPtrOutputWithContext(ctx context.Context) MeteringPolicyEntryTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeteringPolicyEntryTimeoutsOutput).ToMeteringPolicyEntryTimeoutsPtrOutputWithContext(ctx)
+}
+
+// MeteringPolicyEntryTimeoutsPtrInput is an input type that accepts MeteringPolicyEntryTimeoutsArgs, MeteringPolicyEntryTimeoutsPtr and MeteringPolicyEntryTimeoutsPtrOutput values.
+// You can construct a concrete instance of `MeteringPolicyEntryTimeoutsPtrInput` via:
+//
+//	        MeteringPolicyEntryTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MeteringPolicyEntryTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToMeteringPolicyEntryTimeoutsPtrOutput() MeteringPolicyEntryTimeoutsPtrOutput
+	ToMeteringPolicyEntryTimeoutsPtrOutputWithContext(context.Context) MeteringPolicyEntryTimeoutsPtrOutput
+}
+
+type meteringPolicyEntryTimeoutsPtrType MeteringPolicyEntryTimeoutsArgs
+
+func MeteringPolicyEntryTimeoutsPtr(v *MeteringPolicyEntryTimeoutsArgs) MeteringPolicyEntryTimeoutsPtrInput {
+	return (*meteringPolicyEntryTimeoutsPtrType)(v)
+}
+
+func (*meteringPolicyEntryTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MeteringPolicyEntryTimeouts)(nil)).Elem()
+}
+
+func (i *meteringPolicyEntryTimeoutsPtrType) ToMeteringPolicyEntryTimeoutsPtrOutput() MeteringPolicyEntryTimeoutsPtrOutput {
+	return i.ToMeteringPolicyEntryTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *meteringPolicyEntryTimeoutsPtrType) ToMeteringPolicyEntryTimeoutsPtrOutputWithContext(ctx context.Context) MeteringPolicyEntryTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeteringPolicyEntryTimeoutsPtrOutput)
+}
+
+type MeteringPolicyEntryTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (MeteringPolicyEntryTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MeteringPolicyEntryTimeouts)(nil)).Elem()
+}
+
+func (o MeteringPolicyEntryTimeoutsOutput) ToMeteringPolicyEntryTimeoutsOutput() MeteringPolicyEntryTimeoutsOutput {
+	return o
+}
+
+func (o MeteringPolicyEntryTimeoutsOutput) ToMeteringPolicyEntryTimeoutsOutputWithContext(ctx context.Context) MeteringPolicyEntryTimeoutsOutput {
+	return o
+}
+
+func (o MeteringPolicyEntryTimeoutsOutput) ToMeteringPolicyEntryTimeoutsPtrOutput() MeteringPolicyEntryTimeoutsPtrOutput {
+	return o.ToMeteringPolicyEntryTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o MeteringPolicyEntryTimeoutsOutput) ToMeteringPolicyEntryTimeoutsPtrOutputWithContext(ctx context.Context) MeteringPolicyEntryTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MeteringPolicyEntryTimeouts) *MeteringPolicyEntryTimeouts {
+		return &v
+	}).(MeteringPolicyEntryTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MeteringPolicyEntryTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MeteringPolicyEntryTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o MeteringPolicyEntryTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MeteringPolicyEntryTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type MeteringPolicyEntryTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (MeteringPolicyEntryTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MeteringPolicyEntryTimeouts)(nil)).Elem()
+}
+
+func (o MeteringPolicyEntryTimeoutsPtrOutput) ToMeteringPolicyEntryTimeoutsPtrOutput() MeteringPolicyEntryTimeoutsPtrOutput {
+	return o
+}
+
+func (o MeteringPolicyEntryTimeoutsPtrOutput) ToMeteringPolicyEntryTimeoutsPtrOutputWithContext(ctx context.Context) MeteringPolicyEntryTimeoutsPtrOutput {
+	return o
+}
+
+func (o MeteringPolicyEntryTimeoutsPtrOutput) Elem() MeteringPolicyEntryTimeoutsOutput {
+	return o.ApplyT(func(v *MeteringPolicyEntryTimeouts) MeteringPolicyEntryTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret MeteringPolicyEntryTimeouts
+		return ret
+	}).(MeteringPolicyEntryTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MeteringPolicyEntryTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MeteringPolicyEntryTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o MeteringPolicyEntryTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MeteringPolicyEntryTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+type MeteringPolicyTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// MeteringPolicyTimeoutsInput is an input type that accepts MeteringPolicyTimeoutsArgs and MeteringPolicyTimeoutsOutput values.
+// You can construct a concrete instance of `MeteringPolicyTimeoutsInput` via:
+//
+//	MeteringPolicyTimeoutsArgs{...}
+type MeteringPolicyTimeoutsInput interface {
+	pulumi.Input
+
+	ToMeteringPolicyTimeoutsOutput() MeteringPolicyTimeoutsOutput
+	ToMeteringPolicyTimeoutsOutputWithContext(context.Context) MeteringPolicyTimeoutsOutput
+}
+
+type MeteringPolicyTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (MeteringPolicyTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MeteringPolicyTimeouts)(nil)).Elem()
+}
+
+func (i MeteringPolicyTimeoutsArgs) ToMeteringPolicyTimeoutsOutput() MeteringPolicyTimeoutsOutput {
+	return i.ToMeteringPolicyTimeoutsOutputWithContext(context.Background())
+}
+
+func (i MeteringPolicyTimeoutsArgs) ToMeteringPolicyTimeoutsOutputWithContext(ctx context.Context) MeteringPolicyTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeteringPolicyTimeoutsOutput)
+}
+
+func (i MeteringPolicyTimeoutsArgs) ToMeteringPolicyTimeoutsPtrOutput() MeteringPolicyTimeoutsPtrOutput {
+	return i.ToMeteringPolicyTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i MeteringPolicyTimeoutsArgs) ToMeteringPolicyTimeoutsPtrOutputWithContext(ctx context.Context) MeteringPolicyTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeteringPolicyTimeoutsOutput).ToMeteringPolicyTimeoutsPtrOutputWithContext(ctx)
+}
+
+// MeteringPolicyTimeoutsPtrInput is an input type that accepts MeteringPolicyTimeoutsArgs, MeteringPolicyTimeoutsPtr and MeteringPolicyTimeoutsPtrOutput values.
+// You can construct a concrete instance of `MeteringPolicyTimeoutsPtrInput` via:
+//
+//	        MeteringPolicyTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MeteringPolicyTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToMeteringPolicyTimeoutsPtrOutput() MeteringPolicyTimeoutsPtrOutput
+	ToMeteringPolicyTimeoutsPtrOutputWithContext(context.Context) MeteringPolicyTimeoutsPtrOutput
+}
+
+type meteringPolicyTimeoutsPtrType MeteringPolicyTimeoutsArgs
+
+func MeteringPolicyTimeoutsPtr(v *MeteringPolicyTimeoutsArgs) MeteringPolicyTimeoutsPtrInput {
+	return (*meteringPolicyTimeoutsPtrType)(v)
+}
+
+func (*meteringPolicyTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MeteringPolicyTimeouts)(nil)).Elem()
+}
+
+func (i *meteringPolicyTimeoutsPtrType) ToMeteringPolicyTimeoutsPtrOutput() MeteringPolicyTimeoutsPtrOutput {
+	return i.ToMeteringPolicyTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *meteringPolicyTimeoutsPtrType) ToMeteringPolicyTimeoutsPtrOutputWithContext(ctx context.Context) MeteringPolicyTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeteringPolicyTimeoutsPtrOutput)
+}
+
+type MeteringPolicyTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (MeteringPolicyTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MeteringPolicyTimeouts)(nil)).Elem()
+}
+
+func (o MeteringPolicyTimeoutsOutput) ToMeteringPolicyTimeoutsOutput() MeteringPolicyTimeoutsOutput {
+	return o
+}
+
+func (o MeteringPolicyTimeoutsOutput) ToMeteringPolicyTimeoutsOutputWithContext(ctx context.Context) MeteringPolicyTimeoutsOutput {
+	return o
+}
+
+func (o MeteringPolicyTimeoutsOutput) ToMeteringPolicyTimeoutsPtrOutput() MeteringPolicyTimeoutsPtrOutput {
+	return o.ToMeteringPolicyTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o MeteringPolicyTimeoutsOutput) ToMeteringPolicyTimeoutsPtrOutputWithContext(ctx context.Context) MeteringPolicyTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MeteringPolicyTimeouts) *MeteringPolicyTimeouts {
+		return &v
+	}).(MeteringPolicyTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MeteringPolicyTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MeteringPolicyTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o MeteringPolicyTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MeteringPolicyTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MeteringPolicyTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MeteringPolicyTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type MeteringPolicyTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (MeteringPolicyTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MeteringPolicyTimeouts)(nil)).Elem()
+}
+
+func (o MeteringPolicyTimeoutsPtrOutput) ToMeteringPolicyTimeoutsPtrOutput() MeteringPolicyTimeoutsPtrOutput {
+	return o
+}
+
+func (o MeteringPolicyTimeoutsPtrOutput) ToMeteringPolicyTimeoutsPtrOutputWithContext(ctx context.Context) MeteringPolicyTimeoutsPtrOutput {
+	return o
+}
+
+func (o MeteringPolicyTimeoutsPtrOutput) Elem() MeteringPolicyTimeoutsOutput {
+	return o.ApplyT(func(v *MeteringPolicyTimeouts) MeteringPolicyTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret MeteringPolicyTimeouts
+		return ret
+	}).(MeteringPolicyTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MeteringPolicyTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MeteringPolicyTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o MeteringPolicyTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MeteringPolicyTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MeteringPolicyTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MeteringPolicyTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type PeeringAttachmentOptions struct {
 	// Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
 	DynamicRouting *string `pulumi:"dynamicRouting"`
@@ -2831,6 +3162,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultRouteTablePropagationTimeoutsPtrInput)(nil)).Elem(), DefaultRouteTablePropagationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceConnectEndpointTimeoutsInput)(nil)).Elem(), InstanceConnectEndpointTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceConnectEndpointTimeoutsPtrInput)(nil)).Elem(), InstanceConnectEndpointTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MeteringPolicyEntryTimeoutsInput)(nil)).Elem(), MeteringPolicyEntryTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MeteringPolicyEntryTimeoutsPtrInput)(nil)).Elem(), MeteringPolicyEntryTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MeteringPolicyTimeoutsInput)(nil)).Elem(), MeteringPolicyTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MeteringPolicyTimeoutsPtrInput)(nil)).Elem(), MeteringPolicyTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PeeringAttachmentOptionsInput)(nil)).Elem(), PeeringAttachmentOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PeeringAttachmentOptionsPtrInput)(nil)).Elem(), PeeringAttachmentOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAttachmentFilterInput)(nil)).Elem(), GetAttachmentFilterArgs{})
@@ -2879,6 +3214,10 @@ func init() {
 	pulumi.RegisterOutputType(DefaultRouteTablePropagationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceConnectEndpointTimeoutsOutput{})
 	pulumi.RegisterOutputType(InstanceConnectEndpointTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(MeteringPolicyEntryTimeoutsOutput{})
+	pulumi.RegisterOutputType(MeteringPolicyEntryTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(MeteringPolicyTimeoutsOutput{})
+	pulumi.RegisterOutputType(MeteringPolicyTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(PeeringAttachmentOptionsOutput{})
 	pulumi.RegisterOutputType(PeeringAttachmentOptionsPtrOutput{})
 	pulumi.RegisterOutputType(GetAttachmentFilterOutput{})

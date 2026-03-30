@@ -109,6 +109,8 @@ export class SavingsPlan extends pulumi.CustomResource {
     declare public /*out*/ readonly end: pulumi.Output<string>;
     /**
      * The ID of the offering.
+     *
+     * @deprecated offering_id is deprecated. Use savingsPlanOfferingId instead.
      */
     declare public /*out*/ readonly offeringId: pulumi.Output<string>;
     /**
@@ -278,6 +280,8 @@ export interface SavingsPlanState {
     end?: pulumi.Input<string>;
     /**
      * The ID of the offering.
+     *
+     * @deprecated offering_id is deprecated. Use savingsPlanOfferingId instead.
      */
     offeringId?: pulumi.Input<string>;
     /**

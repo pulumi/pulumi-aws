@@ -4,8 +4,11 @@
 package com.pulumi.aws.savingsplans;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.savingsplans.inputs.GetOfferingsArgs;
+import com.pulumi.aws.savingsplans.inputs.GetOfferingsPlainArgs;
 import com.pulumi.aws.savingsplans.inputs.GetSavingsPlanArgs;
 import com.pulumi.aws.savingsplans.inputs.GetSavingsPlanPlainArgs;
+import com.pulumi.aws.savingsplans.outputs.GetOfferingsResult;
 import com.pulumi.aws.savingsplans.outputs.GetSavingsPlanResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -15,6 +18,328 @@ import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class SavingsplansFunctions {
+    /**
+     * Data source for getting AWS Savings Plans Offerings.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.savingsplans.SavingsplansFunctions;
+     * import com.pulumi.aws.savingsplans.inputs.GetOfferingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SavingsplansFunctions.getOfferings(GetOfferingsArgs.builder()
+     *             .productType("EC2")
+     *             .filters(GetOfferingsFilterArgs.builder()
+     *                 .name("region")
+     *                 .values("us-west-2")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOfferingsResult> getOfferings() {
+        return getOfferings(GetOfferingsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for getting AWS Savings Plans Offerings.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.savingsplans.SavingsplansFunctions;
+     * import com.pulumi.aws.savingsplans.inputs.GetOfferingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SavingsplansFunctions.getOfferings(GetOfferingsArgs.builder()
+     *             .productType("EC2")
+     *             .filters(GetOfferingsFilterArgs.builder()
+     *                 .name("region")
+     *                 .values("us-west-2")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOfferingsResult> getOfferingsPlain() {
+        return getOfferingsPlain(GetOfferingsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for getting AWS Savings Plans Offerings.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.savingsplans.SavingsplansFunctions;
+     * import com.pulumi.aws.savingsplans.inputs.GetOfferingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SavingsplansFunctions.getOfferings(GetOfferingsArgs.builder()
+     *             .productType("EC2")
+     *             .filters(GetOfferingsFilterArgs.builder()
+     *                 .name("region")
+     *                 .values("us-west-2")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOfferingsResult> getOfferings(GetOfferingsArgs args) {
+        return getOfferings(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for getting AWS Savings Plans Offerings.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.savingsplans.SavingsplansFunctions;
+     * import com.pulumi.aws.savingsplans.inputs.GetOfferingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SavingsplansFunctions.getOfferings(GetOfferingsArgs.builder()
+     *             .productType("EC2")
+     *             .filters(GetOfferingsFilterArgs.builder()
+     *                 .name("region")
+     *                 .values("us-west-2")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOfferingsResult> getOfferingsPlain(GetOfferingsPlainArgs args) {
+        return getOfferingsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for getting AWS Savings Plans Offerings.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.savingsplans.SavingsplansFunctions;
+     * import com.pulumi.aws.savingsplans.inputs.GetOfferingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SavingsplansFunctions.getOfferings(GetOfferingsArgs.builder()
+     *             .productType("EC2")
+     *             .filters(GetOfferingsFilterArgs.builder()
+     *                 .name("region")
+     *                 .values("us-west-2")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOfferingsResult> getOfferings(GetOfferingsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:savingsplans/getOfferings:getOfferings", TypeShape.of(GetOfferingsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for getting AWS Savings Plans Offerings.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.savingsplans.SavingsplansFunctions;
+     * import com.pulumi.aws.savingsplans.inputs.GetOfferingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SavingsplansFunctions.getOfferings(GetOfferingsArgs.builder()
+     *             .productType("EC2")
+     *             .filters(GetOfferingsFilterArgs.builder()
+     *                 .name("region")
+     *                 .values("us-west-2")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOfferingsResult> getOfferings(GetOfferingsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:savingsplans/getOfferings:getOfferings", TypeShape.of(GetOfferingsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for getting AWS Savings Plans Offerings.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.savingsplans.SavingsplansFunctions;
+     * import com.pulumi.aws.savingsplans.inputs.GetOfferingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SavingsplansFunctions.getOfferings(GetOfferingsArgs.builder()
+     *             .productType("EC2")
+     *             .filters(GetOfferingsFilterArgs.builder()
+     *                 .name("region")
+     *                 .values("us-west-2")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOfferingsResult> getOfferingsPlain(GetOfferingsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:savingsplans/getOfferings:getOfferings", TypeShape.of(GetOfferingsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Use this data source to get information on an existing AWS Savings Plan.
      * 

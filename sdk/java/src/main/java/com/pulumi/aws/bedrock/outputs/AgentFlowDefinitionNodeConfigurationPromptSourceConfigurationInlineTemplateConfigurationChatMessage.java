@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage {
     /**
-     * @return Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+     * @return Contains the content for the message you pass to, or receive from a model. See Message Content for more information.
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent content;
@@ -26,7 +26,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage() {}
     /**
-     * @return Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+     * @return Contains the content for the message you pass to, or receive from a model. See Message Content for more information.
      * 
      */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent> content() {

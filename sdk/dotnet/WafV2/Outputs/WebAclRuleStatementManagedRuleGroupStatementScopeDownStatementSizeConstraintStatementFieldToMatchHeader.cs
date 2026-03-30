@@ -14,21 +14,21 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader
     {
         /// <summary>
-        /// The filter to use to identify the subset of headers to inspect in a web request. The `MatchPattern` block supports only one of the following arguments:
+        /// Headers to inspect. See Headers Match Pattern below.
         /// </summary>
-        public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern MatchPattern;
+        public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern? MatchPattern;
         /// <summary>
-        /// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        /// Parts of the headers to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
         /// </summary>
         public readonly string MatchScope;
         /// <summary>
-        /// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        /// How to handle requests with headers larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         /// </summary>
         public readonly string OversizeHandling;
 
         [OutputConstructor]
         private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader(
-            Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern matchPattern,
+            Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern? matchPattern,
 
             string matchScope,
 

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleRuleLabel
     {
         /// <summary>
-        /// Label string.
+        /// Label string (1-1024 characters, alphanumeric, underscore, hyphen, and colon characters only).
         /// </summary>
         public readonly string Name;
 

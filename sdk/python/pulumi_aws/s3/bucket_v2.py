@@ -24,6 +24,7 @@ class BucketV2Args:
                  acceleration_status: Optional[pulumi.Input[_builtins.str]] = None,
                  acl: Optional[pulumi.Input[_builtins.str]] = None,
                  bucket: Optional[pulumi.Input[_builtins.str]] = None,
+                 bucket_namespace: Optional[pulumi.Input[_builtins.str]] = None,
                  bucket_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2CorsRuleArgs']]]] = None,
                  force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -48,6 +49,7 @@ class BucketV2Args:
                Use the resource `s3.BucketAccelerateConfiguration` instead.
         :param pulumi.Input[_builtins.str] acl: The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAcl` instead.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucket_name]--[azid]--x-s3`. Use the `s3.DirectoryBucket` resource to manage S3 Express buckets.
+        :param pulumi.Input[_builtins.str] bucket_namespace: Namespace for the bucket. Determines bucket naming scope. Valid values: `account-regional`, `global`. Defaults to `global` (AWS).
         :param pulumi.Input[_builtins.str] bucket_prefix: Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
         :param pulumi.Input[Sequence[pulumi.Input['BucketV2CorsRuleArgs']]] cors_rules: Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketCorsConfiguration` instead.
         :param pulumi.Input[_builtins.bool] force_destroy: Boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
@@ -94,6 +96,8 @@ class BucketV2Args:
             pulumi.set(__self__, "acl", acl)
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
+        if bucket_namespace is not None:
+            pulumi.set(__self__, "bucket_namespace", bucket_namespace)
         if bucket_prefix is not None:
             pulumi.set(__self__, "bucket_prefix", bucket_prefix)
         if cors_rules is not None:
@@ -200,6 +204,18 @@ class BucketV2Args:
     @bucket.setter
     def bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "bucket", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketNamespace")
+    def bucket_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Namespace for the bucket. Determines bucket naming scope. Valid values: `account-regional`, `global`. Defaults to `global` (AWS).
+        """
+        return pulumi.get(self, "bucket_namespace")
+
+    @bucket_namespace.setter
+    def bucket_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "bucket_namespace", value)
 
     @_builtins.property
     @pulumi.getter(name="bucketPrefix")
@@ -441,6 +457,7 @@ class _BucketV2State:
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
                  bucket: Optional[pulumi.Input[_builtins.str]] = None,
                  bucket_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 bucket_namespace: Optional[pulumi.Input[_builtins.str]] = None,
                  bucket_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  bucket_region: Optional[pulumi.Input[_builtins.str]] = None,
                  bucket_regional_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -472,6 +489,7 @@ class _BucketV2State:
         :param pulumi.Input[_builtins.str] arn: ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucket_name]--[azid]--x-s3`. Use the `s3.DirectoryBucket` resource to manage S3 Express buckets.
         :param pulumi.Input[_builtins.str] bucket_domain_name: Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
+        :param pulumi.Input[_builtins.str] bucket_namespace: Namespace for the bucket. Determines bucket naming scope. Valid values: `account-regional`, `global`. Defaults to `global` (AWS).
         :param pulumi.Input[_builtins.str] bucket_prefix: Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
         :param pulumi.Input[_builtins.str] bucket_region: AWS region this bucket resides in.
         :param pulumi.Input[_builtins.str] bucket_regional_domain_name: The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
@@ -527,6 +545,8 @@ class _BucketV2State:
             pulumi.set(__self__, "bucket", bucket)
         if bucket_domain_name is not None:
             pulumi.set(__self__, "bucket_domain_name", bucket_domain_name)
+        if bucket_namespace is not None:
+            pulumi.set(__self__, "bucket_namespace", bucket_namespace)
         if bucket_prefix is not None:
             pulumi.set(__self__, "bucket_prefix", bucket_prefix)
         if bucket_region is not None:
@@ -673,6 +693,18 @@ class _BucketV2State:
     @bucket_domain_name.setter
     def bucket_domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "bucket_domain_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketNamespace")
+    def bucket_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Namespace for the bucket. Determines bucket naming scope. Valid values: `account-regional`, `global`. Defaults to `global` (AWS).
+        """
+        return pulumi.get(self, "bucket_namespace")
+
+    @bucket_namespace.setter
+    def bucket_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "bucket_namespace", value)
 
     @_builtins.property
     @pulumi.getter(name="bucketPrefix")
@@ -982,6 +1014,7 @@ class BucketV2(pulumi.CustomResource):
                  acceleration_status: Optional[pulumi.Input[_builtins.str]] = None,
                  acl: Optional[pulumi.Input[_builtins.str]] = None,
                  bucket: Optional[pulumi.Input[_builtins.str]] = None,
+                 bucket_namespace: Optional[pulumi.Input[_builtins.str]] = None,
                  bucket_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketV2CorsRuleArgs', 'BucketV2CorsRuleArgsDict']]]]] = None,
                  force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1025,6 +1058,24 @@ class BucketV2(pulumi.CustomResource):
             })
         ```
 
+        ### Bucket In Account-Regional Namespace
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        current = aws.get_caller_identity()
+        current_get_region = aws.get_region()
+        example = aws.s3.Bucket("example",
+            bucket=std.format(input="my-tf-test-bucket-%s-%s-an",
+                args=[
+                    current.account_id,
+                    current_get_region.name,
+                ]).result,
+            bucket_namespace="account-regional")
+        ```
+
         ## Import
 
         ### Identity Schema
@@ -1051,6 +1102,7 @@ class BucketV2(pulumi.CustomResource):
                Use the resource `s3.BucketAccelerateConfiguration` instead.
         :param pulumi.Input[_builtins.str] acl: The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAcl` instead.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucket_name]--[azid]--x-s3`. Use the `s3.DirectoryBucket` resource to manage S3 Express buckets.
+        :param pulumi.Input[_builtins.str] bucket_namespace: Namespace for the bucket. Determines bucket naming scope. Valid values: `account-regional`, `global`. Defaults to `global` (AWS).
         :param pulumi.Input[_builtins.str] bucket_prefix: Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketV2CorsRuleArgs', 'BucketV2CorsRuleArgsDict']]]] cors_rules: Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketCorsConfiguration` instead.
         :param pulumi.Input[_builtins.bool] force_destroy: Boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
@@ -1116,6 +1168,24 @@ class BucketV2(pulumi.CustomResource):
             })
         ```
 
+        ### Bucket In Account-Regional Namespace
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        current = aws.get_caller_identity()
+        current_get_region = aws.get_region()
+        example = aws.s3.Bucket("example",
+            bucket=std.format(input="my-tf-test-bucket-%s-%s-an",
+                args=[
+                    current.account_id,
+                    current_get_region.name,
+                ]).result,
+            bucket_namespace="account-regional")
+        ```
+
         ## Import
 
         ### Identity Schema
@@ -1154,6 +1224,7 @@ class BucketV2(pulumi.CustomResource):
                  acceleration_status: Optional[pulumi.Input[_builtins.str]] = None,
                  acl: Optional[pulumi.Input[_builtins.str]] = None,
                  bucket: Optional[pulumi.Input[_builtins.str]] = None,
+                 bucket_namespace: Optional[pulumi.Input[_builtins.str]] = None,
                  bucket_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketV2CorsRuleArgs', 'BucketV2CorsRuleArgsDict']]]]] = None,
                  force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1184,6 +1255,7 @@ class BucketV2(pulumi.CustomResource):
             __props__.__dict__["acceleration_status"] = acceleration_status
             __props__.__dict__["acl"] = acl
             __props__.__dict__["bucket"] = bucket
+            __props__.__dict__["bucket_namespace"] = bucket_namespace
             __props__.__dict__["bucket_prefix"] = bucket_prefix
             __props__.__dict__["cors_rules"] = cors_rules
             __props__.__dict__["force_destroy"] = force_destroy
@@ -1223,6 +1295,7 @@ class BucketV2(pulumi.CustomResource):
             arn: Optional[pulumi.Input[_builtins.str]] = None,
             bucket: Optional[pulumi.Input[_builtins.str]] = None,
             bucket_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+            bucket_namespace: Optional[pulumi.Input[_builtins.str]] = None,
             bucket_prefix: Optional[pulumi.Input[_builtins.str]] = None,
             bucket_region: Optional[pulumi.Input[_builtins.str]] = None,
             bucket_regional_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1258,6 +1331,7 @@ class BucketV2(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucket_name]--[azid]--x-s3`. Use the `s3.DirectoryBucket` resource to manage S3 Express buckets.
         :param pulumi.Input[_builtins.str] bucket_domain_name: Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
+        :param pulumi.Input[_builtins.str] bucket_namespace: Namespace for the bucket. Determines bucket naming scope. Valid values: `account-regional`, `global`. Defaults to `global` (AWS).
         :param pulumi.Input[_builtins.str] bucket_prefix: Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
         :param pulumi.Input[_builtins.str] bucket_region: AWS region this bucket resides in.
         :param pulumi.Input[_builtins.str] bucket_regional_domain_name: The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
@@ -1306,6 +1380,7 @@ class BucketV2(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["bucket"] = bucket
         __props__.__dict__["bucket_domain_name"] = bucket_domain_name
+        __props__.__dict__["bucket_namespace"] = bucket_namespace
         __props__.__dict__["bucket_prefix"] = bucket_prefix
         __props__.__dict__["bucket_region"] = bucket_region
         __props__.__dict__["bucket_regional_domain_name"] = bucket_regional_domain_name
@@ -1372,6 +1447,14 @@ class BucketV2(pulumi.CustomResource):
         Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
         """
         return pulumi.get(self, "bucket_domain_name")
+
+    @_builtins.property
+    @pulumi.getter(name="bucketNamespace")
+    def bucket_namespace(self) -> pulumi.Output[_builtins.str]:
+        """
+        Namespace for the bucket. Determines bucket naming scope. Valid values: `account-regional`, `global`. Defaults to `global` (AWS).
+        """
+        return pulumi.get(self, "bucket_namespace")
 
     @_builtins.property
     @pulumi.getter(name="bucketPrefix")

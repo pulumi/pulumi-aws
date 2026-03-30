@@ -434,6 +434,8 @@ class FirewallPolicyFirewallPolicy(dict):
             suggest = "stateless_default_actions"
         elif key == "statelessFragmentDefaultActions":
             suggest = "stateless_fragment_default_actions"
+        elif key == "enableTlsSessionHolding":
+            suggest = "enable_tls_session_holding"
         elif key == "policyVariables":
             suggest = "policy_variables"
         elif key == "statefulDefaultActions":
@@ -463,6 +465,7 @@ class FirewallPolicyFirewallPolicy(dict):
     def __init__(__self__, *,
                  stateless_default_actions: Sequence[_builtins.str],
                  stateless_fragment_default_actions: Sequence[_builtins.str],
+                 enable_tls_session_holding: Optional[_builtins.bool] = None,
                  policy_variables: Optional['outputs.FirewallPolicyFirewallPolicyPolicyVariables'] = None,
                  stateful_default_actions: Optional[Sequence[_builtins.str]] = None,
                  stateful_engine_options: Optional['outputs.FirewallPolicyFirewallPolicyStatefulEngineOptions'] = None,
@@ -475,6 +478,7 @@ class FirewallPolicyFirewallPolicy(dict):
                In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
         :param Sequence[_builtins.str] stateless_fragment_default_actions: Set of actions to take on a fragmented packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
                In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
+        :param _builtins.bool enable_tls_session_holding: Boolean indicating whether to prevent TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. If `true`, `tls_inspection_configuration_arn` is required. Default value: `false`.
         :param 'FirewallPolicyFirewallPolicyPolicyVariablesArgs' policy_variables: . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
         :param Sequence[_builtins.str] stateful_default_actions: Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. Value values: `aws:drop_strict`, `aws:drop_established`, `aws:drop_established_app_layer`, `aws:alert_strict`, `aws:alert_established, `aws:alert_established_app_layer`. For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the AWS Network Firewall Developer Guide.
         :param 'FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs' stateful_engine_options: A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
@@ -485,6 +489,8 @@ class FirewallPolicyFirewallPolicy(dict):
         """
         pulumi.set(__self__, "stateless_default_actions", stateless_default_actions)
         pulumi.set(__self__, "stateless_fragment_default_actions", stateless_fragment_default_actions)
+        if enable_tls_session_holding is not None:
+            pulumi.set(__self__, "enable_tls_session_holding", enable_tls_session_holding)
         if policy_variables is not None:
             pulumi.set(__self__, "policy_variables", policy_variables)
         if stateful_default_actions is not None:
@@ -517,6 +523,14 @@ class FirewallPolicyFirewallPolicy(dict):
         In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
         """
         return pulumi.get(self, "stateless_fragment_default_actions")
+
+    @_builtins.property
+    @pulumi.getter(name="enableTlsSessionHolding")
+    def enable_tls_session_holding(self) -> Optional[_builtins.bool]:
+        """
+        Boolean indicating whether to prevent TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. If `true`, `tls_inspection_configuration_arn` is required. Default value: `false`.
+        """
+        return pulumi.get(self, "enable_tls_session_holding")
 
     @_builtins.property
     @pulumi.getter(name="policyVariables")
@@ -3306,11 +3320,17 @@ class VpcEndpointAssociationVpcEndpointAssociationStatus(dict):
 
     def __init__(__self__, *,
                  association_sync_states: Sequence['outputs.VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncState']):
+        """
+        :param Sequence['VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgs'] association_sync_states: Set of subnets configured for use by the VPC Endpoint Association.
+        """
         pulumi.set(__self__, "association_sync_states", association_sync_states)
 
     @_builtins.property
     @pulumi.getter(name="associationSyncStates")
     def association_sync_states(self) -> Sequence['outputs.VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncState']:
+        """
+        Set of subnets configured for use by the VPC Endpoint Association.
+        """
         return pulumi.get(self, "association_sync_states")
 
 
@@ -3732,6 +3752,7 @@ class GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateResult(dict):
 @pulumi.output_type
 class GetFirewallPolicyFirewallPolicyResult(dict):
     def __init__(__self__, *,
+                 enable_tls_session_holding: _builtins.bool,
                  policy_variables: Sequence['outputs.GetFirewallPolicyFirewallPolicyPolicyVariableResult'],
                  stateful_default_actions: Sequence[_builtins.str],
                  stateful_engine_options: Sequence['outputs.GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult'],
@@ -3741,6 +3762,7 @@ class GetFirewallPolicyFirewallPolicyResult(dict):
                  stateless_fragment_default_actions: Sequence[_builtins.str],
                  stateless_rule_group_references: Sequence['outputs.GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceResult'],
                  tls_inspection_configuration_arn: _builtins.str):
+        pulumi.set(__self__, "enable_tls_session_holding", enable_tls_session_holding)
         pulumi.set(__self__, "policy_variables", policy_variables)
         pulumi.set(__self__, "stateful_default_actions", stateful_default_actions)
         pulumi.set(__self__, "stateful_engine_options", stateful_engine_options)
@@ -3750,6 +3772,11 @@ class GetFirewallPolicyFirewallPolicyResult(dict):
         pulumi.set(__self__, "stateless_fragment_default_actions", stateless_fragment_default_actions)
         pulumi.set(__self__, "stateless_rule_group_references", stateless_rule_group_references)
         pulumi.set(__self__, "tls_inspection_configuration_arn", tls_inspection_configuration_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="enableTlsSessionHolding")
+    def enable_tls_session_holding(self) -> _builtins.bool:
+        return pulumi.get(self, "enable_tls_session_holding")
 
     @_builtins.property
     @pulumi.getter(name="policyVariables")

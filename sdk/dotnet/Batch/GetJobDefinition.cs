@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Batch
         /// 
         /// ## Example Usage
         /// 
-        /// ### Lookup via Arn
+        /// ### Lookup via ARN
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Batch
         /// 
         /// ## Example Usage
         /// 
-        /// ### Lookup via Arn
+        /// ### Lookup via ARN
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.Batch
         /// 
         /// ## Example Usage
         /// 
-        /// ### Lookup via Arn
+        /// ### Lookup via ARN
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Batch
     public sealed class GetJobDefinitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ARN of the Job Definition. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+        /// ARN of the Job Definition.
         /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.Batch
     public sealed class GetJobDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ARN of the Job Definition. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+        /// ARN of the Job Definition.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

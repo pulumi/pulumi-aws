@@ -219,6 +219,21 @@ public final class ElasticClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Number of replica instances applying to all shards in the elastic cluster. If not specified, the default value of 2 is set.
+     * 
+     */
+    @Import(name="shardInstanceCount")
+    private @Nullable Output<Integer> shardInstanceCount;
+
+    /**
+     * @return Number of replica instances applying to all shards in the elastic cluster. If not specified, the default value of 2 is set.
+     * 
+     */
+    public Optional<Output<Integer>> shardInstanceCount() {
+        return Optional.ofNullable(this.shardInstanceCount);
+    }
+
+    /**
      * IDs of subnets in which the Elastic DocumentDB Cluster operates.
      * 
      */
@@ -299,6 +314,7 @@ public final class ElasticClusterState extends com.pulumi.resources.ResourceArgs
         this.region = $.region;
         this.shardCapacity = $.shardCapacity;
         this.shardCount = $.shardCount;
+        this.shardInstanceCount = $.shardInstanceCount;
         this.subnetIds = $.subnetIds;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -599,6 +615,27 @@ public final class ElasticClusterState extends com.pulumi.resources.ResourceArgs
          */
         public Builder shardCount(Integer shardCount) {
             return shardCount(Output.of(shardCount));
+        }
+
+        /**
+         * @param shardInstanceCount Number of replica instances applying to all shards in the elastic cluster. If not specified, the default value of 2 is set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder shardInstanceCount(@Nullable Output<Integer> shardInstanceCount) {
+            $.shardInstanceCount = shardInstanceCount;
+            return this;
+        }
+
+        /**
+         * @param shardInstanceCount Number of replica instances applying to all shards in the elastic cluster. If not specified, the default value of 2 is set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder shardInstanceCount(Integer shardInstanceCount) {
+            return shardInstanceCount(Output.of(shardInstanceCount));
         }
 
         /**

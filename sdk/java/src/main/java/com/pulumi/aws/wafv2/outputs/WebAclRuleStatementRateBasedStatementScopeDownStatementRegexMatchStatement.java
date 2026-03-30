@@ -16,42 +16,42 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement {
     /**
-     * @return The part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+     * @return Part of the web request that you want WAF to inspect. See Field to Match below.
      * 
      */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch fieldToMatch;
     /**
-     * @return String representing the regular expression. Minimum of `1` and maximum of `512` characters.
+     * @return Regular expression pattern to match against the web request component.
      * 
      */
     private String regexString;
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below.
      * 
      */
-    private List<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation> textTransformations;
+    private @Nullable List<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation> textTransformations;
 
     private WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement() {}
     /**
-     * @return The part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+     * @return Part of the web request that you want WAF to inspect. See Field to Match below.
      * 
      */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch> fieldToMatch() {
         return Optional.ofNullable(this.fieldToMatch);
     }
     /**
-     * @return String representing the regular expression. Minimum of `1` and maximum of `512` characters.
+     * @return Regular expression pattern to match against the web request component.
      * 
      */
     public String regexString() {
         return this.regexString;
     }
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below.
      * 
      */
     public List<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation> textTransformations() {
-        return this.textTransformations;
+        return this.textTransformations == null ? List.of() : this.textTransformations;
     }
 
     public static Builder builder() {
@@ -65,7 +65,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexM
     public static final class Builder {
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch fieldToMatch;
         private String regexString;
-        private List<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation> textTransformations;
+        private @Nullable List<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation> textTransformations;
         public Builder() {}
         public Builder(WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement defaults) {
     	      Objects.requireNonNull(defaults);
@@ -89,10 +89,8 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexM
             return this;
         }
         @CustomType.Setter
-        public Builder textTransformations(List<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation> textTransformations) {
-            if (textTransformations == null) {
-              throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement", "textTransformations");
-            }
+        public Builder textTransformations(@Nullable List<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation> textTransformations) {
+
             this.textTransformations = textTransformations;
             return this;
         }

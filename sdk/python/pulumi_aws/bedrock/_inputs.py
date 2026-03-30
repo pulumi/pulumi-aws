@@ -403,6 +403,12 @@ __all__ = [
     'AgentcoreAgentRuntimeAuthorizerConfigurationArgsDict',
     'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs',
     'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgsDict',
+    'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs',
+    'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgsDict',
+    'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs',
+    'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgsDict',
+    'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs',
+    'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgsDict',
     'AgentcoreAgentRuntimeEndpointTimeoutsArgs',
     'AgentcoreAgentRuntimeEndpointTimeoutsArgsDict',
     'AgentcoreAgentRuntimeLifecycleConfigurationArgs',
@@ -441,6 +447,12 @@ __all__ = [
     'AgentcoreGatewayAuthorizerConfigurationArgsDict',
     'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs',
     'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgsDict',
+    'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs',
+    'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgsDict',
+    'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs',
+    'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgsDict',
+    'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs',
+    'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgsDict',
     'AgentcoreGatewayInterceptorConfigurationArgs',
     'AgentcoreGatewayInterceptorConfigurationArgsDict',
     'AgentcoreGatewayInterceptorConfigurationInputConfigurationArgs',
@@ -467,6 +479,14 @@ __all__ = [
     'AgentcoreGatewayTargetTargetConfigurationArgsDict',
     'AgentcoreGatewayTargetTargetConfigurationMcpArgs',
     'AgentcoreGatewayTargetTargetConfigurationMcpArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArgsDict',
     'AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs',
     'AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgsDict',
     'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs',
@@ -4207,16 +4227,25 @@ class AgentFlowDefinitionConnectionConfigurationArgs:
 
 class AgentFlowDefinitionConnectionConfigurationConditionalArgsDict(TypedDict):
     condition: pulumi.Input[_builtins.str]
+    """
+    The condition that triggers this connection. For more information about how to write conditions, see the Condition node type in the [Node types](https://docs.aws.amazon.com/bedrock/latest/userguide/node-types.html) topic in the Amazon Bedrock User Guide.
+    """
 
 @pulumi.input_type
 class AgentFlowDefinitionConnectionConfigurationConditionalArgs:
     def __init__(__self__, *,
                  condition: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] condition: The condition that triggers this connection. For more information about how to write conditions, see the Condition node type in the [Node types](https://docs.aws.amazon.com/bedrock/latest/userguide/node-types.html) topic in the Amazon Bedrock User Guide.
+        """
         pulumi.set(__self__, "condition", condition)
 
     @_builtins.property
     @pulumi.getter
     def condition(self) -> pulumi.Input[_builtins.str]:
+        """
+        The condition that triggers this connection. For more information about how to write conditions, see the Condition node type in the [Node types](https://docs.aws.amazon.com/bedrock/latest/userguide/node-types.html) topic in the Amazon Bedrock User Guide.
+        """
         return pulumi.get(self, "condition")
 
     @condition.setter
@@ -4278,7 +4307,7 @@ class AgentFlowDefinitionNodeArgsDict(TypedDict):
     """
     type: pulumi.Input[_builtins.str]
     """
-    The type of node. This value must match the name of the key that you provide in the configuration. Valid values: `Agent`, `Collector`, `Condition`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
+    Type of node. This value must match the name of the key you provide in `configuration`. Valid values: `Agent`, `Collector`, `Condition`, `InlineCode`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
     """
     configuration: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationArgsDict']]
     """
@@ -4303,7 +4332,7 @@ class AgentFlowDefinitionNodeArgs:
                  outputs: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeOutputArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: A name for the node.
-        :param pulumi.Input[_builtins.str] type: The type of node. This value must match the name of the key that you provide in the configuration. Valid values: `Agent`, `Collector`, `Condition`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
+        :param pulumi.Input[_builtins.str] type: Type of node. This value must match the name of the key you provide in `configuration`. Valid values: `Agent`, `Collector`, `Condition`, `InlineCode`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
         :param pulumi.Input['AgentFlowDefinitionNodeConfigurationArgs'] configuration: Contains configurations for the node. See Node Configuration for more information.
         :param pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeInputArgs']]] inputs: A list of objects containing information about an input into the node. See Node Input for more information.
         :param pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeOutputArgs']]] outputs: A list of objects containing information about an output from the node. See Node Output for more information.
@@ -4333,7 +4362,7 @@ class AgentFlowDefinitionNodeArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of node. This value must match the name of the key that you provide in the configuration. Valid values: `Agent`, `Collector`, `Condition`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
+        Type of node. This value must match the name of the key you provide in `configuration`. Valid values: `Agent`, `Collector`, `Condition`, `InlineCode`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
         """
         return pulumi.get(self, "type")
 
@@ -4388,14 +4417,20 @@ class AgentFlowDefinitionNodeConfigurationArgsDict(TypedDict):
     Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
     """
     condition: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationConditionArgsDict']]
+    """
+    Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
+    """
     inline_code: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationInlineCodeArgsDict']]
     """
     Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
     """
     input: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationInputArgsDict']]
+    """
+    Contains configurations for an input flow node in your flow. The node `inputs` can’t be specified for this node. This block has no fields.
+    """
     iterator: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationIteratorArgsDict']]
     """
-    Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
+    Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
     """
     knowledge_base: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgsDict']]
     """
@@ -4410,6 +4445,9 @@ class AgentFlowDefinitionNodeConfigurationArgsDict(TypedDict):
     Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
     """
     output: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationOutputArgsDict']]
+    """
+    Contains configurations for an output flow node in your flow. The node `outputs` can’t be specified for this node. This block has no fields.
+    """
     prompt: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptArgsDict']]
     """
     Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
@@ -4442,11 +4480,14 @@ class AgentFlowDefinitionNodeConfigurationArgs:
         """
         :param pulumi.Input['AgentFlowDefinitionNodeConfigurationAgentArgs'] agent: Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
         :param pulumi.Input['AgentFlowDefinitionNodeConfigurationCollectorArgs'] collector: Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationConditionArgs'] condition: Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
         :param pulumi.Input['AgentFlowDefinitionNodeConfigurationInlineCodeArgs'] inline_code: Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
-        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationIteratorArgs'] iterator: Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationInputArgs'] input: Contains configurations for an input flow node in your flow. The node `inputs` can’t be specified for this node. This block has no fields.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationIteratorArgs'] iterator: Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
         :param pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs'] knowledge_base: Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
         :param pulumi.Input['AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs'] lambda_function: Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
         :param pulumi.Input['AgentFlowDefinitionNodeConfigurationLexArgs'] lex: Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationOutputArgs'] output: Contains configurations for an output flow node in your flow. The node `outputs` can’t be specified for this node. This block has no fields.
         :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptArgs'] prompt: Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
         :param pulumi.Input['AgentFlowDefinitionNodeConfigurationRetrievalArgs'] retrieval: Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
         :param pulumi.Input['AgentFlowDefinitionNodeConfigurationStorageArgs'] storage: Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
@@ -4505,6 +4546,9 @@ class AgentFlowDefinitionNodeConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def condition(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationConditionArgs']]:
+        """
+        Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
+        """
         return pulumi.get(self, "condition")
 
     @condition.setter
@@ -4526,6 +4570,9 @@ class AgentFlowDefinitionNodeConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def input(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationInputArgs']]:
+        """
+        Contains configurations for an input flow node in your flow. The node `inputs` can’t be specified for this node. This block has no fields.
+        """
         return pulumi.get(self, "input")
 
     @input.setter
@@ -4536,7 +4583,7 @@ class AgentFlowDefinitionNodeConfigurationArgs:
     @pulumi.getter
     def iterator(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationIteratorArgs']]:
         """
-        Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
+        Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
         """
         return pulumi.get(self, "iterator")
 
@@ -4583,6 +4630,9 @@ class AgentFlowDefinitionNodeConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def output(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationOutputArgs']]:
+        """
+        Contains configurations for an output flow node in your flow. The node `outputs` can’t be specified for this node. This block has no fields.
+        """
         return pulumi.get(self, "output")
 
     @output.setter
@@ -4665,17 +4715,26 @@ class AgentFlowDefinitionNodeConfigurationCollectorArgs:
 
 class AgentFlowDefinitionNodeConfigurationConditionArgsDict(TypedDict):
     conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationConditionConditionArgsDict']]]]
+    """
+    A list of conditions. See Condition Config for more information.
+    """
 
 @pulumi.input_type
 class AgentFlowDefinitionNodeConfigurationConditionArgs:
     def __init__(__self__, *,
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationConditionConditionArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationConditionConditionArgs']]] conditions: A list of conditions. See Condition Config for more information.
+        """
         if conditions is not None:
             pulumi.set(__self__, "conditions", conditions)
 
     @_builtins.property
     @pulumi.getter
     def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationConditionConditionArgs']]]]:
+        """
+        A list of conditions. See Condition Config for more information.
+        """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
@@ -4795,13 +4854,16 @@ class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgsDict(TypedDict):
     The unique identifier of the knowledge base to query.
     """
     model_id: pulumi.Input[_builtins.str]
+    """
+    The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
+    """
     guardrail_configuration: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgsDict']]
     """
-    Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+    Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
     """
     inference_configuration: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgsDict']]
     """
-    Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+    Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
     """
     number_of_results: NotRequired[pulumi.Input[_builtins.int]]
 
@@ -4815,8 +4877,9 @@ class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs:
                  number_of_results: Optional[pulumi.Input[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] knowledge_base_id: The unique identifier of the knowledge base to query.
-        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs'] guardrail_configuration: Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
-        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs'] inference_configuration: Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+        :param pulumi.Input[_builtins.str] model_id: The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs'] guardrail_configuration: Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs'] inference_configuration: Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
         """
         pulumi.set(__self__, "knowledge_base_id", knowledge_base_id)
         pulumi.set(__self__, "model_id", model_id)
@@ -4842,6 +4905,9 @@ class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs:
     @_builtins.property
     @pulumi.getter(name="modelId")
     def model_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
+        """
         return pulumi.get(self, "model_id")
 
     @model_id.setter
@@ -4852,7 +4918,7 @@ class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs:
     @pulumi.getter(name="guardrailConfiguration")
     def guardrail_configuration(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs']]:
         """
-        Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+        Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
         """
         return pulumi.get(self, "guardrail_configuration")
 
@@ -4864,7 +4930,7 @@ class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs:
     @pulumi.getter(name="inferenceConfiguration")
     def inference_configuration(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs']]:
         """
-        Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+        Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
         """
         return pulumi.get(self, "inference_configuration")
 
@@ -4931,17 +4997,26 @@ class AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArg
 
 class AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgsDict(TypedDict):
     text: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgsDict']]
+    """
+    Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+    """
 
 @pulumi.input_type
 class AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs:
     def __init__(__self__, *,
                  text: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs']] = None):
+        """
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs'] text: Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+        """
         if text is not None:
             pulumi.set(__self__, "text", text)
 
     @_builtins.property
     @pulumi.getter
     def text(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs']]:
+        """
+        Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+        """
         return pulumi.get(self, "text")
 
     @text.setter
@@ -5125,9 +5200,12 @@ class AgentFlowDefinitionNodeConfigurationOutputArgs:
 class AgentFlowDefinitionNodeConfigurationPromptArgsDict(TypedDict):
     guardrail_configuration: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgsDict']]
     """
-    Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+    Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
     """
     source_configuration: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgsDict']]
+    """
+    Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
+    """
 
 @pulumi.input_type
 class AgentFlowDefinitionNodeConfigurationPromptArgs:
@@ -5135,7 +5213,8 @@ class AgentFlowDefinitionNodeConfigurationPromptArgs:
                  guardrail_configuration: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs']] = None,
                  source_configuration: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs']] = None):
         """
-        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs'] guardrail_configuration: Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs'] guardrail_configuration: Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs'] source_configuration: Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
         """
         if guardrail_configuration is not None:
             pulumi.set(__self__, "guardrail_configuration", guardrail_configuration)
@@ -5146,7 +5225,7 @@ class AgentFlowDefinitionNodeConfigurationPromptArgs:
     @pulumi.getter(name="guardrailConfiguration")
     def guardrail_configuration(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs']]:
         """
-        Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+        Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
         """
         return pulumi.get(self, "guardrail_configuration")
 
@@ -5157,6 +5236,9 @@ class AgentFlowDefinitionNodeConfigurationPromptArgs:
     @_builtins.property
     @pulumi.getter(name="sourceConfiguration")
     def source_configuration(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs']]:
+        """
+        Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
+        """
         return pulumi.get(self, "source_configuration")
 
     @source_configuration.setter
@@ -5262,6 +5344,9 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs:
 
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgsDict(TypedDict):
     model_id: pulumi.Input[_builtins.str]
+    """
+    The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+    """
     template_type: pulumi.Input[_builtins.str]
     """
     The type of prompt template. Valid values: `TEXT`, `CHAT`.
@@ -5272,7 +5357,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgsDic
     """
     inference_configuration: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgsDict']]
     """
-    Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+    Contains inference configurations for the prompt. See Inference Configuration for more information.
     """
     template_configuration: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgsDict']]
     """
@@ -5288,9 +5373,10 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs:
                  inference_configuration: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs']] = None,
                  template_configuration: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs']] = None):
         """
+        :param pulumi.Input[_builtins.str] model_id: The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
         :param pulumi.Input[_builtins.str] template_type: The type of prompt template. Valid values: `TEXT`, `CHAT`.
         :param pulumi.Input[_builtins.str] additional_model_request_fields: Additional fields to be included in the model request for the Prompt node.
-        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs'] inference_configuration: Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs'] inference_configuration: Contains inference configurations for the prompt. See Inference Configuration for more information.
         :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs'] template_configuration: Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
         """
         pulumi.set(__self__, "model_id", model_id)
@@ -5305,6 +5391,9 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs:
     @_builtins.property
     @pulumi.getter(name="modelId")
     def model_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+        """
         return pulumi.get(self, "model_id")
 
     @model_id.setter
@@ -5339,7 +5428,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs:
     @pulumi.getter(name="inferenceConfiguration")
     def inference_configuration(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs']]:
         """
-        Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+        Contains inference configurations for the prompt. See Inference Configuration for more information.
         """
         return pulumi.get(self, "inference_configuration")
 
@@ -5362,17 +5451,26 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs:
 
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgsDict(TypedDict):
     text: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgsDict']]
+    """
+    Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+    """
 
 @pulumi.input_type
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs:
     def __init__(__self__, *,
                  text: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs']] = None):
+        """
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs'] text: Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+        """
         if text is not None:
             pulumi.set(__self__, "text", text)
 
     @_builtins.property
     @pulumi.getter
     def text(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs']]:
+        """
+        Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+        """
         return pulumi.get(self, "text")
 
     @text.setter
@@ -5475,6 +5573,9 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
     """
     text: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgsDict']]
+    """
+    Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
+    """
 
 @pulumi.input_type
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs:
@@ -5483,6 +5584,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
                  text: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs']] = None):
         """
         :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs'] chat: Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs'] text: Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
         """
         if chat is not None:
             pulumi.set(__self__, "chat", chat)
@@ -5504,6 +5606,9 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @_builtins.property
     @pulumi.getter
     def text(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs']]:
+        """
+        Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
+        """
         return pulumi.get(self, "text")
 
     @text.setter
@@ -5627,7 +5732,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     """
     content: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgsDict']]
     """
-    Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+    Contains the content for the message you pass to, or receive from a model. See Message Content for more information.
     """
 
 @pulumi.input_type
@@ -5637,7 +5742,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
                  content: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] role: The role that the message belongs to.
-        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs'] content: Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs'] content: Contains the content for the message you pass to, or receive from a model. See Message Content for more information.
         """
         pulumi.set(__self__, "role", role)
         if content is not None:
@@ -5659,7 +5764,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def content(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs']]:
         """
-        Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+        Contains the content for the message you pass to, or receive from a model. See Message Content for more information.
         """
         return pulumi.get(self, "content")
 
@@ -5670,13 +5775,23 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
 
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgsDict(TypedDict):
     cache_point: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgsDict']]
+    """
+    Creates a cache checkpoint within a message. See Cache Point for more information.
+    """
     text: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The text in the message.
+    """
 
 @pulumi.input_type
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs:
     def __init__(__self__, *,
                  cache_point: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs']] = None,
                  text: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs'] cache_point: Creates a cache checkpoint within a message. See Cache Point for more information.
+        :param pulumi.Input[_builtins.str] text: The text in the message.
+        """
         if cache_point is not None:
             pulumi.set(__self__, "cache_point", cache_point)
         if text is not None:
@@ -5685,6 +5800,9 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @_builtins.property
     @pulumi.getter(name="cachePoint")
     def cache_point(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs']]:
+        """
+        Creates a cache checkpoint within a message. See Cache Point for more information.
+        """
         return pulumi.get(self, "cache_point")
 
     @cache_point.setter
@@ -5694,6 +5812,9 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @_builtins.property
     @pulumi.getter
     def text(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The text in the message.
+        """
         return pulumi.get(self, "text")
 
     @text.setter
@@ -5935,11 +6056,11 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgsDict(TypedDict):
     any: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgsDict']]
     """
-    Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+    Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no fields.
     """
     auto: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgsDict']]
     """
-    Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+    Defines tools. The model automatically decides whether to call a tool or to generate text instead. This block has no fields.
     """
     tool: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgsDict']]
     """
@@ -5953,8 +6074,8 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
                  auto: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs']] = None,
                  tool: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs']] = None):
         """
-        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs'] any: Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
-        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs'] auto: Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs'] any: Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no fields.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs'] auto: Defines tools. The model automatically decides whether to call a tool or to generate text instead. This block has no fields.
         :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs'] tool: Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
         """
         if any is not None:
@@ -5968,7 +6089,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def any(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs']]:
         """
-        Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+        Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no fields.
         """
         return pulumi.get(self, "any")
 
@@ -5980,7 +6101,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def auto(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs']]:
         """
-        Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+        Defines tools. The model automatically decides whether to call a tool or to generate text instead. This block has no fields.
         """
         return pulumi.get(self, "auto")
 
@@ -6022,7 +6143,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
-    A name for the flow.
+    The name of the tool.
     """
 
 @pulumi.input_type
@@ -6030,7 +6151,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] name: A name for the flow.
+        :param pulumi.Input[_builtins.str] name: The name of the tool.
         """
         pulumi.set(__self__, "name", name)
 
@@ -6038,7 +6159,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        A name for the flow.
+        The name of the tool.
         """
         return pulumi.get(self, "name")
 
@@ -6050,11 +6171,11 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
-    A name for the flow.
+    The name of the tool.
     """
     description: NotRequired[pulumi.Input[_builtins.str]]
     """
-    A description for the flow.
+    The description of the tool.
     """
     input_schema: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgsDict']]
     """
@@ -6068,8 +6189,8 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  input_schema: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] name: A name for the flow.
-        :param pulumi.Input[_builtins.str] description: A description for the flow.
+        :param pulumi.Input[_builtins.str] name: The name of the tool.
+        :param pulumi.Input[_builtins.str] description: The description of the tool.
         :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs'] input_schema: The input schema of the tool. See Tool Input Schema for more information.
         """
         pulumi.set(__self__, "name", name)
@@ -6082,7 +6203,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        A name for the flow.
+        The name of the tool.
         """
         return pulumi.get(self, "name")
 
@@ -6094,7 +6215,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        A description for the flow.
+        The description of the tool.
         """
         return pulumi.get(self, "description")
 
@@ -6146,8 +6267,17 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
 
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgsDict(TypedDict):
     text: pulumi.Input[_builtins.str]
+    """
+    The message for the prompt.
+    """
     cache_point: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgsDict']]
+    """
+    A cache checkpoint within a template configuration. See Cache Point for more information.
+    """
     input_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgsDict']]]]
+    """
+    A list of variables in the prompt template. See Input Variable for more information.
+    """
 
 @pulumi.input_type
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs:
@@ -6155,6 +6285,11 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
                  text: pulumi.Input[_builtins.str],
                  cache_point: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs']] = None,
                  input_variables: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] text: The message for the prompt.
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs'] cache_point: A cache checkpoint within a template configuration. See Cache Point for more information.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs']]] input_variables: A list of variables in the prompt template. See Input Variable for more information.
+        """
         pulumi.set(__self__, "text", text)
         if cache_point is not None:
             pulumi.set(__self__, "cache_point", cache_point)
@@ -6164,6 +6299,9 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @_builtins.property
     @pulumi.getter
     def text(self) -> pulumi.Input[_builtins.str]:
+        """
+        The message for the prompt.
+        """
         return pulumi.get(self, "text")
 
     @text.setter
@@ -6173,6 +6311,9 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @_builtins.property
     @pulumi.getter(name="cachePoint")
     def cache_point(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs']]:
+        """
+        A cache checkpoint within a template configuration. See Cache Point for more information.
+        """
         return pulumi.get(self, "cache_point")
 
     @cache_point.setter
@@ -6182,6 +6323,9 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @_builtins.property
     @pulumi.getter(name="inputVariables")
     def input_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs']]]]:
+        """
+        A list of variables in the prompt template. See Input Variable for more information.
+        """
         return pulumi.get(self, "input_variables")
 
     @input_variables.setter
@@ -6275,17 +6419,26 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs:
 
 class AgentFlowDefinitionNodeConfigurationRetrievalArgsDict(TypedDict):
     service_configuration: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgsDict']]
+    """
+    Contains configurations for the service to use for retrieving data to return as the output from the node. See Retrieval Service Configuration for more information.
+    """
 
 @pulumi.input_type
 class AgentFlowDefinitionNodeConfigurationRetrievalArgs:
     def __init__(__self__, *,
                  service_configuration: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs'] service_configuration: Contains configurations for the service to use for retrieving data to return as the output from the node. See Retrieval Service Configuration for more information.
+        """
         if service_configuration is not None:
             pulumi.set(__self__, "service_configuration", service_configuration)
 
     @_builtins.property
     @pulumi.getter(name="serviceConfiguration")
     def service_configuration(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs']]:
+        """
+        Contains configurations for the service to use for retrieving data to return as the output from the node. See Retrieval Service Configuration for more information.
+        """
         return pulumi.get(self, "service_configuration")
 
     @service_configuration.setter
@@ -6295,17 +6448,26 @@ class AgentFlowDefinitionNodeConfigurationRetrievalArgs:
 
 class AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgsDict(TypedDict):
     s3: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3ArgsDict']]
+    """
+    Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+    """
 
 @pulumi.input_type
 class AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs:
     def __init__(__self__, *,
                  s3: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args']] = None):
+        """
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args'] s3: Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+        """
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
 
     @_builtins.property
     @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args']]:
+        """
+        Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+        """
         return pulumi.get(self, "s3")
 
     @s3.setter
@@ -6315,16 +6477,25 @@ class AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs:
 
 class AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3ArgsDict(TypedDict):
     bucket_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Amazon S3 bucket in which to store the input into the node.
+    """
 
 @pulumi.input_type
 class AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] bucket_name: The name of the Amazon S3 bucket in which to store the input into the node.
+        """
         pulumi.set(__self__, "bucket_name", bucket_name)
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Amazon S3 bucket in which to store the input into the node.
+        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -6334,17 +6505,26 @@ class AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args:
 
 class AgentFlowDefinitionNodeConfigurationStorageArgsDict(TypedDict):
     service_configuration: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgsDict']]
+    """
+    Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Service Configuration for more information.
+    """
 
 @pulumi.input_type
 class AgentFlowDefinitionNodeConfigurationStorageArgs:
     def __init__(__self__, *,
                  service_configuration: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs'] service_configuration: Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Service Configuration for more information.
+        """
         if service_configuration is not None:
             pulumi.set(__self__, "service_configuration", service_configuration)
 
     @_builtins.property
     @pulumi.getter(name="serviceConfiguration")
     def service_configuration(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs']]:
+        """
+        Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Service Configuration for more information.
+        """
         return pulumi.get(self, "service_configuration")
 
     @service_configuration.setter
@@ -6354,17 +6534,26 @@ class AgentFlowDefinitionNodeConfigurationStorageArgs:
 
 class AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgsDict(TypedDict):
     s3: NotRequired[pulumi.Input['AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3ArgsDict']]
+    """
+    Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+    """
 
 @pulumi.input_type
 class AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs:
     def __init__(__self__, *,
                  s3: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args']] = None):
+        """
+        :param pulumi.Input['AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args'] s3: Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+        """
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
 
     @_builtins.property
     @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args']]:
+        """
+        Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+        """
         return pulumi.get(self, "s3")
 
     @s3.setter
@@ -6374,16 +6563,25 @@ class AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs:
 
 class AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3ArgsDict(TypedDict):
     bucket_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Amazon S3 bucket in which to store the input into the node.
+    """
 
 @pulumi.input_type
 class AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] bucket_name: The name of the Amazon S3 bucket in which to store the input into the node.
+        """
         pulumi.set(__self__, "bucket_name", bucket_name)
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Amazon S3 bucket in which to store the input into the node.
+        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -6393,11 +6591,17 @@ class AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args:
 
 class AgentFlowDefinitionNodeInputArgsDict(TypedDict):
     expression: pulumi.Input[_builtins.str]
+    """
+    An expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+    """
     name: pulumi.Input[_builtins.str]
     """
-    A name for the flow.
+    A name for the input that you can reference.
     """
     type: pulumi.Input[_builtins.str]
+    """
+    The data type of the input. If the input doesn’t match this type at runtime, a validation error will be thrown.
+    """
     category: NotRequired[pulumi.Input[_builtins.str]]
     """
     How input data flows between iterations in a DoWhile loop.
@@ -6411,7 +6615,9 @@ class AgentFlowDefinitionNodeInputArgs:
                  type: pulumi.Input[_builtins.str],
                  category: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] name: A name for the flow.
+        :param pulumi.Input[_builtins.str] expression: An expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+        :param pulumi.Input[_builtins.str] name: A name for the input that you can reference.
+        :param pulumi.Input[_builtins.str] type: The data type of the input. If the input doesn’t match this type at runtime, a validation error will be thrown.
         :param pulumi.Input[_builtins.str] category: How input data flows between iterations in a DoWhile loop.
         """
         pulumi.set(__self__, "expression", expression)
@@ -6423,6 +6629,9 @@ class AgentFlowDefinitionNodeInputArgs:
     @_builtins.property
     @pulumi.getter
     def expression(self) -> pulumi.Input[_builtins.str]:
+        """
+        An expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+        """
         return pulumi.get(self, "expression")
 
     @expression.setter
@@ -6433,7 +6642,7 @@ class AgentFlowDefinitionNodeInputArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        A name for the flow.
+        A name for the input that you can reference.
         """
         return pulumi.get(self, "name")
 
@@ -6444,6 +6653,9 @@ class AgentFlowDefinitionNodeInputArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The data type of the input. If the input doesn’t match this type at runtime, a validation error will be thrown.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -6466,9 +6678,12 @@ class AgentFlowDefinitionNodeInputArgs:
 class AgentFlowDefinitionNodeOutputArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
-    A name for the flow.
+    A name for the output that you can reference.
     """
     type: pulumi.Input[_builtins.str]
+    """
+    The data type of the output. If the output doesn’t match this type at runtime, a validation error will be thrown.
+    """
 
 @pulumi.input_type
 class AgentFlowDefinitionNodeOutputArgs:
@@ -6476,7 +6691,8 @@ class AgentFlowDefinitionNodeOutputArgs:
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] name: A name for the flow.
+        :param pulumi.Input[_builtins.str] name: A name for the output that you can reference.
+        :param pulumi.Input[_builtins.str] type: The data type of the output. If the output doesn’t match this type at runtime, a validation error will be thrown.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -6485,7 +6701,7 @@ class AgentFlowDefinitionNodeOutputArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        A name for the flow.
+        A name for the output that you can reference.
         """
         return pulumi.get(self, "name")
 
@@ -6496,6 +6712,9 @@ class AgentFlowDefinitionNodeOutputArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The data type of the output. If the output doesn’t match this type at runtime, a validation error will be thrown.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -10655,6 +10874,10 @@ class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgsDict(Ty
     """
     Set of scopes that are allowed to access the token.
     """
+    custom_claims: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgsDict']]]]
+    """
+    Repeatable block to define a custom claim validation name, value, and operation. See `custom_claim` below.
+    """
 
 @pulumi.input_type
 class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs:
@@ -10662,12 +10885,14 @@ class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs:
                  discovery_url: pulumi.Input[_builtins.str],
                  allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  allowed_clients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allowed_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 custom_claims: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] discovery_url: URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_audiences: Set of allowed audience values for JWT token validation.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_clients: Set of allowed client IDs for JWT token validation.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_scopes: Set of scopes that are allowed to access the token.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs']]] custom_claims: Repeatable block to define a custom claim validation name, value, and operation. See `custom_claim` below.
         """
         pulumi.set(__self__, "discovery_url", discovery_url)
         if allowed_audiences is not None:
@@ -10676,6 +10901,8 @@ class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs:
             pulumi.set(__self__, "allowed_clients", allowed_clients)
         if allowed_scopes is not None:
             pulumi.set(__self__, "allowed_scopes", allowed_scopes)
+        if custom_claims is not None:
+            pulumi.set(__self__, "custom_claims", custom_claims)
 
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")
@@ -10724,6 +10951,180 @@ class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs:
     @allowed_scopes.setter
     def allowed_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_scopes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customClaims")
+    def custom_claims(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs']]]]:
+        """
+        Repeatable block to define a custom claim validation name, value, and operation. See `custom_claim` below.
+        """
+        return pulumi.get(self, "custom_claims")
+
+    @custom_claims.setter
+    def custom_claims(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs']]]]):
+        pulumi.set(self, "custom_claims", value)
+
+
+class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgsDict(TypedDict):
+    authorizing_claim_match_value: pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgsDict']
+    """
+    Configuration block to define the value or values to match for and the relationship of the match. See `authorizing_claim_match_value` below.
+    """
+    inbound_token_claim_name: pulumi.Input[_builtins.str]
+    """
+    Name of the custom claim field to check.
+    """
+    inbound_token_claim_value_type: pulumi.Input[_builtins.str]
+    """
+    Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+    """
+
+@pulumi.input_type
+class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs:
+    def __init__(__self__, *,
+                 authorizing_claim_match_value: pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs'],
+                 inbound_token_claim_name: pulumi.Input[_builtins.str],
+                 inbound_token_claim_value_type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs'] authorizing_claim_match_value: Configuration block to define the value or values to match for and the relationship of the match. See `authorizing_claim_match_value` below.
+        :param pulumi.Input[_builtins.str] inbound_token_claim_name: Name of the custom claim field to check.
+        :param pulumi.Input[_builtins.str] inbound_token_claim_value_type: Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+        """
+        pulumi.set(__self__, "authorizing_claim_match_value", authorizing_claim_match_value)
+        pulumi.set(__self__, "inbound_token_claim_name", inbound_token_claim_name)
+        pulumi.set(__self__, "inbound_token_claim_value_type", inbound_token_claim_value_type)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizingClaimMatchValue")
+    def authorizing_claim_match_value(self) -> pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs']:
+        """
+        Configuration block to define the value or values to match for and the relationship of the match. See `authorizing_claim_match_value` below.
+        """
+        return pulumi.get(self, "authorizing_claim_match_value")
+
+    @authorizing_claim_match_value.setter
+    def authorizing_claim_match_value(self, value: pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs']):
+        pulumi.set(self, "authorizing_claim_match_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inboundTokenClaimName")
+    def inbound_token_claim_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the custom claim field to check.
+        """
+        return pulumi.get(self, "inbound_token_claim_name")
+
+    @inbound_token_claim_name.setter
+    def inbound_token_claim_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "inbound_token_claim_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inboundTokenClaimValueType")
+    def inbound_token_claim_value_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+        """
+        return pulumi.get(self, "inbound_token_claim_value_type")
+
+    @inbound_token_claim_value_type.setter
+    def inbound_token_claim_value_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "inbound_token_claim_value_type", value)
+
+
+class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgsDict(TypedDict):
+    claim_match_operator: pulumi.Input[_builtins.str]
+    """
+    Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inbound_token_claim_value_type` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inbound_token_claim_value_type` is `STRING_ARRAY`.
+    """
+    claim_match_value: pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgsDict']
+    """
+    Value or values to match for. See `claim_match_value` below.
+    """
+
+@pulumi.input_type
+class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs:
+    def __init__(__self__, *,
+                 claim_match_operator: pulumi.Input[_builtins.str],
+                 claim_match_value: pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs']):
+        """
+        :param pulumi.Input[_builtins.str] claim_match_operator: Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inbound_token_claim_value_type` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inbound_token_claim_value_type` is `STRING_ARRAY`.
+        :param pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs'] claim_match_value: Value or values to match for. See `claim_match_value` below.
+        """
+        pulumi.set(__self__, "claim_match_operator", claim_match_operator)
+        pulumi.set(__self__, "claim_match_value", claim_match_value)
+
+    @_builtins.property
+    @pulumi.getter(name="claimMatchOperator")
+    def claim_match_operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inbound_token_claim_value_type` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inbound_token_claim_value_type` is `STRING_ARRAY`.
+        """
+        return pulumi.get(self, "claim_match_operator")
+
+    @claim_match_operator.setter
+    def claim_match_operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "claim_match_operator", value)
+
+    @_builtins.property
+    @pulumi.getter(name="claimMatchValue")
+    def claim_match_value(self) -> pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs']:
+        """
+        Value or values to match for. See `claim_match_value` below.
+        """
+        return pulumi.get(self, "claim_match_value")
+
+    @claim_match_value.setter
+    def claim_match_value(self, value: pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs']):
+        pulumi.set(self, "claim_match_value", value)
+
+
+class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgsDict(TypedDict):
+    match_value_string: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    String value to match for. Must be specified when `claim_match_operator` is `EQUALS` or `CONTAINS`. Exactly one of `match_value_string` or `match_value_string_list` must be specified.
+    """
+    match_value_string_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of strings to check for a match. Must be specified when `claim_match_operator` is `CONTAINS_ANY`. Exactly one of `match_value_string` or `match_value_string_list` must be specified.
+    """
+
+@pulumi.input_type
+class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs:
+    def __init__(__self__, *,
+                 match_value_string: Optional[pulumi.Input[_builtins.str]] = None,
+                 match_value_string_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] match_value_string: String value to match for. Must be specified when `claim_match_operator` is `EQUALS` or `CONTAINS`. Exactly one of `match_value_string` or `match_value_string_list` must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_value_string_lists: List of strings to check for a match. Must be specified when `claim_match_operator` is `CONTAINS_ANY`. Exactly one of `match_value_string` or `match_value_string_list` must be specified.
+        """
+        if match_value_string is not None:
+            pulumi.set(__self__, "match_value_string", match_value_string)
+        if match_value_string_lists is not None:
+            pulumi.set(__self__, "match_value_string_lists", match_value_string_lists)
+
+    @_builtins.property
+    @pulumi.getter(name="matchValueString")
+    def match_value_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        String value to match for. Must be specified when `claim_match_operator` is `EQUALS` or `CONTAINS`. Exactly one of `match_value_string` or `match_value_string_list` must be specified.
+        """
+        return pulumi.get(self, "match_value_string")
+
+    @match_value_string.setter
+    def match_value_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "match_value_string", value)
+
+    @_builtins.property
+    @pulumi.getter(name="matchValueStringLists")
+    def match_value_string_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of strings to check for a match. Must be specified when `claim_match_operator` is `CONTAINS_ANY`. Exactly one of `match_value_string` or `match_value_string_list` must be specified.
+        """
+        return pulumi.get(self, "match_value_string_lists")
+
+    @match_value_string_lists.setter
+    def match_value_string_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "match_value_string_lists", value)
 
 
 class AgentcoreAgentRuntimeEndpointTimeoutsArgsDict(TypedDict):
@@ -11534,7 +11935,6 @@ class AgentcoreGatewayAuthorizerConfigurationArgs:
 
 
 class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgsDict(TypedDict):
-    allowed_scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     discovery_url: pulumi.Input[_builtins.str]
     """
     URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
@@ -11547,34 +11947,39 @@ class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgsDict(TypedDi
     """
     Set of allowed client IDs for JWT token validation.
     """
+    allowed_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of scopes that are allowed to access the token.
+    """
+    custom_claims: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgsDict']]]]
+    """
+    Repeatable block to define a custom claim validation name, value, and operation. See `custom_claim` below.
+    """
 
 @pulumi.input_type
 class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs:
     def __init__(__self__, *,
-                 allowed_scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  discovery_url: pulumi.Input[_builtins.str],
                  allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_clients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allowed_clients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 custom_claims: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] discovery_url: URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_audiences: Set of allowed audience values for JWT token validation.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_clients: Set of allowed client IDs for JWT token validation.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_scopes: Set of scopes that are allowed to access the token.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs']]] custom_claims: Repeatable block to define a custom claim validation name, value, and operation. See `custom_claim` below.
         """
-        pulumi.set(__self__, "allowed_scopes", allowed_scopes)
         pulumi.set(__self__, "discovery_url", discovery_url)
         if allowed_audiences is not None:
             pulumi.set(__self__, "allowed_audiences", allowed_audiences)
         if allowed_clients is not None:
             pulumi.set(__self__, "allowed_clients", allowed_clients)
-
-    @_builtins.property
-    @pulumi.getter(name="allowedScopes")
-    def allowed_scopes(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        return pulumi.get(self, "allowed_scopes")
-
-    @allowed_scopes.setter
-    def allowed_scopes(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        pulumi.set(self, "allowed_scopes", value)
+        if allowed_scopes is not None:
+            pulumi.set(__self__, "allowed_scopes", allowed_scopes)
+        if custom_claims is not None:
+            pulumi.set(__self__, "custom_claims", custom_claims)
 
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")
@@ -11611,6 +12016,192 @@ class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs:
     @allowed_clients.setter
     def allowed_clients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_clients", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedScopes")
+    def allowed_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of scopes that are allowed to access the token.
+        """
+        return pulumi.get(self, "allowed_scopes")
+
+    @allowed_scopes.setter
+    def allowed_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_scopes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customClaims")
+    def custom_claims(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs']]]]:
+        """
+        Repeatable block to define a custom claim validation name, value, and operation. See `custom_claim` below.
+        """
+        return pulumi.get(self, "custom_claims")
+
+    @custom_claims.setter
+    def custom_claims(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs']]]]):
+        pulumi.set(self, "custom_claims", value)
+
+
+class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgsDict(TypedDict):
+    authorizing_claim_match_value: pulumi.Input['AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgsDict']
+    """
+    Configuration block to define the value or values to match for and the relationship of the match. See `authorizing_claim_match_value` below.
+    """
+    inbound_token_claim_name: pulumi.Input[_builtins.str]
+    """
+    Name of the custom claim field to check.
+    """
+    inbound_token_claim_value_type: pulumi.Input[_builtins.str]
+    """
+    Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs:
+    def __init__(__self__, *,
+                 authorizing_claim_match_value: pulumi.Input['AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs'],
+                 inbound_token_claim_name: pulumi.Input[_builtins.str],
+                 inbound_token_claim_value_type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input['AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs'] authorizing_claim_match_value: Configuration block to define the value or values to match for and the relationship of the match. See `authorizing_claim_match_value` below.
+        :param pulumi.Input[_builtins.str] inbound_token_claim_name: Name of the custom claim field to check.
+        :param pulumi.Input[_builtins.str] inbound_token_claim_value_type: Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+        """
+        pulumi.set(__self__, "authorizing_claim_match_value", authorizing_claim_match_value)
+        pulumi.set(__self__, "inbound_token_claim_name", inbound_token_claim_name)
+        pulumi.set(__self__, "inbound_token_claim_value_type", inbound_token_claim_value_type)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizingClaimMatchValue")
+    def authorizing_claim_match_value(self) -> pulumi.Input['AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs']:
+        """
+        Configuration block to define the value or values to match for and the relationship of the match. See `authorizing_claim_match_value` below.
+        """
+        return pulumi.get(self, "authorizing_claim_match_value")
+
+    @authorizing_claim_match_value.setter
+    def authorizing_claim_match_value(self, value: pulumi.Input['AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs']):
+        pulumi.set(self, "authorizing_claim_match_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inboundTokenClaimName")
+    def inbound_token_claim_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the custom claim field to check.
+        """
+        return pulumi.get(self, "inbound_token_claim_name")
+
+    @inbound_token_claim_name.setter
+    def inbound_token_claim_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "inbound_token_claim_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inboundTokenClaimValueType")
+    def inbound_token_claim_value_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+        """
+        return pulumi.get(self, "inbound_token_claim_value_type")
+
+    @inbound_token_claim_value_type.setter
+    def inbound_token_claim_value_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "inbound_token_claim_value_type", value)
+
+
+class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgsDict(TypedDict):
+    claim_match_operator: pulumi.Input[_builtins.str]
+    """
+    Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inbound_token_claim_value_type` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inbound_token_claim_value_type` is `STRING_ARRAY`.
+    """
+    claim_match_value: pulumi.Input['AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgsDict']
+    """
+    Value or values to match for. See `claim_match_value` below.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs:
+    def __init__(__self__, *,
+                 claim_match_operator: pulumi.Input[_builtins.str],
+                 claim_match_value: pulumi.Input['AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs']):
+        """
+        :param pulumi.Input[_builtins.str] claim_match_operator: Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inbound_token_claim_value_type` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inbound_token_claim_value_type` is `STRING_ARRAY`.
+        :param pulumi.Input['AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs'] claim_match_value: Value or values to match for. See `claim_match_value` below.
+        """
+        pulumi.set(__self__, "claim_match_operator", claim_match_operator)
+        pulumi.set(__self__, "claim_match_value", claim_match_value)
+
+    @_builtins.property
+    @pulumi.getter(name="claimMatchOperator")
+    def claim_match_operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inbound_token_claim_value_type` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inbound_token_claim_value_type` is `STRING_ARRAY`.
+        """
+        return pulumi.get(self, "claim_match_operator")
+
+    @claim_match_operator.setter
+    def claim_match_operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "claim_match_operator", value)
+
+    @_builtins.property
+    @pulumi.getter(name="claimMatchValue")
+    def claim_match_value(self) -> pulumi.Input['AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs']:
+        """
+        Value or values to match for. See `claim_match_value` below.
+        """
+        return pulumi.get(self, "claim_match_value")
+
+    @claim_match_value.setter
+    def claim_match_value(self, value: pulumi.Input['AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs']):
+        pulumi.set(self, "claim_match_value", value)
+
+
+class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgsDict(TypedDict):
+    match_value_string: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    String value to match for. Must be specified when `claim_match_operator` is `EQUALS` or `CONTAINS`. Exactly one of `match_value_string` or `match_value_string_list` must be specified.
+    """
+    match_value_string_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of strings to check for a match. Must be specified when `claim_match_operator` is `CONTAINS_ANY`. Exactly one of `match_value_string` or `match_value_string_list` must be specified.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs:
+    def __init__(__self__, *,
+                 match_value_string: Optional[pulumi.Input[_builtins.str]] = None,
+                 match_value_string_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] match_value_string: String value to match for. Must be specified when `claim_match_operator` is `EQUALS` or `CONTAINS`. Exactly one of `match_value_string` or `match_value_string_list` must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_value_string_lists: List of strings to check for a match. Must be specified when `claim_match_operator` is `CONTAINS_ANY`. Exactly one of `match_value_string` or `match_value_string_list` must be specified.
+        """
+        if match_value_string is not None:
+            pulumi.set(__self__, "match_value_string", match_value_string)
+        if match_value_string_lists is not None:
+            pulumi.set(__self__, "match_value_string_lists", match_value_string_lists)
+
+    @_builtins.property
+    @pulumi.getter(name="matchValueString")
+    def match_value_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        String value to match for. Must be specified when `claim_match_operator` is `EQUALS` or `CONTAINS`. Exactly one of `match_value_string` or `match_value_string_list` must be specified.
+        """
+        return pulumi.get(self, "match_value_string")
+
+    @match_value_string.setter
+    def match_value_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "match_value_string", value)
+
+    @_builtins.property
+    @pulumi.getter(name="matchValueStringLists")
+    def match_value_string_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of strings to check for a match. Must be specified when `claim_match_operator` is `CONTAINS_ANY`. Exactly one of `match_value_string` or `match_value_string_list` must be specified.
+        """
+        return pulumi.get(self, "match_value_string_lists")
+
+    @match_value_string_lists.setter
+    def match_value_string_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "match_value_string_lists", value)
 
 
 class AgentcoreGatewayInterceptorConfigurationArgsDict(TypedDict):
@@ -12242,6 +12833,10 @@ class AgentcoreGatewayTargetTargetConfigurationArgs:
 
 
 class AgentcoreGatewayTargetTargetConfigurationMcpArgsDict(TypedDict):
+    api_gateway: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgsDict']]
+    """
+    API Gateway target configuration. See `api_gateway` below.
+    """
     lambda_: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgsDict']]
     """
     Lambda function target configuration. See `lambda` below.
@@ -12262,16 +12857,20 @@ class AgentcoreGatewayTargetTargetConfigurationMcpArgsDict(TypedDict):
 @pulumi.input_type
 class AgentcoreGatewayTargetTargetConfigurationMcpArgs:
     def __init__(__self__, *,
+                 api_gateway: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs']] = None,
                  lambda_: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs']] = None,
                  mcp_server: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs']] = None,
                  open_api_schema: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs']] = None,
                  smithy_model: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs']] = None):
         """
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs'] api_gateway: API Gateway target configuration. See `api_gateway` below.
         :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs'] lambda_: Lambda function target configuration. See `lambda` below.
         :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs'] mcp_server: MCP server target configuration. See `mcp_server` below.
         :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs'] open_api_schema: OpenAPI schema-based target configuration. See `api_schema_configuration` below.
         :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs'] smithy_model: Smithy model-based target configuration. See `api_schema_configuration` below.
         """
+        if api_gateway is not None:
+            pulumi.set(__self__, "api_gateway", api_gateway)
         if lambda_ is not None:
             pulumi.set(__self__, "lambda_", lambda_)
         if mcp_server is not None:
@@ -12280,6 +12879,18 @@ class AgentcoreGatewayTargetTargetConfigurationMcpArgs:
             pulumi.set(__self__, "open_api_schema", open_api_schema)
         if smithy_model is not None:
             pulumi.set(__self__, "smithy_model", smithy_model)
+
+    @_builtins.property
+    @pulumi.getter(name="apiGateway")
+    def api_gateway(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs']]:
+        """
+        API Gateway target configuration. See `api_gateway` below.
+        """
+        return pulumi.get(self, "api_gateway")
+
+    @api_gateway.setter
+    def api_gateway(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs']]):
+        pulumi.set(self, "api_gateway", value)
 
     @_builtins.property
     @pulumi.getter(name="lambda")
@@ -12328,6 +12939,255 @@ class AgentcoreGatewayTargetTargetConfigurationMcpArgs:
     @smithy_model.setter
     def smithy_model(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs']]):
         pulumi.set(self, "smithy_model", value)
+
+
+class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgsDict(TypedDict):
+    rest_api_id: pulumi.Input[_builtins.str]
+    """
+    ID of the API Gateway REST API to invoke.
+    """
+    stage: pulumi.Input[_builtins.str]
+    """
+    Stage name of the REST API to add as a target.
+    """
+    api_gateway_tool_configuration: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgsDict']]
+    """
+    Configuration for API Gateway tools. See `api_gateway_tool_configuration` below.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs:
+    def __init__(__self__, *,
+                 rest_api_id: pulumi.Input[_builtins.str],
+                 stage: pulumi.Input[_builtins.str],
+                 api_gateway_tool_configuration: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] rest_api_id: ID of the API Gateway REST API to invoke.
+        :param pulumi.Input[_builtins.str] stage: Stage name of the REST API to add as a target.
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs'] api_gateway_tool_configuration: Configuration for API Gateway tools. See `api_gateway_tool_configuration` below.
+        """
+        pulumi.set(__self__, "rest_api_id", rest_api_id)
+        pulumi.set(__self__, "stage", stage)
+        if api_gateway_tool_configuration is not None:
+            pulumi.set(__self__, "api_gateway_tool_configuration", api_gateway_tool_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="restApiId")
+    def rest_api_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        ID of the API Gateway REST API to invoke.
+        """
+        return pulumi.get(self, "rest_api_id")
+
+    @rest_api_id.setter
+    def rest_api_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rest_api_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def stage(self) -> pulumi.Input[_builtins.str]:
+        """
+        Stage name of the REST API to add as a target.
+        """
+        return pulumi.get(self, "stage")
+
+    @stage.setter
+    def stage(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "stage", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiGatewayToolConfiguration")
+    def api_gateway_tool_configuration(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs']]:
+        """
+        Configuration for API Gateway tools. See `api_gateway_tool_configuration` below.
+        """
+        return pulumi.get(self, "api_gateway_tool_configuration")
+
+    @api_gateway_tool_configuration.setter
+    def api_gateway_tool_configuration(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs']]):
+        pulumi.set(self, "api_gateway_tool_configuration", value)
+
+
+class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgsDict(TypedDict):
+    tool_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArgsDict']]]]
+    """
+    Repeatable block of path and method patterns to expose as tools. See `tool_filter` below.
+    """
+    tool_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArgsDict']]]]
+    """
+    Repeatable block of explicit tool definitions with optional custom names and descriptions. See `tool_override` below.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs:
+    def __init__(__self__, *,
+                 tool_filters: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArgs']]]] = None,
+                 tool_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArgs']]] tool_filters: Repeatable block of path and method patterns to expose as tools. See `tool_filter` below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArgs']]] tool_overrides: Repeatable block of explicit tool definitions with optional custom names and descriptions. See `tool_override` below.
+        """
+        if tool_filters is not None:
+            pulumi.set(__self__, "tool_filters", tool_filters)
+        if tool_overrides is not None:
+            pulumi.set(__self__, "tool_overrides", tool_overrides)
+
+    @_builtins.property
+    @pulumi.getter(name="toolFilters")
+    def tool_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArgs']]]]:
+        """
+        Repeatable block of path and method patterns to expose as tools. See `tool_filter` below.
+        """
+        return pulumi.get(self, "tool_filters")
+
+    @tool_filters.setter
+    def tool_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArgs']]]]):
+        pulumi.set(self, "tool_filters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="toolOverrides")
+    def tool_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArgs']]]]:
+        """
+        Repeatable block of explicit tool definitions with optional custom names and descriptions. See `tool_override` below.
+        """
+        return pulumi.get(self, "tool_overrides")
+
+    @tool_overrides.setter
+    def tool_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArgs']]]]):
+        pulumi.set(self, "tool_overrides", value)
+
+
+class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArgsDict(TypedDict):
+    filter_path: pulumi.Input[_builtins.str]
+    """
+    Resource path to match in the REST API. Supports exact paths (for example, `/pets`) or wildcard paths (for example, `/pets/*` to match all paths under `/pets`). Must match existing paths in the REST API.
+    """
+    methods: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of HTTP methods to filter for. Valid values: `GET`, `DELETE`, `HEAD`, `OPTIONS`, `PATCH`, `PUT` and `POST`.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArgs:
+    def __init__(__self__, *,
+                 filter_path: pulumi.Input[_builtins.str],
+                 methods: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[_builtins.str] filter_path: Resource path to match in the REST API. Supports exact paths (for example, `/pets`) or wildcard paths (for example, `/pets/*` to match all paths under `/pets`). Must match existing paths in the REST API.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] methods: List of HTTP methods to filter for. Valid values: `GET`, `DELETE`, `HEAD`, `OPTIONS`, `PATCH`, `PUT` and `POST`.
+        """
+        pulumi.set(__self__, "filter_path", filter_path)
+        pulumi.set(__self__, "methods", methods)
+
+    @_builtins.property
+    @pulumi.getter(name="filterPath")
+    def filter_path(self) -> pulumi.Input[_builtins.str]:
+        """
+        Resource path to match in the REST API. Supports exact paths (for example, `/pets`) or wildcard paths (for example, `/pets/*` to match all paths under `/pets`). Must match existing paths in the REST API.
+        """
+        return pulumi.get(self, "filter_path")
+
+    @filter_path.setter
+    def filter_path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "filter_path", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def methods(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of HTTP methods to filter for. Valid values: `GET`, `DELETE`, `HEAD`, `OPTIONS`, `PATCH`, `PUT` and `POST`.
+        """
+        return pulumi.get(self, "methods")
+
+    @methods.setter
+    def methods(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "methods", value)
+
+
+class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArgsDict(TypedDict):
+    method: pulumi.Input[_builtins.str]
+    """
+    HTTP method to expose for the specified path. Valid values: `GET`, `DELETE`, `HEAD`, `OPTIONS`, `PATCH`, `PUT` and `POST`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of tool. Identifies the tool in the Model Context Protocol.
+    """
+    path: pulumi.Input[_builtins.str]
+    """
+    Resource path in the REST API (e.g., `/pets`). Must explicitly match an existing path in the REST API.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of the tool. Provides information about the purpose and usage of the tool. If not provided, uses the description from the API's OpenAPI specification.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArgs:
+    def __init__(__self__, *,
+                 method: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
+                 path: pulumi.Input[_builtins.str],
+                 description: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] method: HTTP method to expose for the specified path. Valid values: `GET`, `DELETE`, `HEAD`, `OPTIONS`, `PATCH`, `PUT` and `POST`.
+        :param pulumi.Input[_builtins.str] name: Name of tool. Identifies the tool in the Model Context Protocol.
+        :param pulumi.Input[_builtins.str] path: Resource path in the REST API (e.g., `/pets`). Must explicitly match an existing path in the REST API.
+        :param pulumi.Input[_builtins.str] description: Description of the tool. Provides information about the purpose and usage of the tool. If not provided, uses the description from the API's OpenAPI specification.
+        """
+        pulumi.set(__self__, "method", method)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter
+    def method(self) -> pulumi.Input[_builtins.str]:
+        """
+        HTTP method to expose for the specified path. Valid values: `GET`, `DELETE`, `HEAD`, `OPTIONS`, `PATCH`, `PUT` and `POST`.
+        """
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "method", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of tool. Identifies the tool in the Model Context Protocol.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[_builtins.str]:
+        """
+        Resource path in the REST API (e.g., `/pets`). Must explicitly match an existing path in the REST API.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "path", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Description of the tool. Provides information about the purpose and usage of the tool. If not provided, uses the description from the API's OpenAPI specification.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
 
 
 class AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgsDict(TypedDict):

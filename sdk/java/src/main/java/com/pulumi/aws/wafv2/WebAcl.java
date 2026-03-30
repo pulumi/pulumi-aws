@@ -28,9 +28,9 @@ import javax.annotation.Nullable;
 /**
  * Creates a WAFv2 Web ACL resource.
  * 
- * &gt; **Note** In `fieldToMatch` blocks, *e.g.*, in `byteMatchStatement`, the `body` block includes an optional argument `oversizeHandling`. AWS indicates this argument will be required starting February 2023. To avoid configurations breaking when that change happens, treat the `oversizeHandling` argument as **required** as soon as possible.
+ * &gt; **Note:** Inline `rule` blocks in this resource have several known limitations. Consider using `aws.wafv2.WebAclRule` to manage rules as separate resources instead. Limitations include: **Deletion ordering errors:** When removing a rule that references an IP set or rule group, AWS requires the rule to be detached before the referenced resource is deleted. Terraform&#39;s dependency graph cannot model this correctly for inline rules, resulting in `WAFAssociatedItemException` errors. **Spurious diffs:** AWS returns rules in an unpredictable order, which can cause Terraform to detect changes even when the configuration has not changed. **Coupled updates:** Modifying one inline rule may cause all rules to be recreated, which can be disruptive.
  * 
- * !&gt; **Warning:** If you use the `aws.wafv2.WebAclRuleGroupAssociation` resource to associate rule groups with this Web ACL, you must add `lifecycle { ignoreChanges = [rule] }` to this resource to prevent configuration drift. The association resource modifies the Web ACL&#39;s rules outside of this resource&#39;s direct management.
+ * !&gt; **Warning:** If you use the `aws.wafv2.WebAclRule` or `aws.wafv2.WebAclRuleGroupAssociation` resources with this Web ACL, you must add `lifecycle { ignoreChanges = [rule] }` to this resource to prevent configuration drift. Those resources manage the Web ACL&#39;s rules outside of this resource&#39;s direct management.
  * 
  * ## Import
  * 
@@ -246,14 +246,14 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ruleJson);
     }
     /**
-     * Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
+     * **`rule` blocks in this resource have several known limitations.** Consider using `aws.wafv2.WebAclRule` to manage rules as separate resources instead. Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
      * 
      */
     @Export(name="rules", refs={List.class,WebAclRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WebAclRule>> rules;
 
     /**
-     * @return Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
+     * @return **`rule` blocks in this resource have several known limitations.** Consider using `aws.wafv2.WebAclRule` to manage rules as separate resources instead. Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
      * 
      */
     public Output<Optional<List<WebAclRule>>> rules() {

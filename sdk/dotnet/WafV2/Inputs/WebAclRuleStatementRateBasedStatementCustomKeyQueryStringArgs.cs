@@ -12,12 +12,8 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs : global::Pulumi.ResourceArgs
     {
-        [Input("textTransformations", required: true)]
+        [Input("textTransformations")]
         private InputList<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs>? _textTransformations;
-
-        /// <summary>
-        /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `TextTransformation` above for details.
-        /// </summary>
         public InputList<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs> TextTransformations
         {
             get => _textTransformations ?? (_textTransformations = new InputList<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs>());

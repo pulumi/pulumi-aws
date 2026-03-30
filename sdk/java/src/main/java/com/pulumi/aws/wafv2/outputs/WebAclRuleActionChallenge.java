@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleActionChallenge {
     /**
-     * @return Defines custom handling for the web request. See `customRequestHandling` below for details.
+     * @return Custom request handling configuration. See Custom Request Handling below.
      * 
      */
     private @Nullable WebAclRuleActionChallengeCustomRequestHandling customRequestHandling;
 
     private WebAclRuleActionChallenge() {}
     /**
-     * @return Defines custom handling for the web request. See `customRequestHandling` below for details.
+     * @return Custom request handling configuration. See Custom Request Handling below.
      * 
      */
     public Optional<WebAclRuleActionChallengeCustomRequestHandling> customRequestHandling() {

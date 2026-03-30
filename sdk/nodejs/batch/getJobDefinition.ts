@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Lookup via Arn
+ * ### Lookup via ARN
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -52,7 +52,7 @@ export function getJobDefinition(args?: GetJobDefinitionArgs, opts?: pulumi.Invo
  */
 export interface GetJobDefinitionArgs {
     /**
-     * ARN of the Job Definition. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+     * ARN of the Job Definition.
      */
     arn?: string;
     /**
@@ -125,7 +125,7 @@ export interface GetJobDefinitionResult {
  *
  * ## Example Usage
  *
- * ### Lookup via Arn
+ * ### Lookup via ARN
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -165,7 +165,7 @@ export function getJobDefinitionOutput(args?: GetJobDefinitionOutputArgs, opts?:
  */
 export interface GetJobDefinitionOutputArgs {
     /**
-     * ARN of the Job Definition. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+     * ARN of the Job Definition.
      */
     arn?: pulumi.Input<string>;
     /**

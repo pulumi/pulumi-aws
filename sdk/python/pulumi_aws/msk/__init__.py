@@ -14,11 +14,13 @@ from .get_broker_nodes import *
 from .get_cluster import *
 from .get_configuration import *
 from .get_kafka_version import *
+from .get_topic import *
 from .get_vpc_connection import *
 from .replicator import *
 from .scram_secret_association import *
 from .serverless_cluster import *
 from .single_scram_secret_association import *
+from .topic import *
 from .vpc_connection import *
 from ._inputs import *
 from . import outputs

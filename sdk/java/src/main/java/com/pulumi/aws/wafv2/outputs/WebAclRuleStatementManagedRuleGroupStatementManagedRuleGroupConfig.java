@@ -17,101 +17,85 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig {
-    /**
-     * @return Additional configuration for using the Account Creation Fraud Prevention managed rule group. Use this to specify information such as the registration page of your application and the type of content to accept or reject from the client.
-     * 
-     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet awsManagedRulesAcfpRuleSet;
-    /**
-     * @return Configuration for using the anti-DDoS managed rule group. See `awsManagedRulesAntiDdosRuleSet` for more details.
-     * 
-     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSet awsManagedRulesAntiDdosRuleSet;
-    /**
-     * @return Additional configuration for using the Account Takeover Protection managed rule group. Use this to specify information such as the sign-in page of your application and the type of content to accept or reject from the client.
-     * 
-     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet awsManagedRulesAtpRuleSet;
-    /**
-     * @return Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See `awsManagedRulesBotControlRuleSet` for more details
-     * 
-     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet awsManagedRulesBotControlRuleSet;
     /**
-     * @return The path of the login endpoint for your application.
+     * @deprecated
+     * Use awsManagedRulesAtpRuleSet login_path
      * 
      */
+    @Deprecated /* Use awsManagedRulesAtpRuleSet login_path */
     private @Nullable String loginPath;
     /**
-     * @return Details about your login page password field. See `passwordField` for more details.
+     * @deprecated
+     * Use awsManagedRulesAtpRuleSet request_inspection password_field
      * 
      */
+    @Deprecated /* Use awsManagedRulesAtpRuleSet request_inspection password_field */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordField passwordField;
     /**
-     * @return The payload type for your login endpoint, either JSON or form encoded.
+     * @deprecated
+     * Use awsManagedRulesAtpRuleSet request_inspection payload_type
      * 
      */
+    @Deprecated /* Use awsManagedRulesAtpRuleSet request_inspection payload_type */
     private @Nullable String payloadType;
     /**
-     * @return Details about your login page username field. See `usernameField` for more details.
+     * @deprecated
+     * Use awsManagedRulesAtpRuleSet request_inspection username_field
      * 
      */
+    @Deprecated /* Use awsManagedRulesAtpRuleSet request_inspection username_field */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField usernameField;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig() {}
-    /**
-     * @return Additional configuration for using the Account Creation Fraud Prevention managed rule group. Use this to specify information such as the registration page of your application and the type of content to accept or reject from the client.
-     * 
-     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet> awsManagedRulesAcfpRuleSet() {
         return Optional.ofNullable(this.awsManagedRulesAcfpRuleSet);
     }
-    /**
-     * @return Configuration for using the anti-DDoS managed rule group. See `awsManagedRulesAntiDdosRuleSet` for more details.
-     * 
-     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSet> awsManagedRulesAntiDdosRuleSet() {
         return Optional.ofNullable(this.awsManagedRulesAntiDdosRuleSet);
     }
-    /**
-     * @return Additional configuration for using the Account Takeover Protection managed rule group. Use this to specify information such as the sign-in page of your application and the type of content to accept or reject from the client.
-     * 
-     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet> awsManagedRulesAtpRuleSet() {
         return Optional.ofNullable(this.awsManagedRulesAtpRuleSet);
     }
-    /**
-     * @return Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See `awsManagedRulesBotControlRuleSet` for more details
-     * 
-     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet> awsManagedRulesBotControlRuleSet() {
         return Optional.ofNullable(this.awsManagedRulesBotControlRuleSet);
     }
     /**
-     * @return The path of the login endpoint for your application.
+     * @deprecated
+     * Use awsManagedRulesAtpRuleSet login_path
      * 
      */
+    @Deprecated /* Use awsManagedRulesAtpRuleSet login_path */
     public Optional<String> loginPath() {
         return Optional.ofNullable(this.loginPath);
     }
     /**
-     * @return Details about your login page password field. See `passwordField` for more details.
+     * @deprecated
+     * Use awsManagedRulesAtpRuleSet request_inspection password_field
      * 
      */
+    @Deprecated /* Use awsManagedRulesAtpRuleSet request_inspection password_field */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordField> passwordField() {
         return Optional.ofNullable(this.passwordField);
     }
     /**
-     * @return The payload type for your login endpoint, either JSON or form encoded.
+     * @deprecated
+     * Use awsManagedRulesAtpRuleSet request_inspection payload_type
      * 
      */
+    @Deprecated /* Use awsManagedRulesAtpRuleSet request_inspection payload_type */
     public Optional<String> payloadType() {
         return Optional.ofNullable(this.payloadType);
     }
     /**
-     * @return Details about your login page username field. See `usernameField` for more details.
+     * @deprecated
+     * Use awsManagedRulesAtpRuleSet request_inspection username_field
      * 
      */
+    @Deprecated /* Use awsManagedRulesAtpRuleSet request_inspection username_field */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField> usernameField() {
         return Optional.ofNullable(this.usernameField);
     }

@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3 {
+    /**
+     * @return The name of the Amazon S3 bucket in which to store the input into the node.
+     * 
+     */
     private String bucketName;
 
     private AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3() {}
+    /**
+     * @return The name of the Amazon S3 bucket in which to store the input into the node.
+     * 
+     */
     public String bucketName() {
         return this.bucketName;
     }

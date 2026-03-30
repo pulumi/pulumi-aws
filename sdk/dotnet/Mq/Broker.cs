@@ -257,6 +257,8 @@ namespace Pulumi.Aws.Mq
 
         /// <summary>
         /// Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("hostInstanceType")]
         public Output<string> HostInstanceType { get; private set; } = null!;
@@ -335,8 +337,6 @@ namespace Pulumi.Aws.Mq
 
         /// <summary>
         /// Configuration block for broker users. For `EngineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("users")]
         public Output<ImmutableArray<Outputs.BrokerUser>> Users { get; private set; } = null!;
@@ -455,6 +455,8 @@ namespace Pulumi.Aws.Mq
 
         /// <summary>
         /// Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("hostInstanceType", required: true)]
         public Input<string> HostInstanceType { get; set; } = null!;
@@ -531,13 +533,11 @@ namespace Pulumi.Aws.Mq
             set => _tags = value;
         }
 
-        [Input("users", required: true)]
+        [Input("users")]
         private InputList<Inputs.BrokerUserArgs>? _users;
 
         /// <summary>
         /// Configuration block for broker users. For `EngineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.BrokerUserArgs> Users
         {
@@ -627,6 +627,8 @@ namespace Pulumi.Aws.Mq
 
         /// <summary>
         /// Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("hostInstanceType")]
         public Input<string>? HostInstanceType { get; set; }
@@ -738,8 +740,6 @@ namespace Pulumi.Aws.Mq
 
         /// <summary>
         /// Configuration block for broker users. For `EngineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.BrokerUserGetArgs> Users
         {

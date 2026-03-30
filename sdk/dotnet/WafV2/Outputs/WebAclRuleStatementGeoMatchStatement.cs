@@ -14,11 +14,11 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementGeoMatchStatement
     {
         /// <summary>
-        /// Array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+        /// List of two-character country codes (ISO 3166-1 alpha-2).
         /// </summary>
         public readonly ImmutableArray<string> CountryCodes;
         /// <summary>
-        /// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `ForwardedIpConfig` below for details.
+        /// Configuration for inspecting forwarded IP headers. See Forwarded IP Config below.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementGeoMatchStatementForwardedIpConfig? ForwardedIpConfig;
 

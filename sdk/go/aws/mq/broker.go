@@ -218,6 +218,8 @@ type Broker struct {
 	// Version of the broker engine.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
+	//
+	// The following arguments are optional:
 	HostInstanceType pulumi.StringOutput `pulumi:"hostInstanceType"`
 	// List of information about allocated brokers (both active & standby).
 	Instances BrokerInstanceArrayOutput `pulumi:"instances"`
@@ -244,8 +246,6 @@ type Broker struct {
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
-	//
-	// The following arguments are optional:
 	Users BrokerUserArrayOutput `pulumi:"users"`
 }
 
@@ -264,9 +264,6 @@ func NewBroker(ctx *pulumi.Context,
 	}
 	if args.HostInstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'HostInstanceType'")
-	}
-	if args.Users == nil {
-		return nil, errors.New("invalid value for required argument 'Users'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Broker
@@ -316,6 +313,8 @@ type brokerState struct {
 	// Version of the broker engine.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
+	//
+	// The following arguments are optional:
 	HostInstanceType *string `pulumi:"hostInstanceType"`
 	// List of information about allocated brokers (both active & standby).
 	Instances []BrokerInstance `pulumi:"instances"`
@@ -342,8 +341,6 @@ type brokerState struct {
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
-	//
-	// The following arguments are optional:
 	Users []BrokerUser `pulumi:"users"`
 }
 
@@ -373,6 +370,8 @@ type BrokerState struct {
 	// Version of the broker engine.
 	EngineVersion pulumi.StringPtrInput
 	// Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
+	//
+	// The following arguments are optional:
 	HostInstanceType pulumi.StringPtrInput
 	// List of information about allocated brokers (both active & standby).
 	Instances BrokerInstanceArrayInput
@@ -399,8 +398,6 @@ type BrokerState struct {
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
-	//
-	// The following arguments are optional:
 	Users BrokerUserArrayInput
 }
 
@@ -432,6 +429,8 @@ type brokerArgs struct {
 	// Version of the broker engine.
 	EngineVersion string `pulumi:"engineVersion"`
 	// Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
+	//
+	// The following arguments are optional:
 	HostInstanceType string `pulumi:"hostInstanceType"`
 	// Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engineType` `RabbitMQ`. Detailed below.
 	LdapServerMetadata *BrokerLdapServerMetadata `pulumi:"ldapServerMetadata"`
@@ -452,8 +451,6 @@ type brokerArgs struct {
 	// Map of tags to assign to the broker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
-	//
-	// The following arguments are optional:
 	Users []BrokerUser `pulumi:"users"`
 }
 
@@ -482,6 +479,8 @@ type BrokerArgs struct {
 	// Version of the broker engine.
 	EngineVersion pulumi.StringInput
 	// Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
+	//
+	// The following arguments are optional:
 	HostInstanceType pulumi.StringInput
 	// Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engineType` `RabbitMQ`. Detailed below.
 	LdapServerMetadata BrokerLdapServerMetadataPtrInput
@@ -502,8 +501,6 @@ type BrokerArgs struct {
 	// Map of tags to assign to the broker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
-	//
-	// The following arguments are optional:
 	Users BrokerUserArrayInput
 }
 
@@ -655,6 +652,8 @@ func (o BrokerOutput) EngineVersion() pulumi.StringOutput {
 }
 
 // Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
+//
+// The following arguments are optional:
 func (o BrokerOutput) HostInstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Broker) pulumi.StringOutput { return v.HostInstanceType }).(pulumi.StringOutput)
 }
@@ -720,8 +719,6 @@ func (o BrokerOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
-//
-// The following arguments are optional:
 func (o BrokerOutput) Users() BrokerUserArrayOutput {
 	return o.ApplyT(func(v *Broker) BrokerUserArrayOutput { return v.Users }).(BrokerUserArrayOutput)
 }

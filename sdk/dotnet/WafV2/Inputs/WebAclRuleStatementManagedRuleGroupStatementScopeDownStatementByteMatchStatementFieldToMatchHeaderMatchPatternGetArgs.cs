@@ -12,9 +12,6 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An empty configuration block that is used for inspecting all headers.
-        /// </summary>
         [Input("all")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllGetArgs>? All { get; set; }
 
@@ -22,7 +19,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<string>? _excludedHeaders;
 
         /// <summary>
-        /// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+        /// List of header names to exclude from inspection.
         /// </summary>
         public InputList<string> ExcludedHeaders
         {
@@ -34,7 +31,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<string>? _includedHeaders;
 
         /// <summary>
-        /// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+        /// List of header names to inspect.
         /// </summary>
         public InputList<string> IncludedHeaders
         {

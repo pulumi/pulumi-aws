@@ -12,51 +12,27 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Additional configuration for using the Account Creation Fraud Prevention managed rule group. Use this to specify information such as the registration page of your application and the type of content to accept or reject from the client.
-        /// </summary>
         [Input("awsManagedRulesAcfpRuleSet")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs>? AwsManagedRulesAcfpRuleSet { get; set; }
 
-        /// <summary>
-        /// Configuration for using the anti-DDoS managed rule group. See `AwsManagedRulesAntiDdosRuleSet` for more details.
-        /// </summary>
         [Input("awsManagedRulesAntiDdosRuleSet")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetArgs>? AwsManagedRulesAntiDdosRuleSet { get; set; }
 
-        /// <summary>
-        /// Additional configuration for using the Account Takeover Protection managed rule group. Use this to specify information such as the sign-in page of your application and the type of content to accept or reject from the client.
-        /// </summary>
         [Input("awsManagedRulesAtpRuleSet")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs>? AwsManagedRulesAtpRuleSet { get; set; }
 
-        /// <summary>
-        /// Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See `AwsManagedRulesBotControlRuleSet` for more details
-        /// </summary>
         [Input("awsManagedRulesBotControlRuleSet")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs>? AwsManagedRulesBotControlRuleSet { get; set; }
 
-        /// <summary>
-        /// The path of the login endpoint for your application.
-        /// </summary>
         [Input("loginPath")]
         public Input<string>? LoginPath { get; set; }
 
-        /// <summary>
-        /// Details about your login page password field. See `PasswordField` for more details.
-        /// </summary>
         [Input("passwordField")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldArgs>? PasswordField { get; set; }
 
-        /// <summary>
-        /// The payload type for your login endpoint, either JSON or form encoded.
-        /// </summary>
         [Input("payloadType")]
         public Input<string>? PayloadType { get; set; }
 
-        /// <summary>
-        /// Details about your login page username field. See `UsernameField` for more details.
-        /// </summary>
         [Input("usernameField")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameFieldArgs>? UsernameField { get; set; }
 

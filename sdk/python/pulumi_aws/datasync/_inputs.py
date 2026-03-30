@@ -1048,15 +1048,23 @@ class TaskScheduleArgsDict(TypedDict):
     """
     Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
     """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Whether to enable or disable your task schedule. Valid values: `ENABLED`, `DISABLED`. Default: `ENABLED`.
+    """
 
 @pulumi.input_type
 class TaskScheduleArgs:
     def __init__(__self__, *,
-                 schedule_expression: pulumi.Input[_builtins.str]):
+                 schedule_expression: pulumi.Input[_builtins.str],
+                 status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] schedule_expression: Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
+        :param pulumi.Input[_builtins.str] status: Whether to enable or disable your task schedule. Valid values: `ENABLED`, `DISABLED`. Default: `ENABLED`.
         """
         pulumi.set(__self__, "schedule_expression", schedule_expression)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
 
     @_builtins.property
     @pulumi.getter(name="scheduleExpression")
@@ -1069,6 +1077,18 @@ class TaskScheduleArgs:
     @schedule_expression.setter
     def schedule_expression(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "schedule_expression", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Whether to enable or disable your task schedule. Valid values: `ENABLED`, `DISABLED`. Default: `ENABLED`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "status", value)
 
 
 class TaskTaskReportConfigArgsDict(TypedDict):

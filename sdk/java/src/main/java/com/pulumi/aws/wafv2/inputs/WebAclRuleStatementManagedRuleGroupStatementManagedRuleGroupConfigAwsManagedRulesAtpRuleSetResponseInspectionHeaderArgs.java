@@ -15,47 +15,31 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
     public static final WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeaderArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeaderArgs();
 
-    /**
-     * Values in the response header with the specified name that indicate a failed login attempt.
-     * 
-     */
     @Import(name="failureValues", required=true)
     private Output<List<String>> failureValues;
 
-    /**
-     * @return Values in the response header with the specified name that indicate a failed login attempt.
-     * 
-     */
     public Output<List<String>> failureValues() {
         return this.failureValues;
     }
 
     /**
-     * The name of the header to use.
+     * Name of the rule. Must be unique within the Web ACL.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the header to use.
+     * @return Name of the rule. Must be unique within the Web ACL.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Values in the response header with the specified name that indicate a successful login attempt.
-     * 
-     */
     @Import(name="successValues", required=true)
     private Output<List<String>> successValues;
 
-    /**
-     * @return Values in the response header with the specified name that indicate a successful login attempt.
-     * 
-     */
     public Output<List<String>> successValues() {
         return this.successValues;
     }
@@ -86,39 +70,21 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             $ = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeaderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param failureValues Values in the response header with the specified name that indicate a failed login attempt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder failureValues(Output<List<String>> failureValues) {
             $.failureValues = failureValues;
             return this;
         }
 
-        /**
-         * @param failureValues Values in the response header with the specified name that indicate a failed login attempt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder failureValues(List<String> failureValues) {
             return failureValues(Output.of(failureValues));
         }
 
-        /**
-         * @param failureValues Values in the response header with the specified name that indicate a failed login attempt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder failureValues(String... failureValues) {
             return failureValues(List.of(failureValues));
         }
 
         /**
-         * @param name The name of the header to use.
+         * @param name Name of the rule. Must be unique within the Web ACL.
          * 
          * @return builder
          * 
@@ -129,7 +95,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
 
         /**
-         * @param name The name of the header to use.
+         * @param name Name of the rule. Must be unique within the Web ACL.
          * 
          * @return builder
          * 
@@ -138,33 +104,15 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             return name(Output.of(name));
         }
 
-        /**
-         * @param successValues Values in the response header with the specified name that indicate a successful login attempt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder successValues(Output<List<String>> successValues) {
             $.successValues = successValues;
             return this;
         }
 
-        /**
-         * @param successValues Values in the response header with the specified name that indicate a successful login attempt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder successValues(List<String> successValues) {
             return successValues(Output.of(successValues));
         }
 
-        /**
-         * @param successValues Values in the response header with the specified name that indicate a successful login attempt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder successValues(String... successValues) {
             return successValues(List.of(successValues));
         }

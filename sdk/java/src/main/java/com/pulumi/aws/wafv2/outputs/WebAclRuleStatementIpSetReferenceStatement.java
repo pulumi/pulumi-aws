@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementIpSetReferenceStatement {
     /**
-     * @return The Amazon Resource Name (ARN) of the IP Set that this statement references.
+     * @return ARN of the IP set to reference.
      * 
      */
     private String arn;
     /**
-     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `ipSetForwardedIpConfig` below for more details.
+     * @return Configuration for inspecting forwarded IP headers. See IP Set Forwarded IP Config below.
      * 
      */
     private @Nullable WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig ipSetForwardedIpConfig;
 
     private WebAclRuleStatementIpSetReferenceStatement() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the IP Set that this statement references.
+     * @return ARN of the IP set to reference.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `ipSetForwardedIpConfig` below for more details.
+     * @return Configuration for inspecting forwarded IP headers. See IP Set Forwarded IP Config below.
      * 
      */
     public Optional<WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig> ipSetForwardedIpConfig() {

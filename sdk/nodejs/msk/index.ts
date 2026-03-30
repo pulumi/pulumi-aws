@@ -45,6 +45,11 @@ export const getKafkaVersion: typeof import("./getKafkaVersion").getKafkaVersion
 export const getKafkaVersionOutput: typeof import("./getKafkaVersion").getKafkaVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getKafkaVersion","getKafkaVersionOutput"], () => require("./getKafkaVersion"));
 
+export { GetTopicArgs, GetTopicResult, GetTopicOutputArgs } from "./getTopic";
+export const getTopic: typeof import("./getTopic").getTopic = null as any;
+export const getTopicOutput: typeof import("./getTopic").getTopicOutput = null as any;
+utilities.lazyLoad(exports, ["getTopic","getTopicOutput"], () => require("./getTopic"));
+
 export { GetVpcConnectionArgs, GetVpcConnectionResult, GetVpcConnectionOutputArgs } from "./getVpcConnection";
 export const getVpcConnection: typeof import("./getVpcConnection").getVpcConnection = null as any;
 export const getVpcConnectionOutput: typeof import("./getVpcConnection").getVpcConnectionOutput = null as any;
@@ -70,6 +75,11 @@ export type SingleScramSecretAssociation = import("./singleScramSecretAssociatio
 export const SingleScramSecretAssociation: typeof import("./singleScramSecretAssociation").SingleScramSecretAssociation = null as any;
 utilities.lazyLoad(exports, ["SingleScramSecretAssociation"], () => require("./singleScramSecretAssociation"));
 
+export { TopicArgs, TopicState } from "./topic";
+export type Topic = import("./topic").Topic;
+export const Topic: typeof import("./topic").Topic = null as any;
+utilities.lazyLoad(exports, ["Topic"], () => require("./topic"));
+
 export { VpcConnectionArgs, VpcConnectionState } from "./vpcConnection";
 export type VpcConnection = import("./vpcConnection").VpcConnection;
 export const VpcConnection: typeof import("./vpcConnection").VpcConnection = null as any;
@@ -94,6 +104,8 @@ const _module = {
                 return new ServerlessCluster(name, <any>undefined, { urn })
             case "aws:msk/singleScramSecretAssociation:SingleScramSecretAssociation":
                 return new SingleScramSecretAssociation(name, <any>undefined, { urn })
+            case "aws:msk/topic:Topic":
+                return new Topic(name, <any>undefined, { urn })
             case "aws:msk/vpcConnection:VpcConnection":
                 return new VpcConnection(name, <any>undefined, { urn })
             default:
@@ -108,4 +120,5 @@ pulumi.runtime.registerResourceModule("aws", "msk/replicator", _module)
 pulumi.runtime.registerResourceModule("aws", "msk/scramSecretAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "msk/serverlessCluster", _module)
 pulumi.runtime.registerResourceModule("aws", "msk/singleScramSecretAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "msk/topic", _module)
 pulumi.runtime.registerResourceModule("aws", "msk/vpcConnection", _module)

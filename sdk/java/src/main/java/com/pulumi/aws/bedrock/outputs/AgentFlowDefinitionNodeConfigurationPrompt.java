@@ -13,20 +13,28 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPrompt {
     /**
-     * @return Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+     * @return Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration guardrailConfiguration;
+    /**
+     * @return Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
+     * 
+     */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration sourceConfiguration;
 
     private AgentFlowDefinitionNodeConfigurationPrompt() {}
     /**
-     * @return Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+     * @return Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
      * 
      */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration> guardrailConfiguration() {
         return Optional.ofNullable(this.guardrailConfiguration);
     }
+    /**
+     * @return Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
+     * 
+     */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration> sourceConfiguration() {
         return Optional.ofNullable(this.sourceConfiguration);
     }

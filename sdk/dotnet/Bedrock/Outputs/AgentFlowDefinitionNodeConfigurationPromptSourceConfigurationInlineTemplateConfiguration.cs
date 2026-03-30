@@ -17,6 +17,9 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat? Chat;
+        /// <summary>
+        /// Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
+        /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText? Text;
 
         [OutputConstructor]

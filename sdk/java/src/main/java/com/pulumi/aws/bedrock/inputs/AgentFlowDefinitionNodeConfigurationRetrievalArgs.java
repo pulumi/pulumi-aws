@@ -15,9 +15,17 @@ public final class AgentFlowDefinitionNodeConfigurationRetrievalArgs extends com
 
     public static final AgentFlowDefinitionNodeConfigurationRetrievalArgs Empty = new AgentFlowDefinitionNodeConfigurationRetrievalArgs();
 
+    /**
+     * Contains configurations for the service to use for retrieving data to return as the output from the node. See Retrieval Service Configuration for more information.
+     * 
+     */
     @Import(name="serviceConfiguration")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs> serviceConfiguration;
 
+    /**
+     * @return Contains configurations for the service to use for retrieving data to return as the output from the node. See Retrieval Service Configuration for more information.
+     * 
+     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs>> serviceConfiguration() {
         return Optional.ofNullable(this.serviceConfiguration);
     }
@@ -46,11 +54,23 @@ public final class AgentFlowDefinitionNodeConfigurationRetrievalArgs extends com
             $ = new AgentFlowDefinitionNodeConfigurationRetrievalArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param serviceConfiguration Contains configurations for the service to use for retrieving data to return as the output from the node. See Retrieval Service Configuration for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serviceConfiguration(@Nullable Output<AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs> serviceConfiguration) {
             $.serviceConfiguration = serviceConfiguration;
             return this;
         }
 
+        /**
+         * @param serviceConfiguration Contains configurations for the service to use for retrieving data to return as the output from the node. See Retrieval Service Configuration for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serviceConfiguration(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs serviceConfiguration) {
             return serviceConfiguration(Output.of(serviceConfiguration));
         }

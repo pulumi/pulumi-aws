@@ -48,14 +48,14 @@ public final class FilterFindingCriteriaCriterionArgs extends com.pulumi.resourc
     }
 
     /**
-     * A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
     @Import(name="greaterThan")
     private @Nullable Output<String> greaterThan;
 
     /**
-     * @return A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * @return A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
     public Optional<Output<String>> greaterThan() {
@@ -63,14 +63,14 @@ public final class FilterFindingCriteriaCriterionArgs extends com.pulumi.resourc
     }
 
     /**
-     * A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
     @Import(name="greaterThanOrEqual")
     private @Nullable Output<String> greaterThanOrEqual;
 
     /**
-     * @return A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * @return A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
     public Optional<Output<String>> greaterThanOrEqual() {
@@ -78,14 +78,14 @@ public final class FilterFindingCriteriaCriterionArgs extends com.pulumi.resourc
     }
 
     /**
-     * A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
     @Import(name="lessThan")
     private @Nullable Output<String> lessThan;
 
     /**
-     * @return A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * @return A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
     public Optional<Output<String>> lessThan() {
@@ -93,14 +93,14 @@ public final class FilterFindingCriteriaCriterionArgs extends com.pulumi.resourc
     }
 
     /**
-     * A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
     @Import(name="lessThanOrEqual")
     private @Nullable Output<String> lessThanOrEqual;
 
     /**
-     * @return A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * @return A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
     public Optional<Output<String>> lessThanOrEqual() {
@@ -237,7 +237,7 @@ public final class FilterFindingCriteriaCriterionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param greaterThan A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+         * @param greaterThan A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class FilterFindingCriteriaCriterionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param greaterThan A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+         * @param greaterThan A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class FilterFindingCriteriaCriterionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param greaterThanOrEqual A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+         * @param greaterThanOrEqual A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class FilterFindingCriteriaCriterionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param greaterThanOrEqual A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+         * @param greaterThanOrEqual A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class FilterFindingCriteriaCriterionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param lessThan A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+         * @param lessThan A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class FilterFindingCriteriaCriterionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param lessThan A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+         * @param lessThan A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class FilterFindingCriteriaCriterionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param lessThanOrEqual A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+         * @param lessThanOrEqual A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class FilterFindingCriteriaCriterionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param lessThanOrEqual A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+         * @param lessThanOrEqual A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
          * 
          * @return builder
          * 

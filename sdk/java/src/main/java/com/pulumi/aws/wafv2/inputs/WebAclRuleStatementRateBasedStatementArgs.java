@@ -22,29 +22,29 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
     public static final WebAclRuleStatementRateBasedStatementArgs Empty = new WebAclRuleStatementRateBasedStatementArgs();
 
     /**
-     * Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP`, or `IP`. Default: `IP`.
+     * Setting that indicates how to aggregate the request counts. Defaults to `IP`. Valid values: `IP`, `FORWARDED_IP`, `CUSTOM_KEYS`, `CONSTANT`.
      * 
      */
-    @Import(name="aggregateKeyType")
-    private @Nullable Output<String> aggregateKeyType;
+    @Import(name="aggregateKeyType", required=true)
+    private Output<String> aggregateKeyType;
 
     /**
-     * @return Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP`, or `IP`. Default: `IP`.
+     * @return Setting that indicates how to aggregate the request counts. Defaults to `IP`. Valid values: `IP`, `FORWARDED_IP`, `CUSTOM_KEYS`, `CONSTANT`.
      * 
      */
-    public Optional<Output<String>> aggregateKeyType() {
-        return Optional.ofNullable(this.aggregateKeyType);
+    public Output<String> aggregateKeyType() {
+        return this.aggregateKeyType;
     }
 
     /**
-     * Aggregate the request counts using one or more web request components as the aggregate keys. See `customKey` below for details.
+     * Aggregate the request counts using one or more web request components as the aggregate keys. See Custom Keys below.
      * 
      */
     @Import(name="customKeys")
     private @Nullable Output<List<WebAclRuleStatementRateBasedStatementCustomKeyArgs>> customKeys;
 
     /**
-     * @return Aggregate the request counts using one or more web request components as the aggregate keys. See `customKey` below for details.
+     * @return Aggregate the request counts using one or more web request components as the aggregate keys. See Custom Keys below.
      * 
      */
     public Optional<Output<List<WebAclRuleStatementRateBasedStatementCustomKeyArgs>>> customKeys() {
@@ -52,18 +52,14 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
     }
 
     /**
-     * The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
-     * 
-     * **NOTE:** This setting doesn&#39;t determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
+     * Time window for which the rate limit applies, in seconds. Defaults to `300` (5 minutes). Valid values: `60`, `120`, `300`, `600`.
      * 
      */
     @Import(name="evaluationWindowSec")
     private @Nullable Output<Integer> evaluationWindowSec;
 
     /**
-     * @return The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
-     * 
-     * **NOTE:** This setting doesn&#39;t determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
+     * @return Time window for which the rate limit applies, in seconds. Defaults to `300` (5 minutes). Valid values: `60`, `120`, `300`, `600`.
      * 
      */
     public Optional<Output<Integer>> evaluationWindowSec() {
@@ -71,14 +67,14 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
     }
 
     /**
-     * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See `forwardedIpConfig` below for details.
+     * Configuration for inspecting IP addresses in an HTTP header instead of using the web request origin. See Forwarded IP Config below.
      * 
      */
     @Import(name="forwardedIpConfig")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs> forwardedIpConfig;
 
     /**
-     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See `forwardedIpConfig` below for details.
+     * @return Configuration for inspecting IP addresses in an HTTP header instead of using the web request origin. See Forwarded IP Config below.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs>> forwardedIpConfig() {
@@ -86,14 +82,14 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
     }
 
     /**
-     * Limit on requests during the specified evaluation window for a single aggregation instance.
+     * Rate limit threshold (requests per evaluation window period).
      * 
      */
     @Import(name="limit", required=true)
     private Output<Integer> limit;
 
     /**
-     * @return Limit on requests during the specified evaluation window for a single aggregation instance.
+     * @return Rate limit threshold (requests per evaluation window period).
      * 
      */
     public Output<Integer> limit() {
@@ -101,14 +97,14 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
     }
 
     /**
-     * Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
+     * Additional statement to narrow the scope of requests that the rate-based rule evaluates. See Scope Down Statement below.
      * 
      */
     @Import(name="scopeDownStatement")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementArgs> scopeDownStatement;
 
     /**
-     * @return Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
+     * @return Additional statement to narrow the scope of requests that the rate-based rule evaluates. See Scope Down Statement below.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementArgs>> scopeDownStatement() {
@@ -145,18 +141,18 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param aggregateKeyType Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP`, or `IP`. Default: `IP`.
+         * @param aggregateKeyType Setting that indicates how to aggregate the request counts. Defaults to `IP`. Valid values: `IP`, `FORWARDED_IP`, `CUSTOM_KEYS`, `CONSTANT`.
          * 
          * @return builder
          * 
          */
-        public Builder aggregateKeyType(@Nullable Output<String> aggregateKeyType) {
+        public Builder aggregateKeyType(Output<String> aggregateKeyType) {
             $.aggregateKeyType = aggregateKeyType;
             return this;
         }
 
         /**
-         * @param aggregateKeyType Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP`, or `IP`. Default: `IP`.
+         * @param aggregateKeyType Setting that indicates how to aggregate the request counts. Defaults to `IP`. Valid values: `IP`, `FORWARDED_IP`, `CUSTOM_KEYS`, `CONSTANT`.
          * 
          * @return builder
          * 
@@ -166,7 +162,7 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param customKeys Aggregate the request counts using one or more web request components as the aggregate keys. See `customKey` below for details.
+         * @param customKeys Aggregate the request counts using one or more web request components as the aggregate keys. See Custom Keys below.
          * 
          * @return builder
          * 
@@ -177,7 +173,7 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param customKeys Aggregate the request counts using one or more web request components as the aggregate keys. See `customKey` below for details.
+         * @param customKeys Aggregate the request counts using one or more web request components as the aggregate keys. See Custom Keys below.
          * 
          * @return builder
          * 
@@ -187,7 +183,7 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param customKeys Aggregate the request counts using one or more web request components as the aggregate keys. See `customKey` below for details.
+         * @param customKeys Aggregate the request counts using one or more web request components as the aggregate keys. See Custom Keys below.
          * 
          * @return builder
          * 
@@ -197,9 +193,7 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param evaluationWindowSec The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
-         * 
-         * **NOTE:** This setting doesn&#39;t determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
+         * @param evaluationWindowSec Time window for which the rate limit applies, in seconds. Defaults to `300` (5 minutes). Valid values: `60`, `120`, `300`, `600`.
          * 
          * @return builder
          * 
@@ -210,9 +204,7 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param evaluationWindowSec The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
-         * 
-         * **NOTE:** This setting doesn&#39;t determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
+         * @param evaluationWindowSec Time window for which the rate limit applies, in seconds. Defaults to `300` (5 minutes). Valid values: `60`, `120`, `300`, `600`.
          * 
          * @return builder
          * 
@@ -222,7 +214,7 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param forwardedIpConfig Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See `forwardedIpConfig` below for details.
+         * @param forwardedIpConfig Configuration for inspecting IP addresses in an HTTP header instead of using the web request origin. See Forwarded IP Config below.
          * 
          * @return builder
          * 
@@ -233,7 +225,7 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param forwardedIpConfig Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See `forwardedIpConfig` below for details.
+         * @param forwardedIpConfig Configuration for inspecting IP addresses in an HTTP header instead of using the web request origin. See Forwarded IP Config below.
          * 
          * @return builder
          * 
@@ -243,7 +235,7 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param limit Limit on requests during the specified evaluation window for a single aggregation instance.
+         * @param limit Rate limit threshold (requests per evaluation window period).
          * 
          * @return builder
          * 
@@ -254,7 +246,7 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param limit Limit on requests during the specified evaluation window for a single aggregation instance.
+         * @param limit Rate limit threshold (requests per evaluation window period).
          * 
          * @return builder
          * 
@@ -264,7 +256,7 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param scopeDownStatement Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
+         * @param scopeDownStatement Additional statement to narrow the scope of requests that the rate-based rule evaluates. See Scope Down Statement below.
          * 
          * @return builder
          * 
@@ -275,7 +267,7 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param scopeDownStatement Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
+         * @param scopeDownStatement Additional statement to narrow the scope of requests that the rate-based rule evaluates. See Scope Down Statement below.
          * 
          * @return builder
          * 
@@ -285,6 +277,9 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
         }
 
         public WebAclRuleStatementRateBasedStatementArgs build() {
+            if ($.aggregateKeyType == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementArgs", "aggregateKeyType");
+            }
             if ($.limit == null) {
                 throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementArgs", "limit");
             }

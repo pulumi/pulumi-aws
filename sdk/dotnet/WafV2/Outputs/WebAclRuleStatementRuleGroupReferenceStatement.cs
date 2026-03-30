@@ -14,11 +14,15 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementRuleGroupReferenceStatement
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the `aws.wafv2.RuleGroup` resource.
+        /// ARN of the rule group to reference.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `RuleActionOverride` below for details.
+        /// Rules to exclude from the rule group. See Excluded Rule below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.WebAclRuleStatementRuleGroupReferenceStatementExcludedRule> ExcludedRules;
+        /// <summary>
+        /// Override actions for specific rules within the rule group. See Rule Action Override below.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride> RuleActionOverrides;
 
@@ -26,9 +30,12 @@ namespace Pulumi.Aws.WafV2.Outputs
         private WebAclRuleStatementRuleGroupReferenceStatement(
             string arn,
 
+            ImmutableArray<Outputs.WebAclRuleStatementRuleGroupReferenceStatementExcludedRule> excludedRules,
+
             ImmutableArray<Outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride> ruleActionOverrides)
         {
             Arn = arn;
+            ExcludedRules = excludedRules;
             RuleActionOverrides = ruleActionOverrides;
         }
     }

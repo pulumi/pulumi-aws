@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragment
     {
         /// <summary>
-        /// What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        /// How to handle requests with a URI fragment that is too large to inspect. Valid values: `MATCH`, `NO_MATCH`.
         /// </summary>
         public readonly string? FallbackBehavior;
 

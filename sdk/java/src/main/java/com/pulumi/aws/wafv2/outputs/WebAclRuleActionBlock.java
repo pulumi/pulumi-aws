@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleActionBlock {
     /**
-     * @return Defines a custom response for the web request. See `customResponse` below for details.
+     * @return Custom response configuration. See Custom Response below.
      * 
      */
     private @Nullable WebAclRuleActionBlockCustomResponse customResponse;
 
     private WebAclRuleActionBlock() {}
     /**
-     * @return Defines a custom response for the web request. See `customResponse` below for details.
+     * @return Custom response configuration. See Custom Response below.
      * 
      */
     public Optional<WebAclRuleActionBlockCustomResponse> customResponse() {

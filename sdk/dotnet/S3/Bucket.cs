@@ -43,6 +43,38 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// 
+    /// ### Bucket In Account-Regional Namespace
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var currentGetRegion = Aws.GetRegion.Invoke();
+    /// 
+    ///     var example = new Aws.S3.Bucket("example", new()
+    ///     {
+    ///         BucketName = Std.Format.Invoke(new()
+    ///         {
+    ///             Input = "my-tf-test-bucket-%s-%s-an",
+    ///             Args = new[]
+    ///             {
+    ///                 current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///                 currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///             },
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         BucketNamespace = "account-regional",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ### Identity Schema
@@ -95,6 +127,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Output("bucketDomainName")]
         public Output<string> BucketDomainName { get; private set; } = null!;
+
+        /// <summary>
+        /// Namespace for the bucket. Determines bucket naming scope. Valid values: `account-regional`, `Global`. Defaults to `Global` (AWS).
+        /// </summary>
+        [Output("bucketNamespace")]
+        public Output<string> BucketNamespace { get; private set; } = null!;
 
         /// <summary>
         /// Creates a unique bucket name beginning with the specified prefix. Conflicts with `Bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
@@ -315,6 +353,12 @@ namespace Pulumi.Aws.S3
         public Input<string>? BucketName { get; set; }
 
         /// <summary>
+        /// Namespace for the bucket. Determines bucket naming scope. Valid values: `account-regional`, `Global`. Defaults to `Global` (AWS).
+        /// </summary>
+        [Input("bucketNamespace")]
+        public Input<string>? BucketNamespace { get; set; }
+
+        /// <summary>
         /// Creates a unique bucket name beginning with the specified prefix. Conflicts with `Bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
         /// </summary>
         [Input("bucketPrefix")]
@@ -491,6 +535,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("bucketDomainName")]
         public Input<string>? BucketDomainName { get; set; }
+
+        /// <summary>
+        /// Namespace for the bucket. Determines bucket naming scope. Valid values: `account-regional`, `Global`. Defaults to `Global` (AWS).
+        /// </summary>
+        [Input("bucketNamespace")]
+        public Input<string>? BucketNamespace { get; set; }
 
         /// <summary>
         /// Creates a unique bucket name beginning with the specified prefix. Conflicts with `Bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).

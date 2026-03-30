@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandling
     {
         /// <summary>
-        /// The `InsertHeader` blocks used to define HTTP headers added to the request. See `InsertHeader` below for details.
+        /// Custom headers to insert into the request. See Insert Header below.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader> InsertHeaders;
 

@@ -39,10 +39,21 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `name` (String) User name.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import IAM Users using the `name`. For example:
  *
  * ```sh
- * $ pulumi import aws:iam/user:User lb loadbalancer
+ * $ pulumi import aws:iam/user:User example example-user
  * ```
  */
 export class User extends pulumi.CustomResource {

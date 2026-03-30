@@ -19,14 +19,14 @@ public final class WebAclRuleStatementAsnMatchStatementArgs extends com.pulumi.r
     public static final WebAclRuleStatementAsnMatchStatementArgs Empty = new WebAclRuleStatementAsnMatchStatementArgs();
 
     /**
-     * List of Autonomous System Numbers (ASNs).
+     * List of Autonomous System Numbers (ASNs) to match against. ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies.
      * 
      */
     @Import(name="asnLists", required=true)
     private Output<List<Integer>> asnLists;
 
     /**
-     * @return List of Autonomous System Numbers (ASNs).
+     * @return List of Autonomous System Numbers (ASNs) to match against. ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies.
      * 
      */
     public Output<List<Integer>> asnLists() {
@@ -34,14 +34,14 @@ public final class WebAclRuleStatementAsnMatchStatementArgs extends com.pulumi.r
     }
 
     /**
-     * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `forwardedIpConfig` below for more details.
+     * Configuration for inspecting IP addresses in an HTTP header instead of using the web request origin. See Forwarded IP Config below.
      * 
      */
     @Import(name="forwardedIpConfig")
     private @Nullable Output<WebAclRuleStatementAsnMatchStatementForwardedIpConfigArgs> forwardedIpConfig;
 
     /**
-     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `forwardedIpConfig` below for more details.
+     * @return Configuration for inspecting IP addresses in an HTTP header instead of using the web request origin. See Forwarded IP Config below.
      * 
      */
     public Optional<Output<WebAclRuleStatementAsnMatchStatementForwardedIpConfigArgs>> forwardedIpConfig() {
@@ -74,7 +74,7 @@ public final class WebAclRuleStatementAsnMatchStatementArgs extends com.pulumi.r
         }
 
         /**
-         * @param asnLists List of Autonomous System Numbers (ASNs).
+         * @param asnLists List of Autonomous System Numbers (ASNs) to match against. ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies.
          * 
          * @return builder
          * 
@@ -85,7 +85,7 @@ public final class WebAclRuleStatementAsnMatchStatementArgs extends com.pulumi.r
         }
 
         /**
-         * @param asnLists List of Autonomous System Numbers (ASNs).
+         * @param asnLists List of Autonomous System Numbers (ASNs) to match against. ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies.
          * 
          * @return builder
          * 
@@ -95,7 +95,7 @@ public final class WebAclRuleStatementAsnMatchStatementArgs extends com.pulumi.r
         }
 
         /**
-         * @param asnLists List of Autonomous System Numbers (ASNs).
+         * @param asnLists List of Autonomous System Numbers (ASNs) to match against. ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class WebAclRuleStatementAsnMatchStatementArgs extends com.pulumi.r
         }
 
         /**
-         * @param forwardedIpConfig Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `forwardedIpConfig` below for more details.
+         * @param forwardedIpConfig Configuration for inspecting IP addresses in an HTTP header instead of using the web request origin. See Forwarded IP Config below.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class WebAclRuleStatementAsnMatchStatementArgs extends com.pulumi.r
         }
 
         /**
-         * @param forwardedIpConfig Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `forwardedIpConfig` below for more details.
+         * @param forwardedIpConfig Configuration for inspecting IP addresses in an HTTP header instead of using the web request origin. See Forwarded IP Config below.
          * 
          * @return builder
          * 

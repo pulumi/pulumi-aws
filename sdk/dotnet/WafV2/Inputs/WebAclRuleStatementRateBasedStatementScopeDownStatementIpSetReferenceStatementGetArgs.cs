@@ -13,13 +13,13 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        /// ARN of the IP set to reference.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
         /// <summary>
-        /// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `IpSetForwardedIpConfig` below for more details.
+        /// Configuration for inspecting forwarded IP headers. See IP Set Forwarded IP Config below.
         /// </summary>
         [Input("ipSetForwardedIpConfig")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigGetArgs>? IpSetForwardedIpConfig { get; set; }

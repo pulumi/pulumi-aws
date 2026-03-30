@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCode {
-    /**
-     * @return Status codes in the response that indicate a failed login attempt.
-     * 
-     */
     private List<Integer> failureCodes;
-    /**
-     * @return Status codes in the response that indicate a successful login attempt.
-     * 
-     */
     private List<Integer> successCodes;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCode() {}
-    /**
-     * @return Status codes in the response that indicate a failed login attempt.
-     * 
-     */
     public List<Integer> failureCodes() {
         return this.failureCodes;
     }
-    /**
-     * @return Status codes in the response that indicate a successful login attempt.
-     * 
-     */
     public List<Integer> successCodes() {
         return this.successCodes;
     }

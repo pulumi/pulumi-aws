@@ -10,55 +10,33 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs();
 
-    /**
-     * Details about your login page password field. See `passwordField` for more details.
-     * 
-     */
-    @Import(name="passwordField", required=true)
-    private Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs> passwordField;
+    @Import(name="passwordField")
+    private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs> passwordField;
 
-    /**
-     * @return Details about your login page password field. See `passwordField` for more details.
-     * 
-     */
-    public Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs> passwordField() {
-        return this.passwordField;
+    public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs>> passwordField() {
+        return Optional.ofNullable(this.passwordField);
     }
 
-    /**
-     * The payload type for your login endpoint, either JSON or form encoded.
-     * 
-     */
     @Import(name="payloadType", required=true)
     private Output<String> payloadType;
 
-    /**
-     * @return The payload type for your login endpoint, either JSON or form encoded.
-     * 
-     */
     public Output<String> payloadType() {
         return this.payloadType;
     }
 
-    /**
-     * Details about your login page username field. See `usernameField` for more details.
-     * 
-     */
-    @Import(name="usernameField", required=true)
-    private Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs> usernameField;
+    @Import(name="usernameField")
+    private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs> usernameField;
 
-    /**
-     * @return Details about your login page username field. See `usernameField` for more details.
-     * 
-     */
-    public Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs> usernameField() {
-        return this.usernameField;
+    public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs>> usernameField() {
+        return Optional.ofNullable(this.usernameField);
     }
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs() {}
@@ -87,78 +65,36 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             $ = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param passwordField Details about your login page password field. See `passwordField` for more details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder passwordField(Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs> passwordField) {
+        public Builder passwordField(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs> passwordField) {
             $.passwordField = passwordField;
             return this;
         }
 
-        /**
-         * @param passwordField Details about your login page password field. See `passwordField` for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwordField(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs passwordField) {
             return passwordField(Output.of(passwordField));
         }
 
-        /**
-         * @param payloadType The payload type for your login endpoint, either JSON or form encoded.
-         * 
-         * @return builder
-         * 
-         */
         public Builder payloadType(Output<String> payloadType) {
             $.payloadType = payloadType;
             return this;
         }
 
-        /**
-         * @param payloadType The payload type for your login endpoint, either JSON or form encoded.
-         * 
-         * @return builder
-         * 
-         */
         public Builder payloadType(String payloadType) {
             return payloadType(Output.of(payloadType));
         }
 
-        /**
-         * @param usernameField Details about your login page username field. See `usernameField` for more details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder usernameField(Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs> usernameField) {
+        public Builder usernameField(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs> usernameField) {
             $.usernameField = usernameField;
             return this;
         }
 
-        /**
-         * @param usernameField Details about your login page username field. See `usernameField` for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder usernameField(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs usernameField) {
             return usernameField(Output.of(usernameField));
         }
 
         public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs build() {
-            if ($.passwordField == null) {
-                throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs", "passwordField");
-            }
             if ($.payloadType == null) {
                 throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs", "payloadType");
-            }
-            if ($.usernameField == null) {
-                throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs", "usernameField");
             }
             return $;
         }

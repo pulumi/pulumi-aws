@@ -16,7 +16,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<int>? _asnLists;
 
         /// <summary>
-        /// List of Autonomous System Numbers (ASNs).
+        /// List of Autonomous System Numbers (ASNs) to match against. ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies.
         /// </summary>
         public InputList<int> AsnLists
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         }
 
         /// <summary>
-        /// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `ForwardedIpConfig` below for more details.
+        /// Configuration for inspecting IP addresses in an HTTP header instead of using the web request origin. See Forwarded IP Config below.
         /// </summary>
         [Input("forwardedIpConfig")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs>? ForwardedIpConfig { get; set; }

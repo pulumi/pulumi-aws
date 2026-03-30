@@ -19,23 +19,47 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
 
     public static final AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs Empty = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs();
 
+    /**
+     * A cache checkpoint within a template configuration. See Cache Point for more information.
+     * 
+     */
     @Import(name="cachePoint")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs> cachePoint;
 
+    /**
+     * @return A cache checkpoint within a template configuration. See Cache Point for more information.
+     * 
+     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs>> cachePoint() {
         return Optional.ofNullable(this.cachePoint);
     }
 
+    /**
+     * A list of variables in the prompt template. See Input Variable for more information.
+     * 
+     */
     @Import(name="inputVariables")
     private @Nullable Output<List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs>> inputVariables;
 
+    /**
+     * @return A list of variables in the prompt template. See Input Variable for more information.
+     * 
+     */
     public Optional<Output<List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs>>> inputVariables() {
         return Optional.ofNullable(this.inputVariables);
     }
 
+    /**
+     * The message for the prompt.
+     * 
+     */
     @Import(name="text", required=true)
     private Output<String> text;
 
+    /**
+     * @return The message for the prompt.
+     * 
+     */
     public Output<String> text() {
         return this.text;
     }
@@ -66,33 +90,75 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
             $ = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param cachePoint A cache checkpoint within a template configuration. See Cache Point for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cachePoint(@Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs> cachePoint) {
             $.cachePoint = cachePoint;
             return this;
         }
 
+        /**
+         * @param cachePoint A cache checkpoint within a template configuration. See Cache Point for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cachePoint(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs cachePoint) {
             return cachePoint(Output.of(cachePoint));
         }
 
+        /**
+         * @param inputVariables A list of variables in the prompt template. See Input Variable for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputVariables(@Nullable Output<List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs>> inputVariables) {
             $.inputVariables = inputVariables;
             return this;
         }
 
+        /**
+         * @param inputVariables A list of variables in the prompt template. See Input Variable for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputVariables(List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs> inputVariables) {
             return inputVariables(Output.of(inputVariables));
         }
 
+        /**
+         * @param inputVariables A list of variables in the prompt template. See Input Variable for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputVariables(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs... inputVariables) {
             return inputVariables(List.of(inputVariables));
         }
 
+        /**
+         * @param text The message for the prompt.
+         * 
+         * @return builder
+         * 
+         */
         public Builder text(Output<String> text) {
             $.text = text;
             return this;
         }
 
+        /**
+         * @param text The message for the prompt.
+         * 
+         * @return builder
+         * 
+         */
         public Builder text(String text) {
             return text(Output.of(text));
         }

@@ -33,6 +33,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &InstanceConnectEndpoint{}
 	case "aws:ec2transitgateway/instanceState:InstanceState":
 		r = &InstanceState{}
+	case "aws:ec2transitgateway/meteringPolicy:MeteringPolicy":
+		r = &MeteringPolicy{}
+	case "aws:ec2transitgateway/meteringPolicyEntry:MeteringPolicyEntry":
+		r = &MeteringPolicyEntry{}
 	case "aws:ec2transitgateway/multicastDomain:MulticastDomain":
 		r = &MulticastDomain{}
 	case "aws:ec2transitgateway/multicastDomainAssociation:MulticastDomainAssociation":
@@ -106,6 +110,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2transitgateway/instanceState",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2transitgateway/meteringPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2transitgateway/meteringPolicyEntry",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

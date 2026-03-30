@@ -20,14 +20,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexM
     public static final WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs Empty = new WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs();
 
     /**
-     * The part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+     * Part of the web request that you want WAF to inspect. See Field to Match below.
      * 
      */
     @Import(name="fieldToMatch")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchArgs> fieldToMatch;
 
     /**
-     * @return The part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+     * @return Part of the web request that you want WAF to inspect. See Field to Match below.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchArgs>> fieldToMatch() {
@@ -35,14 +35,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexM
     }
 
     /**
-     * String representing the regular expression. Minimum of `1` and maximum of `512` characters.
+     * Regular expression pattern to match against the web request component.
      * 
      */
     @Import(name="regexString", required=true)
     private Output<String> regexString;
 
     /**
-     * @return String representing the regular expression. Minimum of `1` and maximum of `512` characters.
+     * @return Regular expression pattern to match against the web request component.
      * 
      */
     public Output<String> regexString() {
@@ -50,18 +50,18 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexM
     }
 
     /**
-     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below.
      * 
      */
-    @Import(name="textTransformations", required=true)
-    private Output<List<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArgs>> textTransformations;
+    @Import(name="textTransformations")
+    private @Nullable Output<List<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArgs>> textTransformations;
 
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below.
      * 
      */
-    public Output<List<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArgs>> textTransformations() {
-        return this.textTransformations;
+    public Optional<Output<List<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArgs>>> textTransformations() {
+        return Optional.ofNullable(this.textTransformations);
     }
 
     private WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs() {}
@@ -91,7 +91,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexM
         }
 
         /**
-         * @param fieldToMatch The part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+         * @param fieldToMatch Part of the web request that you want WAF to inspect. See Field to Match below.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexM
         }
 
         /**
-         * @param fieldToMatch The part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+         * @param fieldToMatch Part of the web request that you want WAF to inspect. See Field to Match below.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexM
         }
 
         /**
-         * @param regexString String representing the regular expression. Minimum of `1` and maximum of `512` characters.
+         * @param regexString Regular expression pattern to match against the web request component.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexM
         }
 
         /**
-         * @param regexString String representing the regular expression. Minimum of `1` and maximum of `512` characters.
+         * @param regexString Regular expression pattern to match against the web request component.
          * 
          * @return builder
          * 
@@ -133,18 +133,18 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexM
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below.
          * 
          * @return builder
          * 
          */
-        public Builder textTransformations(Output<List<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArgs>> textTransformations) {
+        public Builder textTransformations(@Nullable Output<List<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArgs>> textTransformations) {
             $.textTransformations = textTransformations;
             return this;
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexM
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below.
          * 
          * @return builder
          * 
@@ -166,9 +166,6 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexM
         public WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs build() {
             if ($.regexString == null) {
                 throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs", "regexString");
-            }
-            if ($.textTransformations == null) {
-                throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs", "textTransformations");
             }
             return $;
         }

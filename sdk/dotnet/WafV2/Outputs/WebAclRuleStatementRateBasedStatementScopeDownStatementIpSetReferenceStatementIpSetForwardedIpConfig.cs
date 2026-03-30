@@ -14,15 +14,15 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig
     {
         /// <summary>
-        /// Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        /// Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
         /// </summary>
         public readonly string FallbackBehavior;
         /// <summary>
-        /// Name of the HTTP header to use for the IP address.
+        /// Name of the header containing the forwarded IP address.
         /// </summary>
         public readonly string HeaderName;
         /// <summary>
-        /// Position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+        /// Position in the header to use. Valid values: `FIRST`, `LAST`, `ANY`.
         /// </summary>
         public readonly string Position;
 

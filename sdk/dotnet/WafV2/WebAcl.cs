@@ -12,9 +12,9 @@ namespace Pulumi.Aws.WafV2
     /// <summary>
     /// Creates a WAFv2 Web ACL resource.
     /// 
-    /// &gt; **Note** In `FieldToMatch` blocks, *e.g.*, in `ByteMatchStatement`, the `Body` block includes an optional argument `OversizeHandling`. AWS indicates this argument will be required starting February 2023. To avoid configurations breaking when that change happens, treat the `OversizeHandling` argument as **required** as soon as possible.
+    /// &gt; **Note:** Inline `Rule` blocks in this resource have several known limitations. Consider using `aws.wafv2.WebAclRule` to manage rules as separate resources instead. Limitations include: **Deletion ordering errors:** When removing a rule that references an IP set or rule group, AWS requires the rule to be detached before the referenced resource is deleted. Terraform's dependency graph cannot model this correctly for inline rules, resulting in `WAFAssociatedItemException` errors. **Spurious diffs:** AWS returns rules in an unpredictable order, which can cause Terraform to detect changes even when the configuration has not changed. **Coupled updates:** Modifying one inline rule may cause all rules to be recreated, which can be disruptive.
     /// 
-    /// !&gt; **Warning:** If you use the `aws.wafv2.WebAclRuleGroupAssociation` resource to associate rule groups with this Web ACL, you must add `lifecycle { IgnoreChanges = [rule] }` to this resource to prevent configuration drift. The association resource modifies the Web ACL's rules outside of this resource's direct management.
+    /// !&gt; **Warning:** If you use the `aws.wafv2.WebAclRule` or `aws.wafv2.WebAclRuleGroupAssociation` resources with this Web ACL, you must add `lifecycle { IgnoreChanges = [rule] }` to this resource to prevent configuration drift. Those resources manage the Web ACL's rules outside of this resource's direct management.
     /// 
     /// ## Import
     /// 
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.WafV2
         public Output<string?> RuleJson { get; private set; } = null!;
 
         /// <summary>
-        /// Rule blocks used to identify the web requests that you want to `Allow`, `Block`, or `Count`. See `Rule` below for details.
+        /// **`Rule` blocks in this resource have several known limitations.** Consider using `aws.wafv2.WebAclRule` to manage rules as separate resources instead. Rule blocks used to identify the web requests that you want to `Allow`, `Block`, or `Count`. See `Rule` below for details.
         /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.WebAclRule>> Rules { get; private set; } = null!;
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.WafV2
         private InputList<Inputs.WebAclRuleArgs>? _rules;
 
         /// <summary>
-        /// Rule blocks used to identify the web requests that you want to `Allow`, `Block`, or `Count`. See `Rule` below for details.
+        /// **`Rule` blocks in this resource have several known limitations.** Consider using `aws.wafv2.WebAclRule` to manage rules as separate resources instead. Rule blocks used to identify the web requests that you want to `Allow`, `Block`, or `Count`. See `Rule` below for details.
         /// </summary>
         public InputList<Inputs.WebAclRuleArgs> Rules
         {
@@ -421,7 +421,7 @@ namespace Pulumi.Aws.WafV2
         private InputList<Inputs.WebAclRuleGetArgs>? _rules;
 
         /// <summary>
-        /// Rule blocks used to identify the web requests that you want to `Allow`, `Block`, or `Count`. See `Rule` below for details.
+        /// **`Rule` blocks in this resource have several known limitations.** Consider using `aws.wafv2.WebAclRule` to manage rules as separate resources instead. Rule blocks used to identify the web requests that you want to `Allow`, `Block`, or `Count`. See `Rule` below for details.
         /// </summary>
         public InputList<Inputs.WebAclRuleGetArgs> Rules
         {

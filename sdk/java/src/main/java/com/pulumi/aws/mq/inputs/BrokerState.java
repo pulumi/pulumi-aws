@@ -208,12 +208,16 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
     /**
      * Broker&#39;s instance type. For example, `mq.t3.micro`, `mq.m5.large`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="hostInstanceType")
     private @Nullable Output<String> hostInstanceType;
 
     /**
      * @return Broker&#39;s instance type. For example, `mq.t3.micro`, `mq.m5.large`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> hostInstanceType() {
@@ -403,16 +407,12 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
     /**
      * Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="users")
     private @Nullable Output<List<BrokerUserArgs>> users;
 
     /**
      * @return Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<List<BrokerUserArgs>>> users() {
@@ -723,6 +723,8 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param hostInstanceType Broker&#39;s instance type. For example, `mq.t3.micro`, `mq.m5.large`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -733,6 +735,8 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param hostInstanceType Broker&#39;s instance type. For example, `mq.t3.micro`, `mq.m5.large`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -1026,8 +1030,6 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param users Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -1039,8 +1041,6 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param users Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -1050,8 +1050,6 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param users Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -13,6 +13,9 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class VpcEndpointAssociationVpcEndpointAssociationStatus
     {
+        /// <summary>
+        /// Set of subnets configured for use by the VPC Endpoint Association.
+        /// </summary>
         public readonly ImmutableArray<Outputs.VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncState> AssociationSyncStates;
 
         [OutputConstructor]

@@ -260,6 +260,21 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * ARN of backup to restore.
+     * 
+     */
+    @Import(name="restoreBackupArn")
+    private @Nullable Output<String> restoreBackupArn;
+
+    /**
+     * @return ARN of backup to restore.
+     * 
+     */
+    public Optional<Output<String>> restoreBackupArn() {
+        return Optional.ofNullable(this.restoreBackupArn);
+    }
+
+    /**
      * Time of the point-in-time recovery point to restore.
      * 
      */
@@ -465,6 +480,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         this.readCapacity = $.readCapacity;
         this.region = $.region;
         this.replicas = $.replicas;
+        this.restoreBackupArn = $.restoreBackupArn;
         this.restoreDateTime = $.restoreDateTime;
         this.restoreSourceName = $.restoreSourceName;
         this.restoreSourceTableArn = $.restoreSourceTableArn;
@@ -854,6 +870,27 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder replicas(TableReplicaArgs... replicas) {
             return replicas(List.of(replicas));
+        }
+
+        /**
+         * @param restoreBackupArn ARN of backup to restore.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restoreBackupArn(@Nullable Output<String> restoreBackupArn) {
+            $.restoreBackupArn = restoreBackupArn;
+            return this;
+        }
+
+        /**
+         * @param restoreBackupArn ARN of backup to restore.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restoreBackupArn(String restoreBackupArn) {
+            return restoreBackupArn(Output.of(restoreBackupArn));
         }
 
         /**

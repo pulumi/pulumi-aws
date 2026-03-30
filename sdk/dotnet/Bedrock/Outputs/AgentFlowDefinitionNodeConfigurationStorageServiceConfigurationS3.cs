@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3
     {
+        /// <summary>
+        /// The name of the Amazon S3 bucket in which to store the input into the node.
+        /// </summary>
         public readonly string BucketName;
 
         [OutputConstructor]

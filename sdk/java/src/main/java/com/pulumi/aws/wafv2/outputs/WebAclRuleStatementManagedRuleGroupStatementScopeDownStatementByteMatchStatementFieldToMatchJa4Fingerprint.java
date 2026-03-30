@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint {
     /**
-     * @return Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+     * @return Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
      * 
      */
     private String fallbackBehavior;
 
     private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint() {}
     /**
-     * @return Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+     * @return Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
      * 
      */
     public String fallbackBehavior() {

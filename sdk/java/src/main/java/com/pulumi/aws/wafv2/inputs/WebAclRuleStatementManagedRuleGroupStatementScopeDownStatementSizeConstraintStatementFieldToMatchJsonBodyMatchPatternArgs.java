@@ -17,24 +17,24 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
 
     public static final WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgs();
 
-    /**
-     * An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     @Import(name="all")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs> all;
 
-    /**
-     * @return An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs>> all() {
         return Optional.ofNullable(this.all);
     }
 
+    /**
+     * List of JSON pointer expressions to inspect (e.g., `/foo/bar`).
+     * 
+     */
     @Import(name="includedPaths")
     private @Nullable Output<List<String>> includedPaths;
 
+    /**
+     * @return List of JSON pointer expressions to inspect (e.g., `/foo/bar`).
+     * 
+     */
     public Optional<Output<List<String>>> includedPaths() {
         return Optional.ofNullable(this.includedPaths);
     }
@@ -64,36 +64,42 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
             $ = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param all An empty configuration block that is used for inspecting all headers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder all(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs> all) {
             $.all = all;
             return this;
         }
 
-        /**
-         * @param all An empty configuration block that is used for inspecting all headers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder all(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs all) {
             return all(Output.of(all));
         }
 
+        /**
+         * @param includedPaths List of JSON pointer expressions to inspect (e.g., `/foo/bar`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder includedPaths(@Nullable Output<List<String>> includedPaths) {
             $.includedPaths = includedPaths;
             return this;
         }
 
+        /**
+         * @param includedPaths List of JSON pointer expressions to inspect (e.g., `/foo/bar`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder includedPaths(List<String> includedPaths) {
             return includedPaths(Output.of(includedPaths));
         }
 
+        /**
+         * @param includedPaths List of JSON pointer expressions to inspect (e.g., `/foo/bar`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder includedPaths(String... includedPaths) {
             return includedPaths(List.of(includedPaths));
         }

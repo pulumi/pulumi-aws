@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleActionCount
     {
         /// <summary>
-        /// Defines custom handling for the web request. See `CustomRequestHandling` below for details.
+        /// Custom request handling configuration. See Custom Request Handling below.
         /// </summary>
         public readonly Outputs.WebAclRuleActionCountCustomRequestHandling? CustomRequestHandling;
 

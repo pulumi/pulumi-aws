@@ -6,9 +6,10 @@ package com.pulumi.aws.wafv2.inputs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleActionCaptchaCustomRequestHandlingInsertHeaderArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class WebAclRuleActionCaptchaCustomRequestHandlingArgs extends com.pulumi.resources.ResourceArgs {
@@ -16,18 +17,18 @@ public final class WebAclRuleActionCaptchaCustomRequestHandlingArgs extends com.
     public static final WebAclRuleActionCaptchaCustomRequestHandlingArgs Empty = new WebAclRuleActionCaptchaCustomRequestHandlingArgs();
 
     /**
-     * The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+     * Custom headers to insert into the request. See Insert Header below.
      * 
      */
-    @Import(name="insertHeaders", required=true)
-    private Output<List<WebAclRuleActionCaptchaCustomRequestHandlingInsertHeaderArgs>> insertHeaders;
+    @Import(name="insertHeaders")
+    private @Nullable Output<List<WebAclRuleActionCaptchaCustomRequestHandlingInsertHeaderArgs>> insertHeaders;
 
     /**
-     * @return The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+     * @return Custom headers to insert into the request. See Insert Header below.
      * 
      */
-    public Output<List<WebAclRuleActionCaptchaCustomRequestHandlingInsertHeaderArgs>> insertHeaders() {
-        return this.insertHeaders;
+    public Optional<Output<List<WebAclRuleActionCaptchaCustomRequestHandlingInsertHeaderArgs>>> insertHeaders() {
+        return Optional.ofNullable(this.insertHeaders);
     }
 
     private WebAclRuleActionCaptchaCustomRequestHandlingArgs() {}
@@ -55,18 +56,18 @@ public final class WebAclRuleActionCaptchaCustomRequestHandlingArgs extends com.
         }
 
         /**
-         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+         * @param insertHeaders Custom headers to insert into the request. See Insert Header below.
          * 
          * @return builder
          * 
          */
-        public Builder insertHeaders(Output<List<WebAclRuleActionCaptchaCustomRequestHandlingInsertHeaderArgs>> insertHeaders) {
+        public Builder insertHeaders(@Nullable Output<List<WebAclRuleActionCaptchaCustomRequestHandlingInsertHeaderArgs>> insertHeaders) {
             $.insertHeaders = insertHeaders;
             return this;
         }
 
         /**
-         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+         * @param insertHeaders Custom headers to insert into the request. See Insert Header below.
          * 
          * @return builder
          * 
@@ -76,7 +77,7 @@ public final class WebAclRuleActionCaptchaCustomRequestHandlingArgs extends com.
         }
 
         /**
-         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+         * @param insertHeaders Custom headers to insert into the request. See Insert Header below.
          * 
          * @return builder
          * 
@@ -86,9 +87,6 @@ public final class WebAclRuleActionCaptchaCustomRequestHandlingArgs extends com.
         }
 
         public WebAclRuleActionCaptchaCustomRequestHandlingArgs build() {
-            if ($.insertHeaders == null) {
-                throw new MissingRequiredPropertyException("WebAclRuleActionCaptchaCustomRequestHandlingArgs", "insertHeaders");
-            }
             return $;
         }
     }

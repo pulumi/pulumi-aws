@@ -15,26 +15,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatement {
     /**
-     * @return List of Autonomous System Numbers (ASNs).
+     * @return List of Autonomous System Numbers (ASNs) to match against. ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies.
      * 
      */
     private List<Integer> asnLists;
     /**
-     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `forwardedIpConfig` below for more details.
+     * @return Configuration for inspecting IP addresses in an HTTP header instead of using the web request origin. See Forwarded IP Config below.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfig forwardedIpConfig;
 
     private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatement() {}
     /**
-     * @return List of Autonomous System Numbers (ASNs).
+     * @return List of Autonomous System Numbers (ASNs) to match against. ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies.
      * 
      */
     public List<Integer> asnLists() {
         return this.asnLists;
     }
     /**
-     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `forwardedIpConfig` below for more details.
+     * @return Configuration for inspecting IP addresses in an HTTP header instead of using the web request origin. See Forwarded IP Config below.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfig> forwardedIpConfig() {

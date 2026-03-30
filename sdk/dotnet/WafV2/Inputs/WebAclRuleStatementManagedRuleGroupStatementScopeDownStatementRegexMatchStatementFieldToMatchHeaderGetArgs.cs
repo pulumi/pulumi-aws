@@ -13,19 +13,19 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The filter to use to identify the subset of headers to inspect in a web request. The `MatchPattern` block supports only one of the following arguments:
+        /// Headers to inspect. See Headers Match Pattern below.
         /// </summary>
-        [Input("matchPattern", required: true)]
-        public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternGetArgs> MatchPattern { get; set; } = null!;
+        [Input("matchPattern")]
+        public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternGetArgs>? MatchPattern { get; set; }
 
         /// <summary>
-        /// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        /// Parts of the headers to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
         /// </summary>
         [Input("matchScope", required: true)]
         public Input<string> MatchScope { get; set; } = null!;
 
         /// <summary>
-        /// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        /// How to handle requests with headers larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         /// </summary>
         [Input("oversizeHandling", required: true)]
         public Input<string> OversizeHandling { get; set; } = null!;

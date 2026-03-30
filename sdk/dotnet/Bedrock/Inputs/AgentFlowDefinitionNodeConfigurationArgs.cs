@@ -24,6 +24,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
         [Input("collector")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationCollectorArgs>? Collector { get; set; }
 
+        /// <summary>
+        /// Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
+        /// </summary>
         [Input("condition")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationConditionArgs>? Condition { get; set; }
 
@@ -33,11 +36,14 @@ namespace Pulumi.Aws.Bedrock.Inputs
         [Input("inlineCode")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationInlineCodeArgs>? InlineCode { get; set; }
 
+        /// <summary>
+        /// Contains configurations for an input flow node in your flow. The node `Inputs` can’t be specified for this node. This block has no fields.
+        /// </summary>
         [Input("input")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationInputArgs>? Input { get; set; }
 
         /// <summary>
-        /// Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
+        /// Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
         /// </summary>
         [Input("iterator")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationIteratorArgs>? Iterator { get; set; }
@@ -60,6 +66,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
         [Input("lex")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationLexArgs>? Lex { get; set; }
 
+        /// <summary>
+        /// Contains configurations for an output flow node in your flow. The node `Outputs` can’t be specified for this node. This block has no fields.
+        /// </summary>
         [Input("output")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationOutputArgs>? Output { get; set; }
 

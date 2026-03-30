@@ -205,6 +205,8 @@ export class Broker extends pulumi.CustomResource {
     declare public readonly engineVersion: pulumi.Output<string>;
     /**
      * Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
+     *
+     * The following arguments are optional:
      */
     declare public readonly hostInstanceType: pulumi.Output<string>;
     /**
@@ -257,10 +259,8 @@ export class Broker extends pulumi.CustomResource {
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
-     *
-     * The following arguments are optional:
      */
-    declare public readonly users: pulumi.Output<outputs.mq.BrokerUser[]>;
+    declare public readonly users: pulumi.Output<outputs.mq.BrokerUser[] | undefined>;
 
     /**
      * Create a Broker resource with the given unique name, arguments, and options.
@@ -311,9 +311,6 @@ export class Broker extends pulumi.CustomResource {
             }
             if (args?.hostInstanceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostInstanceType'");
-            }
-            if (args?.users === undefined && !opts.urn) {
-                throw new Error("Missing required property 'users'");
             }
             resourceInputs["applyImmediately"] = args?.applyImmediately;
             resourceInputs["authenticationStrategy"] = args?.authenticationStrategy;
@@ -401,6 +398,8 @@ export interface BrokerState {
     engineVersion?: pulumi.Input<string>;
     /**
      * Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
+     *
+     * The following arguments are optional:
      */
     hostInstanceType?: pulumi.Input<string>;
     /**
@@ -453,8 +452,6 @@ export interface BrokerState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
-     *
-     * The following arguments are optional:
      */
     users?: pulumi.Input<pulumi.Input<inputs.mq.BrokerUser>[]>;
 }
@@ -509,6 +506,8 @@ export interface BrokerArgs {
     engineVersion: pulumi.Input<string>;
     /**
      * Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
+     *
+     * The following arguments are optional:
      */
     hostInstanceType: pulumi.Input<string>;
     /**
@@ -549,8 +548,6 @@ export interface BrokerArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
-     *
-     * The following arguments are optional:
      */
-    users: pulumi.Input<pulumi.Input<inputs.mq.BrokerUser>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.mq.BrokerUser>[]>;
 }

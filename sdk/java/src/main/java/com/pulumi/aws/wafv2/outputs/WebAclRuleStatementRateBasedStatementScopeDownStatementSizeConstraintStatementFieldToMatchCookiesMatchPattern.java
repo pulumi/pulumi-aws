@@ -13,25 +13,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
+    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll all;
     /**
-     * @return An empty configuration block that is used for inspecting all headers.
+     * @return List of cookie names to exclude from inspection.
      * 
      */
-    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll all;
     private @Nullable List<String> excludedCookies;
+    /**
+     * @return List of cookie names to inspect.
+     * 
+     */
     private @Nullable List<String> includedCookies;
 
     private WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern() {}
-    /**
-     * @return An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll> all() {
         return Optional.ofNullable(this.all);
     }
+    /**
+     * @return List of cookie names to exclude from inspection.
+     * 
+     */
     public List<String> excludedCookies() {
         return this.excludedCookies == null ? List.of() : this.excludedCookies;
     }
+    /**
+     * @return List of cookie names to inspect.
+     * 
+     */
     public List<String> includedCookies() {
         return this.includedCookies == null ? List.of() : this.includedCookies;
     }

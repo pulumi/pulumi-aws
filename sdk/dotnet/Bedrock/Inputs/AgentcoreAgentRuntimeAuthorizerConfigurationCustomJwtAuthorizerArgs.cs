@@ -48,6 +48,18 @@ namespace Pulumi.Aws.Bedrock.Inputs
             set => _allowedScopes = value;
         }
 
+        [Input("customClaims")]
+        private InputList<Inputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs>? _customClaims;
+
+        /// <summary>
+        /// Repeatable block to define a custom claim validation name, value, and operation. See `CustomClaim` below.
+        /// </summary>
+        public InputList<Inputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs> CustomClaims
+        {
+            get => _customClaims ?? (_customClaims = new InputList<Inputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs>());
+            set => _customClaims = value;
+        }
+
         /// <summary>
         /// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
         /// </summary>

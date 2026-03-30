@@ -18,78 +18,74 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementRateBasedStatement {
     /**
-     * @return Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP`, or `IP`. Default: `IP`.
+     * @return Setting that indicates how to aggregate the request counts. Defaults to `IP`. Valid values: `IP`, `FORWARDED_IP`, `CUSTOM_KEYS`, `CONSTANT`.
      * 
      */
-    private @Nullable String aggregateKeyType;
+    private String aggregateKeyType;
     /**
-     * @return Aggregate the request counts using one or more web request components as the aggregate keys. See `customKey` below for details.
+     * @return Aggregate the request counts using one or more web request components as the aggregate keys. See Custom Keys below.
      * 
      */
     private @Nullable List<WebAclRuleStatementRateBasedStatementCustomKey> customKeys;
     /**
-     * @return The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
-     * 
-     * **NOTE:** This setting doesn&#39;t determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
+     * @return Time window for which the rate limit applies, in seconds. Defaults to `300` (5 minutes). Valid values: `60`, `120`, `300`, `600`.
      * 
      */
     private @Nullable Integer evaluationWindowSec;
     /**
-     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See `forwardedIpConfig` below for details.
+     * @return Configuration for inspecting IP addresses in an HTTP header instead of using the web request origin. See Forwarded IP Config below.
      * 
      */
     private @Nullable WebAclRuleStatementRateBasedStatementForwardedIpConfig forwardedIpConfig;
     /**
-     * @return Limit on requests during the specified evaluation window for a single aggregation instance.
+     * @return Rate limit threshold (requests per evaluation window period).
      * 
      */
     private Integer limit;
     /**
-     * @return Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
+     * @return Additional statement to narrow the scope of requests that the rate-based rule evaluates. See Scope Down Statement below.
      * 
      */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatement scopeDownStatement;
 
     private WebAclRuleStatementRateBasedStatement() {}
     /**
-     * @return Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP`, or `IP`. Default: `IP`.
+     * @return Setting that indicates how to aggregate the request counts. Defaults to `IP`. Valid values: `IP`, `FORWARDED_IP`, `CUSTOM_KEYS`, `CONSTANT`.
      * 
      */
-    public Optional<String> aggregateKeyType() {
-        return Optional.ofNullable(this.aggregateKeyType);
+    public String aggregateKeyType() {
+        return this.aggregateKeyType;
     }
     /**
-     * @return Aggregate the request counts using one or more web request components as the aggregate keys. See `customKey` below for details.
+     * @return Aggregate the request counts using one or more web request components as the aggregate keys. See Custom Keys below.
      * 
      */
     public List<WebAclRuleStatementRateBasedStatementCustomKey> customKeys() {
         return this.customKeys == null ? List.of() : this.customKeys;
     }
     /**
-     * @return The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
-     * 
-     * **NOTE:** This setting doesn&#39;t determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
+     * @return Time window for which the rate limit applies, in seconds. Defaults to `300` (5 minutes). Valid values: `60`, `120`, `300`, `600`.
      * 
      */
     public Optional<Integer> evaluationWindowSec() {
         return Optional.ofNullable(this.evaluationWindowSec);
     }
     /**
-     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See `forwardedIpConfig` below for details.
+     * @return Configuration for inspecting IP addresses in an HTTP header instead of using the web request origin. See Forwarded IP Config below.
      * 
      */
     public Optional<WebAclRuleStatementRateBasedStatementForwardedIpConfig> forwardedIpConfig() {
         return Optional.ofNullable(this.forwardedIpConfig);
     }
     /**
-     * @return Limit on requests during the specified evaluation window for a single aggregation instance.
+     * @return Rate limit threshold (requests per evaluation window period).
      * 
      */
     public Integer limit() {
         return this.limit;
     }
     /**
-     * @return Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
+     * @return Additional statement to narrow the scope of requests that the rate-based rule evaluates. See Scope Down Statement below.
      * 
      */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatement> scopeDownStatement() {
@@ -105,7 +101,7 @@ public final class WebAclRuleStatementRateBasedStatement {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String aggregateKeyType;
+        private String aggregateKeyType;
         private @Nullable List<WebAclRuleStatementRateBasedStatementCustomKey> customKeys;
         private @Nullable Integer evaluationWindowSec;
         private @Nullable WebAclRuleStatementRateBasedStatementForwardedIpConfig forwardedIpConfig;
@@ -123,8 +119,10 @@ public final class WebAclRuleStatementRateBasedStatement {
         }
 
         @CustomType.Setter
-        public Builder aggregateKeyType(@Nullable String aggregateKeyType) {
-
+        public Builder aggregateKeyType(String aggregateKeyType) {
+            if (aggregateKeyType == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatement", "aggregateKeyType");
+            }
             this.aggregateKeyType = aggregateKeyType;
             return this;
         }

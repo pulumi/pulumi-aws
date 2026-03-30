@@ -45,14 +45,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
     }
 
     /**
-     * Inspect the request body, which immediately follows the request headers. See `body` below for details.
+     * Inspect the request body as plain text. See Body below.
      * 
      */
     @Import(name="body")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBodyArgs> body;
 
     /**
-     * @return Inspect the request body, which immediately follows the request headers. See `body` below for details.
+     * @return Inspect the request body as plain text. See Body below.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBodyArgs>> body() {
@@ -60,14 +60,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
     }
 
     /**
-     * Inspect the cookies in the web request. See `cookies` below for details.
+     * Inspect the request cookies. See Cookies below.
      * 
      */
     @Import(name="cookies")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesArgs> cookies;
 
     /**
-     * @return Inspect the cookies in the web request. See `cookies` below for details.
+     * @return Inspect the request cookies. See Cookies below.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesArgs>> cookies() {
@@ -75,14 +75,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
     }
 
     /**
-     * Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
+     * Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request. See Header Order below.
      * 
      */
     @Import(name="headerOrders")
     private @Nullable Output<List<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs>> headerOrders;
 
     /**
-     * @return Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
+     * @return Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request. See Header Order below.
      * 
      */
     public Optional<Output<List<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs>>> headerOrders() {
@@ -90,14 +90,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
     }
 
     /**
-     * Inspect the request headers. See `headers` below for details.
+     * Inspect the request headers. See Headers below.
      * 
      */
     @Import(name="headers")
     private @Nullable Output<List<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderArgs>> headers;
 
     /**
-     * @return Inspect the request headers. See `headers` below for details.
+     * @return Inspect the request headers. See Headers below.
      * 
      */
     public Optional<Output<List<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderArgs>>> headers() {
@@ -105,14 +105,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
     }
 
     /**
-     * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
+     * Match against the request&#39;s JA3 fingerprint (CloudFront and ALB only). See JA3 Fingerprint below.
      * 
      */
     @Import(name="ja3Fingerprint")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs> ja3Fingerprint;
 
     /**
-     * @return Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
+     * @return Match against the request&#39;s JA3 fingerprint (CloudFront and ALB only). See JA3 Fingerprint below.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs>> ja3Fingerprint() {
@@ -120,14 +120,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
     }
 
     /**
-     * Inspect the JA3 fingerprint. See `ja4Fingerprint` below for details.
+     * Match against the request&#39;s JA4 fingerprint (CloudFront and ALB only). See JA4 Fingerprint below.
      * 
      */
     @Import(name="ja4Fingerprint")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgs> ja4Fingerprint;
 
     /**
-     * @return Inspect the JA3 fingerprint. See `ja4Fingerprint` below for details.
+     * @return Match against the request&#39;s JA4 fingerprint (CloudFront and ALB only). See JA4 Fingerprint below.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgs>> ja4Fingerprint() {
@@ -135,14 +135,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
     }
 
     /**
-     * Inspect the request body as JSON. See `jsonBody` for details.
+     * Inspect the request body as JSON. See JSON Body below.
      * 
      */
     @Import(name="jsonBody")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyArgs> jsonBody;
 
     /**
-     * @return Inspect the request body as JSON. See `jsonBody` for details.
+     * @return Inspect the request body as JSON. See JSON Body below.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyArgs>> jsonBody() {
@@ -150,14 +150,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
     }
 
     /**
-     * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+     * Inspect the HTTP method.
      * 
      */
     @Import(name="method")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethodArgs> method;
 
     /**
-     * @return Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+     * @return Inspect the HTTP method.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethodArgs>> method() {
@@ -165,14 +165,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
     }
 
     /**
-     * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+     * Inspect the query string.
      * 
      */
     @Import(name="queryString")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryStringArgs> queryString;
 
     /**
-     * @return Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+     * @return Inspect the query string.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryStringArgs>> queryString() {
@@ -180,14 +180,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
     }
 
     /**
-     * Inspect a single header. See `singleHeader` below for details.
+     * Inspect a single header. See Single Header below.
      * 
      */
     @Import(name="singleHeader")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs> singleHeader;
 
     /**
-     * @return Inspect a single header. See `singleHeader` below for details.
+     * @return Inspect a single header. See Single Header below.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs>> singleHeader() {
@@ -195,14 +195,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
     }
 
     /**
-     * Inspect a single query argument. See `singleQueryArgument` below for details.
+     * Inspect a single query argument. See Single Query Argument below.
      * 
      */
     @Import(name="singleQueryArgument")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs> singleQueryArgument;
 
     /**
-     * @return Inspect a single query argument. See `singleQueryArgument` below for details.
+     * @return Inspect a single query argument. See Single Query Argument below.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs>> singleQueryArgument() {
@@ -210,14 +210,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
     }
 
     /**
-     * Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uriFragment` below for details.
+     * Inspect fragments of the request URI. See URI Fragment below.
      * 
      */
     @Import(name="uriFragment")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgs> uriFragment;
 
     /**
-     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uriFragment` below for details.
+     * @return Inspect fragments of the request URI. See URI Fragment below.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgs>> uriFragment() {
@@ -225,14 +225,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
     }
 
     /**
-     * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+     * Inspect the request URI path.
      * 
      */
     @Import(name="uriPath")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgs> uriPath;
 
     /**
-     * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+     * @return Inspect the request URI path.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgs>> uriPath() {
@@ -298,7 +298,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param body Inspect the request body, which immediately follows the request headers. See `body` below for details.
+         * @param body Inspect the request body as plain text. See Body below.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param body Inspect the request body, which immediately follows the request headers. See `body` below for details.
+         * @param body Inspect the request body as plain text. See Body below.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param cookies Inspect the cookies in the web request. See `cookies` below for details.
+         * @param cookies Inspect the request cookies. See Cookies below.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param cookies Inspect the cookies in the web request. See `cookies` below for details.
+         * @param cookies Inspect the request cookies. See Cookies below.
          * 
          * @return builder
          * 
@@ -340,7 +340,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param headerOrders Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
+         * @param headerOrders Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request. See Header Order below.
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param headerOrders Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
+         * @param headerOrders Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request. See Header Order below.
          * 
          * @return builder
          * 
@@ -361,7 +361,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param headerOrders Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
+         * @param headerOrders Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request. See Header Order below.
          * 
          * @return builder
          * 
@@ -371,7 +371,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param headers Inspect the request headers. See `headers` below for details.
+         * @param headers Inspect the request headers. See Headers below.
          * 
          * @return builder
          * 
@@ -382,7 +382,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param headers Inspect the request headers. See `headers` below for details.
+         * @param headers Inspect the request headers. See Headers below.
          * 
          * @return builder
          * 
@@ -392,7 +392,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param headers Inspect the request headers. See `headers` below for details.
+         * @param headers Inspect the request headers. See Headers below.
          * 
          * @return builder
          * 
@@ -402,7 +402,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param ja3Fingerprint Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
+         * @param ja3Fingerprint Match against the request&#39;s JA3 fingerprint (CloudFront and ALB only). See JA3 Fingerprint below.
          * 
          * @return builder
          * 
@@ -413,7 +413,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param ja3Fingerprint Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
+         * @param ja3Fingerprint Match against the request&#39;s JA3 fingerprint (CloudFront and ALB only). See JA3 Fingerprint below.
          * 
          * @return builder
          * 
@@ -423,7 +423,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param ja4Fingerprint Inspect the JA3 fingerprint. See `ja4Fingerprint` below for details.
+         * @param ja4Fingerprint Match against the request&#39;s JA4 fingerprint (CloudFront and ALB only). See JA4 Fingerprint below.
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param ja4Fingerprint Inspect the JA3 fingerprint. See `ja4Fingerprint` below for details.
+         * @param ja4Fingerprint Match against the request&#39;s JA4 fingerprint (CloudFront and ALB only). See JA4 Fingerprint below.
          * 
          * @return builder
          * 
@@ -444,7 +444,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param jsonBody Inspect the request body as JSON. See `jsonBody` for details.
+         * @param jsonBody Inspect the request body as JSON. See JSON Body below.
          * 
          * @return builder
          * 
@@ -455,7 +455,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param jsonBody Inspect the request body as JSON. See `jsonBody` for details.
+         * @param jsonBody Inspect the request body as JSON. See JSON Body below.
          * 
          * @return builder
          * 
@@ -465,7 +465,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param method Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         * @param method Inspect the HTTP method.
          * 
          * @return builder
          * 
@@ -476,7 +476,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param method Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         * @param method Inspect the HTTP method.
          * 
          * @return builder
          * 
@@ -486,7 +486,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param queryString Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         * @param queryString Inspect the query string.
          * 
          * @return builder
          * 
@@ -497,7 +497,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param queryString Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         * @param queryString Inspect the query string.
          * 
          * @return builder
          * 
@@ -507,7 +507,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param singleHeader Inspect a single header. See `singleHeader` below for details.
+         * @param singleHeader Inspect a single header. See Single Header below.
          * 
          * @return builder
          * 
@@ -518,7 +518,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param singleHeader Inspect a single header. See `singleHeader` below for details.
+         * @param singleHeader Inspect a single header. See Single Header below.
          * 
          * @return builder
          * 
@@ -528,7 +528,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param singleQueryArgument Inspect a single query argument. See `singleQueryArgument` below for details.
+         * @param singleQueryArgument Inspect a single query argument. See Single Query Argument below.
          * 
          * @return builder
          * 
@@ -539,7 +539,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param singleQueryArgument Inspect a single query argument. See `singleQueryArgument` below for details.
+         * @param singleQueryArgument Inspect a single query argument. See Single Query Argument below.
          * 
          * @return builder
          * 
@@ -549,7 +549,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param uriFragment Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uriFragment` below for details.
+         * @param uriFragment Inspect fragments of the request URI. See URI Fragment below.
          * 
          * @return builder
          * 
@@ -560,7 +560,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param uriFragment Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uriFragment` below for details.
+         * @param uriFragment Inspect fragments of the request URI. See URI Fragment below.
          * 
          * @return builder
          * 
@@ -570,7 +570,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param uriPath Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         * @param uriPath Inspect the request URI path.
          * 
          * @return builder
          * 
@@ -581,7 +581,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         }
 
         /**
-         * @param uriPath Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         * @param uriPath Inspect the request URI path.
          * 
          * @return builder
          * 

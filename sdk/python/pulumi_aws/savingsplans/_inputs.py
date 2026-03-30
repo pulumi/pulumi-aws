@@ -17,6 +17,8 @@ from .. import _utilities
 __all__ = [
     'SavingsPlanTimeoutsArgs',
     'SavingsPlanTimeoutsArgsDict',
+    'GetOfferingsFilterArgs',
+    'GetOfferingsFilterArgsDict',
 ]
 
 class SavingsPlanTimeoutsArgsDict(TypedDict):
@@ -66,5 +68,52 @@ class SavingsPlanTimeoutsArgs:
     @delete.setter
     def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "delete", value)
+
+
+class GetOfferingsFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Filter name.
+    """
+    values: Sequence[_builtins.str]
+    """
+    List of filter values.
+    """
+
+@pulumi.input_type
+class GetOfferingsFilterArgs:
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str name: Filter name.
+        :param Sequence[_builtins.str] values: List of filter values.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Filter name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: _builtins.str):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        List of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[_builtins.str]):
+        pulumi.set(self, "values", value)
 
 

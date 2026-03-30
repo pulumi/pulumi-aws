@@ -15,9 +15,17 @@ public final class VpcEndpointAssociationVpcEndpointAssociationStatusArgs extend
 
     public static final VpcEndpointAssociationVpcEndpointAssociationStatusArgs Empty = new VpcEndpointAssociationVpcEndpointAssociationStatusArgs();
 
+    /**
+     * Set of subnets configured for use by the VPC Endpoint Association.
+     * 
+     */
     @Import(name="associationSyncStates", required=true)
     private Output<List<VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgs>> associationSyncStates;
 
+    /**
+     * @return Set of subnets configured for use by the VPC Endpoint Association.
+     * 
+     */
     public Output<List<VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgs>> associationSyncStates() {
         return this.associationSyncStates;
     }
@@ -46,15 +54,33 @@ public final class VpcEndpointAssociationVpcEndpointAssociationStatusArgs extend
             $ = new VpcEndpointAssociationVpcEndpointAssociationStatusArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param associationSyncStates Set of subnets configured for use by the VPC Endpoint Association.
+         * 
+         * @return builder
+         * 
+         */
         public Builder associationSyncStates(Output<List<VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgs>> associationSyncStates) {
             $.associationSyncStates = associationSyncStates;
             return this;
         }
 
+        /**
+         * @param associationSyncStates Set of subnets configured for use by the VPC Endpoint Association.
+         * 
+         * @return builder
+         * 
+         */
         public Builder associationSyncStates(List<VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgs> associationSyncStates) {
             return associationSyncStates(Output.of(associationSyncStates));
         }
 
+        /**
+         * @param associationSyncStates Set of subnets configured for use by the VPC Endpoint Association.
+         * 
+         * @return builder
+         * 
+         */
         public Builder associationSyncStates(VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgs... associationSyncStates) {
             return associationSyncStates(List.of(associationSyncStates));
         }

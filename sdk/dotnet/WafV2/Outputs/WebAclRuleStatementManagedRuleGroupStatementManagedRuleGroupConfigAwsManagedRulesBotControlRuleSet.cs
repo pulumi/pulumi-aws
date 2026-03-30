@@ -13,13 +13,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet
     {
-        /// <summary>
-        /// Applies only to the targeted inspection level. Determines whether to use machine learning (ML) to analyze your web traffic for bot-related activity. Defaults to `True`.
-        /// </summary>
         public readonly bool? EnableMachineLearning;
-        /// <summary>
-        /// The inspection level to use for the Bot Control rule group.
-        /// </summary>
         public readonly string InspectionLevel;
 
         [OutputConstructor]

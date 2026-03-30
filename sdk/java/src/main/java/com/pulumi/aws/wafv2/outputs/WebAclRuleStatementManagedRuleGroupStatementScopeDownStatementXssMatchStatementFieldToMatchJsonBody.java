@@ -14,50 +14,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody {
     /**
-     * @return What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+     * @return How to handle requests with invalid JSON body. Valid values: `EVALUATE_AS_STRING`, `MATCH`, `NO_MATCH`.
      * 
      */
     private @Nullable String invalidFallbackBehavior;
     /**
-     * @return The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+     * @return JSON content to inspect. See JSON Body Match Pattern below.
      * 
      */
-    private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern matchPattern;
+    private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern matchPattern;
     /**
-     * @return The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+     * @return Parts of the JSON to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
      * 
      */
     private String matchScope;
     /**
-     * @return What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+     * @return How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
      * 
      */
     private @Nullable String oversizeHandling;
 
     private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody() {}
     /**
-     * @return What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+     * @return How to handle requests with invalid JSON body. Valid values: `EVALUATE_AS_STRING`, `MATCH`, `NO_MATCH`.
      * 
      */
     public Optional<String> invalidFallbackBehavior() {
         return Optional.ofNullable(this.invalidFallbackBehavior);
     }
     /**
-     * @return The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+     * @return JSON content to inspect. See JSON Body Match Pattern below.
      * 
      */
-    public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern matchPattern() {
-        return this.matchPattern;
+    public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern> matchPattern() {
+        return Optional.ofNullable(this.matchPattern);
     }
     /**
-     * @return The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+     * @return Parts of the JSON to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
      * 
      */
     public String matchScope() {
         return this.matchScope;
     }
     /**
-     * @return What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+     * @return How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
      * 
      */
     public Optional<String> oversizeHandling() {
@@ -74,7 +74,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String invalidFallbackBehavior;
-        private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern matchPattern;
+        private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern matchPattern;
         private String matchScope;
         private @Nullable String oversizeHandling;
         public Builder() {}
@@ -93,10 +93,8 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
             return this;
         }
         @CustomType.Setter
-        public Builder matchPattern(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern matchPattern) {
-            if (matchPattern == null) {
-              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody", "matchPattern");
-            }
+        public Builder matchPattern(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern matchPattern) {
+
             this.matchPattern = matchPattern;
             return this;
         }

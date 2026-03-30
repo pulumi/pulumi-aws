@@ -17,54 +17,54 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement {
     /**
-     * @return Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+     * @return Operator to use to compare the request part to the size setting. Valid values: `EQ`, `NE`, `LE`, `LT`, `GE`, `GT`.
      * 
      */
     private String comparisonOperator;
     /**
-     * @return Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+     * @return Part of the web request that you want WAF to inspect. See Field to Match below.
      * 
      */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch fieldToMatch;
     /**
-     * @return Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+     * @return Size, in bytes, to compare to the request part, after any transformations.
      * 
      */
     private Integer size;
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below.
      * 
      */
-    private List<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation> textTransformations;
+    private @Nullable List<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation> textTransformations;
 
     private WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement() {}
     /**
-     * @return Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+     * @return Operator to use to compare the request part to the size setting. Valid values: `EQ`, `NE`, `LE`, `LT`, `GE`, `GT`.
      * 
      */
     public String comparisonOperator() {
         return this.comparisonOperator;
     }
     /**
-     * @return Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+     * @return Part of the web request that you want WAF to inspect. See Field to Match below.
      * 
      */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch> fieldToMatch() {
         return Optional.ofNullable(this.fieldToMatch);
     }
     /**
-     * @return Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+     * @return Size, in bytes, to compare to the request part, after any transformations.
      * 
      */
     public Integer size() {
         return this.size;
     }
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below.
      * 
      */
     public List<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation> textTransformations() {
-        return this.textTransformations;
+        return this.textTransformations == null ? List.of() : this.textTransformations;
     }
 
     public static Builder builder() {
@@ -79,7 +79,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         private String comparisonOperator;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch fieldToMatch;
         private Integer size;
-        private List<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation> textTransformations;
+        private @Nullable List<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation> textTransformations;
         public Builder() {}
         public Builder(WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement defaults) {
     	      Objects.requireNonNull(defaults);
@@ -112,10 +112,8 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
             return this;
         }
         @CustomType.Setter
-        public Builder textTransformations(List<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation> textTransformations) {
-            if (textTransformations == null) {
-              throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement", "textTransformations");
-            }
+        public Builder textTransformations(@Nullable List<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation> textTransformations) {
+
             this.textTransformations = textTransformations;
             return this;
         }

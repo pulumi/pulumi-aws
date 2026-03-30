@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration {
+    /**
+     * @return Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+     * 
+     */
     private @Nullable AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText text;
 
     private AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration() {}
+    /**
+     * @return Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+     * 
+     */
     public Optional<AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText> text() {
         return Optional.ofNullable(this.text);
     }

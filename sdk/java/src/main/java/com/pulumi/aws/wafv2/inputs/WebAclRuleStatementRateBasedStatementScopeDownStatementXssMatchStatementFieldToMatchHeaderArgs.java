@@ -9,6 +9,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArgs extends com.pulumi.resources.ResourceArgs {
@@ -16,29 +18,29 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMat
     public static final WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArgs Empty = new WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArgs();
 
     /**
-     * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+     * Headers to inspect. See Headers Match Pattern below.
      * 
      */
-    @Import(name="matchPattern", required=true)
-    private Output<WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs> matchPattern;
+    @Import(name="matchPattern")
+    private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs> matchPattern;
 
     /**
-     * @return The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+     * @return Headers to inspect. See Headers Match Pattern below.
      * 
      */
-    public Output<WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs> matchPattern() {
-        return this.matchPattern;
+    public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs>> matchPattern() {
+        return Optional.ofNullable(this.matchPattern);
     }
 
     /**
-     * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+     * Parts of the headers to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
      * 
      */
     @Import(name="matchScope", required=true)
     private Output<String> matchScope;
 
     /**
-     * @return The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+     * @return Parts of the headers to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
      * 
      */
     public Output<String> matchScope() {
@@ -46,14 +48,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMat
     }
 
     /**
-     * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+     * How to handle requests with headers larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
      * 
      */
     @Import(name="oversizeHandling", required=true)
     private Output<String> oversizeHandling;
 
     /**
-     * @return Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+     * @return How to handle requests with headers larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
      * 
      */
     public Output<String> oversizeHandling() {
@@ -87,18 +89,18 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMat
         }
 
         /**
-         * @param matchPattern The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * @param matchPattern Headers to inspect. See Headers Match Pattern below.
          * 
          * @return builder
          * 
          */
-        public Builder matchPattern(Output<WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs> matchPattern) {
+        public Builder matchPattern(@Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs> matchPattern) {
             $.matchPattern = matchPattern;
             return this;
         }
 
         /**
-         * @param matchPattern The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * @param matchPattern Headers to inspect. See Headers Match Pattern below.
          * 
          * @return builder
          * 
@@ -108,7 +110,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMat
         }
 
         /**
-         * @param matchScope The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * @param matchScope Parts of the headers to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
          * 
          * @return builder
          * 
@@ -119,7 +121,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMat
         }
 
         /**
-         * @param matchScope The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * @param matchScope Parts of the headers to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
          * 
          * @return builder
          * 
@@ -129,7 +131,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMat
         }
 
         /**
-         * @param oversizeHandling Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         * @param oversizeHandling How to handle requests with headers larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
          * 
          * @return builder
          * 
@@ -140,7 +142,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMat
         }
 
         /**
-         * @param oversizeHandling Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         * @param oversizeHandling How to handle requests with headers larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
          * 
          * @return builder
          * 
@@ -150,9 +152,6 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMat
         }
 
         public WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArgs build() {
-            if ($.matchPattern == null) {
-                throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArgs", "matchPattern");
-            }
             if ($.matchScope == null) {
                 throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArgs", "matchScope");
             }

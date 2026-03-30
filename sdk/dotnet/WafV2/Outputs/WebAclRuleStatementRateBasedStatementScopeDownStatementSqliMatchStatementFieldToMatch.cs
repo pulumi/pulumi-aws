@@ -18,55 +18,55 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments? AllQueryArguments;
         /// <summary>
-        /// Inspect the request body, which immediately follows the request headers. See `Body` below for details.
+        /// Inspect the request body as plain text. See Body below.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBody? Body;
         /// <summary>
-        /// Inspect the cookies in the web request. See `Cookies` below for details.
+        /// Inspect the request cookies. See Cookies below.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies? Cookies;
         /// <summary>
-        /// Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `HeaderOrder` below for details.
+        /// Inspect a string containing the list of the request's header names, ordered as they appear in the web request. See Header Order below.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder> HeaderOrders;
         /// <summary>
-        /// Inspect the request headers. See `Headers` below for details.
+        /// Inspect the request headers. See Headers below.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader> Headers;
         /// <summary>
-        /// Inspect the JA3 fingerprint. See `Ja3Fingerprint` below for details.
+        /// Match against the request's JA3 fingerprint (CloudFront and ALB only). See JA3 Fingerprint below.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint? Ja3Fingerprint;
         /// <summary>
-        /// Inspect the JA3 fingerprint. See `Ja4Fingerprint` below for details.
+        /// Match against the request's JA4 fingerprint (CloudFront and ALB only). See JA4 Fingerprint below.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint? Ja4Fingerprint;
         /// <summary>
-        /// Inspect the request body as JSON. See `JsonBody` for details.
+        /// Inspect the request body as JSON. See JSON Body below.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody? JsonBody;
         /// <summary>
-        /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        /// Inspect the HTTP method.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod? Method;
         /// <summary>
-        /// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        /// Inspect the query string.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryString? QueryString;
         /// <summary>
-        /// Inspect a single header. See `SingleHeader` below for details.
+        /// Inspect a single header. See Single Header below.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader? SingleHeader;
         /// <summary>
-        /// Inspect a single query argument. See `SingleQueryArgument` below for details.
+        /// Inspect a single query argument. See Single Query Argument below.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument? SingleQueryArgument;
         /// <summary>
-        /// Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `UriFragment` below for details.
+        /// Inspect fragments of the request URI. See URI Fragment below.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragment? UriFragment;
         /// <summary>
-        /// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        /// Inspect the request URI path.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath? UriPath;
 

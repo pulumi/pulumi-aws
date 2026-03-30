@@ -10,6 +10,7 @@ import com.pulumi.aws.networkfirewall.outputs.FirewallPolicyFirewallPolicyStatel
 import com.pulumi.aws.networkfirewall.outputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReference;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -18,6 +19,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirewallPolicyFirewallPolicy {
+    /**
+     * @return Boolean indicating whether to prevent TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. If `true`, `tlsInspectionConfigurationArn` is required. Default value: `false`.
+     * 
+     */
+    private @Nullable Boolean enableTlsSessionHolding;
     /**
      * @return . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
      * 
@@ -67,6 +73,13 @@ public final class FirewallPolicyFirewallPolicy {
     private @Nullable String tlsInspectionConfigurationArn;
 
     private FirewallPolicyFirewallPolicy() {}
+    /**
+     * @return Boolean indicating whether to prevent TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. If `true`, `tlsInspectionConfigurationArn` is required. Default value: `false`.
+     * 
+     */
+    public Optional<Boolean> enableTlsSessionHolding() {
+        return Optional.ofNullable(this.enableTlsSessionHolding);
+    }
     /**
      * @return . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
      * 
@@ -142,6 +155,7 @@ public final class FirewallPolicyFirewallPolicy {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean enableTlsSessionHolding;
         private @Nullable FirewallPolicyFirewallPolicyPolicyVariables policyVariables;
         private @Nullable List<String> statefulDefaultActions;
         private @Nullable FirewallPolicyFirewallPolicyStatefulEngineOptions statefulEngineOptions;
@@ -154,6 +168,7 @@ public final class FirewallPolicyFirewallPolicy {
         public Builder() {}
         public Builder(FirewallPolicyFirewallPolicy defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.enableTlsSessionHolding = defaults.enableTlsSessionHolding;
     	      this.policyVariables = defaults.policyVariables;
     	      this.statefulDefaultActions = defaults.statefulDefaultActions;
     	      this.statefulEngineOptions = defaults.statefulEngineOptions;
@@ -165,6 +180,12 @@ public final class FirewallPolicyFirewallPolicy {
     	      this.tlsInspectionConfigurationArn = defaults.tlsInspectionConfigurationArn;
         }
 
+        @CustomType.Setter
+        public Builder enableTlsSessionHolding(@Nullable Boolean enableTlsSessionHolding) {
+
+            this.enableTlsSessionHolding = enableTlsSessionHolding;
+            return this;
+        }
         @CustomType.Setter
         public Builder policyVariables(@Nullable FirewallPolicyFirewallPolicyPolicyVariables policyVariables) {
 
@@ -243,6 +264,7 @@ public final class FirewallPolicyFirewallPolicy {
         }
         public FirewallPolicyFirewallPolicy build() {
             final var _resultValue = new FirewallPolicyFirewallPolicy();
+            _resultValue.enableTlsSessionHolding = enableTlsSessionHolding;
             _resultValue.policyVariables = policyVariables;
             _resultValue.statefulDefaultActions = statefulDefaultActions;
             _resultValue.statefulEngineOptions = statefulEngineOptions;

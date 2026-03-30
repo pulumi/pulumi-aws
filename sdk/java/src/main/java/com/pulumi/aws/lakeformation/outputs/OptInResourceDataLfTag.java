@@ -6,6 +6,7 @@ package com.pulumi.aws.lakeformation.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,8 +18,16 @@ public final class OptInResourceDataLfTag {
      * 
      */
     private @Nullable String catalogId;
+    /**
+     * @return (Required) Key name for the LF-Tag.
+     * 
+     */
     private String key;
-    private String value;
+    /**
+     * @return (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
+     * 
+     */
+    private List<String> values;
 
     private OptInResourceDataLfTag() {}
     /**
@@ -28,11 +37,19 @@ public final class OptInResourceDataLfTag {
     public Optional<String> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
+    /**
+     * @return (Required) Key name for the LF-Tag.
+     * 
+     */
     public String key() {
         return this.key;
     }
-    public String value() {
-        return this.value;
+    /**
+     * @return (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
+     * 
+     */
+    public List<String> values() {
+        return this.values;
     }
 
     public static Builder builder() {
@@ -46,13 +63,13 @@ public final class OptInResourceDataLfTag {
     public static final class Builder {
         private @Nullable String catalogId;
         private String key;
-        private String value;
+        private List<String> values;
         public Builder() {}
         public Builder(OptInResourceDataLfTag defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.catalogId = defaults.catalogId;
     	      this.key = defaults.key;
-    	      this.value = defaults.value;
+    	      this.values = defaults.values;
         }
 
         @CustomType.Setter
@@ -70,18 +87,21 @@ public final class OptInResourceDataLfTag {
             return this;
         }
         @CustomType.Setter
-        public Builder value(String value) {
-            if (value == null) {
-              throw new MissingRequiredPropertyException("OptInResourceDataLfTag", "value");
+        public Builder values(List<String> values) {
+            if (values == null) {
+              throw new MissingRequiredPropertyException("OptInResourceDataLfTag", "values");
             }
-            this.value = value;
+            this.values = values;
             return this;
+        }
+        public Builder values(String... values) {
+            return values(List.of(values));
         }
         public OptInResourceDataLfTag build() {
             final var _resultValue = new OptInResourceDataLfTag();
             _resultValue.catalogId = catalogId;
             _resultValue.key = key;
-            _resultValue.value = value;
+            _resultValue.values = values;
             return _resultValue;
         }
     }

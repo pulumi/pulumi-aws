@@ -328,6 +328,7 @@ namespace Pulumi.Aws.Rds
         /// RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
         /// We recommend specifying 3 AZs or using the `Lifecycle` configuration block `IgnoreChanges` argument if necessary.
         /// A maximum of 3 AZs can be configured.
+        /// **Note:** [Multi-AZ DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) require exactly 3 Availability Zones in the DB subnet group. Aurora DB clusters can operate with fewer AZs, but RDS will still automatically assign 3 AZs as described above.
         /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
@@ -837,6 +838,7 @@ namespace Pulumi.Aws.Rds
         /// RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
         /// We recommend specifying 3 AZs or using the `Lifecycle` configuration block `IgnoreChanges` argument if necessary.
         /// A maximum of 3 AZs can be configured.
+        /// **Note:** [Multi-AZ DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) require exactly 3 Availability Zones in the DB subnet group. Aurora DB clusters can operate with fewer AZs, but RDS will still automatically assign 3 AZs as described above.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -1307,6 +1309,7 @@ namespace Pulumi.Aws.Rds
         /// RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
         /// We recommend specifying 3 AZs or using the `Lifecycle` configuration block `IgnoreChanges` argument if necessary.
         /// A maximum of 3 AZs can be configured.
+        /// **Note:** [Multi-AZ DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) require exactly 3 Availability Zones in the DB subnet group. Aurora DB clusters can operate with fewer AZs, but RDS will still automatically assign 3 AZs as described above.
         /// </summary>
         public InputList<string> AvailabilityZones
         {

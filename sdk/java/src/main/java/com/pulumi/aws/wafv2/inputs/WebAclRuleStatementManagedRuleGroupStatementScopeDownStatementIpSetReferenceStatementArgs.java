@@ -18,14 +18,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     public static final WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+     * ARN of the IP set to reference.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IP Set that this statement references.
+     * @return ARN of the IP set to reference.
      * 
      */
     public Output<String> arn() {
@@ -33,14 +33,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     }
 
     /**
-     * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `ipSetForwardedIpConfig` below for more details.
+     * Configuration for inspecting forwarded IP headers. See IP Set Forwarded IP Config below.
      * 
      */
     @Import(name="ipSetForwardedIpConfig")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs> ipSetForwardedIpConfig;
 
     /**
-     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `ipSetForwardedIpConfig` below for more details.
+     * @return Configuration for inspecting forwarded IP headers. See IP Set Forwarded IP Config below.
      * 
      */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs>> ipSetForwardedIpConfig() {
@@ -73,7 +73,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         * @param arn ARN of the IP set to reference.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         * @param arn ARN of the IP set to reference.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         /**
-         * @param ipSetForwardedIpConfig Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `ipSetForwardedIpConfig` below for more details.
+         * @param ipSetForwardedIpConfig Configuration for inspecting forwarded IP headers. See IP Set Forwarded IP Config below.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         /**
-         * @param ipSetForwardedIpConfig Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `ipSetForwardedIpConfig` below for more details.
+         * @param ipSetForwardedIpConfig Configuration for inspecting forwarded IP headers. See IP Set Forwarded IP Config below.
          * 
          * @return builder
          * 

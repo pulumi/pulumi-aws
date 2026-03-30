@@ -63,6 +63,8 @@ export interface GetSavingsPlanResult {
     readonly id: string;
     /**
      * The ID of the offering.
+     *
+     * @deprecated offering_id is deprecated. Use savingsPlanOfferingId instead.
      */
     readonly offeringId: string;
     /**

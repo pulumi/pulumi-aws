@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentFlowDefinitionConnectionConfigurationConditionalArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The condition that triggers this connection. For more information about how to write conditions, see the Condition node type in the [Node types](https://docs.aws.amazon.com/bedrock/latest/userguide/node-types.html) topic in the Amazon Bedrock User Guide.
+        /// </summary>
         [Input("condition", required: true)]
         public Input<string> Condition { get; set; } = null!;
 

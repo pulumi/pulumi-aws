@@ -15,7 +15,7 @@ import (
 //
 // ## Example Usage
 //
-// ### Lookup via Arn
+// ### Lookup via ARN
 //
 // ```go
 // package main
@@ -79,7 +79,7 @@ func LookupJobDefinition(ctx *pulumi.Context, args *LookupJobDefinitionArgs, opt
 
 // A collection of arguments for invoking getJobDefinition.
 type LookupJobDefinitionArgs struct {
-	// ARN of the Job Definition. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+	// ARN of the Job Definition.
 	Arn *string `pulumi:"arn"`
 	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 	Name *string `pulumi:"name"`
@@ -130,7 +130,7 @@ func LookupJobDefinitionOutput(ctx *pulumi.Context, args LookupJobDefinitionOutp
 
 // A collection of arguments for invoking getJobDefinition.
 type LookupJobDefinitionOutputArgs struct {
-	// ARN of the Job Definition. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+	// ARN of the Job Definition.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 	Name pulumi.StringPtrInput `pulumi:"name"`

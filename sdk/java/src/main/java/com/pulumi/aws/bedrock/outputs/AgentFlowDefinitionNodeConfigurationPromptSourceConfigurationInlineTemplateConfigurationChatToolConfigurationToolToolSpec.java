@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec {
     /**
-     * @return A description for the flow.
+     * @return The description of the tool.
      * 
      */
     private @Nullable String description;
@@ -24,14 +24,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema inputSchema;
     /**
-     * @return A name for the flow.
+     * @return The name of the tool.
      * 
      */
     private String name;
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec() {}
     /**
-     * @return A description for the flow.
+     * @return The description of the tool.
      * 
      */
     public Optional<String> description() {
@@ -45,7 +45,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         return Optional.ofNullable(this.inputSchema);
     }
     /**
-     * @return A name for the flow.
+     * @return The name of the tool.
      * 
      */
     public String name() {

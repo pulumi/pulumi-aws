@@ -21,7 +21,14 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// Set of allowed client IDs for JWT token validation.
         /// </summary>
         public readonly ImmutableArray<string> AllowedClients;
+        /// <summary>
+        /// Set of scopes that are allowed to access the token.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedScopes;
+        /// <summary>
+        /// Repeatable block to define a custom claim validation name, value, and operation. See `CustomClaim` below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaim> CustomClaims;
         /// <summary>
         /// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
         /// </summary>
@@ -35,11 +42,14 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
             ImmutableArray<string> allowedScopes,
 
+            ImmutableArray<Outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaim> customClaims,
+
             string discoveryUrl)
         {
             AllowedAudiences = allowedAudiences;
             AllowedClients = allowedClients;
             AllowedScopes = allowedScopes;
+            CustomClaims = customClaims;
             DiscoveryUrl = discoveryUrl;
         }
     }

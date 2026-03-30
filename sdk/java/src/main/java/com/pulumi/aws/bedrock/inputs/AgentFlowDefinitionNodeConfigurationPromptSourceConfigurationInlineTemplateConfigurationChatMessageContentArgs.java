@@ -16,16 +16,32 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
 
     public static final AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs Empty = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs();
 
+    /**
+     * Creates a cache checkpoint within a message. See Cache Point for more information.
+     * 
+     */
     @Import(name="cachePoint")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs> cachePoint;
 
+    /**
+     * @return Creates a cache checkpoint within a message. See Cache Point for more information.
+     * 
+     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs>> cachePoint() {
         return Optional.ofNullable(this.cachePoint);
     }
 
+    /**
+     * The text in the message.
+     * 
+     */
     @Import(name="text")
     private @Nullable Output<String> text;
 
+    /**
+     * @return The text in the message.
+     * 
+     */
     public Optional<Output<String>> text() {
         return Optional.ofNullable(this.text);
     }
@@ -55,20 +71,44 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
             $ = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param cachePoint Creates a cache checkpoint within a message. See Cache Point for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cachePoint(@Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs> cachePoint) {
             $.cachePoint = cachePoint;
             return this;
         }
 
+        /**
+         * @param cachePoint Creates a cache checkpoint within a message. See Cache Point for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cachePoint(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs cachePoint) {
             return cachePoint(Output.of(cachePoint));
         }
 
+        /**
+         * @param text The text in the message.
+         * 
+         * @return builder
+         * 
+         */
         public Builder text(@Nullable Output<String> text) {
             $.text = text;
             return this;
         }
 
+        /**
+         * @param text The text in the message.
+         * 
+         * @return builder
+         * 
+         */
         public Builder text(String text) {
             return text(Output.of(text));
         }

@@ -141,6 +141,7 @@ class GetSavingsPlanResult:
 
     @_builtins.property
     @pulumi.getter(name="offeringId")
+    @_utilities.deprecated("""offering_id is deprecated. Use savings_plan_offering_id instead.""")
     def offering_id(self) -> _builtins.str:
         """
         The ID of the offering.

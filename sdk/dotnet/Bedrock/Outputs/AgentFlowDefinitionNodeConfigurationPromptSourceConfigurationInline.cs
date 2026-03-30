@@ -18,9 +18,12 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string? AdditionalModelRequestFields;
         /// <summary>
-        /// Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+        /// Contains inference configurations for the prompt. See Inference Configuration for more information.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration? InferenceConfiguration;
+        /// <summary>
+        /// The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+        /// </summary>
         public readonly string ModelId;
         /// <summary>
         /// Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.

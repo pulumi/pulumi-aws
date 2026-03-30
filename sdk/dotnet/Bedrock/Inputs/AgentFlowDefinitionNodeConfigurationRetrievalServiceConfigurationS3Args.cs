@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Amazon S3 bucket in which to store the input into the node.
+        /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 

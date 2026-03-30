@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField {
-    /**
-     * @return The name of the username field.
-     * 
-     */
     private String identifier;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField() {}
-    /**
-     * @return The name of the username field.
-     * 
-     */
     public String identifier() {
         return this.identifier;
     }

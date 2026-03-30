@@ -16,6 +16,48 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AlgorithmInferenceSpecification',
+    'AlgorithmInferenceSpecificationContainer',
+    'AlgorithmInferenceSpecificationContainerAdditionalS3DataSource',
+    'AlgorithmInferenceSpecificationContainerBaseModel',
+    'AlgorithmInferenceSpecificationContainerModelDataSource',
+    'AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource',
+    'AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfig',
+    'AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfig',
+    'AlgorithmInferenceSpecificationContainerModelInput',
+    'AlgorithmTimeouts',
+    'AlgorithmTrainingSpecification',
+    'AlgorithmTrainingSpecificationAdditionalS3DataSource',
+    'AlgorithmTrainingSpecificationMetricDefinition',
+    'AlgorithmTrainingSpecificationSupportedHyperParameter',
+    'AlgorithmTrainingSpecificationSupportedHyperParameterRange',
+    'AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecification',
+    'AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecification',
+    'AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecification',
+    'AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetric',
+    'AlgorithmTrainingSpecificationTrainingChannel',
+    'AlgorithmValidationSpecification',
+    'AlgorithmValidationSpecificationValidationProfiles',
+    'AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition',
+    'AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfig',
+    'AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSource',
+    'AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource',
+    'AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource',
+    'AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig',
+    'AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig',
+    'AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfig',
+    'AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfig',
+    'AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig',
+    'AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroup',
+    'AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfig',
+    'AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecification',
+    'AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingCondition',
+    'AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition',
+    'AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput',
+    'AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSource',
+    'AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSource',
+    'AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput',
+    'AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources',
     'AppImageConfigCodeEditorAppImageConfig',
     'AppImageConfigCodeEditorAppImageConfigContainerConfig',
     'AppImageConfigCodeEditorAppImageConfigFileSystemConfig',
@@ -304,6 +346,2902 @@ __all__ = [
     'WorkteamWorkerAccessConfigurationS3Presign',
     'WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints',
 ]
+
+@pulumi.output_type
+class AlgorithmInferenceSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "supportedContentTypes":
+            suggest = "supported_content_types"
+        elif key == "supportedRealtimeInferenceInstanceTypes":
+            suggest = "supported_realtime_inference_instance_types"
+        elif key == "supportedResponseMimeTypes":
+            suggest = "supported_response_mime_types"
+        elif key == "supportedTransformInstanceTypes":
+            suggest = "supported_transform_instance_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmInferenceSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmInferenceSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmInferenceSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 containers: Sequence['outputs.AlgorithmInferenceSpecificationContainer'],
+                 supported_content_types: Optional[Sequence[_builtins.str]] = None,
+                 supported_realtime_inference_instance_types: Optional[Sequence[_builtins.str]] = None,
+                 supported_response_mime_types: Optional[Sequence[_builtins.str]] = None,
+                 supported_transform_instance_types: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence['AlgorithmInferenceSpecificationContainerArgs'] containers: List of container definitions for inference.
+        :param Sequence[_builtins.str] supported_content_types: Supported MIME types for inference requests.
+        :param Sequence[_builtins.str] supported_realtime_inference_instance_types: Instance types supported for real-time inference.
+        :param Sequence[_builtins.str] supported_response_mime_types: Supported MIME types for inference responses.
+        :param Sequence[_builtins.str] supported_transform_instance_types: Instance types supported for batch transform.
+        """
+        pulumi.set(__self__, "containers", containers)
+        if supported_content_types is not None:
+            pulumi.set(__self__, "supported_content_types", supported_content_types)
+        if supported_realtime_inference_instance_types is not None:
+            pulumi.set(__self__, "supported_realtime_inference_instance_types", supported_realtime_inference_instance_types)
+        if supported_response_mime_types is not None:
+            pulumi.set(__self__, "supported_response_mime_types", supported_response_mime_types)
+        if supported_transform_instance_types is not None:
+            pulumi.set(__self__, "supported_transform_instance_types", supported_transform_instance_types)
+
+    @_builtins.property
+    @pulumi.getter
+    def containers(self) -> Sequence['outputs.AlgorithmInferenceSpecificationContainer']:
+        """
+        List of container definitions for inference.
+        """
+        return pulumi.get(self, "containers")
+
+    @_builtins.property
+    @pulumi.getter(name="supportedContentTypes")
+    def supported_content_types(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Supported MIME types for inference requests.
+        """
+        return pulumi.get(self, "supported_content_types")
+
+    @_builtins.property
+    @pulumi.getter(name="supportedRealtimeInferenceInstanceTypes")
+    def supported_realtime_inference_instance_types(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Instance types supported for real-time inference.
+        """
+        return pulumi.get(self, "supported_realtime_inference_instance_types")
+
+    @_builtins.property
+    @pulumi.getter(name="supportedResponseMimeTypes")
+    def supported_response_mime_types(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Supported MIME types for inference responses.
+        """
+        return pulumi.get(self, "supported_response_mime_types")
+
+    @_builtins.property
+    @pulumi.getter(name="supportedTransformInstanceTypes")
+    def supported_transform_instance_types(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Instance types supported for batch transform.
+        """
+        return pulumi.get(self, "supported_transform_instance_types")
+
+
+@pulumi.output_type
+class AlgorithmInferenceSpecificationContainer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalS3DataSource":
+            suggest = "additional_s3_data_source"
+        elif key == "baseModel":
+            suggest = "base_model"
+        elif key == "containerHostname":
+            suggest = "container_hostname"
+        elif key == "frameworkVersion":
+            suggest = "framework_version"
+        elif key == "imageDigest":
+            suggest = "image_digest"
+        elif key == "isCheckpoint":
+            suggest = "is_checkpoint"
+        elif key == "modelDataEtag":
+            suggest = "model_data_etag"
+        elif key == "modelDataSource":
+            suggest = "model_data_source"
+        elif key == "modelDataUrl":
+            suggest = "model_data_url"
+        elif key == "modelInput":
+            suggest = "model_input"
+        elif key == "nearestModelName":
+            suggest = "nearest_model_name"
+        elif key == "productId":
+            suggest = "product_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmInferenceSpecificationContainer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmInferenceSpecificationContainer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmInferenceSpecificationContainer.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_s3_data_source: Optional['outputs.AlgorithmInferenceSpecificationContainerAdditionalS3DataSource'] = None,
+                 base_model: Optional['outputs.AlgorithmInferenceSpecificationContainerBaseModel'] = None,
+                 container_hostname: Optional[_builtins.str] = None,
+                 environment: Optional[Mapping[str, _builtins.str]] = None,
+                 framework: Optional[_builtins.str] = None,
+                 framework_version: Optional[_builtins.str] = None,
+                 image: Optional[_builtins.str] = None,
+                 image_digest: Optional[_builtins.str] = None,
+                 is_checkpoint: Optional[_builtins.bool] = None,
+                 model_data_etag: Optional[_builtins.str] = None,
+                 model_data_source: Optional['outputs.AlgorithmInferenceSpecificationContainerModelDataSource'] = None,
+                 model_data_url: Optional[_builtins.str] = None,
+                 model_input: Optional['outputs.AlgorithmInferenceSpecificationContainerModelInput'] = None,
+                 nearest_model_name: Optional[_builtins.str] = None,
+                 product_id: Optional[_builtins.str] = None):
+        """
+        :param 'AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceArgs' additional_s3_data_source: Additional model data to make available to the container. See Additional S3 Data Source.
+        :param 'AlgorithmInferenceSpecificationContainerBaseModelArgs' base_model: Base model information for the container. See Base Model.
+        :param _builtins.str container_hostname: DNS host name for the container.
+        :param Mapping[str, _builtins.str] environment: Environment variables to pass to the container.
+        :param _builtins.str framework: Machine learning framework in the container image.
+        :param _builtins.str framework_version: Framework version in the container image.
+        :param _builtins.str image: Container image URI.
+        :param _builtins.str image_digest: Digest of the container image.
+        :param _builtins.bool is_checkpoint: Whether the container is used as a checkpoint container.
+        :param _builtins.str model_data_etag: ETag for `model_data_url`.
+        :param 'AlgorithmInferenceSpecificationContainerModelDataSourceArgs' model_data_source: Source of model data for the container. See Model Data Source.
+        :param _builtins.str model_data_url: S3 or HTTPS URL of the model artifacts.
+        :param 'AlgorithmInferenceSpecificationContainerModelInputArgs' model_input: Additional model input configuration. See Model Input.
+        :param _builtins.str nearest_model_name: Name of a pre-existing model nearest to the one being created.
+        :param _builtins.str product_id: AWS Marketplace product ID.
+        """
+        if additional_s3_data_source is not None:
+            pulumi.set(__self__, "additional_s3_data_source", additional_s3_data_source)
+        if base_model is not None:
+            pulumi.set(__self__, "base_model", base_model)
+        if container_hostname is not None:
+            pulumi.set(__self__, "container_hostname", container_hostname)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if framework is not None:
+            pulumi.set(__self__, "framework", framework)
+        if framework_version is not None:
+            pulumi.set(__self__, "framework_version", framework_version)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+        if image_digest is not None:
+            pulumi.set(__self__, "image_digest", image_digest)
+        if is_checkpoint is not None:
+            pulumi.set(__self__, "is_checkpoint", is_checkpoint)
+        if model_data_etag is not None:
+            pulumi.set(__self__, "model_data_etag", model_data_etag)
+        if model_data_source is not None:
+            pulumi.set(__self__, "model_data_source", model_data_source)
+        if model_data_url is not None:
+            pulumi.set(__self__, "model_data_url", model_data_url)
+        if model_input is not None:
+            pulumi.set(__self__, "model_input", model_input)
+        if nearest_model_name is not None:
+            pulumi.set(__self__, "nearest_model_name", nearest_model_name)
+        if product_id is not None:
+            pulumi.set(__self__, "product_id", product_id)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalS3DataSource")
+    def additional_s3_data_source(self) -> Optional['outputs.AlgorithmInferenceSpecificationContainerAdditionalS3DataSource']:
+        """
+        Additional model data to make available to the container. See Additional S3 Data Source.
+        """
+        return pulumi.get(self, "additional_s3_data_source")
+
+    @_builtins.property
+    @pulumi.getter(name="baseModel")
+    def base_model(self) -> Optional['outputs.AlgorithmInferenceSpecificationContainerBaseModel']:
+        """
+        Base model information for the container. See Base Model.
+        """
+        return pulumi.get(self, "base_model")
+
+    @_builtins.property
+    @pulumi.getter(name="containerHostname")
+    def container_hostname(self) -> Optional[_builtins.str]:
+        """
+        DNS host name for the container.
+        """
+        return pulumi.get(self, "container_hostname")
+
+    @_builtins.property
+    @pulumi.getter
+    def environment(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Environment variables to pass to the container.
+        """
+        return pulumi.get(self, "environment")
+
+    @_builtins.property
+    @pulumi.getter
+    def framework(self) -> Optional[_builtins.str]:
+        """
+        Machine learning framework in the container image.
+        """
+        return pulumi.get(self, "framework")
+
+    @_builtins.property
+    @pulumi.getter(name="frameworkVersion")
+    def framework_version(self) -> Optional[_builtins.str]:
+        """
+        Framework version in the container image.
+        """
+        return pulumi.get(self, "framework_version")
+
+    @_builtins.property
+    @pulumi.getter
+    def image(self) -> Optional[_builtins.str]:
+        """
+        Container image URI.
+        """
+        return pulumi.get(self, "image")
+
+    @_builtins.property
+    @pulumi.getter(name="imageDigest")
+    def image_digest(self) -> Optional[_builtins.str]:
+        """
+        Digest of the container image.
+        """
+        return pulumi.get(self, "image_digest")
+
+    @_builtins.property
+    @pulumi.getter(name="isCheckpoint")
+    def is_checkpoint(self) -> Optional[_builtins.bool]:
+        """
+        Whether the container is used as a checkpoint container.
+        """
+        return pulumi.get(self, "is_checkpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="modelDataEtag")
+    def model_data_etag(self) -> Optional[_builtins.str]:
+        """
+        ETag for `model_data_url`.
+        """
+        return pulumi.get(self, "model_data_etag")
+
+    @_builtins.property
+    @pulumi.getter(name="modelDataSource")
+    def model_data_source(self) -> Optional['outputs.AlgorithmInferenceSpecificationContainerModelDataSource']:
+        """
+        Source of model data for the container. See Model Data Source.
+        """
+        return pulumi.get(self, "model_data_source")
+
+    @_builtins.property
+    @pulumi.getter(name="modelDataUrl")
+    def model_data_url(self) -> Optional[_builtins.str]:
+        """
+        S3 or HTTPS URL of the model artifacts.
+        """
+        return pulumi.get(self, "model_data_url")
+
+    @_builtins.property
+    @pulumi.getter(name="modelInput")
+    def model_input(self) -> Optional['outputs.AlgorithmInferenceSpecificationContainerModelInput']:
+        """
+        Additional model input configuration. See Model Input.
+        """
+        return pulumi.get(self, "model_input")
+
+    @_builtins.property
+    @pulumi.getter(name="nearestModelName")
+    def nearest_model_name(self) -> Optional[_builtins.str]:
+        """
+        Name of a pre-existing model nearest to the one being created.
+        """
+        return pulumi.get(self, "nearest_model_name")
+
+    @_builtins.property
+    @pulumi.getter(name="productId")
+    def product_id(self) -> Optional[_builtins.str]:
+        """
+        AWS Marketplace product ID.
+        """
+        return pulumi.get(self, "product_id")
+
+
+@pulumi.output_type
+class AlgorithmInferenceSpecificationContainerAdditionalS3DataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3DataType":
+            suggest = "s3_data_type"
+        elif key == "s3Uri":
+            suggest = "s3_uri"
+        elif key == "compressionType":
+            suggest = "compression_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmInferenceSpecificationContainerAdditionalS3DataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmInferenceSpecificationContainerAdditionalS3DataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmInferenceSpecificationContainerAdditionalS3DataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_data_type: _builtins.str,
+                 s3_uri: _builtins.str,
+                 compression_type: Optional[_builtins.str] = None,
+                 etag: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str s3_data_type: Type of additional S3 data.
+        :param _builtins.str s3_uri: S3 or HTTPS URI for the additional data.
+        :param _builtins.str compression_type: Compression type for the data. Allowed values are: `None` and `Gzip`.
+        :param _builtins.str etag: ETag of the S3 object.
+        """
+        pulumi.set(__self__, "s3_data_type", s3_data_type)
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if compression_type is not None:
+            pulumi.set(__self__, "compression_type", compression_type)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataType")
+    def s3_data_type(self) -> _builtins.str:
+        """
+        Type of additional S3 data.
+        """
+        return pulumi.get(self, "s3_data_type")
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> _builtins.str:
+        """
+        S3 or HTTPS URI for the additional data.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> Optional[_builtins.str]:
+        """
+        Compression type for the data. Allowed values are: `None` and `Gzip`.
+        """
+        return pulumi.get(self, "compression_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def etag(self) -> Optional[_builtins.str]:
+        """
+        ETag of the S3 object.
+        """
+        return pulumi.get(self, "etag")
+
+
+@pulumi.output_type
+class AlgorithmInferenceSpecificationContainerBaseModel(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hubContentName":
+            suggest = "hub_content_name"
+        elif key == "hubContentVersion":
+            suggest = "hub_content_version"
+        elif key == "recipeName":
+            suggest = "recipe_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmInferenceSpecificationContainerBaseModel. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmInferenceSpecificationContainerBaseModel.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmInferenceSpecificationContainerBaseModel.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hub_content_name: Optional[_builtins.str] = None,
+                 hub_content_version: Optional[_builtins.str] = None,
+                 recipe_name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str hub_content_name: Name of the SageMaker AI Hub content.
+        :param _builtins.str hub_content_version: Version of the SageMaker AI Hub content.
+        :param _builtins.str recipe_name: Recipe name associated with the base model.
+        """
+        if hub_content_name is not None:
+            pulumi.set(__self__, "hub_content_name", hub_content_name)
+        if hub_content_version is not None:
+            pulumi.set(__self__, "hub_content_version", hub_content_version)
+        if recipe_name is not None:
+            pulumi.set(__self__, "recipe_name", recipe_name)
+
+    @_builtins.property
+    @pulumi.getter(name="hubContentName")
+    def hub_content_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the SageMaker AI Hub content.
+        """
+        return pulumi.get(self, "hub_content_name")
+
+    @_builtins.property
+    @pulumi.getter(name="hubContentVersion")
+    def hub_content_version(self) -> Optional[_builtins.str]:
+        """
+        Version of the SageMaker AI Hub content.
+        """
+        return pulumi.get(self, "hub_content_version")
+
+    @_builtins.property
+    @pulumi.getter(name="recipeName")
+    def recipe_name(self) -> Optional[_builtins.str]:
+        """
+        Recipe name associated with the base model.
+        """
+        return pulumi.get(self, "recipe_name")
+
+
+@pulumi.output_type
+class AlgorithmInferenceSpecificationContainerModelDataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3DataSource":
+            suggest = "s3_data_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmInferenceSpecificationContainerModelDataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmInferenceSpecificationContainerModelDataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmInferenceSpecificationContainerModelDataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_data_source: Optional['outputs.AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource'] = None):
+        """
+        :param 'AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceArgs' s3_data_source: S3-backed model data source. See Model Data Source S3 Data Source.
+        """
+        if s3_data_source is not None:
+            pulumi.set(__self__, "s3_data_source", s3_data_source)
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataSource")
+    def s3_data_source(self) -> Optional['outputs.AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource']:
+        """
+        S3-backed model data source. See Model Data Source S3 Data Source.
+        """
+        return pulumi.get(self, "s3_data_source")
+
+
+@pulumi.output_type
+class AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "compressionType":
+            suggest = "compression_type"
+        elif key == "s3DataType":
+            suggest = "s3_data_type"
+        elif key == "s3Uri":
+            suggest = "s3_uri"
+        elif key == "hubAccessConfig":
+            suggest = "hub_access_config"
+        elif key == "manifestEtag":
+            suggest = "manifest_etag"
+        elif key == "manifestS3Uri":
+            suggest = "manifest_s3_uri"
+        elif key == "modelAccessConfig":
+            suggest = "model_access_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression_type: _builtins.str,
+                 s3_data_type: _builtins.str,
+                 s3_uri: _builtins.str,
+                 etag: Optional[_builtins.str] = None,
+                 hub_access_config: Optional['outputs.AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfig'] = None,
+                 manifest_etag: Optional[_builtins.str] = None,
+                 manifest_s3_uri: Optional[_builtins.str] = None,
+                 model_access_config: Optional['outputs.AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfig'] = None):
+        """
+        :param _builtins.str manifest_etag: ETag of the manifest file.
+        :param _builtins.str manifest_s3_uri: S3 or HTTPS URI of the manifest file.
+        """
+        pulumi.set(__self__, "compression_type", compression_type)
+        pulumi.set(__self__, "s3_data_type", s3_data_type)
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if hub_access_config is not None:
+            pulumi.set(__self__, "hub_access_config", hub_access_config)
+        if manifest_etag is not None:
+            pulumi.set(__self__, "manifest_etag", manifest_etag)
+        if manifest_s3_uri is not None:
+            pulumi.set(__self__, "manifest_s3_uri", manifest_s3_uri)
+        if model_access_config is not None:
+            pulumi.set(__self__, "model_access_config", model_access_config)
+
+    @_builtins.property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> _builtins.str:
+        return pulumi.get(self, "compression_type")
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataType")
+    def s3_data_type(self) -> _builtins.str:
+        return pulumi.get(self, "s3_data_type")
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> _builtins.str:
+        return pulumi.get(self, "s3_uri")
+
+    @_builtins.property
+    @pulumi.getter
+    def etag(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "etag")
+
+    @_builtins.property
+    @pulumi.getter(name="hubAccessConfig")
+    def hub_access_config(self) -> Optional['outputs.AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfig']:
+        return pulumi.get(self, "hub_access_config")
+
+    @_builtins.property
+    @pulumi.getter(name="manifestEtag")
+    def manifest_etag(self) -> Optional[_builtins.str]:
+        """
+        ETag of the manifest file.
+        """
+        return pulumi.get(self, "manifest_etag")
+
+    @_builtins.property
+    @pulumi.getter(name="manifestS3Uri")
+    def manifest_s3_uri(self) -> Optional[_builtins.str]:
+        """
+        S3 or HTTPS URI of the manifest file.
+        """
+        return pulumi.get(self, "manifest_s3_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="modelAccessConfig")
+    def model_access_config(self) -> Optional['outputs.AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfig']:
+        return pulumi.get(self, "model_access_config")
+
+
+@pulumi.output_type
+class AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hubContentArn":
+            suggest = "hub_content_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hub_content_arn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str hub_content_arn: ARN of the SageMaker AI Hub content.
+        """
+        if hub_content_arn is not None:
+            pulumi.set(__self__, "hub_content_arn", hub_content_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="hubContentArn")
+    def hub_content_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the SageMaker AI Hub content.
+        """
+        return pulumi.get(self, "hub_content_arn")
+
+
+@pulumi.output_type
+class AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "acceptEula":
+            suggest = "accept_eula"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 accept_eula: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool accept_eula: Whether to accept the model end-user license agreement.
+        """
+        if accept_eula is not None:
+            pulumi.set(__self__, "accept_eula", accept_eula)
+
+    @_builtins.property
+    @pulumi.getter(name="acceptEula")
+    def accept_eula(self) -> Optional[_builtins.bool]:
+        """
+        Whether to accept the model end-user license agreement.
+        """
+        return pulumi.get(self, "accept_eula")
+
+
+@pulumi.output_type
+class AlgorithmInferenceSpecificationContainerModelInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataInputConfig":
+            suggest = "data_input_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmInferenceSpecificationContainerModelInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmInferenceSpecificationContainerModelInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmInferenceSpecificationContainerModelInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_input_config: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str data_input_config: Input configuration for the model.
+        """
+        if data_input_config is not None:
+            pulumi.set(__self__, "data_input_config", data_input_config)
+
+    @_builtins.property
+    @pulumi.getter(name="dataInputConfig")
+    def data_input_config(self) -> Optional[_builtins.str]:
+        """
+        Input configuration for the model.
+        """
+        return pulumi.get(self, "data_input_config")
+
+
+@pulumi.output_type
+class AlgorithmTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+
+@pulumi.output_type
+class AlgorithmTrainingSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "supportedTrainingInstanceTypes":
+            suggest = "supported_training_instance_types"
+        elif key == "trainingChannels":
+            suggest = "training_channels"
+        elif key == "trainingImage":
+            suggest = "training_image"
+        elif key == "additionalS3DataSource":
+            suggest = "additional_s3_data_source"
+        elif key == "metricDefinitions":
+            suggest = "metric_definitions"
+        elif key == "supportedHyperParameters":
+            suggest = "supported_hyper_parameters"
+        elif key == "supportedTuningJobObjectiveMetrics":
+            suggest = "supported_tuning_job_objective_metrics"
+        elif key == "supportsDistributedTraining":
+            suggest = "supports_distributed_training"
+        elif key == "trainingImageDigest":
+            suggest = "training_image_digest"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmTrainingSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmTrainingSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmTrainingSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 supported_training_instance_types: Sequence[_builtins.str],
+                 training_channels: Sequence['outputs.AlgorithmTrainingSpecificationTrainingChannel'],
+                 training_image: _builtins.str,
+                 additional_s3_data_source: Optional['outputs.AlgorithmTrainingSpecificationAdditionalS3DataSource'] = None,
+                 metric_definitions: Optional[Sequence['outputs.AlgorithmTrainingSpecificationMetricDefinition']] = None,
+                 supported_hyper_parameters: Optional[Sequence['outputs.AlgorithmTrainingSpecificationSupportedHyperParameter']] = None,
+                 supported_tuning_job_objective_metrics: Optional[Sequence['outputs.AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetric']] = None,
+                 supports_distributed_training: Optional[_builtins.bool] = None,
+                 training_image_digest: Optional[_builtins.str] = None):
+        """
+        :param Sequence[_builtins.str] supported_training_instance_types: Instance types supported for training.
+        :param Sequence['AlgorithmTrainingSpecificationTrainingChannelArgs'] training_channels: List of channel definitions supported for training. See Training Channels.
+        :param _builtins.str training_image: Training image URI.
+        :param 'AlgorithmTrainingSpecificationAdditionalS3DataSourceArgs' additional_s3_data_source: Additional training data to make available to the algorithm. See Additional S3 Data Source.
+        :param Sequence['AlgorithmTrainingSpecificationMetricDefinitionArgs'] metric_definitions: List of metric definitions used to parse training logs. See Metric Definitions.
+        :param Sequence['AlgorithmTrainingSpecificationSupportedHyperParameterArgs'] supported_hyper_parameters: Hyperparameter definitions supported by the algorithm. See Supported Hyper Parameters.
+        :param Sequence['AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArgs'] supported_tuning_job_objective_metrics: Objective metrics supported for hyperparameter tuning jobs. See Supported Tuning Job Objective Metrics.
+        :param _builtins.bool supports_distributed_training: Whether the algorithm supports distributed training.
+        :param _builtins.str training_image_digest: Digest of the training image.
+        """
+        pulumi.set(__self__, "supported_training_instance_types", supported_training_instance_types)
+        pulumi.set(__self__, "training_channels", training_channels)
+        pulumi.set(__self__, "training_image", training_image)
+        if additional_s3_data_source is not None:
+            pulumi.set(__self__, "additional_s3_data_source", additional_s3_data_source)
+        if metric_definitions is not None:
+            pulumi.set(__self__, "metric_definitions", metric_definitions)
+        if supported_hyper_parameters is not None:
+            pulumi.set(__self__, "supported_hyper_parameters", supported_hyper_parameters)
+        if supported_tuning_job_objective_metrics is not None:
+            pulumi.set(__self__, "supported_tuning_job_objective_metrics", supported_tuning_job_objective_metrics)
+        if supports_distributed_training is not None:
+            pulumi.set(__self__, "supports_distributed_training", supports_distributed_training)
+        if training_image_digest is not None:
+            pulumi.set(__self__, "training_image_digest", training_image_digest)
+
+    @_builtins.property
+    @pulumi.getter(name="supportedTrainingInstanceTypes")
+    def supported_training_instance_types(self) -> Sequence[_builtins.str]:
+        """
+        Instance types supported for training.
+        """
+        return pulumi.get(self, "supported_training_instance_types")
+
+    @_builtins.property
+    @pulumi.getter(name="trainingChannels")
+    def training_channels(self) -> Sequence['outputs.AlgorithmTrainingSpecificationTrainingChannel']:
+        """
+        List of channel definitions supported for training. See Training Channels.
+        """
+        return pulumi.get(self, "training_channels")
+
+    @_builtins.property
+    @pulumi.getter(name="trainingImage")
+    def training_image(self) -> _builtins.str:
+        """
+        Training image URI.
+        """
+        return pulumi.get(self, "training_image")
+
+    @_builtins.property
+    @pulumi.getter(name="additionalS3DataSource")
+    def additional_s3_data_source(self) -> Optional['outputs.AlgorithmTrainingSpecificationAdditionalS3DataSource']:
+        """
+        Additional training data to make available to the algorithm. See Additional S3 Data Source.
+        """
+        return pulumi.get(self, "additional_s3_data_source")
+
+    @_builtins.property
+    @pulumi.getter(name="metricDefinitions")
+    def metric_definitions(self) -> Optional[Sequence['outputs.AlgorithmTrainingSpecificationMetricDefinition']]:
+        """
+        List of metric definitions used to parse training logs. See Metric Definitions.
+        """
+        return pulumi.get(self, "metric_definitions")
+
+    @_builtins.property
+    @pulumi.getter(name="supportedHyperParameters")
+    def supported_hyper_parameters(self) -> Optional[Sequence['outputs.AlgorithmTrainingSpecificationSupportedHyperParameter']]:
+        """
+        Hyperparameter definitions supported by the algorithm. See Supported Hyper Parameters.
+        """
+        return pulumi.get(self, "supported_hyper_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="supportedTuningJobObjectiveMetrics")
+    def supported_tuning_job_objective_metrics(self) -> Optional[Sequence['outputs.AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetric']]:
+        """
+        Objective metrics supported for hyperparameter tuning jobs. See Supported Tuning Job Objective Metrics.
+        """
+        return pulumi.get(self, "supported_tuning_job_objective_metrics")
+
+    @_builtins.property
+    @pulumi.getter(name="supportsDistributedTraining")
+    def supports_distributed_training(self) -> Optional[_builtins.bool]:
+        """
+        Whether the algorithm supports distributed training.
+        """
+        return pulumi.get(self, "supports_distributed_training")
+
+    @_builtins.property
+    @pulumi.getter(name="trainingImageDigest")
+    def training_image_digest(self) -> Optional[_builtins.str]:
+        """
+        Digest of the training image.
+        """
+        return pulumi.get(self, "training_image_digest")
+
+
+@pulumi.output_type
+class AlgorithmTrainingSpecificationAdditionalS3DataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3DataType":
+            suggest = "s3_data_type"
+        elif key == "s3Uri":
+            suggest = "s3_uri"
+        elif key == "compressionType":
+            suggest = "compression_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmTrainingSpecificationAdditionalS3DataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmTrainingSpecificationAdditionalS3DataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmTrainingSpecificationAdditionalS3DataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_data_type: _builtins.str,
+                 s3_uri: _builtins.str,
+                 compression_type: Optional[_builtins.str] = None,
+                 etag: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str s3_data_type: Type of additional S3 data.
+        :param _builtins.str s3_uri: S3 or HTTPS URI for the additional data.
+        :param _builtins.str compression_type: Compression type for the data. Allowed values are: `None` and `Gzip`.
+        :param _builtins.str etag: ETag of the S3 object.
+        """
+        pulumi.set(__self__, "s3_data_type", s3_data_type)
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if compression_type is not None:
+            pulumi.set(__self__, "compression_type", compression_type)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataType")
+    def s3_data_type(self) -> _builtins.str:
+        """
+        Type of additional S3 data.
+        """
+        return pulumi.get(self, "s3_data_type")
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> _builtins.str:
+        """
+        S3 or HTTPS URI for the additional data.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> Optional[_builtins.str]:
+        """
+        Compression type for the data. Allowed values are: `None` and `Gzip`.
+        """
+        return pulumi.get(self, "compression_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def etag(self) -> Optional[_builtins.str]:
+        """
+        ETag of the S3 object.
+        """
+        return pulumi.get(self, "etag")
+
+
+@pulumi.output_type
+class AlgorithmTrainingSpecificationMetricDefinition(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 regex: _builtins.str):
+        """
+        :param _builtins.str name: Metric name.
+        :param _builtins.str regex: Regular expression used to extract the metric from logs.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "regex", regex)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Metric name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def regex(self) -> _builtins.str:
+        """
+        Regular expression used to extract the metric from logs.
+        """
+        return pulumi.get(self, "regex")
+
+
+@pulumi.output_type
+class AlgorithmTrainingSpecificationSupportedHyperParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValue":
+            suggest = "default_value"
+        elif key == "isRequired":
+            suggest = "is_required"
+        elif key == "isTunable":
+            suggest = "is_tunable"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmTrainingSpecificationSupportedHyperParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmTrainingSpecificationSupportedHyperParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmTrainingSpecificationSupportedHyperParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 type: _builtins.str,
+                 default_value: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 is_required: Optional[_builtins.bool] = None,
+                 is_tunable: Optional[_builtins.bool] = None,
+                 range: Optional['outputs.AlgorithmTrainingSpecificationSupportedHyperParameterRange'] = None):
+        """
+        :param _builtins.str name: Hyperparameter name.
+        :param _builtins.str type: Hyperparameter type. Allowed values are: `Integer`, `Continuous`, `Categorical`, and `FreeText`.
+        :param _builtins.str default_value: Default value for the hyperparameter.
+        :param _builtins.str description: Description of the hyperparameter.
+        :param _builtins.bool is_required: Whether the hyperparameter is required.
+        :param _builtins.bool is_tunable: Whether the hyperparameter can be tuned.
+        :param 'AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs' range: Allowed value range for the hyperparameter. See Parameter Range.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_required is not None:
+            pulumi.set(__self__, "is_required", is_required)
+        if is_tunable is not None:
+            pulumi.set(__self__, "is_tunable", is_tunable)
+        if range is not None:
+            pulumi.set(__self__, "range", range)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Hyperparameter name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Hyperparameter type. Allowed values are: `Integer`, `Continuous`, `Categorical`, and `FreeText`.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[_builtins.str]:
+        """
+        Default value for the hyperparameter.
+        """
+        return pulumi.get(self, "default_value")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Description of the hyperparameter.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="isRequired")
+    def is_required(self) -> Optional[_builtins.bool]:
+        """
+        Whether the hyperparameter is required.
+        """
+        return pulumi.get(self, "is_required")
+
+    @_builtins.property
+    @pulumi.getter(name="isTunable")
+    def is_tunable(self) -> Optional[_builtins.bool]:
+        """
+        Whether the hyperparameter can be tuned.
+        """
+        return pulumi.get(self, "is_tunable")
+
+    @_builtins.property
+    @pulumi.getter
+    def range(self) -> Optional['outputs.AlgorithmTrainingSpecificationSupportedHyperParameterRange']:
+        """
+        Allowed value range for the hyperparameter. See Parameter Range.
+        """
+        return pulumi.get(self, "range")
+
+
+@pulumi.output_type
+class AlgorithmTrainingSpecificationSupportedHyperParameterRange(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "categoricalParameterRangeSpecification":
+            suggest = "categorical_parameter_range_specification"
+        elif key == "continuousParameterRangeSpecification":
+            suggest = "continuous_parameter_range_specification"
+        elif key == "integerParameterRangeSpecification":
+            suggest = "integer_parameter_range_specification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmTrainingSpecificationSupportedHyperParameterRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmTrainingSpecificationSupportedHyperParameterRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmTrainingSpecificationSupportedHyperParameterRange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 categorical_parameter_range_specification: Optional['outputs.AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecification'] = None,
+                 continuous_parameter_range_specification: Optional['outputs.AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecification'] = None,
+                 integer_parameter_range_specification: Optional['outputs.AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecification'] = None):
+        """
+        :param 'AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationArgs' categorical_parameter_range_specification: Categorical range definition. See Categorical Parameter Range Specification.
+        :param 'AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationArgs' continuous_parameter_range_specification: Continuous range definition. See Continuous Parameter Range Specification.
+        :param 'AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationArgs' integer_parameter_range_specification: Integer range definition. See Integer Parameter Range Specification.
+        """
+        if categorical_parameter_range_specification is not None:
+            pulumi.set(__self__, "categorical_parameter_range_specification", categorical_parameter_range_specification)
+        if continuous_parameter_range_specification is not None:
+            pulumi.set(__self__, "continuous_parameter_range_specification", continuous_parameter_range_specification)
+        if integer_parameter_range_specification is not None:
+            pulumi.set(__self__, "integer_parameter_range_specification", integer_parameter_range_specification)
+
+    @_builtins.property
+    @pulumi.getter(name="categoricalParameterRangeSpecification")
+    def categorical_parameter_range_specification(self) -> Optional['outputs.AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecification']:
+        """
+        Categorical range definition. See Categorical Parameter Range Specification.
+        """
+        return pulumi.get(self, "categorical_parameter_range_specification")
+
+    @_builtins.property
+    @pulumi.getter(name="continuousParameterRangeSpecification")
+    def continuous_parameter_range_specification(self) -> Optional['outputs.AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecification']:
+        """
+        Continuous range definition. See Continuous Parameter Range Specification.
+        """
+        return pulumi.get(self, "continuous_parameter_range_specification")
+
+    @_builtins.property
+    @pulumi.getter(name="integerParameterRangeSpecification")
+    def integer_parameter_range_specification(self) -> Optional['outputs.AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecification']:
+        """
+        Integer range definition. See Integer Parameter Range Specification.
+        """
+        return pulumi.get(self, "integer_parameter_range_specification")
+
+
+@pulumi.output_type
+class AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecification(dict):
+    def __init__(__self__, *,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] values: Allowed categorical values.
+        """
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        Allowed categorical values.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxValue":
+            suggest = "max_value"
+        elif key == "minValue":
+            suggest = "min_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_value: _builtins.str,
+                 min_value: _builtins.str):
+        """
+        :param _builtins.str max_value: Maximum allowed value.
+        :param _builtins.str min_value: Minimum allowed value.
+        """
+        pulumi.set(__self__, "max_value", max_value)
+        pulumi.set(__self__, "min_value", min_value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxValue")
+    def max_value(self) -> _builtins.str:
+        """
+        Maximum allowed value.
+        """
+        return pulumi.get(self, "max_value")
+
+    @_builtins.property
+    @pulumi.getter(name="minValue")
+    def min_value(self) -> _builtins.str:
+        """
+        Minimum allowed value.
+        """
+        return pulumi.get(self, "min_value")
+
+
+@pulumi.output_type
+class AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxValue":
+            suggest = "max_value"
+        elif key == "minValue":
+            suggest = "min_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_value: _builtins.str,
+                 min_value: _builtins.str):
+        """
+        :param _builtins.str max_value: Maximum allowed value.
+        :param _builtins.str min_value: Minimum allowed value.
+        """
+        pulumi.set(__self__, "max_value", max_value)
+        pulumi.set(__self__, "min_value", min_value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxValue")
+    def max_value(self) -> _builtins.str:
+        """
+        Maximum allowed value.
+        """
+        return pulumi.get(self, "max_value")
+
+    @_builtins.property
+    @pulumi.getter(name="minValue")
+    def min_value(self) -> _builtins.str:
+        """
+        Minimum allowed value.
+        """
+        return pulumi.get(self, "min_value")
+
+
+@pulumi.output_type
+class AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetric(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetric. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetric.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetric.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_name: _builtins.str,
+                 type: _builtins.str):
+        """
+        :param _builtins.str metric_name: Metric name.
+        :param _builtins.str type: Objective type. Allowed values are: `Minimize` and `Maximize`.
+        """
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> _builtins.str:
+        """
+        Metric name.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Objective type. Allowed values are: `Minimize` and `Maximize`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class AlgorithmTrainingSpecificationTrainingChannel(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "supportedContentTypes":
+            suggest = "supported_content_types"
+        elif key == "supportedInputModes":
+            suggest = "supported_input_modes"
+        elif key == "isRequired":
+            suggest = "is_required"
+        elif key == "supportedCompressionTypes":
+            suggest = "supported_compression_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmTrainingSpecificationTrainingChannel. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmTrainingSpecificationTrainingChannel.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmTrainingSpecificationTrainingChannel.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 supported_content_types: Sequence[_builtins.str],
+                 supported_input_modes: Sequence[_builtins.str],
+                 description: Optional[_builtins.str] = None,
+                 is_required: Optional[_builtins.bool] = None,
+                 supported_compression_types: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str name: Channel name.
+        :param Sequence[_builtins.str] supported_content_types: Supported input content types.
+        :param Sequence[_builtins.str] supported_input_modes: Supported training input modes.
+        :param _builtins.str description: Description of the channel.
+        :param _builtins.bool is_required: Whether the channel is required.
+        :param Sequence[_builtins.str] supported_compression_types: Supported compression types. Allowed values are: `None` and `Gzip`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "supported_content_types", supported_content_types)
+        pulumi.set(__self__, "supported_input_modes", supported_input_modes)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_required is not None:
+            pulumi.set(__self__, "is_required", is_required)
+        if supported_compression_types is not None:
+            pulumi.set(__self__, "supported_compression_types", supported_compression_types)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Channel name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="supportedContentTypes")
+    def supported_content_types(self) -> Sequence[_builtins.str]:
+        """
+        Supported input content types.
+        """
+        return pulumi.get(self, "supported_content_types")
+
+    @_builtins.property
+    @pulumi.getter(name="supportedInputModes")
+    def supported_input_modes(self) -> Sequence[_builtins.str]:
+        """
+        Supported training input modes.
+        """
+        return pulumi.get(self, "supported_input_modes")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Description of the channel.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="isRequired")
+    def is_required(self) -> Optional[_builtins.bool]:
+        """
+        Whether the channel is required.
+        """
+        return pulumi.get(self, "is_required")
+
+    @_builtins.property
+    @pulumi.getter(name="supportedCompressionTypes")
+    def supported_compression_types(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Supported compression types. Allowed values are: `None` and `Gzip`.
+        """
+        return pulumi.get(self, "supported_compression_types")
+
+
+@pulumi.output_type
+class AlgorithmValidationSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "validationProfiles":
+            suggest = "validation_profiles"
+        elif key == "validationRole":
+            suggest = "validation_role"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmValidationSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmValidationSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmValidationSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 validation_profiles: 'outputs.AlgorithmValidationSpecificationValidationProfiles',
+                 validation_role: _builtins.str):
+        """
+        :param 'AlgorithmValidationSpecificationValidationProfilesArgs' validation_profiles: Validation profiles for the algorithm. See Validation Profiles.
+        :param _builtins.str validation_role: IAM role ARN used for validation.
+        """
+        pulumi.set(__self__, "validation_profiles", validation_profiles)
+        pulumi.set(__self__, "validation_role", validation_role)
+
+    @_builtins.property
+    @pulumi.getter(name="validationProfiles")
+    def validation_profiles(self) -> 'outputs.AlgorithmValidationSpecificationValidationProfiles':
+        """
+        Validation profiles for the algorithm. See Validation Profiles.
+        """
+        return pulumi.get(self, "validation_profiles")
+
+    @_builtins.property
+    @pulumi.getter(name="validationRole")
+    def validation_role(self) -> _builtins.str:
+        """
+        IAM role ARN used for validation.
+        """
+        return pulumi.get(self, "validation_role")
+
+
+@pulumi.output_type
+class AlgorithmValidationSpecificationValidationProfiles(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "profileName":
+            suggest = "profile_name"
+        elif key == "trainingJobDefinition":
+            suggest = "training_job_definition"
+        elif key == "transformJobDefinition":
+            suggest = "transform_job_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmValidationSpecificationValidationProfiles. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmValidationSpecificationValidationProfiles.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmValidationSpecificationValidationProfiles.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 profile_name: _builtins.str,
+                 training_job_definition: 'outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition',
+                 transform_job_definition: Optional['outputs.AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition'] = None):
+        """
+        :param _builtins.str profile_name: Profile name.
+        :param 'AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionArgs' training_job_definition: Training job definition used during validation. See Training Job Definition.
+        :param 'AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionArgs' transform_job_definition: Transform job definition used during validation. See Transform Job Definition.
+        """
+        pulumi.set(__self__, "profile_name", profile_name)
+        pulumi.set(__self__, "training_job_definition", training_job_definition)
+        if transform_job_definition is not None:
+            pulumi.set(__self__, "transform_job_definition", transform_job_definition)
+
+    @_builtins.property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> _builtins.str:
+        """
+        Profile name.
+        """
+        return pulumi.get(self, "profile_name")
+
+    @_builtins.property
+    @pulumi.getter(name="trainingJobDefinition")
+    def training_job_definition(self) -> 'outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition':
+        """
+        Training job definition used during validation. See Training Job Definition.
+        """
+        return pulumi.get(self, "training_job_definition")
+
+    @_builtins.property
+    @pulumi.getter(name="transformJobDefinition")
+    def transform_job_definition(self) -> Optional['outputs.AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition']:
+        """
+        Transform job definition used during validation. See Transform Job Definition.
+        """
+        return pulumi.get(self, "transform_job_definition")
+
+
+@pulumi.output_type
+class AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputDataConfigs":
+            suggest = "input_data_configs"
+        elif key == "outputDataConfig":
+            suggest = "output_data_config"
+        elif key == "resourceConfig":
+            suggest = "resource_config"
+        elif key == "stoppingCondition":
+            suggest = "stopping_condition"
+        elif key == "trainingInputMode":
+            suggest = "training_input_mode"
+        elif key == "hyperParameters":
+            suggest = "hyper_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 input_data_configs: Sequence['outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfig'],
+                 output_data_config: 'outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfig',
+                 resource_config: 'outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig',
+                 stopping_condition: 'outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingCondition',
+                 training_input_mode: _builtins.str,
+                 hyper_parameters: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        :param Sequence['AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArgs'] input_data_configs: Input channel configuration for the validation training job. See Input Data Config.
+        :param 'AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigArgs' output_data_config: Output configuration for the validation training job. See Output Data Config.
+        :param 'AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigArgs' resource_config: Resource configuration for the validation training job. See Resource Config.
+        :param 'AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionArgs' stopping_condition: Stopping condition for the validation training job. See Stopping Condition.
+        :param _builtins.str training_input_mode: Input mode for the validation training job. Allowed values are: `Pipe`, `File`, and `FastFile`.
+        :param Mapping[str, _builtins.str] hyper_parameters: Hyperparameters to pass to the training job.
+        """
+        pulumi.set(__self__, "input_data_configs", input_data_configs)
+        pulumi.set(__self__, "output_data_config", output_data_config)
+        pulumi.set(__self__, "resource_config", resource_config)
+        pulumi.set(__self__, "stopping_condition", stopping_condition)
+        pulumi.set(__self__, "training_input_mode", training_input_mode)
+        if hyper_parameters is not None:
+            pulumi.set(__self__, "hyper_parameters", hyper_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="inputDataConfigs")
+    def input_data_configs(self) -> Sequence['outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfig']:
+        """
+        Input channel configuration for the validation training job. See Input Data Config.
+        """
+        return pulumi.get(self, "input_data_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="outputDataConfig")
+    def output_data_config(self) -> 'outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfig':
+        """
+        Output configuration for the validation training job. See Output Data Config.
+        """
+        return pulumi.get(self, "output_data_config")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfig")
+    def resource_config(self) -> 'outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig':
+        """
+        Resource configuration for the validation training job. See Resource Config.
+        """
+        return pulumi.get(self, "resource_config")
+
+    @_builtins.property
+    @pulumi.getter(name="stoppingCondition")
+    def stopping_condition(self) -> 'outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingCondition':
+        """
+        Stopping condition for the validation training job. See Stopping Condition.
+        """
+        return pulumi.get(self, "stopping_condition")
+
+    @_builtins.property
+    @pulumi.getter(name="trainingInputMode")
+    def training_input_mode(self) -> _builtins.str:
+        """
+        Input mode for the validation training job. Allowed values are: `Pipe`, `File`, and `FastFile`.
+        """
+        return pulumi.get(self, "training_input_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="hyperParameters")
+    def hyper_parameters(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Hyperparameters to pass to the training job.
+        """
+        return pulumi.get(self, "hyper_parameters")
+
+
+@pulumi.output_type
+class AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "channelName":
+            suggest = "channel_name"
+        elif key == "dataSource":
+            suggest = "data_source"
+        elif key == "compressionType":
+            suggest = "compression_type"
+        elif key == "contentType":
+            suggest = "content_type"
+        elif key == "inputMode":
+            suggest = "input_mode"
+        elif key == "recordWrapperType":
+            suggest = "record_wrapper_type"
+        elif key == "shuffleConfig":
+            suggest = "shuffle_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 channel_name: _builtins.str,
+                 data_source: 'outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSource',
+                 compression_type: Optional[_builtins.str] = None,
+                 content_type: Optional[_builtins.str] = None,
+                 input_mode: Optional[_builtins.str] = None,
+                 record_wrapper_type: Optional[_builtins.str] = None,
+                 shuffle_config: Optional['outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfig'] = None):
+        """
+        :param _builtins.str channel_name: Name of the channel.
+        :param 'AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceArgs' data_source: Source of the input data. See Data Source.
+        :param _builtins.str compression_type: Compression type of the input data. Allowed values are: `None` and `Gzip`.
+        :param _builtins.str content_type: MIME type of the input data.
+        :param _builtins.str input_mode: Training input mode for the channel. Allowed values are: `Pipe`, `File`, and `FastFile`.
+        :param _builtins.str record_wrapper_type: Record wrapper type. Allowed values are: `None` and `RecordIO`.
+        :param 'AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigArgs' shuffle_config: Shuffle configuration for the channel. See Shuffle Config.
+        """
+        pulumi.set(__self__, "channel_name", channel_name)
+        pulumi.set(__self__, "data_source", data_source)
+        if compression_type is not None:
+            pulumi.set(__self__, "compression_type", compression_type)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if input_mode is not None:
+            pulumi.set(__self__, "input_mode", input_mode)
+        if record_wrapper_type is not None:
+            pulumi.set(__self__, "record_wrapper_type", record_wrapper_type)
+        if shuffle_config is not None:
+            pulumi.set(__self__, "shuffle_config", shuffle_config)
+
+    @_builtins.property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> _builtins.str:
+        """
+        Name of the channel.
+        """
+        return pulumi.get(self, "channel_name")
+
+    @_builtins.property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> 'outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSource':
+        """
+        Source of the input data. See Data Source.
+        """
+        return pulumi.get(self, "data_source")
+
+    @_builtins.property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> Optional[_builtins.str]:
+        """
+        Compression type of the input data. Allowed values are: `None` and `Gzip`.
+        """
+        return pulumi.get(self, "compression_type")
+
+    @_builtins.property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[_builtins.str]:
+        """
+        MIME type of the input data.
+        """
+        return pulumi.get(self, "content_type")
+
+    @_builtins.property
+    @pulumi.getter(name="inputMode")
+    def input_mode(self) -> Optional[_builtins.str]:
+        """
+        Training input mode for the channel. Allowed values are: `Pipe`, `File`, and `FastFile`.
+        """
+        return pulumi.get(self, "input_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="recordWrapperType")
+    def record_wrapper_type(self) -> Optional[_builtins.str]:
+        """
+        Record wrapper type. Allowed values are: `None` and `RecordIO`.
+        """
+        return pulumi.get(self, "record_wrapper_type")
+
+    @_builtins.property
+    @pulumi.getter(name="shuffleConfig")
+    def shuffle_config(self) -> Optional['outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfig']:
+        """
+        Shuffle configuration for the channel. See Shuffle Config.
+        """
+        return pulumi.get(self, "shuffle_config")
+
+
+@pulumi.output_type
+class AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileSystemDataSource":
+            suggest = "file_system_data_source"
+        elif key == "s3DataSource":
+            suggest = "s3_data_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_system_data_source: Optional['outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource'] = None,
+                 s3_data_source: Optional['outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource'] = None):
+        """
+        :param 'AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceArgs' file_system_data_source: File system-backed data source. See File System Data Source.
+        :param 'AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs' s3_data_source: S3-backed training data source. See Training S3 Data Source.
+        """
+        if file_system_data_source is not None:
+            pulumi.set(__self__, "file_system_data_source", file_system_data_source)
+        if s3_data_source is not None:
+            pulumi.set(__self__, "s3_data_source", s3_data_source)
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemDataSource")
+    def file_system_data_source(self) -> Optional['outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource']:
+        """
+        File system-backed data source. See File System Data Source.
+        """
+        return pulumi.get(self, "file_system_data_source")
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataSource")
+    def s3_data_source(self) -> Optional['outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource']:
+        """
+        S3-backed training data source. See Training S3 Data Source.
+        """
+        return pulumi.get(self, "s3_data_source")
+
+
+@pulumi.output_type
+class AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "directoryPath":
+            suggest = "directory_path"
+        elif key == "fileSystemAccessMode":
+            suggest = "file_system_access_mode"
+        elif key == "fileSystemId":
+            suggest = "file_system_id"
+        elif key == "fileSystemType":
+            suggest = "file_system_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 directory_path: _builtins.str,
+                 file_system_access_mode: _builtins.str,
+                 file_system_id: _builtins.str,
+                 file_system_type: _builtins.str):
+        """
+        :param _builtins.str directory_path: Path to the directory in the mounted file system.
+        :param _builtins.str file_system_access_mode: File system access mode.
+        :param _builtins.str file_system_id: ID of the file system.
+        :param _builtins.str file_system_type: File system type.
+        """
+        pulumi.set(__self__, "directory_path", directory_path)
+        pulumi.set(__self__, "file_system_access_mode", file_system_access_mode)
+        pulumi.set(__self__, "file_system_id", file_system_id)
+        pulumi.set(__self__, "file_system_type", file_system_type)
+
+    @_builtins.property
+    @pulumi.getter(name="directoryPath")
+    def directory_path(self) -> _builtins.str:
+        """
+        Path to the directory in the mounted file system.
+        """
+        return pulumi.get(self, "directory_path")
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemAccessMode")
+    def file_system_access_mode(self) -> _builtins.str:
+        """
+        File system access mode.
+        """
+        return pulumi.get(self, "file_system_access_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> _builtins.str:
+        """
+        ID of the file system.
+        """
+        return pulumi.get(self, "file_system_id")
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemType")
+    def file_system_type(self) -> _builtins.str:
+        """
+        File system type.
+        """
+        return pulumi.get(self, "file_system_type")
+
+
+@pulumi.output_type
+class AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3DataType":
+            suggest = "s3_data_type"
+        elif key == "s3Uri":
+            suggest = "s3_uri"
+        elif key == "attributeNames":
+            suggest = "attribute_names"
+        elif key == "hubAccessConfig":
+            suggest = "hub_access_config"
+        elif key == "instanceGroupNames":
+            suggest = "instance_group_names"
+        elif key == "modelAccessConfig":
+            suggest = "model_access_config"
+        elif key == "s3DataDistributionType":
+            suggest = "s3_data_distribution_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_data_type: _builtins.str,
+                 s3_uri: _builtins.str,
+                 attribute_names: Optional[Sequence[_builtins.str]] = None,
+                 hub_access_config: Optional['outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig'] = None,
+                 instance_group_names: Optional[Sequence[_builtins.str]] = None,
+                 model_access_config: Optional['outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig'] = None,
+                 s3_data_distribution_type: Optional[_builtins.str] = None):
+        """
+        :param Sequence[_builtins.str] attribute_names: List of JSON attribute names to select from the input data.
+        :param Sequence[_builtins.str] instance_group_names: Instance group names associated with the data source.
+        :param _builtins.str s3_data_distribution_type: Distribution type for S3 data. Allowed values are: `FullyReplicated` and `ShardedByS3Key`.
+        """
+        pulumi.set(__self__, "s3_data_type", s3_data_type)
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if attribute_names is not None:
+            pulumi.set(__self__, "attribute_names", attribute_names)
+        if hub_access_config is not None:
+            pulumi.set(__self__, "hub_access_config", hub_access_config)
+        if instance_group_names is not None:
+            pulumi.set(__self__, "instance_group_names", instance_group_names)
+        if model_access_config is not None:
+            pulumi.set(__self__, "model_access_config", model_access_config)
+        if s3_data_distribution_type is not None:
+            pulumi.set(__self__, "s3_data_distribution_type", s3_data_distribution_type)
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataType")
+    def s3_data_type(self) -> _builtins.str:
+        return pulumi.get(self, "s3_data_type")
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> _builtins.str:
+        return pulumi.get(self, "s3_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="attributeNames")
+    def attribute_names(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of JSON attribute names to select from the input data.
+        """
+        return pulumi.get(self, "attribute_names")
+
+    @_builtins.property
+    @pulumi.getter(name="hubAccessConfig")
+    def hub_access_config(self) -> Optional['outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig']:
+        return pulumi.get(self, "hub_access_config")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceGroupNames")
+    def instance_group_names(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Instance group names associated with the data source.
+        """
+        return pulumi.get(self, "instance_group_names")
+
+    @_builtins.property
+    @pulumi.getter(name="modelAccessConfig")
+    def model_access_config(self) -> Optional['outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig']:
+        return pulumi.get(self, "model_access_config")
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataDistributionType")
+    def s3_data_distribution_type(self) -> Optional[_builtins.str]:
+        """
+        Distribution type for S3 data. Allowed values are: `FullyReplicated` and `ShardedByS3Key`.
+        """
+        return pulumi.get(self, "s3_data_distribution_type")
+
+
+@pulumi.output_type
+class AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hubContentArn":
+            suggest = "hub_content_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hub_content_arn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str hub_content_arn: ARN of the SageMaker AI Hub content.
+        """
+        if hub_content_arn is not None:
+            pulumi.set(__self__, "hub_content_arn", hub_content_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="hubContentArn")
+    def hub_content_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the SageMaker AI Hub content.
+        """
+        return pulumi.get(self, "hub_content_arn")
+
+
+@pulumi.output_type
+class AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "acceptEula":
+            suggest = "accept_eula"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 accept_eula: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool accept_eula: Whether to accept the model end-user license agreement.
+        """
+        if accept_eula is not None:
+            pulumi.set(__self__, "accept_eula", accept_eula)
+
+    @_builtins.property
+    @pulumi.getter(name="acceptEula")
+    def accept_eula(self) -> Optional[_builtins.bool]:
+        """
+        Whether to accept the model end-user license agreement.
+        """
+        return pulumi.get(self, "accept_eula")
+
+
+@pulumi.output_type
+class AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfig(dict):
+    def __init__(__self__, *,
+                 seed: _builtins.int):
+        """
+        :param _builtins.int seed: Shuffle seed.
+        """
+        pulumi.set(__self__, "seed", seed)
+
+    @_builtins.property
+    @pulumi.getter
+    def seed(self) -> _builtins.int:
+        """
+        Shuffle seed.
+        """
+        return pulumi.get(self, "seed")
+
+
+@pulumi.output_type
+class AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3OutputPath":
+            suggest = "s3_output_path"
+        elif key == "compressionType":
+            suggest = "compression_type"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_output_path: _builtins.str,
+                 compression_type: Optional[_builtins.str] = None,
+                 kms_key_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str s3_output_path: S3 or HTTPS URI where output data is stored.
+        :param _builtins.str compression_type: Compression type for the output data. Allowed values are: `None` and `GZIP`.
+        :param _builtins.str kms_key_id: KMS key ID used to encrypt output data.
+        """
+        pulumi.set(__self__, "s3_output_path", s3_output_path)
+        if compression_type is not None:
+            pulumi.set(__self__, "compression_type", compression_type)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> _builtins.str:
+        """
+        S3 or HTTPS URI where output data is stored.
+        """
+        return pulumi.get(self, "s3_output_path")
+
+    @_builtins.property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> Optional[_builtins.str]:
+        """
+        Compression type for the output data. Allowed values are: `None` and `GZIP`.
+        """
+        return pulumi.get(self, "compression_type")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        KMS key ID used to encrypt output data.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "instanceGroups":
+            suggest = "instance_groups"
+        elif key == "instancePlacementConfig":
+            suggest = "instance_placement_config"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "keepAlivePeriodInSeconds":
+            suggest = "keep_alive_period_in_seconds"
+        elif key == "trainingPlanArn":
+            suggest = "training_plan_arn"
+        elif key == "volumeKmsKeyId":
+            suggest = "volume_kms_key_id"
+        elif key == "volumeSizeInGb":
+            suggest = "volume_size_in_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_count: Optional[_builtins.int] = None,
+                 instance_groups: Optional[Sequence['outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroup']] = None,
+                 instance_placement_config: Optional['outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfig'] = None,
+                 instance_type: Optional[_builtins.str] = None,
+                 keep_alive_period_in_seconds: Optional[_builtins.int] = None,
+                 training_plan_arn: Optional[_builtins.str] = None,
+                 volume_kms_key_id: Optional[_builtins.str] = None,
+                 volume_size_in_gb: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int instance_count: Number of training instances.
+        :param Sequence['AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArgs'] instance_groups: Instance group definitions for the training job. See Instance Groups.
+        :param 'AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigArgs' instance_placement_config: Placement configuration for the training job. See Instance Placement Config.
+        :param _builtins.str instance_type: Training instance type.
+        :param _builtins.int keep_alive_period_in_seconds: Warm pool keep-alive period in seconds.
+        :param _builtins.str training_plan_arn: ARN of the SageMaker AI training plan.
+        :param _builtins.str volume_kms_key_id: KMS key ID used to encrypt the training volume.
+        :param _builtins.int volume_size_in_gb: Size of the training volume in GiB.
+        """
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if instance_groups is not None:
+            pulumi.set(__self__, "instance_groups", instance_groups)
+        if instance_placement_config is not None:
+            pulumi.set(__self__, "instance_placement_config", instance_placement_config)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if keep_alive_period_in_seconds is not None:
+            pulumi.set(__self__, "keep_alive_period_in_seconds", keep_alive_period_in_seconds)
+        if training_plan_arn is not None:
+            pulumi.set(__self__, "training_plan_arn", training_plan_arn)
+        if volume_kms_key_id is not None:
+            pulumi.set(__self__, "volume_kms_key_id", volume_kms_key_id)
+        if volume_size_in_gb is not None:
+            pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[_builtins.int]:
+        """
+        Number of training instances.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceGroups")
+    def instance_groups(self) -> Optional[Sequence['outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroup']]:
+        """
+        Instance group definitions for the training job. See Instance Groups.
+        """
+        return pulumi.get(self, "instance_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="instancePlacementConfig")
+    def instance_placement_config(self) -> Optional['outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfig']:
+        """
+        Placement configuration for the training job. See Instance Placement Config.
+        """
+        return pulumi.get(self, "instance_placement_config")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[_builtins.str]:
+        """
+        Training instance type.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @_builtins.property
+    @pulumi.getter(name="keepAlivePeriodInSeconds")
+    def keep_alive_period_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        Warm pool keep-alive period in seconds.
+        """
+        return pulumi.get(self, "keep_alive_period_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="trainingPlanArn")
+    def training_plan_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the SageMaker AI training plan.
+        """
+        return pulumi.get(self, "training_plan_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeKmsKeyId")
+    def volume_kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        KMS key ID used to encrypt the training volume.
+        """
+        return pulumi.get(self, "volume_kms_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeSizeInGb")
+    def volume_size_in_gb(self) -> Optional[_builtins.int]:
+        """
+        Size of the training volume in GiB.
+        """
+        return pulumi.get(self, "volume_size_in_gb")
+
+
+@pulumi.output_type
+class AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "instanceGroupName":
+            suggest = "instance_group_name"
+        elif key == "instanceType":
+            suggest = "instance_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_count: _builtins.int,
+                 instance_group_name: _builtins.str,
+                 instance_type: _builtins.str):
+        """
+        :param _builtins.int instance_count: Number of instances in the group.
+        :param _builtins.str instance_group_name: Name of the instance group.
+        :param _builtins.str instance_type: Instance type for the group.
+        """
+        pulumi.set(__self__, "instance_count", instance_count)
+        pulumi.set(__self__, "instance_group_name", instance_group_name)
+        pulumi.set(__self__, "instance_type", instance_type)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> _builtins.int:
+        """
+        Number of instances in the group.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceGroupName")
+    def instance_group_name(self) -> _builtins.str:
+        """
+        Name of the instance group.
+        """
+        return pulumi.get(self, "instance_group_name")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> _builtins.str:
+        """
+        Instance type for the group.
+        """
+        return pulumi.get(self, "instance_type")
+
+
+@pulumi.output_type
+class AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableMultipleJobs":
+            suggest = "enable_multiple_jobs"
+        elif key == "placementSpecifications":
+            suggest = "placement_specifications"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_multiple_jobs: Optional[_builtins.bool] = None,
+                 placement_specifications: Optional[Sequence['outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecification']] = None):
+        """
+        :param _builtins.bool enable_multiple_jobs: Whether multiple jobs can share the placement configuration.
+        :param Sequence['AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArgs'] placement_specifications: Placement specifications for ultra servers. See Placement Specifications.
+        """
+        if enable_multiple_jobs is not None:
+            pulumi.set(__self__, "enable_multiple_jobs", enable_multiple_jobs)
+        if placement_specifications is not None:
+            pulumi.set(__self__, "placement_specifications", placement_specifications)
+
+    @_builtins.property
+    @pulumi.getter(name="enableMultipleJobs")
+    def enable_multiple_jobs(self) -> Optional[_builtins.bool]:
+        """
+        Whether multiple jobs can share the placement configuration.
+        """
+        return pulumi.get(self, "enable_multiple_jobs")
+
+    @_builtins.property
+    @pulumi.getter(name="placementSpecifications")
+    def placement_specifications(self) -> Optional[Sequence['outputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecification']]:
+        """
+        Placement specifications for ultra servers. See Placement Specifications.
+        """
+        return pulumi.get(self, "placement_specifications")
+
+
+@pulumi.output_type
+class AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "ultraServerId":
+            suggest = "ultra_server_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_count: _builtins.int,
+                 ultra_server_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int instance_count: Number of instances for the placement specification.
+        :param _builtins.str ultra_server_id: Ultra server ID.
+        """
+        pulumi.set(__self__, "instance_count", instance_count)
+        if ultra_server_id is not None:
+            pulumi.set(__self__, "ultra_server_id", ultra_server_id)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> _builtins.int:
+        """
+        Number of instances for the placement specification.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @_builtins.property
+    @pulumi.getter(name="ultraServerId")
+    def ultra_server_id(self) -> Optional[_builtins.str]:
+        """
+        Ultra server ID.
+        """
+        return pulumi.get(self, "ultra_server_id")
+
+
+@pulumi.output_type
+class AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxPendingTimeInSeconds":
+            suggest = "max_pending_time_in_seconds"
+        elif key == "maxRuntimeInSeconds":
+            suggest = "max_runtime_in_seconds"
+        elif key == "maxWaitTimeInSeconds":
+            suggest = "max_wait_time_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_pending_time_in_seconds: Optional[_builtins.int] = None,
+                 max_runtime_in_seconds: Optional[_builtins.int] = None,
+                 max_wait_time_in_seconds: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int max_pending_time_in_seconds: Maximum time, in seconds, a job can remain pending.
+        :param _builtins.int max_runtime_in_seconds: Maximum runtime, in seconds, for the training job.
+        :param _builtins.int max_wait_time_in_seconds: Maximum wait time, in seconds, including spot interruptions.
+        """
+        if max_pending_time_in_seconds is not None:
+            pulumi.set(__self__, "max_pending_time_in_seconds", max_pending_time_in_seconds)
+        if max_runtime_in_seconds is not None:
+            pulumi.set(__self__, "max_runtime_in_seconds", max_runtime_in_seconds)
+        if max_wait_time_in_seconds is not None:
+            pulumi.set(__self__, "max_wait_time_in_seconds", max_wait_time_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="maxPendingTimeInSeconds")
+    def max_pending_time_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        Maximum time, in seconds, a job can remain pending.
+        """
+        return pulumi.get(self, "max_pending_time_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="maxRuntimeInSeconds")
+    def max_runtime_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        Maximum runtime, in seconds, for the training job.
+        """
+        return pulumi.get(self, "max_runtime_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="maxWaitTimeInSeconds")
+    def max_wait_time_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        Maximum wait time, in seconds, including spot interruptions.
+        """
+        return pulumi.get(self, "max_wait_time_in_seconds")
+
+
+@pulumi.output_type
+class AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "transformInput":
+            suggest = "transform_input"
+        elif key == "transformOutput":
+            suggest = "transform_output"
+        elif key == "transformResources":
+            suggest = "transform_resources"
+        elif key == "batchStrategy":
+            suggest = "batch_strategy"
+        elif key == "maxConcurrentTransforms":
+            suggest = "max_concurrent_transforms"
+        elif key == "maxPayloadInMb":
+            suggest = "max_payload_in_mb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 transform_input: 'outputs.AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput',
+                 transform_output: 'outputs.AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput',
+                 transform_resources: 'outputs.AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources',
+                 batch_strategy: Optional[_builtins.str] = None,
+                 environment: Optional[Mapping[str, _builtins.str]] = None,
+                 max_concurrent_transforms: Optional[_builtins.int] = None,
+                 max_payload_in_mb: Optional[_builtins.int] = None):
+        """
+        :param 'AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputArgs' transform_input: Input configuration for the transform job. See Transform Input.
+        :param 'AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputArgs' transform_output: Output configuration for the transform job. See Transform Output.
+        :param 'AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesArgs' transform_resources: Compute resources for the transform job. See Transform Resources.
+        :param _builtins.str batch_strategy: Batch strategy for the transform job. Allowed values are: `MultiRecord` and `SingleRecord`.
+        :param Mapping[str, _builtins.str] environment: Environment variables to pass to the transform container.
+        :param _builtins.int max_concurrent_transforms: Maximum number of parallel transform requests.
+        :param _builtins.int max_payload_in_mb: Maximum payload size, in MiB, for transform requests.
+        """
+        pulumi.set(__self__, "transform_input", transform_input)
+        pulumi.set(__self__, "transform_output", transform_output)
+        pulumi.set(__self__, "transform_resources", transform_resources)
+        if batch_strategy is not None:
+            pulumi.set(__self__, "batch_strategy", batch_strategy)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if max_concurrent_transforms is not None:
+            pulumi.set(__self__, "max_concurrent_transforms", max_concurrent_transforms)
+        if max_payload_in_mb is not None:
+            pulumi.set(__self__, "max_payload_in_mb", max_payload_in_mb)
+
+    @_builtins.property
+    @pulumi.getter(name="transformInput")
+    def transform_input(self) -> 'outputs.AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput':
+        """
+        Input configuration for the transform job. See Transform Input.
+        """
+        return pulumi.get(self, "transform_input")
+
+    @_builtins.property
+    @pulumi.getter(name="transformOutput")
+    def transform_output(self) -> 'outputs.AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput':
+        """
+        Output configuration for the transform job. See Transform Output.
+        """
+        return pulumi.get(self, "transform_output")
+
+    @_builtins.property
+    @pulumi.getter(name="transformResources")
+    def transform_resources(self) -> 'outputs.AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources':
+        """
+        Compute resources for the transform job. See Transform Resources.
+        """
+        return pulumi.get(self, "transform_resources")
+
+    @_builtins.property
+    @pulumi.getter(name="batchStrategy")
+    def batch_strategy(self) -> Optional[_builtins.str]:
+        """
+        Batch strategy for the transform job. Allowed values are: `MultiRecord` and `SingleRecord`.
+        """
+        return pulumi.get(self, "batch_strategy")
+
+    @_builtins.property
+    @pulumi.getter
+    def environment(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Environment variables to pass to the transform container.
+        """
+        return pulumi.get(self, "environment")
+
+    @_builtins.property
+    @pulumi.getter(name="maxConcurrentTransforms")
+    def max_concurrent_transforms(self) -> Optional[_builtins.int]:
+        """
+        Maximum number of parallel transform requests.
+        """
+        return pulumi.get(self, "max_concurrent_transforms")
+
+    @_builtins.property
+    @pulumi.getter(name="maxPayloadInMb")
+    def max_payload_in_mb(self) -> Optional[_builtins.int]:
+        """
+        Maximum payload size, in MiB, for transform requests.
+        """
+        return pulumi.get(self, "max_payload_in_mb")
+
+
+@pulumi.output_type
+class AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+        elif key == "compressionType":
+            suggest = "compression_type"
+        elif key == "contentType":
+            suggest = "content_type"
+        elif key == "splitType":
+            suggest = "split_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source: 'outputs.AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSource',
+                 compression_type: Optional[_builtins.str] = None,
+                 content_type: Optional[_builtins.str] = None,
+                 split_type: Optional[_builtins.str] = None):
+        """
+        :param 'AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceArgs' data_source: Data source for the transform job. See Transform Job Data Source.
+        :param _builtins.str compression_type: Compression type of the input data. Allowed values are: `None` and `Gzip`.
+        :param _builtins.str content_type: MIME type of the input data.
+        :param _builtins.str split_type: Method used to split the transform input. Allowed values are: `None`, `Line`, `RecordIO`, and `TFRecord`.
+        """
+        pulumi.set(__self__, "data_source", data_source)
+        if compression_type is not None:
+            pulumi.set(__self__, "compression_type", compression_type)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if split_type is not None:
+            pulumi.set(__self__, "split_type", split_type)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> 'outputs.AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSource':
+        """
+        Data source for the transform job. See Transform Job Data Source.
+        """
+        return pulumi.get(self, "data_source")
+
+    @_builtins.property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> Optional[_builtins.str]:
+        """
+        Compression type of the input data. Allowed values are: `None` and `Gzip`.
+        """
+        return pulumi.get(self, "compression_type")
+
+    @_builtins.property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[_builtins.str]:
+        """
+        MIME type of the input data.
+        """
+        return pulumi.get(self, "content_type")
+
+    @_builtins.property
+    @pulumi.getter(name="splitType")
+    def split_type(self) -> Optional[_builtins.str]:
+        """
+        Method used to split the transform input. Allowed values are: `None`, `Line`, `RecordIO`, and `TFRecord`.
+        """
+        return pulumi.get(self, "split_type")
+
+
+@pulumi.output_type
+class AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3DataSource":
+            suggest = "s3_data_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_data_source: 'outputs.AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSource'):
+        """
+        :param 'AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceArgs' s3_data_source: S3-backed training data source. See Training S3 Data Source.
+        """
+        pulumi.set(__self__, "s3_data_source", s3_data_source)
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataSource")
+    def s3_data_source(self) -> 'outputs.AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSource':
+        """
+        S3-backed training data source. See Training S3 Data Source.
+        """
+        return pulumi.get(self, "s3_data_source")
+
+
+@pulumi.output_type
+class AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3DataType":
+            suggest = "s3_data_type"
+        elif key == "s3Uri":
+            suggest = "s3_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_data_type: _builtins.str,
+                 s3_uri: _builtins.str):
+        pulumi.set(__self__, "s3_data_type", s3_data_type)
+        pulumi.set(__self__, "s3_uri", s3_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataType")
+    def s3_data_type(self) -> _builtins.str:
+        return pulumi.get(self, "s3_data_type")
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> _builtins.str:
+        return pulumi.get(self, "s3_uri")
+
+
+@pulumi.output_type
+class AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3OutputPath":
+            suggest = "s3_output_path"
+        elif key == "assembleWith":
+            suggest = "assemble_with"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_output_path: _builtins.str,
+                 accept: Optional[_builtins.str] = None,
+                 assemble_with: Optional[_builtins.str] = None,
+                 kms_key_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str s3_output_path: S3 or HTTPS URI where transform output is stored.
+        :param _builtins.str accept: MIME type of the transform output.
+        :param _builtins.str assemble_with: Method used to assemble the transform output. Allowed values are: `None` and `Line`.
+        :param _builtins.str kms_key_id: KMS key ID used to encrypt transform output.
+        """
+        pulumi.set(__self__, "s3_output_path", s3_output_path)
+        if accept is not None:
+            pulumi.set(__self__, "accept", accept)
+        if assemble_with is not None:
+            pulumi.set(__self__, "assemble_with", assemble_with)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> _builtins.str:
+        """
+        S3 or HTTPS URI where transform output is stored.
+        """
+        return pulumi.get(self, "s3_output_path")
+
+    @_builtins.property
+    @pulumi.getter
+    def accept(self) -> Optional[_builtins.str]:
+        """
+        MIME type of the transform output.
+        """
+        return pulumi.get(self, "accept")
+
+    @_builtins.property
+    @pulumi.getter(name="assembleWith")
+    def assemble_with(self) -> Optional[_builtins.str]:
+        """
+        Method used to assemble the transform output. Allowed values are: `None` and `Line`.
+        """
+        return pulumi.get(self, "assemble_with")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        KMS key ID used to encrypt transform output.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "transformAmiVersion":
+            suggest = "transform_ami_version"
+        elif key == "volumeKmsKeyId":
+            suggest = "volume_kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_count: _builtins.int,
+                 instance_type: _builtins.str,
+                 transform_ami_version: Optional[_builtins.str] = None,
+                 volume_kms_key_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int instance_count: Number of transform instances.
+        :param _builtins.str instance_type: Transform instance type.
+        :param _builtins.str transform_ami_version: Transform AMI version.
+        :param _builtins.str volume_kms_key_id: KMS key ID used to encrypt the transform volume.
+        """
+        pulumi.set(__self__, "instance_count", instance_count)
+        pulumi.set(__self__, "instance_type", instance_type)
+        if transform_ami_version is not None:
+            pulumi.set(__self__, "transform_ami_version", transform_ami_version)
+        if volume_kms_key_id is not None:
+            pulumi.set(__self__, "volume_kms_key_id", volume_kms_key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> _builtins.int:
+        """
+        Number of transform instances.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> _builtins.str:
+        """
+        Transform instance type.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @_builtins.property
+    @pulumi.getter(name="transformAmiVersion")
+    def transform_ami_version(self) -> Optional[_builtins.str]:
+        """
+        Transform AMI version.
+        """
+        return pulumi.get(self, "transform_ami_version")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeKmsKeyId")
+    def volume_kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        KMS key ID used to encrypt the transform volume.
+        """
+        return pulumi.get(self, "volume_kms_key_id")
+
 
 @pulumi.output_type
 class AppImageConfigCodeEditorAppImageConfig(dict):

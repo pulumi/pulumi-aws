@@ -3,12 +3,12 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
-import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementNotStatementStatementArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class WebAclRuleStatementNotStatementArgs extends com.pulumi.resources.ResourceArgs {
@@ -16,24 +16,24 @@ public final class WebAclRuleStatementNotStatementArgs extends com.pulumi.resour
     public static final WebAclRuleStatementNotStatementArgs Empty = new WebAclRuleStatementNotStatementArgs();
 
     /**
-     * The statements to combine.
+     * Single statement to negate. Exactly one statement must be specified.
      * 
      */
-    @Import(name="statements", required=true)
-    private Output<List<WebAclRuleStatementArgs>> statements;
+    @Import(name="statement")
+    private @Nullable Output<WebAclRuleStatementNotStatementStatementArgs> statement;
 
     /**
-     * @return The statements to combine.
+     * @return Single statement to negate. Exactly one statement must be specified.
      * 
      */
-    public Output<List<WebAclRuleStatementArgs>> statements() {
-        return this.statements;
+    public Optional<Output<WebAclRuleStatementNotStatementStatementArgs>> statement() {
+        return Optional.ofNullable(this.statement);
     }
 
     private WebAclRuleStatementNotStatementArgs() {}
 
     private WebAclRuleStatementNotStatementArgs(WebAclRuleStatementNotStatementArgs $) {
-        this.statements = $.statements;
+        this.statement = $.statement;
     }
 
     public static Builder builder() {
@@ -55,40 +55,27 @@ public final class WebAclRuleStatementNotStatementArgs extends com.pulumi.resour
         }
 
         /**
-         * @param statements The statements to combine.
+         * @param statement Single statement to negate. Exactly one statement must be specified.
          * 
          * @return builder
          * 
          */
-        public Builder statements(Output<List<WebAclRuleStatementArgs>> statements) {
-            $.statements = statements;
+        public Builder statement(@Nullable Output<WebAclRuleStatementNotStatementStatementArgs> statement) {
+            $.statement = statement;
             return this;
         }
 
         /**
-         * @param statements The statements to combine.
+         * @param statement Single statement to negate. Exactly one statement must be specified.
          * 
          * @return builder
          * 
          */
-        public Builder statements(List<WebAclRuleStatementArgs> statements) {
-            return statements(Output.of(statements));
-        }
-
-        /**
-         * @param statements The statements to combine.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder statements(WebAclRuleStatementArgs... statements) {
-            return statements(List.of(statements));
+        public Builder statement(WebAclRuleStatementNotStatementStatementArgs statement) {
+            return statement(Output.of(statement));
         }
 
         public WebAclRuleStatementNotStatementArgs build() {
-            if ($.statements == null) {
-                throw new MissingRequiredPropertyException("WebAclRuleStatementNotStatementArgs", "statements");
-            }
             return $;
         }
     }

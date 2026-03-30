@@ -15,14 +15,14 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceA
     public static final WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs Empty = new WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs();
 
     /**
-     * The namespace to use for aggregation
+     * Label namespace to use as the custom key.
      * 
      */
     @Import(name="namespace", required=true)
     private Output<String> namespace;
 
     /**
-     * @return The namespace to use for aggregation
+     * @return Label namespace to use as the custom key.
      * 
      */
     public Output<String> namespace() {
@@ -54,7 +54,7 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceA
         }
 
         /**
-         * @param namespace The namespace to use for aggregation
+         * @param namespace Label namespace to use as the custom key.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceA
         }
 
         /**
-         * @param namespace The namespace to use for aggregation
+         * @param namespace Label namespace to use as the custom key.
          * 
          * @return builder
          * 

@@ -16,42 +16,42 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementRegexMatchStatement {
     /**
-     * @return The part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+     * @return Part of the web request that you want WAF to inspect. See Field to Match below.
      * 
      */
     private @Nullable WebAclRuleStatementRegexMatchStatementFieldToMatch fieldToMatch;
     /**
-     * @return String representing the regular expression. Minimum of `1` and maximum of `512` characters.
+     * @return Regular expression pattern to match against the web request component.
      * 
      */
     private String regexString;
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below.
      * 
      */
-    private List<WebAclRuleStatementRegexMatchStatementTextTransformation> textTransformations;
+    private @Nullable List<WebAclRuleStatementRegexMatchStatementTextTransformation> textTransformations;
 
     private WebAclRuleStatementRegexMatchStatement() {}
     /**
-     * @return The part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+     * @return Part of the web request that you want WAF to inspect. See Field to Match below.
      * 
      */
     public Optional<WebAclRuleStatementRegexMatchStatementFieldToMatch> fieldToMatch() {
         return Optional.ofNullable(this.fieldToMatch);
     }
     /**
-     * @return String representing the regular expression. Minimum of `1` and maximum of `512` characters.
+     * @return Regular expression pattern to match against the web request component.
      * 
      */
     public String regexString() {
         return this.regexString;
     }
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below.
      * 
      */
     public List<WebAclRuleStatementRegexMatchStatementTextTransformation> textTransformations() {
-        return this.textTransformations;
+        return this.textTransformations == null ? List.of() : this.textTransformations;
     }
 
     public static Builder builder() {
@@ -65,7 +65,7 @@ public final class WebAclRuleStatementRegexMatchStatement {
     public static final class Builder {
         private @Nullable WebAclRuleStatementRegexMatchStatementFieldToMatch fieldToMatch;
         private String regexString;
-        private List<WebAclRuleStatementRegexMatchStatementTextTransformation> textTransformations;
+        private @Nullable List<WebAclRuleStatementRegexMatchStatementTextTransformation> textTransformations;
         public Builder() {}
         public Builder(WebAclRuleStatementRegexMatchStatement defaults) {
     	      Objects.requireNonNull(defaults);
@@ -89,10 +89,8 @@ public final class WebAclRuleStatementRegexMatchStatement {
             return this;
         }
         @CustomType.Setter
-        public Builder textTransformations(List<WebAclRuleStatementRegexMatchStatementTextTransformation> textTransformations) {
-            if (textTransformations == null) {
-              throw new MissingRequiredPropertyException("WebAclRuleStatementRegexMatchStatement", "textTransformations");
-            }
+        public Builder textTransformations(@Nullable List<WebAclRuleStatementRegexMatchStatementTextTransformation> textTransformations) {
+
             this.textTransformations = textTransformations;
             return this;
         }

@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:sagemaker/algorithm:Algorithm":
+		r = &Algorithm{}
 	case "aws:sagemaker/app:App":
 		r = &App{}
 	case "aws:sagemaker/appImageConfig:AppImageConfig":
@@ -102,6 +104,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sagemaker/algorithm",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"sagemaker/app",

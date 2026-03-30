@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+        /// </summary>
         [Input("s3")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args>? S3 { get; set; }
 

@@ -817,25 +817,33 @@ class OptInResourceDataLfTag(dict):
 
     def __init__(__self__, *,
                  key: _builtins.str,
-                 value: _builtins.str,
+                 values: Sequence[_builtins.str],
                  catalog_id: Optional[_builtins.str] = None):
         """
+        :param _builtins.str key: (Required) Key name for the LF-Tag.
+        :param Sequence[_builtins.str] values: (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
         :param _builtins.str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
         """
         pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "values", values)
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
+        """
+        (Required) Key name for the LF-Tag.
+        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> _builtins.str:
-        return pulumi.get(self, "value")
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
+        """
+        return pulumi.get(self, "values")
 
     @_builtins.property
     @pulumi.getter(name="catalogId")

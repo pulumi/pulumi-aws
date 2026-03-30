@@ -31,67 +31,67 @@ public final class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMa
      */
     private @Nullable WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments allQueryArguments;
     /**
-     * @return Inspect the request body, which immediately follows the request headers. See `body` below for details.
+     * @return Inspect the request body as plain text. See Body below.
      * 
      */
     private @Nullable WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody body;
     /**
-     * @return Inspect the cookies in the web request. See `cookies` below for details.
+     * @return Inspect the request cookies. See Cookies below.
      * 
      */
     private @Nullable WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies cookies;
     /**
-     * @return Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
+     * @return Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request. See Header Order below.
      * 
      */
     private @Nullable List<WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder> headerOrders;
     /**
-     * @return Inspect the request headers. See `headers` below for details.
+     * @return Inspect the request headers. See Headers below.
      * 
      */
     private @Nullable List<WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader> headers;
     /**
-     * @return Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
+     * @return Match against the request&#39;s JA3 fingerprint (CloudFront and ALB only). See JA3 Fingerprint below.
      * 
      */
     private @Nullable WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
     /**
-     * @return Inspect the JA3 fingerprint. See `ja4Fingerprint` below for details.
+     * @return Match against the request&#39;s JA4 fingerprint (CloudFront and ALB only). See JA4 Fingerprint below.
      * 
      */
     private @Nullable WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint ja4Fingerprint;
     /**
-     * @return Inspect the request body as JSON. See `jsonBody` for details.
+     * @return Inspect the request body as JSON. See JSON Body below.
      * 
      */
     private @Nullable WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody jsonBody;
     /**
-     * @return Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+     * @return Inspect the HTTP method.
      * 
      */
     private @Nullable WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod method;
     /**
-     * @return Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+     * @return Inspect the query string.
      * 
      */
     private @Nullable WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString queryString;
     /**
-     * @return Inspect a single header. See `singleHeader` below for details.
+     * @return Inspect a single header. See Single Header below.
      * 
      */
     private @Nullable WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader singleHeader;
     /**
-     * @return Inspect a single query argument. See `singleQueryArgument` below for details.
+     * @return Inspect a single query argument. See Single Query Argument below.
      * 
      */
     private @Nullable WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument singleQueryArgument;
     /**
-     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uriFragment` below for details.
+     * @return Inspect fragments of the request URI. See URI Fragment below.
      * 
      */
     private @Nullable WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragment uriFragment;
     /**
-     * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+     * @return Inspect the request URI path.
      * 
      */
     private @Nullable WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath uriPath;
@@ -105,91 +105,91 @@ public final class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMa
         return Optional.ofNullable(this.allQueryArguments);
     }
     /**
-     * @return Inspect the request body, which immediately follows the request headers. See `body` below for details.
+     * @return Inspect the request body as plain text. See Body below.
      * 
      */
     public Optional<WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody> body() {
         return Optional.ofNullable(this.body);
     }
     /**
-     * @return Inspect the cookies in the web request. See `cookies` below for details.
+     * @return Inspect the request cookies. See Cookies below.
      * 
      */
     public Optional<WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies> cookies() {
         return Optional.ofNullable(this.cookies);
     }
     /**
-     * @return Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
+     * @return Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request. See Header Order below.
      * 
      */
     public List<WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder> headerOrders() {
         return this.headerOrders == null ? List.of() : this.headerOrders;
     }
     /**
-     * @return Inspect the request headers. See `headers` below for details.
+     * @return Inspect the request headers. See Headers below.
      * 
      */
     public List<WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader> headers() {
         return this.headers == null ? List.of() : this.headers;
     }
     /**
-     * @return Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
+     * @return Match against the request&#39;s JA3 fingerprint (CloudFront and ALB only). See JA3 Fingerprint below.
      * 
      */
     public Optional<WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint> ja3Fingerprint() {
         return Optional.ofNullable(this.ja3Fingerprint);
     }
     /**
-     * @return Inspect the JA3 fingerprint. See `ja4Fingerprint` below for details.
+     * @return Match against the request&#39;s JA4 fingerprint (CloudFront and ALB only). See JA4 Fingerprint below.
      * 
      */
     public Optional<WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint> ja4Fingerprint() {
         return Optional.ofNullable(this.ja4Fingerprint);
     }
     /**
-     * @return Inspect the request body as JSON. See `jsonBody` for details.
+     * @return Inspect the request body as JSON. See JSON Body below.
      * 
      */
     public Optional<WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody> jsonBody() {
         return Optional.ofNullable(this.jsonBody);
     }
     /**
-     * @return Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+     * @return Inspect the HTTP method.
      * 
      */
     public Optional<WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod> method() {
         return Optional.ofNullable(this.method);
     }
     /**
-     * @return Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+     * @return Inspect the query string.
      * 
      */
     public Optional<WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString> queryString() {
         return Optional.ofNullable(this.queryString);
     }
     /**
-     * @return Inspect a single header. See `singleHeader` below for details.
+     * @return Inspect a single header. See Single Header below.
      * 
      */
     public Optional<WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader> singleHeader() {
         return Optional.ofNullable(this.singleHeader);
     }
     /**
-     * @return Inspect a single query argument. See `singleQueryArgument` below for details.
+     * @return Inspect a single query argument. See Single Query Argument below.
      * 
      */
     public Optional<WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument> singleQueryArgument() {
         return Optional.ofNullable(this.singleQueryArgument);
     }
     /**
-     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uriFragment` below for details.
+     * @return Inspect fragments of the request URI. See URI Fragment below.
      * 
      */
     public Optional<WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragment> uriFragment() {
         return Optional.ofNullable(this.uriFragment);
     }
     /**
-     * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+     * @return Inspect the request URI path.
      * 
      */
     public Optional<WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath> uriPath() {

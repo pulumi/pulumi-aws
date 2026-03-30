@@ -113,6 +113,22 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `InstanceArn` (String) ARN of the SSO Instance.
+    /// * `PermissionSetArn` (String) ARN of the Permission Set.
+    /// * `PrincipalId` (String) Identifier of the principal in IAM Identity Center.
+    /// * `PrincipalType` (String) Type of principal. Valid values are `USER` and `GROUP`.
+    /// * `TargetId` (String) AWS account identifier.
+    /// * `TargetType` (String) Target type. Valid value is `AWS_ACCOUNT`.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import SSO Account Assignments using the `PrincipalId`, `PrincipalType`, `TargetId`, `TargetType`, `PermissionSetArn`, `InstanceArn` separated by commas (`,`). For example:
     /// 
     /// ```sh

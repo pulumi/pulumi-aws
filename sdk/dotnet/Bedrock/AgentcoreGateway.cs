@@ -110,6 +110,11 @@ namespace Pulumi.Aws.Bedrock
     ///                     "client-123",
     ///                     "client-456",
     ///                 },
+    ///                 AllowedScopes = new[]
+    ///                 {
+    ///                     "openid",
+    ///                     "email",
+    ///                 },
     ///             },
     ///         },
     ///         ProtocolType = "MCP",

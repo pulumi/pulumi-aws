@@ -6,7 +6,6 @@ package com.pulumi.aws.wafv2.outputs;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementXssMatchStatementFieldToMatch;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementXssMatchStatementTextTransformation;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,31 +13,15 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementXssMatchStatement {
-    /**
-     * @return Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementXssMatchStatementFieldToMatch fieldToMatch;
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
-     * 
-     */
-    private List<WebAclRuleStatementXssMatchStatementTextTransformation> textTransformations;
+    private @Nullable List<WebAclRuleStatementXssMatchStatementTextTransformation> textTransformations;
 
     private WebAclRuleStatementXssMatchStatement() {}
-    /**
-     * @return Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementXssMatchStatementFieldToMatch> fieldToMatch() {
         return Optional.ofNullable(this.fieldToMatch);
     }
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
-     * 
-     */
     public List<WebAclRuleStatementXssMatchStatementTextTransformation> textTransformations() {
-        return this.textTransformations;
+        return this.textTransformations == null ? List.of() : this.textTransformations;
     }
 
     public static Builder builder() {
@@ -51,7 +34,7 @@ public final class WebAclRuleStatementXssMatchStatement {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable WebAclRuleStatementXssMatchStatementFieldToMatch fieldToMatch;
-        private List<WebAclRuleStatementXssMatchStatementTextTransformation> textTransformations;
+        private @Nullable List<WebAclRuleStatementXssMatchStatementTextTransformation> textTransformations;
         public Builder() {}
         public Builder(WebAclRuleStatementXssMatchStatement defaults) {
     	      Objects.requireNonNull(defaults);
@@ -66,10 +49,8 @@ public final class WebAclRuleStatementXssMatchStatement {
             return this;
         }
         @CustomType.Setter
-        public Builder textTransformations(List<WebAclRuleStatementXssMatchStatementTextTransformation> textTransformations) {
-            if (textTransformations == null) {
-              throw new MissingRequiredPropertyException("WebAclRuleStatementXssMatchStatement", "textTransformations");
-            }
+        public Builder textTransformations(@Nullable List<WebAclRuleStatementXssMatchStatementTextTransformation> textTransformations) {
+
             this.textTransformations = textTransformations;
             return this;
         }

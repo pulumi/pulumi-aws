@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentFlowDefinitionNodeConfigurationRetrievalArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains configurations for the service to use for retrieving data to return as the output from the node. See Retrieval Service Configuration for more information.
+        /// </summary>
         [Input("serviceConfiguration")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs>? ServiceConfiguration { get; set; }
 

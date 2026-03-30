@@ -16,14 +16,14 @@ public final class WebAclRuleVisibilityConfigArgs extends com.pulumi.resources.R
     public static final WebAclRuleVisibilityConfigArgs Empty = new WebAclRuleVisibilityConfigArgs();
 
     /**
-     * Whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+     * Whether to enable CloudWatch metrics.
      * 
      */
     @Import(name="cloudwatchMetricsEnabled", required=true)
     private Output<Boolean> cloudwatchMetricsEnabled;
 
     /**
-     * @return Whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+     * @return Whether to enable CloudWatch metrics.
      * 
      */
     public Output<Boolean> cloudwatchMetricsEnabled() {
@@ -31,14 +31,14 @@ public final class WebAclRuleVisibilityConfigArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can&#39;t contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+     * Name of the CloudWatch metric.
      * 
      */
     @Import(name="metricName", required=true)
     private Output<String> metricName;
 
     /**
-     * @return A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can&#39;t contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+     * @return Name of the CloudWatch metric.
      * 
      */
     public Output<String> metricName() {
@@ -46,14 +46,14 @@ public final class WebAclRuleVisibilityConfigArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+     * Whether to store sampled requests.
      * 
      */
     @Import(name="sampledRequestsEnabled", required=true)
     private Output<Boolean> sampledRequestsEnabled;
 
     /**
-     * @return Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+     * @return Whether to store sampled requests.
      * 
      */
     public Output<Boolean> sampledRequestsEnabled() {
@@ -87,7 +87,7 @@ public final class WebAclRuleVisibilityConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param cloudwatchMetricsEnabled Whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+         * @param cloudwatchMetricsEnabled Whether to enable CloudWatch metrics.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class WebAclRuleVisibilityConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param cloudwatchMetricsEnabled Whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+         * @param cloudwatchMetricsEnabled Whether to enable CloudWatch metrics.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class WebAclRuleVisibilityConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param metricName A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can&#39;t contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+         * @param metricName Name of the CloudWatch metric.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class WebAclRuleVisibilityConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param metricName A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can&#39;t contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+         * @param metricName Name of the CloudWatch metric.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class WebAclRuleVisibilityConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param sampledRequestsEnabled Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+         * @param sampledRequestsEnabled Whether to store sampled requests.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class WebAclRuleVisibilityConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param sampledRequestsEnabled Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+         * @param sampledRequestsEnabled Whether to store sampled requests.
          * 
          * @return builder
          * 

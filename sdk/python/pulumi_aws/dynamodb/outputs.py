@@ -41,6 +41,7 @@ __all__ = [
     'TableServerSideEncryption',
     'TableTtl',
     'TableWarmThroughput',
+    'GetBackupsBackupSummaryResult',
     'GetTableAttributeResult',
     'GetTableGlobalSecondaryIndexResult',
     'GetTableGlobalSecondaryIndexKeySchemaResult',
@@ -1514,6 +1515,123 @@ class TableWarmThroughput(dict):
         Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
         """
         return pulumi.get(self, "write_units_per_second")
+
+
+@pulumi.output_type
+class GetBackupsBackupSummaryResult(dict):
+    def __init__(__self__, *,
+                 backup_arn: _builtins.str,
+                 backup_creation_date_time: _builtins.str,
+                 backup_expiry_date_time: _builtins.str,
+                 backup_name: _builtins.str,
+                 backup_size_bytes: _builtins.int,
+                 backup_status: _builtins.str,
+                 backup_type: _builtins.str,
+                 table_arn: _builtins.str,
+                 table_id: _builtins.str,
+                 table_name: _builtins.str):
+        """
+        :param _builtins.str backup_arn: ARN of the backup.
+        :param _builtins.str backup_creation_date_time: Time at which the backup was created.
+        :param _builtins.str backup_expiry_date_time: Time at which the automatic on-demand backup created by DynamoDB will expire.
+        :param _builtins.str backup_name: Name of the specified backup.
+        :param _builtins.int backup_size_bytes: Size of the backup in bytes.
+        :param _builtins.str backup_status: Backup can be in one of the following states: `CREATING`, `DELETED`, `AVAILABLE`.
+        :param _builtins.str backup_type: Backup type. Valid values: `USER`, `SYSTEM`, `AWS_BACKUP`, `ALL`.
+        :param _builtins.str table_arn: ARN associated with the table.
+        :param _builtins.str table_id: Unique identifier for the table.
+        :param _builtins.str table_name: Name of the table to list backups for.
+        """
+        pulumi.set(__self__, "backup_arn", backup_arn)
+        pulumi.set(__self__, "backup_creation_date_time", backup_creation_date_time)
+        pulumi.set(__self__, "backup_expiry_date_time", backup_expiry_date_time)
+        pulumi.set(__self__, "backup_name", backup_name)
+        pulumi.set(__self__, "backup_size_bytes", backup_size_bytes)
+        pulumi.set(__self__, "backup_status", backup_status)
+        pulumi.set(__self__, "backup_type", backup_type)
+        pulumi.set(__self__, "table_arn", table_arn)
+        pulumi.set(__self__, "table_id", table_id)
+        pulumi.set(__self__, "table_name", table_name)
+
+    @_builtins.property
+    @pulumi.getter(name="backupArn")
+    def backup_arn(self) -> _builtins.str:
+        """
+        ARN of the backup.
+        """
+        return pulumi.get(self, "backup_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="backupCreationDateTime")
+    def backup_creation_date_time(self) -> _builtins.str:
+        """
+        Time at which the backup was created.
+        """
+        return pulumi.get(self, "backup_creation_date_time")
+
+    @_builtins.property
+    @pulumi.getter(name="backupExpiryDateTime")
+    def backup_expiry_date_time(self) -> _builtins.str:
+        """
+        Time at which the automatic on-demand backup created by DynamoDB will expire.
+        """
+        return pulumi.get(self, "backup_expiry_date_time")
+
+    @_builtins.property
+    @pulumi.getter(name="backupName")
+    def backup_name(self) -> _builtins.str:
+        """
+        Name of the specified backup.
+        """
+        return pulumi.get(self, "backup_name")
+
+    @_builtins.property
+    @pulumi.getter(name="backupSizeBytes")
+    def backup_size_bytes(self) -> _builtins.int:
+        """
+        Size of the backup in bytes.
+        """
+        return pulumi.get(self, "backup_size_bytes")
+
+    @_builtins.property
+    @pulumi.getter(name="backupStatus")
+    def backup_status(self) -> _builtins.str:
+        """
+        Backup can be in one of the following states: `CREATING`, `DELETED`, `AVAILABLE`.
+        """
+        return pulumi.get(self, "backup_status")
+
+    @_builtins.property
+    @pulumi.getter(name="backupType")
+    def backup_type(self) -> _builtins.str:
+        """
+        Backup type. Valid values: `USER`, `SYSTEM`, `AWS_BACKUP`, `ALL`.
+        """
+        return pulumi.get(self, "backup_type")
+
+    @_builtins.property
+    @pulumi.getter(name="tableArn")
+    def table_arn(self) -> _builtins.str:
+        """
+        ARN associated with the table.
+        """
+        return pulumi.get(self, "table_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="tableId")
+    def table_id(self) -> _builtins.str:
+        """
+        Unique identifier for the table.
+        """
+        return pulumi.get(self, "table_id")
+
+    @_builtins.property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> _builtins.str:
+        """
+        Name of the table to list backups for.
+        """
+        return pulumi.get(self, "table_name")
 
 
 @pulumi.output_type

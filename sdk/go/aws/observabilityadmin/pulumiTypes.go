@@ -1504,6 +1504,162 @@ func (o CentralizationRuleForOrganizationTimeoutsPtrOutput) Update() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+type TelemetryEnrichmentTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// TelemetryEnrichmentTimeoutsInput is an input type that accepts TelemetryEnrichmentTimeoutsArgs and TelemetryEnrichmentTimeoutsOutput values.
+// You can construct a concrete instance of `TelemetryEnrichmentTimeoutsInput` via:
+//
+//	TelemetryEnrichmentTimeoutsArgs{...}
+type TelemetryEnrichmentTimeoutsInput interface {
+	pulumi.Input
+
+	ToTelemetryEnrichmentTimeoutsOutput() TelemetryEnrichmentTimeoutsOutput
+	ToTelemetryEnrichmentTimeoutsOutputWithContext(context.Context) TelemetryEnrichmentTimeoutsOutput
+}
+
+type TelemetryEnrichmentTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (TelemetryEnrichmentTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryEnrichmentTimeouts)(nil)).Elem()
+}
+
+func (i TelemetryEnrichmentTimeoutsArgs) ToTelemetryEnrichmentTimeoutsOutput() TelemetryEnrichmentTimeoutsOutput {
+	return i.ToTelemetryEnrichmentTimeoutsOutputWithContext(context.Background())
+}
+
+func (i TelemetryEnrichmentTimeoutsArgs) ToTelemetryEnrichmentTimeoutsOutputWithContext(ctx context.Context) TelemetryEnrichmentTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryEnrichmentTimeoutsOutput)
+}
+
+func (i TelemetryEnrichmentTimeoutsArgs) ToTelemetryEnrichmentTimeoutsPtrOutput() TelemetryEnrichmentTimeoutsPtrOutput {
+	return i.ToTelemetryEnrichmentTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryEnrichmentTimeoutsArgs) ToTelemetryEnrichmentTimeoutsPtrOutputWithContext(ctx context.Context) TelemetryEnrichmentTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryEnrichmentTimeoutsOutput).ToTelemetryEnrichmentTimeoutsPtrOutputWithContext(ctx)
+}
+
+// TelemetryEnrichmentTimeoutsPtrInput is an input type that accepts TelemetryEnrichmentTimeoutsArgs, TelemetryEnrichmentTimeoutsPtr and TelemetryEnrichmentTimeoutsPtrOutput values.
+// You can construct a concrete instance of `TelemetryEnrichmentTimeoutsPtrInput` via:
+//
+//	        TelemetryEnrichmentTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryEnrichmentTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryEnrichmentTimeoutsPtrOutput() TelemetryEnrichmentTimeoutsPtrOutput
+	ToTelemetryEnrichmentTimeoutsPtrOutputWithContext(context.Context) TelemetryEnrichmentTimeoutsPtrOutput
+}
+
+type telemetryEnrichmentTimeoutsPtrType TelemetryEnrichmentTimeoutsArgs
+
+func TelemetryEnrichmentTimeoutsPtr(v *TelemetryEnrichmentTimeoutsArgs) TelemetryEnrichmentTimeoutsPtrInput {
+	return (*telemetryEnrichmentTimeoutsPtrType)(v)
+}
+
+func (*telemetryEnrichmentTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryEnrichmentTimeouts)(nil)).Elem()
+}
+
+func (i *telemetryEnrichmentTimeoutsPtrType) ToTelemetryEnrichmentTimeoutsPtrOutput() TelemetryEnrichmentTimeoutsPtrOutput {
+	return i.ToTelemetryEnrichmentTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryEnrichmentTimeoutsPtrType) ToTelemetryEnrichmentTimeoutsPtrOutputWithContext(ctx context.Context) TelemetryEnrichmentTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryEnrichmentTimeoutsPtrOutput)
+}
+
+type TelemetryEnrichmentTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (TelemetryEnrichmentTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryEnrichmentTimeouts)(nil)).Elem()
+}
+
+func (o TelemetryEnrichmentTimeoutsOutput) ToTelemetryEnrichmentTimeoutsOutput() TelemetryEnrichmentTimeoutsOutput {
+	return o
+}
+
+func (o TelemetryEnrichmentTimeoutsOutput) ToTelemetryEnrichmentTimeoutsOutputWithContext(ctx context.Context) TelemetryEnrichmentTimeoutsOutput {
+	return o
+}
+
+func (o TelemetryEnrichmentTimeoutsOutput) ToTelemetryEnrichmentTimeoutsPtrOutput() TelemetryEnrichmentTimeoutsPtrOutput {
+	return o.ToTelemetryEnrichmentTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryEnrichmentTimeoutsOutput) ToTelemetryEnrichmentTimeoutsPtrOutputWithContext(ctx context.Context) TelemetryEnrichmentTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryEnrichmentTimeouts) *TelemetryEnrichmentTimeouts {
+		return &v
+	}).(TelemetryEnrichmentTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TelemetryEnrichmentTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryEnrichmentTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o TelemetryEnrichmentTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryEnrichmentTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type TelemetryEnrichmentTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryEnrichmentTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryEnrichmentTimeouts)(nil)).Elem()
+}
+
+func (o TelemetryEnrichmentTimeoutsPtrOutput) ToTelemetryEnrichmentTimeoutsPtrOutput() TelemetryEnrichmentTimeoutsPtrOutput {
+	return o
+}
+
+func (o TelemetryEnrichmentTimeoutsPtrOutput) ToTelemetryEnrichmentTimeoutsPtrOutputWithContext(ctx context.Context) TelemetryEnrichmentTimeoutsPtrOutput {
+	return o
+}
+
+func (o TelemetryEnrichmentTimeoutsPtrOutput) Elem() TelemetryEnrichmentTimeoutsOutput {
+	return o.ApplyT(func(v *TelemetryEnrichmentTimeouts) TelemetryEnrichmentTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryEnrichmentTimeouts
+		return ret
+	}).(TelemetryEnrichmentTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TelemetryEnrichmentTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryEnrichmentTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o TelemetryEnrichmentTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryEnrichmentTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
 type TelemetryPipelineConfiguration struct {
 	// The pipeline configuration body. This is a YAML-encoded string defining the pipeline source, optional processors, and sinks.
 	Body string `pulumi:"body"`
@@ -1835,6 +1991,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrInput)(nil)).Elem(), CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CentralizationRuleForOrganizationTimeoutsInput)(nil)).Elem(), CentralizationRuleForOrganizationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CentralizationRuleForOrganizationTimeoutsPtrInput)(nil)).Elem(), CentralizationRuleForOrganizationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryEnrichmentTimeoutsInput)(nil)).Elem(), TelemetryEnrichmentTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryEnrichmentTimeoutsPtrInput)(nil)).Elem(), TelemetryEnrichmentTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryPipelineConfigurationInput)(nil)).Elem(), TelemetryPipelineConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryPipelineConfigurationPtrInput)(nil)).Elem(), TelemetryPipelineConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryPipelineTimeoutsInput)(nil)).Elem(), TelemetryPipelineTimeoutsArgs{})
@@ -1857,6 +2015,8 @@ func init() {
 	pulumi.RegisterOutputType(CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CentralizationRuleForOrganizationTimeoutsOutput{})
 	pulumi.RegisterOutputType(CentralizationRuleForOrganizationTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryEnrichmentTimeoutsOutput{})
+	pulumi.RegisterOutputType(TelemetryEnrichmentTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(TelemetryPipelineConfigurationOutput{})
 	pulumi.RegisterOutputType(TelemetryPipelineConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TelemetryPipelineTimeoutsOutput{})

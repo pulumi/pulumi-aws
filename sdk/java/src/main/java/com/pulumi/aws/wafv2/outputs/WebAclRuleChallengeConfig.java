@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleChallengeConfig {
     /**
-     * @return Defines custom immunity time. See `immunityTimeProperty` below for details.
+     * @return Immunity time configuration. See Immunity Time Property below.
      * 
      */
     private @Nullable WebAclRuleChallengeConfigImmunityTimeProperty immunityTimeProperty;
 
     private WebAclRuleChallengeConfig() {}
     /**
-     * @return Defines custom immunity time. See `immunityTimeProperty` below for details.
+     * @return Immunity time configuration. See Immunity Time Property below.
      * 
      */
     public Optional<WebAclRuleChallengeConfigImmunityTimeProperty> immunityTimeProperty() {

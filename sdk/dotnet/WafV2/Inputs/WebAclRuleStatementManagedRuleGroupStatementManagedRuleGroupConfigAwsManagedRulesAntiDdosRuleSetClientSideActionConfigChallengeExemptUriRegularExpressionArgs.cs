@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Regular expression string.
+        /// Regular expression pattern to match against the web request component.
         /// </summary>
         [Input("regexString")]
         public Input<string>? RegexString { get; set; }

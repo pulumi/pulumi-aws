@@ -12,14 +12,15 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An empty configuration block that is used for inspecting all headers.
-        /// </summary>
         [Input("all")]
         public Input<Inputs.WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllGetArgs>? All { get; set; }
 
         [Input("excludedCookies")]
         private InputList<string>? _excludedCookies;
+
+        /// <summary>
+        /// List of cookie names to exclude from inspection.
+        /// </summary>
         public InputList<string> ExcludedCookies
         {
             get => _excludedCookies ?? (_excludedCookies = new InputList<string>());
@@ -28,6 +29,10 @@ namespace Pulumi.Aws.WafV2.Inputs
 
         [Input("includedCookies")]
         private InputList<string>? _includedCookies;
+
+        /// <summary>
+        /// List of cookie names to inspect.
+        /// </summary>
         public InputList<string> IncludedCookies
         {
             get => _includedCookies ?? (_includedCookies = new InputList<string>());

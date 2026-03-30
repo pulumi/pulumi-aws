@@ -16,12 +16,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationKnowledgeBase {
     /**
-     * @return Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+     * @return Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration guardrailConfiguration;
     /**
-     * @return Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+     * @return Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration inferenceConfiguration;
@@ -30,19 +30,23 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBase {
      * 
      */
     private String knowledgeBaseId;
+    /**
+     * @return The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
+     * 
+     */
     private String modelId;
     private @Nullable Integer numberOfResults;
 
     private AgentFlowDefinitionNodeConfigurationKnowledgeBase() {}
     /**
-     * @return Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+     * @return Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
      * 
      */
     public Optional<AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration> guardrailConfiguration() {
         return Optional.ofNullable(this.guardrailConfiguration);
     }
     /**
-     * @return Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+     * @return Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
      * 
      */
     public Optional<AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration> inferenceConfiguration() {
@@ -55,6 +59,10 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBase {
     public String knowledgeBaseId() {
         return this.knowledgeBaseId;
     }
+    /**
+     * @return The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
+     * 
+     */
     public String modelId() {
         return this.modelId;
     }

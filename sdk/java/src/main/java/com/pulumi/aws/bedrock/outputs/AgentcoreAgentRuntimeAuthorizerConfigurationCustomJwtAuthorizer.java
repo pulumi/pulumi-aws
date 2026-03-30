@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.bedrock.outputs;
 
+import com.pulumi.aws.bedrock.outputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaim;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -27,6 +28,11 @@ public final class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthoriz
      * 
      */
     private @Nullable List<String> allowedScopes;
+    /**
+     * @return Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+     * 
+     */
+    private @Nullable List<AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaim> customClaims;
     /**
      * @return URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
      * 
@@ -56,6 +62,13 @@ public final class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthoriz
         return this.allowedScopes == null ? List.of() : this.allowedScopes;
     }
     /**
+     * @return Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+     * 
+     */
+    public List<AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaim> customClaims() {
+        return this.customClaims == null ? List.of() : this.customClaims;
+    }
+    /**
      * @return URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
      * 
      */
@@ -75,6 +88,7 @@ public final class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthoriz
         private @Nullable List<String> allowedAudiences;
         private @Nullable List<String> allowedClients;
         private @Nullable List<String> allowedScopes;
+        private @Nullable List<AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaim> customClaims;
         private String discoveryUrl;
         public Builder() {}
         public Builder(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer defaults) {
@@ -82,6 +96,7 @@ public final class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthoriz
     	      this.allowedAudiences = defaults.allowedAudiences;
     	      this.allowedClients = defaults.allowedClients;
     	      this.allowedScopes = defaults.allowedScopes;
+    	      this.customClaims = defaults.customClaims;
     	      this.discoveryUrl = defaults.discoveryUrl;
         }
 
@@ -113,6 +128,15 @@ public final class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthoriz
             return allowedScopes(List.of(allowedScopes));
         }
         @CustomType.Setter
+        public Builder customClaims(@Nullable List<AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaim> customClaims) {
+
+            this.customClaims = customClaims;
+            return this;
+        }
+        public Builder customClaims(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaim... customClaims) {
+            return customClaims(List.of(customClaims));
+        }
+        @CustomType.Setter
         public Builder discoveryUrl(String discoveryUrl) {
             if (discoveryUrl == null) {
               throw new MissingRequiredPropertyException("AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer", "discoveryUrl");
@@ -125,6 +149,7 @@ public final class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthoriz
             _resultValue.allowedAudiences = allowedAudiences;
             _resultValue.allowedClients = allowedClients;
             _resultValue.allowedScopes = allowedScopes;
+            _resultValue.customClaims = customClaims;
             _resultValue.discoveryUrl = discoveryUrl;
             return _resultValue;
         }

@@ -10046,6 +10046,7 @@ func (o AgentFlowDefinitionConnectionConfigurationPtrOutput) Data() AgentFlowDef
 }
 
 type AgentFlowDefinitionConnectionConfigurationConditional struct {
+	// The condition that triggers this connection. For more information about how to write conditions, see the Condition node type in the [Node types](https://docs.aws.amazon.com/bedrock/latest/userguide/node-types.html) topic in the Amazon Bedrock User Guide.
 	Condition string `pulumi:"condition"`
 }
 
@@ -10061,6 +10062,7 @@ type AgentFlowDefinitionConnectionConfigurationConditionalInput interface {
 }
 
 type AgentFlowDefinitionConnectionConfigurationConditionalArgs struct {
+	// The condition that triggers this connection. For more information about how to write conditions, see the Condition node type in the [Node types](https://docs.aws.amazon.com/bedrock/latest/userguide/node-types.html) topic in the Amazon Bedrock User Guide.
 	Condition pulumi.StringInput `pulumi:"condition"`
 }
 
@@ -10141,6 +10143,7 @@ func (o AgentFlowDefinitionConnectionConfigurationConditionalOutput) ToAgentFlow
 	}).(AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput)
 }
 
+// The condition that triggers this connection. For more information about how to write conditions, see the Condition node type in the [Node types](https://docs.aws.amazon.com/bedrock/latest/userguide/node-types.html) topic in the Amazon Bedrock User Guide.
 func (o AgentFlowDefinitionConnectionConfigurationConditionalOutput) Condition() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionConnectionConfigurationConditional) string { return v.Condition }).(pulumi.StringOutput)
 }
@@ -10169,6 +10172,7 @@ func (o AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput) Elem() A
 	}).(AgentFlowDefinitionConnectionConfigurationConditionalOutput)
 }
 
+// The condition that triggers this connection. For more information about how to write conditions, see the Condition node type in the [Node types](https://docs.aws.amazon.com/bedrock/latest/userguide/node-types.html) topic in the Amazon Bedrock User Guide.
 func (o AgentFlowDefinitionConnectionConfigurationConditionalPtrOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionConnectionConfigurationConditional) *string {
 		if v == nil {
@@ -10343,7 +10347,7 @@ type AgentFlowDefinitionNode struct {
 	Name string `pulumi:"name"`
 	// A list of objects containing information about an output from the node. See Node Output for more information.
 	Outputs []AgentFlowDefinitionNodeOutputType `pulumi:"outputs"`
-	// The type of node. This value must match the name of the key that you provide in the configuration. Valid values: `Agent`, `Collector`, `Condition`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
+	// Type of node. This value must match the name of the key you provide in `configuration`. Valid values: `Agent`, `Collector`, `Condition`, `InlineCode`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
 	Type string `pulumi:"type"`
 }
 
@@ -10367,7 +10371,7 @@ type AgentFlowDefinitionNodeArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// A list of objects containing information about an output from the node. See Node Output for more information.
 	Outputs AgentFlowDefinitionNodeOutputTypeArrayInput `pulumi:"outputs"`
-	// The type of node. This value must match the name of the key that you provide in the configuration. Valid values: `Agent`, `Collector`, `Condition`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
+	// Type of node. This value must match the name of the key you provide in `configuration`. Valid values: `Agent`, `Collector`, `Condition`, `InlineCode`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -10442,7 +10446,7 @@ func (o AgentFlowDefinitionNodeOutput) Outputs() AgentFlowDefinitionNodeOutputTy
 	return o.ApplyT(func(v AgentFlowDefinitionNode) []AgentFlowDefinitionNodeOutputType { return v.Outputs }).(AgentFlowDefinitionNodeOutputTypeArrayOutput)
 }
 
-// The type of node. This value must match the name of the key that you provide in the configuration. Valid values: `Agent`, `Collector`, `Condition`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
+// Type of node. This value must match the name of the key you provide in `configuration`. Valid values: `Agent`, `Collector`, `Condition`, `InlineCode`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
 func (o AgentFlowDefinitionNodeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNode) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -10472,18 +10476,21 @@ type AgentFlowDefinitionNodeConfiguration struct {
 	Agent *AgentFlowDefinitionNodeConfigurationAgent `pulumi:"agent"`
 	// Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
 	Collector *AgentFlowDefinitionNodeConfigurationCollector `pulumi:"collector"`
+	// Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
 	Condition *AgentFlowDefinitionNodeConfigurationCondition `pulumi:"condition"`
 	// Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
 	InlineCode *AgentFlowDefinitionNodeConfigurationInlineCode `pulumi:"inlineCode"`
-	Input      *AgentFlowDefinitionNodeConfigurationInputType  `pulumi:"input"`
-	// Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
+	// Contains configurations for an input flow node in your flow. The node `inputs` can’t be specified for this node. This block has no fields.
+	Input *AgentFlowDefinitionNodeConfigurationInputType `pulumi:"input"`
+	// Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
 	Iterator *AgentFlowDefinitionNodeConfigurationIterator `pulumi:"iterator"`
 	// Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
 	KnowledgeBase *AgentFlowDefinitionNodeConfigurationKnowledgeBase `pulumi:"knowledgeBase"`
 	// Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
 	LambdaFunction *AgentFlowDefinitionNodeConfigurationLambdaFunction `pulumi:"lambdaFunction"`
 	// Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
-	Lex    *AgentFlowDefinitionNodeConfigurationLex        `pulumi:"lex"`
+	Lex *AgentFlowDefinitionNodeConfigurationLex `pulumi:"lex"`
+	// Contains configurations for an output flow node in your flow. The node `outputs` can’t be specified for this node. This block has no fields.
 	Output *AgentFlowDefinitionNodeConfigurationOutputType `pulumi:"output"`
 	// Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
 	Prompt *AgentFlowDefinitionNodeConfigurationPrompt `pulumi:"prompt"`
@@ -10509,18 +10516,21 @@ type AgentFlowDefinitionNodeConfigurationArgs struct {
 	Agent AgentFlowDefinitionNodeConfigurationAgentPtrInput `pulumi:"agent"`
 	// Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
 	Collector AgentFlowDefinitionNodeConfigurationCollectorPtrInput `pulumi:"collector"`
+	// Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
 	Condition AgentFlowDefinitionNodeConfigurationConditionPtrInput `pulumi:"condition"`
 	// Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
 	InlineCode AgentFlowDefinitionNodeConfigurationInlineCodePtrInput `pulumi:"inlineCode"`
-	Input      AgentFlowDefinitionNodeConfigurationInputTypePtrInput  `pulumi:"input"`
-	// Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
+	// Contains configurations for an input flow node in your flow. The node `inputs` can’t be specified for this node. This block has no fields.
+	Input AgentFlowDefinitionNodeConfigurationInputTypePtrInput `pulumi:"input"`
+	// Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
 	Iterator AgentFlowDefinitionNodeConfigurationIteratorPtrInput `pulumi:"iterator"`
 	// Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
 	KnowledgeBase AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrInput `pulumi:"knowledgeBase"`
 	// Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
 	LambdaFunction AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrInput `pulumi:"lambdaFunction"`
 	// Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
-	Lex    AgentFlowDefinitionNodeConfigurationLexPtrInput        `pulumi:"lex"`
+	Lex AgentFlowDefinitionNodeConfigurationLexPtrInput `pulumi:"lex"`
+	// Contains configurations for an output flow node in your flow. The node `outputs` can’t be specified for this node. This block has no fields.
 	Output AgentFlowDefinitionNodeConfigurationOutputTypePtrInput `pulumi:"output"`
 	// Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
 	Prompt AgentFlowDefinitionNodeConfigurationPromptPtrInput `pulumi:"prompt"`
@@ -10621,6 +10631,7 @@ func (o AgentFlowDefinitionNodeConfigurationOutput) Collector() AgentFlowDefinit
 	}).(AgentFlowDefinitionNodeConfigurationCollectorPtrOutput)
 }
 
+// Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
 func (o AgentFlowDefinitionNodeConfigurationOutput) Condition() AgentFlowDefinitionNodeConfigurationConditionPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationCondition {
 		return v.Condition
@@ -10634,13 +10645,14 @@ func (o AgentFlowDefinitionNodeConfigurationOutput) InlineCode() AgentFlowDefini
 	}).(AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput)
 }
 
+// Contains configurations for an input flow node in your flow. The node `inputs` can’t be specified for this node. This block has no fields.
 func (o AgentFlowDefinitionNodeConfigurationOutput) Input() AgentFlowDefinitionNodeConfigurationInputTypePtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationInputType {
 		return v.Input
 	}).(AgentFlowDefinitionNodeConfigurationInputTypePtrOutput)
 }
 
-// Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
+// Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
 func (o AgentFlowDefinitionNodeConfigurationOutput) Iterator() AgentFlowDefinitionNodeConfigurationIteratorPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationIterator {
 		return v.Iterator
@@ -10666,6 +10678,7 @@ func (o AgentFlowDefinitionNodeConfigurationOutput) Lex() AgentFlowDefinitionNod
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationLex { return v.Lex }).(AgentFlowDefinitionNodeConfigurationLexPtrOutput)
 }
 
+// Contains configurations for an output flow node in your flow. The node `outputs` can’t be specified for this node. This block has no fields.
 func (o AgentFlowDefinitionNodeConfigurationOutput) Output() AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationOutputType {
 		return v.Output
@@ -10737,6 +10750,7 @@ func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Collector() AgentFlowDefi
 	}).(AgentFlowDefinitionNodeConfigurationCollectorPtrOutput)
 }
 
+// Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
 func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Condition() AgentFlowDefinitionNodeConfigurationConditionPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationCondition {
 		if v == nil {
@@ -10756,6 +10770,7 @@ func (o AgentFlowDefinitionNodeConfigurationPtrOutput) InlineCode() AgentFlowDef
 	}).(AgentFlowDefinitionNodeConfigurationInlineCodePtrOutput)
 }
 
+// Contains configurations for an input flow node in your flow. The node `inputs` can’t be specified for this node. This block has no fields.
 func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Input() AgentFlowDefinitionNodeConfigurationInputTypePtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationInputType {
 		if v == nil {
@@ -10765,7 +10780,7 @@ func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Input() AgentFlowDefiniti
 	}).(AgentFlowDefinitionNodeConfigurationInputTypePtrOutput)
 }
 
-// Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
+// Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
 func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Iterator() AgentFlowDefinitionNodeConfigurationIteratorPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationIterator {
 		if v == nil {
@@ -10805,6 +10820,7 @@ func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Lex() AgentFlowDefinition
 	}).(AgentFlowDefinitionNodeConfigurationLexPtrOutput)
 }
 
+// Contains configurations for an output flow node in your flow. The node `outputs` can’t be specified for this node. This block has no fields.
 func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Output() AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfiguration) *AgentFlowDefinitionNodeConfigurationOutputType {
 		if v == nil {
@@ -11100,6 +11116,7 @@ func (o AgentFlowDefinitionNodeConfigurationCollectorPtrOutput) Elem() AgentFlow
 }
 
 type AgentFlowDefinitionNodeConfigurationCondition struct {
+	// A list of conditions. See Condition Config for more information.
 	Conditions []AgentFlowDefinitionNodeConfigurationConditionCondition `pulumi:"conditions"`
 }
 
@@ -11115,6 +11132,7 @@ type AgentFlowDefinitionNodeConfigurationConditionInput interface {
 }
 
 type AgentFlowDefinitionNodeConfigurationConditionArgs struct {
+	// A list of conditions. See Condition Config for more information.
 	Conditions AgentFlowDefinitionNodeConfigurationConditionConditionArrayInput `pulumi:"conditions"`
 }
 
@@ -11195,6 +11213,7 @@ func (o AgentFlowDefinitionNodeConfigurationConditionOutput) ToAgentFlowDefiniti
 	}).(AgentFlowDefinitionNodeConfigurationConditionPtrOutput)
 }
 
+// A list of conditions. See Condition Config for more information.
 func (o AgentFlowDefinitionNodeConfigurationConditionOutput) Conditions() AgentFlowDefinitionNodeConfigurationConditionConditionArrayOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationCondition) []AgentFlowDefinitionNodeConfigurationConditionCondition {
 		return v.Conditions
@@ -11225,6 +11244,7 @@ func (o AgentFlowDefinitionNodeConfigurationConditionPtrOutput) Elem() AgentFlow
 	}).(AgentFlowDefinitionNodeConfigurationConditionOutput)
 }
 
+// A list of conditions. See Condition Config for more information.
 func (o AgentFlowDefinitionNodeConfigurationConditionPtrOutput) Conditions() AgentFlowDefinitionNodeConfigurationConditionConditionArrayOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationCondition) []AgentFlowDefinitionNodeConfigurationConditionCondition {
 		if v == nil {
@@ -11730,12 +11750,13 @@ func (o AgentFlowDefinitionNodeConfigurationIteratorPtrOutput) Elem() AgentFlowD
 }
 
 type AgentFlowDefinitionNodeConfigurationKnowledgeBase struct {
-	// Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+	// Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
 	GuardrailConfiguration *AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration `pulumi:"guardrailConfiguration"`
-	// Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+	// Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
 	InferenceConfiguration *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration `pulumi:"inferenceConfiguration"`
 	// The unique identifier of the knowledge base to query.
 	KnowledgeBaseId string `pulumi:"knowledgeBaseId"`
+	// The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
 	ModelId         string `pulumi:"modelId"`
 	NumberOfResults *int   `pulumi:"numberOfResults"`
 }
@@ -11752,12 +11773,13 @@ type AgentFlowDefinitionNodeConfigurationKnowledgeBaseInput interface {
 }
 
 type AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs struct {
-	// Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+	// Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
 	GuardrailConfiguration AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrInput `pulumi:"guardrailConfiguration"`
-	// Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+	// Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
 	InferenceConfiguration AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrInput `pulumi:"inferenceConfiguration"`
 	// The unique identifier of the knowledge base to query.
 	KnowledgeBaseId pulumi.StringInput `pulumi:"knowledgeBaseId"`
+	// The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
 	ModelId         pulumi.StringInput `pulumi:"modelId"`
 	NumberOfResults pulumi.IntPtrInput `pulumi:"numberOfResults"`
 }
@@ -11839,14 +11861,14 @@ func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput) ToAgentFlowDefi
 	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput)
 }
 
-// Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+// Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
 func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput) GuardrailConfiguration() AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationKnowledgeBase) *AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration {
 		return v.GuardrailConfiguration
 	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput)
 }
 
-// Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+// Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
 func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput) InferenceConfiguration() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationKnowledgeBase) *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration {
 		return v.InferenceConfiguration
@@ -11858,6 +11880,7 @@ func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput) KnowledgeBaseId
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationKnowledgeBase) string { return v.KnowledgeBaseId }).(pulumi.StringOutput)
 }
 
+// The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
 func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput) ModelId() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationKnowledgeBase) string { return v.ModelId }).(pulumi.StringOutput)
 }
@@ -11890,7 +11913,7 @@ func (o AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput) Elem() Agent
 	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseOutput)
 }
 
-// Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+// Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
 func (o AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput) GuardrailConfiguration() AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBase) *AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration {
 		if v == nil {
@@ -11900,7 +11923,7 @@ func (o AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput) GuardrailCon
 	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationPtrOutput)
 }
 
-// Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+// Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
 func (o AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput) InferenceConfiguration() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBase) *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration {
 		if v == nil {
@@ -11920,6 +11943,7 @@ func (o AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput) KnowledgeBas
 	}).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
 func (o AgentFlowDefinitionNodeConfigurationKnowledgeBasePtrOutput) ModelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBase) *string {
 		if v == nil {
@@ -12099,6 +12123,7 @@ func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationP
 }
 
 type AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration struct {
+	// Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
 	Text *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText `pulumi:"text"`
 }
 
@@ -12114,6 +12139,7 @@ type AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationInpu
 }
 
 type AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs struct {
+	// Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
 	Text AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrInput `pulumi:"text"`
 }
 
@@ -12194,6 +12220,7 @@ func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationO
 	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput)
 }
 
+// Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
 func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutput) Text() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration) *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText {
 		return v.Text
@@ -12224,6 +12251,7 @@ func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationP
 	}).(AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationOutput)
 }
 
+// Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
 func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationPtrOutput) Text() AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration) *AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText {
 		if v == nil {
@@ -12847,9 +12875,10 @@ func (o AgentFlowDefinitionNodeConfigurationOutputTypePtrOutput) Elem() AgentFlo
 }
 
 type AgentFlowDefinitionNodeConfigurationPrompt struct {
-	// Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+	// Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
 	GuardrailConfiguration *AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration `pulumi:"guardrailConfiguration"`
-	SourceConfiguration    *AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration    `pulumi:"sourceConfiguration"`
+	// Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
+	SourceConfiguration *AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration `pulumi:"sourceConfiguration"`
 }
 
 // AgentFlowDefinitionNodeConfigurationPromptInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptArgs and AgentFlowDefinitionNodeConfigurationPromptOutput values.
@@ -12864,9 +12893,10 @@ type AgentFlowDefinitionNodeConfigurationPromptInput interface {
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptArgs struct {
-	// Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+	// Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
 	GuardrailConfiguration AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrInput `pulumi:"guardrailConfiguration"`
-	SourceConfiguration    AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrInput    `pulumi:"sourceConfiguration"`
+	// Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
+	SourceConfiguration AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrInput `pulumi:"sourceConfiguration"`
 }
 
 func (AgentFlowDefinitionNodeConfigurationPromptArgs) ElementType() reflect.Type {
@@ -12946,13 +12976,14 @@ func (o AgentFlowDefinitionNodeConfigurationPromptOutput) ToAgentFlowDefinitionN
 	}).(AgentFlowDefinitionNodeConfigurationPromptPtrOutput)
 }
 
-// Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+// Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
 func (o AgentFlowDefinitionNodeConfigurationPromptOutput) GuardrailConfiguration() AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPrompt) *AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration {
 		return v.GuardrailConfiguration
 	}).(AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput)
 }
 
+// Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
 func (o AgentFlowDefinitionNodeConfigurationPromptOutput) SourceConfiguration() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPrompt) *AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration {
 		return v.SourceConfiguration
@@ -12983,7 +13014,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptPtrOutput) Elem() AgentFlowDef
 	}).(AgentFlowDefinitionNodeConfigurationPromptOutput)
 }
 
-// Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+// Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
 func (o AgentFlowDefinitionNodeConfigurationPromptPtrOutput) GuardrailConfiguration() AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPrompt) *AgentFlowDefinitionNodeConfigurationPromptGuardrailConfiguration {
 		if v == nil {
@@ -12993,6 +13024,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptPtrOutput) GuardrailConfigurat
 	}).(AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationPtrOutput)
 }
 
+// Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
 func (o AgentFlowDefinitionNodeConfigurationPromptPtrOutput) SourceConfiguration() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPrompt) *AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration {
 		if v == nil {
@@ -13325,9 +13357,10 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationPtrOutput) 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline struct {
 	// Additional fields to be included in the model request for the Prompt node.
 	AdditionalModelRequestFields *string `pulumi:"additionalModelRequestFields"`
-	// Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+	// Contains inference configurations for the prompt. See Inference Configuration for more information.
 	InferenceConfiguration *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration `pulumi:"inferenceConfiguration"`
-	ModelId                string                                                                                     `pulumi:"modelId"`
+	// The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+	ModelId string `pulumi:"modelId"`
 	// Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
 	TemplateConfiguration *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration `pulumi:"templateConfiguration"`
 	// The type of prompt template. Valid values: `TEXT`, `CHAT`.
@@ -13348,9 +13381,10 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInput in
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs struct {
 	// Additional fields to be included in the model request for the Prompt node.
 	AdditionalModelRequestFields pulumi.StringPtrInput `pulumi:"additionalModelRequestFields"`
-	// Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+	// Contains inference configurations for the prompt. See Inference Configuration for more information.
 	InferenceConfiguration AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrInput `pulumi:"inferenceConfiguration"`
-	ModelId                pulumi.StringInput                                                                                `pulumi:"modelId"`
+	// The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+	ModelId pulumi.StringInput `pulumi:"modelId"`
 	// Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
 	TemplateConfiguration AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrInput `pulumi:"templateConfiguration"`
 	// The type of prompt template. Valid values: `TEXT`, `CHAT`.
@@ -13441,13 +13475,14 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+// Contains inference configurations for the prompt. See Inference Configuration for more information.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput) InferenceConfiguration() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration {
 		return v.InferenceConfiguration
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput)
 }
 
+// The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineOutput) ModelId() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline) string { return v.ModelId }).(pulumi.StringOutput)
 }
@@ -13500,7 +13535,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+// Contains inference configurations for the prompt. See Inference Configuration for more information.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput) InferenceConfiguration() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration {
 		if v == nil {
@@ -13510,6 +13545,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOu
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput)
 }
 
+// The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOutput) ModelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInline) *string {
 		if v == nil {
@@ -13540,6 +13576,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlinePtrOu
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration struct {
+	// Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
 	Text *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText `pulumi:"text"`
 }
 
@@ -13555,6 +13592,7 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenc
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs struct {
+	// Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
 	Text AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrInput `pulumi:"text"`
 }
 
@@ -13635,6 +13673,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInfer
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput)
 }
 
+// Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutput) Text() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText {
 		return v.Text
@@ -13665,6 +13704,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInfer
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationOutput)
 }
 
+// Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationPtrOutput) Text() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationText {
 		if v == nil {
@@ -13879,6 +13919,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInfer
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration struct {
 	// Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
 	Chat *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChat `pulumi:"chat"`
+	// Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
 	Text *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText `pulumi:"text"`
 }
 
@@ -13896,6 +13937,7 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplate
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs struct {
 	// Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
 	Chat AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrInput `pulumi:"chat"`
+	// Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
 	Text AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrInput `pulumi:"text"`
 }
 
@@ -13983,6 +14025,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput)
 }
 
+// Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationOutput) Text() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText {
 		return v.Text
@@ -14023,6 +14066,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatPtrOutput)
 }
 
+// Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationPtrOutput) Text() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfiguration) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText {
 		if v == nil {
@@ -14330,7 +14374,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage struct {
-	// Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+	// Contains the content for the message you pass to, or receive from a model. See Message Content for more information.
 	Content *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent `pulumi:"content"`
 	// The role that the message belongs to.
 	Role string `pulumi:"role"`
@@ -14348,7 +14392,7 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplate
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs struct {
-	// Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+	// Contains the content for the message you pass to, or receive from a model. See Message Content for more information.
 	Content AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrInput `pulumi:"content"`
 	// The role that the message belongs to.
 	Role pulumi.StringInput `pulumi:"role"`
@@ -14405,7 +14449,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	return o
 }
 
-// Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+// Contains the content for the message you pass to, or receive from a model. See Message Content for more information.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageOutput) Content() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessage) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent {
 		return v.Content
@@ -14440,8 +14484,10 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent struct {
+	// Creates a cache checkpoint within a message. See Cache Point for more information.
 	CachePoint *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint `pulumi:"cachePoint"`
-	Text       *string                                                                                                               `pulumi:"text"`
+	// The text in the message.
+	Text *string `pulumi:"text"`
 }
 
 // AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput values.
@@ -14456,8 +14502,10 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplate
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs struct {
+	// Creates a cache checkpoint within a message. See Cache Point for more information.
 	CachePoint AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrInput `pulumi:"cachePoint"`
-	Text       pulumi.StringPtrInput                                                                                                        `pulumi:"text"`
+	// The text in the message.
+	Text pulumi.StringPtrInput `pulumi:"text"`
 }
 
 func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs) ElementType() reflect.Type {
@@ -14537,12 +14585,14 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput)
 }
 
+// Creates a cache checkpoint within a message. See Cache Point for more information.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput) CachePoint() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint {
 		return v.CachePoint
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput)
 }
 
+// The text in the message.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput) Text() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent) *string {
 		return v.Text
@@ -14573,6 +14623,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentOutput)
 }
 
+// Creates a cache checkpoint within a message. See Cache Point for more information.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput) CachePoint() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint {
 		if v == nil {
@@ -14582,6 +14633,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointPtrOutput)
 }
 
+// The text in the message.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentPtrOutput) Text() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent) *string {
 		if v == nil {
@@ -15389,9 +15441,9 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice struct {
-	// Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+	// Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no fields.
 	Any *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAny `pulumi:"any"`
-	// Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+	// Defines tools. The model automatically decides whether to call a tool or to generate text instead. This block has no fields.
 	Auto *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAuto `pulumi:"auto"`
 	// Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
 	Tool *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool `pulumi:"tool"`
@@ -15409,9 +15461,9 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplate
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs struct {
-	// Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+	// Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no fields.
 	Any AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrInput `pulumi:"any"`
-	// Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+	// Defines tools. The model automatically decides whether to call a tool or to generate text instead. This block has no fields.
 	Auto AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrInput `pulumi:"auto"`
 	// Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
 	Tool AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrInput `pulumi:"tool"`
@@ -15494,14 +15546,14 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput)
 }
 
-// Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+// Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no fields.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput) Any() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAny {
 		return v.Any
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput)
 }
 
-// Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+// Defines tools. The model automatically decides whether to call a tool or to generate text instead. This block has no fields.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput) Auto() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAuto {
 		return v.Auto
@@ -15539,7 +15591,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceOutput)
 }
 
-// Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+// Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no fields.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput) Any() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAny {
 		if v == nil {
@@ -15549,7 +15601,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyPtrOutput)
 }
 
-// Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+// Defines tools. The model automatically decides whether to call a tool or to generate text instead. This block has no fields.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoicePtrOutput) Auto() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoice) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAuto {
 		if v == nil {
@@ -15806,7 +15858,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool struct {
-	// A name for the flow.
+	// The name of the tool.
 	Name string `pulumi:"name"`
 }
 
@@ -15822,7 +15874,7 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplate
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs struct {
-	// A name for the flow.
+	// The name of the tool.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -15903,7 +15955,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput)
 }
 
-// A name for the flow.
+// The name of the tool.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool) string {
 		return v.Name
@@ -15934,7 +15986,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolOutput)
 }
 
-// A name for the flow.
+// The name of the tool.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceTool) *string {
 		if v == nil {
@@ -15945,11 +15997,11 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec struct {
-	// A description for the flow.
+	// The description of the tool.
 	Description *string `pulumi:"description"`
 	// The input schema of the tool. See Tool Input Schema for more information.
 	InputSchema *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchema `pulumi:"inputSchema"`
-	// A name for the flow.
+	// The name of the tool.
 	Name string `pulumi:"name"`
 }
 
@@ -15965,11 +16017,11 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplate
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs struct {
-	// A description for the flow.
+	// The description of the tool.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The input schema of the tool. See Tool Input Schema for more information.
 	InputSchema AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrInput `pulumi:"inputSchema"`
-	// A name for the flow.
+	// The name of the tool.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -16050,7 +16102,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput)
 }
 
-// A description for the flow.
+// The description of the tool.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec) *string {
 		return v.Description
@@ -16064,7 +16116,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput)
 }
 
-// A name for the flow.
+// The name of the tool.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec) string {
 		return v.Name
@@ -16095,7 +16147,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecOutput)
 }
 
-// A description for the flow.
+// The description of the tool.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec) *string {
 		if v == nil {
@@ -16115,7 +16167,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaPtrOutput)
 }
 
-// A name for the flow.
+// The name of the tool.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpec) *string {
 		if v == nil {
@@ -16265,9 +16317,12 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText struct {
-	CachePoint     *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint     `pulumi:"cachePoint"`
+	// A cache checkpoint within a template configuration. See Cache Point for more information.
+	CachePoint *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint `pulumi:"cachePoint"`
+	// A list of variables in the prompt template. See Input Variable for more information.
 	InputVariables []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable `pulumi:"inputVariables"`
-	Text           string                                                                                                      `pulumi:"text"`
+	// The message for the prompt.
+	Text string `pulumi:"text"`
 }
 
 // AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInput is an input type that accepts AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs and AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput values.
@@ -16282,9 +16337,12 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplate
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs struct {
-	CachePoint     AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrInput      `pulumi:"cachePoint"`
+	// A cache checkpoint within a template configuration. See Cache Point for more information.
+	CachePoint AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrInput `pulumi:"cachePoint"`
+	// A list of variables in the prompt template. See Input Variable for more information.
 	InputVariables AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayInput `pulumi:"inputVariables"`
-	Text           pulumi.StringInput                                                                                                  `pulumi:"text"`
+	// The message for the prompt.
+	Text pulumi.StringInput `pulumi:"text"`
 }
 
 func (AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs) ElementType() reflect.Type {
@@ -16364,18 +16422,21 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput)
 }
 
+// A cache checkpoint within a template configuration. See Cache Point for more information.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput) CachePoint() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint {
 		return v.CachePoint
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput)
 }
 
+// A list of variables in the prompt template. See Input Variable for more information.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput) InputVariables() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText) []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable {
 		return v.InputVariables
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput)
 }
 
+// The message for the prompt.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput) Text() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText) string {
 		return v.Text
@@ -16406,6 +16467,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextOutput)
 }
 
+// A cache checkpoint within a template configuration. See Cache Point for more information.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput) CachePoint() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText) *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint {
 		if v == nil {
@@ -16415,6 +16477,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointPtrOutput)
 }
 
+// A list of variables in the prompt template. See Input Variable for more information.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput) InputVariables() AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText) []AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable {
 		if v == nil {
@@ -16424,6 +16487,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArrayOutput)
 }
 
+// The message for the prompt.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextPtrOutput) Text() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText) *string {
 		if v == nil {
@@ -16811,6 +16875,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtr
 }
 
 type AgentFlowDefinitionNodeConfigurationRetrieval struct {
+	// Contains configurations for the service to use for retrieving data to return as the output from the node. See Retrieval Service Configuration for more information.
 	ServiceConfiguration *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration `pulumi:"serviceConfiguration"`
 }
 
@@ -16826,6 +16891,7 @@ type AgentFlowDefinitionNodeConfigurationRetrievalInput interface {
 }
 
 type AgentFlowDefinitionNodeConfigurationRetrievalArgs struct {
+	// Contains configurations for the service to use for retrieving data to return as the output from the node. See Retrieval Service Configuration for more information.
 	ServiceConfiguration AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrInput `pulumi:"serviceConfiguration"`
 }
 
@@ -16906,6 +16972,7 @@ func (o AgentFlowDefinitionNodeConfigurationRetrievalOutput) ToAgentFlowDefiniti
 	}).(AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput)
 }
 
+// Contains configurations for the service to use for retrieving data to return as the output from the node. See Retrieval Service Configuration for more information.
 func (o AgentFlowDefinitionNodeConfigurationRetrievalOutput) ServiceConfiguration() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationRetrieval) *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration {
 		return v.ServiceConfiguration
@@ -16936,6 +17003,7 @@ func (o AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput) Elem() AgentFlow
 	}).(AgentFlowDefinitionNodeConfigurationRetrievalOutput)
 }
 
+// Contains configurations for the service to use for retrieving data to return as the output from the node. See Retrieval Service Configuration for more information.
 func (o AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput) ServiceConfiguration() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationRetrieval) *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration {
 		if v == nil {
@@ -16946,6 +17014,7 @@ func (o AgentFlowDefinitionNodeConfigurationRetrievalPtrOutput) ServiceConfigura
 }
 
 type AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration struct {
+	// Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
 	S3 *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3 `pulumi:"s3"`
 }
 
@@ -16961,6 +17030,7 @@ type AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationInput inte
 }
 
 type AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs struct {
+	// Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
 	S3 AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrInput `pulumi:"s3"`
 }
 
@@ -17041,6 +17111,7 @@ func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput)
 	}).(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput)
 }
 
+// Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
 func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput) S3() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration) *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3 {
 		return v.S3
@@ -17071,6 +17142,7 @@ func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutp
 	}).(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationOutput)
 }
 
+// Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
 func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutput) S3() AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration) *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3 {
 		if v == nil {
@@ -17081,6 +17153,7 @@ func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationPtrOutp
 }
 
 type AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3 struct {
+	// The name of the Amazon S3 bucket in which to store the input into the node.
 	BucketName string `pulumi:"bucketName"`
 }
 
@@ -17096,6 +17169,7 @@ type AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Input in
 }
 
 type AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args struct {
+	// The name of the Amazon S3 bucket in which to store the input into the node.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
 }
 
@@ -17176,6 +17250,7 @@ func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Outpu
 	}).(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput)
 }
 
+// The name of the Amazon S3 bucket in which to store the input into the node.
 func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Output) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3) string {
 		return v.BucketName
@@ -17206,6 +17281,7 @@ func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOu
 	}).(AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Output)
 }
 
+// The name of the Amazon S3 bucket in which to store the input into the node.
 func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3) *string {
 		if v == nil {
@@ -17216,6 +17292,7 @@ func (o AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3PtrOu
 }
 
 type AgentFlowDefinitionNodeConfigurationStorage struct {
+	// Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Service Configuration for more information.
 	ServiceConfiguration *AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration `pulumi:"serviceConfiguration"`
 }
 
@@ -17231,6 +17308,7 @@ type AgentFlowDefinitionNodeConfigurationStorageInput interface {
 }
 
 type AgentFlowDefinitionNodeConfigurationStorageArgs struct {
+	// Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Service Configuration for more information.
 	ServiceConfiguration AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrInput `pulumi:"serviceConfiguration"`
 }
 
@@ -17311,6 +17389,7 @@ func (o AgentFlowDefinitionNodeConfigurationStorageOutput) ToAgentFlowDefinition
 	}).(AgentFlowDefinitionNodeConfigurationStoragePtrOutput)
 }
 
+// Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Service Configuration for more information.
 func (o AgentFlowDefinitionNodeConfigurationStorageOutput) ServiceConfiguration() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationStorage) *AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration {
 		return v.ServiceConfiguration
@@ -17341,6 +17420,7 @@ func (o AgentFlowDefinitionNodeConfigurationStoragePtrOutput) Elem() AgentFlowDe
 	}).(AgentFlowDefinitionNodeConfigurationStorageOutput)
 }
 
+// Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Service Configuration for more information.
 func (o AgentFlowDefinitionNodeConfigurationStoragePtrOutput) ServiceConfiguration() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationStorage) *AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration {
 		if v == nil {
@@ -17351,6 +17431,7 @@ func (o AgentFlowDefinitionNodeConfigurationStoragePtrOutput) ServiceConfigurati
 }
 
 type AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration struct {
+	// Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
 	S3 *AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3 `pulumi:"s3"`
 }
 
@@ -17366,6 +17447,7 @@ type AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationInput interf
 }
 
 type AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs struct {
+	// Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
 	S3 AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrInput `pulumi:"s3"`
 }
 
@@ -17446,6 +17528,7 @@ func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput) T
 	}).(AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput)
 }
 
+// Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
 func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput) S3() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration) *AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3 {
 		return v.S3
@@ -17476,6 +17559,7 @@ func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput
 	}).(AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationOutput)
 }
 
+// Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
 func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput) S3() AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration) *AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3 {
 		if v == nil {
@@ -17486,6 +17570,7 @@ func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationPtrOutput
 }
 
 type AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3 struct {
+	// The name of the Amazon S3 bucket in which to store the input into the node.
 	BucketName string `pulumi:"bucketName"`
 }
 
@@ -17501,6 +17586,7 @@ type AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Input inte
 }
 
 type AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args struct {
+	// The name of the Amazon S3 bucket in which to store the input into the node.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
 }
 
@@ -17581,6 +17667,7 @@ func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output)
 	}).(AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput)
 }
 
+// The name of the Amazon S3 bucket in which to store the input into the node.
 func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3) string { return v.BucketName }).(pulumi.StringOutput)
 }
@@ -17609,6 +17696,7 @@ func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutp
 	}).(AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Output)
 }
 
+// The name of the Amazon S3 bucket in which to store the input into the node.
 func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3) *string {
 		if v == nil {
@@ -17620,10 +17708,12 @@ func (o AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3PtrOutp
 
 type AgentFlowDefinitionNodeInputType struct {
 	// How input data flows between iterations in a DoWhile loop.
-	Category   *string `pulumi:"category"`
-	Expression string  `pulumi:"expression"`
-	// A name for the flow.
+	Category *string `pulumi:"category"`
+	// An expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+	Expression string `pulumi:"expression"`
+	// A name for the input that you can reference.
 	Name string `pulumi:"name"`
+	// The data type of the input. If the input doesn’t match this type at runtime, a validation error will be thrown.
 	Type string `pulumi:"type"`
 }
 
@@ -17640,10 +17730,12 @@ type AgentFlowDefinitionNodeInputTypeInput interface {
 
 type AgentFlowDefinitionNodeInputTypeArgs struct {
 	// How input data flows between iterations in a DoWhile loop.
-	Category   pulumi.StringPtrInput `pulumi:"category"`
-	Expression pulumi.StringInput    `pulumi:"expression"`
-	// A name for the flow.
+	Category pulumi.StringPtrInput `pulumi:"category"`
+	// An expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// A name for the input that you can reference.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The data type of the input. If the input doesn’t match this type at runtime, a validation error will be thrown.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -17703,15 +17795,17 @@ func (o AgentFlowDefinitionNodeInputTypeOutput) Category() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v AgentFlowDefinitionNodeInputType) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
+// An expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
 func (o AgentFlowDefinitionNodeInputTypeOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeInputType) string { return v.Expression }).(pulumi.StringOutput)
 }
 
-// A name for the flow.
+// A name for the input that you can reference.
 func (o AgentFlowDefinitionNodeInputTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeInputType) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The data type of the input. If the input doesn’t match this type at runtime, a validation error will be thrown.
 func (o AgentFlowDefinitionNodeInputTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeInputType) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -17737,8 +17831,9 @@ func (o AgentFlowDefinitionNodeInputTypeArrayOutput) Index(i pulumi.IntInput) Ag
 }
 
 type AgentFlowDefinitionNodeOutputType struct {
-	// A name for the flow.
+	// A name for the output that you can reference.
 	Name string `pulumi:"name"`
+	// The data type of the output. If the output doesn’t match this type at runtime, a validation error will be thrown.
 	Type string `pulumi:"type"`
 }
 
@@ -17754,8 +17849,9 @@ type AgentFlowDefinitionNodeOutputTypeInput interface {
 }
 
 type AgentFlowDefinitionNodeOutputTypeArgs struct {
-	// A name for the flow.
+	// A name for the output that you can reference.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The data type of the output. If the output doesn’t match this type at runtime, a validation error will be thrown.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -17810,11 +17906,12 @@ func (o AgentFlowDefinitionNodeOutputTypeOutput) ToAgentFlowDefinitionNodeOutput
 	return o
 }
 
-// A name for the flow.
+// A name for the output that you can reference.
 func (o AgentFlowDefinitionNodeOutputTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeOutputType) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The data type of the output. If the output doesn’t match this type at runtime, a validation error will be thrown.
 func (o AgentFlowDefinitionNodeOutputTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeOutputType) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -29506,6 +29603,8 @@ type AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer struct {
 	AllowedClients []string `pulumi:"allowedClients"`
 	// Set of scopes that are allowed to access the token.
 	AllowedScopes []string `pulumi:"allowedScopes"`
+	// Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+	CustomClaims []AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaim `pulumi:"customClaims"`
 	// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
 	DiscoveryUrl string `pulumi:"discoveryUrl"`
 }
@@ -29528,6 +29627,8 @@ type AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs struct 
 	AllowedClients pulumi.StringArrayInput `pulumi:"allowedClients"`
 	// Set of scopes that are allowed to access the token.
 	AllowedScopes pulumi.StringArrayInput `pulumi:"allowedScopes"`
+	// Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+	CustomClaims AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayInput `pulumi:"customClaims"`
 	// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
 	DiscoveryUrl pulumi.StringInput `pulumi:"discoveryUrl"`
 }
@@ -29630,6 +29731,13 @@ func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput) A
 	}).(pulumi.StringArrayOutput)
 }
 
+// Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput) CustomClaims() AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer) []AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaim {
+		return v.CustomClaims
+	}).(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput)
+}
+
 // URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
 func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput) DiscoveryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer) string { return v.DiscoveryUrl }).(pulumi.StringOutput)
@@ -29689,6 +29797,16 @@ func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput
 	}).(pulumi.StringArrayOutput)
 }
 
+// Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) CustomClaims() AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer) []AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaim {
+		if v == nil {
+			return nil
+		}
+		return v.CustomClaims
+	}).(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput)
+}
+
 // URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
 func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) DiscoveryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer) *string {
@@ -29697,6 +29815,257 @@ func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput
 		}
 		return &v.DiscoveryUrl
 	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaim struct {
+	// Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` below.
+	AuthorizingClaimMatchValue AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue `pulumi:"authorizingClaimMatchValue"`
+	// Name of the custom claim field to check.
+	InboundTokenClaimName string `pulumi:"inboundTokenClaimName"`
+	// Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+	InboundTokenClaimValueType string `pulumi:"inboundTokenClaimValueType"`
+}
+
+// AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimInput is an input type that accepts AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs and AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimInput` via:
+//
+//	AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs{...}
+type AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput() AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput
+	ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutputWithContext(context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput
+}
+
+type AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs struct {
+	// Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` below.
+	AuthorizingClaimMatchValue AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueInput `pulumi:"authorizingClaimMatchValue"`
+	// Name of the custom claim field to check.
+	InboundTokenClaimName pulumi.StringInput `pulumi:"inboundTokenClaimName"`
+	// Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+	InboundTokenClaimValueType pulumi.StringInput `pulumi:"inboundTokenClaimValueType"`
+}
+
+func (AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaim)(nil)).Elem()
+}
+
+func (i AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput() AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput {
+	return i.ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput)
+}
+
+// AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayInput is an input type that accepts AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArray and AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayInput` via:
+//
+//	AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArray{ AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs{...} }
+type AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput() AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput
+	ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutputWithContext(context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput
+}
+
+type AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArray []AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimInput
+
+func (AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaim)(nil)).Elem()
+}
+
+func (i AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArray) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput() AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput {
+	return i.ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArray) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput)
+}
+
+type AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaim)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput() AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput {
+	return o
+}
+
+// Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` below.
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput) AuthorizingClaimMatchValue() AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaim) AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue {
+		return v.AuthorizingClaimMatchValue
+	}).(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput)
+}
+
+// Name of the custom claim field to check.
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput) InboundTokenClaimName() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaim) string {
+		return v.InboundTokenClaimName
+	}).(pulumi.StringOutput)
+}
+
+// Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput) InboundTokenClaimValueType() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaim) string {
+		return v.InboundTokenClaimValueType
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaim)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput() AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput) Index(i pulumi.IntInput) AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaim {
+		return vs[0].([]AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaim)[vs[1].(int)]
+	}).(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput)
+}
+
+type AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue struct {
+	// Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inboundTokenClaimValueType` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inboundTokenClaimValueType` is `STRING_ARRAY`.
+	ClaimMatchOperator string `pulumi:"claimMatchOperator"`
+	// Value or values to match for. See `claimMatchValue` below.
+	ClaimMatchValue AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue `pulumi:"claimMatchValue"`
+}
+
+// AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueInput is an input type that accepts AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs and AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueInput` via:
+//
+//	AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs{...}
+type AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput() AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput
+	ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutputWithContext(context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput
+}
+
+type AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs struct {
+	// Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inboundTokenClaimValueType` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inboundTokenClaimValueType` is `STRING_ARRAY`.
+	ClaimMatchOperator pulumi.StringInput `pulumi:"claimMatchOperator"`
+	// Value or values to match for. See `claimMatchValue` below.
+	ClaimMatchValue AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueInput `pulumi:"claimMatchValue"`
+}
+
+func (AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue)(nil)).Elem()
+}
+
+func (i AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput() AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput {
+	return i.ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput)
+}
+
+type AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput() AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput {
+	return o
+}
+
+// Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inboundTokenClaimValueType` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inboundTokenClaimValueType` is `STRING_ARRAY`.
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput) ClaimMatchOperator() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue) string {
+		return v.ClaimMatchOperator
+	}).(pulumi.StringOutput)
+}
+
+// Value or values to match for. See `claimMatchValue` below.
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput) ClaimMatchValue() AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue) AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue {
+		return v.ClaimMatchValue
+	}).(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput)
+}
+
+type AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue struct {
+	// String value to match for. Must be specified when `claimMatchOperator` is `EQUALS` or `CONTAINS`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+	MatchValueString *string `pulumi:"matchValueString"`
+	// List of strings to check for a match. Must be specified when `claimMatchOperator` is `CONTAINS_ANY`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+	MatchValueStringLists []string `pulumi:"matchValueStringLists"`
+}
+
+// AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueInput is an input type that accepts AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs and AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueInput` via:
+//
+//	AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs{...}
+type AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput() AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput
+	ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutputWithContext(context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput
+}
+
+type AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs struct {
+	// String value to match for. Must be specified when `claimMatchOperator` is `EQUALS` or `CONTAINS`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+	MatchValueString pulumi.StringPtrInput `pulumi:"matchValueString"`
+	// List of strings to check for a match. Must be specified when `claimMatchOperator` is `CONTAINS_ANY`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+	MatchValueStringLists pulumi.StringArrayInput `pulumi:"matchValueStringLists"`
+}
+
+func (AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue)(nil)).Elem()
+}
+
+func (i AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput() AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput {
+	return i.ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput)
+}
+
+type AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput() AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput {
+	return o
+}
+
+// String value to match for. Must be specified when `claimMatchOperator` is `EQUALS` or `CONTAINS`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput) MatchValueString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue) *string {
+		return v.MatchValueString
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of strings to check for a match. Must be specified when `claimMatchOperator` is `CONTAINS_ANY`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput) MatchValueStringLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue) []string {
+		return v.MatchValueStringLists
+	}).(pulumi.StringArrayOutput)
 }
 
 type AgentcoreAgentRuntimeEndpointTimeouts struct {
@@ -32333,7 +32702,10 @@ type AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer struct {
 	AllowedAudiences []string `pulumi:"allowedAudiences"`
 	// Set of allowed client IDs for JWT token validation.
 	AllowedClients []string `pulumi:"allowedClients"`
-	AllowedScopes  []string `pulumi:"allowedScopes"`
+	// Set of scopes that are allowed to access the token.
+	AllowedScopes []string `pulumi:"allowedScopes"`
+	// Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+	CustomClaims []AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaim `pulumi:"customClaims"`
 	// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
 	DiscoveryUrl string `pulumi:"discoveryUrl"`
 }
@@ -32354,7 +32726,10 @@ type AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs struct {
 	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
 	// Set of allowed client IDs for JWT token validation.
 	AllowedClients pulumi.StringArrayInput `pulumi:"allowedClients"`
-	AllowedScopes  pulumi.StringArrayInput `pulumi:"allowedScopes"`
+	// Set of scopes that are allowed to access the token.
+	AllowedScopes pulumi.StringArrayInput `pulumi:"allowedScopes"`
+	// Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+	CustomClaims AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayInput `pulumi:"customClaims"`
 	// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
 	DiscoveryUrl pulumi.StringInput `pulumi:"discoveryUrl"`
 }
@@ -32446,8 +32821,16 @@ func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput) Allowe
 	return o.ApplyT(func(v AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer) []string { return v.AllowedClients }).(pulumi.StringArrayOutput)
 }
 
+// Set of scopes that are allowed to access the token.
 func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput) AllowedScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer) []string { return v.AllowedScopes }).(pulumi.StringArrayOutput)
+}
+
+// Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput) CustomClaims() AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput {
+	return o.ApplyT(func(v AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer) []AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaim {
+		return v.CustomClaims
+	}).(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput)
 }
 
 // URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
@@ -32499,6 +32882,7 @@ func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) All
 	}).(pulumi.StringArrayOutput)
 }
 
+// Set of scopes that are allowed to access the token.
 func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) AllowedScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer) []string {
 		if v == nil {
@@ -32506,6 +32890,16 @@ func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) All
 		}
 		return v.AllowedScopes
 	}).(pulumi.StringArrayOutput)
+}
+
+// Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) CustomClaims() AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer) []AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaim {
+		if v == nil {
+			return nil
+		}
+		return v.CustomClaims
+	}).(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput)
 }
 
 // URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
@@ -32516,6 +32910,257 @@ func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) Dis
 		}
 		return &v.DiscoveryUrl
 	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaim struct {
+	// Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` below.
+	AuthorizingClaimMatchValue AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue `pulumi:"authorizingClaimMatchValue"`
+	// Name of the custom claim field to check.
+	InboundTokenClaimName string `pulumi:"inboundTokenClaimName"`
+	// Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+	InboundTokenClaimValueType string `pulumi:"inboundTokenClaimValueType"`
+}
+
+// AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimInput is an input type that accepts AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs and AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimInput` via:
+//
+//	AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs{...}
+type AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput() AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput
+	ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutputWithContext(context.Context) AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput
+}
+
+type AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs struct {
+	// Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` below.
+	AuthorizingClaimMatchValue AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueInput `pulumi:"authorizingClaimMatchValue"`
+	// Name of the custom claim field to check.
+	InboundTokenClaimName pulumi.StringInput `pulumi:"inboundTokenClaimName"`
+	// Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+	InboundTokenClaimValueType pulumi.StringInput `pulumi:"inboundTokenClaimValueType"`
+}
+
+func (AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaim)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput() AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput {
+	return i.ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutputWithContext(ctx context.Context) AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput)
+}
+
+// AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayInput is an input type that accepts AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArray and AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayInput` via:
+//
+//	AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArray{ AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs{...} }
+type AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput() AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput
+	ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutputWithContext(context.Context) AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput
+}
+
+type AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArray []AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimInput
+
+func (AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaim)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArray) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput() AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput {
+	return i.ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArray) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutputWithContext(ctx context.Context) AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput)
+}
+
+type AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaim)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput() AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput {
+	return o
+}
+
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutputWithContext(ctx context.Context) AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput {
+	return o
+}
+
+// Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` below.
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput) AuthorizingClaimMatchValue() AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput {
+	return o.ApplyT(func(v AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaim) AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue {
+		return v.AuthorizingClaimMatchValue
+	}).(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput)
+}
+
+// Name of the custom claim field to check.
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput) InboundTokenClaimName() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaim) string {
+		return v.InboundTokenClaimName
+	}).(pulumi.StringOutput)
+}
+
+// Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput) InboundTokenClaimValueType() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaim) string {
+		return v.InboundTokenClaimValueType
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaim)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput() AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutputWithContext(ctx context.Context) AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput) Index(i pulumi.IntInput) AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaim {
+		return vs[0].([]AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaim)[vs[1].(int)]
+	}).(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput)
+}
+
+type AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue struct {
+	// Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inboundTokenClaimValueType` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inboundTokenClaimValueType` is `STRING_ARRAY`.
+	ClaimMatchOperator string `pulumi:"claimMatchOperator"`
+	// Value or values to match for. See `claimMatchValue` below.
+	ClaimMatchValue AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue `pulumi:"claimMatchValue"`
+}
+
+// AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueInput is an input type that accepts AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs and AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueInput` via:
+//
+//	AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs{...}
+type AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput() AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput
+	ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutputWithContext(context.Context) AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput
+}
+
+type AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs struct {
+	// Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inboundTokenClaimValueType` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inboundTokenClaimValueType` is `STRING_ARRAY`.
+	ClaimMatchOperator pulumi.StringInput `pulumi:"claimMatchOperator"`
+	// Value or values to match for. See `claimMatchValue` below.
+	ClaimMatchValue AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueInput `pulumi:"claimMatchValue"`
+}
+
+func (AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput() AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput {
+	return i.ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutputWithContext(ctx context.Context) AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput)
+}
+
+type AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput() AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput {
+	return o
+}
+
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutputWithContext(ctx context.Context) AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput {
+	return o
+}
+
+// Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inboundTokenClaimValueType` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inboundTokenClaimValueType` is `STRING_ARRAY`.
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput) ClaimMatchOperator() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue) string {
+		return v.ClaimMatchOperator
+	}).(pulumi.StringOutput)
+}
+
+// Value or values to match for. See `claimMatchValue` below.
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput) ClaimMatchValue() AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput {
+	return o.ApplyT(func(v AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue) AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue {
+		return v.ClaimMatchValue
+	}).(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput)
+}
+
+type AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue struct {
+	// String value to match for. Must be specified when `claimMatchOperator` is `EQUALS` or `CONTAINS`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+	MatchValueString *string `pulumi:"matchValueString"`
+	// List of strings to check for a match. Must be specified when `claimMatchOperator` is `CONTAINS_ANY`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+	MatchValueStringLists []string `pulumi:"matchValueStringLists"`
+}
+
+// AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueInput is an input type that accepts AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs and AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueInput` via:
+//
+//	AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs{...}
+type AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput() AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput
+	ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutputWithContext(context.Context) AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput
+}
+
+type AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs struct {
+	// String value to match for. Must be specified when `claimMatchOperator` is `EQUALS` or `CONTAINS`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+	MatchValueString pulumi.StringPtrInput `pulumi:"matchValueString"`
+	// List of strings to check for a match. Must be specified when `claimMatchOperator` is `CONTAINS_ANY`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+	MatchValueStringLists pulumi.StringArrayInput `pulumi:"matchValueStringLists"`
+}
+
+func (AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput() AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput {
+	return i.ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutputWithContext(ctx context.Context) AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput)
+}
+
+type AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput() AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput {
+	return o
+}
+
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutputWithContext(ctx context.Context) AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput {
+	return o
+}
+
+// String value to match for. Must be specified when `claimMatchOperator` is `EQUALS` or `CONTAINS`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput) MatchValueString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue) *string {
+		return v.MatchValueString
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of strings to check for a match. Must be specified when `claimMatchOperator` is `CONTAINS_ANY`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput) MatchValueStringLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue) []string {
+		return v.MatchValueStringLists
+	}).(pulumi.StringArrayOutput)
 }
 
 type AgentcoreGatewayInterceptorConfiguration struct {
@@ -34397,6 +35042,8 @@ func (o AgentcoreGatewayTargetTargetConfigurationPtrOutput) Mcp() AgentcoreGatew
 }
 
 type AgentcoreGatewayTargetTargetConfigurationMcp struct {
+	// API Gateway target configuration. See `apiGateway` below.
+	ApiGateway *AgentcoreGatewayTargetTargetConfigurationMcpApiGateway `pulumi:"apiGateway"`
 	// Lambda function target configuration. See `lambda` below.
 	Lambda *AgentcoreGatewayTargetTargetConfigurationMcpLambda `pulumi:"lambda"`
 	// MCP server target configuration. See `mcpServer` below.
@@ -34419,6 +35066,8 @@ type AgentcoreGatewayTargetTargetConfigurationMcpInput interface {
 }
 
 type AgentcoreGatewayTargetTargetConfigurationMcpArgs struct {
+	// API Gateway target configuration. See `apiGateway` below.
+	ApiGateway AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrInput `pulumi:"apiGateway"`
 	// Lambda function target configuration. See `lambda` below.
 	Lambda AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrInput `pulumi:"lambda"`
 	// MCP server target configuration. See `mcpServer` below.
@@ -34506,6 +35155,13 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpOutput) ToAgentcoreGatewayTa
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput)
 }
 
+// API Gateway target configuration. See `apiGateway` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOutput) ApiGateway() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcp) *AgentcoreGatewayTargetTargetConfigurationMcpApiGateway {
+		return v.ApiGateway
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput)
+}
+
 // Lambda function target configuration. See `lambda` below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpOutput) Lambda() AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcp) *AgentcoreGatewayTargetTargetConfigurationMcpLambda {
@@ -34558,6 +35214,16 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput) Elem() AgentcoreG
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpOutput)
 }
 
+// API Gateway target configuration. See `apiGateway` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput) ApiGateway() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcp) *AgentcoreGatewayTargetTargetConfigurationMcpApiGateway {
+		if v == nil {
+			return nil
+		}
+		return v.ApiGateway
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput)
+}
+
 // Lambda function target configuration. See `lambda` below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput) Lambda() AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcp) *AgentcoreGatewayTargetTargetConfigurationMcpLambda {
@@ -34596,6 +35262,585 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput) SmithyModel() Age
 		}
 		return v.SmithyModel
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpApiGateway struct {
+	// Configuration for API Gateway tools. See `apiGatewayToolConfiguration` below.
+	ApiGatewayToolConfiguration *AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration `pulumi:"apiGatewayToolConfiguration"`
+	// ID of the API Gateway REST API to invoke.
+	RestApiId string `pulumi:"restApiId"`
+	// Stage name of the REST API to add as a target.
+	Stage string `pulumi:"stage"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs and AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs struct {
+	// Configuration for API Gateway tools. See `apiGatewayToolConfiguration` below.
+	ApiGatewayToolConfiguration AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrInput `pulumi:"apiGatewayToolConfiguration"`
+	// ID of the API Gateway REST API to invoke.
+	RestApiId pulumi.StringInput `pulumi:"restApiId"`
+	// Stage name of the REST API to add as a target.
+	Stage pulumi.StringInput `pulumi:"stage"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpApiGateway)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutput)
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutput).ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs, AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtr and AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrInput` via:
+//
+//	        AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput
+}
+
+type agentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrType AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs
+
+func AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtr(v *AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrInput {
+	return (*agentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrType)(v)
+}
+
+func (*agentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpApiGateway)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpApiGateway)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput {
+	return o.ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetTargetConfigurationMcpApiGateway) *AgentcoreGatewayTargetTargetConfigurationMcpApiGateway {
+		return &v
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput)
+}
+
+// Configuration for API Gateway tools. See `apiGatewayToolConfiguration` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutput) ApiGatewayToolConfiguration() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpApiGateway) *AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration {
+		return v.ApiGatewayToolConfiguration
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput)
+}
+
+// ID of the API Gateway REST API to invoke.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutput) RestApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpApiGateway) string { return v.RestApiId }).(pulumi.StringOutput)
+}
+
+// Stage name of the REST API to add as a target.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutput) Stage() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpApiGateway) string { return v.Stage }).(pulumi.StringOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpApiGateway)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput) Elem() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpApiGateway) AgentcoreGatewayTargetTargetConfigurationMcpApiGateway {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetTargetConfigurationMcpApiGateway
+		return ret
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutput)
+}
+
+// Configuration for API Gateway tools. See `apiGatewayToolConfiguration` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput) ApiGatewayToolConfiguration() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpApiGateway) *AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ApiGatewayToolConfiguration
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput)
+}
+
+// ID of the API Gateway REST API to invoke.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput) RestApiId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpApiGateway) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RestApiId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Stage name of the REST API to add as a target.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput) Stage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpApiGateway) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Stage
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration struct {
+	// Repeatable block of path and method patterns to expose as tools. See `toolFilter` below.
+	ToolFilters []AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilter `pulumi:"toolFilters"`
+	// Repeatable block of explicit tool definitions with optional custom names and descriptions. See `toolOverride` below.
+	ToolOverrides []AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverride `pulumi:"toolOverrides"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs and AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs struct {
+	// Repeatable block of path and method patterns to expose as tools. See `toolFilter` below.
+	ToolFilters AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayInput `pulumi:"toolFilters"`
+	// Repeatable block of explicit tool definitions with optional custom names and descriptions. See `toolOverride` below.
+	ToolOverrides AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayInput `pulumi:"toolOverrides"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationOutput)
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationOutput).ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs, AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtr and AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrInput` via:
+//
+//	        AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput
+}
+
+type agentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrType AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs
+
+func AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtr(v *AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrInput {
+	return (*agentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrType)(v)
+}
+
+func (*agentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput {
+	return o.ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration) *AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration {
+		return &v
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput)
+}
+
+// Repeatable block of path and method patterns to expose as tools. See `toolFilter` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationOutput) ToolFilters() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration) []AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilter {
+		return v.ToolFilters
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayOutput)
+}
+
+// Repeatable block of explicit tool definitions with optional custom names and descriptions. See `toolOverride` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationOutput) ToolOverrides() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration) []AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverride {
+		return v.ToolOverrides
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput) Elem() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration
+		return ret
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationOutput)
+}
+
+// Repeatable block of path and method patterns to expose as tools. See `toolFilter` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput) ToolFilters() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration) []AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ToolFilters
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayOutput)
+}
+
+// Repeatable block of explicit tool definitions with optional custom names and descriptions. See `toolOverride` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput) ToolOverrides() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration) []AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverride {
+		if v == nil {
+			return nil
+		}
+		return v.ToolOverrides
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilter struct {
+	// Resource path to match in the REST API. Supports exact paths (for example, `/pets`) or wildcard paths (for example, `/pets/*` to match all paths under `/pets`). Must match existing paths in the REST API.
+	FilterPath string `pulumi:"filterPath"`
+	// List of HTTP methods to filter for. Valid values: `GET`, `DELETE`, `HEAD`, `OPTIONS`, `PATCH`, `PUT` and `POST`.
+	Methods []string `pulumi:"methods"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArgs and AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArgs struct {
+	// Resource path to match in the REST API. Supports exact paths (for example, `/pets`) or wildcard paths (for example, `/pets/*` to match all paths under `/pets`). Must match existing paths in the REST API.
+	FilterPath pulumi.StringInput `pulumi:"filterPath"`
+	// List of HTTP methods to filter for. Valid values: `GET`, `DELETE`, `HEAD`, `OPTIONS`, `PATCH`, `PUT` and `POST`.
+	Methods pulumi.StringArrayInput `pulumi:"methods"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilter)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterOutput)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArray and AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArray{ AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArgs{...} }
+type AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArray []AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterInput
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilter)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArray) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArray) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilter)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterOutput {
+	return o
+}
+
+// Resource path to match in the REST API. Supports exact paths (for example, `/pets`) or wildcard paths (for example, `/pets/*` to match all paths under `/pets`). Must match existing paths in the REST API.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterOutput) FilterPath() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilter) string {
+		return v.FilterPath
+	}).(pulumi.StringOutput)
+}
+
+// List of HTTP methods to filter for. Valid values: `GET`, `DELETE`, `HEAD`, `OPTIONS`, `PATCH`, `PUT` and `POST`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterOutput) Methods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilter) []string {
+		return v.Methods
+	}).(pulumi.StringArrayOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilter)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayOutput) Index(i pulumi.IntInput) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilter {
+		return vs[0].([]AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilter)[vs[1].(int)]
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverride struct {
+	// Description of the tool. Provides information about the purpose and usage of the tool. If not provided, uses the description from the API's OpenAPI specification.
+	Description *string `pulumi:"description"`
+	// HTTP method to expose for the specified path. Valid values: `GET`, `DELETE`, `HEAD`, `OPTIONS`, `PATCH`, `PUT` and `POST`.
+	Method string `pulumi:"method"`
+	// Name of tool. Identifies the tool in the Model Context Protocol.
+	Name string `pulumi:"name"`
+	// Resource path in the REST API (e.g., `/pets`). Must explicitly match an existing path in the REST API.
+	Path string `pulumi:"path"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArgs and AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArgs struct {
+	// Description of the tool. Provides information about the purpose and usage of the tool. If not provided, uses the description from the API's OpenAPI specification.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// HTTP method to expose for the specified path. Valid values: `GET`, `DELETE`, `HEAD`, `OPTIONS`, `PATCH`, `PUT` and `POST`.
+	Method pulumi.StringInput `pulumi:"method"`
+	// Name of tool. Identifies the tool in the Model Context Protocol.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Resource path in the REST API (e.g., `/pets`). Must explicitly match an existing path in the REST API.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverride)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideOutput)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArray and AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArray{ AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArgs{...} }
+type AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArray []AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideInput
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverride)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArray) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArray) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverride)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideOutput {
+	return o
+}
+
+// Description of the tool. Provides information about the purpose and usage of the tool. If not provided, uses the description from the API's OpenAPI specification.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverride) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// HTTP method to expose for the specified path. Valid values: `GET`, `DELETE`, `HEAD`, `OPTIONS`, `PATCH`, `PUT` and `POST`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideOutput) Method() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverride) string {
+		return v.Method
+	}).(pulumi.StringOutput)
+}
+
+// Name of tool. Identifies the tool in the Model Context Protocol.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverride) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// Resource path in the REST API (e.g., `/pets`). Must explicitly match an existing path in the REST API.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverride) string {
+		return v.Path
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverride)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayOutput) Index(i pulumi.IntInput) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverride {
+		return vs[0].([]AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverride)[vs[1].(int)]
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideOutput)
 }
 
 type AgentcoreGatewayTargetTargetConfigurationMcpLambda struct {
@@ -49803,6 +51048,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeAuthorizerConfigurationPtrInput)(nil)).Elem(), AgentcoreAgentRuntimeAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerInput)(nil)).Elem(), AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrInput)(nil)).Elem(), AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimInput)(nil)).Elem(), AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayInput)(nil)).Elem(), AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueInput)(nil)).Elem(), AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueInput)(nil)).Elem(), AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeEndpointTimeoutsInput)(nil)).Elem(), AgentcoreAgentRuntimeEndpointTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeEndpointTimeoutsPtrInput)(nil)).Elem(), AgentcoreAgentRuntimeEndpointTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeLifecycleConfigurationInput)(nil)).Elem(), AgentcoreAgentRuntimeLifecycleConfigurationArgs{})
@@ -49841,6 +51090,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayAuthorizerConfigurationPtrInput)(nil)).Elem(), AgentcoreGatewayAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerInput)(nil)).Elem(), AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrInput)(nil)).Elem(), AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimInput)(nil)).Elem(), AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayInput)(nil)).Elem(), AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueInput)(nil)).Elem(), AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueInput)(nil)).Elem(), AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayInterceptorConfigurationInput)(nil)).Elem(), AgentcoreGatewayInterceptorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayInterceptorConfigurationArrayInput)(nil)).Elem(), AgentcoreGatewayInterceptorConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayInterceptorConfigurationInputConfigurationInput)(nil)).Elem(), AgentcoreGatewayInterceptorConfigurationInputConfigurationArgs{})
@@ -49867,6 +51120,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs{})
@@ -50452,6 +51713,10 @@ func init() {
 	pulumi.RegisterOutputType(AgentcoreAgentRuntimeAuthorizerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput{})
 	pulumi.RegisterOutputType(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput{})
 	pulumi.RegisterOutputType(AgentcoreAgentRuntimeEndpointTimeoutsOutput{})
 	pulumi.RegisterOutputType(AgentcoreAgentRuntimeEndpointTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreAgentRuntimeLifecycleConfigurationOutput{})
@@ -50490,6 +51755,10 @@ func init() {
 	pulumi.RegisterOutputType(AgentcoreGatewayAuthorizerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput{})
 	pulumi.RegisterOutputType(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput{})
 	pulumi.RegisterOutputType(AgentcoreGatewayInterceptorConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentcoreGatewayInterceptorConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(AgentcoreGatewayInterceptorConfigurationInputConfigurationOutput{})
@@ -50516,6 +51785,14 @@ func init() {
 	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpOutput{})
 	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArrayOutput{})
 	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput{})
 	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput{})

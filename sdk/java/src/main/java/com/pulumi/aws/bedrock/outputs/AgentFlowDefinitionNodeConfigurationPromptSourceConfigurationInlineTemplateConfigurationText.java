@@ -15,17 +15,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText {
+    /**
+     * @return A cache checkpoint within a template configuration. See Cache Point for more information.
+     * 
+     */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint cachePoint;
+    /**
+     * @return A list of variables in the prompt template. See Input Variable for more information.
+     * 
+     */
     private @Nullable List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable> inputVariables;
+    /**
+     * @return The message for the prompt.
+     * 
+     */
     private String text;
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText() {}
+    /**
+     * @return A cache checkpoint within a template configuration. See Cache Point for more information.
+     * 
+     */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint> cachePoint() {
         return Optional.ofNullable(this.cachePoint);
     }
+    /**
+     * @return A list of variables in the prompt template. See Input Variable for more information.
+     * 
+     */
     public List<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable> inputVariables() {
         return this.inputVariables == null ? List.of() : this.inputVariables;
     }
+    /**
+     * @return The message for the prompt.
+     * 
+     */
     public String text() {
         return this.text;
     }

@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent {
+    /**
+     * @return Creates a cache checkpoint within a message. See Cache Point for more information.
+     * 
+     */
     private @Nullable AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint cachePoint;
+    /**
+     * @return The text in the message.
+     * 
+     */
     private @Nullable String text;
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContent() {}
+    /**
+     * @return Creates a cache checkpoint within a message. See Cache Point for more information.
+     * 
+     */
     public Optional<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePoint> cachePoint() {
         return Optional.ofNullable(this.cachePoint);
     }
+    /**
+     * @return The text in the message.
+     * 
+     */
     public Optional<String> text() {
         return Optional.ofNullable(this.text);
     }

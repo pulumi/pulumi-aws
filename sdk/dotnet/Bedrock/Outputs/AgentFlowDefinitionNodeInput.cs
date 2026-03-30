@@ -17,11 +17,17 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// How input data flows between iterations in a DoWhile loop.
         /// </summary>
         public readonly string? Category;
+        /// <summary>
+        /// An expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+        /// </summary>
         public readonly string Expression;
         /// <summary>
-        /// A name for the flow.
+        /// A name for the input that you can reference.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The data type of the input. If the input doesn’t match this type at runtime, a validation error will be thrown.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

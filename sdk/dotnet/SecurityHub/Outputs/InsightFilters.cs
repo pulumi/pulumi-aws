@@ -18,9 +18,29 @@ namespace Pulumi.Aws.SecurityHub.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.InsightFiltersAwsAccountId> AwsAccountIds;
         /// <summary>
+        /// The name of the AWS account in which a finding is generated. See String_Filter below for more details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InsightFiltersAwsAccountName> AwsAccountNames;
+        /// <summary>
         /// The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
         /// </summary>
         public readonly ImmutableArray<Outputs.InsightFiltersCompanyName> CompanyNames;
+        /// <summary>
+        /// The unique identifier of a standard in which a control is enabled. See String_Filter below for more details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InsightFiltersComplianceAssociatedStandardsId> ComplianceAssociatedStandardsIds;
+        /// <summary>
+        /// The unique identifier of a control across standards. See String_Filter below for more details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InsightFiltersComplianceSecurityControlId> ComplianceSecurityControlIds;
+        /// <summary>
+        /// The unique identifier of a control across standards. See String_Filter below for more details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InsightFiltersComplianceSecurityControlParametersName> ComplianceSecurityControlParametersNames;
+        /// <summary>
+        /// The current value of a security control parameter. See String_Filter below for more details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InsightFiltersComplianceSecurityControlParametersValue> ComplianceSecurityControlParametersValues;
         /// <summary>
         /// Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard, such as CIS AWS Foundations. Contains security standard-related finding details. See String Filter below for more details.
         /// </summary>
@@ -370,7 +390,17 @@ namespace Pulumi.Aws.SecurityHub.Outputs
         private InsightFilters(
             ImmutableArray<Outputs.InsightFiltersAwsAccountId> awsAccountIds,
 
+            ImmutableArray<Outputs.InsightFiltersAwsAccountName> awsAccountNames,
+
             ImmutableArray<Outputs.InsightFiltersCompanyName> companyNames,
+
+            ImmutableArray<Outputs.InsightFiltersComplianceAssociatedStandardsId> complianceAssociatedStandardsIds,
+
+            ImmutableArray<Outputs.InsightFiltersComplianceSecurityControlId> complianceSecurityControlIds,
+
+            ImmutableArray<Outputs.InsightFiltersComplianceSecurityControlParametersName> complianceSecurityControlParametersNames,
+
+            ImmutableArray<Outputs.InsightFiltersComplianceSecurityControlParametersValue> complianceSecurityControlParametersValues,
 
             ImmutableArray<Outputs.InsightFiltersComplianceStatus> complianceStatuses,
 
@@ -545,7 +575,12 @@ namespace Pulumi.Aws.SecurityHub.Outputs
             ImmutableArray<Outputs.InsightFiltersWorkflowStatus> workflowStatuses)
         {
             AwsAccountIds = awsAccountIds;
+            AwsAccountNames = awsAccountNames;
             CompanyNames = companyNames;
+            ComplianceAssociatedStandardsIds = complianceAssociatedStandardsIds;
+            ComplianceSecurityControlIds = complianceSecurityControlIds;
+            ComplianceSecurityControlParametersNames = complianceSecurityControlParametersNames;
+            ComplianceSecurityControlParametersValues = complianceSecurityControlParametersValues;
             ComplianceStatuses = complianceStatuses;
             Confidences = confidences;
             CreatedAts = createdAts;

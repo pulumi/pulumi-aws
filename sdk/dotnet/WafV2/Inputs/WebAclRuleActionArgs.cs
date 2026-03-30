@@ -13,31 +13,31 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Instructs AWS WAF to allow the web request. See `Allow` below for details.
+        /// Allow the request. See Allow below.
         /// </summary>
         [Input("allow")]
         public Input<Inputs.WebAclRuleActionAllowArgs>? Allow { get; set; }
 
         /// <summary>
-        /// Instructs AWS WAF to block the web request. See `Block` below for details.
+        /// Block the request. See Block below.
         /// </summary>
         [Input("block")]
         public Input<Inputs.WebAclRuleActionBlockArgs>? Block { get; set; }
 
         /// <summary>
-        /// Instructs AWS WAF to run a Captcha check against the web request. See `Captcha` below for details.
+        /// Present a CAPTCHA challenge. See Captcha below.
         /// </summary>
         [Input("captcha")]
         public Input<Inputs.WebAclRuleActionCaptchaArgs>? Captcha { get; set; }
 
         /// <summary>
-        /// Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `Challenge` below for details.
+        /// Present a silent challenge. See Challenge below.
         /// </summary>
         [Input("challenge")]
         public Input<Inputs.WebAclRuleActionChallengeArgs>? Challenge { get; set; }
 
         /// <summary>
-        /// Instructs AWS WAF to count the web request and allow it. See `Count` below for details.
+        /// Count the request without blocking. See Count below.
         /// </summary>
         [Input("count")]
         public Input<Inputs.WebAclRuleActionCountArgs>? Count { get; set; }

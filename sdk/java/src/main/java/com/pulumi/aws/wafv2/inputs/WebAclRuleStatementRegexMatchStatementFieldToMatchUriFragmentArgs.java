@@ -16,14 +16,14 @@ public final class WebAclRuleStatementRegexMatchStatementFieldToMatchUriFragment
     public static final WebAclRuleStatementRegexMatchStatementFieldToMatchUriFragmentArgs Empty = new WebAclRuleStatementRegexMatchStatementFieldToMatchUriFragmentArgs();
 
     /**
-     * What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+     * How to handle requests with a URI fragment that is too large to inspect. Valid values: `MATCH`, `NO_MATCH`.
      * 
      */
     @Import(name="fallbackBehavior")
     private @Nullable Output<String> fallbackBehavior;
 
     /**
-     * @return What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+     * @return How to handle requests with a URI fragment that is too large to inspect. Valid values: `MATCH`, `NO_MATCH`.
      * 
      */
     public Optional<Output<String>> fallbackBehavior() {
@@ -55,7 +55,7 @@ public final class WebAclRuleStatementRegexMatchStatementFieldToMatchUriFragment
         }
 
         /**
-         * @param fallbackBehavior What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+         * @param fallbackBehavior How to handle requests with a URI fragment that is too large to inspect. Valid values: `MATCH`, `NO_MATCH`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class WebAclRuleStatementRegexMatchStatementFieldToMatchUriFragment
         }
 
         /**
-         * @param fallbackBehavior What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+         * @param fallbackBehavior How to handle requests with a URI fragment that is too large to inspect. Valid values: `MATCH`, `NO_MATCH`.
          * 
          * @return builder
          * 

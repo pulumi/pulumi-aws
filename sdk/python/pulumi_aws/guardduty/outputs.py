@@ -365,10 +365,10 @@ class FilterFindingCriteriaCriterion(dict):
         """
         :param _builtins.str field: The name of the field to be evaluated. The full list of field names can be found in [AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria).
         :param Sequence[_builtins.str] equals: List of string values to be evaluated.
-        :param _builtins.str greater_than: A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        :param _builtins.str greater_than_or_equal: A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        :param _builtins.str less_than: A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        :param _builtins.str less_than_or_equal: A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        :param _builtins.str greater_than: A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        :param _builtins.str greater_than_or_equal: A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        :param _builtins.str less_than: A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        :param _builtins.str less_than_or_equal: A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param Sequence[_builtins.str] matches: List of string values to be evaluated as matching conditions.
         :param Sequence[_builtins.str] not_equals: List of string values to be evaluated.
         :param Sequence[_builtins.str] not_matches: List of string values to be evaluated as non-matching conditions.
@@ -411,7 +411,7 @@ class FilterFindingCriteriaCriterion(dict):
     @pulumi.getter(name="greaterThan")
     def greater_than(self) -> Optional[_builtins.str]:
         """
-        A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         return pulumi.get(self, "greater_than")
 
@@ -419,7 +419,7 @@ class FilterFindingCriteriaCriterion(dict):
     @pulumi.getter(name="greaterThanOrEqual")
     def greater_than_or_equal(self) -> Optional[_builtins.str]:
         """
-        A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         return pulumi.get(self, "greater_than_or_equal")
 
@@ -427,7 +427,7 @@ class FilterFindingCriteriaCriterion(dict):
     @pulumi.getter(name="lessThan")
     def less_than(self) -> Optional[_builtins.str]:
         """
-        A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         return pulumi.get(self, "less_than")
 
@@ -435,7 +435,7 @@ class FilterFindingCriteriaCriterion(dict):
     @pulumi.getter(name="lessThanOrEqual")
     def less_than_or_equal(self) -> Optional[_builtins.str]:
         """
-        A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         return pulumi.get(self, "less_than_or_equal")
 

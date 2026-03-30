@@ -9,42 +9,43 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementSqliMatchStatementFieldToMatchCookies {
     /**
-     * @return The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+     * @return Cookies to inspect. See Cookies Match Pattern below.
      * 
      */
-    private List<WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern> matchPatterns;
+    private @Nullable List<WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern> matchPatterns;
     /**
-     * @return The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+     * @return Parts of the cookies to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
      * 
      */
     private String matchScope;
     /**
-     * @return What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+     * @return How to handle requests with cookies larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
      * 
      */
     private String oversizeHandling;
 
     private WebAclRuleStatementSqliMatchStatementFieldToMatchCookies() {}
     /**
-     * @return The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+     * @return Cookies to inspect. See Cookies Match Pattern below.
      * 
      */
     public List<WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern> matchPatterns() {
-        return this.matchPatterns;
+        return this.matchPatterns == null ? List.of() : this.matchPatterns;
     }
     /**
-     * @return The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+     * @return Parts of the cookies to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
      * 
      */
     public String matchScope() {
         return this.matchScope;
     }
     /**
-     * @return What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+     * @return How to handle requests with cookies larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
      * 
      */
     public String oversizeHandling() {
@@ -60,7 +61,7 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatchCookies {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern> matchPatterns;
+        private @Nullable List<WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern> matchPatterns;
         private String matchScope;
         private String oversizeHandling;
         public Builder() {}
@@ -72,10 +73,8 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatchCookies {
         }
 
         @CustomType.Setter
-        public Builder matchPatterns(List<WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern> matchPatterns) {
-            if (matchPatterns == null) {
-              throw new MissingRequiredPropertyException("WebAclRuleStatementSqliMatchStatementFieldToMatchCookies", "matchPatterns");
-            }
+        public Builder matchPatterns(@Nullable List<WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern> matchPatterns) {
+
             this.matchPatterns = matchPatterns;
             return this;
         }

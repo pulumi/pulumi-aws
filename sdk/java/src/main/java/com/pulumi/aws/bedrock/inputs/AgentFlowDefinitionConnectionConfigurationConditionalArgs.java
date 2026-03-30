@@ -14,9 +14,17 @@ public final class AgentFlowDefinitionConnectionConfigurationConditionalArgs ext
 
     public static final AgentFlowDefinitionConnectionConfigurationConditionalArgs Empty = new AgentFlowDefinitionConnectionConfigurationConditionalArgs();
 
+    /**
+     * The condition that triggers this connection. For more information about how to write conditions, see the Condition node type in the [Node types](https://docs.aws.amazon.com/bedrock/latest/userguide/node-types.html) topic in the Amazon Bedrock User Guide.
+     * 
+     */
     @Import(name="condition", required=true)
     private Output<String> condition;
 
+    /**
+     * @return The condition that triggers this connection. For more information about how to write conditions, see the Condition node type in the [Node types](https://docs.aws.amazon.com/bedrock/latest/userguide/node-types.html) topic in the Amazon Bedrock User Guide.
+     * 
+     */
     public Output<String> condition() {
         return this.condition;
     }
@@ -45,11 +53,23 @@ public final class AgentFlowDefinitionConnectionConfigurationConditionalArgs ext
             $ = new AgentFlowDefinitionConnectionConfigurationConditionalArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param condition The condition that triggers this connection. For more information about how to write conditions, see the Condition node type in the [Node types](https://docs.aws.amazon.com/bedrock/latest/userguide/node-types.html) topic in the Amazon Bedrock User Guide.
+         * 
+         * @return builder
+         * 
+         */
         public Builder condition(Output<String> condition) {
             $.condition = condition;
             return this;
         }
 
+        /**
+         * @param condition The condition that triggers this connection. For more information about how to write conditions, see the Condition node type in the [Node types](https://docs.aws.amazon.com/bedrock/latest/userguide/node-types.html) topic in the Amazon Bedrock User Guide.
+         * 
+         * @return builder
+         * 
+         */
         public Builder condition(String condition) {
             return condition(Output.of(condition));
         }

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.WafV2.Inputs
     {
         [Input("managedRuleGroupConfigs")]
         private InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigGetArgs>? _managedRuleGroupConfigs;
-
-        /// <summary>
-        /// Additional information that's used by a managed rule group. Only one rule attribute is allowed in each config. See `ManagedRuleGroupConfigs` for more details
-        /// </summary>
         public InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigGetArgs> ManagedRuleGroupConfigs
         {
             get => _managedRuleGroupConfigs ?? (_managedRuleGroupConfigs = new InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigGetArgs>());
@@ -34,7 +30,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideGetArgs>? _ruleActionOverrides;
 
         /// <summary>
-        /// Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `RuleActionOverride` below for details.
+        /// Override actions for specific rules within the managed rule group. See Rule Action Override below.
         /// </summary>
         public InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideGetArgs> RuleActionOverrides
         {
@@ -43,19 +39,19 @@ namespace Pulumi.Aws.WafV2.Inputs
         }
 
         /// <summary>
-        /// Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `Statement` above for details.
+        /// Additional statement to narrow the scope of requests that the managed rule group evaluates. See Scope Down Statement below.
         /// </summary>
         [Input("scopeDownStatement")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGetArgs>? ScopeDownStatement { get; set; }
 
         /// <summary>
-        /// Name of the managed rule group vendor.
+        /// Name of the managed rule group vendor (e.g., "AWS").
         /// </summary>
         [Input("vendorName", required: true)]
         public Input<string> VendorName { get; set; } = null!;
 
         /// <summary>
-        /// Version of the managed rule group. You can set `Version_1.0` or `Version_1.1` etc. If you want to use the default version, do not set anything.
+        /// Version of the managed rule group.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

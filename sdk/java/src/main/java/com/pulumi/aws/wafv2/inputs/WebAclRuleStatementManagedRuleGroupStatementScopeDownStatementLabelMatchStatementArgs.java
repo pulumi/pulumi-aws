@@ -15,14 +15,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     public static final WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatementArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatementArgs();
 
     /**
-     * String to match against.
+     * String to match against. For `LABEL` scope, include the name and any preceding namespace specifications. For `NAMESPACE` scope, include namespace strings. Labels are case sensitive and components must be separated by colon (e.g., `NS1:NS2:name`).
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return String to match against.
+     * @return String to match against. For `LABEL` scope, include the name and any preceding namespace specifications. For `NAMESPACE` scope, include namespace strings. Labels are case sensitive and components must be separated by colon (e.g., `NS1:NS2:name`).
      * 
      */
     public Output<String> key() {
@@ -30,14 +30,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     }
 
     /**
-     * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+     * Whether to match using the label name or namespace. Valid values: `LABEL`, `NAMESPACE`.
      * 
      */
     @Import(name="scope", required=true)
     private Output<String> scope;
 
     /**
-     * @return Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+     * @return Whether to match using the label name or namespace. Valid values: `LABEL`, `NAMESPACE`.
      * 
      */
     public Output<String> scope() {
@@ -70,7 +70,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         /**
-         * @param key String to match against.
+         * @param key String to match against. For `LABEL` scope, include the name and any preceding namespace specifications. For `NAMESPACE` scope, include namespace strings. Labels are case sensitive and components must be separated by colon (e.g., `NS1:NS2:name`).
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         /**
-         * @param key String to match against.
+         * @param key String to match against. For `LABEL` scope, include the name and any preceding namespace specifications. For `NAMESPACE` scope, include namespace strings. Labels are case sensitive and components must be separated by colon (e.g., `NS1:NS2:name`).
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         /**
-         * @param scope Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         * @param scope Whether to match using the label name or namespace. Valid values: `LABEL`, `NAMESPACE`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         /**
-         * @param scope Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         * @param scope Whether to match using the label name or namespace. Valid values: `LABEL`, `NAMESPACE`.
          * 
          * @return builder
          * 

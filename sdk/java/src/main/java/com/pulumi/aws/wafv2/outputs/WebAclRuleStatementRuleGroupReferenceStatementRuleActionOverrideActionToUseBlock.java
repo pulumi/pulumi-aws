@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock {
     /**
-     * @return Defines a custom response for the web request. See `customResponse` below for details.
+     * @return Custom response configuration. See Custom Response below.
      * 
      */
     private @Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponse customResponse;
 
     private WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock() {}
     /**
-     * @return Defines a custom response for the web request. See `customResponse` below for details.
+     * @return Custom response configuration. See Custom Response below.
      * 
      */
     public Optional<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponse> customResponse() {

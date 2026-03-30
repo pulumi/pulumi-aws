@@ -8314,8 +8314,18 @@ func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecur
 type InsightFilters struct {
 	// AWS account ID that a finding is generated in. See String_Filter below for more details.
 	AwsAccountIds []InsightFiltersAwsAccountId `pulumi:"awsAccountIds"`
+	// The name of the AWS account in which a finding is generated. See String_Filter below for more details.
+	AwsAccountNames []InsightFiltersAwsAccountName `pulumi:"awsAccountNames"`
 	// The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
 	CompanyNames []InsightFiltersCompanyName `pulumi:"companyNames"`
+	// The unique identifier of a standard in which a control is enabled. See String_Filter below for more details.
+	ComplianceAssociatedStandardsIds []InsightFiltersComplianceAssociatedStandardsId `pulumi:"complianceAssociatedStandardsIds"`
+	// The unique identifier of a control across standards. See String_Filter below for more details.
+	ComplianceSecurityControlIds []InsightFiltersComplianceSecurityControlId `pulumi:"complianceSecurityControlIds"`
+	// The unique identifier of a control across standards. See String_Filter below for more details.
+	ComplianceSecurityControlParametersNames []InsightFiltersComplianceSecurityControlParametersName `pulumi:"complianceSecurityControlParametersNames"`
+	// The current value of a security control parameter. See String_Filter below for more details.
+	ComplianceSecurityControlParametersValues []InsightFiltersComplianceSecurityControlParametersValue `pulumi:"complianceSecurityControlParametersValues"`
 	// Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard, such as CIS AWS Foundations. Contains security standard-related finding details. See String Filter below for more details.
 	ComplianceStatuses []InsightFiltersComplianceStatus `pulumi:"complianceStatuses"`
 	// A finding's confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
@@ -8504,8 +8514,18 @@ type InsightFiltersInput interface {
 type InsightFiltersArgs struct {
 	// AWS account ID that a finding is generated in. See String_Filter below for more details.
 	AwsAccountIds InsightFiltersAwsAccountIdArrayInput `pulumi:"awsAccountIds"`
+	// The name of the AWS account in which a finding is generated. See String_Filter below for more details.
+	AwsAccountNames InsightFiltersAwsAccountNameArrayInput `pulumi:"awsAccountNames"`
 	// The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
 	CompanyNames InsightFiltersCompanyNameArrayInput `pulumi:"companyNames"`
+	// The unique identifier of a standard in which a control is enabled. See String_Filter below for more details.
+	ComplianceAssociatedStandardsIds InsightFiltersComplianceAssociatedStandardsIdArrayInput `pulumi:"complianceAssociatedStandardsIds"`
+	// The unique identifier of a control across standards. See String_Filter below for more details.
+	ComplianceSecurityControlIds InsightFiltersComplianceSecurityControlIdArrayInput `pulumi:"complianceSecurityControlIds"`
+	// The unique identifier of a control across standards. See String_Filter below for more details.
+	ComplianceSecurityControlParametersNames InsightFiltersComplianceSecurityControlParametersNameArrayInput `pulumi:"complianceSecurityControlParametersNames"`
+	// The current value of a security control parameter. See String_Filter below for more details.
+	ComplianceSecurityControlParametersValues InsightFiltersComplianceSecurityControlParametersValueArrayInput `pulumi:"complianceSecurityControlParametersValues"`
 	// Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard, such as CIS AWS Foundations. Contains security standard-related finding details. See String Filter below for more details.
 	ComplianceStatuses InsightFiltersComplianceStatusArrayInput `pulumi:"complianceStatuses"`
 	// A finding's confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
@@ -8762,9 +8782,42 @@ func (o InsightFiltersOutput) AwsAccountIds() InsightFiltersAwsAccountIdArrayOut
 	return o.ApplyT(func(v InsightFilters) []InsightFiltersAwsAccountId { return v.AwsAccountIds }).(InsightFiltersAwsAccountIdArrayOutput)
 }
 
+// The name of the AWS account in which a finding is generated. See String_Filter below for more details.
+func (o InsightFiltersOutput) AwsAccountNames() InsightFiltersAwsAccountNameArrayOutput {
+	return o.ApplyT(func(v InsightFilters) []InsightFiltersAwsAccountName { return v.AwsAccountNames }).(InsightFiltersAwsAccountNameArrayOutput)
+}
+
 // The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
 func (o InsightFiltersOutput) CompanyNames() InsightFiltersCompanyNameArrayOutput {
 	return o.ApplyT(func(v InsightFilters) []InsightFiltersCompanyName { return v.CompanyNames }).(InsightFiltersCompanyNameArrayOutput)
+}
+
+// The unique identifier of a standard in which a control is enabled. See String_Filter below for more details.
+func (o InsightFiltersOutput) ComplianceAssociatedStandardsIds() InsightFiltersComplianceAssociatedStandardsIdArrayOutput {
+	return o.ApplyT(func(v InsightFilters) []InsightFiltersComplianceAssociatedStandardsId {
+		return v.ComplianceAssociatedStandardsIds
+	}).(InsightFiltersComplianceAssociatedStandardsIdArrayOutput)
+}
+
+// The unique identifier of a control across standards. See String_Filter below for more details.
+func (o InsightFiltersOutput) ComplianceSecurityControlIds() InsightFiltersComplianceSecurityControlIdArrayOutput {
+	return o.ApplyT(func(v InsightFilters) []InsightFiltersComplianceSecurityControlId {
+		return v.ComplianceSecurityControlIds
+	}).(InsightFiltersComplianceSecurityControlIdArrayOutput)
+}
+
+// The unique identifier of a control across standards. See String_Filter below for more details.
+func (o InsightFiltersOutput) ComplianceSecurityControlParametersNames() InsightFiltersComplianceSecurityControlParametersNameArrayOutput {
+	return o.ApplyT(func(v InsightFilters) []InsightFiltersComplianceSecurityControlParametersName {
+		return v.ComplianceSecurityControlParametersNames
+	}).(InsightFiltersComplianceSecurityControlParametersNameArrayOutput)
+}
+
+// The current value of a security control parameter. See String_Filter below for more details.
+func (o InsightFiltersOutput) ComplianceSecurityControlParametersValues() InsightFiltersComplianceSecurityControlParametersValueArrayOutput {
+	return o.ApplyT(func(v InsightFilters) []InsightFiltersComplianceSecurityControlParametersValue {
+		return v.ComplianceSecurityControlParametersValues
+	}).(InsightFiltersComplianceSecurityControlParametersValueArrayOutput)
 }
 
 // Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard, such as CIS AWS Foundations. Contains security standard-related finding details. See String Filter below for more details.
@@ -9283,6 +9336,16 @@ func (o InsightFiltersPtrOutput) AwsAccountIds() InsightFiltersAwsAccountIdArray
 	}).(InsightFiltersAwsAccountIdArrayOutput)
 }
 
+// The name of the AWS account in which a finding is generated. See String_Filter below for more details.
+func (o InsightFiltersPtrOutput) AwsAccountNames() InsightFiltersAwsAccountNameArrayOutput {
+	return o.ApplyT(func(v *InsightFilters) []InsightFiltersAwsAccountName {
+		if v == nil {
+			return nil
+		}
+		return v.AwsAccountNames
+	}).(InsightFiltersAwsAccountNameArrayOutput)
+}
+
 // The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
 func (o InsightFiltersPtrOutput) CompanyNames() InsightFiltersCompanyNameArrayOutput {
 	return o.ApplyT(func(v *InsightFilters) []InsightFiltersCompanyName {
@@ -9291,6 +9354,46 @@ func (o InsightFiltersPtrOutput) CompanyNames() InsightFiltersCompanyNameArrayOu
 		}
 		return v.CompanyNames
 	}).(InsightFiltersCompanyNameArrayOutput)
+}
+
+// The unique identifier of a standard in which a control is enabled. See String_Filter below for more details.
+func (o InsightFiltersPtrOutput) ComplianceAssociatedStandardsIds() InsightFiltersComplianceAssociatedStandardsIdArrayOutput {
+	return o.ApplyT(func(v *InsightFilters) []InsightFiltersComplianceAssociatedStandardsId {
+		if v == nil {
+			return nil
+		}
+		return v.ComplianceAssociatedStandardsIds
+	}).(InsightFiltersComplianceAssociatedStandardsIdArrayOutput)
+}
+
+// The unique identifier of a control across standards. See String_Filter below for more details.
+func (o InsightFiltersPtrOutput) ComplianceSecurityControlIds() InsightFiltersComplianceSecurityControlIdArrayOutput {
+	return o.ApplyT(func(v *InsightFilters) []InsightFiltersComplianceSecurityControlId {
+		if v == nil {
+			return nil
+		}
+		return v.ComplianceSecurityControlIds
+	}).(InsightFiltersComplianceSecurityControlIdArrayOutput)
+}
+
+// The unique identifier of a control across standards. See String_Filter below for more details.
+func (o InsightFiltersPtrOutput) ComplianceSecurityControlParametersNames() InsightFiltersComplianceSecurityControlParametersNameArrayOutput {
+	return o.ApplyT(func(v *InsightFilters) []InsightFiltersComplianceSecurityControlParametersName {
+		if v == nil {
+			return nil
+		}
+		return v.ComplianceSecurityControlParametersNames
+	}).(InsightFiltersComplianceSecurityControlParametersNameArrayOutput)
+}
+
+// The current value of a security control parameter. See String_Filter below for more details.
+func (o InsightFiltersPtrOutput) ComplianceSecurityControlParametersValues() InsightFiltersComplianceSecurityControlParametersValueArrayOutput {
+	return o.ApplyT(func(v *InsightFilters) []InsightFiltersComplianceSecurityControlParametersValue {
+		if v == nil {
+			return nil
+		}
+		return v.ComplianceSecurityControlParametersValues
+	}).(InsightFiltersComplianceSecurityControlParametersValueArrayOutput)
 }
 
 // Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard, such as CIS AWS Foundations. Contains security standard-related finding details. See String Filter below for more details.
@@ -10253,6 +10356,106 @@ func (o InsightFiltersAwsAccountIdArrayOutput) Index(i pulumi.IntInput) InsightF
 	}).(InsightFiltersAwsAccountIdOutput)
 }
 
+type InsightFiltersAwsAccountName struct {
+	Comparison string `pulumi:"comparison"`
+	Value      string `pulumi:"value"`
+}
+
+// InsightFiltersAwsAccountNameInput is an input type that accepts InsightFiltersAwsAccountNameArgs and InsightFiltersAwsAccountNameOutput values.
+// You can construct a concrete instance of `InsightFiltersAwsAccountNameInput` via:
+//
+//	InsightFiltersAwsAccountNameArgs{...}
+type InsightFiltersAwsAccountNameInput interface {
+	pulumi.Input
+
+	ToInsightFiltersAwsAccountNameOutput() InsightFiltersAwsAccountNameOutput
+	ToInsightFiltersAwsAccountNameOutputWithContext(context.Context) InsightFiltersAwsAccountNameOutput
+}
+
+type InsightFiltersAwsAccountNameArgs struct {
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	Value      pulumi.StringInput `pulumi:"value"`
+}
+
+func (InsightFiltersAwsAccountNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightFiltersAwsAccountName)(nil)).Elem()
+}
+
+func (i InsightFiltersAwsAccountNameArgs) ToInsightFiltersAwsAccountNameOutput() InsightFiltersAwsAccountNameOutput {
+	return i.ToInsightFiltersAwsAccountNameOutputWithContext(context.Background())
+}
+
+func (i InsightFiltersAwsAccountNameArgs) ToInsightFiltersAwsAccountNameOutputWithContext(ctx context.Context) InsightFiltersAwsAccountNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersAwsAccountNameOutput)
+}
+
+// InsightFiltersAwsAccountNameArrayInput is an input type that accepts InsightFiltersAwsAccountNameArray and InsightFiltersAwsAccountNameArrayOutput values.
+// You can construct a concrete instance of `InsightFiltersAwsAccountNameArrayInput` via:
+//
+//	InsightFiltersAwsAccountNameArray{ InsightFiltersAwsAccountNameArgs{...} }
+type InsightFiltersAwsAccountNameArrayInput interface {
+	pulumi.Input
+
+	ToInsightFiltersAwsAccountNameArrayOutput() InsightFiltersAwsAccountNameArrayOutput
+	ToInsightFiltersAwsAccountNameArrayOutputWithContext(context.Context) InsightFiltersAwsAccountNameArrayOutput
+}
+
+type InsightFiltersAwsAccountNameArray []InsightFiltersAwsAccountNameInput
+
+func (InsightFiltersAwsAccountNameArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightFiltersAwsAccountName)(nil)).Elem()
+}
+
+func (i InsightFiltersAwsAccountNameArray) ToInsightFiltersAwsAccountNameArrayOutput() InsightFiltersAwsAccountNameArrayOutput {
+	return i.ToInsightFiltersAwsAccountNameArrayOutputWithContext(context.Background())
+}
+
+func (i InsightFiltersAwsAccountNameArray) ToInsightFiltersAwsAccountNameArrayOutputWithContext(ctx context.Context) InsightFiltersAwsAccountNameArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersAwsAccountNameArrayOutput)
+}
+
+type InsightFiltersAwsAccountNameOutput struct{ *pulumi.OutputState }
+
+func (InsightFiltersAwsAccountNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightFiltersAwsAccountName)(nil)).Elem()
+}
+
+func (o InsightFiltersAwsAccountNameOutput) ToInsightFiltersAwsAccountNameOutput() InsightFiltersAwsAccountNameOutput {
+	return o
+}
+
+func (o InsightFiltersAwsAccountNameOutput) ToInsightFiltersAwsAccountNameOutputWithContext(ctx context.Context) InsightFiltersAwsAccountNameOutput {
+	return o
+}
+
+func (o InsightFiltersAwsAccountNameOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v InsightFiltersAwsAccountName) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+func (o InsightFiltersAwsAccountNameOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v InsightFiltersAwsAccountName) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type InsightFiltersAwsAccountNameArrayOutput struct{ *pulumi.OutputState }
+
+func (InsightFiltersAwsAccountNameArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightFiltersAwsAccountName)(nil)).Elem()
+}
+
+func (o InsightFiltersAwsAccountNameArrayOutput) ToInsightFiltersAwsAccountNameArrayOutput() InsightFiltersAwsAccountNameArrayOutput {
+	return o
+}
+
+func (o InsightFiltersAwsAccountNameArrayOutput) ToInsightFiltersAwsAccountNameArrayOutputWithContext(ctx context.Context) InsightFiltersAwsAccountNameArrayOutput {
+	return o
+}
+
+func (o InsightFiltersAwsAccountNameArrayOutput) Index(i pulumi.IntInput) InsightFiltersAwsAccountNameOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InsightFiltersAwsAccountName {
+		return vs[0].([]InsightFiltersAwsAccountName)[vs[1].(int)]
+	}).(InsightFiltersAwsAccountNameOutput)
+}
+
 type InsightFiltersCompanyName struct {
 	Comparison string `pulumi:"comparison"`
 	Value      string `pulumi:"value"`
@@ -10351,6 +10554,406 @@ func (o InsightFiltersCompanyNameArrayOutput) Index(i pulumi.IntInput) InsightFi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InsightFiltersCompanyName {
 		return vs[0].([]InsightFiltersCompanyName)[vs[1].(int)]
 	}).(InsightFiltersCompanyNameOutput)
+}
+
+type InsightFiltersComplianceAssociatedStandardsId struct {
+	Comparison string `pulumi:"comparison"`
+	Value      string `pulumi:"value"`
+}
+
+// InsightFiltersComplianceAssociatedStandardsIdInput is an input type that accepts InsightFiltersComplianceAssociatedStandardsIdArgs and InsightFiltersComplianceAssociatedStandardsIdOutput values.
+// You can construct a concrete instance of `InsightFiltersComplianceAssociatedStandardsIdInput` via:
+//
+//	InsightFiltersComplianceAssociatedStandardsIdArgs{...}
+type InsightFiltersComplianceAssociatedStandardsIdInput interface {
+	pulumi.Input
+
+	ToInsightFiltersComplianceAssociatedStandardsIdOutput() InsightFiltersComplianceAssociatedStandardsIdOutput
+	ToInsightFiltersComplianceAssociatedStandardsIdOutputWithContext(context.Context) InsightFiltersComplianceAssociatedStandardsIdOutput
+}
+
+type InsightFiltersComplianceAssociatedStandardsIdArgs struct {
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	Value      pulumi.StringInput `pulumi:"value"`
+}
+
+func (InsightFiltersComplianceAssociatedStandardsIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightFiltersComplianceAssociatedStandardsId)(nil)).Elem()
+}
+
+func (i InsightFiltersComplianceAssociatedStandardsIdArgs) ToInsightFiltersComplianceAssociatedStandardsIdOutput() InsightFiltersComplianceAssociatedStandardsIdOutput {
+	return i.ToInsightFiltersComplianceAssociatedStandardsIdOutputWithContext(context.Background())
+}
+
+func (i InsightFiltersComplianceAssociatedStandardsIdArgs) ToInsightFiltersComplianceAssociatedStandardsIdOutputWithContext(ctx context.Context) InsightFiltersComplianceAssociatedStandardsIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersComplianceAssociatedStandardsIdOutput)
+}
+
+// InsightFiltersComplianceAssociatedStandardsIdArrayInput is an input type that accepts InsightFiltersComplianceAssociatedStandardsIdArray and InsightFiltersComplianceAssociatedStandardsIdArrayOutput values.
+// You can construct a concrete instance of `InsightFiltersComplianceAssociatedStandardsIdArrayInput` via:
+//
+//	InsightFiltersComplianceAssociatedStandardsIdArray{ InsightFiltersComplianceAssociatedStandardsIdArgs{...} }
+type InsightFiltersComplianceAssociatedStandardsIdArrayInput interface {
+	pulumi.Input
+
+	ToInsightFiltersComplianceAssociatedStandardsIdArrayOutput() InsightFiltersComplianceAssociatedStandardsIdArrayOutput
+	ToInsightFiltersComplianceAssociatedStandardsIdArrayOutputWithContext(context.Context) InsightFiltersComplianceAssociatedStandardsIdArrayOutput
+}
+
+type InsightFiltersComplianceAssociatedStandardsIdArray []InsightFiltersComplianceAssociatedStandardsIdInput
+
+func (InsightFiltersComplianceAssociatedStandardsIdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightFiltersComplianceAssociatedStandardsId)(nil)).Elem()
+}
+
+func (i InsightFiltersComplianceAssociatedStandardsIdArray) ToInsightFiltersComplianceAssociatedStandardsIdArrayOutput() InsightFiltersComplianceAssociatedStandardsIdArrayOutput {
+	return i.ToInsightFiltersComplianceAssociatedStandardsIdArrayOutputWithContext(context.Background())
+}
+
+func (i InsightFiltersComplianceAssociatedStandardsIdArray) ToInsightFiltersComplianceAssociatedStandardsIdArrayOutputWithContext(ctx context.Context) InsightFiltersComplianceAssociatedStandardsIdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersComplianceAssociatedStandardsIdArrayOutput)
+}
+
+type InsightFiltersComplianceAssociatedStandardsIdOutput struct{ *pulumi.OutputState }
+
+func (InsightFiltersComplianceAssociatedStandardsIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightFiltersComplianceAssociatedStandardsId)(nil)).Elem()
+}
+
+func (o InsightFiltersComplianceAssociatedStandardsIdOutput) ToInsightFiltersComplianceAssociatedStandardsIdOutput() InsightFiltersComplianceAssociatedStandardsIdOutput {
+	return o
+}
+
+func (o InsightFiltersComplianceAssociatedStandardsIdOutput) ToInsightFiltersComplianceAssociatedStandardsIdOutputWithContext(ctx context.Context) InsightFiltersComplianceAssociatedStandardsIdOutput {
+	return o
+}
+
+func (o InsightFiltersComplianceAssociatedStandardsIdOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v InsightFiltersComplianceAssociatedStandardsId) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+func (o InsightFiltersComplianceAssociatedStandardsIdOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v InsightFiltersComplianceAssociatedStandardsId) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type InsightFiltersComplianceAssociatedStandardsIdArrayOutput struct{ *pulumi.OutputState }
+
+func (InsightFiltersComplianceAssociatedStandardsIdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightFiltersComplianceAssociatedStandardsId)(nil)).Elem()
+}
+
+func (o InsightFiltersComplianceAssociatedStandardsIdArrayOutput) ToInsightFiltersComplianceAssociatedStandardsIdArrayOutput() InsightFiltersComplianceAssociatedStandardsIdArrayOutput {
+	return o
+}
+
+func (o InsightFiltersComplianceAssociatedStandardsIdArrayOutput) ToInsightFiltersComplianceAssociatedStandardsIdArrayOutputWithContext(ctx context.Context) InsightFiltersComplianceAssociatedStandardsIdArrayOutput {
+	return o
+}
+
+func (o InsightFiltersComplianceAssociatedStandardsIdArrayOutput) Index(i pulumi.IntInput) InsightFiltersComplianceAssociatedStandardsIdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InsightFiltersComplianceAssociatedStandardsId {
+		return vs[0].([]InsightFiltersComplianceAssociatedStandardsId)[vs[1].(int)]
+	}).(InsightFiltersComplianceAssociatedStandardsIdOutput)
+}
+
+type InsightFiltersComplianceSecurityControlId struct {
+	Comparison string `pulumi:"comparison"`
+	Value      string `pulumi:"value"`
+}
+
+// InsightFiltersComplianceSecurityControlIdInput is an input type that accepts InsightFiltersComplianceSecurityControlIdArgs and InsightFiltersComplianceSecurityControlIdOutput values.
+// You can construct a concrete instance of `InsightFiltersComplianceSecurityControlIdInput` via:
+//
+//	InsightFiltersComplianceSecurityControlIdArgs{...}
+type InsightFiltersComplianceSecurityControlIdInput interface {
+	pulumi.Input
+
+	ToInsightFiltersComplianceSecurityControlIdOutput() InsightFiltersComplianceSecurityControlIdOutput
+	ToInsightFiltersComplianceSecurityControlIdOutputWithContext(context.Context) InsightFiltersComplianceSecurityControlIdOutput
+}
+
+type InsightFiltersComplianceSecurityControlIdArgs struct {
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	Value      pulumi.StringInput `pulumi:"value"`
+}
+
+func (InsightFiltersComplianceSecurityControlIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightFiltersComplianceSecurityControlId)(nil)).Elem()
+}
+
+func (i InsightFiltersComplianceSecurityControlIdArgs) ToInsightFiltersComplianceSecurityControlIdOutput() InsightFiltersComplianceSecurityControlIdOutput {
+	return i.ToInsightFiltersComplianceSecurityControlIdOutputWithContext(context.Background())
+}
+
+func (i InsightFiltersComplianceSecurityControlIdArgs) ToInsightFiltersComplianceSecurityControlIdOutputWithContext(ctx context.Context) InsightFiltersComplianceSecurityControlIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersComplianceSecurityControlIdOutput)
+}
+
+// InsightFiltersComplianceSecurityControlIdArrayInput is an input type that accepts InsightFiltersComplianceSecurityControlIdArray and InsightFiltersComplianceSecurityControlIdArrayOutput values.
+// You can construct a concrete instance of `InsightFiltersComplianceSecurityControlIdArrayInput` via:
+//
+//	InsightFiltersComplianceSecurityControlIdArray{ InsightFiltersComplianceSecurityControlIdArgs{...} }
+type InsightFiltersComplianceSecurityControlIdArrayInput interface {
+	pulumi.Input
+
+	ToInsightFiltersComplianceSecurityControlIdArrayOutput() InsightFiltersComplianceSecurityControlIdArrayOutput
+	ToInsightFiltersComplianceSecurityControlIdArrayOutputWithContext(context.Context) InsightFiltersComplianceSecurityControlIdArrayOutput
+}
+
+type InsightFiltersComplianceSecurityControlIdArray []InsightFiltersComplianceSecurityControlIdInput
+
+func (InsightFiltersComplianceSecurityControlIdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightFiltersComplianceSecurityControlId)(nil)).Elem()
+}
+
+func (i InsightFiltersComplianceSecurityControlIdArray) ToInsightFiltersComplianceSecurityControlIdArrayOutput() InsightFiltersComplianceSecurityControlIdArrayOutput {
+	return i.ToInsightFiltersComplianceSecurityControlIdArrayOutputWithContext(context.Background())
+}
+
+func (i InsightFiltersComplianceSecurityControlIdArray) ToInsightFiltersComplianceSecurityControlIdArrayOutputWithContext(ctx context.Context) InsightFiltersComplianceSecurityControlIdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersComplianceSecurityControlIdArrayOutput)
+}
+
+type InsightFiltersComplianceSecurityControlIdOutput struct{ *pulumi.OutputState }
+
+func (InsightFiltersComplianceSecurityControlIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightFiltersComplianceSecurityControlId)(nil)).Elem()
+}
+
+func (o InsightFiltersComplianceSecurityControlIdOutput) ToInsightFiltersComplianceSecurityControlIdOutput() InsightFiltersComplianceSecurityControlIdOutput {
+	return o
+}
+
+func (o InsightFiltersComplianceSecurityControlIdOutput) ToInsightFiltersComplianceSecurityControlIdOutputWithContext(ctx context.Context) InsightFiltersComplianceSecurityControlIdOutput {
+	return o
+}
+
+func (o InsightFiltersComplianceSecurityControlIdOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v InsightFiltersComplianceSecurityControlId) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+func (o InsightFiltersComplianceSecurityControlIdOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v InsightFiltersComplianceSecurityControlId) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type InsightFiltersComplianceSecurityControlIdArrayOutput struct{ *pulumi.OutputState }
+
+func (InsightFiltersComplianceSecurityControlIdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightFiltersComplianceSecurityControlId)(nil)).Elem()
+}
+
+func (o InsightFiltersComplianceSecurityControlIdArrayOutput) ToInsightFiltersComplianceSecurityControlIdArrayOutput() InsightFiltersComplianceSecurityControlIdArrayOutput {
+	return o
+}
+
+func (o InsightFiltersComplianceSecurityControlIdArrayOutput) ToInsightFiltersComplianceSecurityControlIdArrayOutputWithContext(ctx context.Context) InsightFiltersComplianceSecurityControlIdArrayOutput {
+	return o
+}
+
+func (o InsightFiltersComplianceSecurityControlIdArrayOutput) Index(i pulumi.IntInput) InsightFiltersComplianceSecurityControlIdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InsightFiltersComplianceSecurityControlId {
+		return vs[0].([]InsightFiltersComplianceSecurityControlId)[vs[1].(int)]
+	}).(InsightFiltersComplianceSecurityControlIdOutput)
+}
+
+type InsightFiltersComplianceSecurityControlParametersName struct {
+	Comparison string `pulumi:"comparison"`
+	Value      string `pulumi:"value"`
+}
+
+// InsightFiltersComplianceSecurityControlParametersNameInput is an input type that accepts InsightFiltersComplianceSecurityControlParametersNameArgs and InsightFiltersComplianceSecurityControlParametersNameOutput values.
+// You can construct a concrete instance of `InsightFiltersComplianceSecurityControlParametersNameInput` via:
+//
+//	InsightFiltersComplianceSecurityControlParametersNameArgs{...}
+type InsightFiltersComplianceSecurityControlParametersNameInput interface {
+	pulumi.Input
+
+	ToInsightFiltersComplianceSecurityControlParametersNameOutput() InsightFiltersComplianceSecurityControlParametersNameOutput
+	ToInsightFiltersComplianceSecurityControlParametersNameOutputWithContext(context.Context) InsightFiltersComplianceSecurityControlParametersNameOutput
+}
+
+type InsightFiltersComplianceSecurityControlParametersNameArgs struct {
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	Value      pulumi.StringInput `pulumi:"value"`
+}
+
+func (InsightFiltersComplianceSecurityControlParametersNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightFiltersComplianceSecurityControlParametersName)(nil)).Elem()
+}
+
+func (i InsightFiltersComplianceSecurityControlParametersNameArgs) ToInsightFiltersComplianceSecurityControlParametersNameOutput() InsightFiltersComplianceSecurityControlParametersNameOutput {
+	return i.ToInsightFiltersComplianceSecurityControlParametersNameOutputWithContext(context.Background())
+}
+
+func (i InsightFiltersComplianceSecurityControlParametersNameArgs) ToInsightFiltersComplianceSecurityControlParametersNameOutputWithContext(ctx context.Context) InsightFiltersComplianceSecurityControlParametersNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersComplianceSecurityControlParametersNameOutput)
+}
+
+// InsightFiltersComplianceSecurityControlParametersNameArrayInput is an input type that accepts InsightFiltersComplianceSecurityControlParametersNameArray and InsightFiltersComplianceSecurityControlParametersNameArrayOutput values.
+// You can construct a concrete instance of `InsightFiltersComplianceSecurityControlParametersNameArrayInput` via:
+//
+//	InsightFiltersComplianceSecurityControlParametersNameArray{ InsightFiltersComplianceSecurityControlParametersNameArgs{...} }
+type InsightFiltersComplianceSecurityControlParametersNameArrayInput interface {
+	pulumi.Input
+
+	ToInsightFiltersComplianceSecurityControlParametersNameArrayOutput() InsightFiltersComplianceSecurityControlParametersNameArrayOutput
+	ToInsightFiltersComplianceSecurityControlParametersNameArrayOutputWithContext(context.Context) InsightFiltersComplianceSecurityControlParametersNameArrayOutput
+}
+
+type InsightFiltersComplianceSecurityControlParametersNameArray []InsightFiltersComplianceSecurityControlParametersNameInput
+
+func (InsightFiltersComplianceSecurityControlParametersNameArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightFiltersComplianceSecurityControlParametersName)(nil)).Elem()
+}
+
+func (i InsightFiltersComplianceSecurityControlParametersNameArray) ToInsightFiltersComplianceSecurityControlParametersNameArrayOutput() InsightFiltersComplianceSecurityControlParametersNameArrayOutput {
+	return i.ToInsightFiltersComplianceSecurityControlParametersNameArrayOutputWithContext(context.Background())
+}
+
+func (i InsightFiltersComplianceSecurityControlParametersNameArray) ToInsightFiltersComplianceSecurityControlParametersNameArrayOutputWithContext(ctx context.Context) InsightFiltersComplianceSecurityControlParametersNameArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersComplianceSecurityControlParametersNameArrayOutput)
+}
+
+type InsightFiltersComplianceSecurityControlParametersNameOutput struct{ *pulumi.OutputState }
+
+func (InsightFiltersComplianceSecurityControlParametersNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightFiltersComplianceSecurityControlParametersName)(nil)).Elem()
+}
+
+func (o InsightFiltersComplianceSecurityControlParametersNameOutput) ToInsightFiltersComplianceSecurityControlParametersNameOutput() InsightFiltersComplianceSecurityControlParametersNameOutput {
+	return o
+}
+
+func (o InsightFiltersComplianceSecurityControlParametersNameOutput) ToInsightFiltersComplianceSecurityControlParametersNameOutputWithContext(ctx context.Context) InsightFiltersComplianceSecurityControlParametersNameOutput {
+	return o
+}
+
+func (o InsightFiltersComplianceSecurityControlParametersNameOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v InsightFiltersComplianceSecurityControlParametersName) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+func (o InsightFiltersComplianceSecurityControlParametersNameOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v InsightFiltersComplianceSecurityControlParametersName) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type InsightFiltersComplianceSecurityControlParametersNameArrayOutput struct{ *pulumi.OutputState }
+
+func (InsightFiltersComplianceSecurityControlParametersNameArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightFiltersComplianceSecurityControlParametersName)(nil)).Elem()
+}
+
+func (o InsightFiltersComplianceSecurityControlParametersNameArrayOutput) ToInsightFiltersComplianceSecurityControlParametersNameArrayOutput() InsightFiltersComplianceSecurityControlParametersNameArrayOutput {
+	return o
+}
+
+func (o InsightFiltersComplianceSecurityControlParametersNameArrayOutput) ToInsightFiltersComplianceSecurityControlParametersNameArrayOutputWithContext(ctx context.Context) InsightFiltersComplianceSecurityControlParametersNameArrayOutput {
+	return o
+}
+
+func (o InsightFiltersComplianceSecurityControlParametersNameArrayOutput) Index(i pulumi.IntInput) InsightFiltersComplianceSecurityControlParametersNameOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InsightFiltersComplianceSecurityControlParametersName {
+		return vs[0].([]InsightFiltersComplianceSecurityControlParametersName)[vs[1].(int)]
+	}).(InsightFiltersComplianceSecurityControlParametersNameOutput)
+}
+
+type InsightFiltersComplianceSecurityControlParametersValue struct {
+	Comparison string `pulumi:"comparison"`
+	Value      string `pulumi:"value"`
+}
+
+// InsightFiltersComplianceSecurityControlParametersValueInput is an input type that accepts InsightFiltersComplianceSecurityControlParametersValueArgs and InsightFiltersComplianceSecurityControlParametersValueOutput values.
+// You can construct a concrete instance of `InsightFiltersComplianceSecurityControlParametersValueInput` via:
+//
+//	InsightFiltersComplianceSecurityControlParametersValueArgs{...}
+type InsightFiltersComplianceSecurityControlParametersValueInput interface {
+	pulumi.Input
+
+	ToInsightFiltersComplianceSecurityControlParametersValueOutput() InsightFiltersComplianceSecurityControlParametersValueOutput
+	ToInsightFiltersComplianceSecurityControlParametersValueOutputWithContext(context.Context) InsightFiltersComplianceSecurityControlParametersValueOutput
+}
+
+type InsightFiltersComplianceSecurityControlParametersValueArgs struct {
+	Comparison pulumi.StringInput `pulumi:"comparison"`
+	Value      pulumi.StringInput `pulumi:"value"`
+}
+
+func (InsightFiltersComplianceSecurityControlParametersValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightFiltersComplianceSecurityControlParametersValue)(nil)).Elem()
+}
+
+func (i InsightFiltersComplianceSecurityControlParametersValueArgs) ToInsightFiltersComplianceSecurityControlParametersValueOutput() InsightFiltersComplianceSecurityControlParametersValueOutput {
+	return i.ToInsightFiltersComplianceSecurityControlParametersValueOutputWithContext(context.Background())
+}
+
+func (i InsightFiltersComplianceSecurityControlParametersValueArgs) ToInsightFiltersComplianceSecurityControlParametersValueOutputWithContext(ctx context.Context) InsightFiltersComplianceSecurityControlParametersValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersComplianceSecurityControlParametersValueOutput)
+}
+
+// InsightFiltersComplianceSecurityControlParametersValueArrayInput is an input type that accepts InsightFiltersComplianceSecurityControlParametersValueArray and InsightFiltersComplianceSecurityControlParametersValueArrayOutput values.
+// You can construct a concrete instance of `InsightFiltersComplianceSecurityControlParametersValueArrayInput` via:
+//
+//	InsightFiltersComplianceSecurityControlParametersValueArray{ InsightFiltersComplianceSecurityControlParametersValueArgs{...} }
+type InsightFiltersComplianceSecurityControlParametersValueArrayInput interface {
+	pulumi.Input
+
+	ToInsightFiltersComplianceSecurityControlParametersValueArrayOutput() InsightFiltersComplianceSecurityControlParametersValueArrayOutput
+	ToInsightFiltersComplianceSecurityControlParametersValueArrayOutputWithContext(context.Context) InsightFiltersComplianceSecurityControlParametersValueArrayOutput
+}
+
+type InsightFiltersComplianceSecurityControlParametersValueArray []InsightFiltersComplianceSecurityControlParametersValueInput
+
+func (InsightFiltersComplianceSecurityControlParametersValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightFiltersComplianceSecurityControlParametersValue)(nil)).Elem()
+}
+
+func (i InsightFiltersComplianceSecurityControlParametersValueArray) ToInsightFiltersComplianceSecurityControlParametersValueArrayOutput() InsightFiltersComplianceSecurityControlParametersValueArrayOutput {
+	return i.ToInsightFiltersComplianceSecurityControlParametersValueArrayOutputWithContext(context.Background())
+}
+
+func (i InsightFiltersComplianceSecurityControlParametersValueArray) ToInsightFiltersComplianceSecurityControlParametersValueArrayOutputWithContext(ctx context.Context) InsightFiltersComplianceSecurityControlParametersValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersComplianceSecurityControlParametersValueArrayOutput)
+}
+
+type InsightFiltersComplianceSecurityControlParametersValueOutput struct{ *pulumi.OutputState }
+
+func (InsightFiltersComplianceSecurityControlParametersValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightFiltersComplianceSecurityControlParametersValue)(nil)).Elem()
+}
+
+func (o InsightFiltersComplianceSecurityControlParametersValueOutput) ToInsightFiltersComplianceSecurityControlParametersValueOutput() InsightFiltersComplianceSecurityControlParametersValueOutput {
+	return o
+}
+
+func (o InsightFiltersComplianceSecurityControlParametersValueOutput) ToInsightFiltersComplianceSecurityControlParametersValueOutputWithContext(ctx context.Context) InsightFiltersComplianceSecurityControlParametersValueOutput {
+	return o
+}
+
+func (o InsightFiltersComplianceSecurityControlParametersValueOutput) Comparison() pulumi.StringOutput {
+	return o.ApplyT(func(v InsightFiltersComplianceSecurityControlParametersValue) string { return v.Comparison }).(pulumi.StringOutput)
+}
+
+func (o InsightFiltersComplianceSecurityControlParametersValueOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v InsightFiltersComplianceSecurityControlParametersValue) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type InsightFiltersComplianceSecurityControlParametersValueArrayOutput struct{ *pulumi.OutputState }
+
+func (InsightFiltersComplianceSecurityControlParametersValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightFiltersComplianceSecurityControlParametersValue)(nil)).Elem()
+}
+
+func (o InsightFiltersComplianceSecurityControlParametersValueArrayOutput) ToInsightFiltersComplianceSecurityControlParametersValueArrayOutput() InsightFiltersComplianceSecurityControlParametersValueArrayOutput {
+	return o
+}
+
+func (o InsightFiltersComplianceSecurityControlParametersValueArrayOutput) ToInsightFiltersComplianceSecurityControlParametersValueArrayOutputWithContext(ctx context.Context) InsightFiltersComplianceSecurityControlParametersValueArrayOutput {
+	return o
+}
+
+func (o InsightFiltersComplianceSecurityControlParametersValueArrayOutput) Index(i pulumi.IntInput) InsightFiltersComplianceSecurityControlParametersValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InsightFiltersComplianceSecurityControlParametersValue {
+		return vs[0].([]InsightFiltersComplianceSecurityControlParametersValue)[vs[1].(int)]
+	}).(InsightFiltersComplianceSecurityControlParametersValueOutput)
 }
 
 type InsightFiltersComplianceStatus struct {
@@ -21420,8 +22023,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersPtrInput)(nil)).Elem(), InsightFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersAwsAccountIdInput)(nil)).Elem(), InsightFiltersAwsAccountIdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersAwsAccountIdArrayInput)(nil)).Elem(), InsightFiltersAwsAccountIdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersAwsAccountNameInput)(nil)).Elem(), InsightFiltersAwsAccountNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersAwsAccountNameArrayInput)(nil)).Elem(), InsightFiltersAwsAccountNameArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersCompanyNameInput)(nil)).Elem(), InsightFiltersCompanyNameArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersCompanyNameArrayInput)(nil)).Elem(), InsightFiltersCompanyNameArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersComplianceAssociatedStandardsIdInput)(nil)).Elem(), InsightFiltersComplianceAssociatedStandardsIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersComplianceAssociatedStandardsIdArrayInput)(nil)).Elem(), InsightFiltersComplianceAssociatedStandardsIdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersComplianceSecurityControlIdInput)(nil)).Elem(), InsightFiltersComplianceSecurityControlIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersComplianceSecurityControlIdArrayInput)(nil)).Elem(), InsightFiltersComplianceSecurityControlIdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersComplianceSecurityControlParametersNameInput)(nil)).Elem(), InsightFiltersComplianceSecurityControlParametersNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersComplianceSecurityControlParametersNameArrayInput)(nil)).Elem(), InsightFiltersComplianceSecurityControlParametersNameArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersComplianceSecurityControlParametersValueInput)(nil)).Elem(), InsightFiltersComplianceSecurityControlParametersValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersComplianceSecurityControlParametersValueArrayInput)(nil)).Elem(), InsightFiltersComplianceSecurityControlParametersValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersComplianceStatusInput)(nil)).Elem(), InsightFiltersComplianceStatusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersComplianceStatusArrayInput)(nil)).Elem(), InsightFiltersComplianceStatusArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersConfidenceInput)(nil)).Elem(), InsightFiltersConfidenceArgs{})
@@ -21748,8 +22361,18 @@ func init() {
 	pulumi.RegisterOutputType(InsightFiltersPtrOutput{})
 	pulumi.RegisterOutputType(InsightFiltersAwsAccountIdOutput{})
 	pulumi.RegisterOutputType(InsightFiltersAwsAccountIdArrayOutput{})
+	pulumi.RegisterOutputType(InsightFiltersAwsAccountNameOutput{})
+	pulumi.RegisterOutputType(InsightFiltersAwsAccountNameArrayOutput{})
 	pulumi.RegisterOutputType(InsightFiltersCompanyNameOutput{})
 	pulumi.RegisterOutputType(InsightFiltersCompanyNameArrayOutput{})
+	pulumi.RegisterOutputType(InsightFiltersComplianceAssociatedStandardsIdOutput{})
+	pulumi.RegisterOutputType(InsightFiltersComplianceAssociatedStandardsIdArrayOutput{})
+	pulumi.RegisterOutputType(InsightFiltersComplianceSecurityControlIdOutput{})
+	pulumi.RegisterOutputType(InsightFiltersComplianceSecurityControlIdArrayOutput{})
+	pulumi.RegisterOutputType(InsightFiltersComplianceSecurityControlParametersNameOutput{})
+	pulumi.RegisterOutputType(InsightFiltersComplianceSecurityControlParametersNameArrayOutput{})
+	pulumi.RegisterOutputType(InsightFiltersComplianceSecurityControlParametersValueOutput{})
+	pulumi.RegisterOutputType(InsightFiltersComplianceSecurityControlParametersValueArrayOutput{})
 	pulumi.RegisterOutputType(InsightFiltersComplianceStatusOutput{})
 	pulumi.RegisterOutputType(InsightFiltersComplianceStatusArrayOutput{})
 	pulumi.RegisterOutputType(InsightFiltersConfidenceOutput{})

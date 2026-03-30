@@ -18,6 +18,12 @@ namespace Pulumi.Aws.DataSync.Inputs
         [Input("scheduleExpression", required: true)]
         public Input<string> ScheduleExpression { get; set; } = null!;
 
+        /// <summary>
+        /// Whether to enable or disable your task schedule. Valid values: `ENABLED`, `DISABLED`. Default: `ENABLED`.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
+
         public TaskScheduleGetArgs()
         {
         }

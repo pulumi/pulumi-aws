@@ -24,6 +24,18 @@ namespace Pulumi.Aws.SecurityHub.Inputs
             set => _awsAccountIds = value;
         }
 
+        [Input("awsAccountNames")]
+        private InputList<Inputs.InsightFiltersAwsAccountNameGetArgs>? _awsAccountNames;
+
+        /// <summary>
+        /// The name of the AWS account in which a finding is generated. See String_Filter below for more details.
+        /// </summary>
+        public InputList<Inputs.InsightFiltersAwsAccountNameGetArgs> AwsAccountNames
+        {
+            get => _awsAccountNames ?? (_awsAccountNames = new InputList<Inputs.InsightFiltersAwsAccountNameGetArgs>());
+            set => _awsAccountNames = value;
+        }
+
         [Input("companyNames")]
         private InputList<Inputs.InsightFiltersCompanyNameGetArgs>? _companyNames;
 
@@ -34,6 +46,54 @@ namespace Pulumi.Aws.SecurityHub.Inputs
         {
             get => _companyNames ?? (_companyNames = new InputList<Inputs.InsightFiltersCompanyNameGetArgs>());
             set => _companyNames = value;
+        }
+
+        [Input("complianceAssociatedStandardsIds")]
+        private InputList<Inputs.InsightFiltersComplianceAssociatedStandardsIdGetArgs>? _complianceAssociatedStandardsIds;
+
+        /// <summary>
+        /// The unique identifier of a standard in which a control is enabled. See String_Filter below for more details.
+        /// </summary>
+        public InputList<Inputs.InsightFiltersComplianceAssociatedStandardsIdGetArgs> ComplianceAssociatedStandardsIds
+        {
+            get => _complianceAssociatedStandardsIds ?? (_complianceAssociatedStandardsIds = new InputList<Inputs.InsightFiltersComplianceAssociatedStandardsIdGetArgs>());
+            set => _complianceAssociatedStandardsIds = value;
+        }
+
+        [Input("complianceSecurityControlIds")]
+        private InputList<Inputs.InsightFiltersComplianceSecurityControlIdGetArgs>? _complianceSecurityControlIds;
+
+        /// <summary>
+        /// The unique identifier of a control across standards. See String_Filter below for more details.
+        /// </summary>
+        public InputList<Inputs.InsightFiltersComplianceSecurityControlIdGetArgs> ComplianceSecurityControlIds
+        {
+            get => _complianceSecurityControlIds ?? (_complianceSecurityControlIds = new InputList<Inputs.InsightFiltersComplianceSecurityControlIdGetArgs>());
+            set => _complianceSecurityControlIds = value;
+        }
+
+        [Input("complianceSecurityControlParametersNames")]
+        private InputList<Inputs.InsightFiltersComplianceSecurityControlParametersNameGetArgs>? _complianceSecurityControlParametersNames;
+
+        /// <summary>
+        /// The unique identifier of a control across standards. See String_Filter below for more details.
+        /// </summary>
+        public InputList<Inputs.InsightFiltersComplianceSecurityControlParametersNameGetArgs> ComplianceSecurityControlParametersNames
+        {
+            get => _complianceSecurityControlParametersNames ?? (_complianceSecurityControlParametersNames = new InputList<Inputs.InsightFiltersComplianceSecurityControlParametersNameGetArgs>());
+            set => _complianceSecurityControlParametersNames = value;
+        }
+
+        [Input("complianceSecurityControlParametersValues")]
+        private InputList<Inputs.InsightFiltersComplianceSecurityControlParametersValueGetArgs>? _complianceSecurityControlParametersValues;
+
+        /// <summary>
+        /// The current value of a security control parameter. See String_Filter below for more details.
+        /// </summary>
+        public InputList<Inputs.InsightFiltersComplianceSecurityControlParametersValueGetArgs> ComplianceSecurityControlParametersValues
+        {
+            get => _complianceSecurityControlParametersValues ?? (_complianceSecurityControlParametersValues = new InputList<Inputs.InsightFiltersComplianceSecurityControlParametersValueGetArgs>());
+            set => _complianceSecurityControlParametersValues = value;
         }
 
         [Input("complianceStatuses")]

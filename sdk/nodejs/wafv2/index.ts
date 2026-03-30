@@ -65,6 +65,11 @@ export type WebAclLoggingConfiguration = import("./webAclLoggingConfiguration").
 export const WebAclLoggingConfiguration: typeof import("./webAclLoggingConfiguration").WebAclLoggingConfiguration = null as any;
 utilities.lazyLoad(exports, ["WebAclLoggingConfiguration"], () => require("./webAclLoggingConfiguration"));
 
+export { WebAclRuleArgs, WebAclRuleState } from "./webAclRule";
+export type WebAclRule = import("./webAclRule").WebAclRule;
+export const WebAclRule: typeof import("./webAclRule").WebAclRule = null as any;
+utilities.lazyLoad(exports, ["WebAclRule"], () => require("./webAclRule"));
+
 export { WebAclRuleGroupAssociationArgs, WebAclRuleGroupAssociationState } from "./webAclRuleGroupAssociation";
 export type WebAclRuleGroupAssociation = import("./webAclRuleGroupAssociation").WebAclRuleGroupAssociation;
 export const WebAclRuleGroupAssociation: typeof import("./webAclRuleGroupAssociation").WebAclRuleGroupAssociation = null as any;
@@ -89,6 +94,8 @@ const _module = {
                 return new WebAclAssociation(name, <any>undefined, { urn })
             case "aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration":
                 return new WebAclLoggingConfiguration(name, <any>undefined, { urn })
+            case "aws:wafv2/webAclRule:WebAclRule":
+                return new WebAclRule(name, <any>undefined, { urn })
             case "aws:wafv2/webAclRuleGroupAssociation:WebAclRuleGroupAssociation":
                 return new WebAclRuleGroupAssociation(name, <any>undefined, { urn })
             default:
@@ -103,4 +110,5 @@ pulumi.runtime.registerResourceModule("aws", "wafv2/ruleGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "wafv2/webAcl", _module)
 pulumi.runtime.registerResourceModule("aws", "wafv2/webAclAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "wafv2/webAclLoggingConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "wafv2/webAclRule", _module)
 pulumi.runtime.registerResourceModule("aws", "wafv2/webAclRuleGroupAssociation", _module)

@@ -42,7 +42,11 @@ public final class GetSavingsPlanResult {
     /**
      * @return The ID of the offering.
      * 
+     * @deprecated
+     * offering_id is deprecated. Use savingsPlanOfferingId instead.
+     * 
      */
+    @Deprecated /* offering_id is deprecated. Use savingsPlanOfferingId instead. */
     private String offeringId;
     /**
      * @return The payment option for the Savings Plan.
@@ -142,7 +146,11 @@ public final class GetSavingsPlanResult {
     /**
      * @return The ID of the offering.
      * 
+     * @deprecated
+     * offering_id is deprecated. Use savingsPlanOfferingId instead.
+     * 
      */
+    @Deprecated /* offering_id is deprecated. Use savingsPlanOfferingId instead. */
     public String offeringId() {
         return this.offeringId;
     }
