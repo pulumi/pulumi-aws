@@ -106,6 +106,8 @@ type SavingsPlan struct {
 	// The end time of the Savings Plan in RFC3339 format.
 	End pulumi.StringOutput `pulumi:"end"`
 	// The ID of the offering.
+	//
+	// Deprecated: offering_id is deprecated. Use savingsPlanOfferingId instead.
 	OfferingId pulumi.StringOutput `pulumi:"offeringId"`
 	// The payment option for the Savings Plan (e.g., `All Upfront`, `Partial Upfront`, `No Upfront`).
 	PaymentOption pulumi.StringOutput `pulumi:"paymentOption"`
@@ -191,6 +193,8 @@ type savingsPlanState struct {
 	// The end time of the Savings Plan in RFC3339 format.
 	End *string `pulumi:"end"`
 	// The ID of the offering.
+	//
+	// Deprecated: offering_id is deprecated. Use savingsPlanOfferingId instead.
 	OfferingId *string `pulumi:"offeringId"`
 	// The payment option for the Savings Plan (e.g., `All Upfront`, `Partial Upfront`, `No Upfront`).
 	PaymentOption *string `pulumi:"paymentOption"`
@@ -241,6 +245,8 @@ type SavingsPlanState struct {
 	// The end time of the Savings Plan in RFC3339 format.
 	End pulumi.StringPtrInput
 	// The ID of the offering.
+	//
+	// Deprecated: offering_id is deprecated. Use savingsPlanOfferingId instead.
 	OfferingId pulumi.StringPtrInput
 	// The payment option for the Savings Plan (e.g., `All Upfront`, `Partial Upfront`, `No Upfront`).
 	PaymentOption pulumi.StringPtrInput
@@ -429,6 +435,8 @@ func (o SavingsPlanOutput) End() pulumi.StringOutput {
 }
 
 // The ID of the offering.
+//
+// Deprecated: offering_id is deprecated. Use savingsPlanOfferingId instead.
 func (o SavingsPlanOutput) OfferingId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SavingsPlan) pulumi.StringOutput { return v.OfferingId }).(pulumi.StringOutput)
 }

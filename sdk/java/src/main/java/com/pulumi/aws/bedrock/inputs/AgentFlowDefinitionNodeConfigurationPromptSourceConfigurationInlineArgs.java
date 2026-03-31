@@ -34,23 +34,31 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     }
 
     /**
-     * Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+     * Contains inference configurations for the prompt. See Inference Configuration for more information.
      * 
      */
     @Import(name="inferenceConfiguration")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs> inferenceConfiguration;
 
     /**
-     * @return Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+     * @return Contains inference configurations for the prompt. See Inference Configuration for more information.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs>> inferenceConfiguration() {
         return Optional.ofNullable(this.inferenceConfiguration);
     }
 
+    /**
+     * The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+     * 
+     */
     @Import(name="modelId", required=true)
     private Output<String> modelId;
 
+    /**
+     * @return The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+     * 
+     */
     public Output<String> modelId() {
         return this.modelId;
     }
@@ -135,7 +143,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param inferenceConfiguration Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+         * @param inferenceConfiguration Contains inference configurations for the prompt. See Inference Configuration for more information.
          * 
          * @return builder
          * 
@@ -146,7 +154,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param inferenceConfiguration Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+         * @param inferenceConfiguration Contains inference configurations for the prompt. See Inference Configuration for more information.
          * 
          * @return builder
          * 
@@ -155,11 +163,23 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
             return inferenceConfiguration(Output.of(inferenceConfiguration));
         }
 
+        /**
+         * @param modelId The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+         * 
+         * @return builder
+         * 
+         */
         public Builder modelId(Output<String> modelId) {
             $.modelId = modelId;
             return this;
         }
 
+        /**
+         * @param modelId The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+         * 
+         * @return builder
+         * 
+         */
         public Builder modelId(String modelId) {
             return modelId(Output.of(modelId));
         }

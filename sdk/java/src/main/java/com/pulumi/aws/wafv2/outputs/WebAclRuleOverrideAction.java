@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleOverrideAction {
     /**
-     * @return Override the rule action setting to count (i.e., only count matches). Configured as an empty block `{}`.
+     * @return Override the rule action with count.
      * 
      */
     private @Nullable WebAclRuleOverrideActionCount count;
     /**
-     * @return Don&#39;t override the rule action setting. Configured as an empty block `{}`.
+     * @return Don&#39;t override the rule action.
      * 
      */
     private @Nullable WebAclRuleOverrideActionNone none;
 
     private WebAclRuleOverrideAction() {}
     /**
-     * @return Override the rule action setting to count (i.e., only count matches). Configured as an empty block `{}`.
+     * @return Override the rule action with count.
      * 
      */
     public Optional<WebAclRuleOverrideActionCount> count() {
         return Optional.ofNullable(this.count);
     }
     /**
-     * @return Don&#39;t override the rule action setting. Configured as an empty block `{}`.
+     * @return Don&#39;t override the rule action.
      * 
      */
     public Optional<WebAclRuleOverrideActionNone> none() {

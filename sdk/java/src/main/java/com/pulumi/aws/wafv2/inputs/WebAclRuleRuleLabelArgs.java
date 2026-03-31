@@ -15,14 +15,14 @@ public final class WebAclRuleRuleLabelArgs extends com.pulumi.resources.Resource
     public static final WebAclRuleRuleLabelArgs Empty = new WebAclRuleRuleLabelArgs();
 
     /**
-     * Label string.
+     * Label string (1-1024 characters, alphanumeric, underscore, hyphen, and colon characters only).
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Label string.
+     * @return Label string (1-1024 characters, alphanumeric, underscore, hyphen, and colon characters only).
      * 
      */
     public Output<String> name() {
@@ -54,7 +54,7 @@ public final class WebAclRuleRuleLabelArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name Label string.
+         * @param name Label string (1-1024 characters, alphanumeric, underscore, hyphen, and colon characters only).
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class WebAclRuleRuleLabelArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name Label string.
+         * @param name Label string (1-1024 characters, alphanumeric, underscore, hyphen, and colon characters only).
          * 
          * @return builder
          * 

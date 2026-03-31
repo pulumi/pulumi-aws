@@ -13,26 +13,17 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection
     {
-        /// <summary>
-        /// Details about your login page password field. See `PasswordField` for more details.
-        /// </summary>
-        public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField PasswordField;
-        /// <summary>
-        /// The payload type for your login endpoint, either JSON or form encoded.
-        /// </summary>
+        public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField? PasswordField;
         public readonly string PayloadType;
-        /// <summary>
-        /// Details about your login page username field. See `UsernameField` for more details.
-        /// </summary>
-        public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField UsernameField;
+        public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField? UsernameField;
 
         [OutputConstructor]
         private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection(
-            Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField passwordField,
+            Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField? passwordField,
 
             string payloadType,
 
-            Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField usernameField)
+            Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField? usernameField)
         {
             PasswordField = passwordField;
             PayloadType = payloadType;

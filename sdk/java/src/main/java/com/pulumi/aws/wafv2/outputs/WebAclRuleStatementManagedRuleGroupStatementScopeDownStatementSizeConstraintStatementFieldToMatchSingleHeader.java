@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader {
     /**
-     * @return Name of the query header to inspect. This setting must be provided as lower case characters.
+     * @return Name of the header to inspect (case insensitive).
      * 
      */
     private String name;
 
     private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader() {}
     /**
-     * @return Name of the query header to inspect. This setting must be provided as lower case characters.
+     * @return Name of the header to inspect (case insensitive).
      * 
      */
     public String name() {

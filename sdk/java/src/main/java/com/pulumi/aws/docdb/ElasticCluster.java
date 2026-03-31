@@ -265,6 +265,20 @@ public class ElasticCluster extends com.pulumi.resources.CustomResource {
         return this.shardCount;
     }
     /**
+     * Number of replica instances applying to all shards in the elastic cluster. If not specified, the default value of 2 is set.
+     * 
+     */
+    @Export(name="shardInstanceCount", refs={Integer.class}, tree="[0]")
+    private Output<Integer> shardInstanceCount;
+
+    /**
+     * @return Number of replica instances applying to all shards in the elastic cluster. If not specified, the default value of 2 is set.
+     * 
+     */
+    public Output<Integer> shardInstanceCount() {
+        return this.shardInstanceCount;
+    }
+    /**
      * IDs of subnets in which the Elastic DocumentDB Cluster operates.
      * 
      */

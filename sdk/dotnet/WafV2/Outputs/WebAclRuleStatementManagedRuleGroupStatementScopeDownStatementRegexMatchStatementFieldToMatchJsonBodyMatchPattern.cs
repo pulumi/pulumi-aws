@@ -13,10 +13,10 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern
     {
-        /// <summary>
-        /// An empty configuration block that is used for inspecting all headers.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll? All;
+        /// <summary>
+        /// List of JSON pointer expressions to inspect (e.g., `/foo/bar`).
+        /// </summary>
         public readonly ImmutableArray<string> IncludedPaths;
 
         [OutputConstructor]

@@ -15,14 +15,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexP
     public static final WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs Empty = new WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs();
 
     /**
-     * Name of the query header to inspect. This setting must be provided as lower case characters.
+     * Name of the query argument to inspect.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the query header to inspect. This setting must be provided as lower case characters.
+     * @return Name of the query argument to inspect.
      * 
      */
     public Output<String> name() {
@@ -54,7 +54,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexP
         }
 
         /**
-         * @param name Name of the query header to inspect. This setting must be provided as lower case characters.
+         * @param name Name of the query argument to inspect.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexP
         }
 
         /**
-         * @param name Name of the query header to inspect. This setting must be provided as lower case characters.
+         * @param name Name of the query argument to inspect.
          * 
          * @return builder
          * 

@@ -12,18 +12,27 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Allow the request. See Allow below.
+        /// </summary>
         [Input("allow")]
         public Input<Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowArgs>? Allow { get; set; }
 
+        /// <summary>
+        /// Block the request. See Block below.
+        /// </summary>
         [Input("block")]
         public Input<Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockArgs>? Block { get; set; }
 
         /// <summary>
-        /// Instructs AWS WAF to run a Captcha check against the web request. See `Captcha` below for details.
+        /// Present a CAPTCHA challenge. See Captcha below.
         /// </summary>
         [Input("captcha")]
         public Input<Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaArgs>? Captcha { get; set; }
 
+        /// <summary>
+        /// Present a silent challenge. See Challenge below.
+        /// </summary>
         [Input("challenge")]
         public Input<Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs>? Challenge { get; set; }
 

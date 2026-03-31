@@ -3004,6 +3004,8 @@ func (o TaskOptionsPtrOutput) VerifyMode() pulumi.StringPtrOutput {
 type TaskSchedule struct {
 	// Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
 	ScheduleExpression string `pulumi:"scheduleExpression"`
+	// Whether to enable or disable your task schedule. Valid values: `ENABLED`, `DISABLED`. Default: `ENABLED`.
+	Status *string `pulumi:"status"`
 }
 
 // TaskScheduleInput is an input type that accepts TaskScheduleArgs and TaskScheduleOutput values.
@@ -3020,6 +3022,8 @@ type TaskScheduleInput interface {
 type TaskScheduleArgs struct {
 	// Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
 	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
+	// Whether to enable or disable your task schedule. Valid values: `ENABLED`, `DISABLED`. Default: `ENABLED`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (TaskScheduleArgs) ElementType() reflect.Type {
@@ -3104,6 +3108,11 @@ func (o TaskScheduleOutput) ScheduleExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskSchedule) string { return v.ScheduleExpression }).(pulumi.StringOutput)
 }
 
+// Whether to enable or disable your task schedule. Valid values: `ENABLED`, `DISABLED`. Default: `ENABLED`.
+func (o TaskScheduleOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskSchedule) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
 type TaskSchedulePtrOutput struct{ *pulumi.OutputState }
 
 func (TaskSchedulePtrOutput) ElementType() reflect.Type {
@@ -3135,6 +3144,16 @@ func (o TaskSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.ScheduleExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to enable or disable your task schedule. Valid values: `ENABLED`, `DISABLED`. Default: `ENABLED`.
+func (o TaskSchedulePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
 	}).(pulumi.StringPtrOutput)
 }
 

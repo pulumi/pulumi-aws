@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description for the flow.
+        /// The description of the tool.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs>? InputSchema { get; set; }
 
         /// <summary>
-        /// A name for the flow.
+        /// The name of the tool.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

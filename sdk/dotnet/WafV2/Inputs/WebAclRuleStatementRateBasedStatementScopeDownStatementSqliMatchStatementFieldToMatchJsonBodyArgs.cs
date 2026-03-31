@@ -13,25 +13,25 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+        /// How to handle requests with invalid JSON body. Valid values: `EVALUATE_AS_STRING`, `MATCH`, `NO_MATCH`.
         /// </summary>
         [Input("invalidFallbackBehavior")]
         public Input<string>? InvalidFallbackBehavior { get; set; }
 
         /// <summary>
-        /// The patterns to look for in the JSON body. You must specify exactly one setting: either `All` or `IncludedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        /// JSON content to inspect. See JSON Body Match Pattern below.
         /// </summary>
-        [Input("matchPattern", required: true)]
-        public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs> MatchPattern { get; set; } = null!;
+        [Input("matchPattern")]
+        public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs>? MatchPattern { get; set; }
 
         /// <summary>
-        /// The parts of the JSON to match against using the `MatchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+        /// Parts of the JSON to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
         /// </summary>
         [Input("matchScope", required: true)]
         public Input<string> MatchScope { get; set; } = null!;
 
         /// <summary>
-        /// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+        /// How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
         /// </summary>
         [Input("oversizeHandling")]
         public Input<string>? OversizeHandling { get; set; }

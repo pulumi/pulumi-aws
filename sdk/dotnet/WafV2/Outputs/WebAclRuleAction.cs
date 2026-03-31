@@ -14,23 +14,23 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleAction
     {
         /// <summary>
-        /// Instructs AWS WAF to allow the web request. See `Allow` below for details.
+        /// Allow the request. See Allow below.
         /// </summary>
         public readonly Outputs.WebAclRuleActionAllow? Allow;
         /// <summary>
-        /// Instructs AWS WAF to block the web request. See `Block` below for details.
+        /// Block the request. See Block below.
         /// </summary>
         public readonly Outputs.WebAclRuleActionBlock? Block;
         /// <summary>
-        /// Instructs AWS WAF to run a Captcha check against the web request. See `Captcha` below for details.
+        /// Present a CAPTCHA challenge. See Captcha below.
         /// </summary>
         public readonly Outputs.WebAclRuleActionCaptcha? Captcha;
         /// <summary>
-        /// Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `Challenge` below for details.
+        /// Present a silent challenge. See Challenge below.
         /// </summary>
         public readonly Outputs.WebAclRuleActionChallenge? Challenge;
         /// <summary>
-        /// Instructs AWS WAF to count the web request and allow it. See `Count` below for details.
+        /// Count the request without blocking. See Count below.
         /// </summary>
         public readonly Outputs.WebAclRuleActionCount? Count;
 

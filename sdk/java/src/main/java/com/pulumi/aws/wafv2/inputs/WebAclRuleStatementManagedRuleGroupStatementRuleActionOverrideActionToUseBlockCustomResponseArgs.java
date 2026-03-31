@@ -20,14 +20,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
     public static final WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseArgs();
 
     /**
-     * References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
+     * Key of a custom response body defined in the Web ACL.
      * 
      */
     @Import(name="customResponseBodyKey")
     private @Nullable Output<String> customResponseBodyKey;
 
     /**
-     * @return References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
+     * @return Key of a custom response body defined in the Web ACL.
      * 
      */
     public Optional<Output<String>> customResponseBodyKey() {
@@ -35,14 +35,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
     }
 
     /**
-     * The HTTP status code to return to the client.
+     * HTTP status code to return (200-599).
      * 
      */
     @Import(name="responseCode", required=true)
     private Output<Integer> responseCode;
 
     /**
-     * @return The HTTP status code to return to the client.
+     * @return HTTP status code to return (200-599).
      * 
      */
     public Output<Integer> responseCode() {
@@ -50,14 +50,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
     }
 
     /**
-     * The `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
+     * Custom headers to include in the response. See Response Header below.
      * 
      */
     @Import(name="responseHeaders")
     private @Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs>> responseHeaders;
 
     /**
-     * @return The `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
+     * @return Custom headers to include in the response. See Response Header below.
      * 
      */
     public Optional<Output<List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs>>> responseHeaders() {
@@ -91,7 +91,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
         }
 
         /**
-         * @param customResponseBodyKey References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
+         * @param customResponseBodyKey Key of a custom response body defined in the Web ACL.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
         }
 
         /**
-         * @param customResponseBodyKey References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
+         * @param customResponseBodyKey Key of a custom response body defined in the Web ACL.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
         }
 
         /**
-         * @param responseCode The HTTP status code to return to the client.
+         * @param responseCode HTTP status code to return (200-599).
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
         }
 
         /**
-         * @param responseCode The HTTP status code to return to the client.
+         * @param responseCode HTTP status code to return (200-599).
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
         }
 
         /**
-         * @param responseHeaders The `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
+         * @param responseHeaders Custom headers to include in the response. See Response Header below.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
         }
 
         /**
-         * @param responseHeaders The `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
+         * @param responseHeaders Custom headers to include in the response. See Response Header below.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
         }
 
         /**
-         * @param responseHeaders The `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
+         * @param responseHeaders Custom headers to include in the response. See Response Header below.
          * 
          * @return builder
          * 

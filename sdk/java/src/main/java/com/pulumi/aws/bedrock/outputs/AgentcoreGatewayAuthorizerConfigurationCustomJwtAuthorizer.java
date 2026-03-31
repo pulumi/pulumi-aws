@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.bedrock.outputs;
 
+import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaim;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -22,7 +23,16 @@ public final class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer {
      * 
      */
     private @Nullable List<String> allowedClients;
-    private List<String> allowedScopes;
+    /**
+     * @return Set of scopes that are allowed to access the token.
+     * 
+     */
+    private @Nullable List<String> allowedScopes;
+    /**
+     * @return Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+     * 
+     */
+    private @Nullable List<AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaim> customClaims;
     /**
      * @return URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
      * 
@@ -44,8 +54,19 @@ public final class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer {
     public List<String> allowedClients() {
         return this.allowedClients == null ? List.of() : this.allowedClients;
     }
+    /**
+     * @return Set of scopes that are allowed to access the token.
+     * 
+     */
     public List<String> allowedScopes() {
-        return this.allowedScopes;
+        return this.allowedScopes == null ? List.of() : this.allowedScopes;
+    }
+    /**
+     * @return Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+     * 
+     */
+    public List<AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaim> customClaims() {
+        return this.customClaims == null ? List.of() : this.customClaims;
     }
     /**
      * @return URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
@@ -66,7 +87,8 @@ public final class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer {
     public static final class Builder {
         private @Nullable List<String> allowedAudiences;
         private @Nullable List<String> allowedClients;
-        private List<String> allowedScopes;
+        private @Nullable List<String> allowedScopes;
+        private @Nullable List<AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaim> customClaims;
         private String discoveryUrl;
         public Builder() {}
         public Builder(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer defaults) {
@@ -74,6 +96,7 @@ public final class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer {
     	      this.allowedAudiences = defaults.allowedAudiences;
     	      this.allowedClients = defaults.allowedClients;
     	      this.allowedScopes = defaults.allowedScopes;
+    	      this.customClaims = defaults.customClaims;
     	      this.discoveryUrl = defaults.discoveryUrl;
         }
 
@@ -96,15 +119,22 @@ public final class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer {
             return allowedClients(List.of(allowedClients));
         }
         @CustomType.Setter
-        public Builder allowedScopes(List<String> allowedScopes) {
-            if (allowedScopes == null) {
-              throw new MissingRequiredPropertyException("AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer", "allowedScopes");
-            }
+        public Builder allowedScopes(@Nullable List<String> allowedScopes) {
+
             this.allowedScopes = allowedScopes;
             return this;
         }
         public Builder allowedScopes(String... allowedScopes) {
             return allowedScopes(List.of(allowedScopes));
+        }
+        @CustomType.Setter
+        public Builder customClaims(@Nullable List<AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaim> customClaims) {
+
+            this.customClaims = customClaims;
+            return this;
+        }
+        public Builder customClaims(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaim... customClaims) {
+            return customClaims(List.of(customClaims));
         }
         @CustomType.Setter
         public Builder discoveryUrl(String discoveryUrl) {
@@ -119,6 +149,7 @@ public final class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer {
             _resultValue.allowedAudiences = allowedAudiences;
             _resultValue.allowedClients = allowedClients;
             _resultValue.allowedScopes = allowedScopes;
+            _resultValue.customClaims = customClaims;
             _resultValue.discoveryUrl = discoveryUrl;
             return _resultValue;
         }

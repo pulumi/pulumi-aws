@@ -1296,13 +1296,13 @@ type FilterFindingCriteriaCriterion struct {
 	Equals []string `pulumi:"equals"`
 	// The name of the field to be evaluated. The full list of field names can be found in [AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria).
 	Field string `pulumi:"field"`
-	// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+	// A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	GreaterThan *string `pulumi:"greaterThan"`
-	// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+	// A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	GreaterThanOrEqual *string `pulumi:"greaterThanOrEqual"`
-	// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+	// A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LessThan *string `pulumi:"lessThan"`
-	// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+	// A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LessThanOrEqual *string `pulumi:"lessThanOrEqual"`
 	// List of string values to be evaluated as matching conditions.
 	Matches []string `pulumi:"matches"`
@@ -1328,13 +1328,13 @@ type FilterFindingCriteriaCriterionArgs struct {
 	Equals pulumi.StringArrayInput `pulumi:"equals"`
 	// The name of the field to be evaluated. The full list of field names can be found in [AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria).
 	Field pulumi.StringInput `pulumi:"field"`
-	// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+	// A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	GreaterThan pulumi.StringPtrInput `pulumi:"greaterThan"`
-	// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+	// A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	GreaterThanOrEqual pulumi.StringPtrInput `pulumi:"greaterThanOrEqual"`
-	// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+	// A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LessThan pulumi.StringPtrInput `pulumi:"lessThan"`
-	// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+	// A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LessThanOrEqual pulumi.StringPtrInput `pulumi:"lessThanOrEqual"`
 	// List of string values to be evaluated as matching conditions.
 	Matches pulumi.StringArrayInput `pulumi:"matches"`
@@ -1405,22 +1405,22 @@ func (o FilterFindingCriteriaCriterionOutput) Field() pulumi.StringOutput {
 	return o.ApplyT(func(v FilterFindingCriteriaCriterion) string { return v.Field }).(pulumi.StringOutput)
 }
 
-// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+// A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 func (o FilterFindingCriteriaCriterionOutput) GreaterThan() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FilterFindingCriteriaCriterion) *string { return v.GreaterThan }).(pulumi.StringPtrOutput)
 }
 
-// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+// A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 func (o FilterFindingCriteriaCriterionOutput) GreaterThanOrEqual() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FilterFindingCriteriaCriterion) *string { return v.GreaterThanOrEqual }).(pulumi.StringPtrOutput)
 }
 
-// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+// A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 func (o FilterFindingCriteriaCriterionOutput) LessThan() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FilterFindingCriteriaCriterion) *string { return v.LessThan }).(pulumi.StringPtrOutput)
 }
 
-// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+// A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 func (o FilterFindingCriteriaCriterionOutput) LessThanOrEqual() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FilterFindingCriteriaCriterion) *string { return v.LessThanOrEqual }).(pulumi.StringPtrOutput)
 }

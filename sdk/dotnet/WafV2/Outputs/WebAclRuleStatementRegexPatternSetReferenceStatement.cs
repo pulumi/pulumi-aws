@@ -14,15 +14,15 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementRegexPatternSetReferenceStatement
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+        /// ARN of the regex pattern set to reference.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Part of a web request that you want AWS WAF to inspect. See `FieldToMatch` below for details.
+        /// Part of the web request that you want WAF to inspect. See Field to Match below.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch? FieldToMatch;
         /// <summary>
-        /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `TextTransformation` below for details.
+        /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation> TextTransformations;
 

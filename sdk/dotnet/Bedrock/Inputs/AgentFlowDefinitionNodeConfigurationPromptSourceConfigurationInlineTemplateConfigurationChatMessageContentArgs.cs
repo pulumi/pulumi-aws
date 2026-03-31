@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Creates a cache checkpoint within a message. See Cache Point for more information.
+        /// </summary>
         [Input("cachePoint")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs>? CachePoint { get; set; }
 
+        /// <summary>
+        /// The text in the message.
+        /// </summary>
         [Input("text")]
         public Input<string>? Text { get; set; }
 

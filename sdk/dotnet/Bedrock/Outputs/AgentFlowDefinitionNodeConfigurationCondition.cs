@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentFlowDefinitionNodeConfigurationCondition
     {
+        /// <summary>
+        /// A list of conditions. See Condition Config for more information.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AgentFlowDefinitionNodeConfigurationConditionCondition> Conditions;
 
         [OutputConstructor]

@@ -33,15 +33,23 @@ public final class AgentFlowDefinitionNodeConfiguration {
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationCollector collector;
+    /**
+     * @return Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
+     * 
+     */
     private @Nullable AgentFlowDefinitionNodeConfigurationCondition condition;
     /**
      * @return Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationInlineCode inlineCode;
+    /**
+     * @return Contains configurations for an input flow node in your flow. The node `inputs` can’t be specified for this node. This block has no fields.
+     * 
+     */
     private @Nullable AgentFlowDefinitionNodeConfigurationInput input;
     /**
-     * @return Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
+     * @return Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationIterator iterator;
@@ -60,6 +68,10 @@ public final class AgentFlowDefinitionNodeConfiguration {
      * 
      */
     private @Nullable AgentFlowDefinitionNodeConfigurationLex lex;
+    /**
+     * @return Contains configurations for an output flow node in your flow. The node `outputs` can’t be specified for this node. This block has no fields.
+     * 
+     */
     private @Nullable AgentFlowDefinitionNodeConfigurationOutput output;
     /**
      * @return Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
@@ -92,6 +104,10 @@ public final class AgentFlowDefinitionNodeConfiguration {
     public Optional<AgentFlowDefinitionNodeConfigurationCollector> collector() {
         return Optional.ofNullable(this.collector);
     }
+    /**
+     * @return Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
+     * 
+     */
     public Optional<AgentFlowDefinitionNodeConfigurationCondition> condition() {
         return Optional.ofNullable(this.condition);
     }
@@ -102,11 +118,15 @@ public final class AgentFlowDefinitionNodeConfiguration {
     public Optional<AgentFlowDefinitionNodeConfigurationInlineCode> inlineCode() {
         return Optional.ofNullable(this.inlineCode);
     }
+    /**
+     * @return Contains configurations for an input flow node in your flow. The node `inputs` can’t be specified for this node. This block has no fields.
+     * 
+     */
     public Optional<AgentFlowDefinitionNodeConfigurationInput> input() {
         return Optional.ofNullable(this.input);
     }
     /**
-     * @return Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
+     * @return Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
      * 
      */
     public Optional<AgentFlowDefinitionNodeConfigurationIterator> iterator() {
@@ -133,6 +153,10 @@ public final class AgentFlowDefinitionNodeConfiguration {
     public Optional<AgentFlowDefinitionNodeConfigurationLex> lex() {
         return Optional.ofNullable(this.lex);
     }
+    /**
+     * @return Contains configurations for an output flow node in your flow. The node `outputs` can’t be specified for this node. This block has no fields.
+     * 
+     */
     public Optional<AgentFlowDefinitionNodeConfigurationOutput> output() {
         return Optional.ofNullable(this.output);
     }

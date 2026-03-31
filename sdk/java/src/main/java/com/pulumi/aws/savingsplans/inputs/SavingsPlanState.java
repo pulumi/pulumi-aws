@@ -101,14 +101,22 @@ public final class SavingsPlanState extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the offering.
      * 
+     * @deprecated
+     * offering_id is deprecated. Use savingsPlanOfferingId instead.
+     * 
      */
+    @Deprecated /* offering_id is deprecated. Use savingsPlanOfferingId instead. */
     @Import(name="offeringId")
     private @Nullable Output<String> offeringId;
 
     /**
      * @return The ID of the offering.
      * 
+     * @deprecated
+     * offering_id is deprecated. Use savingsPlanOfferingId instead.
+     * 
      */
+    @Deprecated /* offering_id is deprecated. Use savingsPlanOfferingId instead. */
     public Optional<Output<String>> offeringId() {
         return Optional.ofNullable(this.offeringId);
     }
@@ -520,7 +528,11 @@ public final class SavingsPlanState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * offering_id is deprecated. Use savingsPlanOfferingId instead.
+         * 
          */
+        @Deprecated /* offering_id is deprecated. Use savingsPlanOfferingId instead. */
         public Builder offeringId(@Nullable Output<String> offeringId) {
             $.offeringId = offeringId;
             return this;
@@ -531,7 +543,11 @@ public final class SavingsPlanState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * offering_id is deprecated. Use savingsPlanOfferingId instead.
+         * 
          */
+        @Deprecated /* offering_id is deprecated. Use savingsPlanOfferingId instead. */
         public Builder offeringId(String offeringId) {
             return offeringId(Output.of(offeringId));
         }

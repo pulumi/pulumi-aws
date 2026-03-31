@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement {
     /**
-     * @return String to match against.
+     * @return String to match against. For `LABEL` scope, include the name and any preceding namespace specifications. For `NAMESPACE` scope, include namespace strings. Labels are case sensitive and components must be separated by colon (e.g., `NS1:NS2:name`).
      * 
      */
     private String key;
     /**
-     * @return Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+     * @return Whether to match using the label name or namespace. Valid values: `LABEL`, `NAMESPACE`.
      * 
      */
     private String scope;
 
     private WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement() {}
     /**
-     * @return String to match against.
+     * @return String to match against. For `LABEL` scope, include the name and any preceding namespace specifications. For `NAMESPACE` scope, include namespace strings. Labels are case sensitive and components must be separated by colon (e.g., `NS1:NS2:name`).
      * 
      */
     public String key() {
         return this.key;
     }
     /**
-     * @return Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+     * @return Whether to match using the label name or namespace. Valid values: `LABEL`, `NAMESPACE`.
      * 
      */
     public String scope() {

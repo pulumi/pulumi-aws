@@ -13,6 +13,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class GetFirewallPolicyFirewallPolicyResult
     {
+        public readonly bool EnableTlsSessionHolding;
         public readonly ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyPolicyVariableResult> PolicyVariables;
         public readonly ImmutableArray<string> StatefulDefaultActions;
         public readonly ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult> StatefulEngineOptions;
@@ -25,6 +26,8 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
 
         [OutputConstructor]
         private GetFirewallPolicyFirewallPolicyResult(
+            bool enableTlsSessionHolding,
+
             ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyPolicyVariableResult> policyVariables,
 
             ImmutableArray<string> statefulDefaultActions,
@@ -43,6 +46,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
 
             string tlsInspectionConfigurationArn)
         {
+            EnableTlsSessionHolding = enableTlsSessionHolding;
             PolicyVariables = policyVariables;
             StatefulDefaultActions = statefulDefaultActions;
             StatefulEngineOptions = statefulEngineOptions;

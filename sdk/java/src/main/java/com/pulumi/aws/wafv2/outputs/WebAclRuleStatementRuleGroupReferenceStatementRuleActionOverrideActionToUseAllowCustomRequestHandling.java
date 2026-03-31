@@ -5,25 +5,25 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandling {
     /**
-     * @return The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+     * @return Custom headers to insert into the request. See Insert Header below.
      * 
      */
-    private List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader> insertHeaders;
+    private @Nullable List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader> insertHeaders;
 
     private WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandling() {}
     /**
-     * @return The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+     * @return Custom headers to insert into the request. See Insert Header below.
      * 
      */
     public List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader> insertHeaders() {
-        return this.insertHeaders;
+        return this.insertHeaders == null ? List.of() : this.insertHeaders;
     }
 
     public static Builder builder() {
@@ -35,7 +35,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader> insertHeaders;
+        private @Nullable List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader> insertHeaders;
         public Builder() {}
         public Builder(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandling defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,10 +43,8 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
         }
 
         @CustomType.Setter
-        public Builder insertHeaders(List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader> insertHeaders) {
-            if (insertHeaders == null) {
-              throw new MissingRequiredPropertyException("WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandling", "insertHeaders");
-            }
+        public Builder insertHeaders(@Nullable List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader> insertHeaders) {
+
             this.insertHeaders = insertHeaders;
             return this;
         }

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.bedrock.inputs;
 
+import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -63,6 +64,21 @@ public final class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthoriz
     }
 
     /**
+     * Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+     * 
+     */
+    @Import(name="customClaims")
+    private @Nullable Output<List<AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs>> customClaims;
+
+    /**
+     * @return Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+     * 
+     */
+    public Optional<Output<List<AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs>>> customClaims() {
+        return Optional.ofNullable(this.customClaims);
+    }
+
+    /**
      * URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
      * 
      */
@@ -83,6 +99,7 @@ public final class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthoriz
         this.allowedAudiences = $.allowedAudiences;
         this.allowedClients = $.allowedClients;
         this.allowedScopes = $.allowedScopes;
+        this.customClaims = $.customClaims;
         this.discoveryUrl = $.discoveryUrl;
     }
 
@@ -195,6 +212,37 @@ public final class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthoriz
          */
         public Builder allowedScopes(String... allowedScopes) {
             return allowedScopes(List.of(allowedScopes));
+        }
+
+        /**
+         * @param customClaims Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customClaims(@Nullable Output<List<AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs>> customClaims) {
+            $.customClaims = customClaims;
+            return this;
+        }
+
+        /**
+         * @param customClaims Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customClaims(List<AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs> customClaims) {
+            return customClaims(Output.of(customClaims));
+        }
+
+        /**
+         * @param customClaims Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customClaims(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs... customClaims) {
+            return customClaims(List.of(customClaims));
         }
 
         /**

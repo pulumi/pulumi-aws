@@ -6,6 +6,7 @@ import builtins as _builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .get_offerings import *
 from .get_savings_plan import *
 from .savings_plan import *
 from ._inputs import *

@@ -193,12 +193,16 @@ public final class BrokerArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Broker&#39;s instance type. For example, `mq.t3.micro`, `mq.m5.large`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="hostInstanceType", required=true)
     private Output<String> hostInstanceType;
 
     /**
      * @return Broker&#39;s instance type. For example, `mq.t3.micro`, `mq.m5.large`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> hostInstanceType() {
@@ -343,20 +347,16 @@ public final class BrokerArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
      * 
-     * The following arguments are optional:
-     * 
      */
-    @Import(name="users", required=true)
-    private Output<List<BrokerUserArgs>> users;
+    @Import(name="users")
+    private @Nullable Output<List<BrokerUserArgs>> users;
 
     /**
      * @return Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
      * 
-     * The following arguments are optional:
-     * 
      */
-    public Output<List<BrokerUserArgs>> users() {
-        return this.users;
+    public Optional<Output<List<BrokerUserArgs>>> users() {
+        return Optional.ofNullable(this.users);
     }
 
     private BrokerArgs() {}
@@ -638,6 +638,8 @@ public final class BrokerArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param hostInstanceType Broker&#39;s instance type. For example, `mq.t3.micro`, `mq.m5.large`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -648,6 +650,8 @@ public final class BrokerArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param hostInstanceType Broker&#39;s instance type. For example, `mq.t3.micro`, `mq.m5.large`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -868,20 +872,16 @@ public final class BrokerArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param users Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
-        public Builder users(Output<List<BrokerUserArgs>> users) {
+        public Builder users(@Nullable Output<List<BrokerUserArgs>> users) {
             $.users = users;
             return this;
         }
 
         /**
          * @param users Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -892,8 +892,6 @@ public final class BrokerArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param users Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -911,9 +909,6 @@ public final class BrokerArgs extends com.pulumi.resources.ResourceArgs {
             }
             if ($.hostInstanceType == null) {
                 throw new MissingRequiredPropertyException("BrokerArgs", "hostInstanceType");
-            }
-            if ($.users == null) {
-                throw new MissingRequiredPropertyException("BrokerArgs", "users");
             }
             return $;
         }

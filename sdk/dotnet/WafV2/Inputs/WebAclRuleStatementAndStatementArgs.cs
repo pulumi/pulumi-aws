@@ -12,7 +12,7 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleStatementAndStatementArgs : global::Pulumi.ResourceArgs
     {
-        [Input("statements", required: true)]
+        [Input("statements")]
         private InputList<Inputs.WebAclRuleStatementArgs>? _statements;
 
         /// <summary>

@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class TaskSchedule {
@@ -15,6 +17,11 @@ public final class TaskSchedule {
      * 
      */
     private String scheduleExpression;
+    /**
+     * @return Whether to enable or disable your task schedule. Valid values: `ENABLED`, `DISABLED`. Default: `ENABLED`.
+     * 
+     */
+    private @Nullable String status;
 
     private TaskSchedule() {}
     /**
@@ -23,6 +30,13 @@ public final class TaskSchedule {
      */
     public String scheduleExpression() {
         return this.scheduleExpression;
+    }
+    /**
+     * @return Whether to enable or disable your task schedule. Valid values: `ENABLED`, `DISABLED`. Default: `ENABLED`.
+     * 
+     */
+    public Optional<String> status() {
+        return Optional.ofNullable(this.status);
     }
 
     public static Builder builder() {
@@ -35,10 +49,12 @@ public final class TaskSchedule {
     @CustomType.Builder
     public static final class Builder {
         private String scheduleExpression;
+        private @Nullable String status;
         public Builder() {}
         public Builder(TaskSchedule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.scheduleExpression = defaults.scheduleExpression;
+    	      this.status = defaults.status;
         }
 
         @CustomType.Setter
@@ -49,9 +65,16 @@ public final class TaskSchedule {
             this.scheduleExpression = scheduleExpression;
             return this;
         }
+        @CustomType.Setter
+        public Builder status(@Nullable String status) {
+
+            this.status = status;
+            return this;
+        }
         public TaskSchedule build() {
             final var _resultValue = new TaskSchedule();
             _resultValue.scheduleExpression = scheduleExpression;
+            _resultValue.status = status;
             return _resultValue;
         }
     }

@@ -19,13 +19,13 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsGetArgs>? AllQueryArguments { get; set; }
 
         /// <summary>
-        /// Inspect the request body, which immediately follows the request headers. See `Body` below for details.
+        /// Inspect the request body as plain text. See Body below.
         /// </summary>
         [Input("body")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchBodyGetArgs>? Body { get; set; }
 
         /// <summary>
-        /// Inspect the cookies in the web request. See `Cookies` below for details.
+        /// Inspect the request cookies. See Cookies below.
         /// </summary>
         [Input("cookies")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesGetArgs>? Cookies { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrderGetArgs>? _headerOrders;
 
         /// <summary>
-        /// Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `HeaderOrder` below for details.
+        /// Inspect a string containing the list of the request's header names, ordered as they appear in the web request. See Header Order below.
         /// </summary>
         public InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrderGetArgs> HeaderOrders
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderGetArgs>? _headers;
 
         /// <summary>
-        /// Inspect the request headers. See `Headers` below for details.
+        /// Inspect the request headers. See Headers below.
         /// </summary>
         public InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderGetArgs> Headers
         {
@@ -55,55 +55,55 @@ namespace Pulumi.Aws.WafV2.Inputs
         }
 
         /// <summary>
-        /// Inspect the JA3 fingerprint. See `Ja3Fingerprint` below for details.
+        /// Match against the request's JA3 fingerprint (CloudFront and ALB only). See JA3 Fingerprint below.
         /// </summary>
         [Input("ja3Fingerprint")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3FingerprintGetArgs>? Ja3Fingerprint { get; set; }
 
         /// <summary>
-        /// Inspect the JA3 fingerprint. See `Ja4Fingerprint` below for details.
+        /// Match against the request's JA4 fingerprint (CloudFront and ALB only). See JA4 Fingerprint below.
         /// </summary>
         [Input("ja4Fingerprint")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4FingerprintGetArgs>? Ja4Fingerprint { get; set; }
 
         /// <summary>
-        /// Inspect the request body as JSON. See `JsonBody` for details.
+        /// Inspect the request body as JSON. See JSON Body below.
         /// </summary>
         [Input("jsonBody")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyGetArgs>? JsonBody { get; set; }
 
         /// <summary>
-        /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        /// Inspect the HTTP method.
         /// </summary>
         [Input("method")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethodGetArgs>? Method { get; set; }
 
         /// <summary>
-        /// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        /// Inspect the query string.
         /// </summary>
         [Input("queryString")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryStringGetArgs>? QueryString { get; set; }
 
         /// <summary>
-        /// Inspect a single header. See `SingleHeader` below for details.
+        /// Inspect a single header. See Single Header below.
         /// </summary>
         [Input("singleHeader")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderGetArgs>? SingleHeader { get; set; }
 
         /// <summary>
-        /// Inspect a single query argument. See `SingleQueryArgument` below for details.
+        /// Inspect a single query argument. See Single Query Argument below.
         /// </summary>
         [Input("singleQueryArgument")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentGetArgs>? SingleQueryArgument { get; set; }
 
         /// <summary>
-        /// Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `UriFragment` below for details.
+        /// Inspect fragments of the request URI. See URI Fragment below.
         /// </summary>
         [Input("uriFragment")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentGetArgs>? UriFragment { get; set; }
 
         /// <summary>
-        /// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        /// Inspect the request URI path.
         /// </summary>
         [Input("uriPath")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathGetArgs>? UriPath { get; set; }

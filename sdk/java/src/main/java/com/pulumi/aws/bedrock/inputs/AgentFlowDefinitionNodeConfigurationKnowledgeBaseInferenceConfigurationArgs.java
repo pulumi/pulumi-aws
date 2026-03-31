@@ -15,9 +15,17 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceCon
 
     public static final AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs Empty = new AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs();
 
+    /**
+     * Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+     * 
+     */
     @Import(name="text")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs> text;
 
+    /**
+     * @return Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+     * 
+     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs>> text() {
         return Optional.ofNullable(this.text);
     }
@@ -46,11 +54,23 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceCon
             $ = new AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param text Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder text(@Nullable Output<AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs> text) {
             $.text = text;
             return this;
         }
 
+        /**
+         * @param text Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder text(AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs text) {
             return text(Output.of(text));
         }

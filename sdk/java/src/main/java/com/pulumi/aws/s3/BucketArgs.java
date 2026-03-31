@@ -94,6 +94,21 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Namespace for the bucket. Determines bucket naming scope. Valid values: `account-regional`, `global`. Defaults to `global` (AWS).
+     * 
+     */
+    @Import(name="bucketNamespace")
+    private @Nullable Output<String> bucketNamespace;
+
+    /**
+     * @return Namespace for the bucket. Determines bucket naming scope. Valid values: `account-regional`, `global`. Defaults to `global` (AWS).
+     * 
+     */
+    public Optional<Output<String>> bucketNamespace() {
+        return Optional.ofNullable(this.bucketNamespace);
+    }
+
+    /**
      * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      * 
      */
@@ -459,6 +474,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         this.accelerationStatus = $.accelerationStatus;
         this.acl = $.acl;
         this.bucket = $.bucket;
+        this.bucketNamespace = $.bucketNamespace;
         this.bucketPrefix = $.bucketPrefix;
         this.corsRules = $.corsRules;
         this.forceDestroy = $.forceDestroy;
@@ -602,6 +618,27 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
+        }
+
+        /**
+         * @param bucketNamespace Namespace for the bucket. Determines bucket naming scope. Valid values: `account-regional`, `global`. Defaults to `global` (AWS).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bucketNamespace(@Nullable Output<String> bucketNamespace) {
+            $.bucketNamespace = bucketNamespace;
+            return this;
+        }
+
+        /**
+         * @param bucketNamespace Namespace for the bucket. Determines bucket naming scope. Valid values: `account-regional`, `global`. Defaults to `global` (AWS).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bucketNamespace(String bucketNamespace) {
+            return bucketNamespace(Output.of(bucketNamespace));
         }
 
         /**

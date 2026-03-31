@@ -13,6 +13,12 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
     public sealed class FirewallPolicyFirewallPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Boolean indicating whether to prevent TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. If `True`, `TlsInspectionConfigurationArn` is required. Default value: `False`.
+        /// </summary>
+        [Input("enableTlsSessionHolding")]
+        public Input<bool>? EnableTlsSessionHolding { get; set; }
+
+        /// <summary>
         /// . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
         /// </summary>
         [Input("policyVariables")]

@@ -135,6 +135,12 @@ namespace Pulumi.Aws.DocDB
         public Output<int> ShardCount { get; private set; } = null!;
 
         /// <summary>
+        /// Number of replica instances applying to all shards in the elastic cluster. If not specified, the default value of 2 is set.
+        /// </summary>
+        [Output("shardInstanceCount")]
+        public Output<int> ShardInstanceCount { get; private set; } = null!;
+
+        /// <summary>
         /// IDs of subnets in which the Elastic DocumentDB Cluster operates.
         /// </summary>
         [Output("subnetIds")]
@@ -289,6 +295,12 @@ namespace Pulumi.Aws.DocDB
         [Input("shardCount", required: true)]
         public Input<int> ShardCount { get; set; } = null!;
 
+        /// <summary>
+        /// Number of replica instances applying to all shards in the elastic cluster. If not specified, the default value of 2 is set.
+        /// </summary>
+        [Input("shardInstanceCount")]
+        public Input<int>? ShardInstanceCount { get; set; }
+
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;
 
@@ -428,6 +440,12 @@ namespace Pulumi.Aws.DocDB
         /// </summary>
         [Input("shardCount")]
         public Input<int>? ShardCount { get; set; }
+
+        /// <summary>
+        /// Number of replica instances applying to all shards in the elastic cluster. If not specified, the default value of 2 is set.
+        /// </summary>
+        [Input("shardInstanceCount")]
+        public Input<int>? ShardInstanceCount { get; set; }
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;

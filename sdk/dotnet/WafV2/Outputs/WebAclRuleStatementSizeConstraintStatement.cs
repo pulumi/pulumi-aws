@@ -14,19 +14,19 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementSizeConstraintStatement
     {
         /// <summary>
-        /// Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+        /// Operator to use to compare the request part to the size setting. Valid values: `EQ`, `NE`, `LE`, `LT`, `GE`, `GT`.
         /// </summary>
         public readonly string ComparisonOperator;
         /// <summary>
-        /// Part of a web request that you want AWS WAF to inspect. See `FieldToMatch` below for details.
+        /// Part of the web request that you want WAF to inspect. See Field to Match below.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatch? FieldToMatch;
         /// <summary>
-        /// Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+        /// Size, in bytes, to compare to the request part, after any transformations.
         /// </summary>
         public readonly int Size;
         /// <summary>
-        /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `TextTransformation` below for details.
+        /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementSizeConstraintStatementTextTransformation> TextTransformations;
 

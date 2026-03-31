@@ -16,54 +16,54 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement {
     /**
-     * @return Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+     * @return Part of the web request that you want WAF to inspect. See Field to Match below.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatch fieldToMatch;
     /**
-     * @return Area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+     * @return Area within the portion of the web request that you want WAF to search for `searchString`. Valid values: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`.
      * 
      */
     private String positionalConstraint;
     /**
-     * @return String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+     * @return String value to search for within the request (1-200 characters).
      * 
      */
     private String searchString;
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below.
      * 
      */
-    private List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformation> textTransformations;
+    private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformation> textTransformations;
 
     private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement() {}
     /**
-     * @return Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+     * @return Part of the web request that you want WAF to inspect. See Field to Match below.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatch> fieldToMatch() {
         return Optional.ofNullable(this.fieldToMatch);
     }
     /**
-     * @return Area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+     * @return Area within the portion of the web request that you want WAF to search for `searchString`. Valid values: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`.
      * 
      */
     public String positionalConstraint() {
         return this.positionalConstraint;
     }
     /**
-     * @return String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+     * @return String value to search for within the request (1-200 characters).
      * 
      */
     public String searchString() {
         return this.searchString;
     }
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below.
      * 
      */
     public List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformation> textTransformations() {
-        return this.textTransformations;
+        return this.textTransformations == null ? List.of() : this.textTransformations;
     }
 
     public static Builder builder() {
@@ -78,7 +78,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatch fieldToMatch;
         private String positionalConstraint;
         private String searchString;
-        private List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformation> textTransformations;
+        private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformation> textTransformations;
         public Builder() {}
         public Builder(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement defaults) {
     	      Objects.requireNonNull(defaults);
@@ -111,10 +111,8 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
             return this;
         }
         @CustomType.Setter
-        public Builder textTransformations(List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformation> textTransformations) {
-            if (textTransformations == null) {
-              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement", "textTransformations");
-            }
+        public Builder textTransformations(@Nullable List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformation> textTransformations) {
+
             this.textTransformations = textTransformations;
             return this;
         }

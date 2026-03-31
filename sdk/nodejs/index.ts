@@ -302,6 +302,7 @@ import * as vpn from "./vpn";
 import * as waf from "./waf";
 import * as wafregional from "./wafregional";
 import * as wafv2 from "./wafv2";
+import * as workmail from "./workmail";
 import * as workspaces from "./workspaces";
 import * as workspacesweb from "./workspacesweb";
 import * as xray from "./xray";
@@ -534,6 +535,7 @@ export {
     waf,
     wafregional,
     wafv2,
+    workmail,
     workspaces,
     workspacesweb,
     xray,

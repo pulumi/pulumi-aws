@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines custom handling for the web request. See `CustomRequestHandling` below for details.
+        /// Custom request handling configuration. See Custom Request Handling below.
         /// </summary>
         [Input("customRequestHandling")]
         public Input<Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingGetArgs>? CustomRequestHandling { get; set; }

@@ -136,6 +136,22 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `instanceArn` (String) ARN of the SSO Instance.
+// * `permissionSetArn` (String) ARN of the Permission Set.
+// * `principalId` (String) Identifier of the principal in IAM Identity Center.
+// * `principalType` (String) Type of principal. Valid values are `USER` and `GROUP`.
+// * `targetId` (String) AWS account identifier.
+// * `targetType` (String) Target type. Valid value is `AWS_ACCOUNT`.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import SSO Account Assignments using the `principalId`, `principalType`, `targetId`, `targetType`, `permissionSetArn`, `instanceArn` separated by commas (`,`). For example:
 //
 // ```sh

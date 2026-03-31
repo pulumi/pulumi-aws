@@ -14,17 +14,20 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentFlowDefinitionNodeConfigurationKnowledgeBase
     {
         /// <summary>
-        /// Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+        /// Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfiguration? GuardrailConfiguration;
         /// <summary>
-        /// Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+        /// Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration? InferenceConfiguration;
         /// <summary>
         /// The unique identifier of the knowledge base to query.
         /// </summary>
         public readonly string KnowledgeBaseId;
+        /// <summary>
+        /// The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
+        /// </summary>
         public readonly string ModelId;
         public readonly int? NumberOfResults;
 

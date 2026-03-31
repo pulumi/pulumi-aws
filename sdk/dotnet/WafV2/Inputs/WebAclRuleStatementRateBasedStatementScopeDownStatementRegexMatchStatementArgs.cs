@@ -13,22 +13,22 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The part of a web request that you want AWS WAF to inspect. See `FieldToMatch` below for details.
+        /// Part of the web request that you want WAF to inspect. See Field to Match below.
         /// </summary>
         [Input("fieldToMatch")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchArgs>? FieldToMatch { get; set; }
 
         /// <summary>
-        /// String representing the regular expression. Minimum of `1` and maximum of `512` characters.
+        /// Regular expression pattern to match against the web request component.
         /// </summary>
         [Input("regexString", required: true)]
         public Input<string> RegexString { get; set; } = null!;
 
-        [Input("textTransformations", required: true)]
+        [Input("textTransformations")]
         private InputList<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArgs>? _textTransformations;
 
         /// <summary>
-        /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `TextTransformation` below for details.
+        /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below.
         /// </summary>
         public InputList<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArgs> TextTransformations
         {

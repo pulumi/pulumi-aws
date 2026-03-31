@@ -15,14 +15,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
     public static final WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs Empty = new WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs();
 
     /**
-     * Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+     * Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
      * 
      */
     @Import(name="fallbackBehavior", required=true)
     private Output<String> fallbackBehavior;
 
     /**
-     * @return Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+     * @return Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
      * 
      */
     public Output<String> fallbackBehavior() {
@@ -54,7 +54,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         /**
-         * @param fallbackBehavior Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * @param fallbackBehavior Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         /**
-         * @param fallbackBehavior Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * @param fallbackBehavior Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
          * 
          * @return builder
          * 

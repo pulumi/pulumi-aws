@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField {
-    /**
-     * @return The name of the username field.
-     * 
-     */
     private String identifier;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField() {}
-    /**
-     * @return The name of the username field.
-     * 
-     */
     public String identifier() {
         return this.identifier;
     }

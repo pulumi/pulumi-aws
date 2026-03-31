@@ -80,7 +80,12 @@ __all__ = [
     'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList',
     'InsightFilters',
     'InsightFiltersAwsAccountId',
+    'InsightFiltersAwsAccountName',
     'InsightFiltersCompanyName',
+    'InsightFiltersComplianceAssociatedStandardsId',
+    'InsightFiltersComplianceSecurityControlId',
+    'InsightFiltersComplianceSecurityControlParametersName',
+    'InsightFiltersComplianceSecurityControlParametersValue',
     'InsightFiltersComplianceStatus',
     'InsightFiltersConfidence',
     'InsightFiltersCreatedAt',
@@ -2665,8 +2670,18 @@ class InsightFilters(dict):
         suggest = None
         if key == "awsAccountIds":
             suggest = "aws_account_ids"
+        elif key == "awsAccountNames":
+            suggest = "aws_account_names"
         elif key == "companyNames":
             suggest = "company_names"
+        elif key == "complianceAssociatedStandardsIds":
+            suggest = "compliance_associated_standards_ids"
+        elif key == "complianceSecurityControlIds":
+            suggest = "compliance_security_control_ids"
+        elif key == "complianceSecurityControlParametersNames":
+            suggest = "compliance_security_control_parameters_names"
+        elif key == "complianceSecurityControlParametersValues":
+            suggest = "compliance_security_control_parameters_values"
         elif key == "complianceStatuses":
             suggest = "compliance_statuses"
         elif key == "createdAts":
@@ -2839,7 +2854,12 @@ class InsightFilters(dict):
 
     def __init__(__self__, *,
                  aws_account_ids: Optional[Sequence['outputs.InsightFiltersAwsAccountId']] = None,
+                 aws_account_names: Optional[Sequence['outputs.InsightFiltersAwsAccountName']] = None,
                  company_names: Optional[Sequence['outputs.InsightFiltersCompanyName']] = None,
+                 compliance_associated_standards_ids: Optional[Sequence['outputs.InsightFiltersComplianceAssociatedStandardsId']] = None,
+                 compliance_security_control_ids: Optional[Sequence['outputs.InsightFiltersComplianceSecurityControlId']] = None,
+                 compliance_security_control_parameters_names: Optional[Sequence['outputs.InsightFiltersComplianceSecurityControlParametersName']] = None,
+                 compliance_security_control_parameters_values: Optional[Sequence['outputs.InsightFiltersComplianceSecurityControlParametersValue']] = None,
                  compliance_statuses: Optional[Sequence['outputs.InsightFiltersComplianceStatus']] = None,
                  confidences: Optional[Sequence['outputs.InsightFiltersConfidence']] = None,
                  created_ats: Optional[Sequence['outputs.InsightFiltersCreatedAt']] = None,
@@ -2928,7 +2948,12 @@ class InsightFilters(dict):
                  workflow_statuses: Optional[Sequence['outputs.InsightFiltersWorkflowStatus']] = None):
         """
         :param Sequence['InsightFiltersAwsAccountIdArgs'] aws_account_ids: AWS account ID that a finding is generated in. See String_Filter below for more details.
+        :param Sequence['InsightFiltersAwsAccountNameArgs'] aws_account_names: The name of the AWS account in which a finding is generated. See String_Filter below for more details.
         :param Sequence['InsightFiltersCompanyNameArgs'] company_names: The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
+        :param Sequence['InsightFiltersComplianceAssociatedStandardsIdArgs'] compliance_associated_standards_ids: The unique identifier of a standard in which a control is enabled. See String_Filter below for more details.
+        :param Sequence['InsightFiltersComplianceSecurityControlIdArgs'] compliance_security_control_ids: The unique identifier of a control across standards. See String_Filter below for more details.
+        :param Sequence['InsightFiltersComplianceSecurityControlParametersNameArgs'] compliance_security_control_parameters_names: The unique identifier of a control across standards. See String_Filter below for more details.
+        :param Sequence['InsightFiltersComplianceSecurityControlParametersValueArgs'] compliance_security_control_parameters_values: The current value of a security control parameter. See String_Filter below for more details.
         :param Sequence['InsightFiltersComplianceStatusArgs'] compliance_statuses: Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard, such as CIS AWS Foundations. Contains security standard-related finding details. See String Filter below for more details.
         :param Sequence['InsightFiltersConfidenceArgs'] confidences: A finding's confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
         :param Sequence['InsightFiltersCreatedAtArgs'] created_ats: An ISO8601-formatted timestamp that indicates when the security-findings provider captured the potential security issue that a finding captured. See Date Filter below for more details.
@@ -3018,8 +3043,18 @@ class InsightFilters(dict):
         """
         if aws_account_ids is not None:
             pulumi.set(__self__, "aws_account_ids", aws_account_ids)
+        if aws_account_names is not None:
+            pulumi.set(__self__, "aws_account_names", aws_account_names)
         if company_names is not None:
             pulumi.set(__self__, "company_names", company_names)
+        if compliance_associated_standards_ids is not None:
+            pulumi.set(__self__, "compliance_associated_standards_ids", compliance_associated_standards_ids)
+        if compliance_security_control_ids is not None:
+            pulumi.set(__self__, "compliance_security_control_ids", compliance_security_control_ids)
+        if compliance_security_control_parameters_names is not None:
+            pulumi.set(__self__, "compliance_security_control_parameters_names", compliance_security_control_parameters_names)
+        if compliance_security_control_parameters_values is not None:
+            pulumi.set(__self__, "compliance_security_control_parameters_values", compliance_security_control_parameters_values)
         if compliance_statuses is not None:
             pulumi.set(__self__, "compliance_statuses", compliance_statuses)
         if confidences is not None:
@@ -3202,12 +3237,52 @@ class InsightFilters(dict):
         return pulumi.get(self, "aws_account_ids")
 
     @_builtins.property
+    @pulumi.getter(name="awsAccountNames")
+    def aws_account_names(self) -> Optional[Sequence['outputs.InsightFiltersAwsAccountName']]:
+        """
+        The name of the AWS account in which a finding is generated. See String_Filter below for more details.
+        """
+        return pulumi.get(self, "aws_account_names")
+
+    @_builtins.property
     @pulumi.getter(name="companyNames")
     def company_names(self) -> Optional[Sequence['outputs.InsightFiltersCompanyName']]:
         """
         The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
         """
         return pulumi.get(self, "company_names")
+
+    @_builtins.property
+    @pulumi.getter(name="complianceAssociatedStandardsIds")
+    def compliance_associated_standards_ids(self) -> Optional[Sequence['outputs.InsightFiltersComplianceAssociatedStandardsId']]:
+        """
+        The unique identifier of a standard in which a control is enabled. See String_Filter below for more details.
+        """
+        return pulumi.get(self, "compliance_associated_standards_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="complianceSecurityControlIds")
+    def compliance_security_control_ids(self) -> Optional[Sequence['outputs.InsightFiltersComplianceSecurityControlId']]:
+        """
+        The unique identifier of a control across standards. See String_Filter below for more details.
+        """
+        return pulumi.get(self, "compliance_security_control_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="complianceSecurityControlParametersNames")
+    def compliance_security_control_parameters_names(self) -> Optional[Sequence['outputs.InsightFiltersComplianceSecurityControlParametersName']]:
+        """
+        The unique identifier of a control across standards. See String_Filter below for more details.
+        """
+        return pulumi.get(self, "compliance_security_control_parameters_names")
+
+    @_builtins.property
+    @pulumi.getter(name="complianceSecurityControlParametersValues")
+    def compliance_security_control_parameters_values(self) -> Optional[Sequence['outputs.InsightFiltersComplianceSecurityControlParametersValue']]:
+        """
+        The current value of a security control parameter. See String_Filter below for more details.
+        """
+        return pulumi.get(self, "compliance_security_control_parameters_values")
 
     @_builtins.property
     @pulumi.getter(name="complianceStatuses")
@@ -3918,7 +3993,102 @@ class InsightFiltersAwsAccountId(dict):
 
 
 @pulumi.output_type
+class InsightFiltersAwsAccountName(dict):
+    def __init__(__self__, *,
+                 comparison: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comparison(self) -> _builtins.str:
+        return pulumi.get(self, "comparison")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class InsightFiltersCompanyName(dict):
+    def __init__(__self__, *,
+                 comparison: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comparison(self) -> _builtins.str:
+        return pulumi.get(self, "comparison")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class InsightFiltersComplianceAssociatedStandardsId(dict):
+    def __init__(__self__, *,
+                 comparison: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comparison(self) -> _builtins.str:
+        return pulumi.get(self, "comparison")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class InsightFiltersComplianceSecurityControlId(dict):
+    def __init__(__self__, *,
+                 comparison: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comparison(self) -> _builtins.str:
+        return pulumi.get(self, "comparison")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class InsightFiltersComplianceSecurityControlParametersName(dict):
+    def __init__(__self__, *,
+                 comparison: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comparison(self) -> _builtins.str:
+        return pulumi.get(self, "comparison")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class InsightFiltersComplianceSecurityControlParametersValue(dict):
     def __init__(__self__, *,
                  comparison: _builtins.str,
                  value: _builtins.str):

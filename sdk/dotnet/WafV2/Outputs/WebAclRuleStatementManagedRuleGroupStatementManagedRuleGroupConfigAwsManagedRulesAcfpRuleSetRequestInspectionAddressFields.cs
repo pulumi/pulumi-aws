@@ -13,9 +13,6 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields
     {
-        /// <summary>
-        /// The names of the address fields.
-        /// </summary>
         public readonly ImmutableArray<string> Identifiers;
 
         [OutputConstructor]

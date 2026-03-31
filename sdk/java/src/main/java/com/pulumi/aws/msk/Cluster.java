@@ -278,7 +278,13 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import MSK clusters using the cluster `arn`. For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * - `arn` (String) Amazon Resource Name (ARN) of the MSK cluster.
+ * 
+ * Using `pulumi import`, import MSK cluster using the cluster ARN. For example:
  * 
  * ```sh
  * $ pulumi import aws:msk/cluster:Cluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3

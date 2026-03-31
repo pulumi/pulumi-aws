@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.bedrock.inputs;
 
+import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs;
@@ -17,6 +18,21 @@ import javax.annotation.Nullable;
 public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AgentcoreGatewayTargetTargetConfigurationMcpArgs Empty = new AgentcoreGatewayTargetTargetConfigurationMcpArgs();
+
+    /**
+     * API Gateway target configuration. See `apiGateway` below.
+     * 
+     */
+    @Import(name="apiGateway")
+    private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs> apiGateway;
+
+    /**
+     * @return API Gateway target configuration. See `apiGateway` below.
+     * 
+     */
+    public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs>> apiGateway() {
+        return Optional.ofNullable(this.apiGateway);
+    }
 
     /**
      * Lambda function target configuration. See `lambda` below.
@@ -81,6 +97,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
     private AgentcoreGatewayTargetTargetConfigurationMcpArgs() {}
 
     private AgentcoreGatewayTargetTargetConfigurationMcpArgs(AgentcoreGatewayTargetTargetConfigurationMcpArgs $) {
+        this.apiGateway = $.apiGateway;
         this.lambda = $.lambda;
         this.mcpServer = $.mcpServer;
         this.openApiSchema = $.openApiSchema;
@@ -103,6 +120,27 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
 
         public Builder(AgentcoreGatewayTargetTargetConfigurationMcpArgs defaults) {
             $ = new AgentcoreGatewayTargetTargetConfigurationMcpArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param apiGateway API Gateway target configuration. See `apiGateway` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiGateway(@Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs> apiGateway) {
+            $.apiGateway = apiGateway;
+            return this;
+        }
+
+        /**
+         * @param apiGateway API Gateway target configuration. See `apiGateway` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiGateway(AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs apiGateway) {
+            return apiGateway(Output.of(apiGateway));
         }
 
         /**

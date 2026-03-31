@@ -7,7 +7,6 @@ import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementSqliMatchStatementFieldToM
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementSqliMatchStatementTextTransformationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -19,49 +18,33 @@ public final class WebAclRuleStatementSqliMatchStatementArgs extends com.pulumi.
 
     public static final WebAclRuleStatementSqliMatchStatementArgs Empty = new WebAclRuleStatementSqliMatchStatementArgs();
 
-    /**
-     * Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
-     * 
-     */
     @Import(name="fieldToMatch")
     private @Nullable Output<WebAclRuleStatementSqliMatchStatementFieldToMatchArgs> fieldToMatch;
 
-    /**
-     * @return Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementSqliMatchStatementFieldToMatchArgs>> fieldToMatch() {
         return Optional.ofNullable(this.fieldToMatch);
     }
 
     /**
-     * Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
+     * Sensitivity level for detecting SQL injection attacks. Valid values: `HIGH`, `LOW`.
      * 
      */
     @Import(name="sensitivityLevel")
     private @Nullable Output<String> sensitivityLevel;
 
     /**
-     * @return Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
+     * @return Sensitivity level for detecting SQL injection attacks. Valid values: `HIGH`, `LOW`.
      * 
      */
     public Optional<Output<String>> sensitivityLevel() {
         return Optional.ofNullable(this.sensitivityLevel);
     }
 
-    /**
-     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
-     * 
-     */
-    @Import(name="textTransformations", required=true)
-    private Output<List<WebAclRuleStatementSqliMatchStatementTextTransformationArgs>> textTransformations;
+    @Import(name="textTransformations")
+    private @Nullable Output<List<WebAclRuleStatementSqliMatchStatementTextTransformationArgs>> textTransformations;
 
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
-     * 
-     */
-    public Output<List<WebAclRuleStatementSqliMatchStatementTextTransformationArgs>> textTransformations() {
-        return this.textTransformations;
+    public Optional<Output<List<WebAclRuleStatementSqliMatchStatementTextTransformationArgs>>> textTransformations() {
+        return Optional.ofNullable(this.textTransformations);
     }
 
     private WebAclRuleStatementSqliMatchStatementArgs() {}
@@ -90,29 +73,17 @@ public final class WebAclRuleStatementSqliMatchStatementArgs extends com.pulumi.
             $ = new WebAclRuleStatementSqliMatchStatementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fieldToMatch Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldToMatch(@Nullable Output<WebAclRuleStatementSqliMatchStatementFieldToMatchArgs> fieldToMatch) {
             $.fieldToMatch = fieldToMatch;
             return this;
         }
 
-        /**
-         * @param fieldToMatch Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldToMatch(WebAclRuleStatementSqliMatchStatementFieldToMatchArgs fieldToMatch) {
             return fieldToMatch(Output.of(fieldToMatch));
         }
 
         /**
-         * @param sensitivityLevel Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
+         * @param sensitivityLevel Sensitivity level for detecting SQL injection attacks. Valid values: `HIGH`, `LOW`.
          * 
          * @return builder
          * 
@@ -123,7 +94,7 @@ public final class WebAclRuleStatementSqliMatchStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param sensitivityLevel Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
+         * @param sensitivityLevel Sensitivity level for detecting SQL injection attacks. Valid values: `HIGH`, `LOW`.
          * 
          * @return builder
          * 
@@ -132,41 +103,20 @@ public final class WebAclRuleStatementSqliMatchStatementArgs extends com.pulumi.
             return sensitivityLevel(Output.of(sensitivityLevel));
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder textTransformations(Output<List<WebAclRuleStatementSqliMatchStatementTextTransformationArgs>> textTransformations) {
+        public Builder textTransformations(@Nullable Output<List<WebAclRuleStatementSqliMatchStatementTextTransformationArgs>> textTransformations) {
             $.textTransformations = textTransformations;
             return this;
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformations(List<WebAclRuleStatementSqliMatchStatementTextTransformationArgs> textTransformations) {
             return textTransformations(Output.of(textTransformations));
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformations(WebAclRuleStatementSqliMatchStatementTextTransformationArgs... textTransformations) {
             return textTransformations(List.of(textTransformations));
         }
 
         public WebAclRuleStatementSqliMatchStatementArgs build() {
-            if ($.textTransformations == null) {
-                throw new MissingRequiredPropertyException("WebAclRuleStatementSqliMatchStatementArgs", "textTransformations");
-            }
             return $;
         }
     }

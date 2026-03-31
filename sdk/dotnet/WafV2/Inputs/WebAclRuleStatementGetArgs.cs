@@ -13,97 +13,99 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Logical rule statement used to combine other rule statements with AND logic. See `AndStatement` below for details.
+        /// Logical AND statement that combines multiple statements. See And Statement below.
         /// </summary>
         [Input("andStatement")]
         public Input<Inputs.WebAclRuleStatementAndStatementGetArgs>? AndStatement { get; set; }
 
         /// <summary>
-        /// Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `AsnMatchStatement` below for details.
+        /// Match requests based on Autonomous System Number (ASN). See ASN Match Statement below.
         /// </summary>
         [Input("asnMatchStatement")]
         public Input<Inputs.WebAclRuleStatementAsnMatchStatementGetArgs>? AsnMatchStatement { get; set; }
 
         /// <summary>
-        /// Rule statement that defines a string match search for AWS WAF to apply to web requests. See `ByteMatchStatement` below for details.
+        /// Match requests based on byte patterns. See Byte Match Statement below.
         /// </summary>
         [Input("byteMatchStatement")]
         public Input<Inputs.WebAclRuleStatementByteMatchStatementGetArgs>? ByteMatchStatement { get; set; }
 
         /// <summary>
-        /// Rule statement used to identify web requests based on country of origin. See `GeoMatchStatement` below for details.
+        /// Match requests by geographic location. See Geo Match Statement below.
         /// </summary>
         [Input("geoMatchStatement")]
         public Input<Inputs.WebAclRuleStatementGeoMatchStatementGetArgs>? GeoMatchStatement { get; set; }
 
         /// <summary>
-        /// Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `IpSetReferenceStatement` below for details.
+        /// Reference to an IP set. See IP Set Reference Statement below.
         /// </summary>
         [Input("ipSetReferenceStatement")]
         public Input<Inputs.WebAclRuleStatementIpSetReferenceStatementGetArgs>? IpSetReferenceStatement { get; set; }
 
         /// <summary>
-        /// Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `LabelMatchStatement` below for details.
+        /// Match requests based on labels. See Label Match Statement below.
         /// </summary>
         [Input("labelMatchStatement")]
         public Input<Inputs.WebAclRuleStatementLabelMatchStatementGetArgs>? LabelMatchStatement { get; set; }
 
         /// <summary>
-        /// Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See `ManagedRuleGroupStatement` below for details.
+        /// Reference to a managed rule group. See Managed Rule Group Statement below.
         /// </summary>
         [Input("managedRuleGroupStatement")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementGetArgs>? ManagedRuleGroupStatement { get; set; }
 
         /// <summary>
-        /// Logical rule statement used to negate the results of another rule statement. See `NotStatement` below for details.
+        /// Logical NOT statement that negates a single statement. See Not Statement below.
         /// </summary>
         [Input("notStatement")]
         public Input<Inputs.WebAclRuleStatementNotStatementGetArgs>? NotStatement { get; set; }
 
         /// <summary>
-        /// Logical rule statement used to combine other rule statements with OR logic. See `OrStatement` below for details.
+        /// Logical OR statement that combines multiple statements. See Or Statement below.
         /// </summary>
         [Input("orStatement")]
         public Input<Inputs.WebAclRuleStatementOrStatementGetArgs>? OrStatement { get; set; }
 
         /// <summary>
-        /// Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any specified time span. This statement can not be nested. See `RateBasedStatement` below for details.
+        /// Rate-based rule to track request rates. See Rate Based Statement below.
         /// </summary>
         [Input("rateBasedStatement")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementGetArgs>? RateBasedStatement { get; set; }
 
         /// <summary>
-        /// Rule statement used to search web request components for a match against a single regular expression. See `RegexMatchStatement` below for details.
+        /// Match requests using regex patterns. See Regex Match Statement below.
         /// </summary>
         [Input("regexMatchStatement")]
         public Input<Inputs.WebAclRuleStatementRegexMatchStatementGetArgs>? RegexMatchStatement { get; set; }
 
         /// <summary>
-        /// Rule statement used to search web request components for matches with regular expressions. See `RegexPatternSetReferenceStatement` below for details.
+        /// Reference to a regex pattern set. See Regex Pattern Set Reference Statement below.
         /// </summary>
         [Input("regexPatternSetReferenceStatement")]
         public Input<Inputs.WebAclRuleStatementRegexPatternSetReferenceStatementGetArgs>? RegexPatternSetReferenceStatement { get; set; }
 
         /// <summary>
-        /// Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See `RuleGroupReferenceStatement` below for details.
+        /// Reference to a rule group. See Rule Group Reference Statement below.
         /// </summary>
         [Input("ruleGroupReferenceStatement")]
         public Input<Inputs.WebAclRuleStatementRuleGroupReferenceStatementGetArgs>? RuleGroupReferenceStatement { get; set; }
 
         /// <summary>
-        /// Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See `SizeConstraintStatement` below for more details.
+        /// Match requests based on size constraints. See Size Constraint Statement below.
         /// </summary>
         [Input("sizeConstraintStatement")]
         public Input<Inputs.WebAclRuleStatementSizeConstraintStatementGetArgs>? SizeConstraintStatement { get; set; }
 
         /// <summary>
-        /// An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `SqliMatchStatement` below for details.
+        /// Match requests that appear to contain SQL injection attacks. See SQL Injection Match Statement below.
         /// </summary>
         [Input("sqliMatchStatement")]
         public Input<Inputs.WebAclRuleStatementSqliMatchStatementGetArgs>? SqliMatchStatement { get; set; }
 
         /// <summary>
-        /// Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `XssMatchStatement` below for details.
+        /// Match requests that appear to contain cross-site scripting attacks. See Cross-Site Scripting Match Statement below.
+        /// 
+        /// &gt; **NOTE:** Logical statements (`AndStatement`, `NotStatement`, `OrStatement`) can be nested up to 3 levels deep. This matches the nesting limit of the `aws.wafv2.WebAcl` resource.
         /// </summary>
         [Input("xssMatchStatement")]
         public Input<Inputs.WebAclRuleStatementXssMatchStatementGetArgs>? XssMatchStatement { get; set; }

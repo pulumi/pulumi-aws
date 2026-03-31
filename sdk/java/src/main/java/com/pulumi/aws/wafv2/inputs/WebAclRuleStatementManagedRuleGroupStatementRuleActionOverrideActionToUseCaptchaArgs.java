@@ -16,14 +16,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
     public static final WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs();
 
     /**
-     * Defines custom handling for the web request. See `customRequestHandling` below for details.
+     * Custom request handling configuration. See Custom Request Handling below.
      * 
      */
     @Import(name="customRequestHandling")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs> customRequestHandling;
 
     /**
-     * @return Defines custom handling for the web request. See `customRequestHandling` below for details.
+     * @return Custom request handling configuration. See Custom Request Handling below.
      * 
      */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs>> customRequestHandling() {
@@ -55,7 +55,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
         }
 
         /**
-         * @param customRequestHandling Defines custom handling for the web request. See `customRequestHandling` below for details.
+         * @param customRequestHandling Custom request handling configuration. See Custom Request Handling below.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
         }
 
         /**
-         * @param customRequestHandling Defines custom handling for the web request. See `customRequestHandling` below for details.
+         * @param customRequestHandling Custom request handling configuration. See Custom Request Handling below.
          * 
          * @return builder
          * 

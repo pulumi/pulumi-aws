@@ -15,14 +15,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     public static final AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs Empty = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs();
 
     /**
-     * A name for the flow.
+     * The name of the tool.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return A name for the flow.
+     * @return The name of the tool.
      * 
      */
     public Output<String> name() {
@@ -54,7 +54,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param name A name for the flow.
+         * @param name The name of the tool.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param name A name for the flow.
+         * @param name The name of the tool.
          * 
          * @return builder
          * 

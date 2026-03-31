@@ -13,16 +13,16 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementRateBasedStatementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP`, or `IP`. Default: `IP`.
+        /// Setting that indicates how to aggregate the request counts. Defaults to `IP`. Valid values: `IP`, `FORWARDED_IP`, `CUSTOM_KEYS`, `CONSTANT`.
         /// </summary>
-        [Input("aggregateKeyType")]
-        public Input<string>? AggregateKeyType { get; set; }
+        [Input("aggregateKeyType", required: true)]
+        public Input<string> AggregateKeyType { get; set; } = null!;
 
         [Input("customKeys")]
         private InputList<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyArgs>? _customKeys;
 
         /// <summary>
-        /// Aggregate the request counts using one or more web request components as the aggregate keys. See `CustomKey` below for details.
+        /// Aggregate the request counts using one or more web request components as the aggregate keys. See Custom Keys below.
         /// </summary>
         public InputList<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyArgs> CustomKeys
         {
@@ -31,27 +31,25 @@ namespace Pulumi.Aws.WafV2.Inputs
         }
 
         /// <summary>
-        /// The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
-        /// 
-        /// **NOTE:** This setting doesn't determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
+        /// Time window for which the rate limit applies, in seconds. Defaults to `300` (5 minutes). Valid values: `60`, `120`, `300`, `600`.
         /// </summary>
         [Input("evaluationWindowSec")]
         public Input<int>? EvaluationWindowSec { get; set; }
 
         /// <summary>
-        /// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `AggregateKeyType` is set to `FORWARDED_IP`, this block is required. See `ForwardedIpConfig` below for details.
+        /// Configuration for inspecting IP addresses in an HTTP header instead of using the web request origin. See Forwarded IP Config below.
         /// </summary>
         [Input("forwardedIpConfig")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs>? ForwardedIpConfig { get; set; }
 
         /// <summary>
-        /// Limit on requests during the specified evaluation window for a single aggregation instance.
+        /// Rate limit threshold (requests per evaluation window period).
         /// </summary>
         [Input("limit", required: true)]
         public Input<int> Limit { get; set; } = null!;
 
         /// <summary>
-        /// Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `Statement` above for details. If `AggregateKeyType` is set to `CONSTANT`, this block is required.
+        /// Additional statement to narrow the scope of requests that the rate-based rule evaluates. See Scope Down Statement below.
         /// </summary>
         [Input("scopeDownStatement")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementArgs>? ScopeDownStatement { get; set; }

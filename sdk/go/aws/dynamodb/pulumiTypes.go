@@ -3841,6 +3841,184 @@ func (o TableWarmThroughputPtrOutput) WriteUnitsPerSecond() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
+type GetBackupsBackupSummary struct {
+	// ARN of the backup.
+	BackupArn string `pulumi:"backupArn"`
+	// Time at which the backup was created.
+	BackupCreationDateTime string `pulumi:"backupCreationDateTime"`
+	// Time at which the automatic on-demand backup created by DynamoDB will expire.
+	BackupExpiryDateTime string `pulumi:"backupExpiryDateTime"`
+	// Name of the specified backup.
+	BackupName string `pulumi:"backupName"`
+	// Size of the backup in bytes.
+	BackupSizeBytes int `pulumi:"backupSizeBytes"`
+	// Backup can be in one of the following states: `CREATING`, `DELETED`, `AVAILABLE`.
+	BackupStatus string `pulumi:"backupStatus"`
+	// Backup type. Valid values: `USER`, `SYSTEM`, `AWS_BACKUP`, `ALL`.
+	BackupType string `pulumi:"backupType"`
+	// ARN associated with the table.
+	TableArn string `pulumi:"tableArn"`
+	// Unique identifier for the table.
+	TableId string `pulumi:"tableId"`
+	// Name of the table to list backups for.
+	TableName string `pulumi:"tableName"`
+}
+
+// GetBackupsBackupSummaryInput is an input type that accepts GetBackupsBackupSummaryArgs and GetBackupsBackupSummaryOutput values.
+// You can construct a concrete instance of `GetBackupsBackupSummaryInput` via:
+//
+//	GetBackupsBackupSummaryArgs{...}
+type GetBackupsBackupSummaryInput interface {
+	pulumi.Input
+
+	ToGetBackupsBackupSummaryOutput() GetBackupsBackupSummaryOutput
+	ToGetBackupsBackupSummaryOutputWithContext(context.Context) GetBackupsBackupSummaryOutput
+}
+
+type GetBackupsBackupSummaryArgs struct {
+	// ARN of the backup.
+	BackupArn pulumi.StringInput `pulumi:"backupArn"`
+	// Time at which the backup was created.
+	BackupCreationDateTime pulumi.StringInput `pulumi:"backupCreationDateTime"`
+	// Time at which the automatic on-demand backup created by DynamoDB will expire.
+	BackupExpiryDateTime pulumi.StringInput `pulumi:"backupExpiryDateTime"`
+	// Name of the specified backup.
+	BackupName pulumi.StringInput `pulumi:"backupName"`
+	// Size of the backup in bytes.
+	BackupSizeBytes pulumi.IntInput `pulumi:"backupSizeBytes"`
+	// Backup can be in one of the following states: `CREATING`, `DELETED`, `AVAILABLE`.
+	BackupStatus pulumi.StringInput `pulumi:"backupStatus"`
+	// Backup type. Valid values: `USER`, `SYSTEM`, `AWS_BACKUP`, `ALL`.
+	BackupType pulumi.StringInput `pulumi:"backupType"`
+	// ARN associated with the table.
+	TableArn pulumi.StringInput `pulumi:"tableArn"`
+	// Unique identifier for the table.
+	TableId pulumi.StringInput `pulumi:"tableId"`
+	// Name of the table to list backups for.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+}
+
+func (GetBackupsBackupSummaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBackupsBackupSummary)(nil)).Elem()
+}
+
+func (i GetBackupsBackupSummaryArgs) ToGetBackupsBackupSummaryOutput() GetBackupsBackupSummaryOutput {
+	return i.ToGetBackupsBackupSummaryOutputWithContext(context.Background())
+}
+
+func (i GetBackupsBackupSummaryArgs) ToGetBackupsBackupSummaryOutputWithContext(ctx context.Context) GetBackupsBackupSummaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBackupsBackupSummaryOutput)
+}
+
+// GetBackupsBackupSummaryArrayInput is an input type that accepts GetBackupsBackupSummaryArray and GetBackupsBackupSummaryArrayOutput values.
+// You can construct a concrete instance of `GetBackupsBackupSummaryArrayInput` via:
+//
+//	GetBackupsBackupSummaryArray{ GetBackupsBackupSummaryArgs{...} }
+type GetBackupsBackupSummaryArrayInput interface {
+	pulumi.Input
+
+	ToGetBackupsBackupSummaryArrayOutput() GetBackupsBackupSummaryArrayOutput
+	ToGetBackupsBackupSummaryArrayOutputWithContext(context.Context) GetBackupsBackupSummaryArrayOutput
+}
+
+type GetBackupsBackupSummaryArray []GetBackupsBackupSummaryInput
+
+func (GetBackupsBackupSummaryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBackupsBackupSummary)(nil)).Elem()
+}
+
+func (i GetBackupsBackupSummaryArray) ToGetBackupsBackupSummaryArrayOutput() GetBackupsBackupSummaryArrayOutput {
+	return i.ToGetBackupsBackupSummaryArrayOutputWithContext(context.Background())
+}
+
+func (i GetBackupsBackupSummaryArray) ToGetBackupsBackupSummaryArrayOutputWithContext(ctx context.Context) GetBackupsBackupSummaryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBackupsBackupSummaryArrayOutput)
+}
+
+type GetBackupsBackupSummaryOutput struct{ *pulumi.OutputState }
+
+func (GetBackupsBackupSummaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBackupsBackupSummary)(nil)).Elem()
+}
+
+func (o GetBackupsBackupSummaryOutput) ToGetBackupsBackupSummaryOutput() GetBackupsBackupSummaryOutput {
+	return o
+}
+
+func (o GetBackupsBackupSummaryOutput) ToGetBackupsBackupSummaryOutputWithContext(ctx context.Context) GetBackupsBackupSummaryOutput {
+	return o
+}
+
+// ARN of the backup.
+func (o GetBackupsBackupSummaryOutput) BackupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBackupsBackupSummary) string { return v.BackupArn }).(pulumi.StringOutput)
+}
+
+// Time at which the backup was created.
+func (o GetBackupsBackupSummaryOutput) BackupCreationDateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBackupsBackupSummary) string { return v.BackupCreationDateTime }).(pulumi.StringOutput)
+}
+
+// Time at which the automatic on-demand backup created by DynamoDB will expire.
+func (o GetBackupsBackupSummaryOutput) BackupExpiryDateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBackupsBackupSummary) string { return v.BackupExpiryDateTime }).(pulumi.StringOutput)
+}
+
+// Name of the specified backup.
+func (o GetBackupsBackupSummaryOutput) BackupName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBackupsBackupSummary) string { return v.BackupName }).(pulumi.StringOutput)
+}
+
+// Size of the backup in bytes.
+func (o GetBackupsBackupSummaryOutput) BackupSizeBytes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetBackupsBackupSummary) int { return v.BackupSizeBytes }).(pulumi.IntOutput)
+}
+
+// Backup can be in one of the following states: `CREATING`, `DELETED`, `AVAILABLE`.
+func (o GetBackupsBackupSummaryOutput) BackupStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBackupsBackupSummary) string { return v.BackupStatus }).(pulumi.StringOutput)
+}
+
+// Backup type. Valid values: `USER`, `SYSTEM`, `AWS_BACKUP`, `ALL`.
+func (o GetBackupsBackupSummaryOutput) BackupType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBackupsBackupSummary) string { return v.BackupType }).(pulumi.StringOutput)
+}
+
+// ARN associated with the table.
+func (o GetBackupsBackupSummaryOutput) TableArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBackupsBackupSummary) string { return v.TableArn }).(pulumi.StringOutput)
+}
+
+// Unique identifier for the table.
+func (o GetBackupsBackupSummaryOutput) TableId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBackupsBackupSummary) string { return v.TableId }).(pulumi.StringOutput)
+}
+
+// Name of the table to list backups for.
+func (o GetBackupsBackupSummaryOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBackupsBackupSummary) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+type GetBackupsBackupSummaryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBackupsBackupSummaryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBackupsBackupSummary)(nil)).Elem()
+}
+
+func (o GetBackupsBackupSummaryArrayOutput) ToGetBackupsBackupSummaryArrayOutput() GetBackupsBackupSummaryArrayOutput {
+	return o
+}
+
+func (o GetBackupsBackupSummaryArrayOutput) ToGetBackupsBackupSummaryArrayOutputWithContext(ctx context.Context) GetBackupsBackupSummaryArrayOutput {
+	return o
+}
+
+func (o GetBackupsBackupSummaryArrayOutput) Index(i pulumi.IntInput) GetBackupsBackupSummaryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBackupsBackupSummary {
+		return vs[0].([]GetBackupsBackupSummary)[vs[1].(int)]
+	}).(GetBackupsBackupSummaryOutput)
+}
+
 type GetTableAttribute struct {
 	// Name of the DynamoDB table.
 	Name string `pulumi:"name"`
@@ -5123,6 +5301,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTtlPtrInput)(nil)).Elem(), TableTtlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableWarmThroughputInput)(nil)).Elem(), TableWarmThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableWarmThroughputPtrInput)(nil)).Elem(), TableWarmThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBackupsBackupSummaryInput)(nil)).Elem(), GetBackupsBackupSummaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBackupsBackupSummaryArrayInput)(nil)).Elem(), GetBackupsBackupSummaryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableAttributeInput)(nil)).Elem(), GetTableAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableAttributeArrayInput)(nil)).Elem(), GetTableAttributeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableGlobalSecondaryIndexInput)(nil)).Elem(), GetTableGlobalSecondaryIndexArgs{})
@@ -5195,6 +5375,8 @@ func init() {
 	pulumi.RegisterOutputType(TableTtlPtrOutput{})
 	pulumi.RegisterOutputType(TableWarmThroughputOutput{})
 	pulumi.RegisterOutputType(TableWarmThroughputPtrOutput{})
+	pulumi.RegisterOutputType(GetBackupsBackupSummaryOutput{})
+	pulumi.RegisterOutputType(GetBackupsBackupSummaryArrayOutput{})
 	pulumi.RegisterOutputType(GetTableAttributeOutput{})
 	pulumi.RegisterOutputType(GetTableAttributeArrayOutput{})
 	pulumi.RegisterOutputType(GetTableGlobalSecondaryIndexOutput{})

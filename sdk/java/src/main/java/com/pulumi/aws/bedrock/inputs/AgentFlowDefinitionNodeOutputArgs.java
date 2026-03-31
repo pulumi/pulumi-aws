@@ -15,23 +15,31 @@ public final class AgentFlowDefinitionNodeOutputArgs extends com.pulumi.resource
     public static final AgentFlowDefinitionNodeOutputArgs Empty = new AgentFlowDefinitionNodeOutputArgs();
 
     /**
-     * A name for the flow.
+     * A name for the output that you can reference.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return A name for the flow.
+     * @return A name for the output that you can reference.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * The data type of the output. If the output doesn’t match this type at runtime, a validation error will be thrown.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return The data type of the output. If the output doesn’t match this type at runtime, a validation error will be thrown.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -62,7 +70,7 @@ public final class AgentFlowDefinitionNodeOutputArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name A name for the flow.
+         * @param name A name for the output that you can reference.
          * 
          * @return builder
          * 
@@ -73,7 +81,7 @@ public final class AgentFlowDefinitionNodeOutputArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name A name for the flow.
+         * @param name A name for the output that you can reference.
          * 
          * @return builder
          * 
@@ -82,11 +90,23 @@ public final class AgentFlowDefinitionNodeOutputArgs extends com.pulumi.resource
             return name(Output.of(name));
         }
 
+        /**
+         * @param type The data type of the output. If the output doesn’t match this type at runtime, a validation error will be thrown.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The data type of the output. If the output doesn’t match this type at runtime, a validation error will be thrown.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

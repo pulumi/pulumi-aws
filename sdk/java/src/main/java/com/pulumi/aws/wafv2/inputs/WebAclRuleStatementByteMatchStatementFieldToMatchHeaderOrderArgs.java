@@ -15,14 +15,14 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderA
     public static final WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs Empty = new WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs();
 
     /**
-     * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+     * How to handle requests with headers larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
      * 
      */
     @Import(name="oversizeHandling", required=true)
     private Output<String> oversizeHandling;
 
     /**
-     * @return Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+     * @return How to handle requests with headers larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
      * 
      */
     public Output<String> oversizeHandling() {
@@ -54,7 +54,7 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderA
         }
 
         /**
-         * @param oversizeHandling Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         * @param oversizeHandling How to handle requests with headers larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderA
         }
 
         /**
-         * @param oversizeHandling Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         * @param oversizeHandling How to handle requests with headers larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
          * 
          * @return builder
          * 

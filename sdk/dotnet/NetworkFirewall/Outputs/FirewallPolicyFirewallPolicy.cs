@@ -14,6 +14,10 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     public sealed class FirewallPolicyFirewallPolicy
     {
         /// <summary>
+        /// Boolean indicating whether to prevent TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. If `True`, `TlsInspectionConfigurationArn` is required. Default value: `False`.
+        /// </summary>
+        public readonly bool? EnableTlsSessionHolding;
+        /// <summary>
         /// . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
         /// </summary>
         public readonly Outputs.FirewallPolicyFirewallPolicyPolicyVariables? PolicyVariables;
@@ -54,6 +58,8 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
 
         [OutputConstructor]
         private FirewallPolicyFirewallPolicy(
+            bool? enableTlsSessionHolding,
+
             Outputs.FirewallPolicyFirewallPolicyPolicyVariables? policyVariables,
 
             ImmutableArray<string> statefulDefaultActions,
@@ -72,6 +78,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
 
             string? tlsInspectionConfigurationArn)
         {
+            EnableTlsSessionHolding = enableTlsSessionHolding;
             PolicyVariables = policyVariables;
             StatefulDefaultActions = statefulDefaultActions;
             StatefulEngineOptions = statefulEngineOptions;

@@ -16,10 +16,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatement {
-    /**
-     * @return Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managedRuleGroupConfigs` for more details
-     * 
-     */
     private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig> managedRuleGroupConfigs;
     /**
      * @return Name of the managed rule group.
@@ -27,31 +23,27 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
      */
     private String name;
     /**
-     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
+     * @return Override actions for specific rules within the managed rule group. See Rule Action Override below.
      * 
      */
     private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride> ruleActionOverrides;
     /**
-     * @return Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details.
+     * @return Additional statement to narrow the scope of requests that the managed rule group evaluates. See Scope Down Statement below.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement scopeDownStatement;
     /**
-     * @return Name of the managed rule group vendor.
+     * @return Name of the managed rule group vendor (e.g., &#34;AWS&#34;).
      * 
      */
     private String vendorName;
     /**
-     * @return Version of the managed rule group. You can set `Version_1.0` or `Version_1.1` etc. If you want to use the default version, do not set anything.
+     * @return Version of the managed rule group.
      * 
      */
     private @Nullable String version;
 
     private WebAclRuleStatementManagedRuleGroupStatement() {}
-    /**
-     * @return Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managedRuleGroupConfigs` for more details
-     * 
-     */
     public List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig> managedRuleGroupConfigs() {
         return this.managedRuleGroupConfigs == null ? List.of() : this.managedRuleGroupConfigs;
     }
@@ -63,28 +55,28 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
         return this.name;
     }
     /**
-     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
+     * @return Override actions for specific rules within the managed rule group. See Rule Action Override below.
      * 
      */
     public List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride> ruleActionOverrides() {
         return this.ruleActionOverrides == null ? List.of() : this.ruleActionOverrides;
     }
     /**
-     * @return Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details.
+     * @return Additional statement to narrow the scope of requests that the managed rule group evaluates. See Scope Down Statement below.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement> scopeDownStatement() {
         return Optional.ofNullable(this.scopeDownStatement);
     }
     /**
-     * @return Name of the managed rule group vendor.
+     * @return Name of the managed rule group vendor (e.g., &#34;AWS&#34;).
      * 
      */
     public String vendorName() {
         return this.vendorName;
     }
     /**
-     * @return Version of the managed rule group. You can set `Version_1.0` or `Version_1.1` etc. If you want to use the default version, do not set anything.
+     * @return Version of the managed rule group.
      * 
      */
     public Optional<String> version() {

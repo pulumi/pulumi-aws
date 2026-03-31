@@ -70,10 +70,21 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Name` (String) User name.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import IAM Users using the `Name`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:iam/user:User lb loadbalancer
+    /// $ pulumi import aws:iam/user:User example example-user
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/user:User")]

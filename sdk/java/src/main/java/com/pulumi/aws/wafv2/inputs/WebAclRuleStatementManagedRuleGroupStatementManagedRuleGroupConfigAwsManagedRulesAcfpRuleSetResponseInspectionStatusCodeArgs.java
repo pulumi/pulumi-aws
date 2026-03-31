@@ -15,32 +15,16 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
     public static final WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCodeArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCodeArgs();
 
-    /**
-     * Status codes in the response that indicate a failed login attempt.
-     * 
-     */
     @Import(name="failureCodes", required=true)
     private Output<List<Integer>> failureCodes;
 
-    /**
-     * @return Status codes in the response that indicate a failed login attempt.
-     * 
-     */
     public Output<List<Integer>> failureCodes() {
         return this.failureCodes;
     }
 
-    /**
-     * Status codes in the response that indicate a successful login attempt.
-     * 
-     */
     @Import(name="successCodes", required=true)
     private Output<List<Integer>> successCodes;
 
-    /**
-     * @return Status codes in the response that indicate a successful login attempt.
-     * 
-     */
     public Output<List<Integer>> successCodes() {
         return this.successCodes;
     }
@@ -70,64 +54,28 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             $ = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCodeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param failureCodes Status codes in the response that indicate a failed login attempt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder failureCodes(Output<List<Integer>> failureCodes) {
             $.failureCodes = failureCodes;
             return this;
         }
 
-        /**
-         * @param failureCodes Status codes in the response that indicate a failed login attempt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder failureCodes(List<Integer> failureCodes) {
             return failureCodes(Output.of(failureCodes));
         }
 
-        /**
-         * @param failureCodes Status codes in the response that indicate a failed login attempt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder failureCodes(Integer... failureCodes) {
             return failureCodes(List.of(failureCodes));
         }
 
-        /**
-         * @param successCodes Status codes in the response that indicate a successful login attempt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder successCodes(Output<List<Integer>> successCodes) {
             $.successCodes = successCodes;
             return this;
         }
 
-        /**
-         * @param successCodes Status codes in the response that indicate a successful login attempt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder successCodes(List<Integer> successCodes) {
             return successCodes(Output.of(successCodes));
         }
 
-        /**
-         * @param successCodes Status codes in the response that indicate a successful login attempt.
-         * 
-         * @return builder
-         * 
-         */
         public Builder successCodes(Integer... successCodes) {
             return successCodes(List.of(successCodes));
         }

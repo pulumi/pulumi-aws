@@ -4,7 +4,12 @@
 package com.pulumi.aws.securityhub.inputs;
 
 import com.pulumi.aws.securityhub.inputs.InsightFiltersAwsAccountIdArgs;
+import com.pulumi.aws.securityhub.inputs.InsightFiltersAwsAccountNameArgs;
 import com.pulumi.aws.securityhub.inputs.InsightFiltersCompanyNameArgs;
+import com.pulumi.aws.securityhub.inputs.InsightFiltersComplianceAssociatedStandardsIdArgs;
+import com.pulumi.aws.securityhub.inputs.InsightFiltersComplianceSecurityControlIdArgs;
+import com.pulumi.aws.securityhub.inputs.InsightFiltersComplianceSecurityControlParametersNameArgs;
+import com.pulumi.aws.securityhub.inputs.InsightFiltersComplianceSecurityControlParametersValueArgs;
 import com.pulumi.aws.securityhub.inputs.InsightFiltersComplianceStatusArgs;
 import com.pulumi.aws.securityhub.inputs.InsightFiltersConfidenceArgs;
 import com.pulumi.aws.securityhub.inputs.InsightFiltersCreatedAtArgs;
@@ -119,6 +124,21 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The name of the AWS account in which a finding is generated. See String_Filter below for more details.
+     * 
+     */
+    @Import(name="awsAccountNames")
+    private @Nullable Output<List<InsightFiltersAwsAccountNameArgs>> awsAccountNames;
+
+    /**
+     * @return The name of the AWS account in which a finding is generated. See String_Filter below for more details.
+     * 
+     */
+    public Optional<Output<List<InsightFiltersAwsAccountNameArgs>>> awsAccountNames() {
+        return Optional.ofNullable(this.awsAccountNames);
+    }
+
+    /**
      * The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
      * 
      */
@@ -131,6 +151,66 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
      */
     public Optional<Output<List<InsightFiltersCompanyNameArgs>>> companyNames() {
         return Optional.ofNullable(this.companyNames);
+    }
+
+    /**
+     * The unique identifier of a standard in which a control is enabled. See String_Filter below for more details.
+     * 
+     */
+    @Import(name="complianceAssociatedStandardsIds")
+    private @Nullable Output<List<InsightFiltersComplianceAssociatedStandardsIdArgs>> complianceAssociatedStandardsIds;
+
+    /**
+     * @return The unique identifier of a standard in which a control is enabled. See String_Filter below for more details.
+     * 
+     */
+    public Optional<Output<List<InsightFiltersComplianceAssociatedStandardsIdArgs>>> complianceAssociatedStandardsIds() {
+        return Optional.ofNullable(this.complianceAssociatedStandardsIds);
+    }
+
+    /**
+     * The unique identifier of a control across standards. See String_Filter below for more details.
+     * 
+     */
+    @Import(name="complianceSecurityControlIds")
+    private @Nullable Output<List<InsightFiltersComplianceSecurityControlIdArgs>> complianceSecurityControlIds;
+
+    /**
+     * @return The unique identifier of a control across standards. See String_Filter below for more details.
+     * 
+     */
+    public Optional<Output<List<InsightFiltersComplianceSecurityControlIdArgs>>> complianceSecurityControlIds() {
+        return Optional.ofNullable(this.complianceSecurityControlIds);
+    }
+
+    /**
+     * The unique identifier of a control across standards. See String_Filter below for more details.
+     * 
+     */
+    @Import(name="complianceSecurityControlParametersNames")
+    private @Nullable Output<List<InsightFiltersComplianceSecurityControlParametersNameArgs>> complianceSecurityControlParametersNames;
+
+    /**
+     * @return The unique identifier of a control across standards. See String_Filter below for more details.
+     * 
+     */
+    public Optional<Output<List<InsightFiltersComplianceSecurityControlParametersNameArgs>>> complianceSecurityControlParametersNames() {
+        return Optional.ofNullable(this.complianceSecurityControlParametersNames);
+    }
+
+    /**
+     * The current value of a security control parameter. See String_Filter below for more details.
+     * 
+     */
+    @Import(name="complianceSecurityControlParametersValues")
+    private @Nullable Output<List<InsightFiltersComplianceSecurityControlParametersValueArgs>> complianceSecurityControlParametersValues;
+
+    /**
+     * @return The current value of a security control parameter. See String_Filter below for more details.
+     * 
+     */
+    public Optional<Output<List<InsightFiltersComplianceSecurityControlParametersValueArgs>>> complianceSecurityControlParametersValues() {
+        return Optional.ofNullable(this.complianceSecurityControlParametersValues);
     }
 
     /**
@@ -1427,7 +1507,12 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
 
     private InsightFiltersArgs(InsightFiltersArgs $) {
         this.awsAccountIds = $.awsAccountIds;
+        this.awsAccountNames = $.awsAccountNames;
         this.companyNames = $.companyNames;
+        this.complianceAssociatedStandardsIds = $.complianceAssociatedStandardsIds;
+        this.complianceSecurityControlIds = $.complianceSecurityControlIds;
+        this.complianceSecurityControlParametersNames = $.complianceSecurityControlParametersNames;
+        this.complianceSecurityControlParametersValues = $.complianceSecurityControlParametersValues;
         this.complianceStatuses = $.complianceStatuses;
         this.confidences = $.confidences;
         this.createdAts = $.createdAts;
@@ -1566,6 +1651,37 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
+         * @param awsAccountNames The name of the AWS account in which a finding is generated. See String_Filter below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsAccountNames(@Nullable Output<List<InsightFiltersAwsAccountNameArgs>> awsAccountNames) {
+            $.awsAccountNames = awsAccountNames;
+            return this;
+        }
+
+        /**
+         * @param awsAccountNames The name of the AWS account in which a finding is generated. See String_Filter below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsAccountNames(List<InsightFiltersAwsAccountNameArgs> awsAccountNames) {
+            return awsAccountNames(Output.of(awsAccountNames));
+        }
+
+        /**
+         * @param awsAccountNames The name of the AWS account in which a finding is generated. See String_Filter below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsAccountNames(InsightFiltersAwsAccountNameArgs... awsAccountNames) {
+            return awsAccountNames(List.of(awsAccountNames));
+        }
+
+        /**
          * @param companyNames The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
          * 
          * @return builder
@@ -1594,6 +1710,130 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder companyNames(InsightFiltersCompanyNameArgs... companyNames) {
             return companyNames(List.of(companyNames));
+        }
+
+        /**
+         * @param complianceAssociatedStandardsIds The unique identifier of a standard in which a control is enabled. See String_Filter below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder complianceAssociatedStandardsIds(@Nullable Output<List<InsightFiltersComplianceAssociatedStandardsIdArgs>> complianceAssociatedStandardsIds) {
+            $.complianceAssociatedStandardsIds = complianceAssociatedStandardsIds;
+            return this;
+        }
+
+        /**
+         * @param complianceAssociatedStandardsIds The unique identifier of a standard in which a control is enabled. See String_Filter below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder complianceAssociatedStandardsIds(List<InsightFiltersComplianceAssociatedStandardsIdArgs> complianceAssociatedStandardsIds) {
+            return complianceAssociatedStandardsIds(Output.of(complianceAssociatedStandardsIds));
+        }
+
+        /**
+         * @param complianceAssociatedStandardsIds The unique identifier of a standard in which a control is enabled. See String_Filter below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder complianceAssociatedStandardsIds(InsightFiltersComplianceAssociatedStandardsIdArgs... complianceAssociatedStandardsIds) {
+            return complianceAssociatedStandardsIds(List.of(complianceAssociatedStandardsIds));
+        }
+
+        /**
+         * @param complianceSecurityControlIds The unique identifier of a control across standards. See String_Filter below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder complianceSecurityControlIds(@Nullable Output<List<InsightFiltersComplianceSecurityControlIdArgs>> complianceSecurityControlIds) {
+            $.complianceSecurityControlIds = complianceSecurityControlIds;
+            return this;
+        }
+
+        /**
+         * @param complianceSecurityControlIds The unique identifier of a control across standards. See String_Filter below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder complianceSecurityControlIds(List<InsightFiltersComplianceSecurityControlIdArgs> complianceSecurityControlIds) {
+            return complianceSecurityControlIds(Output.of(complianceSecurityControlIds));
+        }
+
+        /**
+         * @param complianceSecurityControlIds The unique identifier of a control across standards. See String_Filter below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder complianceSecurityControlIds(InsightFiltersComplianceSecurityControlIdArgs... complianceSecurityControlIds) {
+            return complianceSecurityControlIds(List.of(complianceSecurityControlIds));
+        }
+
+        /**
+         * @param complianceSecurityControlParametersNames The unique identifier of a control across standards. See String_Filter below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder complianceSecurityControlParametersNames(@Nullable Output<List<InsightFiltersComplianceSecurityControlParametersNameArgs>> complianceSecurityControlParametersNames) {
+            $.complianceSecurityControlParametersNames = complianceSecurityControlParametersNames;
+            return this;
+        }
+
+        /**
+         * @param complianceSecurityControlParametersNames The unique identifier of a control across standards. See String_Filter below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder complianceSecurityControlParametersNames(List<InsightFiltersComplianceSecurityControlParametersNameArgs> complianceSecurityControlParametersNames) {
+            return complianceSecurityControlParametersNames(Output.of(complianceSecurityControlParametersNames));
+        }
+
+        /**
+         * @param complianceSecurityControlParametersNames The unique identifier of a control across standards. See String_Filter below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder complianceSecurityControlParametersNames(InsightFiltersComplianceSecurityControlParametersNameArgs... complianceSecurityControlParametersNames) {
+            return complianceSecurityControlParametersNames(List.of(complianceSecurityControlParametersNames));
+        }
+
+        /**
+         * @param complianceSecurityControlParametersValues The current value of a security control parameter. See String_Filter below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder complianceSecurityControlParametersValues(@Nullable Output<List<InsightFiltersComplianceSecurityControlParametersValueArgs>> complianceSecurityControlParametersValues) {
+            $.complianceSecurityControlParametersValues = complianceSecurityControlParametersValues;
+            return this;
+        }
+
+        /**
+         * @param complianceSecurityControlParametersValues The current value of a security control parameter. See String_Filter below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder complianceSecurityControlParametersValues(List<InsightFiltersComplianceSecurityControlParametersValueArgs> complianceSecurityControlParametersValues) {
+            return complianceSecurityControlParametersValues(Output.of(complianceSecurityControlParametersValues));
+        }
+
+        /**
+         * @param complianceSecurityControlParametersValues The current value of a security control parameter. See String_Filter below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder complianceSecurityControlParametersValues(InsightFiltersComplianceSecurityControlParametersValueArgs... complianceSecurityControlParametersValues) {
+            return complianceSecurityControlParametersValues(List.of(complianceSecurityControlParametersValues));
         }
 
         /**

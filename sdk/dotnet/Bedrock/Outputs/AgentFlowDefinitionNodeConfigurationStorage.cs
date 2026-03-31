@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentFlowDefinitionNodeConfigurationStorage
     {
+        /// <summary>
+        /// Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Service Configuration for more information.
+        /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationStorageServiceConfiguration? ServiceConfiguration;
 
         [OutputConstructor]

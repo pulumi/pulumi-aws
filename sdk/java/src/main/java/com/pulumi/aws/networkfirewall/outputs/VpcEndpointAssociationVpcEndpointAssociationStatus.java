@@ -11,9 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class VpcEndpointAssociationVpcEndpointAssociationStatus {
+    /**
+     * @return Set of subnets configured for use by the VPC Endpoint Association.
+     * 
+     */
     private List<VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncState> associationSyncStates;
 
     private VpcEndpointAssociationVpcEndpointAssociationStatus() {}
+    /**
+     * @return Set of subnets configured for use by the VPC Endpoint Association.
+     * 
+     */
     public List<VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncState> associationSyncStates() {
         return this.associationSyncStates;
     }

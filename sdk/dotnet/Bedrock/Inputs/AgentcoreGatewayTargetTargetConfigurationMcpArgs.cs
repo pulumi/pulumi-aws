@@ -13,6 +13,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// API Gateway target configuration. See `ApiGateway` below.
+        /// </summary>
+        [Input("apiGateway")]
+        public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs>? ApiGateway { get; set; }
+
+        /// <summary>
         /// Lambda function target configuration. See `Lambda` below.
         /// </summary>
         [Input("lambda")]

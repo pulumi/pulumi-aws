@@ -328,6 +328,22 @@ class AccountAssignment(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `instance_arn` (String) ARN of the SSO Instance.
+        * `permission_set_arn` (String) ARN of the Permission Set.
+        * `principal_id` (String) Identifier of the principal in IAM Identity Center.
+        * `principal_type` (String) Type of principal. Valid values are `USER` and `GROUP`.
+        * `target_id` (String) AWS account identifier.
+        * `target_type` (String) Target type. Valid value is `AWS_ACCOUNT`.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import SSO Account Assignments using the `principal_id`, `principal_type`, `target_id`, `target_type`, `permission_set_arn`, `instance_arn` separated by commas (`,`). For example:
 
         ```sh
@@ -412,6 +428,22 @@ class AccountAssignment(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `instance_arn` (String) ARN of the SSO Instance.
+        * `permission_set_arn` (String) ARN of the Permission Set.
+        * `principal_id` (String) Identifier of the principal in IAM Identity Center.
+        * `principal_type` (String) Type of principal. Valid values are `USER` and `GROUP`.
+        * `target_id` (String) AWS account identifier.
+        * `target_type` (String) Target type. Valid value is `AWS_ACCOUNT`.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import SSO Account Assignments using the `principal_id`, `principal_type`, `target_id`, `target_type`, `permission_set_arn`, `instance_arn` separated by commas (`,`). For example:
 

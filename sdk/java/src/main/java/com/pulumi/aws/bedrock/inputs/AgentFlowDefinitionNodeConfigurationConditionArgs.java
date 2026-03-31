@@ -16,9 +16,17 @@ public final class AgentFlowDefinitionNodeConfigurationConditionArgs extends com
 
     public static final AgentFlowDefinitionNodeConfigurationConditionArgs Empty = new AgentFlowDefinitionNodeConfigurationConditionArgs();
 
+    /**
+     * A list of conditions. See Condition Config for more information.
+     * 
+     */
     @Import(name="conditions")
     private @Nullable Output<List<AgentFlowDefinitionNodeConfigurationConditionConditionArgs>> conditions;
 
+    /**
+     * @return A list of conditions. See Condition Config for more information.
+     * 
+     */
     public Optional<Output<List<AgentFlowDefinitionNodeConfigurationConditionConditionArgs>>> conditions() {
         return Optional.ofNullable(this.conditions);
     }
@@ -47,15 +55,33 @@ public final class AgentFlowDefinitionNodeConfigurationConditionArgs extends com
             $ = new AgentFlowDefinitionNodeConfigurationConditionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param conditions A list of conditions. See Condition Config for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder conditions(@Nullable Output<List<AgentFlowDefinitionNodeConfigurationConditionConditionArgs>> conditions) {
             $.conditions = conditions;
             return this;
         }
 
+        /**
+         * @param conditions A list of conditions. See Condition Config for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder conditions(List<AgentFlowDefinitionNodeConfigurationConditionConditionArgs> conditions) {
             return conditions(Output.of(conditions));
         }
 
+        /**
+         * @param conditions A list of conditions. See Condition Config for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder conditions(AgentFlowDefinitionNodeConfigurationConditionConditionArgs... conditions) {
             return conditions(List.of(conditions));
         }

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.WafV2.Inputs
     {
         [Input("failureCodes", required: true)]
         private InputList<int>? _failureCodes;
-
-        /// <summary>
-        /// Status codes in the response that indicate a failed login attempt.
-        /// </summary>
         public InputList<int> FailureCodes
         {
             get => _failureCodes ?? (_failureCodes = new InputList<int>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.WafV2.Inputs
 
         [Input("successCodes", required: true)]
         private InputList<int>? _successCodes;
-
-        /// <summary>
-        /// Status codes in the response that indicate a successful login attempt.
-        /// </summary>
         public InputList<int> SuccessCodes
         {
             get => _successCodes ?? (_successCodes = new InputList<int>());

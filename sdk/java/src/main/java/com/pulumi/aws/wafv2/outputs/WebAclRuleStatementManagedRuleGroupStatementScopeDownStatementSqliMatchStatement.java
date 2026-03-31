@@ -6,7 +6,6 @@ package com.pulumi.aws.wafv2.outputs;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatch;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformation;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -15,43 +14,27 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatement {
-    /**
-     * @return Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatch fieldToMatch;
     /**
-     * @return Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
+     * @return Sensitivity level for detecting SQL injection attacks. Valid values: `HIGH`, `LOW`.
      * 
      */
     private @Nullable String sensitivityLevel;
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
-     * 
-     */
-    private List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformation> textTransformations;
+    private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformation> textTransformations;
 
     private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatement() {}
-    /**
-     * @return Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatch> fieldToMatch() {
         return Optional.ofNullable(this.fieldToMatch);
     }
     /**
-     * @return Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
+     * @return Sensitivity level for detecting SQL injection attacks. Valid values: `HIGH`, `LOW`.
      * 
      */
     public Optional<String> sensitivityLevel() {
         return Optional.ofNullable(this.sensitivityLevel);
     }
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
-     * 
-     */
     public List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformation> textTransformations() {
-        return this.textTransformations;
+        return this.textTransformations == null ? List.of() : this.textTransformations;
     }
 
     public static Builder builder() {
@@ -65,7 +48,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     public static final class Builder {
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatch fieldToMatch;
         private @Nullable String sensitivityLevel;
-        private List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformation> textTransformations;
+        private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformation> textTransformations;
         public Builder() {}
         public Builder(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatement defaults) {
     	      Objects.requireNonNull(defaults);
@@ -87,10 +70,8 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
             return this;
         }
         @CustomType.Setter
-        public Builder textTransformations(List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformation> textTransformations) {
-            if (textTransformations == null) {
-              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatement", "textTransformations");
-            }
+        public Builder textTransformations(@Nullable List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformation> textTransformations) {
+
             this.textTransformations = textTransformations;
             return this;
         }

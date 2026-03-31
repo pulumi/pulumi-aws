@@ -14,9 +14,17 @@ public final class AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigura
 
     public static final AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args Empty = new AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args();
 
+    /**
+     * The name of the Amazon S3 bucket in which to store the input into the node.
+     * 
+     */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
+    /**
+     * @return The name of the Amazon S3 bucket in which to store the input into the node.
+     * 
+     */
     public Output<String> bucketName() {
         return this.bucketName;
     }
@@ -45,11 +53,23 @@ public final class AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigura
             $ = new AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bucketName The name of the Amazon S3 bucket in which to store the input into the node.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketName(Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
+        /**
+         * @param bucketName The name of the Amazon S3 bucket in which to store the input into the node.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }

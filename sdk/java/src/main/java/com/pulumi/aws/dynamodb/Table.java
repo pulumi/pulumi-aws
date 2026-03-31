@@ -741,6 +741,20 @@ public class Table extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.replicas);
     }
     /**
+     * ARN of backup to restore.
+     * 
+     */
+    @Export(name="restoreBackupArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> restoreBackupArn;
+
+    /**
+     * @return ARN of backup to restore.
+     * 
+     */
+    public Output<Optional<String>> restoreBackupArn() {
+        return Codegen.optional(this.restoreBackupArn);
+    }
+    /**
      * Time of the point-in-time recovery point to restore.
      * 
      */

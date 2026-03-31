@@ -6,28 +6,21 @@ package com.pulumi.aws.wafv2.inputs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs Empty = new WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs();
 
-    /**
-     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
-     * 
-     */
-    @Import(name="textTransformations", required=true)
-    private Output<List<WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs>> textTransformations;
+    @Import(name="textTransformations")
+    private @Nullable Output<List<WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs>> textTransformations;
 
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
-     * 
-     */
-    public Output<List<WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs>> textTransformations() {
-        return this.textTransformations;
+    public Optional<Output<List<WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs>>> textTransformations() {
+        return Optional.ofNullable(this.textTransformations);
     }
 
     private WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs() {}
@@ -54,41 +47,20 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs
             $ = new WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder textTransformations(Output<List<WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs>> textTransformations) {
+        public Builder textTransformations(@Nullable Output<List<WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs>> textTransformations) {
             $.textTransformations = textTransformations;
             return this;
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformations(List<WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs> textTransformations) {
             return textTransformations(Output.of(textTransformations));
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformations(WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs... textTransformations) {
             return textTransformations(List.of(textTransformations));
         }
 
         public WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs build() {
-            if ($.textTransformations == null) {
-                throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs", "textTransformations");
-            }
             return $;
         }
     }

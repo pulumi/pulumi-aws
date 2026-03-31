@@ -9,6 +9,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs extends com.pulumi.resources.ResourceArgs {
@@ -16,29 +18,29 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
     public static final WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs Empty = new WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs();
 
     /**
-     * Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
+     * Override action to use for the rule. See Action below.
      * 
      */
-    @Import(name="actionToUse", required=true)
-    private Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs> actionToUse;
+    @Import(name="actionToUse")
+    private @Nullable Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs> actionToUse;
 
     /**
-     * @return Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
+     * @return Override action to use for the rule. See Action below.
      * 
      */
-    public Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs> actionToUse() {
-        return this.actionToUse;
+    public Optional<Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs>> actionToUse() {
+        return Optional.ofNullable(this.actionToUse);
     }
 
     /**
-     * Name of the rule to override. See the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
+     * Name of the rule to override.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the rule to override. See the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
+     * @return Name of the rule to override.
      * 
      */
     public Output<String> name() {
@@ -71,18 +73,18 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
         }
 
         /**
-         * @param actionToUse Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
+         * @param actionToUse Override action to use for the rule. See Action below.
          * 
          * @return builder
          * 
          */
-        public Builder actionToUse(Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs> actionToUse) {
+        public Builder actionToUse(@Nullable Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs> actionToUse) {
             $.actionToUse = actionToUse;
             return this;
         }
 
         /**
-         * @param actionToUse Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
+         * @param actionToUse Override action to use for the rule. See Action below.
          * 
          * @return builder
          * 
@@ -92,7 +94,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
         }
 
         /**
-         * @param name Name of the rule to override. See the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
+         * @param name Name of the rule to override.
          * 
          * @return builder
          * 
@@ -103,7 +105,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
         }
 
         /**
-         * @param name Name of the rule to override. See the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
+         * @param name Name of the rule to override.
          * 
          * @return builder
          * 
@@ -113,9 +115,6 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
         }
 
         public WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs build() {
-            if ($.actionToUse == null) {
-                throw new MissingRequiredPropertyException("WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs", "actionToUse");
-            }
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs", "name");
             }

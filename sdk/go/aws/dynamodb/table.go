@@ -500,6 +500,8 @@ type Table struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
 	Replicas TableReplicaTypeArrayOutput `pulumi:"replicas"`
+	// ARN of backup to restore.
+	RestoreBackupArn pulumi.StringPtrOutput `pulumi:"restoreBackupArn"`
 	// Time of the point-in-time recovery point to restore.
 	RestoreDateTime pulumi.StringPtrOutput `pulumi:"restoreDateTime"`
 	// Name of the table to restore. Must match the name of an existing table.
@@ -600,6 +602,8 @@ type tableState struct {
 	Region *string `pulumi:"region"`
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
 	Replicas []TableReplicaType `pulumi:"replicas"`
+	// ARN of backup to restore.
+	RestoreBackupArn *string `pulumi:"restoreBackupArn"`
 	// Time of the point-in-time recovery point to restore.
 	RestoreDateTime *string `pulumi:"restoreDateTime"`
 	// Name of the table to restore. Must match the name of an existing table.
@@ -671,6 +675,8 @@ type TableState struct {
 	Region pulumi.StringPtrInput
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
 	Replicas TableReplicaTypeArrayInput
+	// ARN of backup to restore.
+	RestoreBackupArn pulumi.StringPtrInput
 	// Time of the point-in-time recovery point to restore.
 	RestoreDateTime pulumi.StringPtrInput
 	// Name of the table to restore. Must match the name of an existing table.
@@ -744,6 +750,8 @@ type tableArgs struct {
 	Region *string `pulumi:"region"`
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
 	Replicas []TableReplicaType `pulumi:"replicas"`
+	// ARN of backup to restore.
+	RestoreBackupArn *string `pulumi:"restoreBackupArn"`
 	// Time of the point-in-time recovery point to restore.
 	RestoreDateTime *string `pulumi:"restoreDateTime"`
 	// Name of the table to restore. Must match the name of an existing table.
@@ -808,6 +816,8 @@ type TableArgs struct {
 	Region pulumi.StringPtrInput
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
 	Replicas TableReplicaTypeArrayInput
+	// ARN of backup to restore.
+	RestoreBackupArn pulumi.StringPtrInput
 	// Time of the point-in-time recovery point to restore.
 	RestoreDateTime pulumi.StringPtrInput
 	// Name of the table to restore. Must match the name of an existing table.
@@ -1005,6 +1015,11 @@ func (o TableOutput) Region() pulumi.StringOutput {
 // Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
 func (o TableOutput) Replicas() TableReplicaTypeArrayOutput {
 	return o.ApplyT(func(v *Table) TableReplicaTypeArrayOutput { return v.Replicas }).(TableReplicaTypeArrayOutput)
+}
+
+// ARN of backup to restore.
+func (o TableOutput) RestoreBackupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.RestoreBackupArn }).(pulumi.StringPtrOutput)
 }
 
 // Time of the point-in-time recovery point to restore.

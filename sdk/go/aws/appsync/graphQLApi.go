@@ -337,8 +337,8 @@ import (
 //				DefaultAction: &wafv2.WebAclDefaultActionArgs{
 //					Allow: &wafv2.WebAclDefaultActionAllowArgs{},
 //				},
-//				Rules: wafv2.WebAclRuleArray{
-//					&wafv2.WebAclRuleArgs{
+//				Rules: wafv2.WebAclRuleTypeArray{
+//					&wafv2.WebAclRuleTypeArgs{
 //						Name:     pulumi.String("rule-1"),
 //						Priority: pulumi.Int(1),
 //						OverrideAction: &wafv2.WebAclRuleOverrideActionArgs{

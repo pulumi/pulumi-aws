@@ -32,6 +32,7 @@ class ElasticClusterArgs:
                  preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
+                 shard_instance_count: Optional[pulumi.Input[_builtins.int]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['ElasticClusterTimeoutsArgs']] = None,
@@ -52,6 +53,7 @@ class ElasticClusterArgs:
         :param pulumi.Input[_builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.int] shard_instance_count: Number of replica instances applying to all shards in the elastic cluster. If not specified, the default value of 2 is set.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: IDs of subnets in which the Elastic DocumentDB Cluster operates.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Elastic DocumentDB Cluster
@@ -76,6 +78,8 @@ class ElasticClusterArgs:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if shard_instance_count is not None:
+            pulumi.set(__self__, "shard_instance_count", shard_instance_count)
         if subnet_ids is not None:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
@@ -220,6 +224,18 @@ class ElasticClusterArgs:
         pulumi.set(self, "region", value)
 
     @_builtins.property
+    @pulumi.getter(name="shardInstanceCount")
+    def shard_instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Number of replica instances applying to all shards in the elastic cluster. If not specified, the default value of 2 is set.
+        """
+        return pulumi.get(self, "shard_instance_count")
+
+    @shard_instance_count.setter
+    def shard_instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "shard_instance_count", value)
+
+    @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -284,6 +300,7 @@ class _ElasticClusterState:
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  shard_capacity: Optional[pulumi.Input[_builtins.int]] = None,
                  shard_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 shard_instance_count: Optional[pulumi.Input[_builtins.int]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -307,6 +324,7 @@ class _ElasticClusterState:
         :param pulumi.Input[_builtins.int] shard_count: Number of shards assigned to the elastic cluster. Maximum is 32
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.int] shard_instance_count: Number of replica instances applying to all shards in the elastic cluster. If not specified, the default value of 2 is set.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: IDs of subnets in which the Elastic DocumentDB Cluster operates.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Elastic DocumentDB Cluster
@@ -340,6 +358,8 @@ class _ElasticClusterState:
             pulumi.set(__self__, "shard_capacity", shard_capacity)
         if shard_count is not None:
             pulumi.set(__self__, "shard_count", shard_count)
+        if shard_instance_count is not None:
+            pulumi.set(__self__, "shard_instance_count", shard_instance_count)
         if subnet_ids is not None:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
@@ -510,6 +530,18 @@ class _ElasticClusterState:
         pulumi.set(self, "shard_count", value)
 
     @_builtins.property
+    @pulumi.getter(name="shardInstanceCount")
+    def shard_instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Number of replica instances applying to all shards in the elastic cluster. If not specified, the default value of 2 is set.
+        """
+        return pulumi.get(self, "shard_instance_count")
+
+    @shard_instance_count.setter
+    def shard_instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "shard_instance_count", value)
+
+    @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -584,6 +616,7 @@ class ElasticCluster(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  shard_capacity: Optional[pulumi.Input[_builtins.int]] = None,
                  shard_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 shard_instance_count: Optional[pulumi.Input[_builtins.int]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['ElasticClusterTimeoutsArgs', 'ElasticClusterTimeoutsArgsDict']]] = None,
@@ -639,6 +672,7 @@ class ElasticCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] shard_count: Number of shards assigned to the elastic cluster. Maximum is 32
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.int] shard_instance_count: Number of replica instances applying to all shards in the elastic cluster. If not specified, the default value of 2 is set.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: IDs of subnets in which the Elastic DocumentDB Cluster operates.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Elastic DocumentDB Cluster
@@ -713,6 +747,7 @@ class ElasticCluster(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  shard_capacity: Optional[pulumi.Input[_builtins.int]] = None,
                  shard_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 shard_instance_count: Optional[pulumi.Input[_builtins.int]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['ElasticClusterTimeoutsArgs', 'ElasticClusterTimeoutsArgsDict']]] = None,
@@ -747,6 +782,7 @@ class ElasticCluster(pulumi.CustomResource):
             if shard_count is None and not opts.urn:
                 raise TypeError("Missing required property 'shard_count'")
             __props__.__dict__["shard_count"] = shard_count
+            __props__.__dict__["shard_instance_count"] = shard_instance_count
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
@@ -779,6 +815,7 @@ class ElasticCluster(pulumi.CustomResource):
             region: Optional[pulumi.Input[_builtins.str]] = None,
             shard_capacity: Optional[pulumi.Input[_builtins.int]] = None,
             shard_count: Optional[pulumi.Input[_builtins.int]] = None,
+            shard_instance_count: Optional[pulumi.Input[_builtins.int]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -806,6 +843,7 @@ class ElasticCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] shard_count: Number of shards assigned to the elastic cluster. Maximum is 32
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.int] shard_instance_count: Number of replica instances applying to all shards in the elastic cluster. If not specified, the default value of 2 is set.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: IDs of subnets in which the Elastic DocumentDB Cluster operates.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Elastic DocumentDB Cluster
@@ -830,6 +868,7 @@ class ElasticCluster(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         __props__.__dict__["shard_capacity"] = shard_capacity
         __props__.__dict__["shard_count"] = shard_count
+        __props__.__dict__["shard_instance_count"] = shard_instance_count
         __props__.__dict__["subnet_ids"] = subnet_ids
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -942,6 +981,14 @@ class ElasticCluster(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "shard_count")
+
+    @_builtins.property
+    @pulumi.getter(name="shardInstanceCount")
+    def shard_instance_count(self) -> pulumi.Output[_builtins.int]:
+        """
+        Number of replica instances applying to all shards in the elastic cluster. If not specified, the default value of 2 is set.
+        """
+        return pulumi.get(self, "shard_instance_count")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")

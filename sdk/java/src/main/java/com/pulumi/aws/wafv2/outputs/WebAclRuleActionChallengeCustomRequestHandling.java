@@ -5,25 +5,25 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleActionChallengeCustomRequestHandlingInsertHeader;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleActionChallengeCustomRequestHandling {
     /**
-     * @return The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+     * @return Custom headers to insert into the request. See Insert Header below.
      * 
      */
-    private List<WebAclRuleActionChallengeCustomRequestHandlingInsertHeader> insertHeaders;
+    private @Nullable List<WebAclRuleActionChallengeCustomRequestHandlingInsertHeader> insertHeaders;
 
     private WebAclRuleActionChallengeCustomRequestHandling() {}
     /**
-     * @return The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+     * @return Custom headers to insert into the request. See Insert Header below.
      * 
      */
     public List<WebAclRuleActionChallengeCustomRequestHandlingInsertHeader> insertHeaders() {
-        return this.insertHeaders;
+        return this.insertHeaders == null ? List.of() : this.insertHeaders;
     }
 
     public static Builder builder() {
@@ -35,7 +35,7 @@ public final class WebAclRuleActionChallengeCustomRequestHandling {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<WebAclRuleActionChallengeCustomRequestHandlingInsertHeader> insertHeaders;
+        private @Nullable List<WebAclRuleActionChallengeCustomRequestHandlingInsertHeader> insertHeaders;
         public Builder() {}
         public Builder(WebAclRuleActionChallengeCustomRequestHandling defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,10 +43,8 @@ public final class WebAclRuleActionChallengeCustomRequestHandling {
         }
 
         @CustomType.Setter
-        public Builder insertHeaders(List<WebAclRuleActionChallengeCustomRequestHandlingInsertHeader> insertHeaders) {
-            if (insertHeaders == null) {
-              throw new MissingRequiredPropertyException("WebAclRuleActionChallengeCustomRequestHandling", "insertHeaders");
-            }
+        public Builder insertHeaders(@Nullable List<WebAclRuleActionChallengeCustomRequestHandlingInsertHeader> insertHeaders) {
+
             this.insertHeaders = insertHeaders;
             return this;
         }

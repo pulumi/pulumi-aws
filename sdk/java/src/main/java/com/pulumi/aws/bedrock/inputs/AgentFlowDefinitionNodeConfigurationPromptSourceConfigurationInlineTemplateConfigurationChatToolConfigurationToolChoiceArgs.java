@@ -18,14 +18,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     public static final AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs Empty = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs();
 
     /**
-     * Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+     * Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no fields.
      * 
      */
     @Import(name="any")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs> any;
 
     /**
-     * @return Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+     * @return Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no fields.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs>> any() {
@@ -33,14 +33,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     }
 
     /**
-     * Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+     * Defines tools. The model automatically decides whether to call a tool or to generate text instead. This block has no fields.
      * 
      */
     @Import(name="auto")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs> auto;
 
     /**
-     * @return Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+     * @return Defines tools. The model automatically decides whether to call a tool or to generate text instead. This block has no fields.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs>> auto() {
@@ -89,7 +89,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param any Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+         * @param any Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no fields.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param any Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
+         * @param any Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no fields.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param auto Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+         * @param auto Defines tools. The model automatically decides whether to call a tool or to generate text instead. This block has no fields.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param auto Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
+         * @param auto Defines tools. The model automatically decides whether to call a tool or to generate text instead. This block has no fields.
          * 
          * @return builder
          * 

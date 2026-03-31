@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRuleGroupReferenceStatementExcludedRule;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -14,26 +15,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementRuleGroupReferenceStatement {
     /**
-     * @return The Amazon Resource Name (ARN) of the `aws.wafv2.RuleGroup` resource.
+     * @return ARN of the rule group to reference.
      * 
      */
     private String arn;
     /**
-     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
+     * @return Rules to exclude from the rule group. See Excluded Rule below.
+     * 
+     */
+    private @Nullable List<WebAclRuleStatementRuleGroupReferenceStatementExcludedRule> excludedRules;
+    /**
+     * @return Override actions for specific rules within the rule group. See Rule Action Override below.
      * 
      */
     private @Nullable List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride> ruleActionOverrides;
 
     private WebAclRuleStatementRuleGroupReferenceStatement() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the `aws.wafv2.RuleGroup` resource.
+     * @return ARN of the rule group to reference.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
+     * @return Rules to exclude from the rule group. See Excluded Rule below.
+     * 
+     */
+    public List<WebAclRuleStatementRuleGroupReferenceStatementExcludedRule> excludedRules() {
+        return this.excludedRules == null ? List.of() : this.excludedRules;
+    }
+    /**
+     * @return Override actions for specific rules within the rule group. See Rule Action Override below.
      * 
      */
     public List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride> ruleActionOverrides() {
@@ -50,11 +63,13 @@ public final class WebAclRuleStatementRuleGroupReferenceStatement {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
+        private @Nullable List<WebAclRuleStatementRuleGroupReferenceStatementExcludedRule> excludedRules;
         private @Nullable List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride> ruleActionOverrides;
         public Builder() {}
         public Builder(WebAclRuleStatementRuleGroupReferenceStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
+    	      this.excludedRules = defaults.excludedRules;
     	      this.ruleActionOverrides = defaults.ruleActionOverrides;
         }
 
@@ -65,6 +80,15 @@ public final class WebAclRuleStatementRuleGroupReferenceStatement {
             }
             this.arn = arn;
             return this;
+        }
+        @CustomType.Setter
+        public Builder excludedRules(@Nullable List<WebAclRuleStatementRuleGroupReferenceStatementExcludedRule> excludedRules) {
+
+            this.excludedRules = excludedRules;
+            return this;
+        }
+        public Builder excludedRules(WebAclRuleStatementRuleGroupReferenceStatementExcludedRule... excludedRules) {
+            return excludedRules(List.of(excludedRules));
         }
         @CustomType.Setter
         public Builder ruleActionOverrides(@Nullable List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride> ruleActionOverrides) {
@@ -78,6 +102,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatement {
         public WebAclRuleStatementRuleGroupReferenceStatement build() {
             final var _resultValue = new WebAclRuleStatementRuleGroupReferenceStatement();
             _resultValue.arn = arn;
+            _resultValue.excludedRules = excludedRules;
             _resultValue.ruleActionOverrides = ruleActionOverrides;
             return _resultValue;
         }

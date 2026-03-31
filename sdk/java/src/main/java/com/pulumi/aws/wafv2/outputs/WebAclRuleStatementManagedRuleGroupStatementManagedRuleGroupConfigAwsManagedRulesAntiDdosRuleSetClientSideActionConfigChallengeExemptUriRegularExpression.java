@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpression {
     /**
-     * @return Regular expression string.
+     * @return Regular expression pattern to match against the web request component.
      * 
      */
     private @Nullable String regexString;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpression() {}
     /**
-     * @return Regular expression string.
+     * @return Regular expression pattern to match against the web request component.
      * 
      */
     public Optional<String> regexString() {

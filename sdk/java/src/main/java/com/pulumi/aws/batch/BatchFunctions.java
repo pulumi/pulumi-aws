@@ -234,7 +234,7 @@ public final class BatchFunctions {
      * 
      * ## Example Usage
      * 
-     * ### Lookup via Arn
+     * ### Lookup via ARN
      * 
      * <pre>
      * {@code
@@ -310,7 +310,7 @@ public final class BatchFunctions {
      * 
      * ## Example Usage
      * 
-     * ### Lookup via Arn
+     * ### Lookup via ARN
      * 
      * <pre>
      * {@code
@@ -386,7 +386,7 @@ public final class BatchFunctions {
      * 
      * ## Example Usage
      * 
-     * ### Lookup via Arn
+     * ### Lookup via ARN
      * 
      * <pre>
      * {@code
@@ -462,7 +462,7 @@ public final class BatchFunctions {
      * 
      * ## Example Usage
      * 
-     * ### Lookup via Arn
+     * ### Lookup via ARN
      * 
      * <pre>
      * {@code
@@ -538,7 +538,7 @@ public final class BatchFunctions {
      * 
      * ## Example Usage
      * 
-     * ### Lookup via Arn
+     * ### Lookup via ARN
      * 
      * <pre>
      * {@code
@@ -614,7 +614,7 @@ public final class BatchFunctions {
      * 
      * ## Example Usage
      * 
-     * ### Lookup via Arn
+     * ### Lookup via ARN
      * 
      * <pre>
      * {@code
@@ -690,7 +690,7 @@ public final class BatchFunctions {
      * 
      * ## Example Usage
      * 
-     * ### Lookup via Arn
+     * ### Lookup via ARN
      * 
      * <pre>
      * {@code

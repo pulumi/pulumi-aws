@@ -13,16 +13,13 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern
     {
-        /// <summary>
-        /// An empty configuration block that is used for inspecting all headers.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll? All;
         /// <summary>
-        /// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+        /// List of header names to exclude from inspection.
         /// </summary>
         public readonly ImmutableArray<string> ExcludedHeaders;
         /// <summary>
-        /// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+        /// List of header names to inspect.
         /// </summary>
         public readonly ImmutableArray<string> IncludedHeaders;
 

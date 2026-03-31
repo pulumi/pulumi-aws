@@ -55,7 +55,13 @@ namespace Pulumi.Aws.Msk
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import MSK serverless clusters using the cluster `Arn`. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the MSK serverless cluster.
+    /// 
+    /// Using `pulumi import`, import MSK serverless cluster using the cluster ARN. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:msk/serverlessCluster:ServerlessCluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3

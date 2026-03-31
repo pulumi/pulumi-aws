@@ -1997,8 +1997,10 @@ func (o OptInResourceDataDatabasePtrOutput) Name() pulumi.StringPtrOutput {
 type OptInResourceDataLfTag struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId *string `pulumi:"catalogId"`
-	Key       string  `pulumi:"key"`
-	Value     string  `pulumi:"value"`
+	// (Required) Key name for the LF-Tag.
+	Key string `pulumi:"key"`
+	// (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
+	Values []string `pulumi:"values"`
 }
 
 // OptInResourceDataLfTagInput is an input type that accepts OptInResourceDataLfTagArgs and OptInResourceDataLfTagOutput values.
@@ -2015,8 +2017,10 @@ type OptInResourceDataLfTagInput interface {
 type OptInResourceDataLfTagArgs struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
-	Key       pulumi.StringInput    `pulumi:"key"`
-	Value     pulumi.StringInput    `pulumi:"value"`
+	// (Required) Key name for the LF-Tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
+	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (OptInResourceDataLfTagArgs) ElementType() reflect.Type {
@@ -2101,12 +2105,14 @@ func (o OptInResourceDataLfTagOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OptInResourceDataLfTag) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
+// (Required) Key name for the LF-Tag.
 func (o OptInResourceDataLfTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v OptInResourceDataLfTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o OptInResourceDataLfTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v OptInResourceDataLfTag) string { return v.Value }).(pulumi.StringOutput)
+// (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
+func (o OptInResourceDataLfTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OptInResourceDataLfTag) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
 type OptInResourceDataLfTagPtrOutput struct{ *pulumi.OutputState }
@@ -2143,6 +2149,7 @@ func (o OptInResourceDataLfTagPtrOutput) CatalogId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// (Required) Key name for the LF-Tag.
 func (o OptInResourceDataLfTagPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OptInResourceDataLfTag) *string {
 		if v == nil {
@@ -2152,13 +2159,14 @@ func (o OptInResourceDataLfTagPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o OptInResourceDataLfTagPtrOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OptInResourceDataLfTag) *string {
+// (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
+func (o OptInResourceDataLfTagPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OptInResourceDataLfTag) []string {
 		if v == nil {
 			return nil
 		}
-		return &v.Value
-	}).(pulumi.StringPtrOutput)
+		return v.Values
+	}).(pulumi.StringArrayOutput)
 }
 
 type OptInResourceDataLfTagExpression struct {

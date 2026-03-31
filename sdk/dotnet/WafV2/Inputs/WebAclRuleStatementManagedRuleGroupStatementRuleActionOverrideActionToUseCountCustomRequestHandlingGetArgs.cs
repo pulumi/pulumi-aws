@@ -12,11 +12,11 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandlingGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("insertHeaders", required: true)]
+        [Input("insertHeaders")]
         private InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderGetArgs>? _insertHeaders;
 
         /// <summary>
-        /// The `InsertHeader` blocks used to define HTTP headers added to the request. See `InsertHeader` below for details.
+        /// Custom headers to insert into the request. See Insert Header below.
         /// </summary>
         public InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderGetArgs> InsertHeaders
         {

@@ -17,12 +17,20 @@ public final class AgentFlowDefinitionNodeInput {
      * 
      */
     private @Nullable String category;
+    /**
+     * @return An expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+     * 
+     */
     private String expression;
     /**
-     * @return A name for the flow.
+     * @return A name for the input that you can reference.
      * 
      */
     private String name;
+    /**
+     * @return The data type of the input. If the input doesn’t match this type at runtime, a validation error will be thrown.
+     * 
+     */
     private String type;
 
     private AgentFlowDefinitionNodeInput() {}
@@ -33,16 +41,24 @@ public final class AgentFlowDefinitionNodeInput {
     public Optional<String> category() {
         return Optional.ofNullable(this.category);
     }
+    /**
+     * @return An expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+     * 
+     */
     public String expression() {
         return this.expression;
     }
     /**
-     * @return A name for the flow.
+     * @return A name for the input that you can reference.
      * 
      */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The data type of the input. If the input doesn’t match this type at runtime, a validation error will be thrown.
+     * 
+     */
     public String type() {
         return this.type;
     }

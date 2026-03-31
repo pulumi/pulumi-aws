@@ -16,38 +16,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponse {
     /**
-     * @return References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
+     * @return Key of a custom response body defined in the Web ACL.
      * 
      */
     private @Nullable String customResponseBodyKey;
     /**
-     * @return The HTTP status code to return to the client.
+     * @return HTTP status code to return (200-599).
      * 
      */
     private Integer responseCode;
     /**
-     * @return The `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
+     * @return Custom headers to include in the response. See Response Header below.
      * 
      */
     private @Nullable List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeader> responseHeaders;
 
     private WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponse() {}
     /**
-     * @return References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
+     * @return Key of a custom response body defined in the Web ACL.
      * 
      */
     public Optional<String> customResponseBodyKey() {
         return Optional.ofNullable(this.customResponseBodyKey);
     }
     /**
-     * @return The HTTP status code to return to the client.
+     * @return HTTP status code to return (200-599).
      * 
      */
     public Integer responseCode() {
         return this.responseCode;
     }
     /**
-     * @return The `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
+     * @return Custom headers to include in the response. See Response Header below.
      * 
      */
     public List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeader> responseHeaders() {

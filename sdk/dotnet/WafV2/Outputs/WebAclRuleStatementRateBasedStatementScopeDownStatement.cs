@@ -14,62 +14,48 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementRateBasedStatementScopeDownStatement
     {
         /// <summary>
-        /// Logical rule statement used to combine other rule statements with AND logic. See `AndStatement` below for details.
-        /// </summary>
-        public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement? AndStatement;
-        /// <summary>
-        /// Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See `AsnMatchStatement` below for details.
+        /// Match requests based on Autonomous System Number (ASN). See ASN Match Statement above.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement? AsnMatchStatement;
         /// <summary>
-        /// Rule statement that defines a string match search for AWS WAF to apply to web requests. See `ByteMatchStatement` below for details.
+        /// Match requests based on byte patterns. See Byte Match Statement above.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement? ByteMatchStatement;
         /// <summary>
-        /// Rule statement used to identify web requests based on country of origin. See `GeoMatchStatement` below for details.
+        /// Match requests by geographic location. See Geo Match Statement above.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement? GeoMatchStatement;
         /// <summary>
-        /// Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `IpSetReferenceStatement` below for details.
+        /// Reference to an IP set. See IP Set Reference Statement above.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement? IpSetReferenceStatement;
         /// <summary>
-        /// Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `LabelMatchStatement` below for details.
+        /// Match requests based on labels. See Label Match Statement above.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement? LabelMatchStatement;
         /// <summary>
-        /// Logical rule statement used to negate the results of another rule statement. See `NotStatement` below for details.
-        /// </summary>
-        public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement? NotStatement;
-        /// <summary>
-        /// Logical rule statement used to combine other rule statements with OR logic. See `OrStatement` below for details.
-        /// </summary>
-        public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement? OrStatement;
-        /// <summary>
-        /// Rule statement used to search web request components for a match against a single regular expression. See `RegexMatchStatement` below for details.
+        /// Match requests using regex patterns. See Regex Match Statement above.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement? RegexMatchStatement;
         /// <summary>
-        /// Rule statement used to search web request components for matches with regular expressions. See `RegexPatternSetReferenceStatement` below for details.
+        /// Rule statement used to search web request components for matches with regular expressions from a RegexPatternSet.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement? RegexPatternSetReferenceStatement;
         /// <summary>
-        /// Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See `SizeConstraintStatement` below for more details.
+        /// Match requests based on size constraints. See Size Constraint Statement above.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement? SizeConstraintStatement;
         /// <summary>
-        /// An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `SqliMatchStatement` below for details.
+        /// Match requests that appear to contain SQL injection attacks.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement? SqliMatchStatement;
         /// <summary>
-        /// Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `XssMatchStatement` below for details.
+        /// Match requests that appear to contain cross-site scripting attacks.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement? XssMatchStatement;
 
         [OutputConstructor]
         private WebAclRuleStatementRateBasedStatementScopeDownStatement(
-            Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement? andStatement,
-
             Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement? asnMatchStatement,
 
             Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement? byteMatchStatement,
@@ -79,10 +65,6 @@ namespace Pulumi.Aws.WafV2.Outputs
             Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement? ipSetReferenceStatement,
 
             Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement? labelMatchStatement,
-
-            Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement? notStatement,
-
-            Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement? orStatement,
 
             Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement? regexMatchStatement,
 
@@ -94,14 +76,11 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement? xssMatchStatement)
         {
-            AndStatement = andStatement;
             AsnMatchStatement = asnMatchStatement;
             ByteMatchStatement = byteMatchStatement;
             GeoMatchStatement = geoMatchStatement;
             IpSetReferenceStatement = ipSetReferenceStatement;
             LabelMatchStatement = labelMatchStatement;
-            NotStatement = notStatement;
-            OrStatement = orStatement;
             RegexMatchStatement = regexMatchStatement;
             RegexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
             SizeConstraintStatement = sizeConstraintStatement;

@@ -17,14 +17,14 @@ public final class WebAclRuleOverrideActionArgs extends com.pulumi.resources.Res
     public static final WebAclRuleOverrideActionArgs Empty = new WebAclRuleOverrideActionArgs();
 
     /**
-     * Override the rule action setting to count (i.e., only count matches). Configured as an empty block `{}`.
+     * Override the rule action with count.
      * 
      */
     @Import(name="count")
     private @Nullable Output<WebAclRuleOverrideActionCountArgs> count;
 
     /**
-     * @return Override the rule action setting to count (i.e., only count matches). Configured as an empty block `{}`.
+     * @return Override the rule action with count.
      * 
      */
     public Optional<Output<WebAclRuleOverrideActionCountArgs>> count() {
@@ -32,14 +32,14 @@ public final class WebAclRuleOverrideActionArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Don&#39;t override the rule action setting. Configured as an empty block `{}`.
+     * Don&#39;t override the rule action.
      * 
      */
     @Import(name="none")
     private @Nullable Output<WebAclRuleOverrideActionNoneArgs> none;
 
     /**
-     * @return Don&#39;t override the rule action setting. Configured as an empty block `{}`.
+     * @return Don&#39;t override the rule action.
      * 
      */
     public Optional<Output<WebAclRuleOverrideActionNoneArgs>> none() {
@@ -72,7 +72,7 @@ public final class WebAclRuleOverrideActionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param count Override the rule action setting to count (i.e., only count matches). Configured as an empty block `{}`.
+         * @param count Override the rule action with count.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class WebAclRuleOverrideActionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param count Override the rule action setting to count (i.e., only count matches). Configured as an empty block `{}`.
+         * @param count Override the rule action with count.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class WebAclRuleOverrideActionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param none Don&#39;t override the rule action setting. Configured as an empty block `{}`.
+         * @param none Don&#39;t override the rule action.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class WebAclRuleOverrideActionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param none Don&#39;t override the rule action setting. Configured as an empty block `{}`.
+         * @param none Don&#39;t override the rule action.
          * 
          * @return builder
          * 

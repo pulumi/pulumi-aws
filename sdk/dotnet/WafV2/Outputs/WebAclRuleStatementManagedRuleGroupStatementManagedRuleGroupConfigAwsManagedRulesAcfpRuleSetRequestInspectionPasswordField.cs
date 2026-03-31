@@ -13,9 +13,6 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField
     {
-        /// <summary>
-        /// The name of the password field.
-        /// </summary>
         public readonly string Identifier;
 
         [OutputConstructor]

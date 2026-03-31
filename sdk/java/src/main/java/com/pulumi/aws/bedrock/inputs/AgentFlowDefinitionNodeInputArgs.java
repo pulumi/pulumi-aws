@@ -31,31 +31,47 @@ public final class AgentFlowDefinitionNodeInputArgs extends com.pulumi.resources
         return Optional.ofNullable(this.category);
     }
 
+    /**
+     * An expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+     * 
+     */
     @Import(name="expression", required=true)
     private Output<String> expression;
 
+    /**
+     * @return An expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+     * 
+     */
     public Output<String> expression() {
         return this.expression;
     }
 
     /**
-     * A name for the flow.
+     * A name for the input that you can reference.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return A name for the flow.
+     * @return A name for the input that you can reference.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * The data type of the input. If the input doesn’t match this type at runtime, a validation error will be thrown.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return The data type of the input. If the input doesn’t match this type at runtime, a validation error will be thrown.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -108,17 +124,29 @@ public final class AgentFlowDefinitionNodeInputArgs extends com.pulumi.resources
             return category(Output.of(category));
         }
 
+        /**
+         * @param expression An expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder expression(Output<String> expression) {
             $.expression = expression;
             return this;
         }
 
+        /**
+         * @param expression An expression that formats the input for the node. For an explanation of how to create expressions, see [Expressions in Prompt flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-expressions.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder expression(String expression) {
             return expression(Output.of(expression));
         }
 
         /**
-         * @param name A name for the flow.
+         * @param name A name for the input that you can reference.
          * 
          * @return builder
          * 
@@ -129,7 +157,7 @@ public final class AgentFlowDefinitionNodeInputArgs extends com.pulumi.resources
         }
 
         /**
-         * @param name A name for the flow.
+         * @param name A name for the input that you can reference.
          * 
          * @return builder
          * 
@@ -138,11 +166,23 @@ public final class AgentFlowDefinitionNodeInputArgs extends com.pulumi.resources
             return name(Output.of(name));
         }
 
+        /**
+         * @param type The data type of the input. If the input doesn’t match this type at runtime, a validation error will be thrown.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The data type of the input. If the input doesn’t match this type at runtime, a validation error will be thrown.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

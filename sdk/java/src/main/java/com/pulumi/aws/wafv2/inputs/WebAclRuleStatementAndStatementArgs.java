@@ -6,9 +6,10 @@ package com.pulumi.aws.wafv2.inputs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class WebAclRuleStatementAndStatementArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,15 +20,15 @@ public final class WebAclRuleStatementAndStatementArgs extends com.pulumi.resour
      * The statements to combine.
      * 
      */
-    @Import(name="statements", required=true)
-    private Output<List<WebAclRuleStatementArgs>> statements;
+    @Import(name="statements")
+    private @Nullable Output<List<WebAclRuleStatementArgs>> statements;
 
     /**
      * @return The statements to combine.
      * 
      */
-    public Output<List<WebAclRuleStatementArgs>> statements() {
-        return this.statements;
+    public Optional<Output<List<WebAclRuleStatementArgs>>> statements() {
+        return Optional.ofNullable(this.statements);
     }
 
     private WebAclRuleStatementAndStatementArgs() {}
@@ -60,7 +61,7 @@ public final class WebAclRuleStatementAndStatementArgs extends com.pulumi.resour
          * @return builder
          * 
          */
-        public Builder statements(Output<List<WebAclRuleStatementArgs>> statements) {
+        public Builder statements(@Nullable Output<List<WebAclRuleStatementArgs>> statements) {
             $.statements = statements;
             return this;
         }
@@ -86,9 +87,6 @@ public final class WebAclRuleStatementAndStatementArgs extends com.pulumi.resour
         }
 
         public WebAclRuleStatementAndStatementArgs build() {
-            if ($.statements == null) {
-                throw new MissingRequiredPropertyException("WebAclRuleStatementAndStatementArgs", "statements");
-            }
             return $;
         }
     }

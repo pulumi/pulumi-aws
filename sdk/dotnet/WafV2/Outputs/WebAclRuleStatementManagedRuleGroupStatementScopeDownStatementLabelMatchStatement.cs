@@ -14,11 +14,11 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement
     {
         /// <summary>
-        /// String to match against.
+        /// String to match against. For `LABEL` scope, include the name and any preceding namespace specifications. For `NAMESPACE` scope, include namespace strings. Labels are case sensitive and components must be separated by colon (e.g., `NS1:NS2:name`).
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+        /// Whether to match using the label name or namespace. Valid values: `LABEL`, `NAMESPACE`.
         /// </summary>
         public readonly string Scope;
 

@@ -31,25 +31,25 @@ namespace Pulumi.Aws.GuardDuty.Inputs
         public Input<string> Field { get; set; } = null!;
 
         /// <summary>
-        /// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        /// A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         [Input("greaterThan")]
         public Input<string>? GreaterThan { get; set; }
 
         /// <summary>
-        /// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        /// A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         [Input("greaterThanOrEqual")]
         public Input<string>? GreaterThanOrEqual { get; set; }
 
         /// <summary>
-        /// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        /// A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         [Input("lessThan")]
         public Input<string>? LessThan { get; set; }
 
         /// <summary>
-        /// A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        /// A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         [Input("lessThanOrEqual")]
         public Input<string>? LessThanOrEqual { get; set; }

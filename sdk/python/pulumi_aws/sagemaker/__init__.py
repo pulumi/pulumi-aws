@@ -6,6 +6,7 @@ import builtins as _builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .algorithm import *
 from .app import *
 from .app_image_config import *
 from .code_repository import *

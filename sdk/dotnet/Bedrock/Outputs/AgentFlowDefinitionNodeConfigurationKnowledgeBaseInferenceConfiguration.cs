@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfiguration
     {
+        /// <summary>
+        /// Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
+        /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationText? Text;
 
         [OutputConstructor]

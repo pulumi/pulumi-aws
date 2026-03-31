@@ -21,14 +21,14 @@ public final class WebAclRuleStatementSizeConstraintStatementArgs extends com.pu
     public static final WebAclRuleStatementSizeConstraintStatementArgs Empty = new WebAclRuleStatementSizeConstraintStatementArgs();
 
     /**
-     * Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+     * Operator to use to compare the request part to the size setting. Valid values: `EQ`, `NE`, `LE`, `LT`, `GE`, `GT`.
      * 
      */
     @Import(name="comparisonOperator", required=true)
     private Output<String> comparisonOperator;
 
     /**
-     * @return Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+     * @return Operator to use to compare the request part to the size setting. Valid values: `EQ`, `NE`, `LE`, `LT`, `GE`, `GT`.
      * 
      */
     public Output<String> comparisonOperator() {
@@ -36,14 +36,14 @@ public final class WebAclRuleStatementSizeConstraintStatementArgs extends com.pu
     }
 
     /**
-     * Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+     * Part of the web request that you want WAF to inspect. See Field to Match below.
      * 
      */
     @Import(name="fieldToMatch")
     private @Nullable Output<WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs> fieldToMatch;
 
     /**
-     * @return Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+     * @return Part of the web request that you want WAF to inspect. See Field to Match below.
      * 
      */
     public Optional<Output<WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs>> fieldToMatch() {
@@ -51,14 +51,14 @@ public final class WebAclRuleStatementSizeConstraintStatementArgs extends com.pu
     }
 
     /**
-     * Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+     * Size, in bytes, to compare to the request part, after any transformations.
      * 
      */
     @Import(name="size", required=true)
     private Output<Integer> size;
 
     /**
-     * @return Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+     * @return Size, in bytes, to compare to the request part, after any transformations.
      * 
      */
     public Output<Integer> size() {
@@ -66,18 +66,18 @@ public final class WebAclRuleStatementSizeConstraintStatementArgs extends com.pu
     }
 
     /**
-     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below.
      * 
      */
-    @Import(name="textTransformations", required=true)
-    private Output<List<WebAclRuleStatementSizeConstraintStatementTextTransformationArgs>> textTransformations;
+    @Import(name="textTransformations")
+    private @Nullable Output<List<WebAclRuleStatementSizeConstraintStatementTextTransformationArgs>> textTransformations;
 
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below.
      * 
      */
-    public Output<List<WebAclRuleStatementSizeConstraintStatementTextTransformationArgs>> textTransformations() {
-        return this.textTransformations;
+    public Optional<Output<List<WebAclRuleStatementSizeConstraintStatementTextTransformationArgs>>> textTransformations() {
+        return Optional.ofNullable(this.textTransformations);
     }
 
     private WebAclRuleStatementSizeConstraintStatementArgs() {}
@@ -108,7 +108,7 @@ public final class WebAclRuleStatementSizeConstraintStatementArgs extends com.pu
         }
 
         /**
-         * @param comparisonOperator Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         * @param comparisonOperator Operator to use to compare the request part to the size setting. Valid values: `EQ`, `NE`, `LE`, `LT`, `GE`, `GT`.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class WebAclRuleStatementSizeConstraintStatementArgs extends com.pu
         }
 
         /**
-         * @param comparisonOperator Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         * @param comparisonOperator Operator to use to compare the request part to the size setting. Valid values: `EQ`, `NE`, `LE`, `LT`, `GE`, `GT`.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class WebAclRuleStatementSizeConstraintStatementArgs extends com.pu
         }
 
         /**
-         * @param fieldToMatch Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+         * @param fieldToMatch Part of the web request that you want WAF to inspect. See Field to Match below.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class WebAclRuleStatementSizeConstraintStatementArgs extends com.pu
         }
 
         /**
-         * @param fieldToMatch Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+         * @param fieldToMatch Part of the web request that you want WAF to inspect. See Field to Match below.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class WebAclRuleStatementSizeConstraintStatementArgs extends com.pu
         }
 
         /**
-         * @param size Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         * @param size Size, in bytes, to compare to the request part, after any transformations.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class WebAclRuleStatementSizeConstraintStatementArgs extends com.pu
         }
 
         /**
-         * @param size Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         * @param size Size, in bytes, to compare to the request part, after any transformations.
          * 
          * @return builder
          * 
@@ -171,18 +171,18 @@ public final class WebAclRuleStatementSizeConstraintStatementArgs extends com.pu
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below.
          * 
          * @return builder
          * 
          */
-        public Builder textTransformations(Output<List<WebAclRuleStatementSizeConstraintStatementTextTransformationArgs>> textTransformations) {
+        public Builder textTransformations(@Nullable Output<List<WebAclRuleStatementSizeConstraintStatementTextTransformationArgs>> textTransformations) {
             $.textTransformations = textTransformations;
             return this;
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class WebAclRuleStatementSizeConstraintStatementArgs extends com.pu
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below.
          * 
          * @return builder
          * 
@@ -207,9 +207,6 @@ public final class WebAclRuleStatementSizeConstraintStatementArgs extends com.pu
             }
             if ($.size == null) {
                 throw new MissingRequiredPropertyException("WebAclRuleStatementSizeConstraintStatementArgs", "size");
-            }
-            if ($.textTransformations == null) {
-                throw new MissingRequiredPropertyException("WebAclRuleStatementSizeConstraintStatementArgs", "textTransformations");
             }
             return $;
         }

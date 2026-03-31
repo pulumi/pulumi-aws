@@ -14,11 +14,11 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleOverrideAction
     {
         /// <summary>
-        /// Override the rule action setting to count (i.e., only count matches). Configured as an empty block `{}`.
+        /// Override the rule action with count.
         /// </summary>
         public readonly Outputs.WebAclRuleOverrideActionCount? Count;
         /// <summary>
-        /// Don't override the rule action setting. Configured as an empty block `{}`.
+        /// Don't override the rule action.
         /// </summary>
         public readonly Outputs.WebAclRuleOverrideActionNone? None;
 

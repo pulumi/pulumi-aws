@@ -989,7 +989,13 @@ class OptInResourceDataDatabaseArgs:
 
 class OptInResourceDataLfTagArgsDict(TypedDict):
     key: pulumi.Input[_builtins.str]
-    value: pulumi.Input[_builtins.str]
+    """
+    (Required) Key name for the LF-Tag.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
+    """
     catalog_id: NotRequired[pulumi.Input[_builtins.str]]
     """
     Identifier for the Data Catalog. By default, it is the account ID of the caller.
@@ -999,19 +1005,24 @@ class OptInResourceDataLfTagArgsDict(TypedDict):
 class OptInResourceDataLfTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
-                 value: pulumi.Input[_builtins.str],
+                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  catalog_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
+        :param pulumi.Input[_builtins.str] key: (Required) Key name for the LF-Tag.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
         :param pulumi.Input[_builtins.str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
         """
         pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "values", values)
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        (Required) Key name for the LF-Tag.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1020,12 +1031,15 @@ class OptInResourceDataLfTagArgs:
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> pulumi.Input[_builtins.str]:
-        return pulumi.get(self, "value")
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
+        """
+        return pulumi.get(self, "values")
 
-    @value.setter
-    def value(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "value", value)
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values", value)
 
     @_builtins.property
     @pulumi.getter(name="catalogId")

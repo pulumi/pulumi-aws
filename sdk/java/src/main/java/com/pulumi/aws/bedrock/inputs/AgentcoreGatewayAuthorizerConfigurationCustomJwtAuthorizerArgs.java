@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.bedrock.inputs;
 
+import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -47,11 +48,34 @@ public final class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArg
         return Optional.ofNullable(this.allowedClients);
     }
 
-    @Import(name="allowedScopes", required=true)
-    private Output<List<String>> allowedScopes;
+    /**
+     * Set of scopes that are allowed to access the token.
+     * 
+     */
+    @Import(name="allowedScopes")
+    private @Nullable Output<List<String>> allowedScopes;
 
-    public Output<List<String>> allowedScopes() {
-        return this.allowedScopes;
+    /**
+     * @return Set of scopes that are allowed to access the token.
+     * 
+     */
+    public Optional<Output<List<String>>> allowedScopes() {
+        return Optional.ofNullable(this.allowedScopes);
+    }
+
+    /**
+     * Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+     * 
+     */
+    @Import(name="customClaims")
+    private @Nullable Output<List<AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs>> customClaims;
+
+    /**
+     * @return Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+     * 
+     */
+    public Optional<Output<List<AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs>>> customClaims() {
+        return Optional.ofNullable(this.customClaims);
     }
 
     /**
@@ -75,6 +99,7 @@ public final class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArg
         this.allowedAudiences = $.allowedAudiences;
         this.allowedClients = $.allowedClients;
         this.allowedScopes = $.allowedScopes;
+        this.customClaims = $.customClaims;
         this.discoveryUrl = $.discoveryUrl;
     }
 
@@ -158,17 +183,66 @@ public final class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArg
             return allowedClients(List.of(allowedClients));
         }
 
-        public Builder allowedScopes(Output<List<String>> allowedScopes) {
+        /**
+         * @param allowedScopes Set of scopes that are allowed to access the token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedScopes(@Nullable Output<List<String>> allowedScopes) {
             $.allowedScopes = allowedScopes;
             return this;
         }
 
+        /**
+         * @param allowedScopes Set of scopes that are allowed to access the token.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowedScopes(List<String> allowedScopes) {
             return allowedScopes(Output.of(allowedScopes));
         }
 
+        /**
+         * @param allowedScopes Set of scopes that are allowed to access the token.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowedScopes(String... allowedScopes) {
             return allowedScopes(List.of(allowedScopes));
+        }
+
+        /**
+         * @param customClaims Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customClaims(@Nullable Output<List<AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs>> customClaims) {
+            $.customClaims = customClaims;
+            return this;
+        }
+
+        /**
+         * @param customClaims Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customClaims(List<AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs> customClaims) {
+            return customClaims(Output.of(customClaims));
+        }
+
+        /**
+         * @param customClaims Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customClaims(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs... customClaims) {
+            return customClaims(List.of(customClaims));
         }
 
         /**
@@ -193,9 +267,6 @@ public final class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArg
         }
 
         public AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs build() {
-            if ($.allowedScopes == null) {
-                throw new MissingRequiredPropertyException("AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs", "allowedScopes");
-            }
             if ($.discoveryUrl == null) {
                 throw new MissingRequiredPropertyException("AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs", "discoveryUrl");
             }

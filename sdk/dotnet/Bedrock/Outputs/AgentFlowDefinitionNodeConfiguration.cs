@@ -21,14 +21,20 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationCollector? Collector;
+        /// <summary>
+        /// Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
+        /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationCondition? Condition;
         /// <summary>
         /// Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationInlineCode? InlineCode;
+        /// <summary>
+        /// Contains configurations for an input flow node in your flow. The node `Inputs` can’t be specified for this node. This block has no fields.
+        /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationInput? Input;
         /// <summary>
-        /// Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
+        /// Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationIterator? Iterator;
         /// <summary>
@@ -43,6 +49,9 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationLex? Lex;
+        /// <summary>
+        /// Contains configurations for an output flow node in your flow. The node `Outputs` can’t be specified for this node. This block has no fields.
+        /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationOutput? Output;
         /// <summary>
         /// Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.

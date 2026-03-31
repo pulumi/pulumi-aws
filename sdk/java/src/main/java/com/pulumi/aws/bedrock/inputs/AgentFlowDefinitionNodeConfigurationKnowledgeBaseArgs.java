@@ -20,14 +20,14 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs extends
     public static final AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs Empty = new AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs();
 
     /**
-     * Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+     * Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
      * 
      */
     @Import(name="guardrailConfiguration")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs> guardrailConfiguration;
 
     /**
-     * @return Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+     * @return Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs>> guardrailConfiguration() {
@@ -35,14 +35,14 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs extends
     }
 
     /**
-     * Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+     * Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
      * 
      */
     @Import(name="inferenceConfiguration")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs> inferenceConfiguration;
 
     /**
-     * @return Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+     * @return Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs>> inferenceConfiguration() {
@@ -64,9 +64,17 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs extends
         return this.knowledgeBaseId;
     }
 
+    /**
+     * The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
+     * 
+     */
     @Import(name="modelId", required=true)
     private Output<String> modelId;
 
+    /**
+     * @return The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
+     * 
+     */
     public Output<String> modelId() {
         return this.modelId;
     }
@@ -107,7 +115,7 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs extends
         }
 
         /**
-         * @param guardrailConfiguration Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+         * @param guardrailConfiguration Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
          * 
          * @return builder
          * 
@@ -118,7 +126,7 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs extends
         }
 
         /**
-         * @param guardrailConfiguration Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+         * @param guardrailConfiguration Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
          * 
          * @return builder
          * 
@@ -128,7 +136,7 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs extends
         }
 
         /**
-         * @param inferenceConfiguration Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+         * @param inferenceConfiguration Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
          * 
          * @return builder
          * 
@@ -139,7 +147,7 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs extends
         }
 
         /**
-         * @param inferenceConfiguration Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+         * @param inferenceConfiguration Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
          * 
          * @return builder
          * 
@@ -169,11 +177,23 @@ public final class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs extends
             return knowledgeBaseId(Output.of(knowledgeBaseId));
         }
 
+        /**
+         * @param modelId The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
+         * 
+         * @return builder
+         * 
+         */
         public Builder modelId(Output<String> modelId) {
             $.modelId = modelId;
             return this;
         }
 
+        /**
+         * @param modelId The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
+         * 
+         * @return builder
+         * 
+         */
         public Builder modelId(String modelId) {
             return modelId(Output.of(modelId));
         }

@@ -13,52 +13,49 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementRateBasedStatementCustomKey
     {
-        /// <summary>
-        /// Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. See RateLimit `Asn` below for details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementCustomKeyAsn? Asn;
         /// <summary>
-        /// Use the value of a cookie in the request as an aggregate key. See RateLimit `Cookie` below for details.
+        /// Use a cookie as an aggregate key. See Custom Key Cookie below.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementCustomKeyCookie? Cookie;
         /// <summary>
-        /// Use the first IP address in an HTTP header as an aggregate key. See `ForwardedIp` below for details.
+        /// Use the forwarded IP address as an aggregate key.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementCustomKeyForwardedIp? ForwardedIp;
         /// <summary>
-        /// Use the value of a header in the request as an aggregate key. See RateLimit `Header` below for details.
+        /// Use a header as an aggregate key. See Custom Key Header below.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementCustomKeyHeader? Header;
         /// <summary>
-        /// Use the request's HTTP method as an aggregate key. See RateLimit `HttpMethod` below for details.
+        /// Use the HTTP method as an aggregate key.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementCustomKeyHttpMethod? HttpMethod;
         /// <summary>
-        /// Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
+        /// Use the IP address as an aggregate key.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementCustomKeyIp? Ip;
         /// <summary>
-        /// Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+        /// Match against the request's JA3 fingerprint (CloudFront and ALB only). See JA3 Fingerprint below.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementCustomKeyJa3Fingerprint? Ja3Fingerprint;
         /// <summary>
-        /// Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+        /// Match against the request's JA4 fingerprint (CloudFront and ALB only). See JA4 Fingerprint below.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementCustomKeyJa4Fingerprint? Ja4Fingerprint;
         /// <summary>
-        /// Use the specified label namespace as an aggregate key. See RateLimit `LabelNamespace` below for details.
+        /// Use a label namespace as an aggregate key. See Custom Key Label Namespace below.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespace? LabelNamespace;
         /// <summary>
-        /// Use the specified query argument as an aggregate key. See RateLimit `QueryArgument` below for details.
+        /// Use a query argument as an aggregate key. See Custom Key Query Argument below.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryArgument? QueryArgument;
         /// <summary>
-        /// Use the request's query string as an aggregate key. See RateLimit `QueryString` below for details.
+        /// Use the query string as an aggregate key.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryString? QueryString;
         /// <summary>
-        /// Use the request's URI path as an aggregate key. See RateLimit `UriPath` below for details.
+        /// Use the URI path as an aggregate key.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementCustomKeyUriPath? UriPath;
 

@@ -14,6 +14,10 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
     {
         [Input("associationSyncStates", required: true)]
         private InputList<Inputs.VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgs>? _associationSyncStates;
+
+        /// <summary>
+        /// Set of subnets configured for use by the VPC Endpoint Association.
+        /// </summary>
         public InputList<Inputs.VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgs> AssociationSyncStates
         {
             get => _associationSyncStates ?? (_associationSyncStates = new InputList<Inputs.VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArgs>());

@@ -477,6 +477,8 @@ if typing.TYPE_CHECKING:
     wafregional = __wafregional
     import pulumi_aws.wafv2 as __wafv2
     wafv2 = __wafv2
+    import pulumi_aws.workmail as __workmail
+    workmail = __workmail
     import pulumi_aws.workspaces as __workspaces
     workspaces = __workspaces
     import pulumi_aws.workspacesweb as __workspacesweb
@@ -710,6 +712,7 @@ else:
     waf = _utilities.lazy_import('pulumi_aws.waf')
     wafregional = _utilities.lazy_import('pulumi_aws.wafregional')
     wafv2 = _utilities.lazy_import('pulumi_aws.wafv2')
+    workmail = _utilities.lazy_import('pulumi_aws.workmail')
     workspaces = _utilities.lazy_import('pulumi_aws.workspaces')
     workspacesweb = _utilities.lazy_import('pulumi_aws.workspacesweb')
     xray = _utilities.lazy_import('pulumi_aws.xray')
@@ -5583,6 +5586,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2transitgateway/meteringPolicy",
+  "fqn": "pulumi_aws.ec2transitgateway",
+  "classes": {
+   "aws:ec2transitgateway/meteringPolicy:MeteringPolicy": "MeteringPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2transitgateway/meteringPolicyEntry",
+  "fqn": "pulumi_aws.ec2transitgateway",
+  "classes": {
+   "aws:ec2transitgateway/meteringPolicyEntry:MeteringPolicyEntry": "MeteringPolicyEntry"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2transitgateway/multicastDomain",
   "fqn": "pulumi_aws.ec2transitgateway",
   "classes": {
@@ -8719,6 +8738,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "msk/topic",
+  "fqn": "pulumi_aws.msk",
+  "classes": {
+   "aws:msk/topic:Topic": "Topic"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "msk/vpcConnection",
   "fqn": "pulumi_aws.msk",
   "classes": {
@@ -9203,6 +9230,14 @@ _utilities.register(
   "fqn": "pulumi_aws.observabilityadmin",
   "classes": {
    "aws:observabilityadmin/centralizationRuleForOrganization:CentralizationRuleForOrganization": "CentralizationRuleForOrganization"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "observabilityadmin/telemetryEnrichment",
+  "fqn": "pulumi_aws.observabilityadmin",
+  "classes": {
+   "aws:observabilityadmin/telemetryEnrichment:TelemetryEnrichment": "TelemetryEnrichment"
   }
  },
  {
@@ -11299,6 +11334,14 @@ _utilities.register(
   "fqn": "pulumi_aws.s3tables",
   "classes": {
    "aws:s3tables/tableReplication:TableReplication": "TableReplication"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sagemaker/algorithm",
+  "fqn": "pulumi_aws.sagemaker",
+  "classes": {
+   "aws:sagemaker/algorithm:Algorithm": "Algorithm"
   }
  },
  {
@@ -13535,10 +13578,42 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "wafv2/webAclRule",
+  "fqn": "pulumi_aws.wafv2",
+  "classes": {
+   "aws:wafv2/webAclRule:WebAclRule": "WebAclRule"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "wafv2/webAclRuleGroupAssociation",
   "fqn": "pulumi_aws.wafv2",
   "classes": {
    "aws:wafv2/webAclRuleGroupAssociation:WebAclRuleGroupAssociation": "WebAclRuleGroupAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workmail/defaultDomain",
+  "fqn": "pulumi_aws.workmail",
+  "classes": {
+   "aws:workmail/defaultDomain:DefaultDomain": "DefaultDomain"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workmail/domain",
+  "fqn": "pulumi_aws.workmail",
+  "classes": {
+   "aws:workmail/domain:Domain": "Domain"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workmail/organization",
+  "fqn": "pulumi_aws.workmail",
+  "classes": {
+   "aws:workmail/organization:Organization": "Organization"
   }
  },
  {

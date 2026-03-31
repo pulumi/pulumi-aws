@@ -15,18 +15,9 @@ namespace Pulumi.Aws.WafV2.Outputs
     {
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields? AddressFields;
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField? EmailField;
-        /// <summary>
-        /// Details about your login page password field. See `PasswordField` for more details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField? PasswordField;
-        /// <summary>
-        /// The payload type for your login endpoint, either JSON or form encoded.
-        /// </summary>
         public readonly string PayloadType;
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields? PhoneNumberFields;
-        /// <summary>
-        /// Details about your login page username field. See `UsernameField` for more details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField? UsernameField;
 
         [OutputConstructor]

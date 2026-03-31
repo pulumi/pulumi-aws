@@ -5,25 +5,25 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandling {
     /**
-     * @return The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+     * @return Custom headers to insert into the request. See Insert Header below.
      * 
      */
-    private List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader> insertHeaders;
+    private @Nullable List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader> insertHeaders;
 
     private WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandling() {}
     /**
-     * @return The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+     * @return Custom headers to insert into the request. See Insert Header below.
      * 
      */
     public List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader> insertHeaders() {
-        return this.insertHeaders;
+        return this.insertHeaders == null ? List.of() : this.insertHeaders;
     }
 
     public static Builder builder() {
@@ -35,7 +35,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader> insertHeaders;
+        private @Nullable List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader> insertHeaders;
         public Builder() {}
         public Builder(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandling defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,10 +43,8 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
         }
 
         @CustomType.Setter
-        public Builder insertHeaders(List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader> insertHeaders) {
-            if (insertHeaders == null) {
-              throw new MissingRequiredPropertyException("WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandling", "insertHeaders");
-            }
+        public Builder insertHeaders(@Nullable List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader> insertHeaders) {
+
             this.insertHeaders = insertHeaders;
             return this;
         }

@@ -16,14 +16,14 @@ public final class WebAclRuleActionCountArgs extends com.pulumi.resources.Resour
     public static final WebAclRuleActionCountArgs Empty = new WebAclRuleActionCountArgs();
 
     /**
-     * Defines custom handling for the web request. See `customRequestHandling` below for details.
+     * Custom request handling configuration. See Custom Request Handling below.
      * 
      */
     @Import(name="customRequestHandling")
     private @Nullable Output<WebAclRuleActionCountCustomRequestHandlingArgs> customRequestHandling;
 
     /**
-     * @return Defines custom handling for the web request. See `customRequestHandling` below for details.
+     * @return Custom request handling configuration. See Custom Request Handling below.
      * 
      */
     public Optional<Output<WebAclRuleActionCountCustomRequestHandlingArgs>> customRequestHandling() {
@@ -55,7 +55,7 @@ public final class WebAclRuleActionCountArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param customRequestHandling Defines custom handling for the web request. See `customRequestHandling` below for details.
+         * @param customRequestHandling Custom request handling configuration. See Custom Request Handling below.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class WebAclRuleActionCountArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param customRequestHandling Defines custom handling for the web request. See `customRequestHandling` below for details.
+         * @param customRequestHandling Custom request handling configuration. See Custom Request Handling below.
          * 
          * @return builder
          * 

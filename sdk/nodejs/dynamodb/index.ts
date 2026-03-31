@@ -11,6 +11,11 @@ export const ContributorInsights: typeof import("./contributorInsights").Contrib
 utilities.lazyLoad(exports, ["ContributorInsights"], () => require("./contributorInsights"));
 
 export * from "./dynamodbMixins";
+export { GetBackupsArgs, GetBackupsResult, GetBackupsOutputArgs } from "./getBackups";
+export const getBackups: typeof import("./getBackups").getBackups = null as any;
+export const getBackupsOutput: typeof import("./getBackups").getBackupsOutput = null as any;
+utilities.lazyLoad(exports, ["getBackups","getBackupsOutput"], () => require("./getBackups"));
+
 export { GetTableArgs, GetTableResult, GetTableOutputArgs } from "./getTable";
 export const getTable: typeof import("./getTable").getTable = null as any;
 export const getTableOutput: typeof import("./getTable").getTableOutput = null as any;

@@ -24,22 +24,22 @@ public final class FilterFindingCriteriaCriterion {
      */
     private String field;
     /**
-     * @return A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * @return A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
     private @Nullable String greaterThan;
     /**
-     * @return A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * @return A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
     private @Nullable String greaterThanOrEqual;
     /**
-     * @return A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * @return A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
     private @Nullable String lessThan;
     /**
-     * @return A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * @return A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
     private @Nullable String lessThanOrEqual;
@@ -75,28 +75,28 @@ public final class FilterFindingCriteriaCriterion {
         return this.field;
     }
     /**
-     * @return A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * @return A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
     public Optional<String> greaterThan() {
         return Optional.ofNullable(this.greaterThan);
     }
     /**
-     * @return A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * @return A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
     public Optional<String> greaterThanOrEqual() {
         return Optional.ofNullable(this.greaterThanOrEqual);
     }
     /**
-     * @return A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * @return A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
     public Optional<String> lessThan() {
         return Optional.ofNullable(this.lessThan);
     }
     /**
-     * @return A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * @return A value to be evaluated. Accepts either an integer given as a string (i.e., enclosed in quotations) or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
     public Optional<String> lessThanOrEqual() {

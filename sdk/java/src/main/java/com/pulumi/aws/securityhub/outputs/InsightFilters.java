@@ -4,7 +4,12 @@
 package com.pulumi.aws.securityhub.outputs;
 
 import com.pulumi.aws.securityhub.outputs.InsightFiltersAwsAccountId;
+import com.pulumi.aws.securityhub.outputs.InsightFiltersAwsAccountName;
 import com.pulumi.aws.securityhub.outputs.InsightFiltersCompanyName;
+import com.pulumi.aws.securityhub.outputs.InsightFiltersComplianceAssociatedStandardsId;
+import com.pulumi.aws.securityhub.outputs.InsightFiltersComplianceSecurityControlId;
+import com.pulumi.aws.securityhub.outputs.InsightFiltersComplianceSecurityControlParametersName;
+import com.pulumi.aws.securityhub.outputs.InsightFiltersComplianceSecurityControlParametersValue;
 import com.pulumi.aws.securityhub.outputs.InsightFiltersComplianceStatus;
 import com.pulumi.aws.securityhub.outputs.InsightFiltersConfidence;
 import com.pulumi.aws.securityhub.outputs.InsightFiltersCreatedAt;
@@ -104,10 +109,35 @@ public final class InsightFilters {
      */
     private @Nullable List<InsightFiltersAwsAccountId> awsAccountIds;
     /**
+     * @return The name of the AWS account in which a finding is generated. See String_Filter below for more details.
+     * 
+     */
+    private @Nullable List<InsightFiltersAwsAccountName> awsAccountNames;
+    /**
      * @return The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
      * 
      */
     private @Nullable List<InsightFiltersCompanyName> companyNames;
+    /**
+     * @return The unique identifier of a standard in which a control is enabled. See String_Filter below for more details.
+     * 
+     */
+    private @Nullable List<InsightFiltersComplianceAssociatedStandardsId> complianceAssociatedStandardsIds;
+    /**
+     * @return The unique identifier of a control across standards. See String_Filter below for more details.
+     * 
+     */
+    private @Nullable List<InsightFiltersComplianceSecurityControlId> complianceSecurityControlIds;
+    /**
+     * @return The unique identifier of a control across standards. See String_Filter below for more details.
+     * 
+     */
+    private @Nullable List<InsightFiltersComplianceSecurityControlParametersName> complianceSecurityControlParametersNames;
+    /**
+     * @return The current value of a security control parameter. See String_Filter below for more details.
+     * 
+     */
+    private @Nullable List<InsightFiltersComplianceSecurityControlParametersValue> complianceSecurityControlParametersValues;
     /**
      * @return Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard, such as CIS AWS Foundations. Contains security standard-related finding details. See String Filter below for more details.
      * 
@@ -548,11 +578,46 @@ public final class InsightFilters {
         return this.awsAccountIds == null ? List.of() : this.awsAccountIds;
     }
     /**
+     * @return The name of the AWS account in which a finding is generated. See String_Filter below for more details.
+     * 
+     */
+    public List<InsightFiltersAwsAccountName> awsAccountNames() {
+        return this.awsAccountNames == null ? List.of() : this.awsAccountNames;
+    }
+    /**
      * @return The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
      * 
      */
     public List<InsightFiltersCompanyName> companyNames() {
         return this.companyNames == null ? List.of() : this.companyNames;
+    }
+    /**
+     * @return The unique identifier of a standard in which a control is enabled. See String_Filter below for more details.
+     * 
+     */
+    public List<InsightFiltersComplianceAssociatedStandardsId> complianceAssociatedStandardsIds() {
+        return this.complianceAssociatedStandardsIds == null ? List.of() : this.complianceAssociatedStandardsIds;
+    }
+    /**
+     * @return The unique identifier of a control across standards. See String_Filter below for more details.
+     * 
+     */
+    public List<InsightFiltersComplianceSecurityControlId> complianceSecurityControlIds() {
+        return this.complianceSecurityControlIds == null ? List.of() : this.complianceSecurityControlIds;
+    }
+    /**
+     * @return The unique identifier of a control across standards. See String_Filter below for more details.
+     * 
+     */
+    public List<InsightFiltersComplianceSecurityControlParametersName> complianceSecurityControlParametersNames() {
+        return this.complianceSecurityControlParametersNames == null ? List.of() : this.complianceSecurityControlParametersNames;
+    }
+    /**
+     * @return The current value of a security control parameter. See String_Filter below for more details.
+     * 
+     */
+    public List<InsightFiltersComplianceSecurityControlParametersValue> complianceSecurityControlParametersValues() {
+        return this.complianceSecurityControlParametersValues == null ? List.of() : this.complianceSecurityControlParametersValues;
     }
     /**
      * @return Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard, such as CIS AWS Foundations. Contains security standard-related finding details. See String Filter below for more details.
@@ -1167,7 +1232,12 @@ public final class InsightFilters {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<InsightFiltersAwsAccountId> awsAccountIds;
+        private @Nullable List<InsightFiltersAwsAccountName> awsAccountNames;
         private @Nullable List<InsightFiltersCompanyName> companyNames;
+        private @Nullable List<InsightFiltersComplianceAssociatedStandardsId> complianceAssociatedStandardsIds;
+        private @Nullable List<InsightFiltersComplianceSecurityControlId> complianceSecurityControlIds;
+        private @Nullable List<InsightFiltersComplianceSecurityControlParametersName> complianceSecurityControlParametersNames;
+        private @Nullable List<InsightFiltersComplianceSecurityControlParametersValue> complianceSecurityControlParametersValues;
         private @Nullable List<InsightFiltersComplianceStatus> complianceStatuses;
         private @Nullable List<InsightFiltersConfidence> confidences;
         private @Nullable List<InsightFiltersCreatedAt> createdAts;
@@ -1258,7 +1328,12 @@ public final class InsightFilters {
         public Builder(InsightFilters defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.awsAccountIds = defaults.awsAccountIds;
+    	      this.awsAccountNames = defaults.awsAccountNames;
     	      this.companyNames = defaults.companyNames;
+    	      this.complianceAssociatedStandardsIds = defaults.complianceAssociatedStandardsIds;
+    	      this.complianceSecurityControlIds = defaults.complianceSecurityControlIds;
+    	      this.complianceSecurityControlParametersNames = defaults.complianceSecurityControlParametersNames;
+    	      this.complianceSecurityControlParametersValues = defaults.complianceSecurityControlParametersValues;
     	      this.complianceStatuses = defaults.complianceStatuses;
     	      this.confidences = defaults.confidences;
     	      this.createdAts = defaults.createdAts;
@@ -1357,6 +1432,15 @@ public final class InsightFilters {
             return awsAccountIds(List.of(awsAccountIds));
         }
         @CustomType.Setter
+        public Builder awsAccountNames(@Nullable List<InsightFiltersAwsAccountName> awsAccountNames) {
+
+            this.awsAccountNames = awsAccountNames;
+            return this;
+        }
+        public Builder awsAccountNames(InsightFiltersAwsAccountName... awsAccountNames) {
+            return awsAccountNames(List.of(awsAccountNames));
+        }
+        @CustomType.Setter
         public Builder companyNames(@Nullable List<InsightFiltersCompanyName> companyNames) {
 
             this.companyNames = companyNames;
@@ -1364,6 +1448,42 @@ public final class InsightFilters {
         }
         public Builder companyNames(InsightFiltersCompanyName... companyNames) {
             return companyNames(List.of(companyNames));
+        }
+        @CustomType.Setter
+        public Builder complianceAssociatedStandardsIds(@Nullable List<InsightFiltersComplianceAssociatedStandardsId> complianceAssociatedStandardsIds) {
+
+            this.complianceAssociatedStandardsIds = complianceAssociatedStandardsIds;
+            return this;
+        }
+        public Builder complianceAssociatedStandardsIds(InsightFiltersComplianceAssociatedStandardsId... complianceAssociatedStandardsIds) {
+            return complianceAssociatedStandardsIds(List.of(complianceAssociatedStandardsIds));
+        }
+        @CustomType.Setter
+        public Builder complianceSecurityControlIds(@Nullable List<InsightFiltersComplianceSecurityControlId> complianceSecurityControlIds) {
+
+            this.complianceSecurityControlIds = complianceSecurityControlIds;
+            return this;
+        }
+        public Builder complianceSecurityControlIds(InsightFiltersComplianceSecurityControlId... complianceSecurityControlIds) {
+            return complianceSecurityControlIds(List.of(complianceSecurityControlIds));
+        }
+        @CustomType.Setter
+        public Builder complianceSecurityControlParametersNames(@Nullable List<InsightFiltersComplianceSecurityControlParametersName> complianceSecurityControlParametersNames) {
+
+            this.complianceSecurityControlParametersNames = complianceSecurityControlParametersNames;
+            return this;
+        }
+        public Builder complianceSecurityControlParametersNames(InsightFiltersComplianceSecurityControlParametersName... complianceSecurityControlParametersNames) {
+            return complianceSecurityControlParametersNames(List.of(complianceSecurityControlParametersNames));
+        }
+        @CustomType.Setter
+        public Builder complianceSecurityControlParametersValues(@Nullable List<InsightFiltersComplianceSecurityControlParametersValue> complianceSecurityControlParametersValues) {
+
+            this.complianceSecurityControlParametersValues = complianceSecurityControlParametersValues;
+            return this;
+        }
+        public Builder complianceSecurityControlParametersValues(InsightFiltersComplianceSecurityControlParametersValue... complianceSecurityControlParametersValues) {
+            return complianceSecurityControlParametersValues(List.of(complianceSecurityControlParametersValues));
         }
         @CustomType.Setter
         public Builder complianceStatuses(@Nullable List<InsightFiltersComplianceStatus> complianceStatuses) {
@@ -2142,7 +2262,12 @@ public final class InsightFilters {
         public InsightFilters build() {
             final var _resultValue = new InsightFilters();
             _resultValue.awsAccountIds = awsAccountIds;
+            _resultValue.awsAccountNames = awsAccountNames;
             _resultValue.companyNames = companyNames;
+            _resultValue.complianceAssociatedStandardsIds = complianceAssociatedStandardsIds;
+            _resultValue.complianceSecurityControlIds = complianceSecurityControlIds;
+            _resultValue.complianceSecurityControlParametersNames = complianceSecurityControlParametersNames;
+            _resultValue.complianceSecurityControlParametersValues = complianceSecurityControlParametersValues;
             _resultValue.complianceStatuses = complianceStatuses;
             _resultValue.confidences = confidences;
             _resultValue.createdAts = createdAts;

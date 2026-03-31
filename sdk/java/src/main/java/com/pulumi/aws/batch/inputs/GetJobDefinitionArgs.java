@@ -17,14 +17,14 @@ public final class GetJobDefinitionArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetJobDefinitionArgs Empty = new GetJobDefinitionArgs();
 
     /**
-     * ARN of the Job Definition. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+     * ARN of the Job Definition.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the Job Definition. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+     * @return ARN of the Job Definition.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -120,7 +120,7 @@ public final class GetJobDefinitionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param arn ARN of the Job Definition. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+         * @param arn ARN of the Job Definition.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class GetJobDefinitionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param arn ARN of the Job Definition. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+         * @param arn ARN of the Job Definition.
          * 
          * @return builder
          * 

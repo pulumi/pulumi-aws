@@ -91,6 +91,8 @@ type ElasticCluster struct {
 	//
 	// The following arguments are optional:
 	ShardCount pulumi.IntOutput `pulumi:"shardCount"`
+	// Number of replica instances applying to all shards in the elastic cluster. If not specified, the default value of 2 is set.
+	ShardInstanceCount pulumi.IntOutput `pulumi:"shardInstanceCount"`
 	// IDs of subnets in which the Elastic DocumentDB Cluster operates.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -184,6 +186,8 @@ type elasticClusterState struct {
 	//
 	// The following arguments are optional:
 	ShardCount *int `pulumi:"shardCount"`
+	// Number of replica instances applying to all shards in the elastic cluster. If not specified, the default value of 2 is set.
+	ShardInstanceCount *int `pulumi:"shardInstanceCount"`
 	// IDs of subnets in which the Elastic DocumentDB Cluster operates.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -226,6 +230,8 @@ type ElasticClusterState struct {
 	//
 	// The following arguments are optional:
 	ShardCount pulumi.IntPtrInput
+	// Number of replica instances applying to all shards in the elastic cluster. If not specified, the default value of 2 is set.
+	ShardInstanceCount pulumi.IntPtrInput
 	// IDs of subnets in which the Elastic DocumentDB Cluster operates.
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -268,6 +274,8 @@ type elasticClusterArgs struct {
 	//
 	// The following arguments are optional:
 	ShardCount int `pulumi:"shardCount"`
+	// Number of replica instances applying to all shards in the elastic cluster. If not specified, the default value of 2 is set.
+	ShardInstanceCount *int `pulumi:"shardInstanceCount"`
 	// IDs of subnets in which the Elastic DocumentDB Cluster operates.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -306,6 +314,8 @@ type ElasticClusterArgs struct {
 	//
 	// The following arguments are optional:
 	ShardCount pulumi.IntInput
+	// Number of replica instances applying to all shards in the elastic cluster. If not specified, the default value of 2 is set.
+	ShardInstanceCount pulumi.IntPtrInput
 	// IDs of subnets in which the Elastic DocumentDB Cluster operates.
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -470,6 +480,11 @@ func (o ElasticClusterOutput) ShardCapacity() pulumi.IntOutput {
 // The following arguments are optional:
 func (o ElasticClusterOutput) ShardCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *ElasticCluster) pulumi.IntOutput { return v.ShardCount }).(pulumi.IntOutput)
+}
+
+// Number of replica instances applying to all shards in the elastic cluster. If not specified, the default value of 2 is set.
+func (o ElasticClusterOutput) ShardInstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *ElasticCluster) pulumi.IntOutput { return v.ShardInstanceCount }).(pulumi.IntOutput)
 }
 
 // IDs of subnets in which the Elastic DocumentDB Cluster operates.

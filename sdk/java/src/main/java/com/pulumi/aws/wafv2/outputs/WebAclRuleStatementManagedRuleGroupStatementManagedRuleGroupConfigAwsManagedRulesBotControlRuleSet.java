@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet {
-    /**
-     * @return Applies only to the targeted inspection level. Determines whether to use machine learning (ML) to analyze your web traffic for bot-related activity. Defaults to `true`.
-     * 
-     */
     private @Nullable Boolean enableMachineLearning;
-    /**
-     * @return The inspection level to use for the Bot Control rule group.
-     * 
-     */
     private String inspectionLevel;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet() {}
-    /**
-     * @return Applies only to the targeted inspection level. Determines whether to use machine learning (ML) to analyze your web traffic for bot-related activity. Defaults to `true`.
-     * 
-     */
     public Optional<Boolean> enableMachineLearning() {
         return Optional.ofNullable(this.enableMachineLearning);
     }
-    /**
-     * @return The inspection level to use for the Bot Control rule group.
-     * 
-     */
     public String inspectionLevel() {
         return this.inspectionLevel;
     }

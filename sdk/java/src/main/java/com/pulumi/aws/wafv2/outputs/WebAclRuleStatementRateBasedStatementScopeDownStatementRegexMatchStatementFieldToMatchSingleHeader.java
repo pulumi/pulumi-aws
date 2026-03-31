@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader {
     /**
-     * @return Name of the query header to inspect. This setting must be provided as lower case characters.
+     * @return Name of the header to inspect (case insensitive).
      * 
      */
     private String name;
 
     private WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader() {}
     /**
-     * @return Name of the query header to inspect. This setting must be provided as lower case characters.
+     * @return Name of the header to inspect (case insensitive).
      * 
      */
     public String name() {

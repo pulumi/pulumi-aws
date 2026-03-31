@@ -10,6 +10,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs extends com.pulumi.resources.ResourceArgs {
@@ -17,33 +19,25 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentAr
     public static final WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs Empty = new WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs();
 
     /**
-     * The name of the query argument to use.
+     * Name of the rule. Must be unique within the Web ACL.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the query argument to use.
+     * @return Name of the rule. Must be unique within the Web ACL.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
-     * 
-     */
-    @Import(name="textTransformations", required=true)
-    private Output<List<WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs>> textTransformations;
+    @Import(name="textTransformations")
+    private @Nullable Output<List<WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs>> textTransformations;
 
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
-     * 
-     */
-    public Output<List<WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs>> textTransformations() {
-        return this.textTransformations;
+    public Optional<Output<List<WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs>>> textTransformations() {
+        return Optional.ofNullable(this.textTransformations);
     }
 
     private WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs() {}
@@ -72,7 +66,7 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentAr
         }
 
         /**
-         * @param name The name of the query argument to use.
+         * @param name Name of the rule. Must be unique within the Web ACL.
          * 
          * @return builder
          * 
@@ -83,7 +77,7 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentAr
         }
 
         /**
-         * @param name The name of the query argument to use.
+         * @param name Name of the rule. Must be unique within the Web ACL.
          * 
          * @return builder
          * 
@@ -92,33 +86,15 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentAr
             return name(Output.of(name));
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder textTransformations(Output<List<WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs>> textTransformations) {
+        public Builder textTransformations(@Nullable Output<List<WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs>> textTransformations) {
             $.textTransformations = textTransformations;
             return this;
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformations(List<WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs> textTransformations) {
             return textTransformations(Output.of(textTransformations));
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformations(WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs... textTransformations) {
             return textTransformations(List.of(textTransformations));
         }
@@ -126,9 +102,6 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentAr
         public WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs build() {
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs", "name");
-            }
-            if ($.textTransformations == null) {
-                throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs", "textTransformations");
             }
             return $;
         }

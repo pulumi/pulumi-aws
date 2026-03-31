@@ -13,9 +13,6 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementRateBasedStatementCustomKeyQueryString
     {
-        /// <summary>
-        /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `TextTransformation` above for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation> TextTransformations;
 
         [OutputConstructor]

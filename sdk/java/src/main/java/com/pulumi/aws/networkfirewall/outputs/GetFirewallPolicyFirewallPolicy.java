@@ -10,12 +10,14 @@ import com.pulumi.aws.networkfirewall.outputs.GetFirewallPolicyFirewallPolicySta
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetFirewallPolicyFirewallPolicy {
+    private Boolean enableTlsSessionHolding;
     private List<GetFirewallPolicyFirewallPolicyPolicyVariable> policyVariables;
     private List<String> statefulDefaultActions;
     private List<GetFirewallPolicyFirewallPolicyStatefulEngineOption> statefulEngineOptions;
@@ -27,6 +29,9 @@ public final class GetFirewallPolicyFirewallPolicy {
     private String tlsInspectionConfigurationArn;
 
     private GetFirewallPolicyFirewallPolicy() {}
+    public Boolean enableTlsSessionHolding() {
+        return this.enableTlsSessionHolding;
+    }
     public List<GetFirewallPolicyFirewallPolicyPolicyVariable> policyVariables() {
         return this.policyVariables;
     }
@@ -64,6 +69,7 @@ public final class GetFirewallPolicyFirewallPolicy {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Boolean enableTlsSessionHolding;
         private List<GetFirewallPolicyFirewallPolicyPolicyVariable> policyVariables;
         private List<String> statefulDefaultActions;
         private List<GetFirewallPolicyFirewallPolicyStatefulEngineOption> statefulEngineOptions;
@@ -76,6 +82,7 @@ public final class GetFirewallPolicyFirewallPolicy {
         public Builder() {}
         public Builder(GetFirewallPolicyFirewallPolicy defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.enableTlsSessionHolding = defaults.enableTlsSessionHolding;
     	      this.policyVariables = defaults.policyVariables;
     	      this.statefulDefaultActions = defaults.statefulDefaultActions;
     	      this.statefulEngineOptions = defaults.statefulEngineOptions;
@@ -87,6 +94,14 @@ public final class GetFirewallPolicyFirewallPolicy {
     	      this.tlsInspectionConfigurationArn = defaults.tlsInspectionConfigurationArn;
         }
 
+        @CustomType.Setter
+        public Builder enableTlsSessionHolding(Boolean enableTlsSessionHolding) {
+            if (enableTlsSessionHolding == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyFirewallPolicy", "enableTlsSessionHolding");
+            }
+            this.enableTlsSessionHolding = enableTlsSessionHolding;
+            return this;
+        }
         @CustomType.Setter
         public Builder policyVariables(List<GetFirewallPolicyFirewallPolicyPolicyVariable> policyVariables) {
             if (policyVariables == null) {
@@ -185,6 +200,7 @@ public final class GetFirewallPolicyFirewallPolicy {
         }
         public GetFirewallPolicyFirewallPolicy build() {
             final var _resultValue = new GetFirewallPolicyFirewallPolicy();
+            _resultValue.enableTlsSessionHolding = enableTlsSessionHolding;
             _resultValue.policyVariables = policyVariables;
             _resultValue.statefulDefaultActions = statefulDefaultActions;
             _resultValue.statefulEngineOptions = statefulEngineOptions;

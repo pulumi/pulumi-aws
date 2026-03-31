@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration {
+    /**
+     * @return Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+     * 
+     */
     private @Nullable AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3 s3;
 
     private AgentFlowDefinitionNodeConfigurationRetrievalServiceConfiguration() {}
+    /**
+     * @return Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
+     * 
+     */
     public Optional<AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3> s3() {
         return Optional.ofNullable(this.s3);
     }

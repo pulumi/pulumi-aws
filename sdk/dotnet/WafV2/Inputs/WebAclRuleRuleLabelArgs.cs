@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleRuleLabelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Label string.
+        /// Label string (1-1024 characters, alphanumeric, underscore, hyphen, and colon characters only).
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The namespace to use for aggregation
+        /// Label namespace to use as the custom key.
         /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;

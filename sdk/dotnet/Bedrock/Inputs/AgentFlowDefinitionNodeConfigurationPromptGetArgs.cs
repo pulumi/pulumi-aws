@@ -13,11 +13,14 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentFlowDefinitionNodeConfigurationPromptGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration. See Guardrail Configuration for more information.
+        /// Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
         /// </summary>
         [Input("guardrailConfiguration")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationGetArgs>? GuardrailConfiguration { get; set; }
 
+        /// <summary>
+        /// Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
+        /// </summary>
         [Input("sourceConfiguration")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationGetArgs>? SourceConfiguration { get; set; }
 

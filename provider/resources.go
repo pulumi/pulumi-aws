@@ -269,6 +269,7 @@ const (
 	wafMod                      = "Waf"                      // Web Application Firewall (WAF)
 	wafV2Mod                    = "WafV2"                    // Web Application Firewall V2 (WAFV2)
 	wafregionalMod              = "WafRegional"              // Web Application Firewall (WAF) Regional
+	workmailMod                 = "WorkMail"                 // WorkMail
 	workspacesMod               = "Workspaces"               // Workspaces
 	workspaceswebMod            = "WorkSpacesWeb"            // WorkSpaces Web
 	xrayMod                     = "Xray"                     // X-Ray
@@ -510,6 +511,7 @@ var moduleMap = map[string]string{
 	"waf":                             wafMod,
 	"wafregional":                     wafregionalMod,
 	"wafv2":                           wafV2Mod,
+	"workmail":                        workmailMod,
 	"workspaces":                      workspacesMod,
 	"workspacesweb":                   workspaceswebMod,
 	"xray":                            xrayMod,

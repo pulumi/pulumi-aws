@@ -12,17 +12,11 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleStatementNotStatementArgs : global::Pulumi.ResourceArgs
     {
-        [Input("statements", required: true)]
-        private InputList<Inputs.WebAclRuleStatementArgs>? _statements;
-
         /// <summary>
-        /// The statements to combine.
+        /// Single statement to negate. Exactly one statement must be specified.
         /// </summary>
-        public InputList<Inputs.WebAclRuleStatementArgs> Statements
-        {
-            get => _statements ?? (_statements = new InputList<Inputs.WebAclRuleStatementArgs>());
-            set => _statements = value;
-        }
+        [Input("statement")]
+        public Input<Inputs.WebAclRuleStatementNotStatementStatementArgs>? Statement { get; set; }
 
         public WebAclRuleStatementNotStatementArgs()
         {

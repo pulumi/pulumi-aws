@@ -18,47 +18,23 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
     public static final WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeArgs();
 
-    /**
-     * Block for the list of the regular expressions to match against the web request URI, used to identify requests that can&#39;t handle a silent browser challenge.
-     * 
-     */
     @Import(name="exemptUriRegularExpressions")
     private @Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs>> exemptUriRegularExpressions;
 
-    /**
-     * @return Block for the list of the regular expressions to match against the web request URI, used to identify requests that can&#39;t handle a silent browser challenge.
-     * 
-     */
     public Optional<Output<List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs>>> exemptUriRegularExpressions() {
         return Optional.ofNullable(this.exemptUriRegularExpressions);
     }
 
-    /**
-     * Sensitivity that the rule group rule ChallengeDDoSRequests uses when matching against the DDoS suspicion labeling on a request. Valid values are `LOW`, `MEDIUM` and `HIGH` (Default).
-     * 
-     */
     @Import(name="sensitivity")
     private @Nullable Output<String> sensitivity;
 
-    /**
-     * @return Sensitivity that the rule group rule ChallengeDDoSRequests uses when matching against the DDoS suspicion labeling on a request. Valid values are `LOW`, `MEDIUM` and `HIGH` (Default).
-     * 
-     */
     public Optional<Output<String>> sensitivity() {
         return Optional.ofNullable(this.sensitivity);
     }
 
-    /**
-     * Configuration whether to use the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the rule group evaluation. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     @Import(name="usageOfAction", required=true)
     private Output<String> usageOfAction;
 
-    /**
-     * @return Configuration whether to use the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the rule group evaluation. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public Output<String> usageOfAction() {
         return this.usageOfAction;
     }
@@ -89,75 +65,33 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             $ = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param exemptUriRegularExpressions Block for the list of the regular expressions to match against the web request URI, used to identify requests that can&#39;t handle a silent browser challenge.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exemptUriRegularExpressions(@Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs>> exemptUriRegularExpressions) {
             $.exemptUriRegularExpressions = exemptUriRegularExpressions;
             return this;
         }
 
-        /**
-         * @param exemptUriRegularExpressions Block for the list of the regular expressions to match against the web request URI, used to identify requests that can&#39;t handle a silent browser challenge.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exemptUriRegularExpressions(List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs> exemptUriRegularExpressions) {
             return exemptUriRegularExpressions(Output.of(exemptUriRegularExpressions));
         }
 
-        /**
-         * @param exemptUriRegularExpressions Block for the list of the regular expressions to match against the web request URI, used to identify requests that can&#39;t handle a silent browser challenge.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exemptUriRegularExpressions(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs... exemptUriRegularExpressions) {
             return exemptUriRegularExpressions(List.of(exemptUriRegularExpressions));
         }
 
-        /**
-         * @param sensitivity Sensitivity that the rule group rule ChallengeDDoSRequests uses when matching against the DDoS suspicion labeling on a request. Valid values are `LOW`, `MEDIUM` and `HIGH` (Default).
-         * 
-         * @return builder
-         * 
-         */
         public Builder sensitivity(@Nullable Output<String> sensitivity) {
             $.sensitivity = sensitivity;
             return this;
         }
 
-        /**
-         * @param sensitivity Sensitivity that the rule group rule ChallengeDDoSRequests uses when matching against the DDoS suspicion labeling on a request. Valid values are `LOW`, `MEDIUM` and `HIGH` (Default).
-         * 
-         * @return builder
-         * 
-         */
         public Builder sensitivity(String sensitivity) {
             return sensitivity(Output.of(sensitivity));
         }
 
-        /**
-         * @param usageOfAction Configuration whether to use the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the rule group evaluation. Valid values are `ENABLED` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder usageOfAction(Output<String> usageOfAction) {
             $.usageOfAction = usageOfAction;
             return this;
         }
 
-        /**
-         * @param usageOfAction Configuration whether to use the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the rule group evaluation. Valid values are `ENABLED` and `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder usageOfAction(String usageOfAction) {
             return usageOfAction(Output.of(usageOfAction));
         }

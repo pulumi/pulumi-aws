@@ -13,21 +13,9 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet
     {
-        /// <summary>
-        /// Whether or not to allow the use of regular expressions in the login page path.
-        /// </summary>
         public readonly bool? EnableRegexInPath;
-        /// <summary>
-        /// The path of the login endpoint for your application.
-        /// </summary>
         public readonly string LoginPath;
-        /// <summary>
-        /// The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. See `RequestInspection` for more details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection? RequestInspection;
-        /// <summary>
-        /// The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. Note that Response Inspection is available only on web ACLs that protect CloudFront distributions. See `ResponseInspection` for more details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection? ResponseInspection;
 
         [OutputConstructor]

@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader {
     /**
-     * @return Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+     * @return Header name.
      * 
      */
     private String name;
     /**
-     * @return Value of the custom header.
+     * @return Header value.
      * 
      */
     private String value;
 
     private WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader() {}
     /**
-     * @return Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+     * @return Header name.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Value of the custom header.
+     * @return Header value.
      * 
      */
     public String value() {

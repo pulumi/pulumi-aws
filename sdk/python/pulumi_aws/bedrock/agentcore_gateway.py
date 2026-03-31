@@ -609,6 +609,10 @@ class AgentcoreGateway(pulumi.CustomResource):
                         "client-123",
                         "client-456",
                     ],
+                    "allowed_scopes": [
+                        "openid",
+                        "email",
+                    ],
                 },
             },
             protocol_type="MCP",
@@ -748,6 +752,10 @@ class AgentcoreGateway(pulumi.CustomResource):
                     "allowed_clients": [
                         "client-123",
                         "client-456",
+                    ],
+                    "allowed_scopes": [
+                        "openid",
+                        "email",
                     ],
                 },
             },

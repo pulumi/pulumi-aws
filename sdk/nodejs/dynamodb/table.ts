@@ -431,6 +431,10 @@ export class Table extends pulumi.CustomResource {
      */
     declare public readonly replicas: pulumi.Output<outputs.dynamodb.TableReplica[] | undefined>;
     /**
+     * ARN of backup to restore.
+     */
+    declare public readonly restoreBackupArn: pulumi.Output<string | undefined>;
+    /**
      * Time of the point-in-time recovery point to restore.
      */
     declare public readonly restoreDateTime: pulumi.Output<string | undefined>;
@@ -524,6 +528,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["readCapacity"] = state?.readCapacity;
             resourceInputs["region"] = state?.region;
             resourceInputs["replicas"] = state?.replicas;
+            resourceInputs["restoreBackupArn"] = state?.restoreBackupArn;
             resourceInputs["restoreDateTime"] = state?.restoreDateTime;
             resourceInputs["restoreSourceName"] = state?.restoreSourceName;
             resourceInputs["restoreSourceTableArn"] = state?.restoreSourceTableArn;
@@ -556,6 +561,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["readCapacity"] = args?.readCapacity;
             resourceInputs["region"] = args?.region;
             resourceInputs["replicas"] = args?.replicas;
+            resourceInputs["restoreBackupArn"] = args?.restoreBackupArn;
             resourceInputs["restoreDateTime"] = args?.restoreDateTime;
             resourceInputs["restoreSourceName"] = args?.restoreSourceName;
             resourceInputs["restoreSourceTableArn"] = args?.restoreSourceTableArn;
@@ -648,6 +654,10 @@ export interface TableState {
      * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
      */
     replicas?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableReplica>[]>;
+    /**
+     * ARN of backup to restore.
+     */
+    restoreBackupArn?: pulumi.Input<string>;
     /**
      * Time of the point-in-time recovery point to restore.
      */
@@ -780,6 +790,10 @@ export interface TableArgs {
      * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
      */
     replicas?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableReplica>[]>;
+    /**
+     * ARN of backup to restore.
+     */
+    restoreBackupArn?: pulumi.Input<string>;
     /**
      * Time of the point-in-time recovery point to restore.
      */

@@ -15,14 +15,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     public static final WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs();
 
     /**
-     * Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+     * Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
      * 
      */
     @Import(name="fallbackBehavior", required=true)
     private Output<String> fallbackBehavior;
 
     /**
-     * @return Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+     * @return Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
      * 
      */
     public Output<String> fallbackBehavior() {
@@ -30,14 +30,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     }
 
     /**
-     * Name of the HTTP header to use for the IP address.
+     * Name of the header containing the forwarded IP address.
      * 
      */
     @Import(name="headerName", required=true)
     private Output<String> headerName;
 
     /**
-     * @return Name of the HTTP header to use for the IP address.
+     * @return Name of the header containing the forwarded IP address.
      * 
      */
     public Output<String> headerName() {
@@ -45,14 +45,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     }
 
     /**
-     * Position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+     * Position in the header to use. Valid values: `FIRST`, `LAST`, `ANY`.
      * 
      */
     @Import(name="position", required=true)
     private Output<String> position;
 
     /**
-     * @return Position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+     * @return Position in the header to use. Valid values: `FIRST`, `LAST`, `ANY`.
      * 
      */
     public Output<String> position() {
@@ -86,7 +86,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         /**
-         * @param fallbackBehavior Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         * @param fallbackBehavior Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         /**
-         * @param fallbackBehavior Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         * @param fallbackBehavior Action to take when the IP address in the header is invalid. Valid values: `MATCH`, `NO_MATCH`.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         /**
-         * @param headerName Name of the HTTP header to use for the IP address.
+         * @param headerName Name of the header containing the forwarded IP address.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         /**
-         * @param headerName Name of the HTTP header to use for the IP address.
+         * @param headerName Name of the header containing the forwarded IP address.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         /**
-         * @param position Position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         * @param position Position in the header to use. Valid values: `FIRST`, `LAST`, `ANY`.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         /**
-         * @param position Position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         * @param position Position in the header to use. Valid values: `FIRST`, `LAST`, `ANY`.
          * 
          * @return builder
          * 

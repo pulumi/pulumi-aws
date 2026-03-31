@@ -16,42 +16,42 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementRegexPatternSetReferenceStatement {
     /**
-     * @return The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+     * @return ARN of the regex pattern set to reference.
      * 
      */
     private String arn;
     /**
-     * @return Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+     * @return Part of the web request that you want WAF to inspect. See Field to Match below.
      * 
      */
     private @Nullable WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch fieldToMatch;
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below.
      * 
      */
-    private List<WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation> textTransformations;
+    private @Nullable List<WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation> textTransformations;
 
     private WebAclRuleStatementRegexPatternSetReferenceStatement() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+     * @return ARN of the regex pattern set to reference.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+     * @return Part of the web request that you want WAF to inspect. See Field to Match below.
      * 
      */
     public Optional<WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch> fieldToMatch() {
         return Optional.ofNullable(this.fieldToMatch);
     }
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below.
      * 
      */
     public List<WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation> textTransformations() {
-        return this.textTransformations;
+        return this.textTransformations == null ? List.of() : this.textTransformations;
     }
 
     public static Builder builder() {
@@ -65,7 +65,7 @@ public final class WebAclRuleStatementRegexPatternSetReferenceStatement {
     public static final class Builder {
         private String arn;
         private @Nullable WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch fieldToMatch;
-        private List<WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation> textTransformations;
+        private @Nullable List<WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation> textTransformations;
         public Builder() {}
         public Builder(WebAclRuleStatementRegexPatternSetReferenceStatement defaults) {
     	      Objects.requireNonNull(defaults);
@@ -89,10 +89,8 @@ public final class WebAclRuleStatementRegexPatternSetReferenceStatement {
             return this;
         }
         @CustomType.Setter
-        public Builder textTransformations(List<WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation> textTransformations) {
-            if (textTransformations == null) {
-              throw new MissingRequiredPropertyException("WebAclRuleStatementRegexPatternSetReferenceStatement", "textTransformations");
-            }
+        public Builder textTransformations(@Nullable List<WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation> textTransformations) {
+
             this.textTransformations = textTransformations;
             return this;
         }

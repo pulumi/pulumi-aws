@@ -388,12 +388,16 @@ public class Broker extends com.pulumi.resources.CustomResource {
     /**
      * Broker&#39;s instance type. For example, `mq.t3.micro`, `mq.m5.large`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="hostInstanceType", refs={String.class}, tree="[0]")
     private Output<String> hostInstanceType;
 
     /**
      * @return Broker&#39;s instance type. For example, `mq.t3.micro`, `mq.m5.large`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> hostInstanceType() {
@@ -570,20 +574,16 @@ public class Broker extends com.pulumi.resources.CustomResource {
     /**
      * Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="users", refs={List.class,BrokerUser.class}, tree="[0,1]")
-    private Output<List<BrokerUser>> users;
+    private Output</* @Nullable */ List<BrokerUser>> users;
 
     /**
      * @return Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
      * 
-     * The following arguments are optional:
-     * 
      */
-    public Output<List<BrokerUser>> users() {
-        return this.users;
+    public Output<Optional<List<BrokerUser>>> users() {
+        return Codegen.optional(this.users);
     }
 
     /**

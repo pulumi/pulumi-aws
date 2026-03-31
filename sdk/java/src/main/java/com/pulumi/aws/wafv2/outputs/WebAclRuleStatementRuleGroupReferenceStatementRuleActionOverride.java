@@ -8,30 +8,32 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride {
     /**
-     * @return Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
+     * @return Override action to use for the rule. See Action below.
      * 
      */
-    private WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse actionToUse;
+    private @Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse actionToUse;
     /**
-     * @return Name of the rule to override. See the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
+     * @return Name of the rule to override.
      * 
      */
     private String name;
 
     private WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride() {}
     /**
-     * @return Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
+     * @return Override action to use for the rule. See Action below.
      * 
      */
-    public WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse actionToUse() {
-        return this.actionToUse;
+    public Optional<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse> actionToUse() {
+        return Optional.ofNullable(this.actionToUse);
     }
     /**
-     * @return Name of the rule to override. See the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
+     * @return Name of the rule to override.
      * 
      */
     public String name() {
@@ -47,7 +49,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
     }
     @CustomType.Builder
     public static final class Builder {
-        private WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse actionToUse;
+        private @Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse actionToUse;
         private String name;
         public Builder() {}
         public Builder(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride defaults) {
@@ -57,10 +59,8 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
         }
 
         @CustomType.Setter
-        public Builder actionToUse(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse actionToUse) {
-            if (actionToUse == null) {
-              throw new MissingRequiredPropertyException("WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride", "actionToUse");
-            }
+        public Builder actionToUse(@Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse actionToUse) {
+
             this.actionToUse = actionToUse;
             return this;
         }

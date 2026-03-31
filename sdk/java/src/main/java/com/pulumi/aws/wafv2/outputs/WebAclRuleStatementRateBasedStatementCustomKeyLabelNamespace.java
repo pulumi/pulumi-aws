@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespace {
     /**
-     * @return The namespace to use for aggregation
+     * @return Label namespace to use as the custom key.
      * 
      */
     private String namespace;
 
     private WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespace() {}
     /**
-     * @return The namespace to use for aggregation
+     * @return Label namespace to use as the custom key.
      * 
      */
     public String namespace() {

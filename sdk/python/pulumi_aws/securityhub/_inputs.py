@@ -143,8 +143,18 @@ __all__ = [
     'InsightFiltersArgsDict',
     'InsightFiltersAwsAccountIdArgs',
     'InsightFiltersAwsAccountIdArgsDict',
+    'InsightFiltersAwsAccountNameArgs',
+    'InsightFiltersAwsAccountNameArgsDict',
     'InsightFiltersCompanyNameArgs',
     'InsightFiltersCompanyNameArgsDict',
+    'InsightFiltersComplianceAssociatedStandardsIdArgs',
+    'InsightFiltersComplianceAssociatedStandardsIdArgsDict',
+    'InsightFiltersComplianceSecurityControlIdArgs',
+    'InsightFiltersComplianceSecurityControlIdArgsDict',
+    'InsightFiltersComplianceSecurityControlParametersNameArgs',
+    'InsightFiltersComplianceSecurityControlParametersNameArgsDict',
+    'InsightFiltersComplianceSecurityControlParametersValueArgs',
+    'InsightFiltersComplianceSecurityControlParametersValueArgsDict',
     'InsightFiltersComplianceStatusArgs',
     'InsightFiltersComplianceStatusArgsDict',
     'InsightFiltersConfidenceArgs',
@@ -3864,9 +3874,29 @@ class InsightFiltersArgsDict(TypedDict):
     """
     AWS account ID that a finding is generated in. See String_Filter below for more details.
     """
+    aws_account_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersAwsAccountNameArgsDict']]]]
+    """
+    The name of the AWS account in which a finding is generated. See String_Filter below for more details.
+    """
     company_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersCompanyNameArgsDict']]]]
     """
     The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
+    """
+    compliance_associated_standards_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceAssociatedStandardsIdArgsDict']]]]
+    """
+    The unique identifier of a standard in which a control is enabled. See String_Filter below for more details.
+    """
+    compliance_security_control_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlIdArgsDict']]]]
+    """
+    The unique identifier of a control across standards. See String_Filter below for more details.
+    """
+    compliance_security_control_parameters_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersNameArgsDict']]]]
+    """
+    The unique identifier of a control across standards. See String_Filter below for more details.
+    """
+    compliance_security_control_parameters_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersValueArgsDict']]]]
+    """
+    The current value of a security control parameter. See String_Filter below for more details.
     """
     compliance_statuses: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceStatusArgsDict']]]]
     """
@@ -4217,7 +4247,12 @@ class InsightFiltersArgsDict(TypedDict):
 class InsightFiltersArgs:
     def __init__(__self__, *,
                  aws_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersAwsAccountIdArgs']]]] = None,
+                 aws_account_names: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersAwsAccountNameArgs']]]] = None,
                  company_names: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersCompanyNameArgs']]]] = None,
+                 compliance_associated_standards_ids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceAssociatedStandardsIdArgs']]]] = None,
+                 compliance_security_control_ids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlIdArgs']]]] = None,
+                 compliance_security_control_parameters_names: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersNameArgs']]]] = None,
+                 compliance_security_control_parameters_values: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersValueArgs']]]] = None,
                  compliance_statuses: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceStatusArgs']]]] = None,
                  confidences: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersConfidenceArgs']]]] = None,
                  created_ats: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersCreatedAtArgs']]]] = None,
@@ -4306,7 +4341,12 @@ class InsightFiltersArgs:
                  workflow_statuses: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersWorkflowStatusArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersAwsAccountIdArgs']]] aws_account_ids: AWS account ID that a finding is generated in. See String_Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersAwsAccountNameArgs']]] aws_account_names: The name of the AWS account in which a finding is generated. See String_Filter below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersCompanyNameArgs']]] company_names: The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceAssociatedStandardsIdArgs']]] compliance_associated_standards_ids: The unique identifier of a standard in which a control is enabled. See String_Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlIdArgs']]] compliance_security_control_ids: The unique identifier of a control across standards. See String_Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersNameArgs']]] compliance_security_control_parameters_names: The unique identifier of a control across standards. See String_Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersValueArgs']]] compliance_security_control_parameters_values: The current value of a security control parameter. See String_Filter below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceStatusArgs']]] compliance_statuses: Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard, such as CIS AWS Foundations. Contains security standard-related finding details. See String Filter below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersConfidenceArgs']]] confidences: A finding's confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersCreatedAtArgs']]] created_ats: An ISO8601-formatted timestamp that indicates when the security-findings provider captured the potential security issue that a finding captured. See Date Filter below for more details.
@@ -4396,8 +4436,18 @@ class InsightFiltersArgs:
         """
         if aws_account_ids is not None:
             pulumi.set(__self__, "aws_account_ids", aws_account_ids)
+        if aws_account_names is not None:
+            pulumi.set(__self__, "aws_account_names", aws_account_names)
         if company_names is not None:
             pulumi.set(__self__, "company_names", company_names)
+        if compliance_associated_standards_ids is not None:
+            pulumi.set(__self__, "compliance_associated_standards_ids", compliance_associated_standards_ids)
+        if compliance_security_control_ids is not None:
+            pulumi.set(__self__, "compliance_security_control_ids", compliance_security_control_ids)
+        if compliance_security_control_parameters_names is not None:
+            pulumi.set(__self__, "compliance_security_control_parameters_names", compliance_security_control_parameters_names)
+        if compliance_security_control_parameters_values is not None:
+            pulumi.set(__self__, "compliance_security_control_parameters_values", compliance_security_control_parameters_values)
         if compliance_statuses is not None:
             pulumi.set(__self__, "compliance_statuses", compliance_statuses)
         if confidences is not None:
@@ -4584,6 +4634,18 @@ class InsightFiltersArgs:
         pulumi.set(self, "aws_account_ids", value)
 
     @_builtins.property
+    @pulumi.getter(name="awsAccountNames")
+    def aws_account_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersAwsAccountNameArgs']]]]:
+        """
+        The name of the AWS account in which a finding is generated. See String_Filter below for more details.
+        """
+        return pulumi.get(self, "aws_account_names")
+
+    @aws_account_names.setter
+    def aws_account_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersAwsAccountNameArgs']]]]):
+        pulumi.set(self, "aws_account_names", value)
+
+    @_builtins.property
     @pulumi.getter(name="companyNames")
     def company_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersCompanyNameArgs']]]]:
         """
@@ -4594,6 +4656,54 @@ class InsightFiltersArgs:
     @company_names.setter
     def company_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersCompanyNameArgs']]]]):
         pulumi.set(self, "company_names", value)
+
+    @_builtins.property
+    @pulumi.getter(name="complianceAssociatedStandardsIds")
+    def compliance_associated_standards_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceAssociatedStandardsIdArgs']]]]:
+        """
+        The unique identifier of a standard in which a control is enabled. See String_Filter below for more details.
+        """
+        return pulumi.get(self, "compliance_associated_standards_ids")
+
+    @compliance_associated_standards_ids.setter
+    def compliance_associated_standards_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceAssociatedStandardsIdArgs']]]]):
+        pulumi.set(self, "compliance_associated_standards_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="complianceSecurityControlIds")
+    def compliance_security_control_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlIdArgs']]]]:
+        """
+        The unique identifier of a control across standards. See String_Filter below for more details.
+        """
+        return pulumi.get(self, "compliance_security_control_ids")
+
+    @compliance_security_control_ids.setter
+    def compliance_security_control_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlIdArgs']]]]):
+        pulumi.set(self, "compliance_security_control_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="complianceSecurityControlParametersNames")
+    def compliance_security_control_parameters_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersNameArgs']]]]:
+        """
+        The unique identifier of a control across standards. See String_Filter below for more details.
+        """
+        return pulumi.get(self, "compliance_security_control_parameters_names")
+
+    @compliance_security_control_parameters_names.setter
+    def compliance_security_control_parameters_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersNameArgs']]]]):
+        pulumi.set(self, "compliance_security_control_parameters_names", value)
+
+    @_builtins.property
+    @pulumi.getter(name="complianceSecurityControlParametersValues")
+    def compliance_security_control_parameters_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersValueArgs']]]]:
+        """
+        The current value of a security control parameter. See String_Filter below for more details.
+        """
+        return pulumi.get(self, "compliance_security_control_parameters_values")
+
+    @compliance_security_control_parameters_values.setter
+    def compliance_security_control_parameters_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersValueArgs']]]]):
+        pulumi.set(self, "compliance_security_control_parameters_values", value)
 
     @_builtins.property
     @pulumi.getter(name="complianceStatuses")
@@ -5659,12 +5769,167 @@ class InsightFiltersAwsAccountIdArgs:
         pulumi.set(self, "value", value)
 
 
+class InsightFiltersAwsAccountNameArgsDict(TypedDict):
+    comparison: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class InsightFiltersAwsAccountNameArgs:
+    def __init__(__self__, *,
+                 comparison: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comparison(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "comparison")
+
+    @comparison.setter
+    def comparison(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "comparison", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
 class InsightFiltersCompanyNameArgsDict(TypedDict):
     comparison: pulumi.Input[_builtins.str]
     value: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class InsightFiltersCompanyNameArgs:
+    def __init__(__self__, *,
+                 comparison: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comparison(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "comparison")
+
+    @comparison.setter
+    def comparison(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "comparison", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+class InsightFiltersComplianceAssociatedStandardsIdArgsDict(TypedDict):
+    comparison: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class InsightFiltersComplianceAssociatedStandardsIdArgs:
+    def __init__(__self__, *,
+                 comparison: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comparison(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "comparison")
+
+    @comparison.setter
+    def comparison(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "comparison", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+class InsightFiltersComplianceSecurityControlIdArgsDict(TypedDict):
+    comparison: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class InsightFiltersComplianceSecurityControlIdArgs:
+    def __init__(__self__, *,
+                 comparison: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comparison(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "comparison")
+
+    @comparison.setter
+    def comparison(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "comparison", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+class InsightFiltersComplianceSecurityControlParametersNameArgsDict(TypedDict):
+    comparison: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class InsightFiltersComplianceSecurityControlParametersNameArgs:
+    def __init__(__self__, *,
+                 comparison: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comparison(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "comparison")
+
+    @comparison.setter
+    def comparison(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "comparison", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+class InsightFiltersComplianceSecurityControlParametersValueArgsDict(TypedDict):
+    comparison: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class InsightFiltersComplianceSecurityControlParametersValueArgs:
     def __init__(__self__, *,
                  comparison: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):

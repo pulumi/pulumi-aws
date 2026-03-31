@@ -13,9 +13,6 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField
     {
-        /// <summary>
-        /// The name of the username field.
-        /// </summary>
         public readonly string Identifier;
 
         [OutputConstructor]

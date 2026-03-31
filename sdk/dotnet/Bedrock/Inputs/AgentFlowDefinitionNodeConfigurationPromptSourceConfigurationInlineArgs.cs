@@ -19,11 +19,14 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string>? AdditionalModelRequestFields { get; set; }
 
         /// <summary>
-        /// Contains inference configurations for the prompt. See Prompt Inference Configuration for more information.
+        /// Contains inference configurations for the prompt. See Inference Configuration for more information.
         /// </summary>
         [Input("inferenceConfiguration")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs>? InferenceConfiguration { get; set; }
 
+        /// <summary>
+        /// The unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to run inference with.
+        /// </summary>
         [Input("modelId", required: true)]
         public Input<string> ModelId { get; set; } = null!;
 

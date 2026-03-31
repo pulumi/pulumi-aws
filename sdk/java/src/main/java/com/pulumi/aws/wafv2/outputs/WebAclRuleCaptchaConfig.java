@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleCaptchaConfig {
     /**
-     * @return Defines custom immunity time. See `immunityTimeProperty` below for details.
+     * @return Immunity time configuration. See Immunity Time Property below.
      * 
      */
     private @Nullable WebAclRuleCaptchaConfigImmunityTimeProperty immunityTimeProperty;
 
     private WebAclRuleCaptchaConfig() {}
     /**
-     * @return Defines custom immunity time. See `immunityTimeProperty` below for details.
+     * @return Immunity time configuration. See Immunity Time Property below.
      * 
      */
     public Optional<WebAclRuleCaptchaConfigImmunityTimeProperty> immunityTimeProperty() {

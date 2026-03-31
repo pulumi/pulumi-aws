@@ -5,25 +5,17 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementRateBasedStatementCustomKeyQueryString {
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
-     * 
-     */
-    private List<WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation> textTransformations;
+    private @Nullable List<WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation> textTransformations;
 
     private WebAclRuleStatementRateBasedStatementCustomKeyQueryString() {}
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
-     * 
-     */
     public List<WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation> textTransformations() {
-        return this.textTransformations;
+        return this.textTransformations == null ? List.of() : this.textTransformations;
     }
 
     public static Builder builder() {
@@ -35,7 +27,7 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyQueryString {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation> textTransformations;
+        private @Nullable List<WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation> textTransformations;
         public Builder() {}
         public Builder(WebAclRuleStatementRateBasedStatementCustomKeyQueryString defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,10 +35,8 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyQueryString {
         }
 
         @CustomType.Setter
-        public Builder textTransformations(List<WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation> textTransformations) {
-            if (textTransformations == null) {
-              throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementCustomKeyQueryString", "textTransformations");
-            }
+        public Builder textTransformations(@Nullable List<WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation> textTransformations) {
+
             this.textTransformations = textTransformations;
             return this;
         }

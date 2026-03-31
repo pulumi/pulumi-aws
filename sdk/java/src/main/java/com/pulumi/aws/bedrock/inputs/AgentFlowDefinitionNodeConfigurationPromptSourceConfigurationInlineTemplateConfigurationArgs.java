@@ -31,9 +31,17 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         return Optional.ofNullable(this.chat);
     }
 
+    /**
+     * Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
+     * 
+     */
     @Import(name="text")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs> text;
 
+    /**
+     * @return Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
+     * 
+     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs>> text() {
         return Optional.ofNullable(this.text);
     }
@@ -84,11 +92,23 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
             return chat(Output.of(chat));
         }
 
+        /**
+         * @param text Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder text(@Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs> text) {
             $.text = text;
             return this;
         }
 
+        /**
+         * @param text Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder text(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs text) {
             return text(Output.of(text));
         }

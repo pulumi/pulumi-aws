@@ -14,30 +14,22 @@ public final class WebAclRuleStatementAsnMatchStatementForwardedIpConfigArgs ext
 
     public static final WebAclRuleStatementAsnMatchStatementForwardedIpConfigArgs Empty = new WebAclRuleStatementAsnMatchStatementForwardedIpConfigArgs();
 
-    /**
-     * Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-     * 
-     */
     @Import(name="fallbackBehavior", required=true)
     private Output<String> fallbackBehavior;
 
-    /**
-     * @return Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-     * 
-     */
     public Output<String> fallbackBehavior() {
         return this.fallbackBehavior;
     }
 
     /**
-     * Name of the HTTP header to use for the IP address.
+     * Name of the header containing the forwarded IP address.
      * 
      */
     @Import(name="headerName", required=true)
     private Output<String> headerName;
 
     /**
-     * @return Name of the HTTP header to use for the IP address.
+     * @return Name of the header containing the forwarded IP address.
      * 
      */
     public Output<String> headerName() {
@@ -69,29 +61,17 @@ public final class WebAclRuleStatementAsnMatchStatementForwardedIpConfigArgs ext
             $ = new WebAclRuleStatementAsnMatchStatementForwardedIpConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fallbackBehavior Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fallbackBehavior(Output<String> fallbackBehavior) {
             $.fallbackBehavior = fallbackBehavior;
             return this;
         }
 
-        /**
-         * @param fallbackBehavior Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fallbackBehavior(String fallbackBehavior) {
             return fallbackBehavior(Output.of(fallbackBehavior));
         }
 
         /**
-         * @param headerName Name of the HTTP header to use for the IP address.
+         * @param headerName Name of the header containing the forwarded IP address.
          * 
          * @return builder
          * 
@@ -102,7 +82,7 @@ public final class WebAclRuleStatementAsnMatchStatementForwardedIpConfigArgs ext
         }
 
         /**
-         * @param headerName Name of the HTTP header to use for the IP address.
+         * @param headerName Name of the header containing the forwarded IP address.
          * 
          * @return builder
          * 

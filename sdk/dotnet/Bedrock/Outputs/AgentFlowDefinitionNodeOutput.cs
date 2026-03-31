@@ -14,9 +14,12 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentFlowDefinitionNodeOutput
     {
         /// <summary>
-        /// A name for the flow.
+        /// A name for the output that you can reference.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The data type of the output. If the output doesn’t match this type at runtime, a validation error will be thrown.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -17,32 +17,16 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
     public static final WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs();
 
-    /**
-     * Applies only to the targeted inspection level. Determines whether to use machine learning (ML) to analyze your web traffic for bot-related activity. Defaults to `true`.
-     * 
-     */
     @Import(name="enableMachineLearning")
     private @Nullable Output<Boolean> enableMachineLearning;
 
-    /**
-     * @return Applies only to the targeted inspection level. Determines whether to use machine learning (ML) to analyze your web traffic for bot-related activity. Defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> enableMachineLearning() {
         return Optional.ofNullable(this.enableMachineLearning);
     }
 
-    /**
-     * The inspection level to use for the Bot Control rule group.
-     * 
-     */
     @Import(name="inspectionLevel", required=true)
     private Output<String> inspectionLevel;
 
-    /**
-     * @return The inspection level to use for the Bot Control rule group.
-     * 
-     */
     public Output<String> inspectionLevel() {
         return this.inspectionLevel;
     }
@@ -72,44 +56,20 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             $ = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enableMachineLearning Applies only to the targeted inspection level. Determines whether to use machine learning (ML) to analyze your web traffic for bot-related activity. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableMachineLearning(@Nullable Output<Boolean> enableMachineLearning) {
             $.enableMachineLearning = enableMachineLearning;
             return this;
         }
 
-        /**
-         * @param enableMachineLearning Applies only to the targeted inspection level. Determines whether to use machine learning (ML) to analyze your web traffic for bot-related activity. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableMachineLearning(Boolean enableMachineLearning) {
             return enableMachineLearning(Output.of(enableMachineLearning));
         }
 
-        /**
-         * @param inspectionLevel The inspection level to use for the Bot Control rule group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inspectionLevel(Output<String> inspectionLevel) {
             $.inspectionLevel = inspectionLevel;
             return this;
         }
 
-        /**
-         * @param inspectionLevel The inspection level to use for the Bot Control rule group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inspectionLevel(String inspectionLevel) {
             return inspectionLevel(Output.of(inspectionLevel));
         }

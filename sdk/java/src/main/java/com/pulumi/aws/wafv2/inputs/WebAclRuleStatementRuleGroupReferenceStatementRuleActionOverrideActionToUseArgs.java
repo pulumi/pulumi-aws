@@ -19,38 +19,62 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
 
     public static final WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs Empty = new WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs();
 
+    /**
+     * Allow the request. See Allow below.
+     * 
+     */
     @Import(name="allow")
     private @Nullable Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowArgs> allow;
 
+    /**
+     * @return Allow the request. See Allow below.
+     * 
+     */
     public Optional<Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowArgs>> allow() {
         return Optional.ofNullable(this.allow);
     }
 
+    /**
+     * Block the request. See Block below.
+     * 
+     */
     @Import(name="block")
     private @Nullable Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockArgs> block;
 
+    /**
+     * @return Block the request. See Block below.
+     * 
+     */
     public Optional<Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockArgs>> block() {
         return Optional.ofNullable(this.block);
     }
 
     /**
-     * Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+     * Present a CAPTCHA challenge. See Captcha below.
      * 
      */
     @Import(name="captcha")
     private @Nullable Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaArgs> captcha;
 
     /**
-     * @return Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+     * @return Present a CAPTCHA challenge. See Captcha below.
      * 
      */
     public Optional<Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaArgs>> captcha() {
         return Optional.ofNullable(this.captcha);
     }
 
+    /**
+     * Present a silent challenge. See Challenge below.
+     * 
+     */
     @Import(name="challenge")
     private @Nullable Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs> challenge;
 
+    /**
+     * @return Present a silent challenge. See Challenge below.
+     * 
+     */
     public Optional<Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs>> challenge() {
         return Optional.ofNullable(this.challenge);
     }
@@ -90,26 +114,50 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
             $ = new WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param allow Allow the request. See Allow below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allow(@Nullable Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowArgs> allow) {
             $.allow = allow;
             return this;
         }
 
+        /**
+         * @param allow Allow the request. See Allow below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allow(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowArgs allow) {
             return allow(Output.of(allow));
         }
 
+        /**
+         * @param block Block the request. See Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder block(@Nullable Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockArgs> block) {
             $.block = block;
             return this;
         }
 
+        /**
+         * @param block Block the request. See Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder block(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockArgs block) {
             return block(Output.of(block));
         }
 
         /**
-         * @param captcha Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+         * @param captcha Present a CAPTCHA challenge. See Captcha below.
          * 
          * @return builder
          * 
@@ -120,7 +168,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
         }
 
         /**
-         * @param captcha Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+         * @param captcha Present a CAPTCHA challenge. See Captcha below.
          * 
          * @return builder
          * 
@@ -129,11 +177,23 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
             return captcha(Output.of(captcha));
         }
 
+        /**
+         * @param challenge Present a silent challenge. See Challenge below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder challenge(@Nullable Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs> challenge) {
             $.challenge = challenge;
             return this;
         }
 
+        /**
+         * @param challenge Present a silent challenge. See Challenge below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder challenge(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs challenge) {
             return challenge(Output.of(challenge));
         }

@@ -842,6 +842,8 @@ func (o FirewallPolicyEncryptionConfigurationPtrOutput) Type() pulumi.StringPtrO
 }
 
 type FirewallPolicyFirewallPolicy struct {
+	// Boolean indicating whether to prevent TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. If `true`, `tlsInspectionConfigurationArn` is required. Default value: `false`.
+	EnableTlsSessionHolding *bool `pulumi:"enableTlsSessionHolding"`
 	// . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
 	PolicyVariables *FirewallPolicyFirewallPolicyPolicyVariables `pulumi:"policyVariables"`
 	// Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. Value values: `aws:drop_strict`, `aws:drop_established`, `aws:drop_established_app_layer`, `aws:alert_strict`, ` aws:alert_established,  `aws:alert_established_app_layer`. For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the AWS Network Firewall Developer Guide.
@@ -876,6 +878,8 @@ type FirewallPolicyFirewallPolicyInput interface {
 }
 
 type FirewallPolicyFirewallPolicyArgs struct {
+	// Boolean indicating whether to prevent TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. If `true`, `tlsInspectionConfigurationArn` is required. Default value: `false`.
+	EnableTlsSessionHolding pulumi.BoolPtrInput `pulumi:"enableTlsSessionHolding"`
 	// . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
 	PolicyVariables FirewallPolicyFirewallPolicyPolicyVariablesPtrInput `pulumi:"policyVariables"`
 	// Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. Value values: `aws:drop_strict`, `aws:drop_established`, `aws:drop_established_app_layer`, `aws:alert_strict`, ` aws:alert_established,  `aws:alert_established_app_layer`. For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the AWS Network Firewall Developer Guide.
@@ -975,6 +979,11 @@ func (o FirewallPolicyFirewallPolicyOutput) ToFirewallPolicyFirewallPolicyPtrOut
 	}).(FirewallPolicyFirewallPolicyPtrOutput)
 }
 
+// Boolean indicating whether to prevent TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. If `true`, `tlsInspectionConfigurationArn` is required. Default value: `false`.
+func (o FirewallPolicyFirewallPolicyOutput) EnableTlsSessionHolding() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicy) *bool { return v.EnableTlsSessionHolding }).(pulumi.BoolPtrOutput)
+}
+
 // . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
 func (o FirewallPolicyFirewallPolicyOutput) PolicyVariables() FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyFirewallPolicy) *FirewallPolicyFirewallPolicyPolicyVariables {
@@ -1054,6 +1063,16 @@ func (o FirewallPolicyFirewallPolicyPtrOutput) Elem() FirewallPolicyFirewallPoli
 		var ret FirewallPolicyFirewallPolicy
 		return ret
 	}).(FirewallPolicyFirewallPolicyOutput)
+}
+
+// Boolean indicating whether to prevent TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. If `true`, `tlsInspectionConfigurationArn` is required. Default value: `false`.
+func (o FirewallPolicyFirewallPolicyPtrOutput) EnableTlsSessionHolding() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableTlsSessionHolding
+	}).(pulumi.BoolPtrOutput)
 }
 
 // . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
@@ -8266,6 +8285,7 @@ func (o VpcEndpointAssociationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput
 }
 
 type VpcEndpointAssociationVpcEndpointAssociationStatus struct {
+	// Set of subnets configured for use by the VPC Endpoint Association.
 	AssociationSyncStates []VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncState `pulumi:"associationSyncStates"`
 }
 
@@ -8281,6 +8301,7 @@ type VpcEndpointAssociationVpcEndpointAssociationStatusInput interface {
 }
 
 type VpcEndpointAssociationVpcEndpointAssociationStatusArgs struct {
+	// Set of subnets configured for use by the VPC Endpoint Association.
 	AssociationSyncStates VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayInput `pulumi:"associationSyncStates"`
 }
 
@@ -8335,6 +8356,7 @@ func (o VpcEndpointAssociationVpcEndpointAssociationStatusOutput) ToVpcEndpointA
 	return o
 }
 
+// Set of subnets configured for use by the VPC Endpoint Association.
 func (o VpcEndpointAssociationVpcEndpointAssociationStatusOutput) AssociationSyncStates() VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncStateArrayOutput {
 	return o.ApplyT(func(v VpcEndpointAssociationVpcEndpointAssociationStatus) []VpcEndpointAssociationVpcEndpointAssociationStatusAssociationSyncState {
 		return v.AssociationSyncStates
@@ -9602,6 +9624,7 @@ func (o GetFirewallFirewallStatusTransitGatewayAttachmentSyncStateArrayOutput) I
 }
 
 type GetFirewallPolicyFirewallPolicy struct {
+	EnableTlsSessionHolding         bool                                                         `pulumi:"enableTlsSessionHolding"`
 	PolicyVariables                 []GetFirewallPolicyFirewallPolicyPolicyVariable              `pulumi:"policyVariables"`
 	StatefulDefaultActions          []string                                                     `pulumi:"statefulDefaultActions"`
 	StatefulEngineOptions           []GetFirewallPolicyFirewallPolicyStatefulEngineOption        `pulumi:"statefulEngineOptions"`
@@ -9625,6 +9648,7 @@ type GetFirewallPolicyFirewallPolicyInput interface {
 }
 
 type GetFirewallPolicyFirewallPolicyArgs struct {
+	EnableTlsSessionHolding         pulumi.BoolInput                                                     `pulumi:"enableTlsSessionHolding"`
 	PolicyVariables                 GetFirewallPolicyFirewallPolicyPolicyVariableArrayInput              `pulumi:"policyVariables"`
 	StatefulDefaultActions          pulumi.StringArrayInput                                              `pulumi:"statefulDefaultActions"`
 	StatefulEngineOptions           GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayInput        `pulumi:"statefulEngineOptions"`
@@ -9685,6 +9709,10 @@ func (o GetFirewallPolicyFirewallPolicyOutput) ToGetFirewallPolicyFirewallPolicy
 
 func (o GetFirewallPolicyFirewallPolicyOutput) ToGetFirewallPolicyFirewallPolicyOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyOutput {
 	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyOutput) EnableTlsSessionHolding() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicy) bool { return v.EnableTlsSessionHolding }).(pulumi.BoolOutput)
 }
 
 func (o GetFirewallPolicyFirewallPolicyOutput) PolicyVariables() GetFirewallPolicyFirewallPolicyPolicyVariableArrayOutput {

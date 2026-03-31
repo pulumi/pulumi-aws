@@ -561,6 +561,12 @@ namespace Pulumi.Aws.DynamoDB
         public Output<ImmutableArray<Outputs.TableReplica>> Replicas { get; private set; } = null!;
 
         /// <summary>
+        /// ARN of backup to restore.
+        /// </summary>
+        [Output("restoreBackupArn")]
+        public Output<string?> RestoreBackupArn { get; private set; } = null!;
+
+        /// <summary>
         /// Time of the point-in-time recovery point to restore.
         /// </summary>
         [Output("restoreDateTime")]
@@ -817,6 +823,12 @@ namespace Pulumi.Aws.DynamoDB
         }
 
         /// <summary>
+        /// ARN of backup to restore.
+        /// </summary>
+        [Input("restoreBackupArn")]
+        public Input<string>? RestoreBackupArn { get; set; }
+
+        /// <summary>
         /// Time of the point-in-time recovery point to restore.
         /// </summary>
         [Input("restoreDateTime")]
@@ -1027,6 +1039,12 @@ namespace Pulumi.Aws.DynamoDB
             get => _replicas ?? (_replicas = new InputList<Inputs.TableReplicaGetArgs>());
             set => _replicas = value;
         }
+
+        /// <summary>
+        /// ARN of backup to restore.
+        /// </summary>
+        [Input("restoreBackupArn")]
+        public Input<string>? RestoreBackupArn { get; set; }
 
         /// <summary>
         /// Time of the point-in-time recovery point to restore.

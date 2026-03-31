@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -31,18 +32,34 @@ public final class OptInResourceDataLfTagArgs extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.catalogId);
     }
 
+    /**
+     * (Required) Key name for the LF-Tag.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return (Required) Key name for the LF-Tag.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
 
-    @Import(name="value", required=true)
-    private Output<String> value;
+    /**
+     * (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
+     * 
+     */
+    @Import(name="values", required=true)
+    private Output<List<String>> values;
 
-    public Output<String> value() {
-        return this.value;
+    /**
+     * @return (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
+     * 
+     */
+    public Output<List<String>> values() {
+        return this.values;
     }
 
     private OptInResourceDataLfTagArgs() {}
@@ -50,7 +67,7 @@ public final class OptInResourceDataLfTagArgs extends com.pulumi.resources.Resou
     private OptInResourceDataLfTagArgs(OptInResourceDataLfTagArgs $) {
         this.catalogId = $.catalogId;
         this.key = $.key;
-        this.value = $.value;
+        this.values = $.values;
     }
 
     public static Builder builder() {
@@ -92,30 +109,64 @@ public final class OptInResourceDataLfTagArgs extends com.pulumi.resources.Resou
             return catalogId(Output.of(catalogId));
         }
 
+        /**
+         * @param key (Required) Key name for the LF-Tag.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key (Required) Key name for the LF-Tag.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        public Builder value(Output<String> value) {
-            $.value = value;
+        /**
+         * @param values (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder values(Output<List<String>> values) {
+            $.values = values;
             return this;
         }
 
-        public Builder value(String value) {
-            return value(Output.of(value));
+        /**
+         * @param values (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder values(List<String> values) {
+            return values(Output.of(values));
+        }
+
+        /**
+         * @param values (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder values(String... values) {
+            return values(List.of(values));
         }
 
         public OptInResourceDataLfTagArgs build() {
             if ($.key == null) {
                 throw new MissingRequiredPropertyException("OptInResourceDataLfTagArgs", "key");
             }
-            if ($.value == null) {
-                throw new MissingRequiredPropertyException("OptInResourceDataLfTagArgs", "value");
+            if ($.values == null) {
+                throw new MissingRequiredPropertyException("OptInResourceDataLfTagArgs", "values");
             }
             return $;
         }

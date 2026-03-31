@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContains {
-    /**
-     * @return Strings in the body of the response that indicate a failed login attempt.
-     * 
-     */
     private List<String> failureStrings;
-    /**
-     * @return Strings in the body of the response that indicate a successful login attempt.
-     * 
-     */
     private List<String> successStrings;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContains() {}
-    /**
-     * @return Strings in the body of the response that indicate a failed login attempt.
-     * 
-     */
     public List<String> failureStrings() {
         return this.failureStrings;
     }
-    /**
-     * @return Strings in the body of the response that indicate a successful login attempt.
-     * 
-     */
     public List<String> successStrings() {
         return this.successStrings;
     }

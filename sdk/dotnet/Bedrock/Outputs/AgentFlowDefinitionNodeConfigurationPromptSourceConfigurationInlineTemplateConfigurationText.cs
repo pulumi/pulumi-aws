@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationText
     {
+        /// <summary>
+        /// A cache checkpoint within a template configuration. See Cache Point for more information.
+        /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePoint? CachePoint;
+        /// <summary>
+        /// A list of variables in the prompt template. See Input Variable for more information.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariable> InputVariables;
+        /// <summary>
+        /// The message for the prompt.
+        /// </summary>
         public readonly string Text;
 
         [OutputConstructor]

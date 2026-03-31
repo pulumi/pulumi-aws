@@ -10,6 +10,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs extends com.pulumi.resources.ResourceArgs {
@@ -17,33 +19,25 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs exte
     public static final WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs Empty = new WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs();
 
     /**
-     * The name of the header to use.
+     * Name of the rule. Must be unique within the Web ACL.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the header to use.
+     * @return Name of the rule. Must be unique within the Web ACL.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
-     * 
-     */
-    @Import(name="textTransformations", required=true)
-    private Output<List<WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs>> textTransformations;
+    @Import(name="textTransformations")
+    private @Nullable Output<List<WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs>> textTransformations;
 
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
-     * 
-     */
-    public Output<List<WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs>> textTransformations() {
-        return this.textTransformations;
+    public Optional<Output<List<WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs>>> textTransformations() {
+        return Optional.ofNullable(this.textTransformations);
     }
 
     private WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs() {}
@@ -72,7 +66,7 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs exte
         }
 
         /**
-         * @param name The name of the header to use.
+         * @param name Name of the rule. Must be unique within the Web ACL.
          * 
          * @return builder
          * 
@@ -83,7 +77,7 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs exte
         }
 
         /**
-         * @param name The name of the header to use.
+         * @param name Name of the rule. Must be unique within the Web ACL.
          * 
          * @return builder
          * 
@@ -92,33 +86,15 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs exte
             return name(Output.of(name));
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder textTransformations(Output<List<WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs>> textTransformations) {
+        public Builder textTransformations(@Nullable Output<List<WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs>> textTransformations) {
             $.textTransformations = textTransformations;
             return this;
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformations(List<WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs> textTransformations) {
             return textTransformations(Output.of(textTransformations));
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformations(WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs... textTransformations) {
             return textTransformations(List.of(textTransformations));
         }
@@ -126,9 +102,6 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs exte
         public WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs build() {
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs", "name");
-            }
-            if ($.textTransformations == null) {
-                throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs", "textTransformations");
             }
             return $;
         }

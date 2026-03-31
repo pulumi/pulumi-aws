@@ -18,14 +18,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMa
     public static final WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyArgs Empty = new WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyArgs();
 
     /**
-     * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+     * How to handle requests with invalid JSON body. Valid values: `EVALUATE_AS_STRING`, `MATCH`, `NO_MATCH`.
      * 
      */
     @Import(name="invalidFallbackBehavior")
     private @Nullable Output<String> invalidFallbackBehavior;
 
     /**
-     * @return What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+     * @return How to handle requests with invalid JSON body. Valid values: `EVALUATE_AS_STRING`, `MATCH`, `NO_MATCH`.
      * 
      */
     public Optional<Output<String>> invalidFallbackBehavior() {
@@ -33,29 +33,29 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMa
     }
 
     /**
-     * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+     * JSON content to inspect. See JSON Body Match Pattern below.
      * 
      */
-    @Import(name="matchPattern", required=true)
-    private Output<WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs> matchPattern;
+    @Import(name="matchPattern")
+    private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs> matchPattern;
 
     /**
-     * @return The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+     * @return JSON content to inspect. See JSON Body Match Pattern below.
      * 
      */
-    public Output<WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs> matchPattern() {
-        return this.matchPattern;
+    public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs>> matchPattern() {
+        return Optional.ofNullable(this.matchPattern);
     }
 
     /**
-     * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+     * Parts of the JSON to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
      * 
      */
     @Import(name="matchScope", required=true)
     private Output<String> matchScope;
 
     /**
-     * @return The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+     * @return Parts of the JSON to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
      * 
      */
     public Output<String> matchScope() {
@@ -63,14 +63,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMa
     }
 
     /**
-     * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+     * How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
      * 
      */
     @Import(name="oversizeHandling")
     private @Nullable Output<String> oversizeHandling;
 
     /**
-     * @return What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+     * @return How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
      * 
      */
     public Optional<Output<String>> oversizeHandling() {
@@ -105,7 +105,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMa
         }
 
         /**
-         * @param invalidFallbackBehavior What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         * @param invalidFallbackBehavior How to handle requests with invalid JSON body. Valid values: `EVALUATE_AS_STRING`, `MATCH`, `NO_MATCH`.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMa
         }
 
         /**
-         * @param invalidFallbackBehavior What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         * @param invalidFallbackBehavior How to handle requests with invalid JSON body. Valid values: `EVALUATE_AS_STRING`, `MATCH`, `NO_MATCH`.
          * 
          * @return builder
          * 
@@ -126,18 +126,18 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMa
         }
 
         /**
-         * @param matchPattern The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         * @param matchPattern JSON content to inspect. See JSON Body Match Pattern below.
          * 
          * @return builder
          * 
          */
-        public Builder matchPattern(Output<WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs> matchPattern) {
+        public Builder matchPattern(@Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs> matchPattern) {
             $.matchPattern = matchPattern;
             return this;
         }
 
         /**
-         * @param matchPattern The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         * @param matchPattern JSON content to inspect. See JSON Body Match Pattern below.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMa
         }
 
         /**
-         * @param matchScope The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         * @param matchScope Parts of the JSON to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMa
         }
 
         /**
-         * @param matchScope The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         * @param matchScope Parts of the JSON to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMa
         }
 
         /**
-         * @param oversizeHandling What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         * @param oversizeHandling How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMa
         }
 
         /**
-         * @param oversizeHandling What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         * @param oversizeHandling How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
          * 
          * @return builder
          * 
@@ -189,9 +189,6 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMa
         }
 
         public WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyArgs build() {
-            if ($.matchPattern == null) {
-                throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyArgs", "matchPattern");
-            }
             if ($.matchScope == null) {
                 throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyArgs", "matchScope");
             }

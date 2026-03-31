@@ -186,6 +186,9 @@ class _SavingsPlanState:
         if end is not None:
             pulumi.set(__self__, "end", end)
         if offering_id is not None:
+            warnings.warn("""offering_id is deprecated. Use savings_plan_offering_id instead.""", DeprecationWarning)
+            pulumi.log.warn("""offering_id is deprecated: offering_id is deprecated. Use savings_plan_offering_id instead.""")
+        if offering_id is not None:
             pulumi.set(__self__, "offering_id", offering_id)
         if payment_option is not None:
             pulumi.set(__self__, "payment_option", payment_option)
@@ -286,6 +289,7 @@ class _SavingsPlanState:
 
     @_builtins.property
     @pulumi.getter(name="offeringId")
+    @_utilities.deprecated("""offering_id is deprecated. Use savings_plan_offering_id instead.""")
     def offering_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The ID of the offering.
@@ -820,6 +824,7 @@ class SavingsPlan(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="offeringId")
+    @_utilities.deprecated("""offering_id is deprecated. Use savings_plan_offering_id instead.""")
     def offering_id(self) -> pulumi.Output[_builtins.str]:
         """
         The ID of the offering.

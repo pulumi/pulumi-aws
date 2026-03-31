@@ -14,19 +14,19 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody
     {
         /// <summary>
-        /// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+        /// How to handle requests with invalid JSON body. Valid values: `EVALUATE_AS_STRING`, `MATCH`, `NO_MATCH`.
         /// </summary>
         public readonly string? InvalidFallbackBehavior;
         /// <summary>
-        /// The patterns to look for in the JSON body. You must specify exactly one setting: either `All` or `IncludedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        /// JSON content to inspect. See JSON Body Match Pattern below.
         /// </summary>
-        public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern MatchPattern;
+        public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern? MatchPattern;
         /// <summary>
-        /// The parts of the JSON to match against using the `MatchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+        /// Parts of the JSON to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
         /// </summary>
         public readonly string MatchScope;
         /// <summary>
-        /// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+        /// How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
         /// </summary>
         public readonly string? OversizeHandling;
 
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         private WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody(
             string? invalidFallbackBehavior,
 
-            Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern matchPattern,
+            Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern? matchPattern,
 
             string matchScope,
 

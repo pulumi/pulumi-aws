@@ -15,30 +15,54 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse {
+    /**
+     * @return Allow the request. See Allow below.
+     * 
+     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow allow;
+    /**
+     * @return Block the request. See Block below.
+     * 
+     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock block;
     /**
-     * @return Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+     * @return Present a CAPTCHA challenge. See Captcha below.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha captcha;
+    /**
+     * @return Present a silent challenge. See Challenge below.
+     * 
+     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge challenge;
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount count;
 
     private WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse() {}
+    /**
+     * @return Allow the request. See Allow below.
+     * 
+     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow> allow() {
         return Optional.ofNullable(this.allow);
     }
+    /**
+     * @return Block the request. See Block below.
+     * 
+     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock> block() {
         return Optional.ofNullable(this.block);
     }
     /**
-     * @return Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+     * @return Present a CAPTCHA challenge. See Captcha below.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha> captcha() {
         return Optional.ofNullable(this.captcha);
     }
+    /**
+     * @return Present a silent challenge. See Challenge below.
+     * 
+     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge> challenge() {
         return Optional.ofNullable(this.challenge);
     }

@@ -13,6 +13,7311 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AlgorithmInferenceSpecification struct {
+	// List of container definitions for inference.
+	Containers []AlgorithmInferenceSpecificationContainer `pulumi:"containers"`
+	// Supported MIME types for inference requests.
+	SupportedContentTypes []string `pulumi:"supportedContentTypes"`
+	// Instance types supported for real-time inference.
+	SupportedRealtimeInferenceInstanceTypes []string `pulumi:"supportedRealtimeInferenceInstanceTypes"`
+	// Supported MIME types for inference responses.
+	SupportedResponseMimeTypes []string `pulumi:"supportedResponseMimeTypes"`
+	// Instance types supported for batch transform.
+	SupportedTransformInstanceTypes []string `pulumi:"supportedTransformInstanceTypes"`
+}
+
+// AlgorithmInferenceSpecificationInput is an input type that accepts AlgorithmInferenceSpecificationArgs and AlgorithmInferenceSpecificationOutput values.
+// You can construct a concrete instance of `AlgorithmInferenceSpecificationInput` via:
+//
+//	AlgorithmInferenceSpecificationArgs{...}
+type AlgorithmInferenceSpecificationInput interface {
+	pulumi.Input
+
+	ToAlgorithmInferenceSpecificationOutput() AlgorithmInferenceSpecificationOutput
+	ToAlgorithmInferenceSpecificationOutputWithContext(context.Context) AlgorithmInferenceSpecificationOutput
+}
+
+type AlgorithmInferenceSpecificationArgs struct {
+	// List of container definitions for inference.
+	Containers AlgorithmInferenceSpecificationContainerArrayInput `pulumi:"containers"`
+	// Supported MIME types for inference requests.
+	SupportedContentTypes pulumi.StringArrayInput `pulumi:"supportedContentTypes"`
+	// Instance types supported for real-time inference.
+	SupportedRealtimeInferenceInstanceTypes pulumi.StringArrayInput `pulumi:"supportedRealtimeInferenceInstanceTypes"`
+	// Supported MIME types for inference responses.
+	SupportedResponseMimeTypes pulumi.StringArrayInput `pulumi:"supportedResponseMimeTypes"`
+	// Instance types supported for batch transform.
+	SupportedTransformInstanceTypes pulumi.StringArrayInput `pulumi:"supportedTransformInstanceTypes"`
+}
+
+func (AlgorithmInferenceSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmInferenceSpecification)(nil)).Elem()
+}
+
+func (i AlgorithmInferenceSpecificationArgs) ToAlgorithmInferenceSpecificationOutput() AlgorithmInferenceSpecificationOutput {
+	return i.ToAlgorithmInferenceSpecificationOutputWithContext(context.Background())
+}
+
+func (i AlgorithmInferenceSpecificationArgs) ToAlgorithmInferenceSpecificationOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationOutput)
+}
+
+func (i AlgorithmInferenceSpecificationArgs) ToAlgorithmInferenceSpecificationPtrOutput() AlgorithmInferenceSpecificationPtrOutput {
+	return i.ToAlgorithmInferenceSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmInferenceSpecificationArgs) ToAlgorithmInferenceSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationOutput).ToAlgorithmInferenceSpecificationPtrOutputWithContext(ctx)
+}
+
+// AlgorithmInferenceSpecificationPtrInput is an input type that accepts AlgorithmInferenceSpecificationArgs, AlgorithmInferenceSpecificationPtr and AlgorithmInferenceSpecificationPtrOutput values.
+// You can construct a concrete instance of `AlgorithmInferenceSpecificationPtrInput` via:
+//
+//	        AlgorithmInferenceSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmInferenceSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmInferenceSpecificationPtrOutput() AlgorithmInferenceSpecificationPtrOutput
+	ToAlgorithmInferenceSpecificationPtrOutputWithContext(context.Context) AlgorithmInferenceSpecificationPtrOutput
+}
+
+type algorithmInferenceSpecificationPtrType AlgorithmInferenceSpecificationArgs
+
+func AlgorithmInferenceSpecificationPtr(v *AlgorithmInferenceSpecificationArgs) AlgorithmInferenceSpecificationPtrInput {
+	return (*algorithmInferenceSpecificationPtrType)(v)
+}
+
+func (*algorithmInferenceSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmInferenceSpecification)(nil)).Elem()
+}
+
+func (i *algorithmInferenceSpecificationPtrType) ToAlgorithmInferenceSpecificationPtrOutput() AlgorithmInferenceSpecificationPtrOutput {
+	return i.ToAlgorithmInferenceSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmInferenceSpecificationPtrType) ToAlgorithmInferenceSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationPtrOutput)
+}
+
+type AlgorithmInferenceSpecificationOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmInferenceSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmInferenceSpecification)(nil)).Elem()
+}
+
+func (o AlgorithmInferenceSpecificationOutput) ToAlgorithmInferenceSpecificationOutput() AlgorithmInferenceSpecificationOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationOutput) ToAlgorithmInferenceSpecificationOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationOutput) ToAlgorithmInferenceSpecificationPtrOutput() AlgorithmInferenceSpecificationPtrOutput {
+	return o.ToAlgorithmInferenceSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmInferenceSpecificationOutput) ToAlgorithmInferenceSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmInferenceSpecification) *AlgorithmInferenceSpecification {
+		return &v
+	}).(AlgorithmInferenceSpecificationPtrOutput)
+}
+
+// List of container definitions for inference.
+func (o AlgorithmInferenceSpecificationOutput) Containers() AlgorithmInferenceSpecificationContainerArrayOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecification) []AlgorithmInferenceSpecificationContainer {
+		return v.Containers
+	}).(AlgorithmInferenceSpecificationContainerArrayOutput)
+}
+
+// Supported MIME types for inference requests.
+func (o AlgorithmInferenceSpecificationOutput) SupportedContentTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecification) []string { return v.SupportedContentTypes }).(pulumi.StringArrayOutput)
+}
+
+// Instance types supported for real-time inference.
+func (o AlgorithmInferenceSpecificationOutput) SupportedRealtimeInferenceInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecification) []string { return v.SupportedRealtimeInferenceInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+// Supported MIME types for inference responses.
+func (o AlgorithmInferenceSpecificationOutput) SupportedResponseMimeTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecification) []string { return v.SupportedResponseMimeTypes }).(pulumi.StringArrayOutput)
+}
+
+// Instance types supported for batch transform.
+func (o AlgorithmInferenceSpecificationOutput) SupportedTransformInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecification) []string { return v.SupportedTransformInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+type AlgorithmInferenceSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmInferenceSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmInferenceSpecification)(nil)).Elem()
+}
+
+func (o AlgorithmInferenceSpecificationPtrOutput) ToAlgorithmInferenceSpecificationPtrOutput() AlgorithmInferenceSpecificationPtrOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationPtrOutput) ToAlgorithmInferenceSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationPtrOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationPtrOutput) Elem() AlgorithmInferenceSpecificationOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecification) AlgorithmInferenceSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmInferenceSpecification
+		return ret
+	}).(AlgorithmInferenceSpecificationOutput)
+}
+
+// List of container definitions for inference.
+func (o AlgorithmInferenceSpecificationPtrOutput) Containers() AlgorithmInferenceSpecificationContainerArrayOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecification) []AlgorithmInferenceSpecificationContainer {
+		if v == nil {
+			return nil
+		}
+		return v.Containers
+	}).(AlgorithmInferenceSpecificationContainerArrayOutput)
+}
+
+// Supported MIME types for inference requests.
+func (o AlgorithmInferenceSpecificationPtrOutput) SupportedContentTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecification) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SupportedContentTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Instance types supported for real-time inference.
+func (o AlgorithmInferenceSpecificationPtrOutput) SupportedRealtimeInferenceInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecification) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SupportedRealtimeInferenceInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Supported MIME types for inference responses.
+func (o AlgorithmInferenceSpecificationPtrOutput) SupportedResponseMimeTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecification) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SupportedResponseMimeTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Instance types supported for batch transform.
+func (o AlgorithmInferenceSpecificationPtrOutput) SupportedTransformInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecification) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SupportedTransformInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlgorithmInferenceSpecificationContainer struct {
+	// Additional model data to make available to the container. See Additional S3 Data Source.
+	AdditionalS3DataSource *AlgorithmInferenceSpecificationContainerAdditionalS3DataSource `pulumi:"additionalS3DataSource"`
+	// Base model information for the container. See Base Model.
+	BaseModel *AlgorithmInferenceSpecificationContainerBaseModel `pulumi:"baseModel"`
+	// DNS host name for the container.
+	ContainerHostname *string `pulumi:"containerHostname"`
+	// Environment variables to pass to the container.
+	Environment map[string]string `pulumi:"environment"`
+	// Machine learning framework in the container image.
+	Framework *string `pulumi:"framework"`
+	// Framework version in the container image.
+	FrameworkVersion *string `pulumi:"frameworkVersion"`
+	// Container image URI.
+	Image *string `pulumi:"image"`
+	// Digest of the container image.
+	ImageDigest *string `pulumi:"imageDigest"`
+	// Whether the container is used as a checkpoint container.
+	IsCheckpoint *bool `pulumi:"isCheckpoint"`
+	// ETag for `modelDataUrl`.
+	ModelDataEtag *string `pulumi:"modelDataEtag"`
+	// Source of model data for the container. See Model Data Source.
+	ModelDataSource *AlgorithmInferenceSpecificationContainerModelDataSource `pulumi:"modelDataSource"`
+	// S3 or HTTPS URL of the model artifacts.
+	ModelDataUrl *string `pulumi:"modelDataUrl"`
+	// Additional model input configuration. See Model Input.
+	ModelInput *AlgorithmInferenceSpecificationContainerModelInput `pulumi:"modelInput"`
+	// Name of a pre-existing model nearest to the one being created.
+	NearestModelName *string `pulumi:"nearestModelName"`
+	// AWS Marketplace product ID.
+	ProductId *string `pulumi:"productId"`
+}
+
+// AlgorithmInferenceSpecificationContainerInput is an input type that accepts AlgorithmInferenceSpecificationContainerArgs and AlgorithmInferenceSpecificationContainerOutput values.
+// You can construct a concrete instance of `AlgorithmInferenceSpecificationContainerInput` via:
+//
+//	AlgorithmInferenceSpecificationContainerArgs{...}
+type AlgorithmInferenceSpecificationContainerInput interface {
+	pulumi.Input
+
+	ToAlgorithmInferenceSpecificationContainerOutput() AlgorithmInferenceSpecificationContainerOutput
+	ToAlgorithmInferenceSpecificationContainerOutputWithContext(context.Context) AlgorithmInferenceSpecificationContainerOutput
+}
+
+type AlgorithmInferenceSpecificationContainerArgs struct {
+	// Additional model data to make available to the container. See Additional S3 Data Source.
+	AdditionalS3DataSource AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrInput `pulumi:"additionalS3DataSource"`
+	// Base model information for the container. See Base Model.
+	BaseModel AlgorithmInferenceSpecificationContainerBaseModelPtrInput `pulumi:"baseModel"`
+	// DNS host name for the container.
+	ContainerHostname pulumi.StringPtrInput `pulumi:"containerHostname"`
+	// Environment variables to pass to the container.
+	Environment pulumi.StringMapInput `pulumi:"environment"`
+	// Machine learning framework in the container image.
+	Framework pulumi.StringPtrInput `pulumi:"framework"`
+	// Framework version in the container image.
+	FrameworkVersion pulumi.StringPtrInput `pulumi:"frameworkVersion"`
+	// Container image URI.
+	Image pulumi.StringPtrInput `pulumi:"image"`
+	// Digest of the container image.
+	ImageDigest pulumi.StringPtrInput `pulumi:"imageDigest"`
+	// Whether the container is used as a checkpoint container.
+	IsCheckpoint pulumi.BoolPtrInput `pulumi:"isCheckpoint"`
+	// ETag for `modelDataUrl`.
+	ModelDataEtag pulumi.StringPtrInput `pulumi:"modelDataEtag"`
+	// Source of model data for the container. See Model Data Source.
+	ModelDataSource AlgorithmInferenceSpecificationContainerModelDataSourcePtrInput `pulumi:"modelDataSource"`
+	// S3 or HTTPS URL of the model artifacts.
+	ModelDataUrl pulumi.StringPtrInput `pulumi:"modelDataUrl"`
+	// Additional model input configuration. See Model Input.
+	ModelInput AlgorithmInferenceSpecificationContainerModelInputPtrInput `pulumi:"modelInput"`
+	// Name of a pre-existing model nearest to the one being created.
+	NearestModelName pulumi.StringPtrInput `pulumi:"nearestModelName"`
+	// AWS Marketplace product ID.
+	ProductId pulumi.StringPtrInput `pulumi:"productId"`
+}
+
+func (AlgorithmInferenceSpecificationContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmInferenceSpecificationContainer)(nil)).Elem()
+}
+
+func (i AlgorithmInferenceSpecificationContainerArgs) ToAlgorithmInferenceSpecificationContainerOutput() AlgorithmInferenceSpecificationContainerOutput {
+	return i.ToAlgorithmInferenceSpecificationContainerOutputWithContext(context.Background())
+}
+
+func (i AlgorithmInferenceSpecificationContainerArgs) ToAlgorithmInferenceSpecificationContainerOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationContainerOutput)
+}
+
+// AlgorithmInferenceSpecificationContainerArrayInput is an input type that accepts AlgorithmInferenceSpecificationContainerArray and AlgorithmInferenceSpecificationContainerArrayOutput values.
+// You can construct a concrete instance of `AlgorithmInferenceSpecificationContainerArrayInput` via:
+//
+//	AlgorithmInferenceSpecificationContainerArray{ AlgorithmInferenceSpecificationContainerArgs{...} }
+type AlgorithmInferenceSpecificationContainerArrayInput interface {
+	pulumi.Input
+
+	ToAlgorithmInferenceSpecificationContainerArrayOutput() AlgorithmInferenceSpecificationContainerArrayOutput
+	ToAlgorithmInferenceSpecificationContainerArrayOutputWithContext(context.Context) AlgorithmInferenceSpecificationContainerArrayOutput
+}
+
+type AlgorithmInferenceSpecificationContainerArray []AlgorithmInferenceSpecificationContainerInput
+
+func (AlgorithmInferenceSpecificationContainerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmInferenceSpecificationContainer)(nil)).Elem()
+}
+
+func (i AlgorithmInferenceSpecificationContainerArray) ToAlgorithmInferenceSpecificationContainerArrayOutput() AlgorithmInferenceSpecificationContainerArrayOutput {
+	return i.ToAlgorithmInferenceSpecificationContainerArrayOutputWithContext(context.Background())
+}
+
+func (i AlgorithmInferenceSpecificationContainerArray) ToAlgorithmInferenceSpecificationContainerArrayOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationContainerArrayOutput)
+}
+
+type AlgorithmInferenceSpecificationContainerOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmInferenceSpecificationContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmInferenceSpecificationContainer)(nil)).Elem()
+}
+
+func (o AlgorithmInferenceSpecificationContainerOutput) ToAlgorithmInferenceSpecificationContainerOutput() AlgorithmInferenceSpecificationContainerOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerOutput) ToAlgorithmInferenceSpecificationContainerOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerOutput {
+	return o
+}
+
+// Additional model data to make available to the container. See Additional S3 Data Source.
+func (o AlgorithmInferenceSpecificationContainerOutput) AdditionalS3DataSource() AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainer) *AlgorithmInferenceSpecificationContainerAdditionalS3DataSource {
+		return v.AdditionalS3DataSource
+	}).(AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput)
+}
+
+// Base model information for the container. See Base Model.
+func (o AlgorithmInferenceSpecificationContainerOutput) BaseModel() AlgorithmInferenceSpecificationContainerBaseModelPtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainer) *AlgorithmInferenceSpecificationContainerBaseModel {
+		return v.BaseModel
+	}).(AlgorithmInferenceSpecificationContainerBaseModelPtrOutput)
+}
+
+// DNS host name for the container.
+func (o AlgorithmInferenceSpecificationContainerOutput) ContainerHostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainer) *string { return v.ContainerHostname }).(pulumi.StringPtrOutput)
+}
+
+// Environment variables to pass to the container.
+func (o AlgorithmInferenceSpecificationContainerOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainer) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
+}
+
+// Machine learning framework in the container image.
+func (o AlgorithmInferenceSpecificationContainerOutput) Framework() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainer) *string { return v.Framework }).(pulumi.StringPtrOutput)
+}
+
+// Framework version in the container image.
+func (o AlgorithmInferenceSpecificationContainerOutput) FrameworkVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainer) *string { return v.FrameworkVersion }).(pulumi.StringPtrOutput)
+}
+
+// Container image URI.
+func (o AlgorithmInferenceSpecificationContainerOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainer) *string { return v.Image }).(pulumi.StringPtrOutput)
+}
+
+// Digest of the container image.
+func (o AlgorithmInferenceSpecificationContainerOutput) ImageDigest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainer) *string { return v.ImageDigest }).(pulumi.StringPtrOutput)
+}
+
+// Whether the container is used as a checkpoint container.
+func (o AlgorithmInferenceSpecificationContainerOutput) IsCheckpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainer) *bool { return v.IsCheckpoint }).(pulumi.BoolPtrOutput)
+}
+
+// ETag for `modelDataUrl`.
+func (o AlgorithmInferenceSpecificationContainerOutput) ModelDataEtag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainer) *string { return v.ModelDataEtag }).(pulumi.StringPtrOutput)
+}
+
+// Source of model data for the container. See Model Data Source.
+func (o AlgorithmInferenceSpecificationContainerOutput) ModelDataSource() AlgorithmInferenceSpecificationContainerModelDataSourcePtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainer) *AlgorithmInferenceSpecificationContainerModelDataSource {
+		return v.ModelDataSource
+	}).(AlgorithmInferenceSpecificationContainerModelDataSourcePtrOutput)
+}
+
+// S3 or HTTPS URL of the model artifacts.
+func (o AlgorithmInferenceSpecificationContainerOutput) ModelDataUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainer) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
+}
+
+// Additional model input configuration. See Model Input.
+func (o AlgorithmInferenceSpecificationContainerOutput) ModelInput() AlgorithmInferenceSpecificationContainerModelInputPtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainer) *AlgorithmInferenceSpecificationContainerModelInput {
+		return v.ModelInput
+	}).(AlgorithmInferenceSpecificationContainerModelInputPtrOutput)
+}
+
+// Name of a pre-existing model nearest to the one being created.
+func (o AlgorithmInferenceSpecificationContainerOutput) NearestModelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainer) *string { return v.NearestModelName }).(pulumi.StringPtrOutput)
+}
+
+// AWS Marketplace product ID.
+func (o AlgorithmInferenceSpecificationContainerOutput) ProductId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainer) *string { return v.ProductId }).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmInferenceSpecificationContainerArrayOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmInferenceSpecificationContainerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmInferenceSpecificationContainer)(nil)).Elem()
+}
+
+func (o AlgorithmInferenceSpecificationContainerArrayOutput) ToAlgorithmInferenceSpecificationContainerArrayOutput() AlgorithmInferenceSpecificationContainerArrayOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerArrayOutput) ToAlgorithmInferenceSpecificationContainerArrayOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerArrayOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerArrayOutput) Index(i pulumi.IntInput) AlgorithmInferenceSpecificationContainerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlgorithmInferenceSpecificationContainer {
+		return vs[0].([]AlgorithmInferenceSpecificationContainer)[vs[1].(int)]
+	}).(AlgorithmInferenceSpecificationContainerOutput)
+}
+
+type AlgorithmInferenceSpecificationContainerAdditionalS3DataSource struct {
+	// Compression type for the data. Allowed values are: `None` and `Gzip`.
+	CompressionType *string `pulumi:"compressionType"`
+	// ETag of the S3 object.
+	Etag *string `pulumi:"etag"`
+	// Type of additional S3 data.
+	S3DataType string `pulumi:"s3DataType"`
+	// S3 or HTTPS URI for the additional data.
+	S3Uri string `pulumi:"s3Uri"`
+}
+
+// AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceInput is an input type that accepts AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceArgs and AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutput values.
+// You can construct a concrete instance of `AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceInput` via:
+//
+//	AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceArgs{...}
+type AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceInput interface {
+	pulumi.Input
+
+	ToAlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutput() AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutput
+	ToAlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutputWithContext(context.Context) AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutput
+}
+
+type AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceArgs struct {
+	// Compression type for the data. Allowed values are: `None` and `Gzip`.
+	CompressionType pulumi.StringPtrInput `pulumi:"compressionType"`
+	// ETag of the S3 object.
+	Etag pulumi.StringPtrInput `pulumi:"etag"`
+	// Type of additional S3 data.
+	S3DataType pulumi.StringInput `pulumi:"s3DataType"`
+	// S3 or HTTPS URI for the additional data.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+}
+
+func (AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmInferenceSpecificationContainerAdditionalS3DataSource)(nil)).Elem()
+}
+
+func (i AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceArgs) ToAlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutput() AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutput {
+	return i.ToAlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutputWithContext(context.Background())
+}
+
+func (i AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceArgs) ToAlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutput)
+}
+
+func (i AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceArgs) ToAlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput() AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput {
+	return i.ToAlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceArgs) ToAlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutput).ToAlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutputWithContext(ctx)
+}
+
+// AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrInput is an input type that accepts AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceArgs, AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtr and AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput values.
+// You can construct a concrete instance of `AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrInput` via:
+//
+//	        AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput() AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput
+	ToAlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutputWithContext(context.Context) AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput
+}
+
+type algorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrType AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceArgs
+
+func AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtr(v *AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceArgs) AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrInput {
+	return (*algorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrType)(v)
+}
+
+func (*algorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmInferenceSpecificationContainerAdditionalS3DataSource)(nil)).Elem()
+}
+
+func (i *algorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrType) ToAlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput() AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput {
+	return i.ToAlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrType) ToAlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput)
+}
+
+type AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmInferenceSpecificationContainerAdditionalS3DataSource)(nil)).Elem()
+}
+
+func (o AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutput) ToAlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutput() AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutput) ToAlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutput) ToAlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput() AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput {
+	return o.ToAlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutput) ToAlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmInferenceSpecificationContainerAdditionalS3DataSource) *AlgorithmInferenceSpecificationContainerAdditionalS3DataSource {
+		return &v
+	}).(AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput)
+}
+
+// Compression type for the data. Allowed values are: `None` and `Gzip`.
+func (o AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutput) CompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainerAdditionalS3DataSource) *string {
+		return v.CompressionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// ETag of the S3 object.
+func (o AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainerAdditionalS3DataSource) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Type of additional S3 data.
+func (o AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutput) S3DataType() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainerAdditionalS3DataSource) string { return v.S3DataType }).(pulumi.StringOutput)
+}
+
+// S3 or HTTPS URI for the additional data.
+func (o AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainerAdditionalS3DataSource) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+type AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmInferenceSpecificationContainerAdditionalS3DataSource)(nil)).Elem()
+}
+
+func (o AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput) ToAlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput() AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput) ToAlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput) Elem() AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecificationContainerAdditionalS3DataSource) AlgorithmInferenceSpecificationContainerAdditionalS3DataSource {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmInferenceSpecificationContainerAdditionalS3DataSource
+		return ret
+	}).(AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutput)
+}
+
+// Compression type for the data. Allowed values are: `None` and `Gzip`.
+func (o AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput) CompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecificationContainerAdditionalS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CompressionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// ETag of the S3 object.
+func (o AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecificationContainerAdditionalS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Etag
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of additional S3 data.
+func (o AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput) S3DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecificationContainerAdditionalS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3DataType
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 or HTTPS URI for the additional data.
+func (o AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecificationContainerAdditionalS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmInferenceSpecificationContainerBaseModel struct {
+	// Name of the SageMaker AI Hub content.
+	HubContentName *string `pulumi:"hubContentName"`
+	// Version of the SageMaker AI Hub content.
+	HubContentVersion *string `pulumi:"hubContentVersion"`
+	// Recipe name associated with the base model.
+	RecipeName *string `pulumi:"recipeName"`
+}
+
+// AlgorithmInferenceSpecificationContainerBaseModelInput is an input type that accepts AlgorithmInferenceSpecificationContainerBaseModelArgs and AlgorithmInferenceSpecificationContainerBaseModelOutput values.
+// You can construct a concrete instance of `AlgorithmInferenceSpecificationContainerBaseModelInput` via:
+//
+//	AlgorithmInferenceSpecificationContainerBaseModelArgs{...}
+type AlgorithmInferenceSpecificationContainerBaseModelInput interface {
+	pulumi.Input
+
+	ToAlgorithmInferenceSpecificationContainerBaseModelOutput() AlgorithmInferenceSpecificationContainerBaseModelOutput
+	ToAlgorithmInferenceSpecificationContainerBaseModelOutputWithContext(context.Context) AlgorithmInferenceSpecificationContainerBaseModelOutput
+}
+
+type AlgorithmInferenceSpecificationContainerBaseModelArgs struct {
+	// Name of the SageMaker AI Hub content.
+	HubContentName pulumi.StringPtrInput `pulumi:"hubContentName"`
+	// Version of the SageMaker AI Hub content.
+	HubContentVersion pulumi.StringPtrInput `pulumi:"hubContentVersion"`
+	// Recipe name associated with the base model.
+	RecipeName pulumi.StringPtrInput `pulumi:"recipeName"`
+}
+
+func (AlgorithmInferenceSpecificationContainerBaseModelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmInferenceSpecificationContainerBaseModel)(nil)).Elem()
+}
+
+func (i AlgorithmInferenceSpecificationContainerBaseModelArgs) ToAlgorithmInferenceSpecificationContainerBaseModelOutput() AlgorithmInferenceSpecificationContainerBaseModelOutput {
+	return i.ToAlgorithmInferenceSpecificationContainerBaseModelOutputWithContext(context.Background())
+}
+
+func (i AlgorithmInferenceSpecificationContainerBaseModelArgs) ToAlgorithmInferenceSpecificationContainerBaseModelOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerBaseModelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationContainerBaseModelOutput)
+}
+
+func (i AlgorithmInferenceSpecificationContainerBaseModelArgs) ToAlgorithmInferenceSpecificationContainerBaseModelPtrOutput() AlgorithmInferenceSpecificationContainerBaseModelPtrOutput {
+	return i.ToAlgorithmInferenceSpecificationContainerBaseModelPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmInferenceSpecificationContainerBaseModelArgs) ToAlgorithmInferenceSpecificationContainerBaseModelPtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerBaseModelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationContainerBaseModelOutput).ToAlgorithmInferenceSpecificationContainerBaseModelPtrOutputWithContext(ctx)
+}
+
+// AlgorithmInferenceSpecificationContainerBaseModelPtrInput is an input type that accepts AlgorithmInferenceSpecificationContainerBaseModelArgs, AlgorithmInferenceSpecificationContainerBaseModelPtr and AlgorithmInferenceSpecificationContainerBaseModelPtrOutput values.
+// You can construct a concrete instance of `AlgorithmInferenceSpecificationContainerBaseModelPtrInput` via:
+//
+//	        AlgorithmInferenceSpecificationContainerBaseModelArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmInferenceSpecificationContainerBaseModelPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmInferenceSpecificationContainerBaseModelPtrOutput() AlgorithmInferenceSpecificationContainerBaseModelPtrOutput
+	ToAlgorithmInferenceSpecificationContainerBaseModelPtrOutputWithContext(context.Context) AlgorithmInferenceSpecificationContainerBaseModelPtrOutput
+}
+
+type algorithmInferenceSpecificationContainerBaseModelPtrType AlgorithmInferenceSpecificationContainerBaseModelArgs
+
+func AlgorithmInferenceSpecificationContainerBaseModelPtr(v *AlgorithmInferenceSpecificationContainerBaseModelArgs) AlgorithmInferenceSpecificationContainerBaseModelPtrInput {
+	return (*algorithmInferenceSpecificationContainerBaseModelPtrType)(v)
+}
+
+func (*algorithmInferenceSpecificationContainerBaseModelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmInferenceSpecificationContainerBaseModel)(nil)).Elem()
+}
+
+func (i *algorithmInferenceSpecificationContainerBaseModelPtrType) ToAlgorithmInferenceSpecificationContainerBaseModelPtrOutput() AlgorithmInferenceSpecificationContainerBaseModelPtrOutput {
+	return i.ToAlgorithmInferenceSpecificationContainerBaseModelPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmInferenceSpecificationContainerBaseModelPtrType) ToAlgorithmInferenceSpecificationContainerBaseModelPtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerBaseModelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationContainerBaseModelPtrOutput)
+}
+
+type AlgorithmInferenceSpecificationContainerBaseModelOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmInferenceSpecificationContainerBaseModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmInferenceSpecificationContainerBaseModel)(nil)).Elem()
+}
+
+func (o AlgorithmInferenceSpecificationContainerBaseModelOutput) ToAlgorithmInferenceSpecificationContainerBaseModelOutput() AlgorithmInferenceSpecificationContainerBaseModelOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerBaseModelOutput) ToAlgorithmInferenceSpecificationContainerBaseModelOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerBaseModelOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerBaseModelOutput) ToAlgorithmInferenceSpecificationContainerBaseModelPtrOutput() AlgorithmInferenceSpecificationContainerBaseModelPtrOutput {
+	return o.ToAlgorithmInferenceSpecificationContainerBaseModelPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmInferenceSpecificationContainerBaseModelOutput) ToAlgorithmInferenceSpecificationContainerBaseModelPtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerBaseModelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmInferenceSpecificationContainerBaseModel) *AlgorithmInferenceSpecificationContainerBaseModel {
+		return &v
+	}).(AlgorithmInferenceSpecificationContainerBaseModelPtrOutput)
+}
+
+// Name of the SageMaker AI Hub content.
+func (o AlgorithmInferenceSpecificationContainerBaseModelOutput) HubContentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainerBaseModel) *string { return v.HubContentName }).(pulumi.StringPtrOutput)
+}
+
+// Version of the SageMaker AI Hub content.
+func (o AlgorithmInferenceSpecificationContainerBaseModelOutput) HubContentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainerBaseModel) *string { return v.HubContentVersion }).(pulumi.StringPtrOutput)
+}
+
+// Recipe name associated with the base model.
+func (o AlgorithmInferenceSpecificationContainerBaseModelOutput) RecipeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainerBaseModel) *string { return v.RecipeName }).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmInferenceSpecificationContainerBaseModelPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmInferenceSpecificationContainerBaseModelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmInferenceSpecificationContainerBaseModel)(nil)).Elem()
+}
+
+func (o AlgorithmInferenceSpecificationContainerBaseModelPtrOutput) ToAlgorithmInferenceSpecificationContainerBaseModelPtrOutput() AlgorithmInferenceSpecificationContainerBaseModelPtrOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerBaseModelPtrOutput) ToAlgorithmInferenceSpecificationContainerBaseModelPtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerBaseModelPtrOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerBaseModelPtrOutput) Elem() AlgorithmInferenceSpecificationContainerBaseModelOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecificationContainerBaseModel) AlgorithmInferenceSpecificationContainerBaseModel {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmInferenceSpecificationContainerBaseModel
+		return ret
+	}).(AlgorithmInferenceSpecificationContainerBaseModelOutput)
+}
+
+// Name of the SageMaker AI Hub content.
+func (o AlgorithmInferenceSpecificationContainerBaseModelPtrOutput) HubContentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecificationContainerBaseModel) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HubContentName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Version of the SageMaker AI Hub content.
+func (o AlgorithmInferenceSpecificationContainerBaseModelPtrOutput) HubContentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecificationContainerBaseModel) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HubContentVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Recipe name associated with the base model.
+func (o AlgorithmInferenceSpecificationContainerBaseModelPtrOutput) RecipeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecificationContainerBaseModel) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RecipeName
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmInferenceSpecificationContainerModelDataSource struct {
+	// S3-backed model data source. See Model Data Source S3 Data Source.
+	S3DataSource *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource `pulumi:"s3DataSource"`
+}
+
+// AlgorithmInferenceSpecificationContainerModelDataSourceInput is an input type that accepts AlgorithmInferenceSpecificationContainerModelDataSourceArgs and AlgorithmInferenceSpecificationContainerModelDataSourceOutput values.
+// You can construct a concrete instance of `AlgorithmInferenceSpecificationContainerModelDataSourceInput` via:
+//
+//	AlgorithmInferenceSpecificationContainerModelDataSourceArgs{...}
+type AlgorithmInferenceSpecificationContainerModelDataSourceInput interface {
+	pulumi.Input
+
+	ToAlgorithmInferenceSpecificationContainerModelDataSourceOutput() AlgorithmInferenceSpecificationContainerModelDataSourceOutput
+	ToAlgorithmInferenceSpecificationContainerModelDataSourceOutputWithContext(context.Context) AlgorithmInferenceSpecificationContainerModelDataSourceOutput
+}
+
+type AlgorithmInferenceSpecificationContainerModelDataSourceArgs struct {
+	// S3-backed model data source. See Model Data Source S3 Data Source.
+	S3DataSource AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrInput `pulumi:"s3DataSource"`
+}
+
+func (AlgorithmInferenceSpecificationContainerModelDataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmInferenceSpecificationContainerModelDataSource)(nil)).Elem()
+}
+
+func (i AlgorithmInferenceSpecificationContainerModelDataSourceArgs) ToAlgorithmInferenceSpecificationContainerModelDataSourceOutput() AlgorithmInferenceSpecificationContainerModelDataSourceOutput {
+	return i.ToAlgorithmInferenceSpecificationContainerModelDataSourceOutputWithContext(context.Background())
+}
+
+func (i AlgorithmInferenceSpecificationContainerModelDataSourceArgs) ToAlgorithmInferenceSpecificationContainerModelDataSourceOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationContainerModelDataSourceOutput)
+}
+
+func (i AlgorithmInferenceSpecificationContainerModelDataSourceArgs) ToAlgorithmInferenceSpecificationContainerModelDataSourcePtrOutput() AlgorithmInferenceSpecificationContainerModelDataSourcePtrOutput {
+	return i.ToAlgorithmInferenceSpecificationContainerModelDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmInferenceSpecificationContainerModelDataSourceArgs) ToAlgorithmInferenceSpecificationContainerModelDataSourcePtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelDataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationContainerModelDataSourceOutput).ToAlgorithmInferenceSpecificationContainerModelDataSourcePtrOutputWithContext(ctx)
+}
+
+// AlgorithmInferenceSpecificationContainerModelDataSourcePtrInput is an input type that accepts AlgorithmInferenceSpecificationContainerModelDataSourceArgs, AlgorithmInferenceSpecificationContainerModelDataSourcePtr and AlgorithmInferenceSpecificationContainerModelDataSourcePtrOutput values.
+// You can construct a concrete instance of `AlgorithmInferenceSpecificationContainerModelDataSourcePtrInput` via:
+//
+//	        AlgorithmInferenceSpecificationContainerModelDataSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmInferenceSpecificationContainerModelDataSourcePtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmInferenceSpecificationContainerModelDataSourcePtrOutput() AlgorithmInferenceSpecificationContainerModelDataSourcePtrOutput
+	ToAlgorithmInferenceSpecificationContainerModelDataSourcePtrOutputWithContext(context.Context) AlgorithmInferenceSpecificationContainerModelDataSourcePtrOutput
+}
+
+type algorithmInferenceSpecificationContainerModelDataSourcePtrType AlgorithmInferenceSpecificationContainerModelDataSourceArgs
+
+func AlgorithmInferenceSpecificationContainerModelDataSourcePtr(v *AlgorithmInferenceSpecificationContainerModelDataSourceArgs) AlgorithmInferenceSpecificationContainerModelDataSourcePtrInput {
+	return (*algorithmInferenceSpecificationContainerModelDataSourcePtrType)(v)
+}
+
+func (*algorithmInferenceSpecificationContainerModelDataSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmInferenceSpecificationContainerModelDataSource)(nil)).Elem()
+}
+
+func (i *algorithmInferenceSpecificationContainerModelDataSourcePtrType) ToAlgorithmInferenceSpecificationContainerModelDataSourcePtrOutput() AlgorithmInferenceSpecificationContainerModelDataSourcePtrOutput {
+	return i.ToAlgorithmInferenceSpecificationContainerModelDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmInferenceSpecificationContainerModelDataSourcePtrType) ToAlgorithmInferenceSpecificationContainerModelDataSourcePtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelDataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationContainerModelDataSourcePtrOutput)
+}
+
+type AlgorithmInferenceSpecificationContainerModelDataSourceOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmInferenceSpecificationContainerModelDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmInferenceSpecificationContainerModelDataSource)(nil)).Elem()
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceOutput) ToAlgorithmInferenceSpecificationContainerModelDataSourceOutput() AlgorithmInferenceSpecificationContainerModelDataSourceOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceOutput) ToAlgorithmInferenceSpecificationContainerModelDataSourceOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelDataSourceOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceOutput) ToAlgorithmInferenceSpecificationContainerModelDataSourcePtrOutput() AlgorithmInferenceSpecificationContainerModelDataSourcePtrOutput {
+	return o.ToAlgorithmInferenceSpecificationContainerModelDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceOutput) ToAlgorithmInferenceSpecificationContainerModelDataSourcePtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelDataSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmInferenceSpecificationContainerModelDataSource) *AlgorithmInferenceSpecificationContainerModelDataSource {
+		return &v
+	}).(AlgorithmInferenceSpecificationContainerModelDataSourcePtrOutput)
+}
+
+// S3-backed model data source. See Model Data Source S3 Data Source.
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceOutput) S3DataSource() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainerModelDataSource) *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource {
+		return v.S3DataSource
+	}).(AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput)
+}
+
+type AlgorithmInferenceSpecificationContainerModelDataSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmInferenceSpecificationContainerModelDataSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmInferenceSpecificationContainerModelDataSource)(nil)).Elem()
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourcePtrOutput) ToAlgorithmInferenceSpecificationContainerModelDataSourcePtrOutput() AlgorithmInferenceSpecificationContainerModelDataSourcePtrOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourcePtrOutput) ToAlgorithmInferenceSpecificationContainerModelDataSourcePtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelDataSourcePtrOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourcePtrOutput) Elem() AlgorithmInferenceSpecificationContainerModelDataSourceOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecificationContainerModelDataSource) AlgorithmInferenceSpecificationContainerModelDataSource {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmInferenceSpecificationContainerModelDataSource
+		return ret
+	}).(AlgorithmInferenceSpecificationContainerModelDataSourceOutput)
+}
+
+// S3-backed model data source. See Model Data Source S3 Data Source.
+func (o AlgorithmInferenceSpecificationContainerModelDataSourcePtrOutput) S3DataSource() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecificationContainerModelDataSource) *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource {
+		if v == nil {
+			return nil
+		}
+		return v.S3DataSource
+	}).(AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput)
+}
+
+type AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource struct {
+	CompressionType string                                                                              `pulumi:"compressionType"`
+	Etag            *string                                                                             `pulumi:"etag"`
+	HubAccessConfig *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfig `pulumi:"hubAccessConfig"`
+	// ETag of the manifest file.
+	ManifestEtag *string `pulumi:"manifestEtag"`
+	// S3 or HTTPS URI of the manifest file.
+	ManifestS3Uri     *string                                                                               `pulumi:"manifestS3Uri"`
+	ModelAccessConfig *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfig `pulumi:"modelAccessConfig"`
+	S3DataType        string                                                                                `pulumi:"s3DataType"`
+	S3Uri             string                                                                                `pulumi:"s3Uri"`
+}
+
+// AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceInput is an input type that accepts AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceArgs and AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput values.
+// You can construct a concrete instance of `AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceInput` via:
+//
+//	AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceArgs{...}
+type AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceInput interface {
+	pulumi.Input
+
+	ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput
+	ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutputWithContext(context.Context) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput
+}
+
+type AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceArgs struct {
+	CompressionType pulumi.StringInput                                                                         `pulumi:"compressionType"`
+	Etag            pulumi.StringPtrInput                                                                      `pulumi:"etag"`
+	HubAccessConfig AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrInput `pulumi:"hubAccessConfig"`
+	// ETag of the manifest file.
+	ManifestEtag pulumi.StringPtrInput `pulumi:"manifestEtag"`
+	// S3 or HTTPS URI of the manifest file.
+	ManifestS3Uri     pulumi.StringPtrInput                                                                        `pulumi:"manifestS3Uri"`
+	ModelAccessConfig AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrInput `pulumi:"modelAccessConfig"`
+	S3DataType        pulumi.StringInput                                                                           `pulumi:"s3DataType"`
+	S3Uri             pulumi.StringInput                                                                           `pulumi:"s3Uri"`
+}
+
+func (AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (i AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceArgs) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput {
+	return i.ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutputWithContext(context.Background())
+}
+
+func (i AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceArgs) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput)
+}
+
+func (i AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceArgs) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput {
+	return i.ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceArgs) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput).ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutputWithContext(ctx)
+}
+
+// AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrInput is an input type that accepts AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceArgs, AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtr and AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput values.
+// You can construct a concrete instance of `AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrInput` via:
+//
+//	        AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput
+	ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutputWithContext(context.Context) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput
+}
+
+type algorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrType AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceArgs
+
+func AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtr(v *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceArgs) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrInput {
+	return (*algorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrType)(v)
+}
+
+func (*algorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (i *algorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrType) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput {
+	return i.ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrType) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput)
+}
+
+type AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput {
+	return o.ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource) *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource {
+		return &v
+	}).(AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput)
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput) CompressionType() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource) string {
+		return v.CompressionType
+	}).(pulumi.StringOutput)
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput) HubAccessConfig() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource) *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfig {
+		return v.HubAccessConfig
+	}).(AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput)
+}
+
+// ETag of the manifest file.
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput) ManifestEtag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource) *string {
+		return v.ManifestEtag
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 or HTTPS URI of the manifest file.
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput) ManifestS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource) *string {
+		return v.ManifestS3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput) ModelAccessConfig() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource) *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfig {
+		return v.ModelAccessConfig
+	}).(AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput)
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput) S3DataType() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource) string {
+		return v.S3DataType
+	}).(pulumi.StringOutput)
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+type AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput) Elem() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource
+		return ret
+	}).(AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput)
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput) CompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CompressionType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Etag
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput) HubAccessConfig() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource) *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfig {
+		if v == nil {
+			return nil
+		}
+		return v.HubAccessConfig
+	}).(AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput)
+}
+
+// ETag of the manifest file.
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput) ManifestEtag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManifestEtag
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 or HTTPS URI of the manifest file.
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput) ManifestS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManifestS3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput) ModelAccessConfig() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource) *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ModelAccessConfig
+	}).(AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput)
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput) S3DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3DataType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfig struct {
+	// ARN of the SageMaker AI Hub content.
+	HubContentArn *string `pulumi:"hubContentArn"`
+}
+
+// AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigInput is an input type that accepts AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigArgs and AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigOutput values.
+// You can construct a concrete instance of `AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigInput` via:
+//
+//	AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigArgs{...}
+type AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigInput interface {
+	pulumi.Input
+
+	ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigOutput() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigOutput
+	ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigOutputWithContext(context.Context) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigOutput
+}
+
+type AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigArgs struct {
+	// ARN of the SageMaker AI Hub content.
+	HubContentArn pulumi.StringPtrInput `pulumi:"hubContentArn"`
+}
+
+func (AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (i AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigArgs) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigOutput() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigOutput {
+	return i.ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigOutputWithContext(context.Background())
+}
+
+func (i AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigArgs) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigOutput)
+}
+
+func (i AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigArgs) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return i.ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigArgs) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigOutput).ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx)
+}
+
+// AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrInput is an input type that accepts AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigArgs, AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtr and AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput values.
+// You can construct a concrete instance of `AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrInput` via:
+//
+//	        AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput
+	ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Context) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput
+}
+
+type algorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrType AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigArgs
+
+func AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtr(v *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigArgs) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrInput {
+	return (*algorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrType)(v)
+}
+
+func (*algorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (i *algorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrType) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return i.ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrType) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput)
+}
+
+type AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigOutput) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigOutput() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigOutput) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigOutput) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o.ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigOutput) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfig) *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfig {
+		return &v
+	}).(AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput)
+}
+
+// ARN of the SageMaker AI Hub content.
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigOutput) HubContentArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfig) *string {
+		return v.HubContentArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput) Elem() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfig) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfig
+		return ret
+	}).(AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigOutput)
+}
+
+// ARN of the SageMaker AI Hub content.
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput) HubContentArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HubContentArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfig struct {
+	// Whether to accept the model end-user license agreement.
+	AcceptEula *bool `pulumi:"acceptEula"`
+}
+
+// AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigInput is an input type that accepts AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigArgs and AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigOutput values.
+// You can construct a concrete instance of `AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigInput` via:
+//
+//	AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigArgs{...}
+type AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigInput interface {
+	pulumi.Input
+
+	ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigOutput() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigOutput
+	ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigOutputWithContext(context.Context) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigOutput
+}
+
+type AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigArgs struct {
+	// Whether to accept the model end-user license agreement.
+	AcceptEula pulumi.BoolPtrInput `pulumi:"acceptEula"`
+}
+
+func (AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfig)(nil)).Elem()
+}
+
+func (i AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigArgs) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigOutput() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigOutput {
+	return i.ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigOutputWithContext(context.Background())
+}
+
+func (i AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigArgs) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigOutput)
+}
+
+func (i AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigArgs) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return i.ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigArgs) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigOutput).ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(ctx)
+}
+
+// AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrInput is an input type that accepts AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigArgs, AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtr and AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput values.
+// You can construct a concrete instance of `AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrInput` via:
+//
+//	        AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput
+	ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(context.Context) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput
+}
+
+type algorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrType AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigArgs
+
+func AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtr(v *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigArgs) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrInput {
+	return (*algorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrType)(v)
+}
+
+func (*algorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfig)(nil)).Elem()
+}
+
+func (i *algorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrType) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return i.ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrType) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput)
+}
+
+type AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfig)(nil)).Elem()
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigOutput) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigOutput() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigOutput) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigOutput) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o.ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigOutput) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfig) *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfig {
+		return &v
+	}).(AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput)
+}
+
+// Whether to accept the model end-user license agreement.
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigOutput) AcceptEula() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfig) *bool {
+		return v.AcceptEula
+	}).(pulumi.BoolPtrOutput)
+}
+
+type AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfig)(nil)).Elem()
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput) ToAlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput) Elem() AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfig) AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfig
+		return ret
+	}).(AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigOutput)
+}
+
+// Whether to accept the model end-user license agreement.
+func (o AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput) AcceptEula() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AcceptEula
+	}).(pulumi.BoolPtrOutput)
+}
+
+type AlgorithmInferenceSpecificationContainerModelInput struct {
+	// Input configuration for the model.
+	DataInputConfig *string `pulumi:"dataInputConfig"`
+}
+
+// AlgorithmInferenceSpecificationContainerModelInputInput is an input type that accepts AlgorithmInferenceSpecificationContainerModelInputArgs and AlgorithmInferenceSpecificationContainerModelInputOutput values.
+// You can construct a concrete instance of `AlgorithmInferenceSpecificationContainerModelInputInput` via:
+//
+//	AlgorithmInferenceSpecificationContainerModelInputArgs{...}
+type AlgorithmInferenceSpecificationContainerModelInputInput interface {
+	pulumi.Input
+
+	ToAlgorithmInferenceSpecificationContainerModelInputOutput() AlgorithmInferenceSpecificationContainerModelInputOutput
+	ToAlgorithmInferenceSpecificationContainerModelInputOutputWithContext(context.Context) AlgorithmInferenceSpecificationContainerModelInputOutput
+}
+
+type AlgorithmInferenceSpecificationContainerModelInputArgs struct {
+	// Input configuration for the model.
+	DataInputConfig pulumi.StringPtrInput `pulumi:"dataInputConfig"`
+}
+
+func (AlgorithmInferenceSpecificationContainerModelInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmInferenceSpecificationContainerModelInput)(nil)).Elem()
+}
+
+func (i AlgorithmInferenceSpecificationContainerModelInputArgs) ToAlgorithmInferenceSpecificationContainerModelInputOutput() AlgorithmInferenceSpecificationContainerModelInputOutput {
+	return i.ToAlgorithmInferenceSpecificationContainerModelInputOutputWithContext(context.Background())
+}
+
+func (i AlgorithmInferenceSpecificationContainerModelInputArgs) ToAlgorithmInferenceSpecificationContainerModelInputOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationContainerModelInputOutput)
+}
+
+func (i AlgorithmInferenceSpecificationContainerModelInputArgs) ToAlgorithmInferenceSpecificationContainerModelInputPtrOutput() AlgorithmInferenceSpecificationContainerModelInputPtrOutput {
+	return i.ToAlgorithmInferenceSpecificationContainerModelInputPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmInferenceSpecificationContainerModelInputArgs) ToAlgorithmInferenceSpecificationContainerModelInputPtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationContainerModelInputOutput).ToAlgorithmInferenceSpecificationContainerModelInputPtrOutputWithContext(ctx)
+}
+
+// AlgorithmInferenceSpecificationContainerModelInputPtrInput is an input type that accepts AlgorithmInferenceSpecificationContainerModelInputArgs, AlgorithmInferenceSpecificationContainerModelInputPtr and AlgorithmInferenceSpecificationContainerModelInputPtrOutput values.
+// You can construct a concrete instance of `AlgorithmInferenceSpecificationContainerModelInputPtrInput` via:
+//
+//	        AlgorithmInferenceSpecificationContainerModelInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmInferenceSpecificationContainerModelInputPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmInferenceSpecificationContainerModelInputPtrOutput() AlgorithmInferenceSpecificationContainerModelInputPtrOutput
+	ToAlgorithmInferenceSpecificationContainerModelInputPtrOutputWithContext(context.Context) AlgorithmInferenceSpecificationContainerModelInputPtrOutput
+}
+
+type algorithmInferenceSpecificationContainerModelInputPtrType AlgorithmInferenceSpecificationContainerModelInputArgs
+
+func AlgorithmInferenceSpecificationContainerModelInputPtr(v *AlgorithmInferenceSpecificationContainerModelInputArgs) AlgorithmInferenceSpecificationContainerModelInputPtrInput {
+	return (*algorithmInferenceSpecificationContainerModelInputPtrType)(v)
+}
+
+func (*algorithmInferenceSpecificationContainerModelInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmInferenceSpecificationContainerModelInput)(nil)).Elem()
+}
+
+func (i *algorithmInferenceSpecificationContainerModelInputPtrType) ToAlgorithmInferenceSpecificationContainerModelInputPtrOutput() AlgorithmInferenceSpecificationContainerModelInputPtrOutput {
+	return i.ToAlgorithmInferenceSpecificationContainerModelInputPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmInferenceSpecificationContainerModelInputPtrType) ToAlgorithmInferenceSpecificationContainerModelInputPtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationContainerModelInputPtrOutput)
+}
+
+type AlgorithmInferenceSpecificationContainerModelInputOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmInferenceSpecificationContainerModelInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmInferenceSpecificationContainerModelInput)(nil)).Elem()
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelInputOutput) ToAlgorithmInferenceSpecificationContainerModelInputOutput() AlgorithmInferenceSpecificationContainerModelInputOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelInputOutput) ToAlgorithmInferenceSpecificationContainerModelInputOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelInputOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelInputOutput) ToAlgorithmInferenceSpecificationContainerModelInputPtrOutput() AlgorithmInferenceSpecificationContainerModelInputPtrOutput {
+	return o.ToAlgorithmInferenceSpecificationContainerModelInputPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelInputOutput) ToAlgorithmInferenceSpecificationContainerModelInputPtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmInferenceSpecificationContainerModelInput) *AlgorithmInferenceSpecificationContainerModelInput {
+		return &v
+	}).(AlgorithmInferenceSpecificationContainerModelInputPtrOutput)
+}
+
+// Input configuration for the model.
+func (o AlgorithmInferenceSpecificationContainerModelInputOutput) DataInputConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecificationContainerModelInput) *string { return v.DataInputConfig }).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmInferenceSpecificationContainerModelInputPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmInferenceSpecificationContainerModelInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmInferenceSpecificationContainerModelInput)(nil)).Elem()
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelInputPtrOutput) ToAlgorithmInferenceSpecificationContainerModelInputPtrOutput() AlgorithmInferenceSpecificationContainerModelInputPtrOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelInputPtrOutput) ToAlgorithmInferenceSpecificationContainerModelInputPtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationContainerModelInputPtrOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationContainerModelInputPtrOutput) Elem() AlgorithmInferenceSpecificationContainerModelInputOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecificationContainerModelInput) AlgorithmInferenceSpecificationContainerModelInput {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmInferenceSpecificationContainerModelInput
+		return ret
+	}).(AlgorithmInferenceSpecificationContainerModelInputOutput)
+}
+
+// Input configuration for the model.
+func (o AlgorithmInferenceSpecificationContainerModelInputPtrOutput) DataInputConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecificationContainerModelInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataInputConfig
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// AlgorithmTimeoutsInput is an input type that accepts AlgorithmTimeoutsArgs and AlgorithmTimeoutsOutput values.
+// You can construct a concrete instance of `AlgorithmTimeoutsInput` via:
+//
+//	AlgorithmTimeoutsArgs{...}
+type AlgorithmTimeoutsInput interface {
+	pulumi.Input
+
+	ToAlgorithmTimeoutsOutput() AlgorithmTimeoutsOutput
+	ToAlgorithmTimeoutsOutputWithContext(context.Context) AlgorithmTimeoutsOutput
+}
+
+type AlgorithmTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (AlgorithmTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmTimeouts)(nil)).Elem()
+}
+
+func (i AlgorithmTimeoutsArgs) ToAlgorithmTimeoutsOutput() AlgorithmTimeoutsOutput {
+	return i.ToAlgorithmTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AlgorithmTimeoutsArgs) ToAlgorithmTimeoutsOutputWithContext(ctx context.Context) AlgorithmTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTimeoutsOutput)
+}
+
+func (i AlgorithmTimeoutsArgs) ToAlgorithmTimeoutsPtrOutput() AlgorithmTimeoutsPtrOutput {
+	return i.ToAlgorithmTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmTimeoutsArgs) ToAlgorithmTimeoutsPtrOutputWithContext(ctx context.Context) AlgorithmTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTimeoutsOutput).ToAlgorithmTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AlgorithmTimeoutsPtrInput is an input type that accepts AlgorithmTimeoutsArgs, AlgorithmTimeoutsPtr and AlgorithmTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AlgorithmTimeoutsPtrInput` via:
+//
+//	        AlgorithmTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmTimeoutsPtrOutput() AlgorithmTimeoutsPtrOutput
+	ToAlgorithmTimeoutsPtrOutputWithContext(context.Context) AlgorithmTimeoutsPtrOutput
+}
+
+type algorithmTimeoutsPtrType AlgorithmTimeoutsArgs
+
+func AlgorithmTimeoutsPtr(v *AlgorithmTimeoutsArgs) AlgorithmTimeoutsPtrInput {
+	return (*algorithmTimeoutsPtrType)(v)
+}
+
+func (*algorithmTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmTimeouts)(nil)).Elem()
+}
+
+func (i *algorithmTimeoutsPtrType) ToAlgorithmTimeoutsPtrOutput() AlgorithmTimeoutsPtrOutput {
+	return i.ToAlgorithmTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmTimeoutsPtrType) ToAlgorithmTimeoutsPtrOutputWithContext(ctx context.Context) AlgorithmTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTimeoutsPtrOutput)
+}
+
+type AlgorithmTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmTimeouts)(nil)).Elem()
+}
+
+func (o AlgorithmTimeoutsOutput) ToAlgorithmTimeoutsOutput() AlgorithmTimeoutsOutput {
+	return o
+}
+
+func (o AlgorithmTimeoutsOutput) ToAlgorithmTimeoutsOutputWithContext(ctx context.Context) AlgorithmTimeoutsOutput {
+	return o
+}
+
+func (o AlgorithmTimeoutsOutput) ToAlgorithmTimeoutsPtrOutput() AlgorithmTimeoutsPtrOutput {
+	return o.ToAlgorithmTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmTimeoutsOutput) ToAlgorithmTimeoutsPtrOutputWithContext(ctx context.Context) AlgorithmTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmTimeouts) *AlgorithmTimeouts {
+		return &v
+	}).(AlgorithmTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AlgorithmTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AlgorithmTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmTimeouts)(nil)).Elem()
+}
+
+func (o AlgorithmTimeoutsPtrOutput) ToAlgorithmTimeoutsPtrOutput() AlgorithmTimeoutsPtrOutput {
+	return o
+}
+
+func (o AlgorithmTimeoutsPtrOutput) ToAlgorithmTimeoutsPtrOutputWithContext(ctx context.Context) AlgorithmTimeoutsPtrOutput {
+	return o
+}
+
+func (o AlgorithmTimeoutsPtrOutput) Elem() AlgorithmTimeoutsOutput {
+	return o.ApplyT(func(v *AlgorithmTimeouts) AlgorithmTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmTimeouts
+		return ret
+	}).(AlgorithmTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AlgorithmTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AlgorithmTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmTrainingSpecification struct {
+	// Additional training data to make available to the algorithm. See Additional S3 Data Source.
+	AdditionalS3DataSource *AlgorithmTrainingSpecificationAdditionalS3DataSource `pulumi:"additionalS3DataSource"`
+	// List of metric definitions used to parse training logs. See Metric Definitions.
+	MetricDefinitions []AlgorithmTrainingSpecificationMetricDefinition `pulumi:"metricDefinitions"`
+	// Hyperparameter definitions supported by the algorithm. See Supported Hyper Parameters.
+	SupportedHyperParameters []AlgorithmTrainingSpecificationSupportedHyperParameter `pulumi:"supportedHyperParameters"`
+	// Instance types supported for training.
+	SupportedTrainingInstanceTypes []string `pulumi:"supportedTrainingInstanceTypes"`
+	// Objective metrics supported for hyperparameter tuning jobs. See Supported Tuning Job Objective Metrics.
+	SupportedTuningJobObjectiveMetrics []AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetric `pulumi:"supportedTuningJobObjectiveMetrics"`
+	// Whether the algorithm supports distributed training.
+	SupportsDistributedTraining *bool `pulumi:"supportsDistributedTraining"`
+	// List of channel definitions supported for training. See Training Channels.
+	TrainingChannels []AlgorithmTrainingSpecificationTrainingChannel `pulumi:"trainingChannels"`
+	// Training image URI.
+	TrainingImage string `pulumi:"trainingImage"`
+	// Digest of the training image.
+	TrainingImageDigest *string `pulumi:"trainingImageDigest"`
+}
+
+// AlgorithmTrainingSpecificationInput is an input type that accepts AlgorithmTrainingSpecificationArgs and AlgorithmTrainingSpecificationOutput values.
+// You can construct a concrete instance of `AlgorithmTrainingSpecificationInput` via:
+//
+//	AlgorithmTrainingSpecificationArgs{...}
+type AlgorithmTrainingSpecificationInput interface {
+	pulumi.Input
+
+	ToAlgorithmTrainingSpecificationOutput() AlgorithmTrainingSpecificationOutput
+	ToAlgorithmTrainingSpecificationOutputWithContext(context.Context) AlgorithmTrainingSpecificationOutput
+}
+
+type AlgorithmTrainingSpecificationArgs struct {
+	// Additional training data to make available to the algorithm. See Additional S3 Data Source.
+	AdditionalS3DataSource AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrInput `pulumi:"additionalS3DataSource"`
+	// List of metric definitions used to parse training logs. See Metric Definitions.
+	MetricDefinitions AlgorithmTrainingSpecificationMetricDefinitionArrayInput `pulumi:"metricDefinitions"`
+	// Hyperparameter definitions supported by the algorithm. See Supported Hyper Parameters.
+	SupportedHyperParameters AlgorithmTrainingSpecificationSupportedHyperParameterArrayInput `pulumi:"supportedHyperParameters"`
+	// Instance types supported for training.
+	SupportedTrainingInstanceTypes pulumi.StringArrayInput `pulumi:"supportedTrainingInstanceTypes"`
+	// Objective metrics supported for hyperparameter tuning jobs. See Supported Tuning Job Objective Metrics.
+	SupportedTuningJobObjectiveMetrics AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayInput `pulumi:"supportedTuningJobObjectiveMetrics"`
+	// Whether the algorithm supports distributed training.
+	SupportsDistributedTraining pulumi.BoolPtrInput `pulumi:"supportsDistributedTraining"`
+	// List of channel definitions supported for training. See Training Channels.
+	TrainingChannels AlgorithmTrainingSpecificationTrainingChannelArrayInput `pulumi:"trainingChannels"`
+	// Training image URI.
+	TrainingImage pulumi.StringInput `pulumi:"trainingImage"`
+	// Digest of the training image.
+	TrainingImageDigest pulumi.StringPtrInput `pulumi:"trainingImageDigest"`
+}
+
+func (AlgorithmTrainingSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmTrainingSpecification)(nil)).Elem()
+}
+
+func (i AlgorithmTrainingSpecificationArgs) ToAlgorithmTrainingSpecificationOutput() AlgorithmTrainingSpecificationOutput {
+	return i.ToAlgorithmTrainingSpecificationOutputWithContext(context.Background())
+}
+
+func (i AlgorithmTrainingSpecificationArgs) ToAlgorithmTrainingSpecificationOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTrainingSpecificationOutput)
+}
+
+func (i AlgorithmTrainingSpecificationArgs) ToAlgorithmTrainingSpecificationPtrOutput() AlgorithmTrainingSpecificationPtrOutput {
+	return i.ToAlgorithmTrainingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmTrainingSpecificationArgs) ToAlgorithmTrainingSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTrainingSpecificationOutput).ToAlgorithmTrainingSpecificationPtrOutputWithContext(ctx)
+}
+
+// AlgorithmTrainingSpecificationPtrInput is an input type that accepts AlgorithmTrainingSpecificationArgs, AlgorithmTrainingSpecificationPtr and AlgorithmTrainingSpecificationPtrOutput values.
+// You can construct a concrete instance of `AlgorithmTrainingSpecificationPtrInput` via:
+//
+//	        AlgorithmTrainingSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmTrainingSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmTrainingSpecificationPtrOutput() AlgorithmTrainingSpecificationPtrOutput
+	ToAlgorithmTrainingSpecificationPtrOutputWithContext(context.Context) AlgorithmTrainingSpecificationPtrOutput
+}
+
+type algorithmTrainingSpecificationPtrType AlgorithmTrainingSpecificationArgs
+
+func AlgorithmTrainingSpecificationPtr(v *AlgorithmTrainingSpecificationArgs) AlgorithmTrainingSpecificationPtrInput {
+	return (*algorithmTrainingSpecificationPtrType)(v)
+}
+
+func (*algorithmTrainingSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmTrainingSpecification)(nil)).Elem()
+}
+
+func (i *algorithmTrainingSpecificationPtrType) ToAlgorithmTrainingSpecificationPtrOutput() AlgorithmTrainingSpecificationPtrOutput {
+	return i.ToAlgorithmTrainingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmTrainingSpecificationPtrType) ToAlgorithmTrainingSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTrainingSpecificationPtrOutput)
+}
+
+type AlgorithmTrainingSpecificationOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmTrainingSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmTrainingSpecification)(nil)).Elem()
+}
+
+func (o AlgorithmTrainingSpecificationOutput) ToAlgorithmTrainingSpecificationOutput() AlgorithmTrainingSpecificationOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationOutput) ToAlgorithmTrainingSpecificationOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationOutput) ToAlgorithmTrainingSpecificationPtrOutput() AlgorithmTrainingSpecificationPtrOutput {
+	return o.ToAlgorithmTrainingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmTrainingSpecificationOutput) ToAlgorithmTrainingSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmTrainingSpecification) *AlgorithmTrainingSpecification {
+		return &v
+	}).(AlgorithmTrainingSpecificationPtrOutput)
+}
+
+// Additional training data to make available to the algorithm. See Additional S3 Data Source.
+func (o AlgorithmTrainingSpecificationOutput) AdditionalS3DataSource() AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecification) *AlgorithmTrainingSpecificationAdditionalS3DataSource {
+		return v.AdditionalS3DataSource
+	}).(AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput)
+}
+
+// List of metric definitions used to parse training logs. See Metric Definitions.
+func (o AlgorithmTrainingSpecificationOutput) MetricDefinitions() AlgorithmTrainingSpecificationMetricDefinitionArrayOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecification) []AlgorithmTrainingSpecificationMetricDefinition {
+		return v.MetricDefinitions
+	}).(AlgorithmTrainingSpecificationMetricDefinitionArrayOutput)
+}
+
+// Hyperparameter definitions supported by the algorithm. See Supported Hyper Parameters.
+func (o AlgorithmTrainingSpecificationOutput) SupportedHyperParameters() AlgorithmTrainingSpecificationSupportedHyperParameterArrayOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecification) []AlgorithmTrainingSpecificationSupportedHyperParameter {
+		return v.SupportedHyperParameters
+	}).(AlgorithmTrainingSpecificationSupportedHyperParameterArrayOutput)
+}
+
+// Instance types supported for training.
+func (o AlgorithmTrainingSpecificationOutput) SupportedTrainingInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecification) []string { return v.SupportedTrainingInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+// Objective metrics supported for hyperparameter tuning jobs. See Supported Tuning Job Objective Metrics.
+func (o AlgorithmTrainingSpecificationOutput) SupportedTuningJobObjectiveMetrics() AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecification) []AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetric {
+		return v.SupportedTuningJobObjectiveMetrics
+	}).(AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayOutput)
+}
+
+// Whether the algorithm supports distributed training.
+func (o AlgorithmTrainingSpecificationOutput) SupportsDistributedTraining() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecification) *bool { return v.SupportsDistributedTraining }).(pulumi.BoolPtrOutput)
+}
+
+// List of channel definitions supported for training. See Training Channels.
+func (o AlgorithmTrainingSpecificationOutput) TrainingChannels() AlgorithmTrainingSpecificationTrainingChannelArrayOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecification) []AlgorithmTrainingSpecificationTrainingChannel {
+		return v.TrainingChannels
+	}).(AlgorithmTrainingSpecificationTrainingChannelArrayOutput)
+}
+
+// Training image URI.
+func (o AlgorithmTrainingSpecificationOutput) TrainingImage() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecification) string { return v.TrainingImage }).(pulumi.StringOutput)
+}
+
+// Digest of the training image.
+func (o AlgorithmTrainingSpecificationOutput) TrainingImageDigest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecification) *string { return v.TrainingImageDigest }).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmTrainingSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmTrainingSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmTrainingSpecification)(nil)).Elem()
+}
+
+func (o AlgorithmTrainingSpecificationPtrOutput) ToAlgorithmTrainingSpecificationPtrOutput() AlgorithmTrainingSpecificationPtrOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationPtrOutput) ToAlgorithmTrainingSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationPtrOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationPtrOutput) Elem() AlgorithmTrainingSpecificationOutput {
+	return o.ApplyT(func(v *AlgorithmTrainingSpecification) AlgorithmTrainingSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmTrainingSpecification
+		return ret
+	}).(AlgorithmTrainingSpecificationOutput)
+}
+
+// Additional training data to make available to the algorithm. See Additional S3 Data Source.
+func (o AlgorithmTrainingSpecificationPtrOutput) AdditionalS3DataSource() AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput {
+	return o.ApplyT(func(v *AlgorithmTrainingSpecification) *AlgorithmTrainingSpecificationAdditionalS3DataSource {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalS3DataSource
+	}).(AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput)
+}
+
+// List of metric definitions used to parse training logs. See Metric Definitions.
+func (o AlgorithmTrainingSpecificationPtrOutput) MetricDefinitions() AlgorithmTrainingSpecificationMetricDefinitionArrayOutput {
+	return o.ApplyT(func(v *AlgorithmTrainingSpecification) []AlgorithmTrainingSpecificationMetricDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.MetricDefinitions
+	}).(AlgorithmTrainingSpecificationMetricDefinitionArrayOutput)
+}
+
+// Hyperparameter definitions supported by the algorithm. See Supported Hyper Parameters.
+func (o AlgorithmTrainingSpecificationPtrOutput) SupportedHyperParameters() AlgorithmTrainingSpecificationSupportedHyperParameterArrayOutput {
+	return o.ApplyT(func(v *AlgorithmTrainingSpecification) []AlgorithmTrainingSpecificationSupportedHyperParameter {
+		if v == nil {
+			return nil
+		}
+		return v.SupportedHyperParameters
+	}).(AlgorithmTrainingSpecificationSupportedHyperParameterArrayOutput)
+}
+
+// Instance types supported for training.
+func (o AlgorithmTrainingSpecificationPtrOutput) SupportedTrainingInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlgorithmTrainingSpecification) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SupportedTrainingInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Objective metrics supported for hyperparameter tuning jobs. See Supported Tuning Job Objective Metrics.
+func (o AlgorithmTrainingSpecificationPtrOutput) SupportedTuningJobObjectiveMetrics() AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayOutput {
+	return o.ApplyT(func(v *AlgorithmTrainingSpecification) []AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetric {
+		if v == nil {
+			return nil
+		}
+		return v.SupportedTuningJobObjectiveMetrics
+	}).(AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayOutput)
+}
+
+// Whether the algorithm supports distributed training.
+func (o AlgorithmTrainingSpecificationPtrOutput) SupportsDistributedTraining() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AlgorithmTrainingSpecification) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SupportsDistributedTraining
+	}).(pulumi.BoolPtrOutput)
+}
+
+// List of channel definitions supported for training. See Training Channels.
+func (o AlgorithmTrainingSpecificationPtrOutput) TrainingChannels() AlgorithmTrainingSpecificationTrainingChannelArrayOutput {
+	return o.ApplyT(func(v *AlgorithmTrainingSpecification) []AlgorithmTrainingSpecificationTrainingChannel {
+		if v == nil {
+			return nil
+		}
+		return v.TrainingChannels
+	}).(AlgorithmTrainingSpecificationTrainingChannelArrayOutput)
+}
+
+// Training image URI.
+func (o AlgorithmTrainingSpecificationPtrOutput) TrainingImage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmTrainingSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TrainingImage
+	}).(pulumi.StringPtrOutput)
+}
+
+// Digest of the training image.
+func (o AlgorithmTrainingSpecificationPtrOutput) TrainingImageDigest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmTrainingSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrainingImageDigest
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmTrainingSpecificationAdditionalS3DataSource struct {
+	// Compression type for the data. Allowed values are: `None` and `Gzip`.
+	CompressionType *string `pulumi:"compressionType"`
+	// ETag of the S3 object.
+	Etag *string `pulumi:"etag"`
+	// Type of additional S3 data.
+	S3DataType string `pulumi:"s3DataType"`
+	// S3 or HTTPS URI for the additional data.
+	S3Uri string `pulumi:"s3Uri"`
+}
+
+// AlgorithmTrainingSpecificationAdditionalS3DataSourceInput is an input type that accepts AlgorithmTrainingSpecificationAdditionalS3DataSourceArgs and AlgorithmTrainingSpecificationAdditionalS3DataSourceOutput values.
+// You can construct a concrete instance of `AlgorithmTrainingSpecificationAdditionalS3DataSourceInput` via:
+//
+//	AlgorithmTrainingSpecificationAdditionalS3DataSourceArgs{...}
+type AlgorithmTrainingSpecificationAdditionalS3DataSourceInput interface {
+	pulumi.Input
+
+	ToAlgorithmTrainingSpecificationAdditionalS3DataSourceOutput() AlgorithmTrainingSpecificationAdditionalS3DataSourceOutput
+	ToAlgorithmTrainingSpecificationAdditionalS3DataSourceOutputWithContext(context.Context) AlgorithmTrainingSpecificationAdditionalS3DataSourceOutput
+}
+
+type AlgorithmTrainingSpecificationAdditionalS3DataSourceArgs struct {
+	// Compression type for the data. Allowed values are: `None` and `Gzip`.
+	CompressionType pulumi.StringPtrInput `pulumi:"compressionType"`
+	// ETag of the S3 object.
+	Etag pulumi.StringPtrInput `pulumi:"etag"`
+	// Type of additional S3 data.
+	S3DataType pulumi.StringInput `pulumi:"s3DataType"`
+	// S3 or HTTPS URI for the additional data.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+}
+
+func (AlgorithmTrainingSpecificationAdditionalS3DataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmTrainingSpecificationAdditionalS3DataSource)(nil)).Elem()
+}
+
+func (i AlgorithmTrainingSpecificationAdditionalS3DataSourceArgs) ToAlgorithmTrainingSpecificationAdditionalS3DataSourceOutput() AlgorithmTrainingSpecificationAdditionalS3DataSourceOutput {
+	return i.ToAlgorithmTrainingSpecificationAdditionalS3DataSourceOutputWithContext(context.Background())
+}
+
+func (i AlgorithmTrainingSpecificationAdditionalS3DataSourceArgs) ToAlgorithmTrainingSpecificationAdditionalS3DataSourceOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationAdditionalS3DataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTrainingSpecificationAdditionalS3DataSourceOutput)
+}
+
+func (i AlgorithmTrainingSpecificationAdditionalS3DataSourceArgs) ToAlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput() AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput {
+	return i.ToAlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmTrainingSpecificationAdditionalS3DataSourceArgs) ToAlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTrainingSpecificationAdditionalS3DataSourceOutput).ToAlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutputWithContext(ctx)
+}
+
+// AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrInput is an input type that accepts AlgorithmTrainingSpecificationAdditionalS3DataSourceArgs, AlgorithmTrainingSpecificationAdditionalS3DataSourcePtr and AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput values.
+// You can construct a concrete instance of `AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrInput` via:
+//
+//	        AlgorithmTrainingSpecificationAdditionalS3DataSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput() AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput
+	ToAlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutputWithContext(context.Context) AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput
+}
+
+type algorithmTrainingSpecificationAdditionalS3DataSourcePtrType AlgorithmTrainingSpecificationAdditionalS3DataSourceArgs
+
+func AlgorithmTrainingSpecificationAdditionalS3DataSourcePtr(v *AlgorithmTrainingSpecificationAdditionalS3DataSourceArgs) AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrInput {
+	return (*algorithmTrainingSpecificationAdditionalS3DataSourcePtrType)(v)
+}
+
+func (*algorithmTrainingSpecificationAdditionalS3DataSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmTrainingSpecificationAdditionalS3DataSource)(nil)).Elem()
+}
+
+func (i *algorithmTrainingSpecificationAdditionalS3DataSourcePtrType) ToAlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput() AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput {
+	return i.ToAlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmTrainingSpecificationAdditionalS3DataSourcePtrType) ToAlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput)
+}
+
+type AlgorithmTrainingSpecificationAdditionalS3DataSourceOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmTrainingSpecificationAdditionalS3DataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmTrainingSpecificationAdditionalS3DataSource)(nil)).Elem()
+}
+
+func (o AlgorithmTrainingSpecificationAdditionalS3DataSourceOutput) ToAlgorithmTrainingSpecificationAdditionalS3DataSourceOutput() AlgorithmTrainingSpecificationAdditionalS3DataSourceOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationAdditionalS3DataSourceOutput) ToAlgorithmTrainingSpecificationAdditionalS3DataSourceOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationAdditionalS3DataSourceOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationAdditionalS3DataSourceOutput) ToAlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput() AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput {
+	return o.ToAlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmTrainingSpecificationAdditionalS3DataSourceOutput) ToAlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmTrainingSpecificationAdditionalS3DataSource) *AlgorithmTrainingSpecificationAdditionalS3DataSource {
+		return &v
+	}).(AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput)
+}
+
+// Compression type for the data. Allowed values are: `None` and `Gzip`.
+func (o AlgorithmTrainingSpecificationAdditionalS3DataSourceOutput) CompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationAdditionalS3DataSource) *string { return v.CompressionType }).(pulumi.StringPtrOutput)
+}
+
+// ETag of the S3 object.
+func (o AlgorithmTrainingSpecificationAdditionalS3DataSourceOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationAdditionalS3DataSource) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Type of additional S3 data.
+func (o AlgorithmTrainingSpecificationAdditionalS3DataSourceOutput) S3DataType() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationAdditionalS3DataSource) string { return v.S3DataType }).(pulumi.StringOutput)
+}
+
+// S3 or HTTPS URI for the additional data.
+func (o AlgorithmTrainingSpecificationAdditionalS3DataSourceOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationAdditionalS3DataSource) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+type AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmTrainingSpecificationAdditionalS3DataSource)(nil)).Elem()
+}
+
+func (o AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput) ToAlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput() AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput) ToAlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput) Elem() AlgorithmTrainingSpecificationAdditionalS3DataSourceOutput {
+	return o.ApplyT(func(v *AlgorithmTrainingSpecificationAdditionalS3DataSource) AlgorithmTrainingSpecificationAdditionalS3DataSource {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmTrainingSpecificationAdditionalS3DataSource
+		return ret
+	}).(AlgorithmTrainingSpecificationAdditionalS3DataSourceOutput)
+}
+
+// Compression type for the data. Allowed values are: `None` and `Gzip`.
+func (o AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput) CompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmTrainingSpecificationAdditionalS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CompressionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// ETag of the S3 object.
+func (o AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmTrainingSpecificationAdditionalS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Etag
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of additional S3 data.
+func (o AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput) S3DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmTrainingSpecificationAdditionalS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3DataType
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 or HTTPS URI for the additional data.
+func (o AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmTrainingSpecificationAdditionalS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmTrainingSpecificationMetricDefinition struct {
+	// Metric name.
+	Name string `pulumi:"name"`
+	// Regular expression used to extract the metric from logs.
+	Regex string `pulumi:"regex"`
+}
+
+// AlgorithmTrainingSpecificationMetricDefinitionInput is an input type that accepts AlgorithmTrainingSpecificationMetricDefinitionArgs and AlgorithmTrainingSpecificationMetricDefinitionOutput values.
+// You can construct a concrete instance of `AlgorithmTrainingSpecificationMetricDefinitionInput` via:
+//
+//	AlgorithmTrainingSpecificationMetricDefinitionArgs{...}
+type AlgorithmTrainingSpecificationMetricDefinitionInput interface {
+	pulumi.Input
+
+	ToAlgorithmTrainingSpecificationMetricDefinitionOutput() AlgorithmTrainingSpecificationMetricDefinitionOutput
+	ToAlgorithmTrainingSpecificationMetricDefinitionOutputWithContext(context.Context) AlgorithmTrainingSpecificationMetricDefinitionOutput
+}
+
+type AlgorithmTrainingSpecificationMetricDefinitionArgs struct {
+	// Metric name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Regular expression used to extract the metric from logs.
+	Regex pulumi.StringInput `pulumi:"regex"`
+}
+
+func (AlgorithmTrainingSpecificationMetricDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmTrainingSpecificationMetricDefinition)(nil)).Elem()
+}
+
+func (i AlgorithmTrainingSpecificationMetricDefinitionArgs) ToAlgorithmTrainingSpecificationMetricDefinitionOutput() AlgorithmTrainingSpecificationMetricDefinitionOutput {
+	return i.ToAlgorithmTrainingSpecificationMetricDefinitionOutputWithContext(context.Background())
+}
+
+func (i AlgorithmTrainingSpecificationMetricDefinitionArgs) ToAlgorithmTrainingSpecificationMetricDefinitionOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationMetricDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTrainingSpecificationMetricDefinitionOutput)
+}
+
+// AlgorithmTrainingSpecificationMetricDefinitionArrayInput is an input type that accepts AlgorithmTrainingSpecificationMetricDefinitionArray and AlgorithmTrainingSpecificationMetricDefinitionArrayOutput values.
+// You can construct a concrete instance of `AlgorithmTrainingSpecificationMetricDefinitionArrayInput` via:
+//
+//	AlgorithmTrainingSpecificationMetricDefinitionArray{ AlgorithmTrainingSpecificationMetricDefinitionArgs{...} }
+type AlgorithmTrainingSpecificationMetricDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToAlgorithmTrainingSpecificationMetricDefinitionArrayOutput() AlgorithmTrainingSpecificationMetricDefinitionArrayOutput
+	ToAlgorithmTrainingSpecificationMetricDefinitionArrayOutputWithContext(context.Context) AlgorithmTrainingSpecificationMetricDefinitionArrayOutput
+}
+
+type AlgorithmTrainingSpecificationMetricDefinitionArray []AlgorithmTrainingSpecificationMetricDefinitionInput
+
+func (AlgorithmTrainingSpecificationMetricDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmTrainingSpecificationMetricDefinition)(nil)).Elem()
+}
+
+func (i AlgorithmTrainingSpecificationMetricDefinitionArray) ToAlgorithmTrainingSpecificationMetricDefinitionArrayOutput() AlgorithmTrainingSpecificationMetricDefinitionArrayOutput {
+	return i.ToAlgorithmTrainingSpecificationMetricDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i AlgorithmTrainingSpecificationMetricDefinitionArray) ToAlgorithmTrainingSpecificationMetricDefinitionArrayOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationMetricDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTrainingSpecificationMetricDefinitionArrayOutput)
+}
+
+type AlgorithmTrainingSpecificationMetricDefinitionOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmTrainingSpecificationMetricDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmTrainingSpecificationMetricDefinition)(nil)).Elem()
+}
+
+func (o AlgorithmTrainingSpecificationMetricDefinitionOutput) ToAlgorithmTrainingSpecificationMetricDefinitionOutput() AlgorithmTrainingSpecificationMetricDefinitionOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationMetricDefinitionOutput) ToAlgorithmTrainingSpecificationMetricDefinitionOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationMetricDefinitionOutput {
+	return o
+}
+
+// Metric name.
+func (o AlgorithmTrainingSpecificationMetricDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationMetricDefinition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Regular expression used to extract the metric from logs.
+func (o AlgorithmTrainingSpecificationMetricDefinitionOutput) Regex() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationMetricDefinition) string { return v.Regex }).(pulumi.StringOutput)
+}
+
+type AlgorithmTrainingSpecificationMetricDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmTrainingSpecificationMetricDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmTrainingSpecificationMetricDefinition)(nil)).Elem()
+}
+
+func (o AlgorithmTrainingSpecificationMetricDefinitionArrayOutput) ToAlgorithmTrainingSpecificationMetricDefinitionArrayOutput() AlgorithmTrainingSpecificationMetricDefinitionArrayOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationMetricDefinitionArrayOutput) ToAlgorithmTrainingSpecificationMetricDefinitionArrayOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationMetricDefinitionArrayOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationMetricDefinitionArrayOutput) Index(i pulumi.IntInput) AlgorithmTrainingSpecificationMetricDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlgorithmTrainingSpecificationMetricDefinition {
+		return vs[0].([]AlgorithmTrainingSpecificationMetricDefinition)[vs[1].(int)]
+	}).(AlgorithmTrainingSpecificationMetricDefinitionOutput)
+}
+
+type AlgorithmTrainingSpecificationSupportedHyperParameter struct {
+	// Default value for the hyperparameter.
+	DefaultValue *string `pulumi:"defaultValue"`
+	// Description of the hyperparameter.
+	Description *string `pulumi:"description"`
+	// Whether the hyperparameter is required.
+	IsRequired *bool `pulumi:"isRequired"`
+	// Whether the hyperparameter can be tuned.
+	IsTunable *bool `pulumi:"isTunable"`
+	// Hyperparameter name.
+	Name string `pulumi:"name"`
+	// Allowed value range for the hyperparameter. See Parameter Range.
+	Range *AlgorithmTrainingSpecificationSupportedHyperParameterRange `pulumi:"range"`
+	// Hyperparameter type. Allowed values are: `Integer`, `Continuous`, `Categorical`, and `FreeText`.
+	Type string `pulumi:"type"`
+}
+
+// AlgorithmTrainingSpecificationSupportedHyperParameterInput is an input type that accepts AlgorithmTrainingSpecificationSupportedHyperParameterArgs and AlgorithmTrainingSpecificationSupportedHyperParameterOutput values.
+// You can construct a concrete instance of `AlgorithmTrainingSpecificationSupportedHyperParameterInput` via:
+//
+//	AlgorithmTrainingSpecificationSupportedHyperParameterArgs{...}
+type AlgorithmTrainingSpecificationSupportedHyperParameterInput interface {
+	pulumi.Input
+
+	ToAlgorithmTrainingSpecificationSupportedHyperParameterOutput() AlgorithmTrainingSpecificationSupportedHyperParameterOutput
+	ToAlgorithmTrainingSpecificationSupportedHyperParameterOutputWithContext(context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterOutput
+}
+
+type AlgorithmTrainingSpecificationSupportedHyperParameterArgs struct {
+	// Default value for the hyperparameter.
+	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
+	// Description of the hyperparameter.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Whether the hyperparameter is required.
+	IsRequired pulumi.BoolPtrInput `pulumi:"isRequired"`
+	// Whether the hyperparameter can be tuned.
+	IsTunable pulumi.BoolPtrInput `pulumi:"isTunable"`
+	// Hyperparameter name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Allowed value range for the hyperparameter. See Parameter Range.
+	Range AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrInput `pulumi:"range"`
+	// Hyperparameter type. Allowed values are: `Integer`, `Continuous`, `Categorical`, and `FreeText`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AlgorithmTrainingSpecificationSupportedHyperParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmTrainingSpecificationSupportedHyperParameter)(nil)).Elem()
+}
+
+func (i AlgorithmTrainingSpecificationSupportedHyperParameterArgs) ToAlgorithmTrainingSpecificationSupportedHyperParameterOutput() AlgorithmTrainingSpecificationSupportedHyperParameterOutput {
+	return i.ToAlgorithmTrainingSpecificationSupportedHyperParameterOutputWithContext(context.Background())
+}
+
+func (i AlgorithmTrainingSpecificationSupportedHyperParameterArgs) ToAlgorithmTrainingSpecificationSupportedHyperParameterOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTrainingSpecificationSupportedHyperParameterOutput)
+}
+
+// AlgorithmTrainingSpecificationSupportedHyperParameterArrayInput is an input type that accepts AlgorithmTrainingSpecificationSupportedHyperParameterArray and AlgorithmTrainingSpecificationSupportedHyperParameterArrayOutput values.
+// You can construct a concrete instance of `AlgorithmTrainingSpecificationSupportedHyperParameterArrayInput` via:
+//
+//	AlgorithmTrainingSpecificationSupportedHyperParameterArray{ AlgorithmTrainingSpecificationSupportedHyperParameterArgs{...} }
+type AlgorithmTrainingSpecificationSupportedHyperParameterArrayInput interface {
+	pulumi.Input
+
+	ToAlgorithmTrainingSpecificationSupportedHyperParameterArrayOutput() AlgorithmTrainingSpecificationSupportedHyperParameterArrayOutput
+	ToAlgorithmTrainingSpecificationSupportedHyperParameterArrayOutputWithContext(context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterArrayOutput
+}
+
+type AlgorithmTrainingSpecificationSupportedHyperParameterArray []AlgorithmTrainingSpecificationSupportedHyperParameterInput
+
+func (AlgorithmTrainingSpecificationSupportedHyperParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmTrainingSpecificationSupportedHyperParameter)(nil)).Elem()
+}
+
+func (i AlgorithmTrainingSpecificationSupportedHyperParameterArray) ToAlgorithmTrainingSpecificationSupportedHyperParameterArrayOutput() AlgorithmTrainingSpecificationSupportedHyperParameterArrayOutput {
+	return i.ToAlgorithmTrainingSpecificationSupportedHyperParameterArrayOutputWithContext(context.Background())
+}
+
+func (i AlgorithmTrainingSpecificationSupportedHyperParameterArray) ToAlgorithmTrainingSpecificationSupportedHyperParameterArrayOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTrainingSpecificationSupportedHyperParameterArrayOutput)
+}
+
+type AlgorithmTrainingSpecificationSupportedHyperParameterOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmTrainingSpecificationSupportedHyperParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmTrainingSpecificationSupportedHyperParameter)(nil)).Elem()
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterOutput() AlgorithmTrainingSpecificationSupportedHyperParameterOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterOutput {
+	return o
+}
+
+// Default value for the hyperparameter.
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterOutput) DefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationSupportedHyperParameter) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+}
+
+// Description of the hyperparameter.
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationSupportedHyperParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Whether the hyperparameter is required.
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterOutput) IsRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationSupportedHyperParameter) *bool { return v.IsRequired }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the hyperparameter can be tuned.
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterOutput) IsTunable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationSupportedHyperParameter) *bool { return v.IsTunable }).(pulumi.BoolPtrOutput)
+}
+
+// Hyperparameter name.
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationSupportedHyperParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Allowed value range for the hyperparameter. See Parameter Range.
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterOutput) Range() AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationSupportedHyperParameter) *AlgorithmTrainingSpecificationSupportedHyperParameterRange {
+		return v.Range
+	}).(AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput)
+}
+
+// Hyperparameter type. Allowed values are: `Integer`, `Continuous`, `Categorical`, and `FreeText`.
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationSupportedHyperParameter) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AlgorithmTrainingSpecificationSupportedHyperParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmTrainingSpecificationSupportedHyperParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmTrainingSpecificationSupportedHyperParameter)(nil)).Elem()
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterArrayOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterArrayOutput() AlgorithmTrainingSpecificationSupportedHyperParameterArrayOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterArrayOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterArrayOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterArrayOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterArrayOutput) Index(i pulumi.IntInput) AlgorithmTrainingSpecificationSupportedHyperParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlgorithmTrainingSpecificationSupportedHyperParameter {
+		return vs[0].([]AlgorithmTrainingSpecificationSupportedHyperParameter)[vs[1].(int)]
+	}).(AlgorithmTrainingSpecificationSupportedHyperParameterOutput)
+}
+
+type AlgorithmTrainingSpecificationSupportedHyperParameterRange struct {
+	// Categorical range definition. See Categorical Parameter Range Specification.
+	CategoricalParameterRangeSpecification *AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecification `pulumi:"categoricalParameterRangeSpecification"`
+	// Continuous range definition. See Continuous Parameter Range Specification.
+	ContinuousParameterRangeSpecification *AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecification `pulumi:"continuousParameterRangeSpecification"`
+	// Integer range definition. See Integer Parameter Range Specification.
+	IntegerParameterRangeSpecification *AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecification `pulumi:"integerParameterRangeSpecification"`
+}
+
+// AlgorithmTrainingSpecificationSupportedHyperParameterRangeInput is an input type that accepts AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs and AlgorithmTrainingSpecificationSupportedHyperParameterRangeOutput values.
+// You can construct a concrete instance of `AlgorithmTrainingSpecificationSupportedHyperParameterRangeInput` via:
+//
+//	AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs{...}
+type AlgorithmTrainingSpecificationSupportedHyperParameterRangeInput interface {
+	pulumi.Input
+
+	ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangeOutput
+	ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeOutputWithContext(context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangeOutput
+}
+
+type AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs struct {
+	// Categorical range definition. See Categorical Parameter Range Specification.
+	CategoricalParameterRangeSpecification AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrInput `pulumi:"categoricalParameterRangeSpecification"`
+	// Continuous range definition. See Continuous Parameter Range Specification.
+	ContinuousParameterRangeSpecification AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrInput `pulumi:"continuousParameterRangeSpecification"`
+	// Integer range definition. See Integer Parameter Range Specification.
+	IntegerParameterRangeSpecification AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrInput `pulumi:"integerParameterRangeSpecification"`
+}
+
+func (AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmTrainingSpecificationSupportedHyperParameterRange)(nil)).Elem()
+}
+
+func (i AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangeOutput {
+	return i.ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeOutputWithContext(context.Background())
+}
+
+func (i AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTrainingSpecificationSupportedHyperParameterRangeOutput)
+}
+
+func (i AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput {
+	return i.ToAlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTrainingSpecificationSupportedHyperParameterRangeOutput).ToAlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutputWithContext(ctx)
+}
+
+// AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrInput is an input type that accepts AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs, AlgorithmTrainingSpecificationSupportedHyperParameterRangePtr and AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput values.
+// You can construct a concrete instance of `AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrInput` via:
+//
+//	        AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput
+	ToAlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutputWithContext(context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput
+}
+
+type algorithmTrainingSpecificationSupportedHyperParameterRangePtrType AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs
+
+func AlgorithmTrainingSpecificationSupportedHyperParameterRangePtr(v *AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs) AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrInput {
+	return (*algorithmTrainingSpecificationSupportedHyperParameterRangePtrType)(v)
+}
+
+func (*algorithmTrainingSpecificationSupportedHyperParameterRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmTrainingSpecificationSupportedHyperParameterRange)(nil)).Elem()
+}
+
+func (i *algorithmTrainingSpecificationSupportedHyperParameterRangePtrType) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput {
+	return i.ToAlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmTrainingSpecificationSupportedHyperParameterRangePtrType) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput)
+}
+
+type AlgorithmTrainingSpecificationSupportedHyperParameterRangeOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmTrainingSpecificationSupportedHyperParameterRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmTrainingSpecificationSupportedHyperParameterRange)(nil)).Elem()
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangeOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangeOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput {
+	return o.ToAlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmTrainingSpecificationSupportedHyperParameterRange) *AlgorithmTrainingSpecificationSupportedHyperParameterRange {
+		return &v
+	}).(AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput)
+}
+
+// Categorical range definition. See Categorical Parameter Range Specification.
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeOutput) CategoricalParameterRangeSpecification() AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationSupportedHyperParameterRange) *AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecification {
+		return v.CategoricalParameterRangeSpecification
+	}).(AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput)
+}
+
+// Continuous range definition. See Continuous Parameter Range Specification.
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeOutput) ContinuousParameterRangeSpecification() AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationSupportedHyperParameterRange) *AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecification {
+		return v.ContinuousParameterRangeSpecification
+	}).(AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput)
+}
+
+// Integer range definition. See Integer Parameter Range Specification.
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeOutput) IntegerParameterRangeSpecification() AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationSupportedHyperParameterRange) *AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecification {
+		return v.IntegerParameterRangeSpecification
+	}).(AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput)
+}
+
+type AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmTrainingSpecificationSupportedHyperParameterRange)(nil)).Elem()
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput) Elem() AlgorithmTrainingSpecificationSupportedHyperParameterRangeOutput {
+	return o.ApplyT(func(v *AlgorithmTrainingSpecificationSupportedHyperParameterRange) AlgorithmTrainingSpecificationSupportedHyperParameterRange {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmTrainingSpecificationSupportedHyperParameterRange
+		return ret
+	}).(AlgorithmTrainingSpecificationSupportedHyperParameterRangeOutput)
+}
+
+// Categorical range definition. See Categorical Parameter Range Specification.
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput) CategoricalParameterRangeSpecification() AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput {
+	return o.ApplyT(func(v *AlgorithmTrainingSpecificationSupportedHyperParameterRange) *AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.CategoricalParameterRangeSpecification
+	}).(AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput)
+}
+
+// Continuous range definition. See Continuous Parameter Range Specification.
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput) ContinuousParameterRangeSpecification() AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput {
+	return o.ApplyT(func(v *AlgorithmTrainingSpecificationSupportedHyperParameterRange) *AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.ContinuousParameterRangeSpecification
+	}).(AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput)
+}
+
+// Integer range definition. See Integer Parameter Range Specification.
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput) IntegerParameterRangeSpecification() AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput {
+	return o.ApplyT(func(v *AlgorithmTrainingSpecificationSupportedHyperParameterRange) *AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.IntegerParameterRangeSpecification
+	}).(AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput)
+}
+
+type AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecification struct {
+	// Allowed categorical values.
+	Values []string `pulumi:"values"`
+}
+
+// AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationInput is an input type that accepts AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationArgs and AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationOutput values.
+// You can construct a concrete instance of `AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationInput` via:
+//
+//	AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationArgs{...}
+type AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationInput interface {
+	pulumi.Input
+
+	ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationOutput
+	ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationOutputWithContext(context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationOutput
+}
+
+type AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationArgs struct {
+	// Allowed categorical values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecification)(nil)).Elem()
+}
+
+func (i AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationArgs) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationOutput {
+	return i.ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationOutputWithContext(context.Background())
+}
+
+func (i AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationArgs) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationOutput)
+}
+
+func (i AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationArgs) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput {
+	return i.ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationArgs) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationOutput).ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutputWithContext(ctx)
+}
+
+// AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrInput is an input type that accepts AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationArgs, AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtr and AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput values.
+// You can construct a concrete instance of `AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrInput` via:
+//
+//	        AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput
+	ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutputWithContext(context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput
+}
+
+type algorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrType AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationArgs
+
+func AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtr(v *AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationArgs) AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrInput {
+	return (*algorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrType)(v)
+}
+
+func (*algorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecification)(nil)).Elem()
+}
+
+func (i *algorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrType) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput {
+	return i.ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrType) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput)
+}
+
+type AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecification)(nil)).Elem()
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput {
+	return o.ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecification) *AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecification {
+		return &v
+	}).(AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput)
+}
+
+// Allowed categorical values.
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecification) []string {
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecification)(nil)).Elem()
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput) Elem() AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationOutput {
+	return o.ApplyT(func(v *AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecification) AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecification
+		return ret
+	}).(AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationOutput)
+}
+
+// Allowed categorical values.
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecification) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecification struct {
+	// Maximum allowed value.
+	MaxValue string `pulumi:"maxValue"`
+	// Minimum allowed value.
+	MinValue string `pulumi:"minValue"`
+}
+
+// AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationInput is an input type that accepts AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationArgs and AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationOutput values.
+// You can construct a concrete instance of `AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationInput` via:
+//
+//	AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationArgs{...}
+type AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationInput interface {
+	pulumi.Input
+
+	ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationOutput
+	ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationOutputWithContext(context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationOutput
+}
+
+type AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationArgs struct {
+	// Maximum allowed value.
+	MaxValue pulumi.StringInput `pulumi:"maxValue"`
+	// Minimum allowed value.
+	MinValue pulumi.StringInput `pulumi:"minValue"`
+}
+
+func (AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecification)(nil)).Elem()
+}
+
+func (i AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationArgs) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationOutput {
+	return i.ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationOutputWithContext(context.Background())
+}
+
+func (i AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationArgs) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationOutput)
+}
+
+func (i AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationArgs) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput {
+	return i.ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationArgs) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationOutput).ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutputWithContext(ctx)
+}
+
+// AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrInput is an input type that accepts AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationArgs, AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtr and AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput values.
+// You can construct a concrete instance of `AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrInput` via:
+//
+//	        AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput
+	ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutputWithContext(context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput
+}
+
+type algorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrType AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationArgs
+
+func AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtr(v *AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationArgs) AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrInput {
+	return (*algorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrType)(v)
+}
+
+func (*algorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecification)(nil)).Elem()
+}
+
+func (i *algorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrType) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput {
+	return i.ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrType) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput)
+}
+
+type AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecification)(nil)).Elem()
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput {
+	return o.ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecification) *AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecification {
+		return &v
+	}).(AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput)
+}
+
+// Maximum allowed value.
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationOutput) MaxValue() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecification) string {
+		return v.MaxValue
+	}).(pulumi.StringOutput)
+}
+
+// Minimum allowed value.
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationOutput) MinValue() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecification) string {
+		return v.MinValue
+	}).(pulumi.StringOutput)
+}
+
+type AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecification)(nil)).Elem()
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput) Elem() AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationOutput {
+	return o.ApplyT(func(v *AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecification) AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecification
+		return ret
+	}).(AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationOutput)
+}
+
+// Maximum allowed value.
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput) MaxValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// Minimum allowed value.
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput) MinValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MinValue
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecification struct {
+	// Maximum allowed value.
+	MaxValue string `pulumi:"maxValue"`
+	// Minimum allowed value.
+	MinValue string `pulumi:"minValue"`
+}
+
+// AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationInput is an input type that accepts AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationArgs and AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationOutput values.
+// You can construct a concrete instance of `AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationInput` via:
+//
+//	AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationArgs{...}
+type AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationInput interface {
+	pulumi.Input
+
+	ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationOutput
+	ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationOutputWithContext(context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationOutput
+}
+
+type AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationArgs struct {
+	// Maximum allowed value.
+	MaxValue pulumi.StringInput `pulumi:"maxValue"`
+	// Minimum allowed value.
+	MinValue pulumi.StringInput `pulumi:"minValue"`
+}
+
+func (AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecification)(nil)).Elem()
+}
+
+func (i AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationArgs) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationOutput {
+	return i.ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationOutputWithContext(context.Background())
+}
+
+func (i AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationArgs) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationOutput)
+}
+
+func (i AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationArgs) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput {
+	return i.ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationArgs) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationOutput).ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutputWithContext(ctx)
+}
+
+// AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrInput is an input type that accepts AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationArgs, AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtr and AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput values.
+// You can construct a concrete instance of `AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrInput` via:
+//
+//	        AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput
+	ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutputWithContext(context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput
+}
+
+type algorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrType AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationArgs
+
+func AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtr(v *AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationArgs) AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrInput {
+	return (*algorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrType)(v)
+}
+
+func (*algorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecification)(nil)).Elem()
+}
+
+func (i *algorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrType) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput {
+	return i.ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrType) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput)
+}
+
+type AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecification)(nil)).Elem()
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput {
+	return o.ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecification) *AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecification {
+		return &v
+	}).(AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput)
+}
+
+// Maximum allowed value.
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationOutput) MaxValue() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecification) string {
+		return v.MaxValue
+	}).(pulumi.StringOutput)
+}
+
+// Minimum allowed value.
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationOutput) MinValue() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecification) string {
+		return v.MinValue
+	}).(pulumi.StringOutput)
+}
+
+type AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecification)(nil)).Elem()
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput() AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput) ToAlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput) Elem() AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationOutput {
+	return o.ApplyT(func(v *AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecification) AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecification
+		return ret
+	}).(AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationOutput)
+}
+
+// Maximum allowed value.
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput) MaxValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// Minimum allowed value.
+func (o AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput) MinValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MinValue
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetric struct {
+	// Metric name.
+	MetricName string `pulumi:"metricName"`
+	// Objective type. Allowed values are: `Minimize` and `Maximize`.
+	Type string `pulumi:"type"`
+}
+
+// AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricInput is an input type that accepts AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArgs and AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricOutput values.
+// You can construct a concrete instance of `AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricInput` via:
+//
+//	AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArgs{...}
+type AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricInput interface {
+	pulumi.Input
+
+	ToAlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricOutput() AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricOutput
+	ToAlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricOutputWithContext(context.Context) AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricOutput
+}
+
+type AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArgs struct {
+	// Metric name.
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+	// Objective type. Allowed values are: `Minimize` and `Maximize`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetric)(nil)).Elem()
+}
+
+func (i AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArgs) ToAlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricOutput() AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricOutput {
+	return i.ToAlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricOutputWithContext(context.Background())
+}
+
+func (i AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArgs) ToAlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricOutput)
+}
+
+// AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayInput is an input type that accepts AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArray and AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayOutput values.
+// You can construct a concrete instance of `AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayInput` via:
+//
+//	AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArray{ AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArgs{...} }
+type AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayInput interface {
+	pulumi.Input
+
+	ToAlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayOutput() AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayOutput
+	ToAlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayOutputWithContext(context.Context) AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayOutput
+}
+
+type AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArray []AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricInput
+
+func (AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetric)(nil)).Elem()
+}
+
+func (i AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArray) ToAlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayOutput() AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayOutput {
+	return i.ToAlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayOutputWithContext(context.Background())
+}
+
+func (i AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArray) ToAlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayOutput)
+}
+
+type AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetric)(nil)).Elem()
+}
+
+func (o AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricOutput) ToAlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricOutput() AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricOutput) ToAlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricOutput {
+	return o
+}
+
+// Metric name.
+func (o AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricOutput) MetricName() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetric) string { return v.MetricName }).(pulumi.StringOutput)
+}
+
+// Objective type. Allowed values are: `Minimize` and `Maximize`.
+func (o AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetric) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetric)(nil)).Elem()
+}
+
+func (o AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayOutput) ToAlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayOutput() AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayOutput) ToAlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayOutput) Index(i pulumi.IntInput) AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetric {
+		return vs[0].([]AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetric)[vs[1].(int)]
+	}).(AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricOutput)
+}
+
+type AlgorithmTrainingSpecificationTrainingChannel struct {
+	// Description of the channel.
+	Description *string `pulumi:"description"`
+	// Whether the channel is required.
+	IsRequired *bool `pulumi:"isRequired"`
+	// Channel name.
+	Name string `pulumi:"name"`
+	// Supported compression types. Allowed values are: `None` and `Gzip`.
+	SupportedCompressionTypes []string `pulumi:"supportedCompressionTypes"`
+	// Supported input content types.
+	SupportedContentTypes []string `pulumi:"supportedContentTypes"`
+	// Supported training input modes.
+	SupportedInputModes []string `pulumi:"supportedInputModes"`
+}
+
+// AlgorithmTrainingSpecificationTrainingChannelInput is an input type that accepts AlgorithmTrainingSpecificationTrainingChannelArgs and AlgorithmTrainingSpecificationTrainingChannelOutput values.
+// You can construct a concrete instance of `AlgorithmTrainingSpecificationTrainingChannelInput` via:
+//
+//	AlgorithmTrainingSpecificationTrainingChannelArgs{...}
+type AlgorithmTrainingSpecificationTrainingChannelInput interface {
+	pulumi.Input
+
+	ToAlgorithmTrainingSpecificationTrainingChannelOutput() AlgorithmTrainingSpecificationTrainingChannelOutput
+	ToAlgorithmTrainingSpecificationTrainingChannelOutputWithContext(context.Context) AlgorithmTrainingSpecificationTrainingChannelOutput
+}
+
+type AlgorithmTrainingSpecificationTrainingChannelArgs struct {
+	// Description of the channel.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Whether the channel is required.
+	IsRequired pulumi.BoolPtrInput `pulumi:"isRequired"`
+	// Channel name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Supported compression types. Allowed values are: `None` and `Gzip`.
+	SupportedCompressionTypes pulumi.StringArrayInput `pulumi:"supportedCompressionTypes"`
+	// Supported input content types.
+	SupportedContentTypes pulumi.StringArrayInput `pulumi:"supportedContentTypes"`
+	// Supported training input modes.
+	SupportedInputModes pulumi.StringArrayInput `pulumi:"supportedInputModes"`
+}
+
+func (AlgorithmTrainingSpecificationTrainingChannelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmTrainingSpecificationTrainingChannel)(nil)).Elem()
+}
+
+func (i AlgorithmTrainingSpecificationTrainingChannelArgs) ToAlgorithmTrainingSpecificationTrainingChannelOutput() AlgorithmTrainingSpecificationTrainingChannelOutput {
+	return i.ToAlgorithmTrainingSpecificationTrainingChannelOutputWithContext(context.Background())
+}
+
+func (i AlgorithmTrainingSpecificationTrainingChannelArgs) ToAlgorithmTrainingSpecificationTrainingChannelOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationTrainingChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTrainingSpecificationTrainingChannelOutput)
+}
+
+// AlgorithmTrainingSpecificationTrainingChannelArrayInput is an input type that accepts AlgorithmTrainingSpecificationTrainingChannelArray and AlgorithmTrainingSpecificationTrainingChannelArrayOutput values.
+// You can construct a concrete instance of `AlgorithmTrainingSpecificationTrainingChannelArrayInput` via:
+//
+//	AlgorithmTrainingSpecificationTrainingChannelArray{ AlgorithmTrainingSpecificationTrainingChannelArgs{...} }
+type AlgorithmTrainingSpecificationTrainingChannelArrayInput interface {
+	pulumi.Input
+
+	ToAlgorithmTrainingSpecificationTrainingChannelArrayOutput() AlgorithmTrainingSpecificationTrainingChannelArrayOutput
+	ToAlgorithmTrainingSpecificationTrainingChannelArrayOutputWithContext(context.Context) AlgorithmTrainingSpecificationTrainingChannelArrayOutput
+}
+
+type AlgorithmTrainingSpecificationTrainingChannelArray []AlgorithmTrainingSpecificationTrainingChannelInput
+
+func (AlgorithmTrainingSpecificationTrainingChannelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmTrainingSpecificationTrainingChannel)(nil)).Elem()
+}
+
+func (i AlgorithmTrainingSpecificationTrainingChannelArray) ToAlgorithmTrainingSpecificationTrainingChannelArrayOutput() AlgorithmTrainingSpecificationTrainingChannelArrayOutput {
+	return i.ToAlgorithmTrainingSpecificationTrainingChannelArrayOutputWithContext(context.Background())
+}
+
+func (i AlgorithmTrainingSpecificationTrainingChannelArray) ToAlgorithmTrainingSpecificationTrainingChannelArrayOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationTrainingChannelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTrainingSpecificationTrainingChannelArrayOutput)
+}
+
+type AlgorithmTrainingSpecificationTrainingChannelOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmTrainingSpecificationTrainingChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmTrainingSpecificationTrainingChannel)(nil)).Elem()
+}
+
+func (o AlgorithmTrainingSpecificationTrainingChannelOutput) ToAlgorithmTrainingSpecificationTrainingChannelOutput() AlgorithmTrainingSpecificationTrainingChannelOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationTrainingChannelOutput) ToAlgorithmTrainingSpecificationTrainingChannelOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationTrainingChannelOutput {
+	return o
+}
+
+// Description of the channel.
+func (o AlgorithmTrainingSpecificationTrainingChannelOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationTrainingChannel) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Whether the channel is required.
+func (o AlgorithmTrainingSpecificationTrainingChannelOutput) IsRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationTrainingChannel) *bool { return v.IsRequired }).(pulumi.BoolPtrOutput)
+}
+
+// Channel name.
+func (o AlgorithmTrainingSpecificationTrainingChannelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationTrainingChannel) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Supported compression types. Allowed values are: `None` and `Gzip`.
+func (o AlgorithmTrainingSpecificationTrainingChannelOutput) SupportedCompressionTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationTrainingChannel) []string { return v.SupportedCompressionTypes }).(pulumi.StringArrayOutput)
+}
+
+// Supported input content types.
+func (o AlgorithmTrainingSpecificationTrainingChannelOutput) SupportedContentTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationTrainingChannel) []string { return v.SupportedContentTypes }).(pulumi.StringArrayOutput)
+}
+
+// Supported training input modes.
+func (o AlgorithmTrainingSpecificationTrainingChannelOutput) SupportedInputModes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecificationTrainingChannel) []string { return v.SupportedInputModes }).(pulumi.StringArrayOutput)
+}
+
+type AlgorithmTrainingSpecificationTrainingChannelArrayOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmTrainingSpecificationTrainingChannelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmTrainingSpecificationTrainingChannel)(nil)).Elem()
+}
+
+func (o AlgorithmTrainingSpecificationTrainingChannelArrayOutput) ToAlgorithmTrainingSpecificationTrainingChannelArrayOutput() AlgorithmTrainingSpecificationTrainingChannelArrayOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationTrainingChannelArrayOutput) ToAlgorithmTrainingSpecificationTrainingChannelArrayOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationTrainingChannelArrayOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationTrainingChannelArrayOutput) Index(i pulumi.IntInput) AlgorithmTrainingSpecificationTrainingChannelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlgorithmTrainingSpecificationTrainingChannel {
+		return vs[0].([]AlgorithmTrainingSpecificationTrainingChannel)[vs[1].(int)]
+	}).(AlgorithmTrainingSpecificationTrainingChannelOutput)
+}
+
+type AlgorithmValidationSpecification struct {
+	// Validation profiles for the algorithm. See Validation Profiles.
+	ValidationProfiles AlgorithmValidationSpecificationValidationProfiles `pulumi:"validationProfiles"`
+	// IAM role ARN used for validation.
+	ValidationRole string `pulumi:"validationRole"`
+}
+
+// AlgorithmValidationSpecificationInput is an input type that accepts AlgorithmValidationSpecificationArgs and AlgorithmValidationSpecificationOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationInput` via:
+//
+//	AlgorithmValidationSpecificationArgs{...}
+type AlgorithmValidationSpecificationInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationOutput() AlgorithmValidationSpecificationOutput
+	ToAlgorithmValidationSpecificationOutputWithContext(context.Context) AlgorithmValidationSpecificationOutput
+}
+
+type AlgorithmValidationSpecificationArgs struct {
+	// Validation profiles for the algorithm. See Validation Profiles.
+	ValidationProfiles AlgorithmValidationSpecificationValidationProfilesInput `pulumi:"validationProfiles"`
+	// IAM role ARN used for validation.
+	ValidationRole pulumi.StringInput `pulumi:"validationRole"`
+}
+
+func (AlgorithmValidationSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecification)(nil)).Elem()
+}
+
+func (i AlgorithmValidationSpecificationArgs) ToAlgorithmValidationSpecificationOutput() AlgorithmValidationSpecificationOutput {
+	return i.ToAlgorithmValidationSpecificationOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationArgs) ToAlgorithmValidationSpecificationOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationOutput)
+}
+
+func (i AlgorithmValidationSpecificationArgs) ToAlgorithmValidationSpecificationPtrOutput() AlgorithmValidationSpecificationPtrOutput {
+	return i.ToAlgorithmValidationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationArgs) ToAlgorithmValidationSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationOutput).ToAlgorithmValidationSpecificationPtrOutputWithContext(ctx)
+}
+
+// AlgorithmValidationSpecificationPtrInput is an input type that accepts AlgorithmValidationSpecificationArgs, AlgorithmValidationSpecificationPtr and AlgorithmValidationSpecificationPtrOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationPtrInput` via:
+//
+//	        AlgorithmValidationSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmValidationSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationPtrOutput() AlgorithmValidationSpecificationPtrOutput
+	ToAlgorithmValidationSpecificationPtrOutputWithContext(context.Context) AlgorithmValidationSpecificationPtrOutput
+}
+
+type algorithmValidationSpecificationPtrType AlgorithmValidationSpecificationArgs
+
+func AlgorithmValidationSpecificationPtr(v *AlgorithmValidationSpecificationArgs) AlgorithmValidationSpecificationPtrInput {
+	return (*algorithmValidationSpecificationPtrType)(v)
+}
+
+func (*algorithmValidationSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecification)(nil)).Elem()
+}
+
+func (i *algorithmValidationSpecificationPtrType) ToAlgorithmValidationSpecificationPtrOutput() AlgorithmValidationSpecificationPtrOutput {
+	return i.ToAlgorithmValidationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmValidationSpecificationPtrType) ToAlgorithmValidationSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationPtrOutput)
+}
+
+type AlgorithmValidationSpecificationOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecification)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationOutput) ToAlgorithmValidationSpecificationOutput() AlgorithmValidationSpecificationOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationOutput) ToAlgorithmValidationSpecificationOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationOutput) ToAlgorithmValidationSpecificationPtrOutput() AlgorithmValidationSpecificationPtrOutput {
+	return o.ToAlgorithmValidationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmValidationSpecificationOutput) ToAlgorithmValidationSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmValidationSpecification) *AlgorithmValidationSpecification {
+		return &v
+	}).(AlgorithmValidationSpecificationPtrOutput)
+}
+
+// Validation profiles for the algorithm. See Validation Profiles.
+func (o AlgorithmValidationSpecificationOutput) ValidationProfiles() AlgorithmValidationSpecificationValidationProfilesOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecification) AlgorithmValidationSpecificationValidationProfiles {
+		return v.ValidationProfiles
+	}).(AlgorithmValidationSpecificationValidationProfilesOutput)
+}
+
+// IAM role ARN used for validation.
+func (o AlgorithmValidationSpecificationOutput) ValidationRole() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecification) string { return v.ValidationRole }).(pulumi.StringOutput)
+}
+
+type AlgorithmValidationSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecification)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationPtrOutput) ToAlgorithmValidationSpecificationPtrOutput() AlgorithmValidationSpecificationPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationPtrOutput) ToAlgorithmValidationSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationPtrOutput) Elem() AlgorithmValidationSpecificationOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecification) AlgorithmValidationSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmValidationSpecification
+		return ret
+	}).(AlgorithmValidationSpecificationOutput)
+}
+
+// Validation profiles for the algorithm. See Validation Profiles.
+func (o AlgorithmValidationSpecificationPtrOutput) ValidationProfiles() AlgorithmValidationSpecificationValidationProfilesPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecification) *AlgorithmValidationSpecificationValidationProfiles {
+		if v == nil {
+			return nil
+		}
+		return &v.ValidationProfiles
+	}).(AlgorithmValidationSpecificationValidationProfilesPtrOutput)
+}
+
+// IAM role ARN used for validation.
+func (o AlgorithmValidationSpecificationPtrOutput) ValidationRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ValidationRole
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfiles struct {
+	// Profile name.
+	ProfileName string `pulumi:"profileName"`
+	// Training job definition used during validation. See Training Job Definition.
+	TrainingJobDefinition AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition `pulumi:"trainingJobDefinition"`
+	// Transform job definition used during validation. See Transform Job Definition.
+	TransformJobDefinition *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition `pulumi:"transformJobDefinition"`
+}
+
+// AlgorithmValidationSpecificationValidationProfilesInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesArgs and AlgorithmValidationSpecificationValidationProfilesOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesInput` via:
+//
+//	AlgorithmValidationSpecificationValidationProfilesArgs{...}
+type AlgorithmValidationSpecificationValidationProfilesInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesOutput() AlgorithmValidationSpecificationValidationProfilesOutput
+	ToAlgorithmValidationSpecificationValidationProfilesOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesOutput
+}
+
+type AlgorithmValidationSpecificationValidationProfilesArgs struct {
+	// Profile name.
+	ProfileName pulumi.StringInput `pulumi:"profileName"`
+	// Training job definition used during validation. See Training Job Definition.
+	TrainingJobDefinition AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInput `pulumi:"trainingJobDefinition"`
+	// Transform job definition used during validation. See Transform Job Definition.
+	TransformJobDefinition AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrInput `pulumi:"transformJobDefinition"`
+}
+
+func (AlgorithmValidationSpecificationValidationProfilesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfiles)(nil)).Elem()
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesArgs) ToAlgorithmValidationSpecificationValidationProfilesOutput() AlgorithmValidationSpecificationValidationProfilesOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesArgs) ToAlgorithmValidationSpecificationValidationProfilesOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesOutput)
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesArgs) ToAlgorithmValidationSpecificationValidationProfilesPtrOutput() AlgorithmValidationSpecificationValidationProfilesPtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesArgs) ToAlgorithmValidationSpecificationValidationProfilesPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesOutput).ToAlgorithmValidationSpecificationValidationProfilesPtrOutputWithContext(ctx)
+}
+
+// AlgorithmValidationSpecificationValidationProfilesPtrInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesArgs, AlgorithmValidationSpecificationValidationProfilesPtr and AlgorithmValidationSpecificationValidationProfilesPtrOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesPtrInput` via:
+//
+//	        AlgorithmValidationSpecificationValidationProfilesArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmValidationSpecificationValidationProfilesPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesPtrOutput() AlgorithmValidationSpecificationValidationProfilesPtrOutput
+	ToAlgorithmValidationSpecificationValidationProfilesPtrOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesPtrOutput
+}
+
+type algorithmValidationSpecificationValidationProfilesPtrType AlgorithmValidationSpecificationValidationProfilesArgs
+
+func AlgorithmValidationSpecificationValidationProfilesPtr(v *AlgorithmValidationSpecificationValidationProfilesArgs) AlgorithmValidationSpecificationValidationProfilesPtrInput {
+	return (*algorithmValidationSpecificationValidationProfilesPtrType)(v)
+}
+
+func (*algorithmValidationSpecificationValidationProfilesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfiles)(nil)).Elem()
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesPtrType) ToAlgorithmValidationSpecificationValidationProfilesPtrOutput() AlgorithmValidationSpecificationValidationProfilesPtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesPtrType) ToAlgorithmValidationSpecificationValidationProfilesPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfiles)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesOutput) ToAlgorithmValidationSpecificationValidationProfilesOutput() AlgorithmValidationSpecificationValidationProfilesOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesOutput) ToAlgorithmValidationSpecificationValidationProfilesOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesOutput) ToAlgorithmValidationSpecificationValidationProfilesPtrOutput() AlgorithmValidationSpecificationValidationProfilesPtrOutput {
+	return o.ToAlgorithmValidationSpecificationValidationProfilesPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesOutput) ToAlgorithmValidationSpecificationValidationProfilesPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmValidationSpecificationValidationProfiles) *AlgorithmValidationSpecificationValidationProfiles {
+		return &v
+	}).(AlgorithmValidationSpecificationValidationProfilesPtrOutput)
+}
+
+// Profile name.
+func (o AlgorithmValidationSpecificationValidationProfilesOutput) ProfileName() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfiles) string { return v.ProfileName }).(pulumi.StringOutput)
+}
+
+// Training job definition used during validation. See Training Job Definition.
+func (o AlgorithmValidationSpecificationValidationProfilesOutput) TrainingJobDefinition() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfiles) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition {
+		return v.TrainingJobDefinition
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput)
+}
+
+// Transform job definition used during validation. See Transform Job Definition.
+func (o AlgorithmValidationSpecificationValidationProfilesOutput) TransformJobDefinition() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfiles) *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition {
+		return v.TransformJobDefinition
+	}).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfiles)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesPtrOutput) ToAlgorithmValidationSpecificationValidationProfilesPtrOutput() AlgorithmValidationSpecificationValidationProfilesPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesPtrOutput) ToAlgorithmValidationSpecificationValidationProfilesPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesPtrOutput) Elem() AlgorithmValidationSpecificationValidationProfilesOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfiles) AlgorithmValidationSpecificationValidationProfiles {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmValidationSpecificationValidationProfiles
+		return ret
+	}).(AlgorithmValidationSpecificationValidationProfilesOutput)
+}
+
+// Profile name.
+func (o AlgorithmValidationSpecificationValidationProfilesPtrOutput) ProfileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfiles) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProfileName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Training job definition used during validation. See Training Job Definition.
+func (o AlgorithmValidationSpecificationValidationProfilesPtrOutput) TrainingJobDefinition() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfiles) *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition {
+		if v == nil {
+			return nil
+		}
+		return &v.TrainingJobDefinition
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput)
+}
+
+// Transform job definition used during validation. See Transform Job Definition.
+func (o AlgorithmValidationSpecificationValidationProfilesPtrOutput) TransformJobDefinition() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfiles) *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.TransformJobDefinition
+	}).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition struct {
+	// Hyperparameters to pass to the training job.
+	HyperParameters map[string]string `pulumi:"hyperParameters"`
+	// Input channel configuration for the validation training job. See Input Data Config.
+	InputDataConfigs []AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfig `pulumi:"inputDataConfigs"`
+	// Output configuration for the validation training job. See Output Data Config.
+	OutputDataConfig AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfig `pulumi:"outputDataConfig"`
+	// Resource configuration for the validation training job. See Resource Config.
+	ResourceConfig AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig `pulumi:"resourceConfig"`
+	// Stopping condition for the validation training job. See Stopping Condition.
+	StoppingCondition AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingCondition `pulumi:"stoppingCondition"`
+	// Input mode for the validation training job. Allowed values are: `Pipe`, `File`, and `FastFile`.
+	TrainingInputMode string `pulumi:"trainingInputMode"`
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionArgs and AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInput` via:
+//
+//	AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionArgs{...}
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionArgs struct {
+	// Hyperparameters to pass to the training job.
+	HyperParameters pulumi.StringMapInput `pulumi:"hyperParameters"`
+	// Input channel configuration for the validation training job. See Input Data Config.
+	InputDataConfigs AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayInput `pulumi:"inputDataConfigs"`
+	// Output configuration for the validation training job. See Output Data Config.
+	OutputDataConfig AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigInput `pulumi:"outputDataConfig"`
+	// Resource configuration for the validation training job. See Resource Config.
+	ResourceConfig AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInput `pulumi:"resourceConfig"`
+	// Stopping condition for the validation training job. See Stopping Condition.
+	StoppingCondition AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionInput `pulumi:"stoppingCondition"`
+	// Input mode for the validation training job. Allowed values are: `Pipe`, `File`, and `FastFile`.
+	TrainingInputMode pulumi.StringInput `pulumi:"trainingInputMode"`
+}
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition)(nil)).Elem()
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput)
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput).ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutputWithContext(ctx)
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionArgs, AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtr and AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrInput` via:
+//
+//	        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput
+}
+
+type algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrType AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionArgs
+
+func AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtr(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionArgs) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrInput {
+	return (*algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrType)(v)
+}
+
+func (*algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition)(nil)).Elem()
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrType) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrType) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput {
+	return o.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition) *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition {
+		return &v
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput)
+}
+
+// Hyperparameters to pass to the training job.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput) HyperParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition) map[string]string {
+		return v.HyperParameters
+	}).(pulumi.StringMapOutput)
+}
+
+// Input channel configuration for the validation training job. See Input Data Config.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput) InputDataConfigs() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition) []AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfig {
+		return v.InputDataConfigs
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayOutput)
+}
+
+// Output configuration for the validation training job. See Output Data Config.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput) OutputDataConfig() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfig {
+		return v.OutputDataConfig
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutput)
+}
+
+// Resource configuration for the validation training job. See Resource Config.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput) ResourceConfig() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig {
+		return v.ResourceConfig
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput)
+}
+
+// Stopping condition for the validation training job. See Stopping Condition.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput) StoppingCondition() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingCondition {
+		return v.StoppingCondition
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutput)
+}
+
+// Input mode for the validation training job. Allowed values are: `Pipe`, `File`, and `FastFile`.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput) TrainingInputMode() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition) string {
+		return v.TrainingInputMode
+	}).(pulumi.StringOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput) Elem() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition
+		return ret
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput)
+}
+
+// Hyperparameters to pass to the training job.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput) HyperParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.HyperParameters
+	}).(pulumi.StringMapOutput)
+}
+
+// Input channel configuration for the validation training job. See Input Data Config.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput) InputDataConfigs() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition) []AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfig {
+		if v == nil {
+			return nil
+		}
+		return v.InputDataConfigs
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayOutput)
+}
+
+// Output configuration for the validation training job. See Output Data Config.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput) OutputDataConfig() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition) *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.OutputDataConfig
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput)
+}
+
+// Resource configuration for the validation training job. See Resource Config.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput) ResourceConfig() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition) *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceConfig
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput)
+}
+
+// Stopping condition for the validation training job. See Stopping Condition.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput) StoppingCondition() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition) *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingCondition {
+		if v == nil {
+			return nil
+		}
+		return &v.StoppingCondition
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput)
+}
+
+// Input mode for the validation training job. Allowed values are: `Pipe`, `File`, and `FastFile`.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput) TrainingInputMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TrainingInputMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfig struct {
+	// Name of the channel.
+	ChannelName string `pulumi:"channelName"`
+	// Compression type of the input data. Allowed values are: `None` and `Gzip`.
+	CompressionType *string `pulumi:"compressionType"`
+	// MIME type of the input data.
+	ContentType *string `pulumi:"contentType"`
+	// Source of the input data. See Data Source.
+	DataSource AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSource `pulumi:"dataSource"`
+	// Training input mode for the channel. Allowed values are: `Pipe`, `File`, and `FastFile`.
+	InputMode *string `pulumi:"inputMode"`
+	// Record wrapper type. Allowed values are: `None` and `RecordIO`.
+	RecordWrapperType *string `pulumi:"recordWrapperType"`
+	// Shuffle configuration for the channel. See Shuffle Config.
+	ShuffleConfig *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfig `pulumi:"shuffleConfig"`
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArgs and AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigInput` via:
+//
+//	AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArgs{...}
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutput
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArgs struct {
+	// Name of the channel.
+	ChannelName pulumi.StringInput `pulumi:"channelName"`
+	// Compression type of the input data. Allowed values are: `None` and `Gzip`.
+	CompressionType pulumi.StringPtrInput `pulumi:"compressionType"`
+	// MIME type of the input data.
+	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
+	// Source of the input data. See Data Source.
+	DataSource AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceInput `pulumi:"dataSource"`
+	// Training input mode for the channel. Allowed values are: `Pipe`, `File`, and `FastFile`.
+	InputMode pulumi.StringPtrInput `pulumi:"inputMode"`
+	// Record wrapper type. Allowed values are: `None` and `RecordIO`.
+	RecordWrapperType pulumi.StringPtrInput `pulumi:"recordWrapperType"`
+	// Shuffle configuration for the channel. See Shuffle Config.
+	ShuffleConfig AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrInput `pulumi:"shuffleConfig"`
+}
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfig)(nil)).Elem()
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutput)
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArray and AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayInput` via:
+//
+//	AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArray{ AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArgs{...} }
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayOutput
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArray []AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigInput
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfig)(nil)).Elem()
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArray) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArray) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfig)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutput {
+	return o
+}
+
+// Name of the channel.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutput) ChannelName() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfig) string {
+		return v.ChannelName
+	}).(pulumi.StringOutput)
+}
+
+// Compression type of the input data. Allowed values are: `None` and `Gzip`.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutput) CompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfig) *string {
+		return v.CompressionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// MIME type of the input data.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfig) *string {
+		return v.ContentType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Source of the input data. See Data Source.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutput) DataSource() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfig) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSource {
+		return v.DataSource
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceOutput)
+}
+
+// Training input mode for the channel. Allowed values are: `Pipe`, `File`, and `FastFile`.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutput) InputMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfig) *string {
+		return v.InputMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Record wrapper type. Allowed values are: `None` and `RecordIO`.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutput) RecordWrapperType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfig) *string {
+		return v.RecordWrapperType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Shuffle configuration for the channel. See Shuffle Config.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutput) ShuffleConfig() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfig) *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfig {
+		return v.ShuffleConfig
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfig)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayOutput) Index(i pulumi.IntInput) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfig {
+		return vs[0].([]AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfig)[vs[1].(int)]
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSource struct {
+	// File system-backed data source. See File System Data Source.
+	FileSystemDataSource *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource `pulumi:"fileSystemDataSource"`
+	// S3-backed training data source. See Training S3 Data Source.
+	S3DataSource *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource `pulumi:"s3DataSource"`
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceArgs and AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceInput` via:
+//
+//	AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceArgs{...}
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceOutput
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceArgs struct {
+	// File system-backed data source. See File System Data Source.
+	FileSystemDataSource AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrInput `pulumi:"fileSystemDataSource"`
+	// S3-backed training data source. See Training S3 Data Source.
+	S3DataSource AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrInput `pulumi:"s3DataSource"`
+}
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSource)(nil)).Elem()
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSource)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceOutput {
+	return o
+}
+
+// File system-backed data source. See File System Data Source.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceOutput) FileSystemDataSource() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSource) *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource {
+		return v.FileSystemDataSource
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput)
+}
+
+// S3-backed training data source. See Training S3 Data Source.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceOutput) S3DataSource() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSource) *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource {
+		return v.S3DataSource
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource struct {
+	// Path to the directory in the mounted file system.
+	DirectoryPath string `pulumi:"directoryPath"`
+	// File system access mode.
+	FileSystemAccessMode string `pulumi:"fileSystemAccessMode"`
+	// ID of the file system.
+	FileSystemId string `pulumi:"fileSystemId"`
+	// File system type.
+	FileSystemType string `pulumi:"fileSystemType"`
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceArgs and AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceInput` via:
+//
+//	AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceArgs{...}
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutput
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceArgs struct {
+	// Path to the directory in the mounted file system.
+	DirectoryPath pulumi.StringInput `pulumi:"directoryPath"`
+	// File system access mode.
+	FileSystemAccessMode pulumi.StringInput `pulumi:"fileSystemAccessMode"`
+	// ID of the file system.
+	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
+	// File system type.
+	FileSystemType pulumi.StringInput `pulumi:"fileSystemType"`
+}
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource)(nil)).Elem()
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutput)
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutput).ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutputWithContext(ctx)
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceArgs, AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtr and AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrInput` via:
+//
+//	        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput
+}
+
+type algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrType AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceArgs
+
+func AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtr(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceArgs) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrInput {
+	return (*algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrType)(v)
+}
+
+func (*algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource)(nil)).Elem()
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrType) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrType) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput {
+	return o.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource) *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource {
+		return &v
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput)
+}
+
+// Path to the directory in the mounted file system.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutput) DirectoryPath() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource) string {
+		return v.DirectoryPath
+	}).(pulumi.StringOutput)
+}
+
+// File system access mode.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutput) FileSystemAccessMode() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource) string {
+		return v.FileSystemAccessMode
+	}).(pulumi.StringOutput)
+}
+
+// ID of the file system.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutput) FileSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource) string {
+		return v.FileSystemId
+	}).(pulumi.StringOutput)
+}
+
+// File system type.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutput) FileSystemType() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource) string {
+		return v.FileSystemType
+	}).(pulumi.StringOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput) Elem() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource
+		return ret
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutput)
+}
+
+// Path to the directory in the mounted file system.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput) DirectoryPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DirectoryPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// File system access mode.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput) FileSystemAccessMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileSystemAccessMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// ID of the file system.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileSystemId
+	}).(pulumi.StringPtrOutput)
+}
+
+// File system type.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput) FileSystemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileSystemType
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource struct {
+	// List of JSON attribute names to select from the input data.
+	AttributeNames  []string                                                                                                                     `pulumi:"attributeNames"`
+	HubAccessConfig *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig `pulumi:"hubAccessConfig"`
+	// Instance group names associated with the data source.
+	InstanceGroupNames []string                                                                                                                       `pulumi:"instanceGroupNames"`
+	ModelAccessConfig  *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig `pulumi:"modelAccessConfig"`
+	// Distribution type for S3 data. Allowed values are: `FullyReplicated` and `ShardedByS3Key`.
+	S3DataDistributionType *string `pulumi:"s3DataDistributionType"`
+	S3DataType             string  `pulumi:"s3DataType"`
+	S3Uri                  string  `pulumi:"s3Uri"`
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs and AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceInput` via:
+//
+//	AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs{...}
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs struct {
+	// List of JSON attribute names to select from the input data.
+	AttributeNames  pulumi.StringArrayInput                                                                                                             `pulumi:"attributeNames"`
+	HubAccessConfig AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrInput `pulumi:"hubAccessConfig"`
+	// Instance group names associated with the data source.
+	InstanceGroupNames pulumi.StringArrayInput                                                                                                               `pulumi:"instanceGroupNames"`
+	ModelAccessConfig  AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrInput `pulumi:"modelAccessConfig"`
+	// Distribution type for S3 data. Allowed values are: `FullyReplicated` and `ShardedByS3Key`.
+	S3DataDistributionType pulumi.StringPtrInput `pulumi:"s3DataDistributionType"`
+	S3DataType             pulumi.StringInput    `pulumi:"s3DataType"`
+	S3Uri                  pulumi.StringInput    `pulumi:"s3Uri"`
+}
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput)
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput).ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutputWithContext(ctx)
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs, AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtr and AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrInput` via:
+//
+//	        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput
+}
+
+type algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrType AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs
+
+func AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtr(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrInput {
+	return (*algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrType)(v)
+}
+
+func (*algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrType) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrType) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput {
+	return o.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource) *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource {
+		return &v
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput)
+}
+
+// List of JSON attribute names to select from the input data.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput) AttributeNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource) []string {
+		return v.AttributeNames
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput) HubAccessConfig() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource) *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig {
+		return v.HubAccessConfig
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput)
+}
+
+// Instance group names associated with the data source.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput) InstanceGroupNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource) []string {
+		return v.InstanceGroupNames
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput) ModelAccessConfig() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource) *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig {
+		return v.ModelAccessConfig
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput)
+}
+
+// Distribution type for S3 data. Allowed values are: `FullyReplicated` and `ShardedByS3Key`.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput) S3DataDistributionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource) *string {
+		return v.S3DataDistributionType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput) S3DataType() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource) string {
+		return v.S3DataType
+	}).(pulumi.StringOutput)
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource) string {
+		return v.S3Uri
+	}).(pulumi.StringOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput) Elem() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource
+		return ret
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput)
+}
+
+// List of JSON attribute names to select from the input data.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput) AttributeNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AttributeNames
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput) HubAccessConfig() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource) *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig {
+		if v == nil {
+			return nil
+		}
+		return v.HubAccessConfig
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput)
+}
+
+// Instance group names associated with the data source.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput) InstanceGroupNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceGroupNames
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput) ModelAccessConfig() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource) *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ModelAccessConfig
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput)
+}
+
+// Distribution type for S3 data. Allowed values are: `FullyReplicated` and `ShardedByS3Key`.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput) S3DataDistributionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3DataDistributionType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput) S3DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3DataType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig struct {
+	// ARN of the SageMaker AI Hub content.
+	HubContentArn *string `pulumi:"hubContentArn"`
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs and AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigInput` via:
+//
+//	AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs{...}
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs struct {
+	// ARN of the SageMaker AI Hub content.
+	HubContentArn pulumi.StringPtrInput `pulumi:"hubContentArn"`
+}
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput)
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput).ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx)
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs, AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtr and AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrInput` via:
+//
+//	        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput
+}
+
+type algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrType AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs
+
+func AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtr(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrInput {
+	return (*algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrType)(v)
+}
+
+func (*algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrType) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrType) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig) *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig {
+		return &v
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput)
+}
+
+// ARN of the SageMaker AI Hub content.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput) HubContentArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig) *string {
+		return v.HubContentArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput) Elem() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig
+		return ret
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput)
+}
+
+// ARN of the SageMaker AI Hub content.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput) HubContentArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HubContentArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig struct {
+	// Whether to accept the model end-user license agreement.
+	AcceptEula *bool `pulumi:"acceptEula"`
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs and AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigInput` via:
+//
+//	AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs{...}
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs struct {
+	// Whether to accept the model end-user license agreement.
+	AcceptEula pulumi.BoolPtrInput `pulumi:"acceptEula"`
+}
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig)(nil)).Elem()
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput)
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput).ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(ctx)
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs, AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtr and AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrInput` via:
+//
+//	        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput
+}
+
+type algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrType AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs
+
+func AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtr(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrInput {
+	return (*algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrType)(v)
+}
+
+func (*algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig)(nil)).Elem()
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrType) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrType) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig) *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig {
+		return &v
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput)
+}
+
+// Whether to accept the model end-user license agreement.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput) AcceptEula() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig) *bool {
+		return v.AcceptEula
+	}).(pulumi.BoolPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput) Elem() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig
+		return ret
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput)
+}
+
+// Whether to accept the model end-user license agreement.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput) AcceptEula() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AcceptEula
+	}).(pulumi.BoolPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfig struct {
+	// Shuffle seed.
+	Seed int `pulumi:"seed"`
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigArgs and AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigInput` via:
+//
+//	AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigArgs{...}
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigOutput
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigArgs struct {
+	// Shuffle seed.
+	Seed pulumi.IntInput `pulumi:"seed"`
+}
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfig)(nil)).Elem()
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigOutput)
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigOutput).ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutputWithContext(ctx)
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigArgs, AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtr and AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrInput` via:
+//
+//	        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutput
+}
+
+type algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrType AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigArgs
+
+func AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtr(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigArgs) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrInput {
+	return (*algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrType)(v)
+}
+
+func (*algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfig)(nil)).Elem()
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrType) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrType) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfig)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutput {
+	return o.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfig) *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfig {
+		return &v
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutput)
+}
+
+// Shuffle seed.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigOutput) Seed() pulumi.IntOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfig) int {
+		return v.Seed
+	}).(pulumi.IntOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfig)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutput) Elem() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfig) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfig
+		return ret
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigOutput)
+}
+
+// Shuffle seed.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutput) Seed() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Seed
+	}).(pulumi.IntPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfig struct {
+	// Compression type for the output data. Allowed values are: `None` and `GZIP`.
+	CompressionType *string `pulumi:"compressionType"`
+	// KMS key ID used to encrypt output data.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// S3 or HTTPS URI where output data is stored.
+	S3OutputPath string `pulumi:"s3OutputPath"`
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigArgs and AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigInput` via:
+//
+//	AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigArgs{...}
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutput
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigArgs struct {
+	// Compression type for the output data. Allowed values are: `None` and `GZIP`.
+	CompressionType pulumi.StringPtrInput `pulumi:"compressionType"`
+	// KMS key ID used to encrypt output data.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// S3 or HTTPS URI where output data is stored.
+	S3OutputPath pulumi.StringInput `pulumi:"s3OutputPath"`
+}
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfig)(nil)).Elem()
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutput)
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutput).ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutputWithContext(ctx)
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigArgs, AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtr and AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrInput` via:
+//
+//	        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput
+}
+
+type algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrType AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigArgs
+
+func AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtr(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigArgs) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrInput {
+	return (*algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrType)(v)
+}
+
+func (*algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfig)(nil)).Elem()
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrType) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrType) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfig)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput {
+	return o.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfig) *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfig {
+		return &v
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput)
+}
+
+// Compression type for the output data. Allowed values are: `None` and `GZIP`.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutput) CompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfig) *string {
+		return v.CompressionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// KMS key ID used to encrypt output data.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfig) *string {
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 or HTTPS URI where output data is stored.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutput) S3OutputPath() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfig) string {
+		return v.S3OutputPath
+	}).(pulumi.StringOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfig)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput) Elem() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfig) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfig
+		return ret
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutput)
+}
+
+// Compression type for the output data. Allowed values are: `None` and `GZIP`.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput) CompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CompressionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// KMS key ID used to encrypt output data.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 or HTTPS URI where output data is stored.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3OutputPath
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig struct {
+	// Number of training instances.
+	InstanceCount *int `pulumi:"instanceCount"`
+	// Instance group definitions for the training job. See Instance Groups.
+	InstanceGroups []AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroup `pulumi:"instanceGroups"`
+	// Placement configuration for the training job. See Instance Placement Config.
+	InstancePlacementConfig *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfig `pulumi:"instancePlacementConfig"`
+	// Training instance type.
+	InstanceType *string `pulumi:"instanceType"`
+	// Warm pool keep-alive period in seconds.
+	KeepAlivePeriodInSeconds *int `pulumi:"keepAlivePeriodInSeconds"`
+	// ARN of the SageMaker AI training plan.
+	TrainingPlanArn *string `pulumi:"trainingPlanArn"`
+	// KMS key ID used to encrypt the training volume.
+	VolumeKmsKeyId *string `pulumi:"volumeKmsKeyId"`
+	// Size of the training volume in GiB.
+	VolumeSizeInGb *int `pulumi:"volumeSizeInGb"`
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigArgs and AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInput` via:
+//
+//	AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigArgs{...}
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigArgs struct {
+	// Number of training instances.
+	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
+	// Instance group definitions for the training job. See Instance Groups.
+	InstanceGroups AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayInput `pulumi:"instanceGroups"`
+	// Placement configuration for the training job. See Instance Placement Config.
+	InstancePlacementConfig AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrInput `pulumi:"instancePlacementConfig"`
+	// Training instance type.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// Warm pool keep-alive period in seconds.
+	KeepAlivePeriodInSeconds pulumi.IntPtrInput `pulumi:"keepAlivePeriodInSeconds"`
+	// ARN of the SageMaker AI training plan.
+	TrainingPlanArn pulumi.StringPtrInput `pulumi:"trainingPlanArn"`
+	// KMS key ID used to encrypt the training volume.
+	VolumeKmsKeyId pulumi.StringPtrInput `pulumi:"volumeKmsKeyId"`
+	// Size of the training volume in GiB.
+	VolumeSizeInGb pulumi.IntPtrInput `pulumi:"volumeSizeInGb"`
+}
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig)(nil)).Elem()
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput)
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput).ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutputWithContext(ctx)
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigArgs, AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtr and AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrInput` via:
+//
+//	        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput
+}
+
+type algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrType AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigArgs
+
+func AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtr(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigArgs) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrInput {
+	return (*algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrType)(v)
+}
+
+func (*algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig)(nil)).Elem()
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrType) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrType) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput {
+	return o.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig) *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig {
+		return &v
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput)
+}
+
+// Number of training instances.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig) *int {
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Instance group definitions for the training job. See Instance Groups.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput) InstanceGroups() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig) []AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroup {
+		return v.InstanceGroups
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayOutput)
+}
+
+// Placement configuration for the training job. See Instance Placement Config.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput) InstancePlacementConfig() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig) *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfig {
+		return v.InstancePlacementConfig
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput)
+}
+
+// Training instance type.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig) *string {
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Warm pool keep-alive period in seconds.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput) KeepAlivePeriodInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig) *int {
+		return v.KeepAlivePeriodInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// ARN of the SageMaker AI training plan.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput) TrainingPlanArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig) *string {
+		return v.TrainingPlanArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// KMS key ID used to encrypt the training volume.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig) *string {
+		return v.VolumeKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Size of the training volume in GiB.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput) VolumeSizeInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig) *int {
+		return v.VolumeSizeInGb
+	}).(pulumi.IntPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput) Elem() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig
+		return ret
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput)
+}
+
+// Number of training instances.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Instance group definitions for the training job. See Instance Groups.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput) InstanceGroups() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig) []AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroup {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceGroups
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayOutput)
+}
+
+// Placement configuration for the training job. See Instance Placement Config.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput) InstancePlacementConfig() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig) *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfig {
+		if v == nil {
+			return nil
+		}
+		return v.InstancePlacementConfig
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput)
+}
+
+// Training instance type.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Warm pool keep-alive period in seconds.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput) KeepAlivePeriodInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.KeepAlivePeriodInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// ARN of the SageMaker AI training plan.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput) TrainingPlanArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrainingPlanArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// KMS key ID used to encrypt the training volume.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Size of the training volume in GiB.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput) VolumeSizeInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeSizeInGb
+	}).(pulumi.IntPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroup struct {
+	// Number of instances in the group.
+	InstanceCount int `pulumi:"instanceCount"`
+	// Name of the instance group.
+	InstanceGroupName string `pulumi:"instanceGroupName"`
+	// Instance type for the group.
+	InstanceType string `pulumi:"instanceType"`
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArgs and AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupInput` via:
+//
+//	AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArgs{...}
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupOutput
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArgs struct {
+	// Number of instances in the group.
+	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
+	// Name of the instance group.
+	InstanceGroupName pulumi.StringInput `pulumi:"instanceGroupName"`
+	// Instance type for the group.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+}
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroup)(nil)).Elem()
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupOutput)
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArray and AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayInput` via:
+//
+//	AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArray{ AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArgs{...} }
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayOutput
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArray []AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupInput
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroup)(nil)).Elem()
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArray) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArray) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroup)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupOutput {
+	return o
+}
+
+// Number of instances in the group.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupOutput) InstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroup) int {
+		return v.InstanceCount
+	}).(pulumi.IntOutput)
+}
+
+// Name of the instance group.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupOutput) InstanceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroup) string {
+		return v.InstanceGroupName
+	}).(pulumi.StringOutput)
+}
+
+// Instance type for the group.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroup) string {
+		return v.InstanceType
+	}).(pulumi.StringOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroup)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayOutput) Index(i pulumi.IntInput) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroup {
+		return vs[0].([]AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroup)[vs[1].(int)]
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfig struct {
+	// Whether multiple jobs can share the placement configuration.
+	EnableMultipleJobs *bool `pulumi:"enableMultipleJobs"`
+	// Placement specifications for ultra servers. See Placement Specifications.
+	PlacementSpecifications []AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecification `pulumi:"placementSpecifications"`
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigArgs and AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigInput` via:
+//
+//	AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigArgs{...}
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigOutput
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigArgs struct {
+	// Whether multiple jobs can share the placement configuration.
+	EnableMultipleJobs pulumi.BoolPtrInput `pulumi:"enableMultipleJobs"`
+	// Placement specifications for ultra servers. See Placement Specifications.
+	PlacementSpecifications AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayInput `pulumi:"placementSpecifications"`
+}
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfig)(nil)).Elem()
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigOutput)
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigOutput).ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutputWithContext(ctx)
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigArgs, AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtr and AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrInput` via:
+//
+//	        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput
+}
+
+type algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrType AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigArgs
+
+func AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtr(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigArgs) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrInput {
+	return (*algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrType)(v)
+}
+
+func (*algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfig)(nil)).Elem()
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrType) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrType) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfig)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput {
+	return o.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfig) *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfig {
+		return &v
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput)
+}
+
+// Whether multiple jobs can share the placement configuration.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigOutput) EnableMultipleJobs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfig) *bool {
+		return v.EnableMultipleJobs
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Placement specifications for ultra servers. See Placement Specifications.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigOutput) PlacementSpecifications() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfig) []AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecification {
+		return v.PlacementSpecifications
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfig)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput) Elem() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfig) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfig
+		return ret
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigOutput)
+}
+
+// Whether multiple jobs can share the placement configuration.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput) EnableMultipleJobs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableMultipleJobs
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Placement specifications for ultra servers. See Placement Specifications.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput) PlacementSpecifications() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfig) []AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.PlacementSpecifications
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecification struct {
+	// Number of instances for the placement specification.
+	InstanceCount int `pulumi:"instanceCount"`
+	// Ultra server ID.
+	UltraServerId *string `pulumi:"ultraServerId"`
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArgs and AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationInput` via:
+//
+//	AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArgs{...}
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationOutput
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArgs struct {
+	// Number of instances for the placement specification.
+	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
+	// Ultra server ID.
+	UltraServerId pulumi.StringPtrInput `pulumi:"ultraServerId"`
+}
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecification)(nil)).Elem()
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationOutput)
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArray and AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayInput` via:
+//
+//	AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArray{ AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArgs{...} }
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArray []AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationInput
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecification)(nil)).Elem()
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArray) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArray) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecification)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationOutput {
+	return o
+}
+
+// Number of instances for the placement specification.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationOutput) InstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecification) int {
+		return v.InstanceCount
+	}).(pulumi.IntOutput)
+}
+
+// Ultra server ID.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationOutput) UltraServerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecification) *string {
+		return v.UltraServerId
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecification)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput) Index(i pulumi.IntInput) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecification {
+		return vs[0].([]AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecification)[vs[1].(int)]
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingCondition struct {
+	// Maximum time, in seconds, a job can remain pending.
+	MaxPendingTimeInSeconds *int `pulumi:"maxPendingTimeInSeconds"`
+	// Maximum runtime, in seconds, for the training job.
+	MaxRuntimeInSeconds *int `pulumi:"maxRuntimeInSeconds"`
+	// Maximum wait time, in seconds, including spot interruptions.
+	MaxWaitTimeInSeconds *int `pulumi:"maxWaitTimeInSeconds"`
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionArgs and AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionInput` via:
+//
+//	AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionArgs{...}
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutput
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionArgs struct {
+	// Maximum time, in seconds, a job can remain pending.
+	MaxPendingTimeInSeconds pulumi.IntPtrInput `pulumi:"maxPendingTimeInSeconds"`
+	// Maximum runtime, in seconds, for the training job.
+	MaxRuntimeInSeconds pulumi.IntPtrInput `pulumi:"maxRuntimeInSeconds"`
+	// Maximum wait time, in seconds, including spot interruptions.
+	MaxWaitTimeInSeconds pulumi.IntPtrInput `pulumi:"maxWaitTimeInSeconds"`
+}
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingCondition)(nil)).Elem()
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutput)
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionArgs) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutput).ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutputWithContext(ctx)
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionArgs, AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtr and AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrInput` via:
+//
+//	        AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput
+}
+
+type algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrType AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionArgs
+
+func AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtr(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionArgs) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrInput {
+	return (*algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrType)(v)
+}
+
+func (*algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingCondition)(nil)).Elem()
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrType) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrType) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingCondition)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput {
+	return o.ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingCondition) *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingCondition {
+		return &v
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput)
+}
+
+// Maximum time, in seconds, a job can remain pending.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutput) MaxPendingTimeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingCondition) *int {
+		return v.MaxPendingTimeInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum runtime, in seconds, for the training job.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutput) MaxRuntimeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingCondition) *int {
+		return v.MaxRuntimeInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum wait time, in seconds, including spot interruptions.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutput) MaxWaitTimeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingCondition) *int {
+		return v.MaxWaitTimeInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingCondition)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput) Elem() AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingCondition) AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingCondition {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingCondition
+		return ret
+	}).(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutput)
+}
+
+// Maximum time, in seconds, a job can remain pending.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput) MaxPendingTimeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingCondition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPendingTimeInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum runtime, in seconds, for the training job.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput) MaxRuntimeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingCondition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxRuntimeInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum wait time, in seconds, including spot interruptions.
+func (o AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput) MaxWaitTimeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingCondition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxWaitTimeInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition struct {
+	// Batch strategy for the transform job. Allowed values are: `MultiRecord` and `SingleRecord`.
+	BatchStrategy *string `pulumi:"batchStrategy"`
+	// Environment variables to pass to the transform container.
+	Environment map[string]string `pulumi:"environment"`
+	// Maximum number of parallel transform requests.
+	MaxConcurrentTransforms *int `pulumi:"maxConcurrentTransforms"`
+	// Maximum payload size, in MiB, for transform requests.
+	MaxPayloadInMb *int `pulumi:"maxPayloadInMb"`
+	// Input configuration for the transform job. See Transform Input.
+	TransformInput AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput `pulumi:"transformInput"`
+	// Output configuration for the transform job. See Transform Output.
+	TransformOutput AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput `pulumi:"transformOutput"`
+	// Compute resources for the transform job. See Transform Resources.
+	TransformResources AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources `pulumi:"transformResources"`
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionArgs and AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionInput` via:
+//
+//	AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionArgs{...}
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionArgs struct {
+	// Batch strategy for the transform job. Allowed values are: `MultiRecord` and `SingleRecord`.
+	BatchStrategy pulumi.StringPtrInput `pulumi:"batchStrategy"`
+	// Environment variables to pass to the transform container.
+	Environment pulumi.StringMapInput `pulumi:"environment"`
+	// Maximum number of parallel transform requests.
+	MaxConcurrentTransforms pulumi.IntPtrInput `pulumi:"maxConcurrentTransforms"`
+	// Maximum payload size, in MiB, for transform requests.
+	MaxPayloadInMb pulumi.IntPtrInput `pulumi:"maxPayloadInMb"`
+	// Input configuration for the transform job. See Transform Input.
+	TransformInput AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputInput `pulumi:"transformInput"`
+	// Output configuration for the transform job. See Transform Output.
+	TransformOutput AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputInput `pulumi:"transformOutput"`
+	// Compute resources for the transform job. See Transform Resources.
+	TransformResources AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesInput `pulumi:"transformResources"`
+}
+
+func (AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition)(nil)).Elem()
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionArgs) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionArgs) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput)
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionArgs) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionArgs) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput).ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutputWithContext(ctx)
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionArgs, AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtr and AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrInput` via:
+//
+//	        AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput
+}
+
+type algorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrType AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionArgs
+
+func AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtr(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionArgs) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrInput {
+	return (*algorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrType)(v)
+}
+
+func (*algorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition)(nil)).Elem()
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrType) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrType) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput {
+	return o.ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition) *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition {
+		return &v
+	}).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput)
+}
+
+// Batch strategy for the transform job. Allowed values are: `MultiRecord` and `SingleRecord`.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput) BatchStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition) *string {
+		return v.BatchStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Environment variables to pass to the transform container.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition) map[string]string {
+		return v.Environment
+	}).(pulumi.StringMapOutput)
+}
+
+// Maximum number of parallel transform requests.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput) MaxConcurrentTransforms() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition) *int {
+		return v.MaxConcurrentTransforms
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum payload size, in MiB, for transform requests.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput) MaxPayloadInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition) *int {
+		return v.MaxPayloadInMb
+	}).(pulumi.IntPtrOutput)
+}
+
+// Input configuration for the transform job. See Transform Input.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput) TransformInput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput {
+		return v.TransformInput
+	}).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutput)
+}
+
+// Output configuration for the transform job. See Transform Output.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput) TransformOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput {
+		return v.TransformOutput
+	}).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutput)
+}
+
+// Compute resources for the transform job. See Transform Resources.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput) TransformResources() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources {
+		return v.TransformResources
+	}).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput) Elem() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition
+		return ret
+	}).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput)
+}
+
+// Batch strategy for the transform job. Allowed values are: `MultiRecord` and `SingleRecord`.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput) BatchStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BatchStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Environment variables to pass to the transform container.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Environment
+	}).(pulumi.StringMapOutput)
+}
+
+// Maximum number of parallel transform requests.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput) MaxConcurrentTransforms() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxConcurrentTransforms
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum payload size, in MiB, for transform requests.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput) MaxPayloadInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPayloadInMb
+	}).(pulumi.IntPtrOutput)
+}
+
+// Input configuration for the transform job. See Transform Input.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput) TransformInput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition) *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput {
+		if v == nil {
+			return nil
+		}
+		return &v.TransformInput
+	}).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput)
+}
+
+// Output configuration for the transform job. See Transform Output.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput) TransformOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition) *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput {
+		if v == nil {
+			return nil
+		}
+		return &v.TransformOutput
+	}).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput)
+}
+
+// Compute resources for the transform job. See Transform Resources.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput) TransformResources() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinition) *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources {
+		if v == nil {
+			return nil
+		}
+		return &v.TransformResources
+	}).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput struct {
+	// Compression type of the input data. Allowed values are: `None` and `Gzip`.
+	CompressionType *string `pulumi:"compressionType"`
+	// MIME type of the input data.
+	ContentType *string `pulumi:"contentType"`
+	// Data source for the transform job. See Transform Job Data Source.
+	DataSource AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSource `pulumi:"dataSource"`
+	// Method used to split the transform input. Allowed values are: `None`, `Line`, `RecordIO`, and `TFRecord`.
+	SplitType *string `pulumi:"splitType"`
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputArgs and AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputInput` via:
+//
+//	AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputArgs{...}
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutput
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputArgs struct {
+	// Compression type of the input data. Allowed values are: `None` and `Gzip`.
+	CompressionType pulumi.StringPtrInput `pulumi:"compressionType"`
+	// MIME type of the input data.
+	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
+	// Data source for the transform job. See Transform Job Data Source.
+	DataSource AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceInput `pulumi:"dataSource"`
+	// Method used to split the transform input. Allowed values are: `None`, `Line`, `RecordIO`, and `TFRecord`.
+	SplitType pulumi.StringPtrInput `pulumi:"splitType"`
+}
+
+func (AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput)(nil)).Elem()
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputArgs) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputArgs) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutput)
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputArgs) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputArgs) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutput).ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutputWithContext(ctx)
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputArgs, AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtr and AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrInput` via:
+//
+//	        AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput
+}
+
+type algorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrType AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputArgs
+
+func AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtr(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputArgs) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrInput {
+	return (*algorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrType)(v)
+}
+
+func (*algorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput)(nil)).Elem()
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrType) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrType) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput {
+	return o.ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput) *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput {
+		return &v
+	}).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput)
+}
+
+// Compression type of the input data. Allowed values are: `None` and `Gzip`.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutput) CompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput) *string {
+		return v.CompressionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// MIME type of the input data.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput) *string {
+		return v.ContentType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Data source for the transform job. See Transform Job Data Source.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutput) DataSource() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSource {
+		return v.DataSource
+	}).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutput)
+}
+
+// Method used to split the transform input. Allowed values are: `None`, `Line`, `RecordIO`, and `TFRecord`.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutput) SplitType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput) *string {
+		return v.SplitType
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput) Elem() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput
+		return ret
+	}).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutput)
+}
+
+// Compression type of the input data. Allowed values are: `None` and `Gzip`.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput) CompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CompressionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// MIME type of the input data.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Data source for the transform job. See Transform Job Data Source.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput) DataSource() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput) *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSource {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSource
+	}).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutput)
+}
+
+// Method used to split the transform input. Allowed values are: `None`, `Line`, `RecordIO`, and `TFRecord`.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput) SplitType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SplitType
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSource struct {
+	// S3-backed training data source. See Training S3 Data Source.
+	S3DataSource AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSource `pulumi:"s3DataSource"`
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceArgs and AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceInput` via:
+//
+//	AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceArgs{...}
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutput
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceArgs struct {
+	// S3-backed training data source. See Training S3 Data Source.
+	S3DataSource AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceInput `pulumi:"s3DataSource"`
+}
+
+func (AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSource)(nil)).Elem()
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceArgs) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceArgs) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutput)
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceArgs) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceArgs) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutput).ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutputWithContext(ctx)
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceArgs, AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtr and AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrInput` via:
+//
+//	        AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutput
+}
+
+type algorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrType AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceArgs
+
+func AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtr(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceArgs) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrInput {
+	return (*algorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrType)(v)
+}
+
+func (*algorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSource)(nil)).Elem()
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrType) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrType) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSource)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutput {
+	return o.ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSource) *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSource {
+		return &v
+	}).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutput)
+}
+
+// S3-backed training data source. See Training S3 Data Source.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutput) S3DataSource() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSource) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSource {
+		return v.S3DataSource
+	}).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSource)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutput) Elem() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSource) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSource {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSource
+		return ret
+	}).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutput)
+}
+
+// S3-backed training data source. See Training S3 Data Source.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutput) S3DataSource() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSource) *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSource {
+		if v == nil {
+			return nil
+		}
+		return &v.S3DataSource
+	}).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSource struct {
+	S3DataType string `pulumi:"s3DataType"`
+	S3Uri      string `pulumi:"s3Uri"`
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceArgs and AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceInput` via:
+//
+//	AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceArgs{...}
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutput
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceArgs struct {
+	S3DataType pulumi.StringInput `pulumi:"s3DataType"`
+	S3Uri      pulumi.StringInput `pulumi:"s3Uri"`
+}
+
+func (AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceArgs) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceArgs) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutput)
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceArgs) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceArgs) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutput).ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutputWithContext(ctx)
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceArgs, AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtr and AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrInput` via:
+//
+//	        AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput
+}
+
+type algorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrType AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceArgs
+
+func AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtr(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceArgs) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrInput {
+	return (*algorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrType)(v)
+}
+
+func (*algorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrType) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrType) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput {
+	return o.ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSource) *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSource {
+		return &v
+	}).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput)
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutput) S3DataType() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSource) string {
+		return v.S3DataType
+	}).(pulumi.StringOutput)
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSource) string {
+		return v.S3Uri
+	}).(pulumi.StringOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput) Elem() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSource) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSource {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSource
+		return ret
+	}).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutput)
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput) S3DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3DataType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput struct {
+	// MIME type of the transform output.
+	Accept *string `pulumi:"accept"`
+	// Method used to assemble the transform output. Allowed values are: `None` and `Line`.
+	AssembleWith *string `pulumi:"assembleWith"`
+	// KMS key ID used to encrypt transform output.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// S3 or HTTPS URI where transform output is stored.
+	S3OutputPath string `pulumi:"s3OutputPath"`
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputArgs and AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputInput` via:
+//
+//	AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputArgs{...}
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutput
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputArgs struct {
+	// MIME type of the transform output.
+	Accept pulumi.StringPtrInput `pulumi:"accept"`
+	// Method used to assemble the transform output. Allowed values are: `None` and `Line`.
+	AssembleWith pulumi.StringPtrInput `pulumi:"assembleWith"`
+	// KMS key ID used to encrypt transform output.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// S3 or HTTPS URI where transform output is stored.
+	S3OutputPath pulumi.StringInput `pulumi:"s3OutputPath"`
+}
+
+func (AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput)(nil)).Elem()
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputArgs) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputArgs) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutput)
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputArgs) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputArgs) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutput).ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutputWithContext(ctx)
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputArgs, AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtr and AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrInput` via:
+//
+//	        AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput
+}
+
+type algorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrType AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputArgs
+
+func AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtr(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputArgs) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrInput {
+	return (*algorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrType)(v)
+}
+
+func (*algorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput)(nil)).Elem()
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrType) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrType) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput {
+	return o.ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput) *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput {
+		return &v
+	}).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput)
+}
+
+// MIME type of the transform output.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutput) Accept() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput) *string {
+		return v.Accept
+	}).(pulumi.StringPtrOutput)
+}
+
+// Method used to assemble the transform output. Allowed values are: `None` and `Line`.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutput) AssembleWith() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput) *string {
+		return v.AssembleWith
+	}).(pulumi.StringPtrOutput)
+}
+
+// KMS key ID used to encrypt transform output.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput) *string {
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 or HTTPS URI where transform output is stored.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutput) S3OutputPath() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput) string {
+		return v.S3OutputPath
+	}).(pulumi.StringOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput) Elem() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput
+		return ret
+	}).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutput)
+}
+
+// MIME type of the transform output.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput) Accept() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Accept
+	}).(pulumi.StringPtrOutput)
+}
+
+// Method used to assemble the transform output. Allowed values are: `None` and `Line`.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput) AssembleWith() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AssembleWith
+	}).(pulumi.StringPtrOutput)
+}
+
+// KMS key ID used to encrypt transform output.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 or HTTPS URI where transform output is stored.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3OutputPath
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources struct {
+	// Number of transform instances.
+	InstanceCount int `pulumi:"instanceCount"`
+	// Transform instance type.
+	InstanceType string `pulumi:"instanceType"`
+	// Transform AMI version.
+	TransformAmiVersion *string `pulumi:"transformAmiVersion"`
+	// KMS key ID used to encrypt the transform volume.
+	VolumeKmsKeyId *string `pulumi:"volumeKmsKeyId"`
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesArgs and AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesInput` via:
+//
+//	AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesArgs{...}
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutput
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesArgs struct {
+	// Number of transform instances.
+	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
+	// Transform instance type.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// Transform AMI version.
+	TransformAmiVersion pulumi.StringPtrInput `pulumi:"transformAmiVersion"`
+	// KMS key ID used to encrypt the transform volume.
+	VolumeKmsKeyId pulumi.StringPtrInput `pulumi:"volumeKmsKeyId"`
+}
+
+func (AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources)(nil)).Elem()
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesArgs) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesArgs) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutput)
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesArgs) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesArgs) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutput).ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutputWithContext(ctx)
+}
+
+// AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrInput is an input type that accepts AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesArgs, AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtr and AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput values.
+// You can construct a concrete instance of `AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrInput` via:
+//
+//	        AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput
+	ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutputWithContext(context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput
+}
+
+type algorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrType AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesArgs
+
+func AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtr(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesArgs) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrInput {
+	return (*algorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrType)(v)
+}
+
+func (*algorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources)(nil)).Elem()
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrType) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput {
+	return i.ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrType) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput {
+	return o.ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources) *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources {
+		return &v
+	}).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput)
+}
+
+// Number of transform instances.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutput) InstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources) int {
+		return v.InstanceCount
+	}).(pulumi.IntOutput)
+}
+
+// Transform instance type.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources) string {
+		return v.InstanceType
+	}).(pulumi.StringOutput)
+}
+
+// Transform AMI version.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutput) TransformAmiVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources) *string {
+		return v.TransformAmiVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// KMS key ID used to encrypt the transform volume.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources) *string {
+		return v.VolumeKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources)(nil)).Elem()
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput) ToAlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutputWithContext(ctx context.Context) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput {
+	return o
+}
+
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput) Elem() AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources) AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources
+		return ret
+	}).(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutput)
+}
+
+// Number of transform instances.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Transform instance type.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Transform AMI version.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput) TransformAmiVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransformAmiVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// KMS key ID used to encrypt the transform volume.
+func (o AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResources) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
 type AppImageConfigCodeEditorAppImageConfig struct {
 	// The configuration used to run the application image container. See Container Config details below.
 	ContainerConfig *AppImageConfigCodeEditorAppImageConfigContainerConfig `pulumi:"containerConfig"`
@@ -47612,6 +54917,89 @@ func (o WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmInferenceSpecificationInput)(nil)).Elem(), AlgorithmInferenceSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmInferenceSpecificationPtrInput)(nil)).Elem(), AlgorithmInferenceSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmInferenceSpecificationContainerInput)(nil)).Elem(), AlgorithmInferenceSpecificationContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmInferenceSpecificationContainerArrayInput)(nil)).Elem(), AlgorithmInferenceSpecificationContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceInput)(nil)).Elem(), AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrInput)(nil)).Elem(), AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmInferenceSpecificationContainerBaseModelInput)(nil)).Elem(), AlgorithmInferenceSpecificationContainerBaseModelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmInferenceSpecificationContainerBaseModelPtrInput)(nil)).Elem(), AlgorithmInferenceSpecificationContainerBaseModelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmInferenceSpecificationContainerModelDataSourceInput)(nil)).Elem(), AlgorithmInferenceSpecificationContainerModelDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmInferenceSpecificationContainerModelDataSourcePtrInput)(nil)).Elem(), AlgorithmInferenceSpecificationContainerModelDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceInput)(nil)).Elem(), AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrInput)(nil)).Elem(), AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigInput)(nil)).Elem(), AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrInput)(nil)).Elem(), AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigInput)(nil)).Elem(), AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrInput)(nil)).Elem(), AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmInferenceSpecificationContainerModelInputInput)(nil)).Elem(), AlgorithmInferenceSpecificationContainerModelInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmInferenceSpecificationContainerModelInputPtrInput)(nil)).Elem(), AlgorithmInferenceSpecificationContainerModelInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmTimeoutsInput)(nil)).Elem(), AlgorithmTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmTimeoutsPtrInput)(nil)).Elem(), AlgorithmTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmTrainingSpecificationInput)(nil)).Elem(), AlgorithmTrainingSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmTrainingSpecificationPtrInput)(nil)).Elem(), AlgorithmTrainingSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmTrainingSpecificationAdditionalS3DataSourceInput)(nil)).Elem(), AlgorithmTrainingSpecificationAdditionalS3DataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrInput)(nil)).Elem(), AlgorithmTrainingSpecificationAdditionalS3DataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmTrainingSpecificationMetricDefinitionInput)(nil)).Elem(), AlgorithmTrainingSpecificationMetricDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmTrainingSpecificationMetricDefinitionArrayInput)(nil)).Elem(), AlgorithmTrainingSpecificationMetricDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmTrainingSpecificationSupportedHyperParameterInput)(nil)).Elem(), AlgorithmTrainingSpecificationSupportedHyperParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmTrainingSpecificationSupportedHyperParameterArrayInput)(nil)).Elem(), AlgorithmTrainingSpecificationSupportedHyperParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmTrainingSpecificationSupportedHyperParameterRangeInput)(nil)).Elem(), AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrInput)(nil)).Elem(), AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationInput)(nil)).Elem(), AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrInput)(nil)).Elem(), AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationInput)(nil)).Elem(), AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrInput)(nil)).Elem(), AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationInput)(nil)).Elem(), AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrInput)(nil)).Elem(), AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricInput)(nil)).Elem(), AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayInput)(nil)).Elem(), AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmTrainingSpecificationTrainingChannelInput)(nil)).Elem(), AlgorithmTrainingSpecificationTrainingChannelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmTrainingSpecificationTrainingChannelArrayInput)(nil)).Elem(), AlgorithmTrainingSpecificationTrainingChannelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationInput)(nil)).Elem(), AlgorithmValidationSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationPtrInput)(nil)).Elem(), AlgorithmValidationSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesPtrInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrInput)(nil)).Elem(), AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigCodeEditorAppImageConfigInput)(nil)).Elem(), AppImageConfigCodeEditorAppImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigCodeEditorAppImageConfigPtrInput)(nil)).Elem(), AppImageConfigCodeEditorAppImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigCodeEditorAppImageConfigContainerConfigInput)(nil)).Elem(), AppImageConfigCodeEditorAppImageConfigContainerConfigArgs{})
@@ -48185,6 +55573,89 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamWorkerAccessConfigurationS3PresignPtrInput)(nil)).Elem(), WorkteamWorkerAccessConfigurationS3PresignArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsInput)(nil)).Elem(), WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrInput)(nil)).Elem(), WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs{})
+	pulumi.RegisterOutputType(AlgorithmInferenceSpecificationOutput{})
+	pulumi.RegisterOutputType(AlgorithmInferenceSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmInferenceSpecificationContainerOutput{})
+	pulumi.RegisterOutputType(AlgorithmInferenceSpecificationContainerArrayOutput{})
+	pulumi.RegisterOutputType(AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceOutput{})
+	pulumi.RegisterOutputType(AlgorithmInferenceSpecificationContainerAdditionalS3DataSourcePtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmInferenceSpecificationContainerBaseModelOutput{})
+	pulumi.RegisterOutputType(AlgorithmInferenceSpecificationContainerBaseModelPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmInferenceSpecificationContainerModelDataSourceOutput{})
+	pulumi.RegisterOutputType(AlgorithmInferenceSpecificationContainerModelDataSourcePtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceOutput{})
+	pulumi.RegisterOutputType(AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourcePtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigOutput{})
+	pulumi.RegisterOutputType(AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigOutput{})
+	pulumi.RegisterOutputType(AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmInferenceSpecificationContainerModelInputOutput{})
+	pulumi.RegisterOutputType(AlgorithmInferenceSpecificationContainerModelInputPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmTimeoutsOutput{})
+	pulumi.RegisterOutputType(AlgorithmTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmTrainingSpecificationOutput{})
+	pulumi.RegisterOutputType(AlgorithmTrainingSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmTrainingSpecificationAdditionalS3DataSourceOutput{})
+	pulumi.RegisterOutputType(AlgorithmTrainingSpecificationAdditionalS3DataSourcePtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmTrainingSpecificationMetricDefinitionOutput{})
+	pulumi.RegisterOutputType(AlgorithmTrainingSpecificationMetricDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(AlgorithmTrainingSpecificationSupportedHyperParameterOutput{})
+	pulumi.RegisterOutputType(AlgorithmTrainingSpecificationSupportedHyperParameterArrayOutput{})
+	pulumi.RegisterOutputType(AlgorithmTrainingSpecificationSupportedHyperParameterRangeOutput{})
+	pulumi.RegisterOutputType(AlgorithmTrainingSpecificationSupportedHyperParameterRangePtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationOutput{})
+	pulumi.RegisterOutputType(AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationOutput{})
+	pulumi.RegisterOutputType(AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationOutput{})
+	pulumi.RegisterOutputType(AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricOutput{})
+	pulumi.RegisterOutputType(AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArrayOutput{})
+	pulumi.RegisterOutputType(AlgorithmTrainingSpecificationTrainingChannelOutput{})
+	pulumi.RegisterOutputType(AlgorithmTrainingSpecificationTrainingChannelArrayOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArrayOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourcePtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourcePtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArrayOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionStoppingConditionPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourcePtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourcePtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesOutput{})
+	pulumi.RegisterOutputType(AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformResourcesPtrOutput{})
 	pulumi.RegisterOutputType(AppImageConfigCodeEditorAppImageConfigOutput{})
 	pulumi.RegisterOutputType(AppImageConfigCodeEditorAppImageConfigPtrOutput{})
 	pulumi.RegisterOutputType(AppImageConfigCodeEditorAppImageConfigContainerConfigOutput{})

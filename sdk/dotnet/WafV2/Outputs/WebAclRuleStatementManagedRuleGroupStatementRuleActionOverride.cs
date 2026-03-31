@@ -14,17 +14,17 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride
     {
         /// <summary>
-        /// Override action to use, in place of the configured action of the rule in the rule group. See `Action` for details.
+        /// Override action to use for the rule. See Action below.
         /// </summary>
-        public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse ActionToUse;
+        public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse? ActionToUse;
         /// <summary>
-        /// Name of the rule to override. See the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
+        /// Name of the rule to override.
         /// </summary>
         public readonly string Name;
 
         [OutputConstructor]
         private WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride(
-            Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse actionToUse,
+            Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse? actionToUse,
 
             string name)
         {

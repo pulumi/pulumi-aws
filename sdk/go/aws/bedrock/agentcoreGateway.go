@@ -113,6 +113,10 @@ import (
 //							pulumi.String("client-123"),
 //							pulumi.String("client-456"),
 //						},
+//						AllowedScopes: pulumi.StringArray{
+//							pulumi.String("openid"),
+//							pulumi.String("email"),
+//						},
 //					},
 //				},
 //				ProtocolType: pulumi.String("MCP"),

@@ -24,7 +24,6 @@ class BrokerArgs:
                  engine_type: pulumi.Input[_builtins.str],
                  engine_version: pulumi.Input[_builtins.str],
                  host_instance_type: pulumi.Input[_builtins.str],
-                 users: pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]],
                  apply_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
                  authentication_strategy: Optional[pulumi.Input[_builtins.str]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -42,14 +41,14 @@ class BrokerArgs:
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  storage_type: Optional[pulumi.Input[_builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]]] = None):
         """
         The set of arguments for constructing a Broker resource.
 
         :param pulumi.Input[_builtins.str] engine_type: Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
         :param pulumi.Input[_builtins.str] engine_version: Version of the broker engine.
         :param pulumi.Input[_builtins.str] host_instance_type: Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
-        :param pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]] users: Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.bool] apply_immediately: Whether to apply broker modifications immediately. Default is `false`.
@@ -70,11 +69,11 @@ class BrokerArgs:
         :param pulumi.Input[_builtins.str] storage_type: Storage type of the broker. For `engine_type` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]] users: Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
         """
         pulumi.set(__self__, "engine_type", engine_type)
         pulumi.set(__self__, "engine_version", engine_version)
         pulumi.set(__self__, "host_instance_type", host_instance_type)
-        pulumi.set(__self__, "users", users)
         if apply_immediately is not None:
             pulumi.set(__self__, "apply_immediately", apply_immediately)
         if authentication_strategy is not None:
@@ -111,6 +110,8 @@ class BrokerArgs:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
 
     @_builtins.property
     @pulumi.getter(name="engineType")
@@ -141,26 +142,14 @@ class BrokerArgs:
     def host_instance_type(self) -> pulumi.Input[_builtins.str]:
         """
         Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "host_instance_type")
 
     @host_instance_type.setter
     def host_instance_type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "host_instance_type", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def users(self) -> pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]]:
-        """
-        Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
-
-        The following arguments are optional:
-        """
-        return pulumi.get(self, "users")
-
-    @users.setter
-    def users(self, value: pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]]):
-        pulumi.set(self, "users", value)
 
     @_builtins.property
     @pulumi.getter(name="applyImmediately")
@@ -378,6 +367,18 @@ class BrokerArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]]]:
+        """
+        Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+        """
+        return pulumi.get(self, "users")
+
+    @users.setter
+    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]]]):
+        pulumi.set(self, "users", value)
+
 
 @pulumi.input_type
 class _BrokerState:
@@ -424,6 +425,8 @@ class _BrokerState:
         :param pulumi.Input[_builtins.str] engine_type: Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
         :param pulumi.Input[_builtins.str] engine_version: Version of the broker engine.
         :param pulumi.Input[_builtins.str] host_instance_type: Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['BrokerInstanceArgs']]] instances: List of information about allocated brokers (both active & standby).
         :param pulumi.Input['BrokerLdapServerMetadataArgs'] ldap_server_metadata: Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engine_type` `RabbitMQ`. Detailed below.
         :param pulumi.Input['BrokerLogsArgs'] logs: Configuration block for the logging configuration. Detailed below.
@@ -437,8 +440,6 @@ class _BrokerState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]] users: Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
-               
-               The following arguments are optional:
         """
         if apply_immediately is not None:
             pulumi.set(__self__, "apply_immediately", apply_immediately)
@@ -642,6 +643,8 @@ class _BrokerState:
     def host_instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "host_instance_type")
 
@@ -798,8 +801,6 @@ class _BrokerState:
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]]]:
         """
         Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "users")
 
@@ -968,6 +969,8 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] engine_type: Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
         :param pulumi.Input[_builtins.str] engine_version: Version of the broker engine.
         :param pulumi.Input[_builtins.str] host_instance_type: Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
+               
+               The following arguments are optional:
         :param pulumi.Input[Union['BrokerLdapServerMetadataArgs', 'BrokerLdapServerMetadataArgsDict']] ldap_server_metadata: Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engine_type` `RabbitMQ`. Detailed below.
         :param pulumi.Input[Union['BrokerLogsArgs', 'BrokerLogsArgsDict']] logs: Configuration block for the logging configuration. Detailed below.
         :param pulumi.Input[Union['BrokerMaintenanceWindowStartTimeArgs', 'BrokerMaintenanceWindowStartTimeArgsDict']] maintenance_window_start_time: Configuration block for the maintenance window start time. Detailed below.
@@ -978,8 +981,6 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BrokerUserArgs', 'BrokerUserArgsDict']]]] users: Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -1177,8 +1178,6 @@ class Broker(pulumi.CustomResource):
             __props__.__dict__["storage_type"] = storage_type
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
-            if users is None and not opts.urn:
-                raise TypeError("Missing required property 'users'")
             __props__.__dict__["users"] = users
             __props__.__dict__["arn"] = None
             __props__.__dict__["instances"] = None
@@ -1240,6 +1239,8 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] engine_type: Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
         :param pulumi.Input[_builtins.str] engine_version: Version of the broker engine.
         :param pulumi.Input[_builtins.str] host_instance_type: Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[Union['BrokerInstanceArgs', 'BrokerInstanceArgsDict']]]] instances: List of information about allocated brokers (both active & standby).
         :param pulumi.Input[Union['BrokerLdapServerMetadataArgs', 'BrokerLdapServerMetadataArgsDict']] ldap_server_metadata: Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engine_type` `RabbitMQ`. Detailed below.
         :param pulumi.Input[Union['BrokerLogsArgs', 'BrokerLogsArgsDict']] logs: Configuration block for the logging configuration. Detailed below.
@@ -1253,8 +1254,6 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BrokerUserArgs', 'BrokerUserArgsDict']]]] users: Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1389,6 +1388,8 @@ class Broker(pulumi.CustomResource):
     def host_instance_type(self) -> pulumi.Output[_builtins.str]:
         """
         Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "host_instance_type")
 
@@ -1490,11 +1491,9 @@ class Broker(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def users(self) -> pulumi.Output[Sequence['outputs.BrokerUser']]:
+    def users(self) -> pulumi.Output[Optional[Sequence['outputs.BrokerUser']]]:
         """
         Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "users")
 

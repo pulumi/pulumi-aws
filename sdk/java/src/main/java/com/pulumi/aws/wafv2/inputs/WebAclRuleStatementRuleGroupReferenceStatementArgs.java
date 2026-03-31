@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -19,14 +20,14 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
     public static final WebAclRuleStatementRuleGroupReferenceStatementArgs Empty = new WebAclRuleStatementRuleGroupReferenceStatementArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the `aws.wafv2.RuleGroup` resource.
+     * ARN of the rule group to reference.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the `aws.wafv2.RuleGroup` resource.
+     * @return ARN of the rule group to reference.
      * 
      */
     public Output<String> arn() {
@@ -34,14 +35,29 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
     }
 
     /**
-     * Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
+     * Rules to exclude from the rule group. See Excluded Rule below.
+     * 
+     */
+    @Import(name="excludedRules")
+    private @Nullable Output<List<WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs>> excludedRules;
+
+    /**
+     * @return Rules to exclude from the rule group. See Excluded Rule below.
+     * 
+     */
+    public Optional<Output<List<WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs>>> excludedRules() {
+        return Optional.ofNullable(this.excludedRules);
+    }
+
+    /**
+     * Override actions for specific rules within the rule group. See Rule Action Override below.
      * 
      */
     @Import(name="ruleActionOverrides")
     private @Nullable Output<List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs>> ruleActionOverrides;
 
     /**
-     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
+     * @return Override actions for specific rules within the rule group. See Rule Action Override below.
      * 
      */
     public Optional<Output<List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs>>> ruleActionOverrides() {
@@ -52,6 +68,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
 
     private WebAclRuleStatementRuleGroupReferenceStatementArgs(WebAclRuleStatementRuleGroupReferenceStatementArgs $) {
         this.arn = $.arn;
+        this.excludedRules = $.excludedRules;
         this.ruleActionOverrides = $.ruleActionOverrides;
     }
 
@@ -74,7 +91,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the `aws.wafv2.RuleGroup` resource.
+         * @param arn ARN of the rule group to reference.
          * 
          * @return builder
          * 
@@ -85,7 +102,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the `aws.wafv2.RuleGroup` resource.
+         * @param arn ARN of the rule group to reference.
          * 
          * @return builder
          * 
@@ -95,7 +112,38 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
         }
 
         /**
-         * @param ruleActionOverrides Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
+         * @param excludedRules Rules to exclude from the rule group. See Excluded Rule below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludedRules(@Nullable Output<List<WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs>> excludedRules) {
+            $.excludedRules = excludedRules;
+            return this;
+        }
+
+        /**
+         * @param excludedRules Rules to exclude from the rule group. See Excluded Rule below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludedRules(List<WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs> excludedRules) {
+            return excludedRules(Output.of(excludedRules));
+        }
+
+        /**
+         * @param excludedRules Rules to exclude from the rule group. See Excluded Rule below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludedRules(WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs... excludedRules) {
+            return excludedRules(List.of(excludedRules));
+        }
+
+        /**
+         * @param ruleActionOverrides Override actions for specific rules within the rule group. See Rule Action Override below.
          * 
          * @return builder
          * 
@@ -106,7 +154,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
         }
 
         /**
-         * @param ruleActionOverrides Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
+         * @param ruleActionOverrides Override actions for specific rules within the rule group. See Rule Action Override below.
          * 
          * @return builder
          * 
@@ -116,7 +164,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
         }
 
         /**
-         * @param ruleActionOverrides Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
+         * @param ruleActionOverrides Override actions for specific rules within the rule group. See Rule Action Override below.
          * 
          * @return builder
          * 

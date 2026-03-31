@@ -13,13 +13,13 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// References the response body that you want AWS WAF to return to the web request client. This must reference a `Key` defined in a `CustomResponseBody` block of this resource.
+        /// Key of a custom response body defined in the Web ACL.
         /// </summary>
         [Input("customResponseBodyKey")]
         public Input<string>? CustomResponseBodyKey { get; set; }
 
         /// <summary>
-        /// The HTTP status code to return to the client.
+        /// HTTP status code to return (200-599).
         /// </summary>
         [Input("responseCode", required: true)]
         public Input<int> ResponseCode { get; set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs>? _responseHeaders;
 
         /// <summary>
-        /// The `ResponseHeader` blocks used to define the HTTP response headers added to the response. See `ResponseHeader` below for details.
+        /// Custom headers to include in the response. See Response Header below.
         /// </summary>
         public InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs> ResponseHeaders
         {

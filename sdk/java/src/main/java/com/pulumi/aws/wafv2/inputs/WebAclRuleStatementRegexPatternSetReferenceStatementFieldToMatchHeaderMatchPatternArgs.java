@@ -17,30 +17,22 @@ public final class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMa
 
     public static final WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs Empty = new WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs();
 
-    /**
-     * An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     @Import(name="all")
     private @Nullable Output<WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllArgs> all;
 
-    /**
-     * @return An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllArgs>> all() {
         return Optional.ofNullable(this.all);
     }
 
     /**
-     * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+     * List of header names to exclude from inspection.
      * 
      */
     @Import(name="excludedHeaders")
     private @Nullable Output<List<String>> excludedHeaders;
 
     /**
-     * @return An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+     * @return List of header names to exclude from inspection.
      * 
      */
     public Optional<Output<List<String>>> excludedHeaders() {
@@ -48,14 +40,14 @@ public final class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMa
     }
 
     /**
-     * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+     * List of header names to inspect.
      * 
      */
     @Import(name="includedHeaders")
     private @Nullable Output<List<String>> includedHeaders;
 
     /**
-     * @return An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+     * @return List of header names to inspect.
      * 
      */
     public Optional<Output<List<String>>> includedHeaders() {
@@ -88,29 +80,17 @@ public final class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMa
             $ = new WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param all An empty configuration block that is used for inspecting all headers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder all(@Nullable Output<WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllArgs> all) {
             $.all = all;
             return this;
         }
 
-        /**
-         * @param all An empty configuration block that is used for inspecting all headers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder all(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllArgs all) {
             return all(Output.of(all));
         }
 
         /**
-         * @param excludedHeaders An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * @param excludedHeaders List of header names to exclude from inspection.
          * 
          * @return builder
          * 
@@ -121,7 +101,7 @@ public final class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMa
         }
 
         /**
-         * @param excludedHeaders An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * @param excludedHeaders List of header names to exclude from inspection.
          * 
          * @return builder
          * 
@@ -131,7 +111,7 @@ public final class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMa
         }
 
         /**
-         * @param excludedHeaders An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * @param excludedHeaders List of header names to exclude from inspection.
          * 
          * @return builder
          * 
@@ -141,7 +121,7 @@ public final class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMa
         }
 
         /**
-         * @param includedHeaders An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * @param includedHeaders List of header names to inspect.
          * 
          * @return builder
          * 
@@ -152,7 +132,7 @@ public final class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMa
         }
 
         /**
-         * @param includedHeaders An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * @param includedHeaders List of header names to inspect.
          * 
          * @return builder
          * 
@@ -162,7 +142,7 @@ public final class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMa
         }
 
         /**
-         * @param includedHeaders An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * @param includedHeaders List of header names to inspect.
          * 
          * @return builder
          * 

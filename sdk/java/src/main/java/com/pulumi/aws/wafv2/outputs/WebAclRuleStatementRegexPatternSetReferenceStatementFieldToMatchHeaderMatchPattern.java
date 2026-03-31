@@ -13,39 +13,31 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern {
-    /**
-     * @return An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     private @Nullable WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll all;
     /**
-     * @return An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+     * @return List of header names to exclude from inspection.
      * 
      */
     private @Nullable List<String> excludedHeaders;
     /**
-     * @return An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+     * @return List of header names to inspect.
      * 
      */
     private @Nullable List<String> includedHeaders;
 
     private WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern() {}
-    /**
-     * @return An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     public Optional<WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll> all() {
         return Optional.ofNullable(this.all);
     }
     /**
-     * @return An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+     * @return List of header names to exclude from inspection.
      * 
      */
     public List<String> excludedHeaders() {
         return this.excludedHeaders == null ? List.of() : this.excludedHeaders;
     }
     /**
-     * @return An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+     * @return List of header names to inspect.
      * 
      */
     public List<String> includedHeaders() {

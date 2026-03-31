@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleChallengeConfigImmunityTimeProperty {
     /**
-     * @return The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+     * @return Immunity time in seconds (60-259200).
      * 
      */
     private @Nullable Integer immunityTime;
 
     private WebAclRuleChallengeConfigImmunityTimeProperty() {}
     /**
-     * @return The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+     * @return Immunity time in seconds (60-259200).
      * 
      */
     public Optional<Integer> immunityTime() {

@@ -33,6 +33,27 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Bucket In Account-Regional Namespace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const current = aws.getCallerIdentity({});
+ * const currentGetRegion = aws.getRegion({});
+ * const example = new aws.s3.Bucket("example", {
+ *     bucket: std.format({
+ *         input: "my-tf-test-bucket-%s-%s-an",
+ *         args: [
+ *             current.then(current => current.accountId),
+ *             currentGetRegion.then(currentGetRegion => currentGetRegion.name),
+ *         ],
+ *     }).then(invoke => invoke.result),
+ *     bucketNamespace: "account-regional",
+ * });
+ * ```
+ *
  * ## Import
  *
  * ### Identity Schema
@@ -108,6 +129,10 @@ export class BucketV2 extends pulumi.CustomResource {
      * Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
      */
     declare public /*out*/ readonly bucketDomainName: pulumi.Output<string>;
+    /**
+     * Namespace for the bucket. Determines bucket naming scope. Valid values: `account-regional`, `global`. Defaults to `global` (AWS).
+     */
+    declare public readonly bucketNamespace: pulumi.Output<string>;
     /**
      * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      */
@@ -260,6 +285,7 @@ export class BucketV2 extends pulumi.CustomResource {
             resourceInputs["arn"] = state?.arn;
             resourceInputs["bucket"] = state?.bucket;
             resourceInputs["bucketDomainName"] = state?.bucketDomainName;
+            resourceInputs["bucketNamespace"] = state?.bucketNamespace;
             resourceInputs["bucketPrefix"] = state?.bucketPrefix;
             resourceInputs["bucketRegion"] = state?.bucketRegion;
             resourceInputs["bucketRegionalDomainName"] = state?.bucketRegionalDomainName;
@@ -287,6 +313,7 @@ export class BucketV2 extends pulumi.CustomResource {
             resourceInputs["accelerationStatus"] = args?.accelerationStatus;
             resourceInputs["acl"] = args?.acl;
             resourceInputs["bucket"] = args?.bucket;
+            resourceInputs["bucketNamespace"] = args?.bucketNamespace;
             resourceInputs["bucketPrefix"] = args?.bucketPrefix;
             resourceInputs["corsRules"] = args?.corsRules;
             resourceInputs["forceDestroy"] = args?.forceDestroy;
@@ -346,6 +373,10 @@ export interface BucketV2State {
      * Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
      */
     bucketDomainName?: pulumi.Input<string>;
+    /**
+     * Namespace for the bucket. Determines bucket naming scope. Valid values: `account-regional`, `global`. Defaults to `global` (AWS).
+     */
+    bucketNamespace?: pulumi.Input<string>;
     /**
      * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      */
@@ -499,6 +530,10 @@ export interface BucketV2Args {
      * Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucketName]--[azid]--x-s3`. Use the `aws.s3.DirectoryBucket` resource to manage S3 Express buckets.
      */
     bucket?: pulumi.Input<string>;
+    /**
+     * Namespace for the bucket. Determines bucket naming scope. Valid values: `account-regional`, `global`. Defaults to `global` (AWS).
+     */
+    bucketNamespace?: pulumi.Input<string>;
     /**
      * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      */

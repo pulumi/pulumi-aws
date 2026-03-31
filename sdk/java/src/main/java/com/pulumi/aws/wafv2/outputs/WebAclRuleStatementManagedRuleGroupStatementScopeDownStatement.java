@@ -3,14 +3,11 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
-import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement;
-import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement;
-import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatement;
@@ -24,158 +21,122 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement {
     /**
-     * @return Logical rule statement used to combine other rule statements with AND logic. See `andStatement` below for details.
-     * 
-     */
-    private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement andStatement;
-    /**
-     * @return Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asnMatchStatement` below for details.
+     * @return Match requests based on Autonomous System Number (ASN). See ASN Match Statement above.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatement asnMatchStatement;
     /**
-     * @return Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byteMatchStatement` below for details.
+     * @return Match requests based on byte patterns. See Byte Match Statement above.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement byteMatchStatement;
     /**
-     * @return Rule statement used to identify web requests based on country of origin. See `geoMatchStatement` below for details.
+     * @return Match requests by geographic location. See Geo Match Statement above.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatement geoMatchStatement;
     /**
-     * @return Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ipSetReferenceStatement` below for details.
+     * @return Reference to an IP set. See IP Set Reference Statement above.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatement ipSetReferenceStatement;
     /**
-     * @return Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `labelMatchStatement` below for details.
+     * @return Match requests based on labels. See Label Match Statement above.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement labelMatchStatement;
     /**
-     * @return Logical rule statement used to negate the results of another rule statement. See `notStatement` below for details.
-     * 
-     */
-    private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement notStatement;
-    /**
-     * @return Logical rule statement used to combine other rule statements with OR logic. See `orStatement` below for details.
-     * 
-     */
-    private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement orStatement;
-    /**
-     * @return Rule statement used to search web request components for a match against a single regular expression. See `regexMatchStatement` below for details.
+     * @return Match requests using regex patterns. See Regex Match Statement above.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement regexMatchStatement;
     /**
-     * @return Rule statement used to search web request components for matches with regular expressions. See `regexPatternSetReferenceStatement` below for details.
+     * @return Rule statement used to search web request components for matches with regular expressions from a RegexPatternSet.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatement regexPatternSetReferenceStatement;
     /**
-     * @return Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See `sizeConstraintStatement` below for more details.
+     * @return Match requests based on size constraints. See Size Constraint Statement above.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatement sizeConstraintStatement;
     /**
-     * @return An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqliMatchStatement` below for details.
+     * @return Match requests that appear to contain SQL injection attacks.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatement sqliMatchStatement;
     /**
-     * @return Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xssMatchStatement` below for details.
+     * @return Match requests that appear to contain cross-site scripting attacks.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatement xssMatchStatement;
 
     private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement() {}
     /**
-     * @return Logical rule statement used to combine other rule statements with AND logic. See `andStatement` below for details.
-     * 
-     */
-    public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement> andStatement() {
-        return Optional.ofNullable(this.andStatement);
-    }
-    /**
-     * @return Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asnMatchStatement` below for details.
+     * @return Match requests based on Autonomous System Number (ASN). See ASN Match Statement above.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatement> asnMatchStatement() {
         return Optional.ofNullable(this.asnMatchStatement);
     }
     /**
-     * @return Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byteMatchStatement` below for details.
+     * @return Match requests based on byte patterns. See Byte Match Statement above.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement> byteMatchStatement() {
         return Optional.ofNullable(this.byteMatchStatement);
     }
     /**
-     * @return Rule statement used to identify web requests based on country of origin. See `geoMatchStatement` below for details.
+     * @return Match requests by geographic location. See Geo Match Statement above.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatement> geoMatchStatement() {
         return Optional.ofNullable(this.geoMatchStatement);
     }
     /**
-     * @return Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ipSetReferenceStatement` below for details.
+     * @return Reference to an IP set. See IP Set Reference Statement above.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatement> ipSetReferenceStatement() {
         return Optional.ofNullable(this.ipSetReferenceStatement);
     }
     /**
-     * @return Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `labelMatchStatement` below for details.
+     * @return Match requests based on labels. See Label Match Statement above.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement> labelMatchStatement() {
         return Optional.ofNullable(this.labelMatchStatement);
     }
     /**
-     * @return Logical rule statement used to negate the results of another rule statement. See `notStatement` below for details.
-     * 
-     */
-    public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement> notStatement() {
-        return Optional.ofNullable(this.notStatement);
-    }
-    /**
-     * @return Logical rule statement used to combine other rule statements with OR logic. See `orStatement` below for details.
-     * 
-     */
-    public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement> orStatement() {
-        return Optional.ofNullable(this.orStatement);
-    }
-    /**
-     * @return Rule statement used to search web request components for a match against a single regular expression. See `regexMatchStatement` below for details.
+     * @return Match requests using regex patterns. See Regex Match Statement above.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement> regexMatchStatement() {
         return Optional.ofNullable(this.regexMatchStatement);
     }
     /**
-     * @return Rule statement used to search web request components for matches with regular expressions. See `regexPatternSetReferenceStatement` below for details.
+     * @return Rule statement used to search web request components for matches with regular expressions from a RegexPatternSet.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatement> regexPatternSetReferenceStatement() {
         return Optional.ofNullable(this.regexPatternSetReferenceStatement);
     }
     /**
-     * @return Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See `sizeConstraintStatement` below for more details.
+     * @return Match requests based on size constraints. See Size Constraint Statement above.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatement> sizeConstraintStatement() {
         return Optional.ofNullable(this.sizeConstraintStatement);
     }
     /**
-     * @return An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqliMatchStatement` below for details.
+     * @return Match requests that appear to contain SQL injection attacks.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatement> sqliMatchStatement() {
         return Optional.ofNullable(this.sqliMatchStatement);
     }
     /**
-     * @return Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xssMatchStatement` below for details.
+     * @return Match requests that appear to contain cross-site scripting attacks.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatement> xssMatchStatement() {
@@ -191,14 +152,11 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement andStatement;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatement asnMatchStatement;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement byteMatchStatement;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatement geoMatchStatement;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatement ipSetReferenceStatement;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement labelMatchStatement;
-        private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement notStatement;
-        private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement orStatement;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement regexMatchStatement;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatement regexPatternSetReferenceStatement;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatement sizeConstraintStatement;
@@ -207,14 +165,11 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         public Builder() {}
         public Builder(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.andStatement = defaults.andStatement;
     	      this.asnMatchStatement = defaults.asnMatchStatement;
     	      this.byteMatchStatement = defaults.byteMatchStatement;
     	      this.geoMatchStatement = defaults.geoMatchStatement;
     	      this.ipSetReferenceStatement = defaults.ipSetReferenceStatement;
     	      this.labelMatchStatement = defaults.labelMatchStatement;
-    	      this.notStatement = defaults.notStatement;
-    	      this.orStatement = defaults.orStatement;
     	      this.regexMatchStatement = defaults.regexMatchStatement;
     	      this.regexPatternSetReferenceStatement = defaults.regexPatternSetReferenceStatement;
     	      this.sizeConstraintStatement = defaults.sizeConstraintStatement;
@@ -222,12 +177,6 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     	      this.xssMatchStatement = defaults.xssMatchStatement;
         }
 
-        @CustomType.Setter
-        public Builder andStatement(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement andStatement) {
-
-            this.andStatement = andStatement;
-            return this;
-        }
         @CustomType.Setter
         public Builder asnMatchStatement(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatement asnMatchStatement) {
 
@@ -256,18 +205,6 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         public Builder labelMatchStatement(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement labelMatchStatement) {
 
             this.labelMatchStatement = labelMatchStatement;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder notStatement(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement notStatement) {
-
-            this.notStatement = notStatement;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder orStatement(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement orStatement) {
-
-            this.orStatement = orStatement;
             return this;
         }
         @CustomType.Setter
@@ -302,14 +239,11 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
         public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement build() {
             final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement();
-            _resultValue.andStatement = andStatement;
             _resultValue.asnMatchStatement = asnMatchStatement;
             _resultValue.byteMatchStatement = byteMatchStatement;
             _resultValue.geoMatchStatement = geoMatchStatement;
             _resultValue.ipSetReferenceStatement = ipSetReferenceStatement;
             _resultValue.labelMatchStatement = labelMatchStatement;
-            _resultValue.notStatement = notStatement;
-            _resultValue.orStatement = orStatement;
             _resultValue.regexMatchStatement = regexMatchStatement;
             _resultValue.regexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
             _resultValue.sizeConstraintStatement = sizeConstraintStatement;

@@ -57,9 +57,17 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         return Optional.ofNullable(this.collector);
     }
 
+    /**
+     * Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
+     * 
+     */
     @Import(name="condition")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationConditionArgs> condition;
 
+    /**
+     * @return Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
+     * 
+     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationConditionArgs>> condition() {
         return Optional.ofNullable(this.condition);
     }
@@ -79,22 +87,30 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         return Optional.ofNullable(this.inlineCode);
     }
 
+    /**
+     * Contains configurations for an input flow node in your flow. The node `inputs` can’t be specified for this node. This block has no fields.
+     * 
+     */
     @Import(name="input")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationInputArgs> input;
 
+    /**
+     * @return Contains configurations for an input flow node in your flow. The node `inputs` can’t be specified for this node. This block has no fields.
+     * 
+     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationInputArgs>> input() {
         return Optional.ofNullable(this.input);
     }
 
     /**
-     * Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
+     * Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
      * 
      */
     @Import(name="iterator")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationIteratorArgs> iterator;
 
     /**
-     * @return Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
+     * @return Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationIteratorArgs>> iterator() {
@@ -146,9 +162,17 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         return Optional.ofNullable(this.lex);
     }
 
+    /**
+     * Contains configurations for an output flow node in your flow. The node `outputs` can’t be specified for this node. This block has no fields.
+     * 
+     */
     @Import(name="output")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationOutputArgs> output;
 
+    /**
+     * @return Contains configurations for an output flow node in your flow. The node `outputs` can’t be specified for this node. This block has no fields.
+     * 
+     */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationOutputArgs>> output() {
         return Optional.ofNullable(this.output);
     }
@@ -276,11 +300,23 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
             return collector(Output.of(collector));
         }
 
+        /**
+         * @param condition Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder condition(@Nullable Output<AgentFlowDefinitionNodeConfigurationConditionArgs> condition) {
             $.condition = condition;
             return this;
         }
 
+        /**
+         * @param condition Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder condition(AgentFlowDefinitionNodeConfigurationConditionArgs condition) {
             return condition(Output.of(condition));
         }
@@ -306,17 +342,29 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
             return inlineCode(Output.of(inlineCode));
         }
 
+        /**
+         * @param input Contains configurations for an input flow node in your flow. The node `inputs` can’t be specified for this node. This block has no fields.
+         * 
+         * @return builder
+         * 
+         */
         public Builder input(@Nullable Output<AgentFlowDefinitionNodeConfigurationInputArgs> input) {
             $.input = input;
             return this;
         }
 
+        /**
+         * @param input Contains configurations for an input flow node in your flow. The node `inputs` can’t be specified for this node. This block has no fields.
+         * 
+         * @return builder
+         * 
+         */
         public Builder input(AgentFlowDefinitionNodeConfigurationInputArgs input) {
             return input(Output.of(input));
         }
 
         /**
-         * @param iterator Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
+         * @param iterator Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
          * 
          * @return builder
          * 
@@ -327,7 +375,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param iterator Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This object has no fields.
+         * @param iterator Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
          * 
          * @return builder
          * 
@@ -399,11 +447,23 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
             return lex(Output.of(lex));
         }
 
+        /**
+         * @param output Contains configurations for an output flow node in your flow. The node `outputs` can’t be specified for this node. This block has no fields.
+         * 
+         * @return builder
+         * 
+         */
         public Builder output(@Nullable Output<AgentFlowDefinitionNodeConfigurationOutputArgs> output) {
             $.output = output;
             return this;
         }
 
+        /**
+         * @param output Contains configurations for an output flow node in your flow. The node `outputs` can’t be specified for this node. This block has no fields.
+         * 
+         * @return builder
+         * 
+         */
         public Builder output(AgentFlowDefinitionNodeConfigurationOutputArgs output) {
             return output(Output.of(output));
         }

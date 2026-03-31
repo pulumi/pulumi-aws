@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class WebAclRuleRuleLabel {
     /**
-     * @return Label string.
+     * @return Label string (1-1024 characters, alphanumeric, underscore, hyphen, and colon characters only).
      * 
      */
     private String name;
 
     private WebAclRuleRuleLabel() {}
     /**
-     * @return Label string.
+     * @return Label string (1-1024 characters, alphanumeric, underscore, hyphen, and colon characters only).
      * 
      */
     public String name() {

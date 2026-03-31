@@ -376,6 +376,7 @@ type Cluster struct {
 	// RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
 	// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
 	// A maximum of 3 AZs can be configured.
+	// **Note:** [Multi-AZ DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) require exactly 3 Availability Zones in the DB subnet group. Aurora DB clusters can operate with fewer AZs, but RDS will still automatically assign 3 AZs as described above.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
 	BacktrackWindow pulumi.IntPtrOutput `pulumi:"backtrackWindow"`
@@ -585,6 +586,7 @@ type clusterState struct {
 	// RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
 	// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
 	// A maximum of 3 AZs can be configured.
+	// **Note:** [Multi-AZ DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) require exactly 3 Availability Zones in the DB subnet group. Aurora DB clusters can operate with fewer AZs, but RDS will still automatically assign 3 AZs as described above.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
 	BacktrackWindow *int `pulumi:"backtrackWindow"`
@@ -751,6 +753,7 @@ type ClusterState struct {
 	// RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
 	// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
 	// A maximum of 3 AZs can be configured.
+	// **Note:** [Multi-AZ DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) require exactly 3 Availability Zones in the DB subnet group. Aurora DB clusters can operate with fewer AZs, but RDS will still automatically assign 3 AZs as described above.
 	AvailabilityZones pulumi.StringArrayInput
 	// Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
 	BacktrackWindow pulumi.IntPtrInput
@@ -919,6 +922,7 @@ type clusterArgs struct {
 	// RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
 	// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
 	// A maximum of 3 AZs can be configured.
+	// **Note:** [Multi-AZ DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) require exactly 3 Availability Zones in the DB subnet group. Aurora DB clusters can operate with fewer AZs, but RDS will still automatically assign 3 AZs as described above.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
 	BacktrackWindow *int `pulumi:"backtrackWindow"`
@@ -1065,6 +1069,7 @@ type ClusterArgs struct {
 	// RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
 	// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
 	// A maximum of 3 AZs can be configured.
+	// **Note:** [Multi-AZ DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) require exactly 3 Availability Zones in the DB subnet group. Aurora DB clusters can operate with fewer AZs, but RDS will still automatically assign 3 AZs as described above.
 	AvailabilityZones pulumi.StringArrayInput
 	// Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
 	BacktrackWindow pulumi.IntPtrInput
@@ -1310,6 +1315,7 @@ func (o ClusterOutput) Arn() pulumi.StringOutput {
 // RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
 // We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
 // A maximum of 3 AZs can be configured.
+// **Note:** [Multi-AZ DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) require exactly 3 Availability Zones in the DB subnet group. Aurora DB clusters can operate with fewer AZs, but RDS will still automatically assign 3 AZs as described above.
 func (o ClusterOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }

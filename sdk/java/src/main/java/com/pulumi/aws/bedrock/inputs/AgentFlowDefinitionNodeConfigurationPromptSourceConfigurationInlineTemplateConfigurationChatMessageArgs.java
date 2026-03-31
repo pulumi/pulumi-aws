@@ -18,14 +18,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     public static final AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs Empty = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs();
 
     /**
-     * Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+     * Contains the content for the message you pass to, or receive from a model. See Message Content for more information.
      * 
      */
     @Import(name="content")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs> content;
 
     /**
-     * @return Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+     * @return Contains the content for the message you pass to, or receive from a model. See Message Content for more information.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs>> content() {
@@ -73,7 +73,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param content Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+         * @param content Contains the content for the message you pass to, or receive from a model. See Message Content for more information.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param content Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
+         * @param content Contains the content for the message you pass to, or receive from a model. See Message Content for more information.
          * 
          * @return builder
          * 

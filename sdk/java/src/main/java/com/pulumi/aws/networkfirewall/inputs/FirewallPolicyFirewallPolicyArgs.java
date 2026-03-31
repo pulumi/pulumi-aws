@@ -11,6 +11,7 @@ import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatele
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -21,6 +22,21 @@ import javax.annotation.Nullable;
 public final class FirewallPolicyFirewallPolicyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final FirewallPolicyFirewallPolicyArgs Empty = new FirewallPolicyFirewallPolicyArgs();
+
+    /**
+     * Boolean indicating whether to prevent TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. If `true`, `tlsInspectionConfigurationArn` is required. Default value: `false`.
+     * 
+     */
+    @Import(name="enableTlsSessionHolding")
+    private @Nullable Output<Boolean> enableTlsSessionHolding;
+
+    /**
+     * @return Boolean indicating whether to prevent TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. If `true`, `tlsInspectionConfigurationArn` is required. Default value: `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> enableTlsSessionHolding() {
+        return Optional.ofNullable(this.enableTlsSessionHolding);
+    }
 
     /**
      * . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
@@ -164,6 +180,7 @@ public final class FirewallPolicyFirewallPolicyArgs extends com.pulumi.resources
     private FirewallPolicyFirewallPolicyArgs() {}
 
     private FirewallPolicyFirewallPolicyArgs(FirewallPolicyFirewallPolicyArgs $) {
+        this.enableTlsSessionHolding = $.enableTlsSessionHolding;
         this.policyVariables = $.policyVariables;
         this.statefulDefaultActions = $.statefulDefaultActions;
         this.statefulEngineOptions = $.statefulEngineOptions;
@@ -191,6 +208,27 @@ public final class FirewallPolicyFirewallPolicyArgs extends com.pulumi.resources
 
         public Builder(FirewallPolicyFirewallPolicyArgs defaults) {
             $ = new FirewallPolicyFirewallPolicyArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param enableTlsSessionHolding Boolean indicating whether to prevent TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. If `true`, `tlsInspectionConfigurationArn` is required. Default value: `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableTlsSessionHolding(@Nullable Output<Boolean> enableTlsSessionHolding) {
+            $.enableTlsSessionHolding = enableTlsSessionHolding;
+            return this;
+        }
+
+        /**
+         * @param enableTlsSessionHolding Boolean indicating whether to prevent TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. If `true`, `tlsInspectionConfigurationArn` is required. Default value: `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableTlsSessionHolding(Boolean enableTlsSessionHolding) {
+            return enableTlsSessionHolding(Output.of(enableTlsSessionHolding));
         }
 
         /**

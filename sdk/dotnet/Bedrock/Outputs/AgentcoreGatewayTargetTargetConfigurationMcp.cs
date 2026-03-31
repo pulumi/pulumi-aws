@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcp
     {
         /// <summary>
+        /// API Gateway target configuration. See `ApiGateway` below.
+        /// </summary>
+        public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpApiGateway? ApiGateway;
+        /// <summary>
         /// Lambda function target configuration. See `Lambda` below.
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambda? Lambda;
@@ -32,6 +36,8 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
         [OutputConstructor]
         private AgentcoreGatewayTargetTargetConfigurationMcp(
+            Outputs.AgentcoreGatewayTargetTargetConfigurationMcpApiGateway? apiGateway,
+
             Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambda? lambda,
 
             Outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServer? mcpServer,
@@ -40,6 +46,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
             Outputs.AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel? smithyModel)
         {
+            ApiGateway = apiGateway;
             Lambda = lambda;
             McpServer = mcpServer;
             OpenApiSchema = openApiSchema;

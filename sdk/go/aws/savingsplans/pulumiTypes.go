@@ -169,9 +169,420 @@ func (o SavingsPlanTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetOfferingsFilter struct {
+	// Filter name.
+	Name string `pulumi:"name"`
+	// List of filter values.
+	Values []string `pulumi:"values"`
+}
+
+// GetOfferingsFilterInput is an input type that accepts GetOfferingsFilterArgs and GetOfferingsFilterOutput values.
+// You can construct a concrete instance of `GetOfferingsFilterInput` via:
+//
+//	GetOfferingsFilterArgs{...}
+type GetOfferingsFilterInput interface {
+	pulumi.Input
+
+	ToGetOfferingsFilterOutput() GetOfferingsFilterOutput
+	ToGetOfferingsFilterOutputWithContext(context.Context) GetOfferingsFilterOutput
+}
+
+type GetOfferingsFilterArgs struct {
+	// Filter name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of filter values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetOfferingsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOfferingsFilter)(nil)).Elem()
+}
+
+func (i GetOfferingsFilterArgs) ToGetOfferingsFilterOutput() GetOfferingsFilterOutput {
+	return i.ToGetOfferingsFilterOutputWithContext(context.Background())
+}
+
+func (i GetOfferingsFilterArgs) ToGetOfferingsFilterOutputWithContext(ctx context.Context) GetOfferingsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOfferingsFilterOutput)
+}
+
+// GetOfferingsFilterArrayInput is an input type that accepts GetOfferingsFilterArray and GetOfferingsFilterArrayOutput values.
+// You can construct a concrete instance of `GetOfferingsFilterArrayInput` via:
+//
+//	GetOfferingsFilterArray{ GetOfferingsFilterArgs{...} }
+type GetOfferingsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetOfferingsFilterArrayOutput() GetOfferingsFilterArrayOutput
+	ToGetOfferingsFilterArrayOutputWithContext(context.Context) GetOfferingsFilterArrayOutput
+}
+
+type GetOfferingsFilterArray []GetOfferingsFilterInput
+
+func (GetOfferingsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOfferingsFilter)(nil)).Elem()
+}
+
+func (i GetOfferingsFilterArray) ToGetOfferingsFilterArrayOutput() GetOfferingsFilterArrayOutput {
+	return i.ToGetOfferingsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetOfferingsFilterArray) ToGetOfferingsFilterArrayOutputWithContext(ctx context.Context) GetOfferingsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOfferingsFilterArrayOutput)
+}
+
+type GetOfferingsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetOfferingsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOfferingsFilter)(nil)).Elem()
+}
+
+func (o GetOfferingsFilterOutput) ToGetOfferingsFilterOutput() GetOfferingsFilterOutput {
+	return o
+}
+
+func (o GetOfferingsFilterOutput) ToGetOfferingsFilterOutputWithContext(ctx context.Context) GetOfferingsFilterOutput {
+	return o
+}
+
+// Filter name.
+func (o GetOfferingsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOfferingsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of filter values.
+func (o GetOfferingsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOfferingsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetOfferingsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOfferingsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOfferingsFilter)(nil)).Elem()
+}
+
+func (o GetOfferingsFilterArrayOutput) ToGetOfferingsFilterArrayOutput() GetOfferingsFilterArrayOutput {
+	return o
+}
+
+func (o GetOfferingsFilterArrayOutput) ToGetOfferingsFilterArrayOutputWithContext(ctx context.Context) GetOfferingsFilterArrayOutput {
+	return o
+}
+
+func (o GetOfferingsFilterArrayOutput) Index(i pulumi.IntInput) GetOfferingsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOfferingsFilter {
+		return vs[0].([]GetOfferingsFilter)[vs[1].(int)]
+	}).(GetOfferingsFilterOutput)
+}
+
+type GetOfferingsOffering struct {
+	// Currency.
+	Currency string `pulumi:"currency"`
+	// Description.
+	Description string `pulumi:"description"`
+	// Duration, in seconds.
+	DurationSeconds int `pulumi:"durationSeconds"`
+	// Offering ID.
+	OfferingId string `pulumi:"offeringId"`
+	// Operation.
+	Operation string `pulumi:"operation"`
+	// Payment option.
+	PaymentOption string `pulumi:"paymentOption"`
+	// Plan type.
+	PlanType string `pulumi:"planType"`
+	// List of product types.
+	ProductTypes []string `pulumi:"productTypes"`
+	// List of properties. See `properties` Attribute Reference.
+	Properties []GetOfferingsOfferingProperty `pulumi:"properties"`
+	// Service code.
+	ServiceCode string `pulumi:"serviceCode"`
+	// Usage type.
+	UsageType string `pulumi:"usageType"`
+}
+
+// GetOfferingsOfferingInput is an input type that accepts GetOfferingsOfferingArgs and GetOfferingsOfferingOutput values.
+// You can construct a concrete instance of `GetOfferingsOfferingInput` via:
+//
+//	GetOfferingsOfferingArgs{...}
+type GetOfferingsOfferingInput interface {
+	pulumi.Input
+
+	ToGetOfferingsOfferingOutput() GetOfferingsOfferingOutput
+	ToGetOfferingsOfferingOutputWithContext(context.Context) GetOfferingsOfferingOutput
+}
+
+type GetOfferingsOfferingArgs struct {
+	// Currency.
+	Currency pulumi.StringInput `pulumi:"currency"`
+	// Description.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Duration, in seconds.
+	DurationSeconds pulumi.IntInput `pulumi:"durationSeconds"`
+	// Offering ID.
+	OfferingId pulumi.StringInput `pulumi:"offeringId"`
+	// Operation.
+	Operation pulumi.StringInput `pulumi:"operation"`
+	// Payment option.
+	PaymentOption pulumi.StringInput `pulumi:"paymentOption"`
+	// Plan type.
+	PlanType pulumi.StringInput `pulumi:"planType"`
+	// List of product types.
+	ProductTypes pulumi.StringArrayInput `pulumi:"productTypes"`
+	// List of properties. See `properties` Attribute Reference.
+	Properties GetOfferingsOfferingPropertyArrayInput `pulumi:"properties"`
+	// Service code.
+	ServiceCode pulumi.StringInput `pulumi:"serviceCode"`
+	// Usage type.
+	UsageType pulumi.StringInput `pulumi:"usageType"`
+}
+
+func (GetOfferingsOfferingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOfferingsOffering)(nil)).Elem()
+}
+
+func (i GetOfferingsOfferingArgs) ToGetOfferingsOfferingOutput() GetOfferingsOfferingOutput {
+	return i.ToGetOfferingsOfferingOutputWithContext(context.Background())
+}
+
+func (i GetOfferingsOfferingArgs) ToGetOfferingsOfferingOutputWithContext(ctx context.Context) GetOfferingsOfferingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOfferingsOfferingOutput)
+}
+
+// GetOfferingsOfferingArrayInput is an input type that accepts GetOfferingsOfferingArray and GetOfferingsOfferingArrayOutput values.
+// You can construct a concrete instance of `GetOfferingsOfferingArrayInput` via:
+//
+//	GetOfferingsOfferingArray{ GetOfferingsOfferingArgs{...} }
+type GetOfferingsOfferingArrayInput interface {
+	pulumi.Input
+
+	ToGetOfferingsOfferingArrayOutput() GetOfferingsOfferingArrayOutput
+	ToGetOfferingsOfferingArrayOutputWithContext(context.Context) GetOfferingsOfferingArrayOutput
+}
+
+type GetOfferingsOfferingArray []GetOfferingsOfferingInput
+
+func (GetOfferingsOfferingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOfferingsOffering)(nil)).Elem()
+}
+
+func (i GetOfferingsOfferingArray) ToGetOfferingsOfferingArrayOutput() GetOfferingsOfferingArrayOutput {
+	return i.ToGetOfferingsOfferingArrayOutputWithContext(context.Background())
+}
+
+func (i GetOfferingsOfferingArray) ToGetOfferingsOfferingArrayOutputWithContext(ctx context.Context) GetOfferingsOfferingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOfferingsOfferingArrayOutput)
+}
+
+type GetOfferingsOfferingOutput struct{ *pulumi.OutputState }
+
+func (GetOfferingsOfferingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOfferingsOffering)(nil)).Elem()
+}
+
+func (o GetOfferingsOfferingOutput) ToGetOfferingsOfferingOutput() GetOfferingsOfferingOutput {
+	return o
+}
+
+func (o GetOfferingsOfferingOutput) ToGetOfferingsOfferingOutputWithContext(ctx context.Context) GetOfferingsOfferingOutput {
+	return o
+}
+
+// Currency.
+func (o GetOfferingsOfferingOutput) Currency() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOfferingsOffering) string { return v.Currency }).(pulumi.StringOutput)
+}
+
+// Description.
+func (o GetOfferingsOfferingOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOfferingsOffering) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Duration, in seconds.
+func (o GetOfferingsOfferingOutput) DurationSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetOfferingsOffering) int { return v.DurationSeconds }).(pulumi.IntOutput)
+}
+
+// Offering ID.
+func (o GetOfferingsOfferingOutput) OfferingId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOfferingsOffering) string { return v.OfferingId }).(pulumi.StringOutput)
+}
+
+// Operation.
+func (o GetOfferingsOfferingOutput) Operation() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOfferingsOffering) string { return v.Operation }).(pulumi.StringOutput)
+}
+
+// Payment option.
+func (o GetOfferingsOfferingOutput) PaymentOption() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOfferingsOffering) string { return v.PaymentOption }).(pulumi.StringOutput)
+}
+
+// Plan type.
+func (o GetOfferingsOfferingOutput) PlanType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOfferingsOffering) string { return v.PlanType }).(pulumi.StringOutput)
+}
+
+// List of product types.
+func (o GetOfferingsOfferingOutput) ProductTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOfferingsOffering) []string { return v.ProductTypes }).(pulumi.StringArrayOutput)
+}
+
+// List of properties. See `properties` Attribute Reference.
+func (o GetOfferingsOfferingOutput) Properties() GetOfferingsOfferingPropertyArrayOutput {
+	return o.ApplyT(func(v GetOfferingsOffering) []GetOfferingsOfferingProperty { return v.Properties }).(GetOfferingsOfferingPropertyArrayOutput)
+}
+
+// Service code.
+func (o GetOfferingsOfferingOutput) ServiceCode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOfferingsOffering) string { return v.ServiceCode }).(pulumi.StringOutput)
+}
+
+// Usage type.
+func (o GetOfferingsOfferingOutput) UsageType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOfferingsOffering) string { return v.UsageType }).(pulumi.StringOutput)
+}
+
+type GetOfferingsOfferingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOfferingsOfferingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOfferingsOffering)(nil)).Elem()
+}
+
+func (o GetOfferingsOfferingArrayOutput) ToGetOfferingsOfferingArrayOutput() GetOfferingsOfferingArrayOutput {
+	return o
+}
+
+func (o GetOfferingsOfferingArrayOutput) ToGetOfferingsOfferingArrayOutputWithContext(ctx context.Context) GetOfferingsOfferingArrayOutput {
+	return o
+}
+
+func (o GetOfferingsOfferingArrayOutput) Index(i pulumi.IntInput) GetOfferingsOfferingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOfferingsOffering {
+		return vs[0].([]GetOfferingsOffering)[vs[1].(int)]
+	}).(GetOfferingsOfferingOutput)
+}
+
+type GetOfferingsOfferingProperty struct {
+	// Property name.
+	Name string `pulumi:"name"`
+	// Property value.
+	Value string `pulumi:"value"`
+}
+
+// GetOfferingsOfferingPropertyInput is an input type that accepts GetOfferingsOfferingPropertyArgs and GetOfferingsOfferingPropertyOutput values.
+// You can construct a concrete instance of `GetOfferingsOfferingPropertyInput` via:
+//
+//	GetOfferingsOfferingPropertyArgs{...}
+type GetOfferingsOfferingPropertyInput interface {
+	pulumi.Input
+
+	ToGetOfferingsOfferingPropertyOutput() GetOfferingsOfferingPropertyOutput
+	ToGetOfferingsOfferingPropertyOutputWithContext(context.Context) GetOfferingsOfferingPropertyOutput
+}
+
+type GetOfferingsOfferingPropertyArgs struct {
+	// Property name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Property value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetOfferingsOfferingPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOfferingsOfferingProperty)(nil)).Elem()
+}
+
+func (i GetOfferingsOfferingPropertyArgs) ToGetOfferingsOfferingPropertyOutput() GetOfferingsOfferingPropertyOutput {
+	return i.ToGetOfferingsOfferingPropertyOutputWithContext(context.Background())
+}
+
+func (i GetOfferingsOfferingPropertyArgs) ToGetOfferingsOfferingPropertyOutputWithContext(ctx context.Context) GetOfferingsOfferingPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOfferingsOfferingPropertyOutput)
+}
+
+// GetOfferingsOfferingPropertyArrayInput is an input type that accepts GetOfferingsOfferingPropertyArray and GetOfferingsOfferingPropertyArrayOutput values.
+// You can construct a concrete instance of `GetOfferingsOfferingPropertyArrayInput` via:
+//
+//	GetOfferingsOfferingPropertyArray{ GetOfferingsOfferingPropertyArgs{...} }
+type GetOfferingsOfferingPropertyArrayInput interface {
+	pulumi.Input
+
+	ToGetOfferingsOfferingPropertyArrayOutput() GetOfferingsOfferingPropertyArrayOutput
+	ToGetOfferingsOfferingPropertyArrayOutputWithContext(context.Context) GetOfferingsOfferingPropertyArrayOutput
+}
+
+type GetOfferingsOfferingPropertyArray []GetOfferingsOfferingPropertyInput
+
+func (GetOfferingsOfferingPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOfferingsOfferingProperty)(nil)).Elem()
+}
+
+func (i GetOfferingsOfferingPropertyArray) ToGetOfferingsOfferingPropertyArrayOutput() GetOfferingsOfferingPropertyArrayOutput {
+	return i.ToGetOfferingsOfferingPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetOfferingsOfferingPropertyArray) ToGetOfferingsOfferingPropertyArrayOutputWithContext(ctx context.Context) GetOfferingsOfferingPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOfferingsOfferingPropertyArrayOutput)
+}
+
+type GetOfferingsOfferingPropertyOutput struct{ *pulumi.OutputState }
+
+func (GetOfferingsOfferingPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOfferingsOfferingProperty)(nil)).Elem()
+}
+
+func (o GetOfferingsOfferingPropertyOutput) ToGetOfferingsOfferingPropertyOutput() GetOfferingsOfferingPropertyOutput {
+	return o
+}
+
+func (o GetOfferingsOfferingPropertyOutput) ToGetOfferingsOfferingPropertyOutputWithContext(ctx context.Context) GetOfferingsOfferingPropertyOutput {
+	return o
+}
+
+// Property name.
+func (o GetOfferingsOfferingPropertyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOfferingsOfferingProperty) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Property value.
+func (o GetOfferingsOfferingPropertyOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOfferingsOfferingProperty) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetOfferingsOfferingPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOfferingsOfferingPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOfferingsOfferingProperty)(nil)).Elem()
+}
+
+func (o GetOfferingsOfferingPropertyArrayOutput) ToGetOfferingsOfferingPropertyArrayOutput() GetOfferingsOfferingPropertyArrayOutput {
+	return o
+}
+
+func (o GetOfferingsOfferingPropertyArrayOutput) ToGetOfferingsOfferingPropertyArrayOutputWithContext(ctx context.Context) GetOfferingsOfferingPropertyArrayOutput {
+	return o
+}
+
+func (o GetOfferingsOfferingPropertyArrayOutput) Index(i pulumi.IntInput) GetOfferingsOfferingPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOfferingsOfferingProperty {
+		return vs[0].([]GetOfferingsOfferingProperty)[vs[1].(int)]
+	}).(GetOfferingsOfferingPropertyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SavingsPlanTimeoutsInput)(nil)).Elem(), SavingsPlanTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SavingsPlanTimeoutsPtrInput)(nil)).Elem(), SavingsPlanTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOfferingsFilterInput)(nil)).Elem(), GetOfferingsFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOfferingsFilterArrayInput)(nil)).Elem(), GetOfferingsFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOfferingsOfferingInput)(nil)).Elem(), GetOfferingsOfferingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOfferingsOfferingArrayInput)(nil)).Elem(), GetOfferingsOfferingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOfferingsOfferingPropertyInput)(nil)).Elem(), GetOfferingsOfferingPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOfferingsOfferingPropertyArrayInput)(nil)).Elem(), GetOfferingsOfferingPropertyArray{})
 	pulumi.RegisterOutputType(SavingsPlanTimeoutsOutput{})
 	pulumi.RegisterOutputType(SavingsPlanTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(GetOfferingsFilterOutput{})
+	pulumi.RegisterOutputType(GetOfferingsFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetOfferingsOfferingOutput{})
+	pulumi.RegisterOutputType(GetOfferingsOfferingArrayOutput{})
+	pulumi.RegisterOutputType(GetOfferingsOfferingPropertyOutput{})
+	pulumi.RegisterOutputType(GetOfferingsOfferingPropertyArrayOutput{})
 }

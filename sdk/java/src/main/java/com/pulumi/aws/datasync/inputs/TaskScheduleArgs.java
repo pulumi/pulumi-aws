@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class TaskScheduleArgs extends com.pulumi.resources.ResourceArgs {
@@ -29,10 +31,26 @@ public final class TaskScheduleArgs extends com.pulumi.resources.ResourceArgs {
         return this.scheduleExpression;
     }
 
+    /**
+     * Whether to enable or disable your task schedule. Valid values: `ENABLED`, `DISABLED`. Default: `ENABLED`.
+     * 
+     */
+    @Import(name="status")
+    private @Nullable Output<String> status;
+
+    /**
+     * @return Whether to enable or disable your task schedule. Valid values: `ENABLED`, `DISABLED`. Default: `ENABLED`.
+     * 
+     */
+    public Optional<Output<String>> status() {
+        return Optional.ofNullable(this.status);
+    }
+
     private TaskScheduleArgs() {}
 
     private TaskScheduleArgs(TaskScheduleArgs $) {
         this.scheduleExpression = $.scheduleExpression;
+        this.status = $.status;
     }
 
     public static Builder builder() {
@@ -72,6 +90,27 @@ public final class TaskScheduleArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder scheduleExpression(String scheduleExpression) {
             return scheduleExpression(Output.of(scheduleExpression));
+        }
+
+        /**
+         * @param status Whether to enable or disable your task schedule. Valid values: `ENABLED`, `DISABLED`. Default: `ENABLED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder status(@Nullable Output<String> status) {
+            $.status = status;
+            return this;
+        }
+
+        /**
+         * @param status Whether to enable or disable your task schedule. Valid values: `ENABLED`, `DISABLED`. Default: `ENABLED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder status(String status) {
+            return status(Output.of(status));
         }
 
         public TaskScheduleArgs build() {

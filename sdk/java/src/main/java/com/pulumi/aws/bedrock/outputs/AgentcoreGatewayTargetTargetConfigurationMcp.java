@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.bedrock.outputs;
 
+import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetTargetConfigurationMcpApiGateway;
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambda;
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServer;
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema;
@@ -14,6 +15,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfigurationMcp {
+    /**
+     * @return API Gateway target configuration. See `apiGateway` below.
+     * 
+     */
+    private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpApiGateway apiGateway;
     /**
      * @return Lambda function target configuration. See `lambda` below.
      * 
@@ -36,6 +42,13 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcp {
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel smithyModel;
 
     private AgentcoreGatewayTargetTargetConfigurationMcp() {}
+    /**
+     * @return API Gateway target configuration. See `apiGateway` below.
+     * 
+     */
+    public Optional<AgentcoreGatewayTargetTargetConfigurationMcpApiGateway> apiGateway() {
+        return Optional.ofNullable(this.apiGateway);
+    }
     /**
      * @return Lambda function target configuration. See `lambda` below.
      * 
@@ -74,6 +87,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcp {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpApiGateway apiGateway;
         private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpLambda lambda;
         private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpMcpServer mcpServer;
         private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema openApiSchema;
@@ -81,12 +95,19 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcp {
         public Builder() {}
         public Builder(AgentcoreGatewayTargetTargetConfigurationMcp defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.apiGateway = defaults.apiGateway;
     	      this.lambda = defaults.lambda;
     	      this.mcpServer = defaults.mcpServer;
     	      this.openApiSchema = defaults.openApiSchema;
     	      this.smithyModel = defaults.smithyModel;
         }
 
+        @CustomType.Setter
+        public Builder apiGateway(@Nullable AgentcoreGatewayTargetTargetConfigurationMcpApiGateway apiGateway) {
+
+            this.apiGateway = apiGateway;
+            return this;
+        }
         @CustomType.Setter
         public Builder lambda(@Nullable AgentcoreGatewayTargetTargetConfigurationMcpLambda lambda) {
 
@@ -113,6 +134,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcp {
         }
         public AgentcoreGatewayTargetTargetConfigurationMcp build() {
             final var _resultValue = new AgentcoreGatewayTargetTargetConfigurationMcp();
+            _resultValue.apiGateway = apiGateway;
             _resultValue.lambda = lambda;
             _resultValue.mcpServer = mcpServer;
             _resultValue.openApiSchema = openApiSchema;
