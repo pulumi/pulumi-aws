@@ -1,8 +1,6 @@
 module github.com/pulumi/pulumi-aws/provider/v6
 
-go 1.23.10
-
-toolchain go1.25.5
+go 1.25.5
 
 // Disable post-quantum key exchange mechanism (X25519MLKEM768)
 // This was causing errors with AWS Network Firewall
