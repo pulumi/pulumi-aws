@@ -2,12 +2,13 @@ module github.com/pulumi/pulumi-aws/provider/v6
 
 go 1.23.10
 
-toolchain go1.23.12
+toolchain go1.25.5
 
-// Disable experimental post-quantum key exchange mechanism X25519Kyber768Draft00
+// Disable post-quantum key exchange mechanism (X25519MLKEM768)
 // This was causing errors with AWS Network Firewall
 // https://github.com/pulumi/pulumi-aws/issues/4582
-godebug tlskyber=0
+// Note: tlskyber was renamed to tlsmlkem in Go 1.24
+godebug tlsmlkem=0
 
 require (
 	github.com/aws/aws-sdk-go-v2/config v1.29.15
