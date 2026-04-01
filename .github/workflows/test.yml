@@ -63,7 +63,7 @@ jobs:
     - name: Setup tools
       uses: ./.github/actions/setup-tools
       with:
-        tools: pulumictl, pulumicli, ${{ matrix.language }}
+        tools: pulumictl, pulumicli, go, ${{ matrix.language }}
     - name: Prepare local workspace
       run: make prepare_local_workspace
     - name: Download bin
