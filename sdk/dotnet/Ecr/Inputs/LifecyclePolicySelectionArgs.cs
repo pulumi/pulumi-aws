@@ -22,16 +22,22 @@ namespace Pulumi.Aws.Ecr.Inputs
         public Input<int> CountNumber { get; set; } = null!;
 
         /// <summary>
-        /// The type of count to perform. Either 'imageCountMoreThan' or 'sinceImagePushed'.
+        /// The type of count to perform. Either 'imageCountMoreThan', 'sinceImagePushed', 'sinceImagePulled', or 'sinceImageTransitioned'.
         /// </summary>
         [Input("countType", required: true)]
-        public Input<Pulumi.Aws.Ecr.LifecyclePolicyCountType> CountType { get; set; } = null!;
+        public InputUnion<string, Pulumi.Aws.Ecr.LifecyclePolicyCountType> CountType { get; set; } = null!;
 
         /// <summary>
-        /// The unit of time for sinceImagePushed. Either 'days'.
+        /// The unit of time for count types that are based on image age. Either 'days'.
         /// </summary>
         [Input("countUnit")]
         public Input<string>? CountUnit { get; set; }
+
+        /// <summary>
+        /// The image storage class to target. Use 'archive' with 'sinceImageTransitioned'; otherwise ECR defaults to 'standard'.
+        /// </summary>
+        [Input("storageClass")]
+        public Input<string>? StorageClass { get; set; }
 
         [Input("tagPrefixList")]
         private InputList<string>? _tagPrefixList;
@@ -49,7 +55,7 @@ namespace Pulumi.Aws.Ecr.Inputs
         /// The tag status of the image. Either 'tagged', 'untagged', or 'any'.
         /// </summary>
         [Input("tagStatus", required: true)]
-        public Input<Pulumi.Aws.Ecr.LifecyclePolicyTagStatus> TagStatus { get; set; } = null!;
+        public InputUnion<string, Pulumi.Aws.Ecr.LifecyclePolicyTagStatus> TagStatus { get; set; } = null!;
 
         public LifecyclePolicySelectionArgs()
         {

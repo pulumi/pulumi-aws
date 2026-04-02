@@ -722,8 +722,10 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 			Properties: map[string]schema.PropertySpec{
 				"tagStatus": {
 					TypeSpec: schema.TypeSpec{
-						Type: "string",
-						Ref:  "#/types/aws:ecr/LifecyclePolicyTagStatus:LifecyclePolicyTagStatus",
+						OneOf: []schema.TypeSpec{
+							{Type: "string"},
+							{Ref: "#/types/aws:ecr/LifecyclePolicyTagStatus:LifecyclePolicyTagStatus"},
+						},
 					},
 					Description: "The tag status of the image. Either 'tagged', 'untagged', or 'any'.",
 				},
@@ -736,10 +738,12 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 				},
 				"countType": {
 					TypeSpec: schema.TypeSpec{
-						Type: "string",
-						Ref:  "#/types/aws:ecr/LifecyclePolicyCountType:LifecyclePolicyCountType",
+						OneOf: []schema.TypeSpec{
+							{Type: "string"},
+							{Ref: "#/types/aws:ecr/LifecyclePolicyCountType:LifecyclePolicyCountType"},
+						},
 					},
-					Description: "The type of count to perform. Either 'imageCountMoreThan' or 'sinceImagePushed'.",
+					Description: "The type of count to perform. Either 'imageCountMoreThan', 'sinceImagePushed', 'sinceImagePulled', or 'sinceImageTransitioned'.",
 				},
 				"countNumber": {
 					TypeSpec:    schema.TypeSpec{Type: "integer"},
@@ -747,7 +751,11 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 				},
 				"countUnit": {
 					TypeSpec:    schema.TypeSpec{Type: "string"},
-					Description: "The unit of time for sinceImagePushed. Either 'days'.",
+					Description: "The unit of time for count types that are based on image age. Either 'days'.",
+				},
+				"storageClass": {
+					TypeSpec:    schema.TypeSpec{Type: "string"},
+					Description: "The image storage class to target. Use 'archive' with 'sinceImageTransitioned'; otherwise ECR defaults to 'standard'.",
 				},
 			},
 			Required: []string{"tagStatus", "countType", "countNumber"},
@@ -772,6 +780,8 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 		Enum: []schema.EnumValueSpec{
 			{Name: "ImageCountMoreThan", Value: "imageCountMoreThan"},
 			{Name: "SinceImagePushed", Value: "sinceImagePushed"},
+			{Name: "SinceImagePulled", Value: "sinceImagePulled"},
+			{Name: "SinceImageTransitioned", Value: "sinceImageTransitioned"},
 		},
 	},
 	"aws:ecr/LifecyclePolicyActionType:LifecyclePolicyActionType": {
@@ -781,6 +791,7 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 		},
 		Enum: []schema.EnumValueSpec{
 			{Name: "Expire", Value: "expire"},
+			{Name: "Transition", Value: "transition"},
 		},
 	},
 	"aws:ecr/LifecyclePolicyAction:LifecyclePolicyAction": {
@@ -789,10 +800,16 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 			Properties: map[string]schema.PropertySpec{
 				"type": {
 					TypeSpec: schema.TypeSpec{
-						Type: "string",
-						Ref:  "#/types/aws:ecr/LifecyclePolicyActionType:LifecyclePolicyActionType",
+						OneOf: []schema.TypeSpec{
+							{Type: "string"},
+							{Ref: "#/types/aws:ecr/LifecyclePolicyActionType:LifecyclePolicyActionType"},
+						},
 					},
-					Description: "The type of action to take. Currently only 'expire' is supported.",
+					Description: "The type of action to take. Either 'expire' or 'transition'.",
+				},
+				"targetStorageClass": {
+					TypeSpec:    schema.TypeSpec{Type: "string"},
+					Description: "The storage class to transition the image to. 'archive' is the only supported value.",
 				},
 			},
 			Required: []string{"type"},

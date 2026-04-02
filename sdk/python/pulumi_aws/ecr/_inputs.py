@@ -59,31 +59,51 @@ __all__ = [
 ]
 
 class LifecyclePolicyActionArgsDict(TypedDict):
-    type: pulumi.Input['LifecyclePolicyActionType']
+    type: pulumi.Input[Union[_builtins.str, 'LifecyclePolicyActionType']]
     """
-    The type of action to take. Currently only 'expire' is supported.
+    The type of action to take. Either 'expire' or 'transition'.
+    """
+    target_storage_class: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The storage class to transition the image to. 'archive' is the only supported value.
     """
 
 @pulumi.input_type
 class LifecyclePolicyActionArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input['LifecyclePolicyActionType']):
+                 type: pulumi.Input[Union[_builtins.str, 'LifecyclePolicyActionType']],
+                 target_storage_class: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input['LifecyclePolicyActionType'] type: The type of action to take. Currently only 'expire' is supported.
+        :param pulumi.Input[Union[_builtins.str, 'LifecyclePolicyActionType']] type: The type of action to take. Either 'expire' or 'transition'.
+        :param pulumi.Input[_builtins.str] target_storage_class: The storage class to transition the image to. 'archive' is the only supported value.
         """
         pulumi.set(__self__, "type", type)
+        if target_storage_class is not None:
+            pulumi.set(__self__, "target_storage_class", target_storage_class)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> pulumi.Input['LifecyclePolicyActionType']:
+    def type(self) -> pulumi.Input[Union[_builtins.str, 'LifecyclePolicyActionType']]:
         """
-        The type of action to take. Currently only 'expire' is supported.
+        The type of action to take. Either 'expire' or 'transition'.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input['LifecyclePolicyActionType']):
+    def type(self, value: pulumi.Input[Union[_builtins.str, 'LifecyclePolicyActionType']]):
         pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetStorageClass")
+    def target_storage_class(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The storage class to transition the image to. 'archive' is the only supported value.
+        """
+        return pulumi.get(self, "target_storage_class")
+
+    @target_storage_class.setter
+    def target_storage_class(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "target_storage_class", value)
 
 
 class LifecyclePolicyDocumentArgsDict(TypedDict):
@@ -218,17 +238,21 @@ class LifecyclePolicySelectionArgsDict(TypedDict):
     """
     The count number to use with the count type.
     """
-    count_type: pulumi.Input['LifecyclePolicyCountType']
+    count_type: pulumi.Input[Union[_builtins.str, 'LifecyclePolicyCountType']]
     """
-    The type of count to perform. Either 'imageCountMoreThan' or 'sinceImagePushed'.
+    The type of count to perform. Either 'imageCountMoreThan', 'sinceImagePushed', 'sinceImagePulled', or 'sinceImageTransitioned'.
     """
-    tag_status: pulumi.Input['LifecyclePolicyTagStatus']
+    tag_status: pulumi.Input[Union[_builtins.str, 'LifecyclePolicyTagStatus']]
     """
     The tag status of the image. Either 'tagged', 'untagged', or 'any'.
     """
     count_unit: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The unit of time for sinceImagePushed. Either 'days'.
+    The unit of time for count types that are based on image age. Either 'days'.
+    """
+    storage_class: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The image storage class to target. Use 'archive' with 'sinceImageTransitioned'; otherwise ECR defaults to 'standard'.
     """
     tag_prefix_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
@@ -239,17 +263,19 @@ class LifecyclePolicySelectionArgsDict(TypedDict):
 class LifecyclePolicySelectionArgs:
     def __init__(__self__, *,
                  count_number: pulumi.Input[_builtins.int],
-                 count_type: pulumi.Input['LifecyclePolicyCountType'],
-                 tag_status: pulumi.Input['LifecyclePolicyTagStatus'],
+                 count_type: pulumi.Input[Union[_builtins.str, 'LifecyclePolicyCountType']],
+                 tag_status: pulumi.Input[Union[_builtins.str, 'LifecyclePolicyTagStatus']],
                  count_unit: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_class: Optional[pulumi.Input[_builtins.str]] = None,
                  tag_prefix_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Represents selection criteria for an ECR lifecycle policy rule.
 
         :param pulumi.Input[_builtins.int] count_number: The count number to use with the count type.
-        :param pulumi.Input['LifecyclePolicyCountType'] count_type: The type of count to perform. Either 'imageCountMoreThan' or 'sinceImagePushed'.
-        :param pulumi.Input['LifecyclePolicyTagStatus'] tag_status: The tag status of the image. Either 'tagged', 'untagged', or 'any'.
-        :param pulumi.Input[_builtins.str] count_unit: The unit of time for sinceImagePushed. Either 'days'.
+        :param pulumi.Input[Union[_builtins.str, 'LifecyclePolicyCountType']] count_type: The type of count to perform. Either 'imageCountMoreThan', 'sinceImagePushed', 'sinceImagePulled', or 'sinceImageTransitioned'.
+        :param pulumi.Input[Union[_builtins.str, 'LifecyclePolicyTagStatus']] tag_status: The tag status of the image. Either 'tagged', 'untagged', or 'any'.
+        :param pulumi.Input[_builtins.str] count_unit: The unit of time for count types that are based on image age. Either 'days'.
+        :param pulumi.Input[_builtins.str] storage_class: The image storage class to target. Use 'archive' with 'sinceImageTransitioned'; otherwise ECR defaults to 'standard'.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tag_prefix_list: A list of image tag prefixes on which to take action.
         """
         pulumi.set(__self__, "count_number", count_number)
@@ -257,6 +283,8 @@ class LifecyclePolicySelectionArgs:
         pulumi.set(__self__, "tag_status", tag_status)
         if count_unit is not None:
             pulumi.set(__self__, "count_unit", count_unit)
+        if storage_class is not None:
+            pulumi.set(__self__, "storage_class", storage_class)
         if tag_prefix_list is not None:
             pulumi.set(__self__, "tag_prefix_list", tag_prefix_list)
 
@@ -274,39 +302,51 @@ class LifecyclePolicySelectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="countType")
-    def count_type(self) -> pulumi.Input['LifecyclePolicyCountType']:
+    def count_type(self) -> pulumi.Input[Union[_builtins.str, 'LifecyclePolicyCountType']]:
         """
-        The type of count to perform. Either 'imageCountMoreThan' or 'sinceImagePushed'.
+        The type of count to perform. Either 'imageCountMoreThan', 'sinceImagePushed', 'sinceImagePulled', or 'sinceImageTransitioned'.
         """
         return pulumi.get(self, "count_type")
 
     @count_type.setter
-    def count_type(self, value: pulumi.Input['LifecyclePolicyCountType']):
+    def count_type(self, value: pulumi.Input[Union[_builtins.str, 'LifecyclePolicyCountType']]):
         pulumi.set(self, "count_type", value)
 
     @_builtins.property
     @pulumi.getter(name="tagStatus")
-    def tag_status(self) -> pulumi.Input['LifecyclePolicyTagStatus']:
+    def tag_status(self) -> pulumi.Input[Union[_builtins.str, 'LifecyclePolicyTagStatus']]:
         """
         The tag status of the image. Either 'tagged', 'untagged', or 'any'.
         """
         return pulumi.get(self, "tag_status")
 
     @tag_status.setter
-    def tag_status(self, value: pulumi.Input['LifecyclePolicyTagStatus']):
+    def tag_status(self, value: pulumi.Input[Union[_builtins.str, 'LifecyclePolicyTagStatus']]):
         pulumi.set(self, "tag_status", value)
 
     @_builtins.property
     @pulumi.getter(name="countUnit")
     def count_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The unit of time for sinceImagePushed. Either 'days'.
+        The unit of time for count types that are based on image age. Either 'days'.
         """
         return pulumi.get(self, "count_unit")
 
     @count_unit.setter
     def count_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "count_unit", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageClass")
+    def storage_class(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The image storage class to target. Use 'archive' with 'sinceImageTransitioned'; otherwise ECR defaults to 'standard'.
+        """
+        return pulumi.get(self, "storage_class")
+
+    @storage_class.setter
+    def storage_class(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_class", value)
 
     @_builtins.property
     @pulumi.getter(name="tagPrefixList")

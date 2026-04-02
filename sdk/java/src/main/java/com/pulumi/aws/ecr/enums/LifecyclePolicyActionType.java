@@ -14,7 +14,8 @@ import java.util.StringJoiner;
      */
     @EnumType
     public enum LifecyclePolicyActionType {
-        Expire("expire");
+        Expire("expire"),
+        Transition("transition");
 
         private final String value;
 

@@ -15,7 +15,9 @@ import java.util.StringJoiner;
     @EnumType
     public enum LifecyclePolicyCountType {
         ImageCountMoreThan("imageCountMoreThan"),
-        SinceImagePushed("sinceImagePushed");
+        SinceImagePushed("sinceImagePushed"),
+        SinceImagePulled("sinceImagePulled"),
+        SinceImageTransitioned("sinceImageTransitioned");
 
         private final String value;
 

@@ -4,10 +4,14 @@
 package com.pulumi.aws.ecr.inputs;
 
 import com.pulumi.aws.ecr.enums.LifecyclePolicyActionType;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class LifecyclePolicyActionArgs extends com.pulumi.resources.ResourceArgs {
@@ -15,23 +19,39 @@ public final class LifecyclePolicyActionArgs extends com.pulumi.resources.Resour
     public static final LifecyclePolicyActionArgs Empty = new LifecyclePolicyActionArgs();
 
     /**
-     * The type of action to take. Currently only &#39;expire&#39; is supported.
+     * The storage class to transition the image to. &#39;archive&#39; is the only supported value.
+     * 
+     */
+    @Import(name="targetStorageClass")
+    private @Nullable Output<String> targetStorageClass;
+
+    /**
+     * @return The storage class to transition the image to. &#39;archive&#39; is the only supported value.
+     * 
+     */
+    public Optional<Output<String>> targetStorageClass() {
+        return Optional.ofNullable(this.targetStorageClass);
+    }
+
+    /**
+     * The type of action to take. Either &#39;expire&#39; or &#39;transition&#39;.
      * 
      */
     @Import(name="type", required=true)
-    private Output<LifecyclePolicyActionType> type;
+    private Output<Either<String,LifecyclePolicyActionType>> type;
 
     /**
-     * @return The type of action to take. Currently only &#39;expire&#39; is supported.
+     * @return The type of action to take. Either &#39;expire&#39; or &#39;transition&#39;.
      * 
      */
-    public Output<LifecyclePolicyActionType> type() {
+    public Output<Either<String,LifecyclePolicyActionType>> type() {
         return this.type;
     }
 
     private LifecyclePolicyActionArgs() {}
 
     private LifecyclePolicyActionArgs(LifecyclePolicyActionArgs $) {
+        this.targetStorageClass = $.targetStorageClass;
         this.type = $.type;
     }
 
@@ -54,24 +74,65 @@ public final class LifecyclePolicyActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type The type of action to take. Currently only &#39;expire&#39; is supported.
+         * @param targetStorageClass The storage class to transition the image to. &#39;archive&#39; is the only supported value.
          * 
          * @return builder
          * 
          */
-        public Builder type(Output<LifecyclePolicyActionType> type) {
+        public Builder targetStorageClass(@Nullable Output<String> targetStorageClass) {
+            $.targetStorageClass = targetStorageClass;
+            return this;
+        }
+
+        /**
+         * @param targetStorageClass The storage class to transition the image to. &#39;archive&#39; is the only supported value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetStorageClass(String targetStorageClass) {
+            return targetStorageClass(Output.of(targetStorageClass));
+        }
+
+        /**
+         * @param type The type of action to take. Either &#39;expire&#39; or &#39;transition&#39;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder type(Output<Either<String,LifecyclePolicyActionType>> type) {
             $.type = type;
             return this;
         }
 
         /**
-         * @param type The type of action to take. Currently only &#39;expire&#39; is supported.
+         * @param type The type of action to take. Either &#39;expire&#39; or &#39;transition&#39;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder type(Either<String,LifecyclePolicyActionType> type) {
+            return type(Output.of(type));
+        }
+
+        /**
+         * @param type The type of action to take. Either &#39;expire&#39; or &#39;transition&#39;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder type(String type) {
+            return type(Either.ofLeft(type));
+        }
+
+        /**
+         * @param type The type of action to take. Either &#39;expire&#39; or &#39;transition&#39;.
          * 
          * @return builder
          * 
          */
         public Builder type(LifecyclePolicyActionType type) {
-            return type(Output.of(type));
+            return type(Either.ofRight(type));
         }
 
         public LifecyclePolicyActionArgs build() {

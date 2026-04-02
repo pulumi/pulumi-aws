@@ -21,6 +21,7 @@ namespace Pulumi.Aws.Ecr
         }
 
         public static LifecyclePolicyActionType Expire { get; } = new LifecyclePolicyActionType("expire");
+        public static LifecyclePolicyActionType Transition { get; } = new LifecyclePolicyActionType("transition");
 
         public static bool operator ==(LifecyclePolicyActionType left, LifecyclePolicyActionType right) => left.Equals(right);
         public static bool operator !=(LifecyclePolicyActionType left, LifecyclePolicyActionType right) => !left.Equals(right);
@@ -52,6 +53,8 @@ namespace Pulumi.Aws.Ecr
 
         public static LifecyclePolicyCountType ImageCountMoreThan { get; } = new LifecyclePolicyCountType("imageCountMoreThan");
         public static LifecyclePolicyCountType SinceImagePushed { get; } = new LifecyclePolicyCountType("sinceImagePushed");
+        public static LifecyclePolicyCountType SinceImagePulled { get; } = new LifecyclePolicyCountType("sinceImagePulled");
+        public static LifecyclePolicyCountType SinceImageTransitioned { get; } = new LifecyclePolicyCountType("sinceImageTransitioned");
 
         public static bool operator ==(LifecyclePolicyCountType left, LifecyclePolicyCountType right) => left.Equals(right);
         public static bool operator !=(LifecyclePolicyCountType left, LifecyclePolicyCountType right) => !left.Equals(right);

@@ -5,6 +5,7 @@ package com.pulumi.aws.ecr.inputs;
 
 import com.pulumi.aws.ecr.enums.LifecyclePolicyCountType;
 import com.pulumi.aws.ecr.enums.LifecyclePolicyTagStatus;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -40,33 +41,48 @@ public final class LifecyclePolicySelectionArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The type of count to perform. Either &#39;imageCountMoreThan&#39; or &#39;sinceImagePushed&#39;.
+     * The type of count to perform. Either &#39;imageCountMoreThan&#39;, &#39;sinceImagePushed&#39;, &#39;sinceImagePulled&#39;, or &#39;sinceImageTransitioned&#39;.
      * 
      */
     @Import(name="countType", required=true)
-    private Output<LifecyclePolicyCountType> countType;
+    private Output<Either<String,LifecyclePolicyCountType>> countType;
 
     /**
-     * @return The type of count to perform. Either &#39;imageCountMoreThan&#39; or &#39;sinceImagePushed&#39;.
+     * @return The type of count to perform. Either &#39;imageCountMoreThan&#39;, &#39;sinceImagePushed&#39;, &#39;sinceImagePulled&#39;, or &#39;sinceImageTransitioned&#39;.
      * 
      */
-    public Output<LifecyclePolicyCountType> countType() {
+    public Output<Either<String,LifecyclePolicyCountType>> countType() {
         return this.countType;
     }
 
     /**
-     * The unit of time for sinceImagePushed. Either &#39;days&#39;.
+     * The unit of time for count types that are based on image age. Either &#39;days&#39;.
      * 
      */
     @Import(name="countUnit")
     private @Nullable Output<String> countUnit;
 
     /**
-     * @return The unit of time for sinceImagePushed. Either &#39;days&#39;.
+     * @return The unit of time for count types that are based on image age. Either &#39;days&#39;.
      * 
      */
     public Optional<Output<String>> countUnit() {
         return Optional.ofNullable(this.countUnit);
+    }
+
+    /**
+     * The image storage class to target. Use &#39;archive&#39; with &#39;sinceImageTransitioned&#39;; otherwise ECR defaults to &#39;standard&#39;.
+     * 
+     */
+    @Import(name="storageClass")
+    private @Nullable Output<String> storageClass;
+
+    /**
+     * @return The image storage class to target. Use &#39;archive&#39; with &#39;sinceImageTransitioned&#39;; otherwise ECR defaults to &#39;standard&#39;.
+     * 
+     */
+    public Optional<Output<String>> storageClass() {
+        return Optional.ofNullable(this.storageClass);
     }
 
     /**
@@ -89,13 +105,13 @@ public final class LifecyclePolicySelectionArgs extends com.pulumi.resources.Res
      * 
      */
     @Import(name="tagStatus", required=true)
-    private Output<LifecyclePolicyTagStatus> tagStatus;
+    private Output<Either<String,LifecyclePolicyTagStatus>> tagStatus;
 
     /**
      * @return The tag status of the image. Either &#39;tagged&#39;, &#39;untagged&#39;, or &#39;any&#39;.
      * 
      */
-    public Output<LifecyclePolicyTagStatus> tagStatus() {
+    public Output<Either<String,LifecyclePolicyTagStatus>> tagStatus() {
         return this.tagStatus;
     }
 
@@ -105,6 +121,7 @@ public final class LifecyclePolicySelectionArgs extends com.pulumi.resources.Res
         this.countNumber = $.countNumber;
         this.countType = $.countType;
         this.countUnit = $.countUnit;
+        this.storageClass = $.storageClass;
         this.tagPrefixList = $.tagPrefixList;
         this.tagStatus = $.tagStatus;
     }
@@ -149,28 +166,48 @@ public final class LifecyclePolicySelectionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param countType The type of count to perform. Either &#39;imageCountMoreThan&#39; or &#39;sinceImagePushed&#39;.
+         * @param countType The type of count to perform. Either &#39;imageCountMoreThan&#39;, &#39;sinceImagePushed&#39;, &#39;sinceImagePulled&#39;, or &#39;sinceImageTransitioned&#39;.
          * 
          * @return builder
          * 
          */
-        public Builder countType(Output<LifecyclePolicyCountType> countType) {
+        public Builder countType(Output<Either<String,LifecyclePolicyCountType>> countType) {
             $.countType = countType;
             return this;
         }
 
         /**
-         * @param countType The type of count to perform. Either &#39;imageCountMoreThan&#39; or &#39;sinceImagePushed&#39;.
+         * @param countType The type of count to perform. Either &#39;imageCountMoreThan&#39;, &#39;sinceImagePushed&#39;, &#39;sinceImagePulled&#39;, or &#39;sinceImageTransitioned&#39;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder countType(Either<String,LifecyclePolicyCountType> countType) {
+            return countType(Output.of(countType));
+        }
+
+        /**
+         * @param countType The type of count to perform. Either &#39;imageCountMoreThan&#39;, &#39;sinceImagePushed&#39;, &#39;sinceImagePulled&#39;, or &#39;sinceImageTransitioned&#39;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder countType(String countType) {
+            return countType(Either.ofLeft(countType));
+        }
+
+        /**
+         * @param countType The type of count to perform. Either &#39;imageCountMoreThan&#39;, &#39;sinceImagePushed&#39;, &#39;sinceImagePulled&#39;, or &#39;sinceImageTransitioned&#39;.
          * 
          * @return builder
          * 
          */
         public Builder countType(LifecyclePolicyCountType countType) {
-            return countType(Output.of(countType));
+            return countType(Either.ofRight(countType));
         }
 
         /**
-         * @param countUnit The unit of time for sinceImagePushed. Either &#39;days&#39;.
+         * @param countUnit The unit of time for count types that are based on image age. Either &#39;days&#39;.
          * 
          * @return builder
          * 
@@ -181,13 +218,34 @@ public final class LifecyclePolicySelectionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param countUnit The unit of time for sinceImagePushed. Either &#39;days&#39;.
+         * @param countUnit The unit of time for count types that are based on image age. Either &#39;days&#39;.
          * 
          * @return builder
          * 
          */
         public Builder countUnit(String countUnit) {
             return countUnit(Output.of(countUnit));
+        }
+
+        /**
+         * @param storageClass The image storage class to target. Use &#39;archive&#39; with &#39;sinceImageTransitioned&#39;; otherwise ECR defaults to &#39;standard&#39;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageClass(@Nullable Output<String> storageClass) {
+            $.storageClass = storageClass;
+            return this;
+        }
+
+        /**
+         * @param storageClass The image storage class to target. Use &#39;archive&#39; with &#39;sinceImageTransitioned&#39;; otherwise ECR defaults to &#39;standard&#39;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageClass(String storageClass) {
+            return storageClass(Output.of(storageClass));
         }
 
         /**
@@ -227,7 +285,7 @@ public final class LifecyclePolicySelectionArgs extends com.pulumi.resources.Res
          * @return builder
          * 
          */
-        public Builder tagStatus(Output<LifecyclePolicyTagStatus> tagStatus) {
+        public Builder tagStatus(Output<Either<String,LifecyclePolicyTagStatus>> tagStatus) {
             $.tagStatus = tagStatus;
             return this;
         }
@@ -238,8 +296,28 @@ public final class LifecyclePolicySelectionArgs extends com.pulumi.resources.Res
          * @return builder
          * 
          */
-        public Builder tagStatus(LifecyclePolicyTagStatus tagStatus) {
+        public Builder tagStatus(Either<String,LifecyclePolicyTagStatus> tagStatus) {
             return tagStatus(Output.of(tagStatus));
+        }
+
+        /**
+         * @param tagStatus The tag status of the image. Either &#39;tagged&#39;, &#39;untagged&#39;, or &#39;any&#39;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagStatus(String tagStatus) {
+            return tagStatus(Either.ofLeft(tagStatus));
+        }
+
+        /**
+         * @param tagStatus The tag status of the image. Either &#39;tagged&#39;, &#39;untagged&#39;, or &#39;any&#39;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagStatus(LifecyclePolicyTagStatus tagStatus) {
+            return tagStatus(Either.ofRight(tagStatus));
         }
 
         public LifecyclePolicySelectionArgs build() {
