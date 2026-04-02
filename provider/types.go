@@ -751,11 +751,11 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 				},
 				"countUnit": {
 					TypeSpec:    schema.TypeSpec{Type: "string"},
-					Description: "The unit of time for count types that are based on image age. Either 'days'.",
+					Description: "The unit of time for count types based on image age. Required when 'countType' is 'sinceImagePushed', 'sinceImagePulled', or 'sinceImageTransitioned'. The only supported value is 'days'.",
 				},
 				"storageClass": {
 					TypeSpec:    schema.TypeSpec{Type: "string"},
-					Description: "The image storage class to target. Use 'archive' with 'sinceImageTransitioned'; otherwise ECR defaults to 'standard'.",
+					Description: "The image storage class to select. Required when 'countType' is 'sinceImageTransitioned' (must be 'archive'). For 'imageCountMoreThan', 'sinceImagePushed', and 'sinceImagePulled', the only supported value is 'standard'. If omitted, ECR uses 'standard'.",
 				},
 			},
 			Required: []string{"tagStatus", "countType", "countNumber"},
@@ -809,7 +809,7 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 				},
 				"targetStorageClass": {
 					TypeSpec:    schema.TypeSpec{Type: "string"},
-					Description: "The storage class to transition the image to. 'archive' is the only supported value.",
+					Description: "The storage class to transition the image to. Required when 'type' is 'transition'. 'archive' is the only supported value.",
 				},
 			},
 			Required: []string{"type"},
