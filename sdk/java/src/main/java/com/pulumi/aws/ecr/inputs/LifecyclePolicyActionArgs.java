@@ -19,14 +19,14 @@ public final class LifecyclePolicyActionArgs extends com.pulumi.resources.Resour
     public static final LifecyclePolicyActionArgs Empty = new LifecyclePolicyActionArgs();
 
     /**
-     * The storage class to transition the image to. &#39;archive&#39; is the only supported value.
+     * The storage class to transition the image to. Required when &#39;type&#39; is &#39;transition&#39;. &#39;archive&#39; is the only supported value.
      * 
      */
     @Import(name="targetStorageClass")
     private @Nullable Output<String> targetStorageClass;
 
     /**
-     * @return The storage class to transition the image to. &#39;archive&#39; is the only supported value.
+     * @return The storage class to transition the image to. Required when &#39;type&#39; is &#39;transition&#39;. &#39;archive&#39; is the only supported value.
      * 
      */
     public Optional<Output<String>> targetStorageClass() {
@@ -74,7 +74,7 @@ public final class LifecyclePolicyActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param targetStorageClass The storage class to transition the image to. &#39;archive&#39; is the only supported value.
+         * @param targetStorageClass The storage class to transition the image to. Required when &#39;type&#39; is &#39;transition&#39;. &#39;archive&#39; is the only supported value.
          * 
          * @return builder
          * 
@@ -85,7 +85,7 @@ public final class LifecyclePolicyActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param targetStorageClass The storage class to transition the image to. &#39;archive&#39; is the only supported value.
+         * @param targetStorageClass The storage class to transition the image to. Required when &#39;type&#39; is &#39;transition&#39;. &#39;archive&#39; is the only supported value.
          * 
          * @return builder
          * 

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ecr.Inputs
     public sealed class LifecyclePolicyActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The storage class to transition the image to. 'archive' is the only supported value.
+        /// The storage class to transition the image to. Required when 'type' is 'transition'. 'archive' is the only supported value.
         /// </summary>
         [Input("targetStorageClass")]
         public Input<string>? TargetStorageClass { get; set; }

@@ -28,13 +28,13 @@ namespace Pulumi.Aws.Ecr.Inputs
         public InputUnion<string, Pulumi.Aws.Ecr.LifecyclePolicyCountType> CountType { get; set; } = null!;
 
         /// <summary>
-        /// The unit of time for count types that are based on image age. Either 'days'.
+        /// The unit of time for count types based on image age. Required when 'countType' is 'sinceImagePushed', 'sinceImagePulled', or 'sinceImageTransitioned'. The only supported value is 'days'.
         /// </summary>
         [Input("countUnit")]
         public Input<string>? CountUnit { get; set; }
 
         /// <summary>
-        /// The image storage class to target. Use 'archive' with 'sinceImageTransitioned'; otherwise ECR defaults to 'standard'.
+        /// The image storage class to select. Required when 'countType' is 'sinceImageTransitioned' (must be 'archive'). For 'imageCountMoreThan', 'sinceImagePushed', and 'sinceImagePulled', the only supported value is 'standard'. If omitted, ECR uses 'standard'.
         /// </summary>
         [Input("storageClass")]
         public Input<string>? StorageClass { get; set; }

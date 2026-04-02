@@ -56,14 +56,14 @@ public final class LifecyclePolicySelectionArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The unit of time for count types that are based on image age. Either &#39;days&#39;.
+     * The unit of time for count types based on image age. Required when &#39;countType&#39; is &#39;sinceImagePushed&#39;, &#39;sinceImagePulled&#39;, or &#39;sinceImageTransitioned&#39;. The only supported value is &#39;days&#39;.
      * 
      */
     @Import(name="countUnit")
     private @Nullable Output<String> countUnit;
 
     /**
-     * @return The unit of time for count types that are based on image age. Either &#39;days&#39;.
+     * @return The unit of time for count types based on image age. Required when &#39;countType&#39; is &#39;sinceImagePushed&#39;, &#39;sinceImagePulled&#39;, or &#39;sinceImageTransitioned&#39;. The only supported value is &#39;days&#39;.
      * 
      */
     public Optional<Output<String>> countUnit() {
@@ -71,14 +71,14 @@ public final class LifecyclePolicySelectionArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The image storage class to target. Use &#39;archive&#39; with &#39;sinceImageTransitioned&#39;; otherwise ECR defaults to &#39;standard&#39;.
+     * The image storage class to select. Required when &#39;countType&#39; is &#39;sinceImageTransitioned&#39; (must be &#39;archive&#39;). For &#39;imageCountMoreThan&#39;, &#39;sinceImagePushed&#39;, and &#39;sinceImagePulled&#39;, the only supported value is &#39;standard&#39;. If omitted, ECR uses &#39;standard&#39;.
      * 
      */
     @Import(name="storageClass")
     private @Nullable Output<String> storageClass;
 
     /**
-     * @return The image storage class to target. Use &#39;archive&#39; with &#39;sinceImageTransitioned&#39;; otherwise ECR defaults to &#39;standard&#39;.
+     * @return The image storage class to select. Required when &#39;countType&#39; is &#39;sinceImageTransitioned&#39; (must be &#39;archive&#39;). For &#39;imageCountMoreThan&#39;, &#39;sinceImagePushed&#39;, and &#39;sinceImagePulled&#39;, the only supported value is &#39;standard&#39;. If omitted, ECR uses &#39;standard&#39;.
      * 
      */
     public Optional<Output<String>> storageClass() {
@@ -207,7 +207,7 @@ public final class LifecyclePolicySelectionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param countUnit The unit of time for count types that are based on image age. Either &#39;days&#39;.
+         * @param countUnit The unit of time for count types based on image age. Required when &#39;countType&#39; is &#39;sinceImagePushed&#39;, &#39;sinceImagePulled&#39;, or &#39;sinceImageTransitioned&#39;. The only supported value is &#39;days&#39;.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class LifecyclePolicySelectionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param countUnit The unit of time for count types that are based on image age. Either &#39;days&#39;.
+         * @param countUnit The unit of time for count types based on image age. Required when &#39;countType&#39; is &#39;sinceImagePushed&#39;, &#39;sinceImagePulled&#39;, or &#39;sinceImageTransitioned&#39;. The only supported value is &#39;days&#39;.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class LifecyclePolicySelectionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param storageClass The image storage class to target. Use &#39;archive&#39; with &#39;sinceImageTransitioned&#39;; otherwise ECR defaults to &#39;standard&#39;.
+         * @param storageClass The image storage class to select. Required when &#39;countType&#39; is &#39;sinceImageTransitioned&#39; (must be &#39;archive&#39;). For &#39;imageCountMoreThan&#39;, &#39;sinceImagePushed&#39;, and &#39;sinceImagePulled&#39;, the only supported value is &#39;standard&#39;. If omitted, ECR uses &#39;standard&#39;.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class LifecyclePolicySelectionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param storageClass The image storage class to target. Use &#39;archive&#39; with &#39;sinceImageTransitioned&#39;; otherwise ECR defaults to &#39;standard&#39;.
+         * @param storageClass The image storage class to select. Required when &#39;countType&#39; is &#39;sinceImageTransitioned&#39; (must be &#39;archive&#39;). For &#39;imageCountMoreThan&#39;, &#39;sinceImagePushed&#39;, and &#39;sinceImagePulled&#39;, the only supported value is &#39;standard&#39;. If omitted, ECR uses &#39;standard&#39;.
          * 
          * @return builder
          * 

@@ -15,7 +15,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type LifecyclePolicyAction struct {
-	// The storage class to transition the image to. 'archive' is the only supported value.
+	// The storage class to transition the image to. Required when 'type' is 'transition'. 'archive' is the only supported value.
 	TargetStorageClass *string `pulumi:"targetStorageClass"`
 	// The type of action to take. Either 'expire' or 'transition'.
 	Type string `pulumi:"type"`
@@ -33,7 +33,7 @@ type LifecyclePolicyActionInput interface {
 }
 
 type LifecyclePolicyActionArgs struct {
-	// The storage class to transition the image to. 'archive' is the only supported value.
+	// The storage class to transition the image to. Required when 'type' is 'transition'. 'archive' is the only supported value.
 	TargetStorageClass pulumi.StringPtrInput `pulumi:"targetStorageClass"`
 	// The type of action to take. Either 'expire' or 'transition'.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -65,7 +65,7 @@ func (o LifecyclePolicyActionOutput) ToLifecyclePolicyActionOutputWithContext(ct
 	return o
 }
 
-// The storage class to transition the image to. 'archive' is the only supported value.
+// The storage class to transition the image to. Required when 'type' is 'transition'. 'archive' is the only supported value.
 func (o LifecyclePolicyActionOutput) TargetStorageClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyAction) *string { return v.TargetStorageClass }).(pulumi.StringPtrOutput)
 }
@@ -348,9 +348,9 @@ type LifecyclePolicySelection struct {
 	CountNumber int `pulumi:"countNumber"`
 	// The type of count to perform. Either 'imageCountMoreThan', 'sinceImagePushed', 'sinceImagePulled', or 'sinceImageTransitioned'.
 	CountType string `pulumi:"countType"`
-	// The unit of time for count types that are based on image age. Either 'days'.
+	// The unit of time for count types based on image age. Required when 'countType' is 'sinceImagePushed', 'sinceImagePulled', or 'sinceImageTransitioned'. The only supported value is 'days'.
 	CountUnit *string `pulumi:"countUnit"`
-	// The image storage class to target. Use 'archive' with 'sinceImageTransitioned'; otherwise ECR defaults to 'standard'.
+	// The image storage class to select. Required when 'countType' is 'sinceImageTransitioned' (must be 'archive'). For 'imageCountMoreThan', 'sinceImagePushed', and 'sinceImagePulled', the only supported value is 'standard'. If omitted, ECR uses 'standard'.
 	StorageClass *string `pulumi:"storageClass"`
 	// A list of image tag prefixes on which to take action.
 	TagPrefixList []string `pulumi:"tagPrefixList"`
@@ -375,9 +375,9 @@ type LifecyclePolicySelectionArgs struct {
 	CountNumber pulumi.IntInput `pulumi:"countNumber"`
 	// The type of count to perform. Either 'imageCountMoreThan', 'sinceImagePushed', 'sinceImagePulled', or 'sinceImageTransitioned'.
 	CountType pulumi.StringInput `pulumi:"countType"`
-	// The unit of time for count types that are based on image age. Either 'days'.
+	// The unit of time for count types based on image age. Required when 'countType' is 'sinceImagePushed', 'sinceImagePulled', or 'sinceImageTransitioned'. The only supported value is 'days'.
 	CountUnit pulumi.StringPtrInput `pulumi:"countUnit"`
-	// The image storage class to target. Use 'archive' with 'sinceImageTransitioned'; otherwise ECR defaults to 'standard'.
+	// The image storage class to select. Required when 'countType' is 'sinceImageTransitioned' (must be 'archive'). For 'imageCountMoreThan', 'sinceImagePushed', and 'sinceImagePulled', the only supported value is 'standard'. If omitted, ECR uses 'standard'.
 	StorageClass pulumi.StringPtrInput `pulumi:"storageClass"`
 	// A list of image tag prefixes on which to take action.
 	TagPrefixList pulumi.StringArrayInput `pulumi:"tagPrefixList"`
@@ -422,12 +422,12 @@ func (o LifecyclePolicySelectionOutput) CountType() pulumi.StringOutput {
 	return o.ApplyT(func(v LifecyclePolicySelection) string { return v.CountType }).(pulumi.StringOutput)
 }
 
-// The unit of time for count types that are based on image age. Either 'days'.
+// The unit of time for count types based on image age. Required when 'countType' is 'sinceImagePushed', 'sinceImagePulled', or 'sinceImageTransitioned'. The only supported value is 'days'.
 func (o LifecyclePolicySelectionOutput) CountUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicySelection) *string { return v.CountUnit }).(pulumi.StringPtrOutput)
 }
 
-// The image storage class to target. Use 'archive' with 'sinceImageTransitioned'; otherwise ECR defaults to 'standard'.
+// The image storage class to select. Required when 'countType' is 'sinceImageTransitioned' (must be 'archive'). For 'imageCountMoreThan', 'sinceImagePushed', and 'sinceImagePulled', the only supported value is 'standard'. If omitted, ECR uses 'standard'.
 func (o LifecyclePolicySelectionOutput) StorageClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicySelection) *string { return v.StorageClass }).(pulumi.StringPtrOutput)
 }
