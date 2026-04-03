@@ -16,7 +16,7 @@ steps:
       ESC_ACTION_OIDC_REQUESTED_TOKEN_TYPE: urn:pulumi:token-type:access_token:organization
     id: esc-secrets
     name: Fetch secrets from ESC
-    uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
+    uses: pulumi/esc-action@6cf9520e68354d86f81c455e8d43eabd58f5c9f5  # v1.5.0
   - name: Validate ESC secret output
     env:
       ANTHROPIC_API_KEY_FROM_ESC: ${{ steps.esc-secrets.outputs.ANTHROPIC_API_KEY }}
