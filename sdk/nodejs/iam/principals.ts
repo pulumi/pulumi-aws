@@ -14,7 +14,7 @@
 
 import { Principal } from "./documents";
 
-export module Principals {
+export namespace Principals {
     /**
      * Service Principal for Amazon Certificate Manager
      */
