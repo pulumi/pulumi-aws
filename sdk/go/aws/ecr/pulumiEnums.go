@@ -14,7 +14,8 @@ import (
 type LifecyclePolicyActionType string
 
 const (
-	LifecyclePolicyActionTypeExpire = LifecyclePolicyActionType("expire")
+	LifecyclePolicyActionTypeExpire     = LifecyclePolicyActionType("expire")
+	LifecyclePolicyActionTypeTransition = LifecyclePolicyActionType("transition")
 )
 
 func (LifecyclePolicyActionType) ElementType() reflect.Type {
@@ -140,6 +141,7 @@ func (o LifecyclePolicyActionTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 // A concrete instance of `LifecyclePolicyActionTypeInput` can be one of the following:
 //
 //	LifecyclePolicyActionTypeExpire
+//	LifecyclePolicyActionTypeTransition
 type LifecyclePolicyActionTypeInput interface {
 	pulumi.Input
 
@@ -178,8 +180,10 @@ func (in *lifecyclePolicyActionTypePtr) ToLifecyclePolicyActionTypePtrOutputWith
 type LifecyclePolicyCountType string
 
 const (
-	LifecyclePolicyCountTypeImageCountMoreThan = LifecyclePolicyCountType("imageCountMoreThan")
-	LifecyclePolicyCountTypeSinceImagePushed   = LifecyclePolicyCountType("sinceImagePushed")
+	LifecyclePolicyCountTypeImageCountMoreThan     = LifecyclePolicyCountType("imageCountMoreThan")
+	LifecyclePolicyCountTypeSinceImagePushed       = LifecyclePolicyCountType("sinceImagePushed")
+	LifecyclePolicyCountTypeSinceImagePulled       = LifecyclePolicyCountType("sinceImagePulled")
+	LifecyclePolicyCountTypeSinceImageTransitioned = LifecyclePolicyCountType("sinceImageTransitioned")
 )
 
 func (LifecyclePolicyCountType) ElementType() reflect.Type {
@@ -306,6 +310,8 @@ func (o LifecyclePolicyCountTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 //
 //	LifecyclePolicyCountTypeImageCountMoreThan
 //	LifecyclePolicyCountTypeSinceImagePushed
+//	LifecyclePolicyCountTypeSinceImagePulled
+//	LifecyclePolicyCountTypeSinceImageTransitioned
 type LifecyclePolicyCountTypeInput interface {
 	pulumi.Input
 

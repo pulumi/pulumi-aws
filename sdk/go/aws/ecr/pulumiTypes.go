@@ -15,8 +15,10 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type LifecyclePolicyAction struct {
-	// The type of action to take. Currently only 'expire' is supported.
-	Type LifecyclePolicyActionType `pulumi:"type"`
+	// The storage class to transition the image to. Required when 'type' is 'transition'. 'archive' is the only supported value.
+	TargetStorageClass *string `pulumi:"targetStorageClass"`
+	// The type of action to take. Either 'expire' or 'transition'.
+	Type string `pulumi:"type"`
 }
 
 // LifecyclePolicyActionInput is an input type that accepts LifecyclePolicyActionArgs and LifecyclePolicyActionOutput values.
@@ -31,8 +33,10 @@ type LifecyclePolicyActionInput interface {
 }
 
 type LifecyclePolicyActionArgs struct {
-	// The type of action to take. Currently only 'expire' is supported.
-	Type LifecyclePolicyActionTypeInput `pulumi:"type"`
+	// The storage class to transition the image to. Required when 'type' is 'transition'. 'archive' is the only supported value.
+	TargetStorageClass pulumi.StringPtrInput `pulumi:"targetStorageClass"`
+	// The type of action to take. Either 'expire' or 'transition'.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (LifecyclePolicyActionArgs) ElementType() reflect.Type {
@@ -61,9 +65,14 @@ func (o LifecyclePolicyActionOutput) ToLifecyclePolicyActionOutputWithContext(ct
 	return o
 }
 
-// The type of action to take. Currently only 'expire' is supported.
-func (o LifecyclePolicyActionOutput) Type() LifecyclePolicyActionTypeOutput {
-	return o.ApplyT(func(v LifecyclePolicyAction) LifecyclePolicyActionType { return v.Type }).(LifecyclePolicyActionTypeOutput)
+// The storage class to transition the image to. Required when 'type' is 'transition'. 'archive' is the only supported value.
+func (o LifecyclePolicyActionOutput) TargetStorageClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyAction) *string { return v.TargetStorageClass }).(pulumi.StringPtrOutput)
+}
+
+// The type of action to take. Either 'expire' or 'transition'.
+func (o LifecyclePolicyActionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LifecyclePolicyAction) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Represents an ECR lifecycle policy document.
@@ -337,14 +346,16 @@ func (o LifecyclePolicyRuleArrayOutput) Index(i pulumi.IntInput) LifecyclePolicy
 type LifecyclePolicySelection struct {
 	// The count number to use with the count type.
 	CountNumber int `pulumi:"countNumber"`
-	// The type of count to perform. Either 'imageCountMoreThan' or 'sinceImagePushed'.
-	CountType LifecyclePolicyCountType `pulumi:"countType"`
-	// The unit of time for sinceImagePushed. Either 'days'.
+	// The type of count to perform. Either 'imageCountMoreThan', 'sinceImagePushed', 'sinceImagePulled', or 'sinceImageTransitioned'.
+	CountType string `pulumi:"countType"`
+	// The unit of time for count types based on image age. Required when 'countType' is 'sinceImagePushed', 'sinceImagePulled', or 'sinceImageTransitioned'. The only supported value is 'days'.
 	CountUnit *string `pulumi:"countUnit"`
+	// The image storage class to select. Required when 'countType' is 'sinceImageTransitioned' (must be 'archive'). For 'imageCountMoreThan', 'sinceImagePushed', and 'sinceImagePulled', the only supported value is 'standard'. If omitted, ECR uses 'standard'.
+	StorageClass *string `pulumi:"storageClass"`
 	// A list of image tag prefixes on which to take action.
 	TagPrefixList []string `pulumi:"tagPrefixList"`
 	// The tag status of the image. Either 'tagged', 'untagged', or 'any'.
-	TagStatus LifecyclePolicyTagStatus `pulumi:"tagStatus"`
+	TagStatus string `pulumi:"tagStatus"`
 }
 
 // LifecyclePolicySelectionInput is an input type that accepts LifecyclePolicySelectionArgs and LifecyclePolicySelectionOutput values.
@@ -362,14 +373,16 @@ type LifecyclePolicySelectionInput interface {
 type LifecyclePolicySelectionArgs struct {
 	// The count number to use with the count type.
 	CountNumber pulumi.IntInput `pulumi:"countNumber"`
-	// The type of count to perform. Either 'imageCountMoreThan' or 'sinceImagePushed'.
-	CountType LifecyclePolicyCountTypeInput `pulumi:"countType"`
-	// The unit of time for sinceImagePushed. Either 'days'.
+	// The type of count to perform. Either 'imageCountMoreThan', 'sinceImagePushed', 'sinceImagePulled', or 'sinceImageTransitioned'.
+	CountType pulumi.StringInput `pulumi:"countType"`
+	// The unit of time for count types based on image age. Required when 'countType' is 'sinceImagePushed', 'sinceImagePulled', or 'sinceImageTransitioned'. The only supported value is 'days'.
 	CountUnit pulumi.StringPtrInput `pulumi:"countUnit"`
+	// The image storage class to select. Required when 'countType' is 'sinceImageTransitioned' (must be 'archive'). For 'imageCountMoreThan', 'sinceImagePushed', and 'sinceImagePulled', the only supported value is 'standard'. If omitted, ECR uses 'standard'.
+	StorageClass pulumi.StringPtrInput `pulumi:"storageClass"`
 	// A list of image tag prefixes on which to take action.
 	TagPrefixList pulumi.StringArrayInput `pulumi:"tagPrefixList"`
 	// The tag status of the image. Either 'tagged', 'untagged', or 'any'.
-	TagStatus LifecyclePolicyTagStatusInput `pulumi:"tagStatus"`
+	TagStatus pulumi.StringInput `pulumi:"tagStatus"`
 }
 
 func (LifecyclePolicySelectionArgs) ElementType() reflect.Type {
@@ -404,14 +417,19 @@ func (o LifecyclePolicySelectionOutput) CountNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v LifecyclePolicySelection) int { return v.CountNumber }).(pulumi.IntOutput)
 }
 
-// The type of count to perform. Either 'imageCountMoreThan' or 'sinceImagePushed'.
-func (o LifecyclePolicySelectionOutput) CountType() LifecyclePolicyCountTypeOutput {
-	return o.ApplyT(func(v LifecyclePolicySelection) LifecyclePolicyCountType { return v.CountType }).(LifecyclePolicyCountTypeOutput)
+// The type of count to perform. Either 'imageCountMoreThan', 'sinceImagePushed', 'sinceImagePulled', or 'sinceImageTransitioned'.
+func (o LifecyclePolicySelectionOutput) CountType() pulumi.StringOutput {
+	return o.ApplyT(func(v LifecyclePolicySelection) string { return v.CountType }).(pulumi.StringOutput)
 }
 
-// The unit of time for sinceImagePushed. Either 'days'.
+// The unit of time for count types based on image age. Required when 'countType' is 'sinceImagePushed', 'sinceImagePulled', or 'sinceImageTransitioned'. The only supported value is 'days'.
 func (o LifecyclePolicySelectionOutput) CountUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicySelection) *string { return v.CountUnit }).(pulumi.StringPtrOutput)
+}
+
+// The image storage class to select. Required when 'countType' is 'sinceImageTransitioned' (must be 'archive'). For 'imageCountMoreThan', 'sinceImagePushed', and 'sinceImagePulled', the only supported value is 'standard'. If omitted, ECR uses 'standard'.
+func (o LifecyclePolicySelectionOutput) StorageClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicySelection) *string { return v.StorageClass }).(pulumi.StringPtrOutput)
 }
 
 // A list of image tag prefixes on which to take action.
@@ -420,8 +438,8 @@ func (o LifecyclePolicySelectionOutput) TagPrefixList() pulumi.StringArrayOutput
 }
 
 // The tag status of the image. Either 'tagged', 'untagged', or 'any'.
-func (o LifecyclePolicySelectionOutput) TagStatus() LifecyclePolicyTagStatusOutput {
-	return o.ApplyT(func(v LifecyclePolicySelection) LifecyclePolicyTagStatus { return v.TagStatus }).(LifecyclePolicyTagStatusOutput)
+func (o LifecyclePolicySelectionOutput) TagStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LifecyclePolicySelection) string { return v.TagStatus }).(pulumi.StringOutput)
 }
 
 // Represents an AWS IAM policy document that defines permissions for AWS resources and actions.

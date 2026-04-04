@@ -4,6 +4,7 @@
 
 export const LifecyclePolicyActionType = {
     Expire: "expire",
+    Transition: "transition",
 } as const;
 
 /**
@@ -14,6 +15,8 @@ export type LifecyclePolicyActionType = (typeof LifecyclePolicyActionType)[keyof
 export const LifecyclePolicyCountType = {
     ImageCountMoreThan: "imageCountMoreThan",
     SinceImagePushed: "sinceImagePushed",
+    SinceImagePulled: "sinceImagePulled",
+    SinceImageTransitioned: "sinceImageTransitioned",
 } as const;
 
 /**

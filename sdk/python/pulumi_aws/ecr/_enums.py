@@ -19,6 +19,7 @@ class LifecyclePolicyActionType(_builtins.str, Enum):
     The type of action to take.
     """
     EXPIRE = "expire"
+    TRANSITION = "transition"
 
 
 @pulumi.type_token("aws:ecr/LifecyclePolicyCountType:LifecyclePolicyCountType")
@@ -28,6 +29,8 @@ class LifecyclePolicyCountType(_builtins.str, Enum):
     """
     IMAGE_COUNT_MORE_THAN = "imageCountMoreThan"
     SINCE_IMAGE_PUSHED = "sinceImagePushed"
+    SINCE_IMAGE_PULLED = "sinceImagePulled"
+    SINCE_IMAGE_TRANSITIONED = "sinceImageTransitioned"
 
 
 @pulumi.type_token("aws:ecr/LifecyclePolicyTagStatus:LifecyclePolicyTagStatus")

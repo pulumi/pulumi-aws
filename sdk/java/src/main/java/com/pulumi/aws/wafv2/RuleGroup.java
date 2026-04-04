@@ -166,8 +166,8 @@ import javax.annotation.Nullable;
  *                             .build())
  *                         .build())
  *                     .statement(RuleGroupRuleStatementArgs.builder()
- *                         .notStatement(RuleGroupRuleStatementNotStatementArgs.builder()
- *                             .statements(Map.of("andStatement", Map.of("statements",                             
+ *                         .notStatement(Map.of("statements", Map.of("andStatement", RuleGroupRuleStatementAndStatementArgs.builder()
+ *                             .statements(                            
  *                                 RuleGroupRuleStatementArgs.builder()
  *                                     .geoMatchStatement(RuleGroupRuleStatementGeoMatchStatementArgs.builder()
  *                                         .countryCodes("US")
@@ -191,8 +191,8 @@ import javax.annotation.Nullable;
  *                                                 .type("LOWERCASE")
  *                                                 .build())
  *                                         .build())
- *                                     .build())))
- *                             .build())
+ *                                     .build())
+ *                             .build())))
  *                         .build())
  *                     .visibilityConfig(RuleGroupRuleVisibilityConfigArgs.builder()
  *                         .cloudwatchMetricsEnabled(false)

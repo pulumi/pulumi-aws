@@ -13,10 +13,16 @@ namespace Pulumi.Aws.Ecr.Inputs
     public sealed class LifecyclePolicyActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of action to take. Currently only 'expire' is supported.
+        /// The storage class to transition the image to. Required when 'type' is 'transition'. 'archive' is the only supported value.
+        /// </summary>
+        [Input("targetStorageClass")]
+        public Input<string>? TargetStorageClass { get; set; }
+
+        /// <summary>
+        /// The type of action to take. Either 'expire' or 'transition'.
         /// </summary>
         [Input("type", required: true)]
-        public Input<Pulumi.Aws.Ecr.LifecyclePolicyActionType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.Aws.Ecr.LifecyclePolicyActionType> Type { get; set; } = null!;
 
         public LifecyclePolicyActionGetArgs()
         {
