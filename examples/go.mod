@@ -29,6 +29,17 @@ replace (
 	github.com/pulumi/pulumi-aws/provider/v6 => ../provider
 )
 
+// Pin terraform-plugin and AWS SDK dependencies to match provider/ — Go 1.25's
+// go mod tidy resolves newer versions that are incompatible with the Pulumi forks
+// of terraform-plugin-sdk and terraform-plugin-log.
+replace (
+	github.com/aws/aws-sdk-go-v2/service/networkmanager => github.com/aws/aws-sdk-go-v2/service/networkmanager v1.34.1
+	github.com/hashicorp/terraform-plugin-framework => github.com/hashicorp/terraform-plugin-framework v1.15.0
+	github.com/hashicorp/terraform-plugin-framework-timeouts => github.com/hashicorp/terraform-plugin-framework-timeouts v0.5.0
+	github.com/hashicorp/terraform-plugin-framework-validators => github.com/hashicorp/terraform-plugin-framework-validators v0.17.0
+	github.com/hashicorp/terraform-plugin-go => github.com/hashicorp/terraform-plugin-go v0.28.0
+)
+
 // This replace is copied from upstream/go.mod, and should be maintained only as long as upstream maintains the same replace.
 replace github.com/hashicorp/terraform-plugin-log => github.com/gdavison/terraform-plugin-log v0.0.0-20230928191232-6c653d8ef8fb
 
@@ -410,7 +421,7 @@ require (
 	github.com/hashicorp/terraform-plugin-log v0.10.0 // indirect
 	github.com/hashicorp/terraform-plugin-mux v0.20.0 // indirect
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.40.0 // indirect
-	github.com/hashicorp/terraform-plugin-testing v1.15.0 // indirect
+	github.com/hashicorp/terraform-plugin-testing v1.12.0 // indirect
 	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20220923175450-ca71523cdc36 // indirect
 	github.com/hashicorp/terraform-registry-address v0.4.0 // indirect
 	github.com/hashicorp/terraform-svchost v0.1.1 // indirect
