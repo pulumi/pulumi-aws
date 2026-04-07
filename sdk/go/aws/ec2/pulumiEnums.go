@@ -891,6 +891,75 @@ const (
 	InstanceType_R7iz_Metal_16xl   = InstanceType("r7iz.metal-16xl")
 	InstanceType_R7iz_Metal_32xl   = InstanceType("r7iz.metal-32xl")
 	InstanceType_R7iz_XLarge       = InstanceType("r7iz.xlarge")
+	InstanceType_R8a_12XLarge      = InstanceType("r8a.12xlarge")
+	InstanceType_R8a_16XLarge      = InstanceType("r8a.16xlarge")
+	InstanceType_R8a_24XLarge      = InstanceType("r8a.24xlarge")
+	InstanceType_R8a_2XLarge       = InstanceType("r8a.2xlarge")
+	InstanceType_R8a_48XLarge      = InstanceType("r8a.48xlarge")
+	InstanceType_R8a_4XLarge       = InstanceType("r8a.4xlarge")
+	InstanceType_R8a_8XLarge       = InstanceType("r8a.8xlarge")
+	InstanceType_R8a_Large         = InstanceType("r8a.large")
+	InstanceType_R8a_Medium        = InstanceType("r8a.medium")
+	InstanceType_R8a_Metal_24xl    = InstanceType("r8a.metal-24xl")
+	InstanceType_R8a_Metal_48xl    = InstanceType("r8a.metal-48xl")
+	InstanceType_R8a_XLarge        = InstanceType("r8a.xlarge")
+	InstanceType_R8g_12XLarge      = InstanceType("r8g.12xlarge")
+	InstanceType_R8g_16XLarge      = InstanceType("r8g.16xlarge")
+	InstanceType_R8g_24XLarge      = InstanceType("r8g.24xlarge")
+	InstanceType_R8g_2XLarge       = InstanceType("r8g.2xlarge")
+	InstanceType_R8g_48XLarge      = InstanceType("r8g.48xlarge")
+	InstanceType_R8g_4XLarge       = InstanceType("r8g.4xlarge")
+	InstanceType_R8g_8XLarge       = InstanceType("r8g.8xlarge")
+	InstanceType_R8g_Large         = InstanceType("r8g.large")
+	InstanceType_R8g_Medium        = InstanceType("r8g.medium")
+	InstanceType_R8g_Metal_24xl    = InstanceType("r8g.metal-24xl")
+	InstanceType_R8g_Metal_48xl    = InstanceType("r8g.metal-48xl")
+	InstanceType_R8g_XLarge        = InstanceType("r8g.xlarge")
+	InstanceType_R8gd_12XLarge     = InstanceType("r8gd.12xlarge")
+	InstanceType_R8gd_16XLarge     = InstanceType("r8gd.16xlarge")
+	InstanceType_R8gd_24XLarge     = InstanceType("r8gd.24xlarge")
+	InstanceType_R8gd_2XLarge      = InstanceType("r8gd.2xlarge")
+	InstanceType_R8gd_48XLarge     = InstanceType("r8gd.48xlarge")
+	InstanceType_R8gd_4XLarge      = InstanceType("r8gd.4xlarge")
+	InstanceType_R8gd_8XLarge      = InstanceType("r8gd.8xlarge")
+	InstanceType_R8gd_Large        = InstanceType("r8gd.large")
+	InstanceType_R8gd_Medium       = InstanceType("r8gd.medium")
+	InstanceType_R8gd_Metal_24xl   = InstanceType("r8gd.metal-24xl")
+	InstanceType_R8gd_Metal_48xl   = InstanceType("r8gd.metal-48xl")
+	InstanceType_R8gd_XLarge       = InstanceType("r8gd.xlarge")
+	InstanceType_R8i_flex_12XLarge = InstanceType("r8i-flex.12xlarge")
+	InstanceType_R8i_flex_16XLarge = InstanceType("r8i-flex.16xlarge")
+	InstanceType_R8i_flex_2XLarge  = InstanceType("r8i-flex.2xlarge")
+	InstanceType_R8i_flex_4XLarge  = InstanceType("r8i-flex.4xlarge")
+	InstanceType_R8i_flex_8XLarge  = InstanceType("r8i-flex.8xlarge")
+	InstanceType_R8i_flex_Large    = InstanceType("r8i-flex.large")
+	InstanceType_R8i_flex_XLarge   = InstanceType("r8i-flex.xlarge")
+	InstanceType_R8i_12XLarge      = InstanceType("r8i.12xlarge")
+	InstanceType_R8i_16XLarge      = InstanceType("r8i.16xlarge")
+	InstanceType_R8i_24XLarge      = InstanceType("r8i.24xlarge")
+	InstanceType_R8i_2XLarge       = InstanceType("r8i.2xlarge")
+	InstanceType_R8i_32XLarge      = InstanceType("r8i.32xlarge")
+	InstanceType_R8i_48XLarge      = InstanceType("r8i.48xlarge")
+	InstanceType_R8i_4XLarge       = InstanceType("r8i.4xlarge")
+	InstanceType_R8i_8XLarge       = InstanceType("r8i.8xlarge")
+	InstanceType_R8i_96XLarge      = InstanceType("r8i.96xlarge")
+	InstanceType_R8i_Large         = InstanceType("r8i.large")
+	InstanceType_R8i_Metal_48xl    = InstanceType("r8i.metal-48xl")
+	InstanceType_R8i_Metal_96xl    = InstanceType("r8i.metal-96xl")
+	InstanceType_R8i_XLarge        = InstanceType("r8i.xlarge")
+	InstanceType_R8id_12XLarge     = InstanceType("r8id.12xlarge")
+	InstanceType_R8id_16XLarge     = InstanceType("r8id.16xlarge")
+	InstanceType_R8id_24XLarge     = InstanceType("r8id.24xlarge")
+	InstanceType_R8id_2XLarge      = InstanceType("r8id.2xlarge")
+	InstanceType_R8id_32XLarge     = InstanceType("r8id.32xlarge")
+	InstanceType_R8id_48XLarge     = InstanceType("r8id.48xlarge")
+	InstanceType_R8id_4XLarge      = InstanceType("r8id.4xlarge")
+	InstanceType_R8id_8XLarge      = InstanceType("r8id.8xlarge")
+	InstanceType_R8id_96XLarge     = InstanceType("r8id.96xlarge")
+	InstanceType_R8id_Large        = InstanceType("r8id.large")
+	InstanceType_R8id_Metal_48xl   = InstanceType("r8id.metal-48xl")
+	InstanceType_R8id_Metal_96xl   = InstanceType("r8id.metal-96xl")
+	InstanceType_R8id_XLarge       = InstanceType("r8id.xlarge")
 	InstanceType_T1_Micro          = InstanceType("t1.micro")
 	InstanceType_T2_2XLarge        = InstanceType("t2.2xlarge")
 	InstanceType_T2_Large          = InstanceType("t2.large")
@@ -1800,6 +1869,75 @@ func (o InstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 //	InstanceType_R7iz_Metal_16xl
 //	InstanceType_R7iz_Metal_32xl
 //	InstanceType_R7iz_XLarge
+//	InstanceType_R8a_12XLarge
+//	InstanceType_R8a_16XLarge
+//	InstanceType_R8a_24XLarge
+//	InstanceType_R8a_2XLarge
+//	InstanceType_R8a_48XLarge
+//	InstanceType_R8a_4XLarge
+//	InstanceType_R8a_8XLarge
+//	InstanceType_R8a_Large
+//	InstanceType_R8a_Medium
+//	InstanceType_R8a_Metal_24xl
+//	InstanceType_R8a_Metal_48xl
+//	InstanceType_R8a_XLarge
+//	InstanceType_R8g_12XLarge
+//	InstanceType_R8g_16XLarge
+//	InstanceType_R8g_24XLarge
+//	InstanceType_R8g_2XLarge
+//	InstanceType_R8g_48XLarge
+//	InstanceType_R8g_4XLarge
+//	InstanceType_R8g_8XLarge
+//	InstanceType_R8g_Large
+//	InstanceType_R8g_Medium
+//	InstanceType_R8g_Metal_24xl
+//	InstanceType_R8g_Metal_48xl
+//	InstanceType_R8g_XLarge
+//	InstanceType_R8gd_12XLarge
+//	InstanceType_R8gd_16XLarge
+//	InstanceType_R8gd_24XLarge
+//	InstanceType_R8gd_2XLarge
+//	InstanceType_R8gd_48XLarge
+//	InstanceType_R8gd_4XLarge
+//	InstanceType_R8gd_8XLarge
+//	InstanceType_R8gd_Large
+//	InstanceType_R8gd_Medium
+//	InstanceType_R8gd_Metal_24xl
+//	InstanceType_R8gd_Metal_48xl
+//	InstanceType_R8gd_XLarge
+//	InstanceType_R8i_flex_12XLarge
+//	InstanceType_R8i_flex_16XLarge
+//	InstanceType_R8i_flex_2XLarge
+//	InstanceType_R8i_flex_4XLarge
+//	InstanceType_R8i_flex_8XLarge
+//	InstanceType_R8i_flex_Large
+//	InstanceType_R8i_flex_XLarge
+//	InstanceType_R8i_12XLarge
+//	InstanceType_R8i_16XLarge
+//	InstanceType_R8i_24XLarge
+//	InstanceType_R8i_2XLarge
+//	InstanceType_R8i_32XLarge
+//	InstanceType_R8i_48XLarge
+//	InstanceType_R8i_4XLarge
+//	InstanceType_R8i_8XLarge
+//	InstanceType_R8i_96XLarge
+//	InstanceType_R8i_Large
+//	InstanceType_R8i_Metal_48xl
+//	InstanceType_R8i_Metal_96xl
+//	InstanceType_R8i_XLarge
+//	InstanceType_R8id_12XLarge
+//	InstanceType_R8id_16XLarge
+//	InstanceType_R8id_24XLarge
+//	InstanceType_R8id_2XLarge
+//	InstanceType_R8id_32XLarge
+//	InstanceType_R8id_48XLarge
+//	InstanceType_R8id_4XLarge
+//	InstanceType_R8id_8XLarge
+//	InstanceType_R8id_96XLarge
+//	InstanceType_R8id_Large
+//	InstanceType_R8id_Metal_48xl
+//	InstanceType_R8id_Metal_96xl
+//	InstanceType_R8id_XLarge
 //	InstanceType_T1_Micro
 //	InstanceType_T2_2XLarge
 //	InstanceType_T2_Large
