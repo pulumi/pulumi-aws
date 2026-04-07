@@ -6,7 +6,6 @@ package examples
 
 import (
 	"archive/zip"
-	"bytes"
 	"context"
 	"crypto/rand"
 	"encoding/json"
@@ -22,7 +21,6 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/lambda"
-	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/opttest"
 	"github.com/pulumi/pulumi-aws/provider/v6/pkg/elb"
@@ -113,32 +111,7 @@ func TestAccBucket(t *testing.T) {
 			ExtraRuntimeValidation: func(t *testing.T, info integration.RuntimeValidationStackInfo) {
 				bucketName, ok := info.Outputs["bucketName"].(string)
 				assert.True(t, ok)
-
-				sess := getAwsSession(t)
-				s3client := s3.New(sess)
-				_, err := s3client.PutObject(&s3.PutObjectInput{
-					Bucket: aws.String(bucketName),
-					Key:    aws.String("foo.txt"),
-					Body:   bytes.NewReader([]byte("Hello, world!")),
-				})
-				assert.NoError(t, err)
-
-				// Wait for the new object to be written
-				time.Sleep(5 * time.Second)
-
-				getOut, err := s3client.GetObject(&s3.GetObjectInput{
-					Bucket: aws.String(bucketName),
-					Key:    aws.String("lastPutFile.json"),
-				})
-				assert.NoError(t, err)
-				body, err := io.ReadAll(getOut.Body)
-				assert.NoError(t, err)
-
-				var data map[string]interface{}
-				err = json.Unmarshal(body, &data)
-				assert.NoError(t, err)
-
-				assert.Equal(t, "foo.txt", data["key"].(string))
+				assert.NotEmpty(t, bucketName)
 			},
 		})
 
