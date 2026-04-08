@@ -22,7 +22,7 @@ import (
 
 // extraTypes augment the types defined by the upstream AWS provider
 var extraTypes = map[string]schema.ComplexTypeSpec{
-	"aws:index/Region:Region": {
+	"aws:index:Region": {
 		ObjectTypeSpec: schema.ObjectTypeSpec{
 			Type:        "string",
 			Description: "A Region represents any valid Amazon region that may be targeted with deployments.",
