@@ -1,0 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: pgavlin <pgavlin@pulumi.com>
+Date: Tue, 31 Mar 2026 00:00:00 +0000
+Subject: [PATCH] Fix Go 1.25: tlskyber renamed to tlsmlkem
+
+
+diff --git a/go.mod b/go.mod
+index 70a6afbed3..3862fb6def 100644
+--- a/go.mod
++++ b/go.mod
+@@ -4,7 +4,7 @@ go 1.23.10
+
+ // Disable experimental post-quantum key exchange mechanism X25519Kyber768Draft00
+ // This was causing errors with AWS Network Firewall
+-godebug tlskyber=0
++godebug tlsmlkem=0
+
+ require (
+ 	github.com/ProtonMail/go-crypto v1.2.0

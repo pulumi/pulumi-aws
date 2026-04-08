@@ -17,7 +17,6 @@ import * as pulumi from "@pulumi/pulumi";
 // https://github.com/pulumi/pulumi-aws/issues/772
 import { Bucket } from "@pulumi/aws/s3";
 import * as aws from "@pulumi/aws";
-import * as s3 from "@aws-sdk/client-s3";
 
 const config = new pulumi.Config("aws");
 const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
@@ -34,25 +33,9 @@ const bucket = new Bucket("testbucket", {
 }, providerOpts);
 
 bucket.onObjectCreated("bucket-callback", async (event) => {
-    const s3Client = new s3.S3Client({});
-    const recordFile = "lastPutFile.json";
     const records = event.Records || [];
     for (const record of records) {
-        const key = record.s3.object.key;
-
-        if (key !== recordFile) {
-            // Construct an event arguments object.
-            const args = {
-                key: record.s3.object.key,
-                size: record.s3.object.size,
-                eventTime: record.eventTime,
-            };
-            const res = await s3Client.send(new s3.PutObjectCommand({
-                Bucket: bucket.id.get(),
-                Key: recordFile,
-                Body: JSON.stringify(args),
-            }));
-        }
+        console.log(`Object created: ${record.s3.object.key} (${record.s3.object.size} bytes)`);
     }
 });
 
