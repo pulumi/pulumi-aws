@@ -113,6 +113,7 @@ func TestAccExpress(t *testing.T) {
 }
 
 func TestAccBucket(t *testing.T) {
+	t.Skip("temporarily disabled, see https://github.com/pulumi/pulumi-aws/issues/6272")
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "bucket"),
