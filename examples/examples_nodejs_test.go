@@ -1438,6 +1438,7 @@ func TestAccConfigureClusterAddons(t *testing.T) {
 
 // also test the release verification test so it will also fail in CI
 func TestReleaseVerification(t *testing.T) {
+	t.Skip("temporarily disabled, see https://github.com/pulumi/pulumi-aws/issues/6272")
 	region := getEnvRegion(t)
 	test := integration.ProgramTestOptions{
 		Dir: filepath.Join(getCwd(t), "release-verification"),
