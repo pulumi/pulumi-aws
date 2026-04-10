@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Cognito
     ///     {
     ///         Name = "client",
     ///         UserPoolId = example.Id,
-    ///         SupportedIdentityProviders = Std.Compact.Invoke(new()
+    ///         SupportedIdentityProviders = Std.Index.Compact.Invoke(new()
     ///         {
     ///             Input = new[]
     ///             {

@@ -31,7 +31,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			cfg := config.New(ctx, "")
-//			localGatewayId := cfg.RequireObject("localGatewayId")
+//			var localGatewayId interface{}
+//			cfg.RequireObject("localGatewayId", &localGatewayId)
 //			_, err := ec2.GetLocalGateway(ctx, &ec2.GetLocalGatewayArgs{
 //				Id: pulumi.StringRef(localGatewayId),
 //			}, nil)

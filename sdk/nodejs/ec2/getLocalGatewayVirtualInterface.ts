@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * const example = .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.ec2.getLocalGatewayVirtualInterface({
  *     id: __value,
- * }) }));
+ * }) }), {});
  * ```
  */
 export function getLocalGatewayVirtualInterface(args?: GetLocalGatewayVirtualInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayVirtualInterfaceResult> {
@@ -99,7 +99,7 @@ export interface GetLocalGatewayVirtualInterfaceResult {
  *
  * const example = .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.ec2.getLocalGatewayVirtualInterface({
  *     id: __value,
- * }) }));
+ * }) }), {});
  * ```
  */
 export function getLocalGatewayVirtualInterfaceOutput(args?: GetLocalGatewayVirtualInterfaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalGatewayVirtualInterfaceResult> {

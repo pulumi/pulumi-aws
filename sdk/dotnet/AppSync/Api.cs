@@ -78,7 +78,7 @@ namespace Pulumi.Aws.AppSync
     ///         Name = "example-user-pool",
     ///     });
     /// 
-    ///     var current = Aws.GetRegion.Invoke();
+    ///     var current = Aws.Index.GetRegion.Invoke();
     /// 
     ///     var exampleApi = new Aws.AppSync.Api("example", new()
     ///     {

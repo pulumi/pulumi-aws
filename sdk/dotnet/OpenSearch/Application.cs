@@ -127,9 +127,9 @@ namespace Pulumi.Aws.OpenSearch
     ///     // Data sources for account and region information
     ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
     /// 
-    ///     var current = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
     /// 
-    ///     var currentGetRegion = Aws.GetRegion.Invoke();
+    ///     var currentGetRegion = Aws.Index.GetRegion.Invoke();
     /// 
     ///     // IAM Policy for OpenSearch Application Identity Center Integration
     ///     var opensearchIdentityCenter = new Aws.Iam.Policy("opensearch_identity_center", new()

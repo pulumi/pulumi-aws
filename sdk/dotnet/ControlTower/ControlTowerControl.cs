@@ -24,7 +24,7 @@ namespace Pulumi.Aws.ControlTower
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.GetRegion.Invoke();
+    ///     var current = Aws.Index.GetRegion.Invoke();
     /// 
     ///     var example = Aws.Organizations.GetOrganization.Invoke();
     /// 

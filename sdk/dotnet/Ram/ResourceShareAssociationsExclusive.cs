@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Ram
     ///         exampleSubnet.Add(new Aws.Ec2.Subnet($"example-{range.Value}", new()
     ///         {
     ///             VpcId = exampleVpc.Id,
-    ///             CidrBlock = exampleVpc.CidrBlock.Apply(cidrBlock =&gt; Std.Cidrsubnet.Invoke(new()
+    ///             CidrBlock = exampleVpc.CidrBlock.Apply(cidrBlock =&gt; Std.Index.Cidrsubnet.Invoke(new()
     ///             {
     ///                 Input = cidrBlock,
     ///                 Newbits = 8,

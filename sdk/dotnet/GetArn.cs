@@ -24,7 +24,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var dbInstance = Aws.GetArn.Invoke(new()
+        ///     var dbInstance = Aws.Index.GetArn.Invoke(new()
         ///     {
         ///         Arn = "arn:aws:rds:eu-west-1:123456789012:db:mysql-db",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var dbInstance = Aws.GetArn.Invoke(new()
+        ///     var dbInstance = Aws.Index.GetArn.Invoke(new()
         ///     {
         ///         Arn = "arn:aws:rds:eu-west-1:123456789012:db:mysql-db",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var dbInstance = Aws.GetArn.Invoke(new()
+        ///     var dbInstance = Aws.Index.GetArn.Invoke(new()
         ///     {
         ///         Arn = "arn:aws:rds:eu-west-1:123456789012:db:mysql-db",
         ///     });

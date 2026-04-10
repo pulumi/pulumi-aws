@@ -37,7 +37,7 @@ namespace Pulumi.Aws.RolesAnywhere
     ///         },
     ///     });
     /// 
-    ///     var current = Aws.GetPartition.Invoke();
+    ///     var current = Aws.Index.GetPartition.Invoke();
     /// 
     ///     var test = new Aws.Acmpca.Certificate("test", new()
     ///     {

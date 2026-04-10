@@ -35,7 +35,7 @@ namespace Pulumi.Aws.OpenSearch
     ///         Bucket = myOpensearchPackages.BucketName,
     ///         Key = "example.txt",
     ///         Source = new FileAsset("./example.txt"),
-    ///         Etag = Std.Filemd5.Invoke(new()
+    ///         Etag = Std.Index.Filemd5.Invoke(new()
     ///         {
     ///             Input = "./example.txt",
     ///         }).Apply(invoke =&gt; invoke.Result),

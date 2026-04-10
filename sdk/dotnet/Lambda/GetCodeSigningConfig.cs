@@ -101,7 +101,7 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     var requiredProfile = "arn:aws:signer:us-west-2:123456789012:/signing-profiles/MyProfile";
         /// 
-        ///     var profileAllowed = (await Std.Contains.InvokeAsync(new()
+        ///     var profileAllowed = (await Std.Index.Contains.InvokeAsync(new()
         ///     {
         ///         Input = allowedProfiles,
         ///         Element = requiredProfile,
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     var requiredProfile = "arn:aws:signer:us-west-2:123456789012:/signing-profiles/MyProfile";
         /// 
-        ///     var profileAllowed = (await Std.Contains.InvokeAsync(new()
+        ///     var profileAllowed = (await Std.Index.Contains.InvokeAsync(new()
         ///     {
         ///         Input = allowedProfiles,
         ///         Element = requiredProfile,
@@ -443,7 +443,7 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     var requiredProfile = "arn:aws:signer:us-west-2:123456789012:/signing-profiles/MyProfile";
         /// 
-        ///     var profileAllowed = (await Std.Contains.InvokeAsync(new()
+        ///     var profileAllowed = (await Std.Index.Contains.InvokeAsync(new()
         ///     {
         ///         Input = allowedProfiles,
         ///         Element = requiredProfile,

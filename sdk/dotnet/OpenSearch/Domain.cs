@@ -72,9 +72,9 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var config = new Config();
     ///     var domain = config.Get("domain") ?? "tf-test";
-    ///     var current = Aws.GetRegion.Invoke();
+    ///     var current = Aws.Index.GetRegion.Invoke();
     /// 
-    ///     var currentGetCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    ///     var currentGetCallerIdentity = Aws.Index.GetCallerIdentity.Invoke();
     /// 
     ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
@@ -235,9 +235,9 @@ namespace Pulumi.Aws.OpenSearch
     ///         },
     ///     });
     /// 
-    ///     var current = Aws.GetRegion.Invoke();
+    ///     var current = Aws.Index.GetRegion.Invoke();
     /// 
-    ///     var currentGetCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    ///     var currentGetCallerIdentity = Aws.Index.GetCallerIdentity.Invoke();
     /// 
     ///     var exampleSecurityGroup = new Aws.Ec2.SecurityGroup("example", new()
     ///     {

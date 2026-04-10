@@ -92,7 +92,8 @@ import (
 //				Body: pulumi.String(std.TrimspaceOutput(ctx, std.TrimspaceOutputArgs{
 //					Input: examplePrivateKey.PublicKeyOpenssh,
 //				}, nil).ApplyT(func(invoke std.TrimspaceResult) (*string, error) {
-//					return invoke.Result, nil
+//					val := invoke.Result
+//					return &val, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

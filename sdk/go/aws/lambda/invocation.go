@@ -69,7 +69,8 @@ import (
 // ctx.Export("initializationResult", std.JsondecodeOutput(ctx, std.JsondecodeOutputArgs{
 // Input: exampleInvocation.Result,
 // }, nil).ApplyT(func(invoke std.JsondecodeResult) (*interface{}, error) {
-// return invoke.Result.Status, nil
+// val := invoke.Result.Status
+// return &val, nil
 // }).(pulumi.Interface{}PtrOutput))
 // return nil
 // })
@@ -115,9 +116,10 @@ import (
 //				Triggers: pulumi.StringMap{
 //					"function_version": pulumi.Any(exampleAwsLambdaFunction.Version),
 //					"config_hash": pulumi.String(std.Sha256Output(ctx, std.Sha256OutputArgs{
-//						Input: pulumi.String(json0),
+//						Input: json0,
 //					}, nil).ApplyT(func(invoke std.Sha256Result) (*string, error) {
-//						return invoke.Result, nil
+//						val := invoke.Result
+//						return &val, nil
 //					}).(pulumi.StringPtrOutput)),
 //				},
 //				Input: pulumi.String(pulumi.String(json1)),

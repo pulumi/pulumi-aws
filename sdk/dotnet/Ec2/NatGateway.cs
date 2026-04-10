@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var available = Aws.GetAvailabilityZones.Invoke();
+    ///     var available = Aws.Index.GetAvailabilityZones.Invoke();
     /// 
     ///     var example = new Aws.Ec2.Vpc("example", new()
     ///     {
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var available = Aws.GetAvailabilityZones.Invoke();
+    ///     var available = Aws.Index.GetAvailabilityZones.Invoke();
     /// 
     ///     var example = new Aws.Ec2.Vpc("example", new()
     ///     {

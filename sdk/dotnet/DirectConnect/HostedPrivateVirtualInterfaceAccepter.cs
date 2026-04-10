@@ -23,7 +23,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var accepter = Aws.GetCallerIdentity.Invoke();
+    ///     var accepter = Aws.Index.GetCallerIdentity.Invoke();
     /// 
     ///     // Accepter's side of the VIF.
     ///     var vpnGw = new Aws.Ec2.VpnGateway("vpn_gw");

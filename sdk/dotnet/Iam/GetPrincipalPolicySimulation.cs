@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.GetCallerIdentity.Invoke();
+        ///     var current = Aws.Index.GetCallerIdentity.Invoke();
         /// 
         ///     var s3ObjectAccess = Aws.Iam.GetPrincipalPolicySimulation.Invoke(new()
         ///     {
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.GetCallerIdentity.Invoke();
+        ///     var current = Aws.Index.GetCallerIdentity.Invoke();
         /// 
         ///     var example = new Aws.Iam.User("example", new()
         ///     {
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.GetCallerIdentity.Invoke();
+        ///     var current = Aws.Index.GetCallerIdentity.Invoke();
         /// 
         ///     var s3ObjectAccess = Aws.Iam.GetPrincipalPolicySimulation.Invoke(new()
         ///     {
@@ -248,7 +248,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.GetCallerIdentity.Invoke();
+        ///     var current = Aws.Index.GetCallerIdentity.Invoke();
         /// 
         ///     var example = new Aws.Iam.User("example", new()
         ///     {
@@ -349,7 +349,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.GetCallerIdentity.Invoke();
+        ///     var current = Aws.Index.GetCallerIdentity.Invoke();
         /// 
         ///     var s3ObjectAccess = Aws.Iam.GetPrincipalPolicySimulation.Invoke(new()
         ///     {
@@ -406,7 +406,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.GetCallerIdentity.Invoke();
+        ///     var current = Aws.Index.GetCallerIdentity.Invoke();
         /// 
         ///     var example = new Aws.Iam.User("example", new()
         ///     {

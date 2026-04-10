@@ -851,7 +851,8 @@ import (
 //					Search:  pulumi.String("apis"),
 //					Replace: pulumi.String("endpoints/graphql-api"),
 //				}, nil).ApplyT(func(invoke std.ReplaceResult) (*string, error) {
-//					return invoke.Result, nil
+//					val := invoke.Result
+//					return &val, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Rule:    invokeAppsyncMutation.ID(),
 //				RoleArn: appsyncMutationRole.Arn,

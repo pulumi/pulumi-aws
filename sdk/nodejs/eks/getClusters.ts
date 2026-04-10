@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     input: example.names,
  * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.eks.getCluster({
  *     name: __value,
- * }) })));
+ * }) }), {}));
  * ```
  */
 export function getClusters(args?: GetClustersArgs, opts?: pulumi.InvokeOptions): Promise<GetClustersResult> {
@@ -69,7 +69,7 @@ export interface GetClustersResult {
  *     input: example.names,
  * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.eks.getCluster({
  *     name: __value,
- * }) })));
+ * }) }), {}));
  * ```
  */
 export function getClustersOutput(args?: GetClustersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClustersResult> {

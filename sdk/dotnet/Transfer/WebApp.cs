@@ -24,11 +24,11 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
     /// 
-    ///     var currentGetRegion = Aws.GetRegion.Invoke();
+    ///     var currentGetRegion = Aws.Index.GetRegion.Invoke();
     /// 
-    ///     var currentGetPartition = Aws.GetPartition.Invoke();
+    ///     var currentGetPartition = Aws.Index.GetPartition.Invoke();
     /// 
     ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
     /// 

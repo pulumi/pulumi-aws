@@ -36,7 +36,7 @@ namespace Pulumi.Aws.EcrPublic
     ///                 "ARM",
     ///             },
     ///             Description = "Description",
-    ///             LogoImageBlob = Std.Filebase64.Invoke(new()
+    ///             LogoImageBlob = Std.Index.Filebase64.Invoke(new()
     ///             {
     ///                 Input = png,
     ///             }).Apply(invoke =&gt; invoke.Result),

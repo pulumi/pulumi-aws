@@ -354,7 +354,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     Std.Replace.Invoke(new()
+    ///                     Std.Index.Replace.Invoke(new()
     ///                     {
     ///                         Text = taskName.Arn,
     ///                         Search = "/:\\d+$/",
@@ -795,7 +795,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     ///     var invokeAppsyncMutationEventTarget = new Aws.CloudWatch.EventTarget("invoke_appsync_mutation", new()
     ///     {
-    ///         Arn = Std.Replace.Invoke(new()
+    ///         Arn = Std.Index.Replace.Invoke(new()
     ///         {
     ///             Text = graphql_api.Arn,
     ///             Search = "apis",

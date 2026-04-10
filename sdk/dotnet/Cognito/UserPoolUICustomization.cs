@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Cognito
     ///     {
     ///         ClientId = exampleUserPoolClient.Id,
     ///         Css = ".label-customizable {font-weight: 400;}",
-    ///         ImageFile = Std.Filebase64.Invoke(new()
+    ///         ImageFile = Std.Index.Filebase64.Invoke(new()
     ///         {
     ///             Input = "logo.png",
     ///         }).Apply(invoke =&gt; invoke.Result),
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Cognito
     ///     var exampleUserPoolUICustomization = new Aws.Cognito.UserPoolUICustomization("example", new()
     ///     {
     ///         Css = ".label-customizable {font-weight: 400;}",
-    ///         ImageFile = Std.Filebase64.Invoke(new()
+    ///         ImageFile = Std.Index.Filebase64.Invoke(new()
     ///         {
     ///             Input = "logo.png",
     ///         }).Apply(invoke =&gt; invoke.Result),

@@ -36,7 +36,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			cfg := config.New(ctx, "")
-//			securityGroupId := cfg.RequireObject("securityGroupId")
+//			var securityGroupId interface{}
+//			cfg.RequireObject("securityGroupId", &securityGroupId)
 //			selected, err := ec2.LookupSecurityGroup(ctx, &ec2.LookupSecurityGroupArgs{
 //				Id: pulumi.StringRef(securityGroupId),
 //			}, nil)

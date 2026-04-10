@@ -26,9 +26,9 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.GetRegion.Invoke();
+        ///     var current = Aws.Index.GetRegion.Invoke();
         /// 
-        ///     var test = Aws.GetService.Invoke(new()
+        ///     var test = Aws.Index.GetService.Invoke(new()
         ///     {
         ///         Region = current.Apply(getRegionResult =&gt; getRegionResult.Region),
         ///         ServiceId = "ec2",
@@ -47,7 +47,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var s3 = Aws.GetService.Invoke(new()
+        ///     var s3 = Aws.Index.GetService.Invoke(new()
         ///     {
         ///         ReverseDnsName = "cn.com.amazonaws.cn-north-1.s3",
         ///     });
@@ -65,7 +65,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var s3 = Aws.GetService.Invoke(new()
+        ///     var s3 = Aws.Index.GetService.Invoke(new()
         ///     {
         ///         ReverseDnsName = "com.amazonaws.us-gov-west-1.waf",
         ///     });
@@ -91,9 +91,9 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.GetRegion.Invoke();
+        ///     var current = Aws.Index.GetRegion.Invoke();
         /// 
-        ///     var test = Aws.GetService.Invoke(new()
+        ///     var test = Aws.Index.GetService.Invoke(new()
         ///     {
         ///         Region = current.Apply(getRegionResult =&gt; getRegionResult.Region),
         ///         ServiceId = "ec2",
@@ -112,7 +112,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var s3 = Aws.GetService.Invoke(new()
+        ///     var s3 = Aws.Index.GetService.Invoke(new()
         ///     {
         ///         ReverseDnsName = "cn.com.amazonaws.cn-north-1.s3",
         ///     });
@@ -130,7 +130,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var s3 = Aws.GetService.Invoke(new()
+        ///     var s3 = Aws.Index.GetService.Invoke(new()
         ///     {
         ///         ReverseDnsName = "com.amazonaws.us-gov-west-1.waf",
         ///     });
@@ -156,9 +156,9 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.GetRegion.Invoke();
+        ///     var current = Aws.Index.GetRegion.Invoke();
         /// 
-        ///     var test = Aws.GetService.Invoke(new()
+        ///     var test = Aws.Index.GetService.Invoke(new()
         ///     {
         ///         Region = current.Apply(getRegionResult =&gt; getRegionResult.Region),
         ///         ServiceId = "ec2",
@@ -177,7 +177,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var s3 = Aws.GetService.Invoke(new()
+        ///     var s3 = Aws.Index.GetService.Invoke(new()
         ///     {
         ///         ReverseDnsName = "cn.com.amazonaws.cn-north-1.s3",
         ///     });
@@ -195,7 +195,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var s3 = Aws.GetService.Invoke(new()
+        ///     var s3 = Aws.Index.GetService.Invoke(new()
         ///     {
         ///         ReverseDnsName = "com.amazonaws.us-gov-west-1.waf",
         ///     });

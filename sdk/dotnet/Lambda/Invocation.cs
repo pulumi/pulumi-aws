@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     ///     return new Dictionary&lt;string, object?&gt;
     ///     {
-    ///         ["initializationResult"] = Std.Jsondecode.Invoke(new()
+    ///         ["initializationResult"] = Std.Index.Jsondecode.Invoke(new()
     ///         {
     ///             Input = exampleInvocation.Result,
     ///         }).Apply(invoke =&gt; invoke.Result?.Status),
@@ -83,12 +83,12 @@ namespace Pulumi.Aws.Lambda
     ///         Triggers = 
     ///         {
     ///             { "function_version", exampleAwsLambdaFunction.Version },
-    ///             { "config_hash", Std.Sha256.Invoke(new()
+    ///             { "config_hash", Std.Index.Sha256.Invoke(new()
     ///             {
     ///                 Input = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///                 {
     ///                     ["environment"] = environment,
-    ///                     ["timestamp"] = Std.Timestamp.Invoke().Apply(invoke =&gt; invoke.Result),
+    ///                     ["timestamp"] = Std.Index.Timestamp.Invoke().Apply(invoke =&gt; invoke.Result),
     ///                 }),
     ///             }).Apply(invoke =&gt; invoke.Result) },
     ///         },

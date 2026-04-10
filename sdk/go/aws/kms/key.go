@@ -103,7 +103,7 @@ import (
 //				Description:          pulumi.String("An example symmetric encryption KMS key"),
 //				EnableKeyRotation:    pulumi.Bool(true),
 //				DeletionWindowInDays: pulumi.Int(20),
-//				Policy:               pulumi.String(json0),
+//				Policy:               json0,
 //			})
 //			if err != nil {
 //				return err
@@ -165,7 +165,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = kms.NewKeyPolicy(ctx, "example", &kms.KeyPolicyArgs{
 //				KeyId:  example.ID(),
-//				Policy: pulumi.String(json0),
+//				Policy: json0,
 //			})
 //			if err != nil {
 //				return err
@@ -257,7 +257,7 @@ import (
 //				CustomerMasterKeySpec: pulumi.String("RSA_3072"),
 //				KeyUsage:              pulumi.String("SIGN_VERIFY"),
 //				EnableKeyRotation:     pulumi.Bool(false),
-//				Policy:                pulumi.String(json0),
+//				Policy:                json0,
 //			})
 //			if err != nil {
 //				return err
@@ -349,7 +349,7 @@ import (
 //				CustomerMasterKeySpec: pulumi.String("HMAC_384"),
 //				KeyUsage:              pulumi.String("GENERATE_VERIFY_MAC"),
 //				EnableKeyRotation:     pulumi.Bool(false),
-//				Policy:                pulumi.String(json0),
+//				Policy:                json0,
 //			})
 //			if err != nil {
 //				return err
@@ -445,7 +445,7 @@ import (
 //				MultiRegion:          pulumi.Bool(true),
 //				EnableKeyRotation:    pulumi.Bool(true),
 //				DeletionWindowInDays: pulumi.Int(10),
-//				Policy:               pulumi.String(json0),
+//				Policy:               json0,
 //			})
 //			if err != nil {
 //				return err

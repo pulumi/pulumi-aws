@@ -202,7 +202,8 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // cfg := config.New(ctx, "")
-// vpc := cfg.RequireObject("vpc")
+// var vpc interface{}
+// cfg.RequireObject("vpc", &vpc)
 // domain := "tf-test";
 // if param := cfg.Get("domain"); param != ""{
 // domain = param

@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Iam
     ///     var testCert = new Aws.Iam.SigningCertificate("test_cert", new()
     ///     {
     ///         Username = "some_test_cert",
-    ///         CertificateBody = Std.File.Invoke(new()
+    ///         CertificateBody = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "self-ca-cert.pem",
     ///         }).Apply(invoke =&gt; invoke.Result),

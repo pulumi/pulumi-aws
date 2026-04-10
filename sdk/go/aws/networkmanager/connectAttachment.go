@@ -33,7 +33,7 @@ import (
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // var splat0 []interface{}
 // for _, val0 := range exampleAwsSubnet {
-// splat0 = append(splat0, val0.Arn)
+// splat0 = append(splat0, val0.(map[string]interface{})["arn"])
 // }
 // example, err := networkmanager.NewVpcAttachment(ctx, "example", &networkmanager.VpcAttachmentArgs{
 // SubnetArns: toPulumiArray(splat0),
@@ -81,7 +81,7 @@ import (
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // var splat0 []interface{}
 // for _, val0 := range exampleAwsSubnet {
-// splat0 = append(splat0, val0.Arn)
+// splat0 = append(splat0, val0.(map[string]interface{})["arn"])
 // }
 // example, err := networkmanager.NewVpcAttachment(ctx, "example", &networkmanager.VpcAttachmentArgs{
 // SubnetArns: toPulumiArray(splat0),

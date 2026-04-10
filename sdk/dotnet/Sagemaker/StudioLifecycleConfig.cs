@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Sagemaker
     ///     {
     ///         StudioLifecycleConfigName = "example",
     ///         StudioLifecycleConfigAppType = "JupyterServer",
-    ///         StudioLifecycleConfigContent = Std.Base64encode.Invoke(new()
+    ///         StudioLifecycleConfigContent = Std.Index.Base64encode.Invoke(new()
     ///         {
     ///             Input = "echo Hello",
     ///         }).Apply(invoke =&gt; invoke.Result),

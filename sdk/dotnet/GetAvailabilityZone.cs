@@ -58,7 +58,7 @@ namespace Pulumi.Aws
         ///     };
         ///     // Retrieve the AZ where we want to create network resources
         ///     // This must be in the region selected on the AWS provider.
-        ///     var example = Aws.GetAvailabilityZone.Invoke(new()
+        ///     var example = Aws.Index.GetAvailabilityZone.Invoke(new()
         ///     {
         ///         Name = "eu-central-1a",
         ///     });
@@ -66,7 +66,7 @@ namespace Pulumi.Aws
         ///     // Create a VPC for the region associated with the AZ
         ///     var exampleVpc = new Aws.Ec2.Vpc("example", new()
         ///     {
-        ///         CidrBlock = Std.Cidrsubnet.Invoke(new()
+        ///         CidrBlock = Std.Index.Cidrsubnet.Invoke(new()
         ///         {
         ///             Input = "10.0.0.0/8",
         ///             Newbits = 4,
@@ -82,7 +82,7 @@ namespace Pulumi.Aws
         ///         {
         ///             var cidrBlock = values.Item1;
         ///             var example = values.Item2;
-        ///             return Std.Cidrsubnet.Invoke(new()
+        ///             return Std.Index.Cidrsubnet.Invoke(new()
         ///             {
         ///                 Input = cidrBlock,
         ///                 Newbits = 4,
@@ -144,7 +144,7 @@ namespace Pulumi.Aws
         ///     };
         ///     // Retrieve the AZ where we want to create network resources
         ///     // This must be in the region selected on the AWS provider.
-        ///     var example = Aws.GetAvailabilityZone.Invoke(new()
+        ///     var example = Aws.Index.GetAvailabilityZone.Invoke(new()
         ///     {
         ///         Name = "eu-central-1a",
         ///     });
@@ -152,7 +152,7 @@ namespace Pulumi.Aws
         ///     // Create a VPC for the region associated with the AZ
         ///     var exampleVpc = new Aws.Ec2.Vpc("example", new()
         ///     {
-        ///         CidrBlock = Std.Cidrsubnet.Invoke(new()
+        ///         CidrBlock = Std.Index.Cidrsubnet.Invoke(new()
         ///         {
         ///             Input = "10.0.0.0/8",
         ///             Newbits = 4,
@@ -168,7 +168,7 @@ namespace Pulumi.Aws
         ///         {
         ///             var cidrBlock = values.Item1;
         ///             var example = values.Item2;
-        ///             return Std.Cidrsubnet.Invoke(new()
+        ///             return Std.Index.Cidrsubnet.Invoke(new()
         ///             {
         ///                 Input = cidrBlock,
         ///                 Newbits = 4,
@@ -230,7 +230,7 @@ namespace Pulumi.Aws
         ///     };
         ///     // Retrieve the AZ where we want to create network resources
         ///     // This must be in the region selected on the AWS provider.
-        ///     var example = Aws.GetAvailabilityZone.Invoke(new()
+        ///     var example = Aws.Index.GetAvailabilityZone.Invoke(new()
         ///     {
         ///         Name = "eu-central-1a",
         ///     });
@@ -238,7 +238,7 @@ namespace Pulumi.Aws
         ///     // Create a VPC for the region associated with the AZ
         ///     var exampleVpc = new Aws.Ec2.Vpc("example", new()
         ///     {
-        ///         CidrBlock = Std.Cidrsubnet.Invoke(new()
+        ///         CidrBlock = Std.Index.Cidrsubnet.Invoke(new()
         ///         {
         ///             Input = "10.0.0.0/8",
         ///             Newbits = 4,
@@ -254,7 +254,7 @@ namespace Pulumi.Aws
         ///         {
         ///             var cidrBlock = values.Item1;
         ///             var example = values.Item2;
-        ///             return Std.Cidrsubnet.Invoke(new()
+        ///             return Std.Index.Cidrsubnet.Invoke(new()
         ///             {
         ///                 Input = cidrBlock,
         ///                 Newbits = 4,

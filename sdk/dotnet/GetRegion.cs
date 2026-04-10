@@ -32,7 +32,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.GetRegion.Invoke();
+        ///     var current = Aws.Index.GetRegion.Invoke();
         /// 
         /// });
         /// ```
@@ -61,7 +61,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.GetRegion.Invoke();
+        ///     var current = Aws.Index.GetRegion.Invoke();
         /// 
         /// });
         /// ```
@@ -90,7 +90,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.GetRegion.Invoke();
+        ///     var current = Aws.Index.GetRegion.Invoke();
         /// 
         /// });
         /// ```

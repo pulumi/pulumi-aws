@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Iam
     ///     var @default = new Aws.Iam.SamlProvider("default", new()
     ///     {
     ///         Name = "myprovider",
-    ///         SamlMetadataDocument = Std.File.Invoke(new()
+    ///         SamlMetadataDocument = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "saml-metadata.xml",
     ///         }).Apply(invoke =&gt; invoke.Result),

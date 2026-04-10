@@ -67,7 +67,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = msk.NewClusterPolicy(ctx, "example", &msk.ClusterPolicyArgs{
 //				ClusterArn: pulumi.Any(exampleAwsMskCluster.Arn),
-//				Policy:     pulumi.String(json0),
+//				Policy:     json0,
 //			})
 //			if err != nil {
 //				return err

@@ -164,7 +164,7 @@ class CertificateValidation(pulumi.CustomResource):
             private_zone=False)
         example_record = []
         def create_example(range_body):
-            for range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
+            for range in [{"key": k, "value": v} for [k, v] in (range_body).items()]:
                 example_record.append(aws.route53.Record(f"example-{range['key']}",
                     allow_overwrite=True,
                     name=range["value"]["name"],
@@ -203,7 +203,7 @@ class CertificateValidation(pulumi.CustomResource):
             private_zone=False)
         example_record = []
         def create_example(range_body):
-            for range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
+            for range in [{"key": k, "value": v} for [k, v] in (range_body).items()]:
                 example_record.append(aws.route53.Record(f"example-{range['key']}",
                     allow_overwrite=True,
                     name=range["value"]["name"],
@@ -276,7 +276,7 @@ class CertificateValidation(pulumi.CustomResource):
             private_zone=False)
         example_record = []
         def create_example(range_body):
-            for range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
+            for range in [{"key": k, "value": v} for [k, v] in (range_body).items()]:
                 example_record.append(aws.route53.Record(f"example-{range['key']}",
                     allow_overwrite=True,
                     name=range["value"]["name"],
@@ -315,7 +315,7 @@ class CertificateValidation(pulumi.CustomResource):
             private_zone=False)
         example_record = []
         def create_example(range_body):
-            for range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
+            for range in [{"key": k, "value": v} for [k, v] in (range_body).items()]:
                 example_record.append(aws.route53.Record(f"example-{range['key']}",
                     allow_overwrite=True,
                     name=range["value"]["name"],

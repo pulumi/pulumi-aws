@@ -410,7 +410,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
                     "segment": "shared",
                 },
             }])
-        test_networkmanager_core_network = awscc.index.NetworkmanagerCoreNetwork("test",
+        test_networkmanager_core_network = awscc.NetworkmanagerCoreNetwork("test",
             global_network_id=test_global_network.id,
             policy_document=json.dumps(std.jsondecode(input=test.json).result))
         test_site_to_site_vpn_attachment = aws.networkmanager.SiteToSiteVpnAttachment("test",
@@ -519,7 +519,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
                     "segment": "shared",
                 },
             }])
-        test_networkmanager_core_network = awscc.index.NetworkmanagerCoreNetwork("test",
+        test_networkmanager_core_network = awscc.NetworkmanagerCoreNetwork("test",
             global_network_id=test_global_network.id,
             policy_document=json.dumps(std.jsondecode(input=test.json).result))
         test_site_to_site_vpn_attachment = aws.networkmanager.SiteToSiteVpnAttachment("test",

@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Cognito
     ///     var @default = new Aws.Iam.SamlProvider("default", new()
     ///     {
     ///         Name = "my-saml-provider",
-    ///         SamlMetadataDocument = Std.File.Invoke(new()
+    ///         SamlMetadataDocument = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "saml-metadata.xml",
     ///         }).Apply(invoke =&gt; invoke.Result),

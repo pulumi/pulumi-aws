@@ -80,7 +80,8 @@ import (
 // AvailabilityZone: pulumi.String(available.Names[val0]),
 // CidrBlock: pulumi.String(exampleVpc.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
 // %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
-// return invoke.Result, nil
+// val := invoke.Result
+// return &val, nil
 // }).(pulumi.StringPtrOutput)),
 // Tags: pulumi.StringMap{
 // "Name": pulumi.String("Primary"),
@@ -145,7 +146,8 @@ import (
 // AvailabilityZone: pulumi.String(available_secondary.Names[val0]),
 // CidrBlock: pulumi.String(example_secondary.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
 // %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
-// return invoke.Result, nil
+// val := invoke.Result
+// return &val, nil
 // }).(pulumi.StringPtrOutput)),
 // Tags: pulumi.StringMap{
 // "Name": pulumi.String("Secondary"),

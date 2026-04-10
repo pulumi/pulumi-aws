@@ -130,7 +130,7 @@ namespace Pulumi.Aws.AppSync
     ///         ApiId = testAwsAppsyncGraphqlApi.Id,
     ///         Field = "pipelineTest",
     ///         Kind = "PIPELINE",
-    ///         Code = Std.File.Invoke(new()
+    ///         Code = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "some-code-dir",
     ///         }).Apply(invoke =&gt; invoke.Result),

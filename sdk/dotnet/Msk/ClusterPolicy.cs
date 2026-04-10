@@ -25,9 +25,9 @@ namespace Pulumi.Aws.Msk
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
     /// 
-    ///     var currentGetPartition = Aws.GetPartition.Invoke();
+    ///     var currentGetPartition = Aws.Index.GetPartition.Invoke();
     /// 
     ///     var example = new Aws.Msk.ClusterPolicy("example", new()
     ///     {

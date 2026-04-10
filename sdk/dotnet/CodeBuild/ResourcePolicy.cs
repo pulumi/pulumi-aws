@@ -33,9 +33,9 @@ namespace Pulumi.Aws.CodeBuild
     ///         },
     ///     });
     /// 
-    ///     var current = Aws.GetPartition.Invoke();
+    ///     var current = Aws.Index.GetPartition.Invoke();
     /// 
-    ///     var currentGetCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    ///     var currentGetCallerIdentity = Aws.Index.GetCallerIdentity.Invoke();
     /// 
     ///     var exampleResourcePolicy = new Aws.CodeBuild.ResourcePolicy("example", new()
     ///     {

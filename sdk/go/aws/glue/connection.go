@@ -377,7 +377,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
 //				SecretId:     example.ID(),
-//				SecretString: pulumi.String(json0),
+//				SecretString: json0,
 //			})
 //			if err != nil {
 //				return err

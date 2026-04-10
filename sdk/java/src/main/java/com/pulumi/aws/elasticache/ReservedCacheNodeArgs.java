@@ -37,6 +37,23 @@ public final class ReservedCacheNodeArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Customer-specified identifier to track this reservation.
+     * If not specified, AWS will assign a random ID.
+     * 
+     */
+    @Import(name="elasticacheReservedCacheNodeId")
+    private @Nullable Output<String> elasticacheReservedCacheNodeId;
+
+    /**
+     * @return Customer-specified identifier to track this reservation.
+     * If not specified, AWS will assign a random ID.
+     * 
+     */
+    public Optional<Output<String>> elasticacheReservedCacheNodeId() {
+        return Optional.ofNullable(this.elasticacheReservedCacheNodeId);
+    }
+
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
@@ -98,6 +115,7 @@ public final class ReservedCacheNodeArgs extends com.pulumi.resources.ResourceAr
 
     private ReservedCacheNodeArgs(ReservedCacheNodeArgs $) {
         this.cacheNodeCount = $.cacheNodeCount;
+        this.elasticacheReservedCacheNodeId = $.elasticacheReservedCacheNodeId;
         this.region = $.region;
         this.reservedCacheNodesOfferingId = $.reservedCacheNodesOfferingId;
         this.tags = $.tags;
@@ -143,6 +161,29 @@ public final class ReservedCacheNodeArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder cacheNodeCount(Integer cacheNodeCount) {
             return cacheNodeCount(Output.of(cacheNodeCount));
+        }
+
+        /**
+         * @param elasticacheReservedCacheNodeId Customer-specified identifier to track this reservation.
+         * If not specified, AWS will assign a random ID.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder elasticacheReservedCacheNodeId(@Nullable Output<String> elasticacheReservedCacheNodeId) {
+            $.elasticacheReservedCacheNodeId = elasticacheReservedCacheNodeId;
+            return this;
+        }
+
+        /**
+         * @param elasticacheReservedCacheNodeId Customer-specified identifier to track this reservation.
+         * If not specified, AWS will assign a random ID.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder elasticacheReservedCacheNodeId(String elasticacheReservedCacheNodeId) {
+            return elasticacheReservedCacheNodeId(Output.of(elasticacheReservedCacheNodeId));
         }
 
         /**

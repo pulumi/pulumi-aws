@@ -52,7 +52,7 @@ namespace Pulumi.Aws.OpenSearch
     ///             Idp = new Aws.OpenSearch.Inputs.DomainSamlOptionsSamlOptionsIdpArgs
     ///             {
     ///                 EntityId = "https://example.com",
-    ///                 MetadataContent = Std.File.Invoke(new()
+    ///                 MetadataContent = Std.Index.File.Invoke(new()
     ///                 {
     ///                     Input = "./saml-metadata.xml",
     ///                 }).Apply(invoke =&gt; invoke.Result),

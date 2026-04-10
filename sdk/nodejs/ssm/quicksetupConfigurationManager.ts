@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *     label: baseline.baselineName,
  *     description: baseline.baselineDescription,
  *     disabled: !baseline.defaultBaseline,
- * } }))));
+ * } }), {})));
  * const exampleQuicksetupConfigurationManager = new aws.ssm.QuicksetupConfigurationManager("example", {
  *     name: "example",
  *     configurationDefinition: {

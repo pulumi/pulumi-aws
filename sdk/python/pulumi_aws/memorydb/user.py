@@ -274,7 +274,7 @@ class User(pulumi.CustomResource):
         import pulumi_aws as aws
         import pulumi_random as random
 
-        example = random.index.Password("example", length=16)
+        example = random.Password("example", length=16)
         example_user = aws.memorydb.User("example",
             user_name="my-user",
             access_string="on ~* &* +@all",
@@ -324,7 +324,7 @@ class User(pulumi.CustomResource):
         import pulumi_aws as aws
         import pulumi_random as random
 
-        example = random.index.Password("example", length=16)
+        example = random.Password("example", length=16)
         example_user = aws.memorydb.User("example",
             user_name="my-user",
             access_string="on ~* &* +@all",

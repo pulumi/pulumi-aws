@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Xray
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
     /// 
     ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {

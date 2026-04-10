@@ -29,7 +29,7 @@ import (
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // var splat0 []interface{}
 // for _, val0 := range testAwsSubnet {
-// splat0 = append(splat0, val0.Id)
+// splat0 = append(splat0, val0.(map[string]interface{})["id"])
 // }
 // _, err := rds.NewProxyEndpoint(ctx, "example", &rds.ProxyEndpointArgs{
 // DbProxyName: pulumi.Any(test.Name),

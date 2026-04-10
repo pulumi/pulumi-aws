@@ -191,7 +191,7 @@ namespace Pulumi.Aws.Dlm
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // ...other configuration...
-    ///     var current = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
     /// 
     ///     var key = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
@@ -298,7 +298,7 @@ namespace Pulumi.Aws.Dlm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
     /// 
     ///     var exampleLifecyclePolicy = new Aws.Dlm.LifecyclePolicy("example", new()
     ///     {

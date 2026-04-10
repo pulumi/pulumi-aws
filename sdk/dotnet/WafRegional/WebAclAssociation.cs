@@ -81,7 +81,7 @@ namespace Pulumi.Aws.WafRegional
     ///         CidrBlock = "10.1.0.0/16",
     ///     });
     /// 
-    ///     var available = Aws.GetAvailabilityZones.Invoke();
+    ///     var available = Aws.Index.GetAvailabilityZones.Invoke();
     /// 
     ///     var fooSubnet = new Aws.Ec2.Subnet("foo", new()
     ///     {

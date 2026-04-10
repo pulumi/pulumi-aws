@@ -33,7 +33,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			cfg := config.New(ctx, "")
-//			subnetId := cfg.RequireObject("subnetId")
+//			var subnetId interface{}
+//			cfg.RequireObject("subnetId", &subnetId)
 //			selected, err := ec2.LookupSubnet(ctx, &ec2.LookupSubnetArgs{
 //				Id: pulumi.StringRef(subnetId),
 //			}, nil)

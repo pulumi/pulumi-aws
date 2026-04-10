@@ -309,48 +309,50 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// ptfeService, err := ec2.NewVpcEndpoint(ctx, "ptfe_service", &ec2.VpcEndpointArgs{
-// VpcId: pulumi.Any(vpcId),
-// ServiceName: pulumi.Any(ptfeServiceConfig),
-// VpcEndpointType: pulumi.String("Interface"),
-// SecurityGroupIds: pulumi.StringArray{
-// ptfeServiceAwsSecurityGroup.Id,
-// },
-// SubnetIds: pulumi.StringArray{
-// subnetIds,
-// },
-// PrivateDnsEnabled: pulumi.Bool(false),
-// })
-// if err != nil {
-// return err
-// }
-// internal, err := route53.LookupZone(ctx, &route53.LookupZoneArgs{
-// Name: pulumi.StringRef("vpc.internal."),
-// PrivateZone: pulumi.BoolRef(true),
-// VpcId: pulumi.StringRef(vpcId),
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = route53.NewRecord(ctx, "ptfe_service", &route53.RecordArgs{
-// ZoneId: pulumi.String(pulumi.String(internal.ZoneId)),
-// Name: pulumi.Sprintf("ptfe.%v", internal.Name),
-// Type: pulumi.String(route53.RecordTypeCNAME),
-// Ttl: pulumi.Int(300),
-// Records: pulumi.StringArray{
-// pulumi.String(ptfeService.DnsEntries.ApplyT(func(dnsEntries []ec2.VpcEndpointDnsEntry) (interface{}, error) {
-// return dnsEntries[0].Dns_name, nil
-// }).(pulumi.Interface{}Output)),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			ptfeService, err := ec2.NewVpcEndpoint(ctx, "ptfe_service", &ec2.VpcEndpointArgs{
+//				VpcId:           pulumi.Any(vpcId),
+//				ServiceName:     pulumi.Any(ptfeServiceConfig),
+//				VpcEndpointType: pulumi.String("Interface"),
+//				SecurityGroupIds: pulumi.StringArray{
+//					ptfeServiceAwsSecurityGroup.Id,
+//				},
+//				SubnetIds: pulumi.StringArray{
+//					subnetIds,
+//				},
+//				PrivateDnsEnabled: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			internal, err := route53.LookupZone(ctx, &route53.LookupZoneArgs{
+//				Name:        pulumi.StringRef("vpc.internal."),
+//				PrivateZone: pulumi.BoolRef(true),
+//				VpcId:       pulumi.StringRef(vpcId),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = route53.NewRecord(ctx, "ptfe_service", &route53.RecordArgs{
+//				ZoneId: pulumi.String(pulumi.String(internal.ZoneId)),
+//				Name:   pulumi.Sprintf("ptfe.%v", internal.Name),
+//				Type:   pulumi.String(route53.RecordTypeCNAME),
+//				Ttl:    pulumi.Int(300),
+//				Records: pulumi.StringArray{
+//					pulumi.String(ptfeService.DnsEntries.ApplyT(func(dnsEntries []ec2.VpcEndpointDnsEntry) (interface{}, error) {
+//						return dnsEntries[0].Dns_name, nil
+//					}).(pulumi.AnyOutput)),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // > **NOTE The `dnsEntry` output is a list of maps:** This provider interpolation support for lists of maps requires the `lookup` and `[]` until full support of lists of maps is available

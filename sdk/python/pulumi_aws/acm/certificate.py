@@ -667,11 +667,11 @@ class Certificate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = []
-        for range in [{"key": k, "value": v} for [k, v] in enumerate({dvo.domain_name: {
+        for range in [{"key": k, "value": v} for [k, v] in ({dvo.domain_name: {
             name: dvo.resource_record_name,
             record: dvo.resource_record_value,
             type: dvo.resource_record_type,
-        } for dvo in example_aws_acm_certificate.domain_validation_options})]:
+        } for dvo in example_aws_acm_certificate.domain_validation_options}).items()]:
             example.append(aws.route53.Record(f"example-{range['key']}",
                 allow_overwrite=True,
                 name=range["value"]["name"],
@@ -800,11 +800,11 @@ class Certificate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = []
-        for range in [{"key": k, "value": v} for [k, v] in enumerate({dvo.domain_name: {
+        for range in [{"key": k, "value": v} for [k, v] in ({dvo.domain_name: {
             name: dvo.resource_record_name,
             record: dvo.resource_record_value,
             type: dvo.resource_record_type,
-        } for dvo in example_aws_acm_certificate.domain_validation_options})]:
+        } for dvo in example_aws_acm_certificate.domain_validation_options}).items()]:
             example.append(aws.route53.Record(f"example-{range['key']}",
                 allow_overwrite=True,
                 name=range["value"]["name"],

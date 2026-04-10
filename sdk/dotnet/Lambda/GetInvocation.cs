@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["result"] = Std.Jsondecode.Invoke(new()
+        ///         ["result"] = Std.Index.Jsondecode.Invoke(new()
         ///         {
         ///             Input = example.Apply(getInvocationResult =&gt; getInvocationResult.Result),
         ///         }).Apply(invoke =&gt; invoke.Result),
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Lambda
         ///         }),
         ///     });
         /// 
-        ///     var config = Std.Jsondecode.Invoke(new()
+        ///     var config = Std.Index.Jsondecode.Invoke(new()
         ///     {
         ///         Input = resourceConfig.Apply(getInvocationResult =&gt; getInvocationResult.Result),
         ///     }).Apply(invoke =&gt; invoke.Result);
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["result"] = Std.Jsondecode.Invoke(new()
+        ///         ["result"] = Std.Index.Jsondecode.Invoke(new()
         ///         {
         ///             Input = example.Apply(getInvocationResult =&gt; getInvocationResult.Result),
         ///         }).Apply(invoke =&gt; invoke.Result),
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Lambda
         ///         }),
         ///     });
         /// 
-        ///     var config = Std.Jsondecode.Invoke(new()
+        ///     var config = Std.Index.Jsondecode.Invoke(new()
         ///     {
         ///         Input = resourceConfig.Apply(getInvocationResult =&gt; getInvocationResult.Result),
         ///     }).Apply(invoke =&gt; invoke.Result);
@@ -226,7 +226,7 @@ namespace Pulumi.Aws.Lambda
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["result"] = Std.Jsondecode.Invoke(new()
+        ///         ["result"] = Std.Index.Jsondecode.Invoke(new()
         ///         {
         ///             Input = example.Apply(getInvocationResult =&gt; getInvocationResult.Result),
         ///         }).Apply(invoke =&gt; invoke.Result),
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.Lambda
         ///         }),
         ///     });
         /// 
-        ///     var config = Std.Jsondecode.Invoke(new()
+        ///     var config = Std.Index.Jsondecode.Invoke(new()
         ///     {
         ///         Input = resourceConfig.Apply(getInvocationResult =&gt; getInvocationResult.Result),
         ///     }).Apply(invoke =&gt; invoke.Result);

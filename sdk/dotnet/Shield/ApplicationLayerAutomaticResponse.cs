@@ -24,11 +24,11 @@ namespace Pulumi.Aws.Shield
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.GetRegion.Invoke();
+    ///     var current = Aws.Index.GetRegion.Invoke();
     /// 
-    ///     var currentGetCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    ///     var currentGetCallerIdentity = Aws.Index.GetCallerIdentity.Invoke();
     /// 
-    ///     var currentGetPartition = Aws.GetPartition.Invoke();
+    ///     var currentGetPartition = Aws.Index.GetPartition.Invoke();
     /// 
     ///     var config = new Config();
     ///     // The Cloudfront Distribution on which to enable the Application Layer Automatic Response.

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.WorkSpacesWeb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
+    ///     var available = Aws.Index.GetAvailabilityZones.Invoke(new()
     ///     {
     ///         State = "available",
     ///         Filters = new[]
@@ -57,7 +57,7 @@ namespace Pulumi.Aws.WorkSpacesWeb
     ///         exampleSubnet.Add(new Aws.Ec2.Subnet($"example-{range.Value}", new()
     ///         {
     ///             VpcId = example.Id,
-    ///             CidrBlock = example.CidrBlock.Apply(cidrBlock =&gt; Std.Cidrsubnet.Invoke(new()
+    ///             CidrBlock = example.CidrBlock.Apply(cidrBlock =&gt; Std.Index.Cidrsubnet.Invoke(new()
     ///             {
     ///                 Input = cidrBlock,
     ///                 Newbits = 8,

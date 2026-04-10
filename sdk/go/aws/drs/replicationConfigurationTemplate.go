@@ -33,7 +33,7 @@ import (
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // var splat0 []interface{}
 // for _, val0 := range exampleAwsSecurityGroup {
-// splat0 = append(splat0, val0.Id)
+// splat0 = append(splat0, val0.(map[string]interface{})["id"])
 // }
 // _, err := drs.NewReplicationConfigurationTemplate(ctx, "example", &drs.ReplicationConfigurationTemplateArgs{
 // AssociateDefaultSecurityGroup: pulumi.Bool(false),

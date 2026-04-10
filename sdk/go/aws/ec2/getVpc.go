@@ -38,7 +38,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			cfg := config.New(ctx, "")
-//			vpcId := cfg.RequireObject("vpcId")
+//			var vpcId interface{}
+//			cfg.RequireObject("vpcId", &vpcId)
 //			selected, err := ec2.LookupVpc(ctx, &ec2.LookupVpcArgs{
 //				Id: pulumi.StringRef(vpcId),
 //			}, nil)

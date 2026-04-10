@@ -37,11 +37,11 @@ namespace Pulumi.Aws.CloudTrail
     ///         ForceDestroy = true,
     ///     });
     /// 
-    ///     var current = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
     /// 
-    ///     var currentGetPartition = Aws.GetPartition.Invoke();
+    ///     var currentGetPartition = Aws.Index.GetPartition.Invoke();
     /// 
-    ///     var currentGetRegion = Aws.GetRegion.Invoke();
+    ///     var currentGetRegion = Aws.Index.GetRegion.Invoke();
     /// 
     ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {

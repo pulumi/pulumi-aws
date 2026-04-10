@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleReservedCacheNode = new aws.elasticache.ReservedCacheNode("example", {
  *     reservedCacheNodesOfferingId: example.then(example => example.offeringId),
- *     id: "optionalCustomReservationID",
+ *     elasticacheReservedCacheNodeId: "optionalCustomReservationID",
  *     cacheNodeCount: 3,
  * });
  * ```
@@ -86,6 +86,11 @@ export class ReservedCacheNode extends pulumi.CustomResource {
      * Duration of the reservation as an RFC3339 duration.
      */
     declare public /*out*/ readonly duration: pulumi.Output<string>;
+    /**
+     * Customer-specified identifier to track this reservation.
+     * If not specified, AWS will assign a random ID.
+     */
+    declare public readonly elasticacheReservedCacheNodeId: pulumi.Output<string>;
     /**
      * Fixed price charged for this reserved cache node.
      */
@@ -152,6 +157,7 @@ export class ReservedCacheNode extends pulumi.CustomResource {
             resourceInputs["cacheNodeCount"] = state?.cacheNodeCount;
             resourceInputs["cacheNodeType"] = state?.cacheNodeType;
             resourceInputs["duration"] = state?.duration;
+            resourceInputs["elasticacheReservedCacheNodeId"] = state?.elasticacheReservedCacheNodeId;
             resourceInputs["fixedPrice"] = state?.fixedPrice;
             resourceInputs["offeringType"] = state?.offeringType;
             resourceInputs["productDescription"] = state?.productDescription;
@@ -170,6 +176,7 @@ export class ReservedCacheNode extends pulumi.CustomResource {
                 throw new Error("Missing required property 'reservedCacheNodesOfferingId'");
             }
             resourceInputs["cacheNodeCount"] = args?.cacheNodeCount;
+            resourceInputs["elasticacheReservedCacheNodeId"] = args?.elasticacheReservedCacheNodeId;
             resourceInputs["region"] = args?.region;
             resourceInputs["reservedCacheNodesOfferingId"] = args?.reservedCacheNodesOfferingId;
             resourceInputs["tags"] = args?.tags;
@@ -212,6 +219,11 @@ export interface ReservedCacheNodeState {
      * Duration of the reservation as an RFC3339 duration.
      */
     duration?: pulumi.Input<string>;
+    /**
+     * Customer-specified identifier to track this reservation.
+     * If not specified, AWS will assign a random ID.
+     */
+    elasticacheReservedCacheNodeId?: pulumi.Input<string>;
     /**
      * Fixed price charged for this reserved cache node.
      */
@@ -271,6 +283,11 @@ export interface ReservedCacheNodeArgs {
      * Default value is `1`.
      */
     cacheNodeCount?: pulumi.Input<number>;
+    /**
+     * Customer-specified identifier to track this reservation.
+     * If not specified, AWS will assign a random ID.
+     */
+    elasticacheReservedCacheNodeId?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

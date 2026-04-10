@@ -77,7 +77,7 @@ import (
 //				CustomerMasterKeySpec: pulumi.String("ECC_NIST_P256"),
 //				DeletionWindowInDays:  pulumi.Int(7),
 //				KeyUsage:              pulumi.String("SIGN_VERIFY"),
-//				Policy:                pulumi.String(json0),
+//				Policy:                json0,
 //			})
 //			if err != nil {
 //				return err

@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Rds
     ///         EngineVersion = "19.cdb_cev1",
     ///         KmsKeyId = example.Arn,
     ///         Filename = "manifest_1915_GI.json",
-    ///         ManifestHash = Std.Filebase64sha256.Invoke(new()
+    ///         ManifestHash = Std.Index.Filebase64sha256.Invoke(new()
     ///         {
     ///             Input = json,
     ///         }).Apply(invoke =&gt; invoke.Result),

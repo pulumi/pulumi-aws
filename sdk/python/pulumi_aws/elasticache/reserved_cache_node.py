@@ -23,6 +23,7 @@ class ReservedCacheNodeArgs:
     def __init__(__self__, *,
                  reserved_cache_nodes_offering_id: pulumi.Input[_builtins.str],
                  cache_node_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 elasticache_reserved_cache_node_id: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['ReservedCacheNodeTimeoutsArgs']] = None):
@@ -35,12 +36,16 @@ class ReservedCacheNodeArgs:
                The following arguments are optional:
         :param pulumi.Input[_builtins.int] cache_node_count: Number of cache node instances to reserve.
                Default value is `1`.
+        :param pulumi.Input[_builtins.str] elasticache_reserved_cache_node_id: Customer-specified identifier to track this reservation.
+               If not specified, AWS will assign a random ID.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "reserved_cache_nodes_offering_id", reserved_cache_nodes_offering_id)
         if cache_node_count is not None:
             pulumi.set(__self__, "cache_node_count", cache_node_count)
+        if elasticache_reserved_cache_node_id is not None:
+            pulumi.set(__self__, "elasticache_reserved_cache_node_id", elasticache_reserved_cache_node_id)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
@@ -75,6 +80,19 @@ class ReservedCacheNodeArgs:
     @cache_node_count.setter
     def cache_node_count(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "cache_node_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="elasticacheReservedCacheNodeId")
+    def elasticache_reserved_cache_node_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Customer-specified identifier to track this reservation.
+        If not specified, AWS will assign a random ID.
+        """
+        return pulumi.get(self, "elasticache_reserved_cache_node_id")
+
+    @elasticache_reserved_cache_node_id.setter
+    def elasticache_reserved_cache_node_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "elasticache_reserved_cache_node_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -117,6 +135,7 @@ class _ReservedCacheNodeState:
                  cache_node_count: Optional[pulumi.Input[_builtins.int]] = None,
                  cache_node_type: Optional[pulumi.Input[_builtins.str]] = None,
                  duration: Optional[pulumi.Input[_builtins.str]] = None,
+                 elasticache_reserved_cache_node_id: Optional[pulumi.Input[_builtins.str]] = None,
                  fixed_price: Optional[pulumi.Input[_builtins.float]] = None,
                  offering_type: Optional[pulumi.Input[_builtins.str]] = None,
                  product_description: Optional[pulumi.Input[_builtins.str]] = None,
@@ -137,6 +156,8 @@ class _ReservedCacheNodeState:
                Default value is `1`.
         :param pulumi.Input[_builtins.str] cache_node_type: Node type for the reserved cache nodes.
         :param pulumi.Input[_builtins.str] duration: Duration of the reservation as an RFC3339 duration.
+        :param pulumi.Input[_builtins.str] elasticache_reserved_cache_node_id: Customer-specified identifier to track this reservation.
+               If not specified, AWS will assign a random ID.
         :param pulumi.Input[_builtins.float] fixed_price: Fixed price charged for this reserved cache node.
         :param pulumi.Input[_builtins.str] offering_type: Offering type of this reserved cache node.
         :param pulumi.Input[_builtins.str] product_description: Engine type for the reserved cache node.
@@ -160,6 +181,8 @@ class _ReservedCacheNodeState:
             pulumi.set(__self__, "cache_node_type", cache_node_type)
         if duration is not None:
             pulumi.set(__self__, "duration", duration)
+        if elasticache_reserved_cache_node_id is not None:
+            pulumi.set(__self__, "elasticache_reserved_cache_node_id", elasticache_reserved_cache_node_id)
         if fixed_price is not None:
             pulumi.set(__self__, "fixed_price", fixed_price)
         if offering_type is not None:
@@ -233,6 +256,19 @@ class _ReservedCacheNodeState:
     @duration.setter
     def duration(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "duration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="elasticacheReservedCacheNodeId")
+    def elasticache_reserved_cache_node_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Customer-specified identifier to track this reservation.
+        If not specified, AWS will assign a random ID.
+        """
+        return pulumi.get(self, "elasticache_reserved_cache_node_id")
+
+    @elasticache_reserved_cache_node_id.setter
+    def elasticache_reserved_cache_node_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "elasticache_reserved_cache_node_id", value)
 
     @_builtins.property
     @pulumi.getter(name="fixedPrice")
@@ -386,6 +422,7 @@ class ReservedCacheNode(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_node_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 elasticache_reserved_cache_node_id: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  reserved_cache_nodes_offering_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -410,7 +447,7 @@ class ReservedCacheNode(pulumi.CustomResource):
             product_description="redis")
         example_reserved_cache_node = aws.elasticache.ReservedCacheNode("example",
             reserved_cache_nodes_offering_id=example.offering_id,
-            id="optionalCustomReservationID",
+            elasticache_reserved_cache_node_id="optionalCustomReservationID",
             cache_node_count=3)
         ```
 
@@ -427,6 +464,8 @@ class ReservedCacheNode(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] cache_node_count: Number of cache node instances to reserve.
                Default value is `1`.
+        :param pulumi.Input[_builtins.str] elasticache_reserved_cache_node_id: Customer-specified identifier to track this reservation.
+               If not specified, AWS will assign a random ID.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] reserved_cache_nodes_offering_id: ID of the reserved cache node offering to purchase.
                To determine an `reserved_cache_nodes_offering_id`, see the `elasticache_get_reserved_cache_node_offering` data source.
@@ -459,7 +498,7 @@ class ReservedCacheNode(pulumi.CustomResource):
             product_description="redis")
         example_reserved_cache_node = aws.elasticache.ReservedCacheNode("example",
             reserved_cache_nodes_offering_id=example.offering_id,
-            id="optionalCustomReservationID",
+            elasticache_reserved_cache_node_id="optionalCustomReservationID",
             cache_node_count=3)
         ```
 
@@ -488,6 +527,7 @@ class ReservedCacheNode(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_node_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 elasticache_reserved_cache_node_id: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  reserved_cache_nodes_offering_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -502,6 +542,7 @@ class ReservedCacheNode(pulumi.CustomResource):
             __props__ = ReservedCacheNodeArgs.__new__(ReservedCacheNodeArgs)
 
             __props__.__dict__["cache_node_count"] = cache_node_count
+            __props__.__dict__["elasticache_reserved_cache_node_id"] = elasticache_reserved_cache_node_id
             __props__.__dict__["region"] = region
             if reserved_cache_nodes_offering_id is None and not opts.urn:
                 raise TypeError("Missing required property 'reserved_cache_nodes_offering_id'")
@@ -533,6 +574,7 @@ class ReservedCacheNode(pulumi.CustomResource):
             cache_node_count: Optional[pulumi.Input[_builtins.int]] = None,
             cache_node_type: Optional[pulumi.Input[_builtins.str]] = None,
             duration: Optional[pulumi.Input[_builtins.str]] = None,
+            elasticache_reserved_cache_node_id: Optional[pulumi.Input[_builtins.str]] = None,
             fixed_price: Optional[pulumi.Input[_builtins.float]] = None,
             offering_type: Optional[pulumi.Input[_builtins.str]] = None,
             product_description: Optional[pulumi.Input[_builtins.str]] = None,
@@ -557,6 +599,8 @@ class ReservedCacheNode(pulumi.CustomResource):
                Default value is `1`.
         :param pulumi.Input[_builtins.str] cache_node_type: Node type for the reserved cache nodes.
         :param pulumi.Input[_builtins.str] duration: Duration of the reservation as an RFC3339 duration.
+        :param pulumi.Input[_builtins.str] elasticache_reserved_cache_node_id: Customer-specified identifier to track this reservation.
+               If not specified, AWS will assign a random ID.
         :param pulumi.Input[_builtins.float] fixed_price: Fixed price charged for this reserved cache node.
         :param pulumi.Input[_builtins.str] offering_type: Offering type of this reserved cache node.
         :param pulumi.Input[_builtins.str] product_description: Engine type for the reserved cache node.
@@ -580,6 +624,7 @@ class ReservedCacheNode(pulumi.CustomResource):
         __props__.__dict__["cache_node_count"] = cache_node_count
         __props__.__dict__["cache_node_type"] = cache_node_type
         __props__.__dict__["duration"] = duration
+        __props__.__dict__["elasticache_reserved_cache_node_id"] = elasticache_reserved_cache_node_id
         __props__.__dict__["fixed_price"] = fixed_price
         __props__.__dict__["offering_type"] = offering_type
         __props__.__dict__["product_description"] = product_description
@@ -626,6 +671,15 @@ class ReservedCacheNode(pulumi.CustomResource):
         Duration of the reservation as an RFC3339 duration.
         """
         return pulumi.get(self, "duration")
+
+    @_builtins.property
+    @pulumi.getter(name="elasticacheReservedCacheNodeId")
+    def elasticache_reserved_cache_node_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        Customer-specified identifier to track this reservation.
+        If not specified, AWS will assign a random ID.
+        """
+        return pulumi.get(self, "elasticache_reserved_cache_node_id")
 
     @_builtins.property
     @pulumi.getter(name="fixedPrice")

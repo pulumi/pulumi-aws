@@ -24,7 +24,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var europeanEc2 = Aws.GetIpRanges.Invoke(new()
+        ///     var europeanEc2 = Aws.Index.GetIpRanges.Invoke(new()
         ///     {
         ///         Regions = new[]
         ///         {
@@ -77,7 +77,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var europeanEc2 = Aws.GetIpRanges.Invoke(new()
+        ///     var europeanEc2 = Aws.Index.GetIpRanges.Invoke(new()
         ///     {
         ///         Regions = new[]
         ///         {
@@ -130,7 +130,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var europeanEc2 = Aws.GetIpRanges.Invoke(new()
+        ///     var europeanEc2 = Aws.Index.GetIpRanges.Invoke(new()
         ///     {
         ///         Regions = new[]
         ///         {

@@ -26,7 +26,7 @@ namespace Pulumi.Aws.LicenseManager
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.GetCallerIdentity.Invoke();
+        ///     var current = Aws.Index.GetCallerIdentity.Invoke();
         /// 
         ///     var test = Aws.LicenseManager.GetLicenseGrants.Invoke(new()
         ///     {
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.LicenseManager
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.GetCallerIdentity.Invoke();
+        ///     var current = Aws.Index.GetCallerIdentity.Invoke();
         /// 
         ///     var test = Aws.LicenseManager.GetLicenseGrants.Invoke(new()
         ///     {
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.LicenseManager
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.GetCallerIdentity.Invoke();
+        ///     var current = Aws.Index.GetCallerIdentity.Invoke();
         /// 
         ///     var test = Aws.LicenseManager.GetLicenseGrants.Invoke(new()
         ///     {

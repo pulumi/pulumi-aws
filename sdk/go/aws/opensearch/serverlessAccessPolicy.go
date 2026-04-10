@@ -72,7 +72,7 @@ import (
 //				Name:        pulumi.String("example"),
 //				Type:        pulumi.String("data"),
 //				Description: pulumi.String("read and write permissions"),
-//				Policy:      pulumi.String(json0),
+//				Policy:      json0,
 //			})
 //			if err != nil {
 //				return err
@@ -140,7 +140,7 @@ import (
 //				Name:        pulumi.String("example"),
 //				Type:        pulumi.String("data"),
 //				Description: pulumi.String("read-only permissions"),
-//				Policy:      pulumi.String(json0),
+//				Policy:      json0,
 //			})
 //			if err != nil {
 //				return err

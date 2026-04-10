@@ -55,9 +55,9 @@ namespace Pulumi.Aws.ElasticSearch
     /// {
     ///     var config = new Config();
     ///     var domain = config.Get("domain") ?? "tf-test";
-    ///     var current = Aws.GetRegion.Invoke();
+    ///     var current = Aws.Index.GetRegion.Invoke();
     /// 
-    ///     var currentGetCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    ///     var currentGetCallerIdentity = Aws.Index.GetCallerIdentity.Invoke();
     /// 
     ///     var example = new Aws.ElasticSearch.Domain("example", new()
     ///     {
@@ -195,9 +195,9 @@ namespace Pulumi.Aws.ElasticSearch
     ///         },
     ///     });
     /// 
-    ///     var current = Aws.GetRegion.Invoke();
+    ///     var current = Aws.Index.GetRegion.Invoke();
     /// 
-    ///     var currentGetCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    ///     var currentGetCallerIdentity = Aws.Index.GetCallerIdentity.Invoke();
     /// 
     ///     var es = new Aws.Ec2.SecurityGroup("es", new()
     ///     {

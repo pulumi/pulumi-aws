@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Eks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
+    ///     var available = Aws.Index.GetAvailabilityZones.Invoke(new()
     ///     {
     ///         State = "available",
     ///     });
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.Eks
     ///         example.Add(new Aws.Ec2.Subnet($"example-{range.Value}", new()
     ///         {
     ///             AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names)[range.Value],
-    ///             CidrBlock = Std.Cidrsubnet.Invoke(new()
+    ///             CidrBlock = Std.Index.Cidrsubnet.Invoke(new()
     ///             {
     ///                 Input = exampleAwsVpc.CidrBlock,
     ///                 Newbits = 8,

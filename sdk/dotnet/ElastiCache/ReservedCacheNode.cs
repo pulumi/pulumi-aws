@@ -37,7 +37,7 @@ namespace Pulumi.Aws.ElastiCache
     ///     var exampleReservedCacheNode = new Aws.ElastiCache.ReservedCacheNode("example", new()
     ///     {
     ///         ReservedCacheNodesOfferingId = example.Apply(getReservedCacheNodeOfferingResult =&gt; getReservedCacheNodeOfferingResult.OfferingId),
-    ///         Id = "optionalCustomReservationID",
+    ///         ElasticacheReservedCacheNodeId = "optionalCustomReservationID",
     ///         CacheNodeCount = 3,
     ///     });
     /// 
@@ -79,6 +79,13 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Output("duration")]
         public Output<string> Duration { get; private set; } = null!;
+
+        /// <summary>
+        /// Customer-specified identifier to track this reservation.
+        /// If not specified, AWS will assign a random ID.
+        /// </summary>
+        [Output("elasticacheReservedCacheNodeId")]
+        public Output<string> ElasticacheReservedCacheNodeId { get; private set; } = null!;
 
         /// <summary>
         /// Fixed price charged for this reserved cache node.
@@ -206,6 +213,13 @@ namespace Pulumi.Aws.ElastiCache
         public Input<int>? CacheNodeCount { get; set; }
 
         /// <summary>
+        /// Customer-specified identifier to track this reservation.
+        /// If not specified, AWS will assign a random ID.
+        /// </summary>
+        [Input("elasticacheReservedCacheNodeId")]
+        public Input<string>? ElasticacheReservedCacheNodeId { get; set; }
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
@@ -267,6 +281,13 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("duration")]
         public Input<string>? Duration { get; set; }
+
+        /// <summary>
+        /// Customer-specified identifier to track this reservation.
+        /// If not specified, AWS will assign a random ID.
+        /// </summary>
+        [Input("elasticacheReservedCacheNodeId")]
+        public Input<string>? ElasticacheReservedCacheNodeId { get; set; }
 
         /// <summary>
         /// Fixed price charged for this reserved cache node.
