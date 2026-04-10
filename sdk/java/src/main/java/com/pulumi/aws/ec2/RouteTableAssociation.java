@@ -42,9 +42,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var a = new RouteTableAssociation("a", RouteTableAssociationArgs.builder()
- *             .subnetId(foo.id())
- *             .routeTableId(bar.id())
+ *         var example = new RouteTableAssociation("example", RouteTableAssociationArgs.builder()
+ *             .subnetId(exampleAwsSubnet.id())
+ *             .routeTableId(exampleAwsRouteTable.id())
  *             .build());
  * 
  *     }
@@ -74,9 +74,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var b = new RouteTableAssociation("b", RouteTableAssociationArgs.builder()
- *             .gatewayId(foo.id())
- *             .routeTableId(bar.id())
+ *         var example = new RouteTableAssociation("example", RouteTableAssociationArgs.builder()
+ *             .gatewayId(exampleAwsInternetGateway.id())
+ *             .routeTableId(exampleAwsRouteTable.id())
  *             .build());
  * 
  *     }
@@ -86,6 +86,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `id` - (String) ID of the association.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
  * With EC2 Internet Gateways:
  * 
  * **Using `pulumi import` to import** EC2 Route Table Associations using the associated resource ID and Route Table ID separated by a forward slash (`/`). For example:
@@ -93,13 +104,13 @@ import javax.annotation.Nullable;
  * With EC2 Subnets:
  * 
  * ```sh
- * $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72
+ * $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation example subnet-6777656e646f6c796e/rtb-656c65616e6f72
  * ```
  * 
  * With EC2 Internet Gateways:
  * 
  * ```sh
- * $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
+ * $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation example igw-01b3a60780f8d034a/rtb-656c65616e6f72
  * ```
  * 
  */

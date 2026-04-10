@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  *         propagateTags: "CAPACITY_PROVIDER",
  *         instanceLaunchTemplate: {
  *             ec2InstanceProfileArn: ecsInstance.arn,
- *             monitoring: "ENABLED",
+ *             monitoring: "DETAILED",
  *             networkConfiguration: {
  *                 subnets: [exampleAwsSubnet.id],
  *                 securityGroups: [exampleAwsSecurityGroup.id],

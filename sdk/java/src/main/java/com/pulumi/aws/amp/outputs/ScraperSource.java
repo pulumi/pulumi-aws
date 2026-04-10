@@ -4,9 +4,11 @@
 package com.pulumi.aws.amp.outputs;
 
 import com.pulumi.aws.amp.outputs.ScraperSourceEks;
+import com.pulumi.aws.amp.outputs.ScraperSourceVpc;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ScraperSource {
@@ -14,15 +16,31 @@ public final class ScraperSource {
      * @return Configuration block for an EKS cluster source. See `eks`.
      * 
      */
-    private ScraperSourceEks eks;
+    private @Nullable ScraperSourceEks eks;
+    /**
+     * @return Configuration block for a VPC source. See `vpc`.
+     * 
+     * &gt; **NOTE:** Either `eks` or `vpc` must be specified, but not both.
+     * 
+     */
+    private @Nullable ScraperSourceVpc vpc;
 
     private ScraperSource() {}
     /**
      * @return Configuration block for an EKS cluster source. See `eks`.
      * 
      */
-    public ScraperSourceEks eks() {
-        return this.eks;
+    public Optional<ScraperSourceEks> eks() {
+        return Optional.ofNullable(this.eks);
+    }
+    /**
+     * @return Configuration block for a VPC source. See `vpc`.
+     * 
+     * &gt; **NOTE:** Either `eks` or `vpc` must be specified, but not both.
+     * 
+     */
+    public Optional<ScraperSourceVpc> vpc() {
+        return Optional.ofNullable(this.vpc);
     }
 
     public static Builder builder() {
@@ -34,24 +52,31 @@ public final class ScraperSource {
     }
     @CustomType.Builder
     public static final class Builder {
-        private ScraperSourceEks eks;
+        private @Nullable ScraperSourceEks eks;
+        private @Nullable ScraperSourceVpc vpc;
         public Builder() {}
         public Builder(ScraperSource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.eks = defaults.eks;
+    	      this.vpc = defaults.vpc;
         }
 
         @CustomType.Setter
-        public Builder eks(ScraperSourceEks eks) {
-            if (eks == null) {
-              throw new MissingRequiredPropertyException("ScraperSource", "eks");
-            }
+        public Builder eks(@Nullable ScraperSourceEks eks) {
+
             this.eks = eks;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder vpc(@Nullable ScraperSourceVpc vpc) {
+
+            this.vpc = vpc;
             return this;
         }
         public ScraperSource build() {
             final var _resultValue = new ScraperSource();
             _resultValue.eks = eks;
+            _resultValue.vpc = vpc;
             return _resultValue;
         }
     }

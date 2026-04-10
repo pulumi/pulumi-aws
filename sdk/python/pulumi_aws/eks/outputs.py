@@ -620,7 +620,7 @@ class ClusterControlPlaneScalingConfig(dict):
     def __init__(__self__, *,
                  tier: Optional[_builtins.str] = None):
         """
-        :param _builtins.str tier: The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
+        :param _builtins.str tier: The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, `tier-4xl`, or `tier-8xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
         """
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
@@ -629,7 +629,7 @@ class ClusterControlPlaneScalingConfig(dict):
     @pulumi.getter
     def tier(self) -> Optional[_builtins.str]:
         """
-        The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
+        The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, `tier-4xl`, or `tier-8xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
         """
         return pulumi.get(self, "tier")
 
@@ -2067,7 +2067,7 @@ class GetClusterControlPlaneScalingConfigResult(dict):
     def __init__(__self__, *,
                  tier: _builtins.str):
         """
-        :param _builtins.str tier: The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`.
+        :param _builtins.str tier: The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, `tier-4xl`, or `tier-8xl`.
         """
         pulumi.set(__self__, "tier", tier)
 
@@ -2075,7 +2075,7 @@ class GetClusterControlPlaneScalingConfigResult(dict):
     @pulumi.getter
     def tier(self) -> _builtins.str:
         """
-        The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`.
+        The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, `tier-4xl`, or `tier-8xl`.
         """
         return pulumi.get(self, "tier")
 

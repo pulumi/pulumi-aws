@@ -5,12 +5,19 @@ package com.pulumi.aws.cloudformation.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
+import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class StackSetAutoDeployment {
+    /**
+     * @return A list of StackSet ARNs that this StackSet depends on for auto-deployment operations. When auto-deployment is triggered, operations will be sequenced to ensure all dependencies complete successfully before this StackSet&#39;s operation begins.
+     * 
+     */
+    private @Nullable List<String> dependsOnStackSets;
     /**
      * @return Whether or not auto-deployment is enabled.
      * 
@@ -23,6 +30,13 @@ public final class StackSetAutoDeployment {
     private @Nullable Boolean retainStacksOnAccountRemoval;
 
     private StackSetAutoDeployment() {}
+    /**
+     * @return A list of StackSet ARNs that this StackSet depends on for auto-deployment operations. When auto-deployment is triggered, operations will be sequenced to ensure all dependencies complete successfully before this StackSet&#39;s operation begins.
+     * 
+     */
+    public List<String> dependsOnStackSets() {
+        return this.dependsOnStackSets == null ? List.of() : this.dependsOnStackSets;
+    }
     /**
      * @return Whether or not auto-deployment is enabled.
      * 
@@ -47,15 +61,26 @@ public final class StackSetAutoDeployment {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<String> dependsOnStackSets;
         private @Nullable Boolean enabled;
         private @Nullable Boolean retainStacksOnAccountRemoval;
         public Builder() {}
         public Builder(StackSetAutoDeployment defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.dependsOnStackSets = defaults.dependsOnStackSets;
     	      this.enabled = defaults.enabled;
     	      this.retainStacksOnAccountRemoval = defaults.retainStacksOnAccountRemoval;
         }
 
+        @CustomType.Setter
+        public Builder dependsOnStackSets(@Nullable List<String> dependsOnStackSets) {
+
+            this.dependsOnStackSets = dependsOnStackSets;
+            return this;
+        }
+        public Builder dependsOnStackSets(String... dependsOnStackSets) {
+            return dependsOnStackSets(List.of(dependsOnStackSets));
+        }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
 
@@ -70,6 +95,7 @@ public final class StackSetAutoDeployment {
         }
         public StackSetAutoDeployment build() {
             final var _resultValue = new StackSetAutoDeployment();
+            _resultValue.dependsOnStackSets = dependsOnStackSets;
             _resultValue.enabled = enabled;
             _resultValue.retainStacksOnAccountRemoval = retainStacksOnAccountRemoval;
             return _resultValue;

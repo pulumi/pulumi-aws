@@ -6,6 +6,7 @@ package com.pulumi.aws.s3control.outputs;
 import com.pulumi.aws.s3control.outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics;
 import com.pulumi.aws.s3control.outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics;
 import com.pulumi.aws.s3control.outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics;
+import com.pulumi.aws.s3control.outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedPerformanceMetrics;
 import com.pulumi.aws.s3control.outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics;
 import com.pulumi.aws.s3control.outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel;
 import com.pulumi.core.annotations.CustomType;
@@ -30,6 +31,11 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
      * 
      */
     private @Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics advancedDataProtectionMetrics;
+    /**
+     * @return Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics above for more details.
+     * 
+     */
+    private @Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedPerformanceMetrics advancedPerformanceMetrics;
     /**
      * @return Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics above for more details.
      * 
@@ -64,6 +70,13 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
         return Optional.ofNullable(this.advancedDataProtectionMetrics);
     }
     /**
+     * @return Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics above for more details.
+     * 
+     */
+    public Optional<StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedPerformanceMetrics> advancedPerformanceMetrics() {
+        return Optional.ofNullable(this.advancedPerformanceMetrics);
+    }
+    /**
      * @return Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics above for more details.
      * 
      */
@@ -90,6 +103,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
         private @Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics activityMetrics;
         private @Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics advancedCostOptimizationMetrics;
         private @Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics advancedDataProtectionMetrics;
+        private @Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedPerformanceMetrics advancedPerformanceMetrics;
         private @Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics detailedStatusCodeMetrics;
         private @Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel prefixLevel;
         public Builder() {}
@@ -98,6 +112,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
     	      this.activityMetrics = defaults.activityMetrics;
     	      this.advancedCostOptimizationMetrics = defaults.advancedCostOptimizationMetrics;
     	      this.advancedDataProtectionMetrics = defaults.advancedDataProtectionMetrics;
+    	      this.advancedPerformanceMetrics = defaults.advancedPerformanceMetrics;
     	      this.detailedStatusCodeMetrics = defaults.detailedStatusCodeMetrics;
     	      this.prefixLevel = defaults.prefixLevel;
         }
@@ -121,6 +136,12 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
             return this;
         }
         @CustomType.Setter
+        public Builder advancedPerformanceMetrics(@Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedPerformanceMetrics advancedPerformanceMetrics) {
+
+            this.advancedPerformanceMetrics = advancedPerformanceMetrics;
+            return this;
+        }
+        @CustomType.Setter
         public Builder detailedStatusCodeMetrics(@Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics detailedStatusCodeMetrics) {
 
             this.detailedStatusCodeMetrics = detailedStatusCodeMetrics;
@@ -137,6 +158,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
             _resultValue.activityMetrics = activityMetrics;
             _resultValue.advancedCostOptimizationMetrics = advancedCostOptimizationMetrics;
             _resultValue.advancedDataProtectionMetrics = advancedDataProtectionMetrics;
+            _resultValue.advancedPerformanceMetrics = advancedPerformanceMetrics;
             _resultValue.detailedStatusCodeMetrics = detailedStatusCodeMetrics;
             _resultValue.prefixLevel = prefixLevel;
             return _resultValue;

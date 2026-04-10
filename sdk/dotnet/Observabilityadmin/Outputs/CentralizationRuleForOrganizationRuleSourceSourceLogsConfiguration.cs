@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Observabilityadmin.Outputs
     [OutputType]
     public sealed class CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration
     {
+        public readonly string? DataSourceSelectionCriteria;
         /// <summary>
         /// Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
         /// </summary>
@@ -20,14 +21,17 @@ namespace Pulumi.Aws.Observabilityadmin.Outputs
         /// <summary>
         /// Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE '/aws/lambda%'`. Must be between 1 and 2000 characters.
         /// </summary>
-        public readonly string LogGroupSelectionCriteria;
+        public readonly string? LogGroupSelectionCriteria;
 
         [OutputConstructor]
         private CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration(
+            string? dataSourceSelectionCriteria,
+
             string encryptedLogGroupStrategy,
 
-            string logGroupSelectionCriteria)
+            string? logGroupSelectionCriteria)
         {
+            DataSourceSelectionCriteria = dataSourceSelectionCriteria;
             EncryptedLogGroupStrategy = encryptedLogGroupStrategy;
             LogGroupSelectionCriteria = logGroupSelectionCriteria;
         }

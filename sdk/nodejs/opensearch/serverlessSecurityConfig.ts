@@ -12,9 +12,12 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ## Import
+ * #### Optional
  *
- * Using `pulumi import`, import OpenSearchServerless Access Policy using the `name` argument prefixed with the string `saml/account_id/`. For example:
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import OpenSearchServerless Security Config using the `name` argument prefixed with the string `saml/account_id/`. For example:
  *
  * ```sh
  * $ pulumi import aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig example saml/123456789012/example

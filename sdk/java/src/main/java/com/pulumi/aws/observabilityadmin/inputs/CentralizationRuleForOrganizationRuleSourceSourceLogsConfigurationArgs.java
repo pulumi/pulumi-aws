@@ -8,11 +8,20 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs Empty = new CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs();
+
+    @Import(name="dataSourceSelectionCriteria")
+    private @Nullable Output<String> dataSourceSelectionCriteria;
+
+    public Optional<Output<String>> dataSourceSelectionCriteria() {
+        return Optional.ofNullable(this.dataSourceSelectionCriteria);
+    }
 
     /**
      * Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
@@ -33,20 +42,21 @@ public final class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigur
      * Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE &#39;/aws/lambda%&#39;`. Must be between 1 and 2000 characters.
      * 
      */
-    @Import(name="logGroupSelectionCriteria", required=true)
-    private Output<String> logGroupSelectionCriteria;
+    @Import(name="logGroupSelectionCriteria")
+    private @Nullable Output<String> logGroupSelectionCriteria;
 
     /**
      * @return Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE &#39;/aws/lambda%&#39;`. Must be between 1 and 2000 characters.
      * 
      */
-    public Output<String> logGroupSelectionCriteria() {
-        return this.logGroupSelectionCriteria;
+    public Optional<Output<String>> logGroupSelectionCriteria() {
+        return Optional.ofNullable(this.logGroupSelectionCriteria);
     }
 
     private CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs() {}
 
     private CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs(CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs $) {
+        this.dataSourceSelectionCriteria = $.dataSourceSelectionCriteria;
         this.encryptedLogGroupStrategy = $.encryptedLogGroupStrategy;
         this.logGroupSelectionCriteria = $.logGroupSelectionCriteria;
     }
@@ -67,6 +77,15 @@ public final class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigur
 
         public Builder(CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs defaults) {
             $ = new CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder dataSourceSelectionCriteria(@Nullable Output<String> dataSourceSelectionCriteria) {
+            $.dataSourceSelectionCriteria = dataSourceSelectionCriteria;
+            return this;
+        }
+
+        public Builder dataSourceSelectionCriteria(String dataSourceSelectionCriteria) {
+            return dataSourceSelectionCriteria(Output.of(dataSourceSelectionCriteria));
         }
 
         /**
@@ -96,7 +115,7 @@ public final class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigur
          * @return builder
          * 
          */
-        public Builder logGroupSelectionCriteria(Output<String> logGroupSelectionCriteria) {
+        public Builder logGroupSelectionCriteria(@Nullable Output<String> logGroupSelectionCriteria) {
             $.logGroupSelectionCriteria = logGroupSelectionCriteria;
             return this;
         }
@@ -114,9 +133,6 @@ public final class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigur
         public CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs build() {
             if ($.encryptedLogGroupStrategy == null) {
                 throw new MissingRequiredPropertyException("CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs", "encryptedLogGroupStrategy");
-            }
-            if ($.logGroupSelectionCriteria == null) {
-                throw new MissingRequiredPropertyException("CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs", "logGroupSelectionCriteria");
             }
             return $;
         }

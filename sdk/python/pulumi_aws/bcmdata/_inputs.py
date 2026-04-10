@@ -155,11 +155,15 @@ class ExportExportArgs:
 class ExportExportDataQueryArgsDict(TypedDict):
     query_statement: pulumi.Input[_builtins.str]
     """
-    Query statement. The SQL table name for CUR 2.0 is `COST_AND_USAGE_REPORT`. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html) for a list of available columns.
+    Query statement.
+    See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
     """
     table_configurations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]
     """
-    Table configuration. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html#cur2-table-configurations) for the available configurations. In addition to those listed in the documentation, `BILLING_VIEW_ARN` must also be included, as shown in the example above.
+    Table configuration.
+    See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
+    If a value is set for `table_configurations`, all configuration values must be set.
+    For the Cost and Usage Report, `BILLING_VIEW_ARN` must also be set, in addition to the documented settings.
     """
 
 @pulumi.input_type
@@ -168,8 +172,12 @@ class ExportExportDataQueryArgs:
                  query_statement: pulumi.Input[_builtins.str],
                  table_configurations: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None):
         """
-        :param pulumi.Input[_builtins.str] query_statement: Query statement. The SQL table name for CUR 2.0 is `COST_AND_USAGE_REPORT`. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html) for a list of available columns.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]] table_configurations: Table configuration. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html#cur2-table-configurations) for the available configurations. In addition to those listed in the documentation, `BILLING_VIEW_ARN` must also be included, as shown in the example above.
+        :param pulumi.Input[_builtins.str] query_statement: Query statement.
+               See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]] table_configurations: Table configuration.
+               See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
+               If a value is set for `table_configurations`, all configuration values must be set.
+               For the Cost and Usage Report, `BILLING_VIEW_ARN` must also be set, in addition to the documented settings.
         """
         pulumi.set(__self__, "query_statement", query_statement)
         if table_configurations is not None:
@@ -179,7 +187,8 @@ class ExportExportDataQueryArgs:
     @pulumi.getter(name="queryStatement")
     def query_statement(self) -> pulumi.Input[_builtins.str]:
         """
-        Query statement. The SQL table name for CUR 2.0 is `COST_AND_USAGE_REPORT`. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html) for a list of available columns.
+        Query statement.
+        See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
         """
         return pulumi.get(self, "query_statement")
 
@@ -191,7 +200,10 @@ class ExportExportDataQueryArgs:
     @pulumi.getter(name="tableConfigurations")
     def table_configurations(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]:
         """
-        Table configuration. See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html#cur2-table-configurations) for the available configurations. In addition to those listed in the documentation, `BILLING_VIEW_ARN` must also be included, as shown in the example above.
+        Table configuration.
+        See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
+        If a value is set for `table_configurations`, all configuration values must be set.
+        For the Cost and Usage Report, `BILLING_VIEW_ARN` must also be set, in addition to the documented settings.
         """
         return pulumi.get(self, "table_configurations")
 

@@ -14,7 +14,7 @@ According to https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-la
 preferred one.
 
 diff --git a/internal/service/controltower/landing_zone.go b/internal/service/controltower/landing_zone.go
-index 72a7ac59ab9..8052d78c6f1 100644
+index 2032a10462f..6915aa3052b 100644
 --- a/internal/service/controltower/landing_zone.go
 +++ b/internal/service/controltower/landing_zone.go
 @@ -7,8 +7,10 @@ package controltower
@@ -36,7 +36,7 @@ index 72a7ac59ab9..8052d78c6f1 100644
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
  	"github.com/hashicorp/terraform-provider-aws/internal/conns"
  	"github.com/hashicorp/terraform-provider-aws/internal/enum"
-@@ -29,7 +30,6 @@ import (
+@@ -30,7 +31,6 @@ import (
  	tfsmithy "github.com/hashicorp/terraform-provider-aws/internal/smithy"
  	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
  	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
@@ -44,7 +44,7 @@ index 72a7ac59ab9..8052d78c6f1 100644
  	"github.com/hashicorp/terraform-provider-aws/names"
  )
  
-@@ -77,12 +77,9 @@ func resourceLandingZone() *schema.Resource {
+@@ -86,12 +86,9 @@ func resourceLandingZone() *schema.Resource {
  				Type:                  schema.TypeString,
  				Required:              true,
  				ValidateFunc:          validation.StringIsJSON,
@@ -59,7 +59,7 @@ index 72a7ac59ab9..8052d78c6f1 100644
  			},
  			names.AttrVersion: {
  				Type:     schema.TypeString,
-@@ -327,3 +324,80 @@ func flattenLandingZoneDriftStatusSummary(apiObject *types.LandingZoneDriftStatu
+@@ -349,3 +346,80 @@ func flattenLandingZoneDriftStatusSummary(apiObject *types.LandingZoneDriftStatu
  
  	return tfMap
  }

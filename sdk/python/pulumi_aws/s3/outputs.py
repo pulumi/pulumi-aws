@@ -167,6 +167,14 @@ __all__ = [
     'BucketWebsiteConfigurationV2RoutingRuleCondition',
     'BucketWebsiteConfigurationV2RoutingRuleRedirect',
     'DirectoryBucketLocation',
+    'FilesAccessPointPosixUser',
+    'FilesAccessPointRootDirectory',
+    'FilesAccessPointRootDirectoryCreationPermission',
+    'FilesAccessPointTimeouts',
+    'FilesFileSystemTimeouts',
+    'FilesMountTargetTimeouts',
+    'FilesSynchronizationConfigurationExpirationDataRule',
+    'FilesSynchronizationConfigurationImportDataRule',
     'InventoryDestination',
     'InventoryDestinationBucket',
     'InventoryDestinationBucketEncryption',
@@ -201,6 +209,10 @@ __all__ = [
     'GetBucketReplicationConfigurationRuleSourceSelectionCriteriaResult',
     'GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationResult',
     'GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectResult',
+    'GetFilesAccessPointPosixUserResult',
+    'GetFilesAccessPointRootDirectoryResult',
+    'GetFilesAccessPointRootDirectoryCreationPermissionResult',
+    'GetFilesFileSystemsFileSystemResult',
 ]
 
 @pulumi.output_type
@@ -3870,7 +3882,7 @@ class BucketMetricFilter(dict):
         """
         :param _builtins.str access_point: S3 Access Point ARN for filtering (singular).
         :param _builtins.str prefix: Object prefix for filtering (singular).
-        :param Mapping[str, _builtins.str] tags: Object tags for filtering (up to 10).
+        :param Mapping[str, _builtins.str] tags: Object tags for filtering (up to 10). Unsupported for S3 directory buckets.
         """
         if access_point is not None:
             pulumi.set(__self__, "access_point", access_point)
@@ -3899,7 +3911,7 @@ class BucketMetricFilter(dict):
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        Object tags for filtering (up to 10).
+        Object tags for filtering (up to 10). Unsupported for S3 directory buckets.
         """
         return pulumi.get(self, "tags")
 
@@ -7884,6 +7896,368 @@ class DirectoryBucketLocation(dict):
 
 
 @pulumi.output_type
+class FilesAccessPointPosixUser(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secondaryGids":
+            suggest = "secondary_gids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FilesAccessPointPosixUser. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FilesAccessPointPosixUser.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FilesAccessPointPosixUser.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 gid: _builtins.int,
+                 uid: _builtins.int,
+                 secondary_gids: Optional[Sequence[_builtins.int]] = None):
+        """
+        :param _builtins.int gid: POSIX group ID. Changing this value forces replacement.
+        :param _builtins.int uid: POSIX user ID. Changing this value forces replacement.
+        :param Sequence[_builtins.int] secondary_gids: Set of secondary POSIX group IDs. Changing this value forces replacement.
+        """
+        pulumi.set(__self__, "gid", gid)
+        pulumi.set(__self__, "uid", uid)
+        if secondary_gids is not None:
+            pulumi.set(__self__, "secondary_gids", secondary_gids)
+
+    @_builtins.property
+    @pulumi.getter
+    def gid(self) -> _builtins.int:
+        """
+        POSIX group ID. Changing this value forces replacement.
+        """
+        return pulumi.get(self, "gid")
+
+    @_builtins.property
+    @pulumi.getter
+    def uid(self) -> _builtins.int:
+        """
+        POSIX user ID. Changing this value forces replacement.
+        """
+        return pulumi.get(self, "uid")
+
+    @_builtins.property
+    @pulumi.getter(name="secondaryGids")
+    def secondary_gids(self) -> Optional[Sequence[_builtins.int]]:
+        """
+        Set of secondary POSIX group IDs. Changing this value forces replacement.
+        """
+        return pulumi.get(self, "secondary_gids")
+
+
+@pulumi.output_type
+class FilesAccessPointRootDirectory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationPermissions":
+            suggest = "creation_permissions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FilesAccessPointRootDirectory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FilesAccessPointRootDirectory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FilesAccessPointRootDirectory.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 creation_permissions: Optional[Sequence['outputs.FilesAccessPointRootDirectoryCreationPermission']] = None,
+                 path: Optional[_builtins.str] = None):
+        """
+        :param Sequence['FilesAccessPointRootDirectoryCreationPermissionArgs'] creation_permissions: Permissions to set when creating the root directory. See `creation_permissions` below. Changing this value forces replacement.
+        :param _builtins.str path: Root directory path. Changing this value forces replacement.
+        """
+        if creation_permissions is not None:
+            pulumi.set(__self__, "creation_permissions", creation_permissions)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @_builtins.property
+    @pulumi.getter(name="creationPermissions")
+    def creation_permissions(self) -> Optional[Sequence['outputs.FilesAccessPointRootDirectoryCreationPermission']]:
+        """
+        Permissions to set when creating the root directory. See `creation_permissions` below. Changing this value forces replacement.
+        """
+        return pulumi.get(self, "creation_permissions")
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> Optional[_builtins.str]:
+        """
+        Root directory path. Changing this value forces replacement.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class FilesAccessPointRootDirectoryCreationPermission(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ownerGid":
+            suggest = "owner_gid"
+        elif key == "ownerUid":
+            suggest = "owner_uid"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FilesAccessPointRootDirectoryCreationPermission. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FilesAccessPointRootDirectoryCreationPermission.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FilesAccessPointRootDirectoryCreationPermission.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 owner_gid: _builtins.int,
+                 owner_uid: _builtins.int,
+                 permissions: _builtins.str):
+        """
+        :param _builtins.int owner_gid: Owner group ID. Changing this value forces replacement.
+        :param _builtins.int owner_uid: Owner user ID. Changing this value forces replacement.
+        :param _builtins.str permissions: POSIX permissions in octal notation. Changing this value forces replacement.
+        """
+        pulumi.set(__self__, "owner_gid", owner_gid)
+        pulumi.set(__self__, "owner_uid", owner_uid)
+        pulumi.set(__self__, "permissions", permissions)
+
+    @_builtins.property
+    @pulumi.getter(name="ownerGid")
+    def owner_gid(self) -> _builtins.int:
+        """
+        Owner group ID. Changing this value forces replacement.
+        """
+        return pulumi.get(self, "owner_gid")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerUid")
+    def owner_uid(self) -> _builtins.int:
+        """
+        Owner user ID. Changing this value forces replacement.
+        """
+        return pulumi.get(self, "owner_uid")
+
+    @_builtins.property
+    @pulumi.getter
+    def permissions(self) -> _builtins.str:
+        """
+        POSIX permissions in octal notation. Changing this value forces replacement.
+        """
+        return pulumi.get(self, "permissions")
+
+
+@pulumi.output_type
+class FilesAccessPointTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+
+@pulumi.output_type
+class FilesFileSystemTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+
+@pulumi.output_type
+class FilesMountTargetTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class FilesSynchronizationConfigurationExpirationDataRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "daysAfterLastAccess":
+            suggest = "days_after_last_access"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FilesSynchronizationConfigurationExpirationDataRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FilesSynchronizationConfigurationExpirationDataRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FilesSynchronizationConfigurationExpirationDataRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 days_after_last_access: _builtins.int):
+        """
+        :param _builtins.int days_after_last_access: Number of days after last access before expiring data.
+        """
+        pulumi.set(__self__, "days_after_last_access", days_after_last_access)
+
+    @_builtins.property
+    @pulumi.getter(name="daysAfterLastAccess")
+    def days_after_last_access(self) -> _builtins.int:
+        """
+        Number of days after last access before expiring data.
+        """
+        return pulumi.get(self, "days_after_last_access")
+
+
+@pulumi.output_type
+class FilesSynchronizationConfigurationImportDataRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sizeLessThan":
+            suggest = "size_less_than"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FilesSynchronizationConfigurationImportDataRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FilesSynchronizationConfigurationImportDataRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FilesSynchronizationConfigurationImportDataRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 prefix: _builtins.str,
+                 size_less_than: _builtins.int,
+                 trigger: _builtins.str):
+        """
+        :param _builtins.str prefix: S3 key prefix to apply this rule to. Use `""` for all objects.
+        :param _builtins.int size_less_than: Maximum object size in bytes to import.
+        :param _builtins.str trigger: Import trigger. Valid values: `ON_FILE_ACCESS`.
+        """
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "size_less_than", size_less_than)
+        pulumi.set(__self__, "trigger", trigger)
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> _builtins.str:
+        """
+        S3 key prefix to apply this rule to. Use `""` for all objects.
+        """
+        return pulumi.get(self, "prefix")
+
+    @_builtins.property
+    @pulumi.getter(name="sizeLessThan")
+    def size_less_than(self) -> _builtins.int:
+        """
+        Maximum object size in bytes to import.
+        """
+        return pulumi.get(self, "size_less_than")
+
+    @_builtins.property
+    @pulumi.getter
+    def trigger(self) -> _builtins.str:
+        """
+        Import trigger. Valid values: `ON_FILE_ACCESS`.
+        """
+        return pulumi.get(self, "trigger")
+
+
+@pulumi.output_type
 class InventoryDestination(dict):
     def __init__(__self__, *,
                  bucket: 'outputs.InventoryDestinationBucket'):
@@ -8903,5 +9277,232 @@ class GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncrypte
     @pulumi.getter
     def status(self) -> _builtins.str:
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class GetFilesAccessPointPosixUserResult(dict):
+    def __init__(__self__, *,
+                 gid: _builtins.int,
+                 secondary_gids: Sequence[_builtins.int],
+                 uid: _builtins.int):
+        """
+        :param _builtins.int gid: POSIX group ID.
+        :param Sequence[_builtins.int] secondary_gids: Set of secondary POSIX group IDs.
+        :param _builtins.int uid: POSIX user ID.
+        """
+        pulumi.set(__self__, "gid", gid)
+        pulumi.set(__self__, "secondary_gids", secondary_gids)
+        pulumi.set(__self__, "uid", uid)
+
+    @_builtins.property
+    @pulumi.getter
+    def gid(self) -> _builtins.int:
+        """
+        POSIX group ID.
+        """
+        return pulumi.get(self, "gid")
+
+    @_builtins.property
+    @pulumi.getter(name="secondaryGids")
+    def secondary_gids(self) -> Sequence[_builtins.int]:
+        """
+        Set of secondary POSIX group IDs.
+        """
+        return pulumi.get(self, "secondary_gids")
+
+    @_builtins.property
+    @pulumi.getter
+    def uid(self) -> _builtins.int:
+        """
+        POSIX user ID.
+        """
+        return pulumi.get(self, "uid")
+
+
+@pulumi.output_type
+class GetFilesAccessPointRootDirectoryResult(dict):
+    def __init__(__self__, *,
+                 path: _builtins.str,
+                 creation_permissions: Optional[Sequence['outputs.GetFilesAccessPointRootDirectoryCreationPermissionResult']] = None):
+        """
+        :param _builtins.str path: Root directory path.
+        :param Sequence['GetFilesAccessPointRootDirectoryCreationPermissionArgs'] creation_permissions: Permissions set when the root directory was created. See `creation_permissions` below.
+        """
+        pulumi.set(__self__, "path", path)
+        if creation_permissions is not None:
+            pulumi.set(__self__, "creation_permissions", creation_permissions)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> _builtins.str:
+        """
+        Root directory path.
+        """
+        return pulumi.get(self, "path")
+
+    @_builtins.property
+    @pulumi.getter(name="creationPermissions")
+    def creation_permissions(self) -> Optional[Sequence['outputs.GetFilesAccessPointRootDirectoryCreationPermissionResult']]:
+        """
+        Permissions set when the root directory was created. See `creation_permissions` below.
+        """
+        return pulumi.get(self, "creation_permissions")
+
+
+@pulumi.output_type
+class GetFilesAccessPointRootDirectoryCreationPermissionResult(dict):
+    def __init__(__self__, *,
+                 owner_gid: _builtins.int,
+                 owner_uid: _builtins.int,
+                 permissions: _builtins.str):
+        """
+        :param _builtins.int owner_gid: Owner group ID.
+        :param _builtins.int owner_uid: Owner user ID.
+        :param _builtins.str permissions: POSIX permissions in octal notation.
+        """
+        pulumi.set(__self__, "owner_gid", owner_gid)
+        pulumi.set(__self__, "owner_uid", owner_uid)
+        pulumi.set(__self__, "permissions", permissions)
+
+    @_builtins.property
+    @pulumi.getter(name="ownerGid")
+    def owner_gid(self) -> _builtins.int:
+        """
+        Owner group ID.
+        """
+        return pulumi.get(self, "owner_gid")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerUid")
+    def owner_uid(self) -> _builtins.int:
+        """
+        Owner user ID.
+        """
+        return pulumi.get(self, "owner_uid")
+
+    @_builtins.property
+    @pulumi.getter
+    def permissions(self) -> _builtins.str:
+        """
+        POSIX permissions in octal notation.
+        """
+        return pulumi.get(self, "permissions")
+
+
+@pulumi.output_type
+class GetFilesFileSystemsFileSystemResult(dict):
+    def __init__(__self__, *,
+                 arn: _builtins.str,
+                 bucket: _builtins.str,
+                 creation_time: _builtins.str,
+                 id: _builtins.str,
+                 kms_key_id: _builtins.str,
+                 name: _builtins.str,
+                 owner_id: _builtins.str,
+                 role_arn: _builtins.str,
+                 status: _builtins.str,
+                 status_message: _builtins.str):
+        """
+        :param _builtins.str arn: ARN of the file system.
+        :param _builtins.str bucket: S3 bucket ARN.
+        :param _builtins.str creation_time: Creation time.
+        :param _builtins.str id: Identifier of the file system.
+        :param _builtins.str kms_key_id: KMS key ID for encryption.
+        :param _builtins.str name: File system name.
+        :param _builtins.str owner_id: AWS account ID of the owner.
+        :param _builtins.str role_arn: IAM role ARN for S3 access.
+        :param _builtins.str status: File system status.
+        :param _builtins.str status_message: Status message.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "creation_time", creation_time)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "kms_key_id", kms_key_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "owner_id", owner_id)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "status_message", status_message)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        """
+        ARN of the file system.
+        """
+        return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> _builtins.str:
+        """
+        S3 bucket ARN.
+        """
+        return pulumi.get(self, "bucket")
+
+    @_builtins.property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> _builtins.str:
+        """
+        Creation time.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Identifier of the file system.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> _builtins.str:
+        """
+        KMS key ID for encryption.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        File system name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> _builtins.str:
+        """
+        AWS account ID of the owner.
+        """
+        return pulumi.get(self, "owner_id")
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> _builtins.str:
+        """
+        IAM role ARN for S3 access.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        File system status.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> _builtins.str:
+        """
+        Status message.
+        """
+        return pulumi.get(self, "status_message")
 
 

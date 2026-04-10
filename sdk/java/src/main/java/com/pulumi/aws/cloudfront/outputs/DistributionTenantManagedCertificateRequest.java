@@ -22,7 +22,7 @@ public final class DistributionTenantManagedCertificateRequest {
      */
     private @Nullable String primaryDomainName;
     /**
-     * @return Host for validation token. Valid values: `cloudfront`, `domain`.
+     * @return Host for validation token. Valid values: `cloudfront`, `self-hosted`.
      * 
      */
     private @Nullable String validationTokenHost;
@@ -43,7 +43,7 @@ public final class DistributionTenantManagedCertificateRequest {
         return Optional.ofNullable(this.primaryDomainName);
     }
     /**
-     * @return Host for validation token. Valid values: `cloudfront`, `domain`.
+     * @return Host for validation token. Valid values: `cloudfront`, `self-hosted`.
      * 
      */
     public Optional<String> validationTokenHost() {

@@ -140,6 +140,28 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Protected View
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.glue.CatalogTable("example", {
+ *     name: "multidialect_view",
+ *     databaseName: "catalog_database",
+ *     tableType: "VIRTUAL_VIEW",
+ *     viewDefinition: {
+ *         isProtected: true,
+ *         representations: [{
+ *             dialect: "ATHENA",
+ *             dialectVersion: "3",
+ *             viewOriginalText: "SELECT * FROM catalog_database.base_table",
+ *             validationConnection: exampleAwsGlueConnection.name,
+ *         }],
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:

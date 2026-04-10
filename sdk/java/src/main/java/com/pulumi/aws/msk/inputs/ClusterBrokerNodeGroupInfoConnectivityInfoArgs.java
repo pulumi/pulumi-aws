@@ -7,6 +7,7 @@ import com.pulumi.aws.msk.inputs.ClusterBrokerNodeGroupInfoConnectivityInfoPubli
 import com.pulumi.aws.msk.inputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class ClusterBrokerNodeGroupInfoConnectivityInfoArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ClusterBrokerNodeGroupInfoConnectivityInfoArgs Empty = new ClusterBrokerNodeGroupInfoConnectivityInfoArgs();
+
+    /**
+     * Network type of the cluster. Valid values are: `IPV4` or `DUAL`. Default value: `IPV4`. Only updating from `IPV4` to `DUAL` is allowed.
+     * 
+     */
+    @Import(name="networkType")
+    private @Nullable Output<String> networkType;
+
+    /**
+     * @return Network type of the cluster. Valid values are: `IPV4` or `DUAL`. Default value: `IPV4`. Only updating from `IPV4` to `DUAL` is allowed.
+     * 
+     */
+    public Optional<Output<String>> networkType() {
+        return Optional.ofNullable(this.networkType);
+    }
 
     /**
      * Access control settings for brokers. See connectivityInfo public_access Argument Reference below.
@@ -49,6 +65,7 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoArgs extends com.pu
     private ClusterBrokerNodeGroupInfoConnectivityInfoArgs() {}
 
     private ClusterBrokerNodeGroupInfoConnectivityInfoArgs(ClusterBrokerNodeGroupInfoConnectivityInfoArgs $) {
+        this.networkType = $.networkType;
         this.publicAccess = $.publicAccess;
         this.vpcConnectivity = $.vpcConnectivity;
     }
@@ -69,6 +86,27 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoArgs extends com.pu
 
         public Builder(ClusterBrokerNodeGroupInfoConnectivityInfoArgs defaults) {
             $ = new ClusterBrokerNodeGroupInfoConnectivityInfoArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param networkType Network type of the cluster. Valid values are: `IPV4` or `DUAL`. Default value: `IPV4`. Only updating from `IPV4` to `DUAL` is allowed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(@Nullable Output<String> networkType) {
+            $.networkType = networkType;
+            return this;
+        }
+
+        /**
+         * @param networkType Network type of the cluster. Valid values are: `IPV4` or `DUAL`. Default value: `IPV4`. Only updating from `IPV4` to `DUAL` is allowed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(String networkType) {
+            return networkType(Output.of(networkType));
         }
 
         /**

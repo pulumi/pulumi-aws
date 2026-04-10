@@ -65,6 +65,11 @@ export const getConnections: typeof import("./getConnections").getConnections = 
 export const getConnectionsOutput: typeof import("./getConnections").getConnectionsOutput = null as any;
 utilities.lazyLoad(exports, ["getConnections","getConnectionsOutput"], () => require("./getConnections"));
 
+export { GetCoreNetworkArgs, GetCoreNetworkResult, GetCoreNetworkOutputArgs } from "./getCoreNetwork";
+export const getCoreNetwork: typeof import("./getCoreNetwork").getCoreNetwork = null as any;
+export const getCoreNetworkOutput: typeof import("./getCoreNetwork").getCoreNetworkOutput = null as any;
+utilities.lazyLoad(exports, ["getCoreNetwork","getCoreNetworkOutput"], () => require("./getCoreNetwork"));
+
 export { GetCoreNetworkPolicyDocumentArgs, GetCoreNetworkPolicyDocumentResult, GetCoreNetworkPolicyDocumentOutputArgs } from "./getCoreNetworkPolicyDocument";
 export const getCoreNetworkPolicyDocument: typeof import("./getCoreNetworkPolicyDocument").getCoreNetworkPolicyDocument = null as any;
 export const getCoreNetworkPolicyDocumentOutput: typeof import("./getCoreNetworkPolicyDocument").getCoreNetworkPolicyDocumentOutput = null as any;

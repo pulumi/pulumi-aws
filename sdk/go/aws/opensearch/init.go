@@ -43,6 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServerlessAccessPolicy{}
 	case "aws:opensearch/serverlessCollection:ServerlessCollection":
 		r = &ServerlessCollection{}
+	case "aws:opensearch/serverlessCollectionGroup:ServerlessCollectionGroup":
+		r = &ServerlessCollectionGroup{}
 	case "aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy":
 		r = &ServerlessLifecyclePolicy{}
 	case "aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig":
@@ -119,6 +121,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"opensearch/serverlessCollection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"opensearch/serverlessCollectionGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

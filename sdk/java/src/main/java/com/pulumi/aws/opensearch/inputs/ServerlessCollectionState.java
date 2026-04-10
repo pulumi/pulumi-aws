@@ -3,10 +3,12 @@
 
 package com.pulumi.aws.opensearch.inputs;
 
+import com.pulumi.aws.opensearch.inputs.ServerlessCollectionEncryptionConfigArgs;
 import com.pulumi.aws.opensearch.inputs.ServerlessCollectionTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -48,6 +50,21 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
     }
 
     /**
+     * Name of the collection group to associate with this collection.
+     * 
+     */
+    @Import(name="collectionGroupName")
+    private @Nullable Output<String> collectionGroupName;
+
+    /**
+     * @return Name of the collection group to associate with this collection.
+     * 
+     */
+    public Optional<Output<String>> collectionGroupName() {
+        return Optional.ofNullable(this.collectionGroupName);
+    }
+
+    /**
      * Collection-specific endpoint used to access OpenSearch Dashboards.
      * 
      */
@@ -75,6 +92,21 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * Configuration block for direct collection encryption settings. See `encryptionConfig` below for details.
+     * 
+     */
+    @Import(name="encryptionConfigs")
+    private @Nullable Output<List<ServerlessCollectionEncryptionConfigArgs>> encryptionConfigs;
+
+    /**
+     * @return Configuration block for direct collection encryption settings. See `encryptionConfig` below for details.
+     * 
+     */
+    public Optional<Output<List<ServerlessCollectionEncryptionConfigArgs>>> encryptionConfigs() {
+        return Optional.ofNullable(this.encryptionConfigs);
     }
 
     /**
@@ -156,9 +188,17 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * 
+     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -190,8 +230,10 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
     private ServerlessCollectionState(ServerlessCollectionState $) {
         this.arn = $.arn;
         this.collectionEndpoint = $.collectionEndpoint;
+        this.collectionGroupName = $.collectionGroupName;
         this.dashboardEndpoint = $.dashboardEndpoint;
         this.description = $.description;
+        this.encryptionConfigs = $.encryptionConfigs;
         this.kmsKeyArn = $.kmsKeyArn;
         this.name = $.name;
         this.region = $.region;
@@ -263,6 +305,27 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
         }
 
         /**
+         * @param collectionGroupName Name of the collection group to associate with this collection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder collectionGroupName(@Nullable Output<String> collectionGroupName) {
+            $.collectionGroupName = collectionGroupName;
+            return this;
+        }
+
+        /**
+         * @param collectionGroupName Name of the collection group to associate with this collection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder collectionGroupName(String collectionGroupName) {
+            return collectionGroupName(Output.of(collectionGroupName));
+        }
+
+        /**
          * @param dashboardEndpoint Collection-specific endpoint used to access OpenSearch Dashboards.
          * 
          * @return builder
@@ -302,6 +365,37 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param encryptionConfigs Configuration block for direct collection encryption settings. See `encryptionConfig` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionConfigs(@Nullable Output<List<ServerlessCollectionEncryptionConfigArgs>> encryptionConfigs) {
+            $.encryptionConfigs = encryptionConfigs;
+            return this;
+        }
+
+        /**
+         * @param encryptionConfigs Configuration block for direct collection encryption settings. See `encryptionConfig` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionConfigs(List<ServerlessCollectionEncryptionConfigArgs> encryptionConfigs) {
+            return encryptionConfigs(Output.of(encryptionConfigs));
+        }
+
+        /**
+         * @param encryptionConfigs Configuration block for direct collection encryption settings. See `encryptionConfig` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionConfigs(ServerlessCollectionEncryptionConfigArgs... encryptionConfigs) {
+            return encryptionConfigs(List.of(encryptionConfigs));
         }
 
         /**
@@ -413,11 +507,23 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

@@ -784,6 +784,8 @@ func (o StackInstancesStackInstanceSummaryArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type StackSetAutoDeployment struct {
+	// A list of StackSet ARNs that this StackSet depends on for auto-deployment operations. When auto-deployment is triggered, operations will be sequenced to ensure all dependencies complete successfully before this StackSet's operation begins.
+	DependsOnStackSets []string `pulumi:"dependsOnStackSets"`
 	// Whether or not auto-deployment is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// Whether or not to retain stacks when the account is removed.
@@ -802,6 +804,8 @@ type StackSetAutoDeploymentInput interface {
 }
 
 type StackSetAutoDeploymentArgs struct {
+	// A list of StackSet ARNs that this StackSet depends on for auto-deployment operations. When auto-deployment is triggered, operations will be sequenced to ensure all dependencies complete successfully before this StackSet's operation begins.
+	DependsOnStackSets pulumi.StringArrayInput `pulumi:"dependsOnStackSets"`
 	// Whether or not auto-deployment is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Whether or not to retain stacks when the account is removed.
@@ -885,6 +889,11 @@ func (o StackSetAutoDeploymentOutput) ToStackSetAutoDeploymentPtrOutputWithConte
 	}).(StackSetAutoDeploymentPtrOutput)
 }
 
+// A list of StackSet ARNs that this StackSet depends on for auto-deployment operations. When auto-deployment is triggered, operations will be sequenced to ensure all dependencies complete successfully before this StackSet's operation begins.
+func (o StackSetAutoDeploymentOutput) DependsOnStackSets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StackSetAutoDeployment) []string { return v.DependsOnStackSets }).(pulumi.StringArrayOutput)
+}
+
 // Whether or not auto-deployment is enabled.
 func (o StackSetAutoDeploymentOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StackSetAutoDeployment) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
@@ -917,6 +926,16 @@ func (o StackSetAutoDeploymentPtrOutput) Elem() StackSetAutoDeploymentOutput {
 		var ret StackSetAutoDeployment
 		return ret
 	}).(StackSetAutoDeploymentOutput)
+}
+
+// A list of StackSet ARNs that this StackSet depends on for auto-deployment operations. When auto-deployment is triggered, operations will be sequenced to ensure all dependencies complete successfully before this StackSet's operation begins.
+func (o StackSetAutoDeploymentPtrOutput) DependsOnStackSets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StackSetAutoDeployment) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DependsOnStackSets
+	}).(pulumi.StringArrayOutput)
 }
 
 // Whether or not auto-deployment is enabled.

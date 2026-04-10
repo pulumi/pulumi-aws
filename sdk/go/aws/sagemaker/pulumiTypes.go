@@ -46081,6 +46081,5628 @@ func (o SpaceSpaceSharingSettingsPtrOutput) SharingType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+type TrainingJobAlgorithmSpecification struct {
+	// Name or ARN of the algorithm resource to use for the training job.
+	AlgorithmName *string `pulumi:"algorithmName"`
+	// List of arguments for the container entrypoint. Maximum of 100 entries.
+	ContainerArguments []string `pulumi:"containerArguments"`
+	// List of entrypoint commands for the container. Maximum of 100 entries.
+	ContainerEntrypoints []string `pulumi:"containerEntrypoints"`
+	// Whether to enable SageMaker AI metrics time series collection.
+	EnableSagemakerMetricsTimeSeries *bool `pulumi:"enableSagemakerMetricsTimeSeries"`
+	// List of metric definitions for the training job. Maximum of 40. Use this to extract custom metrics from your own training container logs. SageMaker can still publish built-in metrics for built-in algorithms and supported prebuilt images when this block is omitted. See `metricDefinitions` below.
+	MetricDefinitions []TrainingJobAlgorithmSpecificationMetricDefinition `pulumi:"metricDefinitions"`
+	// Registry path of the Docker image that contains the training algorithm.
+	TrainingImage *string `pulumi:"trainingImage"`
+	// Training image configuration. See `trainingImageConfig` below.
+	TrainingImageConfig *TrainingJobAlgorithmSpecificationTrainingImageConfig `pulumi:"trainingImageConfig"`
+	// Input mode for the training data. Valid values: `File`, `Pipe`, `FastFile`.
+	TrainingInputMode *string `pulumi:"trainingInputMode"`
+}
+
+// TrainingJobAlgorithmSpecificationInput is an input type that accepts TrainingJobAlgorithmSpecificationArgs and TrainingJobAlgorithmSpecificationOutput values.
+// You can construct a concrete instance of `TrainingJobAlgorithmSpecificationInput` via:
+//
+//	TrainingJobAlgorithmSpecificationArgs{...}
+type TrainingJobAlgorithmSpecificationInput interface {
+	pulumi.Input
+
+	ToTrainingJobAlgorithmSpecificationOutput() TrainingJobAlgorithmSpecificationOutput
+	ToTrainingJobAlgorithmSpecificationOutputWithContext(context.Context) TrainingJobAlgorithmSpecificationOutput
+}
+
+type TrainingJobAlgorithmSpecificationArgs struct {
+	// Name or ARN of the algorithm resource to use for the training job.
+	AlgorithmName pulumi.StringPtrInput `pulumi:"algorithmName"`
+	// List of arguments for the container entrypoint. Maximum of 100 entries.
+	ContainerArguments pulumi.StringArrayInput `pulumi:"containerArguments"`
+	// List of entrypoint commands for the container. Maximum of 100 entries.
+	ContainerEntrypoints pulumi.StringArrayInput `pulumi:"containerEntrypoints"`
+	// Whether to enable SageMaker AI metrics time series collection.
+	EnableSagemakerMetricsTimeSeries pulumi.BoolPtrInput `pulumi:"enableSagemakerMetricsTimeSeries"`
+	// List of metric definitions for the training job. Maximum of 40. Use this to extract custom metrics from your own training container logs. SageMaker can still publish built-in metrics for built-in algorithms and supported prebuilt images when this block is omitted. See `metricDefinitions` below.
+	MetricDefinitions TrainingJobAlgorithmSpecificationMetricDefinitionArrayInput `pulumi:"metricDefinitions"`
+	// Registry path of the Docker image that contains the training algorithm.
+	TrainingImage pulumi.StringPtrInput `pulumi:"trainingImage"`
+	// Training image configuration. See `trainingImageConfig` below.
+	TrainingImageConfig TrainingJobAlgorithmSpecificationTrainingImageConfigPtrInput `pulumi:"trainingImageConfig"`
+	// Input mode for the training data. Valid values: `File`, `Pipe`, `FastFile`.
+	TrainingInputMode pulumi.StringPtrInput `pulumi:"trainingInputMode"`
+}
+
+func (TrainingJobAlgorithmSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobAlgorithmSpecification)(nil)).Elem()
+}
+
+func (i TrainingJobAlgorithmSpecificationArgs) ToTrainingJobAlgorithmSpecificationOutput() TrainingJobAlgorithmSpecificationOutput {
+	return i.ToTrainingJobAlgorithmSpecificationOutputWithContext(context.Background())
+}
+
+func (i TrainingJobAlgorithmSpecificationArgs) ToTrainingJobAlgorithmSpecificationOutputWithContext(ctx context.Context) TrainingJobAlgorithmSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobAlgorithmSpecificationOutput)
+}
+
+func (i TrainingJobAlgorithmSpecificationArgs) ToTrainingJobAlgorithmSpecificationPtrOutput() TrainingJobAlgorithmSpecificationPtrOutput {
+	return i.ToTrainingJobAlgorithmSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i TrainingJobAlgorithmSpecificationArgs) ToTrainingJobAlgorithmSpecificationPtrOutputWithContext(ctx context.Context) TrainingJobAlgorithmSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobAlgorithmSpecificationOutput).ToTrainingJobAlgorithmSpecificationPtrOutputWithContext(ctx)
+}
+
+// TrainingJobAlgorithmSpecificationPtrInput is an input type that accepts TrainingJobAlgorithmSpecificationArgs, TrainingJobAlgorithmSpecificationPtr and TrainingJobAlgorithmSpecificationPtrOutput values.
+// You can construct a concrete instance of `TrainingJobAlgorithmSpecificationPtrInput` via:
+//
+//	        TrainingJobAlgorithmSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrainingJobAlgorithmSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToTrainingJobAlgorithmSpecificationPtrOutput() TrainingJobAlgorithmSpecificationPtrOutput
+	ToTrainingJobAlgorithmSpecificationPtrOutputWithContext(context.Context) TrainingJobAlgorithmSpecificationPtrOutput
+}
+
+type trainingJobAlgorithmSpecificationPtrType TrainingJobAlgorithmSpecificationArgs
+
+func TrainingJobAlgorithmSpecificationPtr(v *TrainingJobAlgorithmSpecificationArgs) TrainingJobAlgorithmSpecificationPtrInput {
+	return (*trainingJobAlgorithmSpecificationPtrType)(v)
+}
+
+func (*trainingJobAlgorithmSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobAlgorithmSpecification)(nil)).Elem()
+}
+
+func (i *trainingJobAlgorithmSpecificationPtrType) ToTrainingJobAlgorithmSpecificationPtrOutput() TrainingJobAlgorithmSpecificationPtrOutput {
+	return i.ToTrainingJobAlgorithmSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *trainingJobAlgorithmSpecificationPtrType) ToTrainingJobAlgorithmSpecificationPtrOutputWithContext(ctx context.Context) TrainingJobAlgorithmSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobAlgorithmSpecificationPtrOutput)
+}
+
+type TrainingJobAlgorithmSpecificationOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobAlgorithmSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobAlgorithmSpecification)(nil)).Elem()
+}
+
+func (o TrainingJobAlgorithmSpecificationOutput) ToTrainingJobAlgorithmSpecificationOutput() TrainingJobAlgorithmSpecificationOutput {
+	return o
+}
+
+func (o TrainingJobAlgorithmSpecificationOutput) ToTrainingJobAlgorithmSpecificationOutputWithContext(ctx context.Context) TrainingJobAlgorithmSpecificationOutput {
+	return o
+}
+
+func (o TrainingJobAlgorithmSpecificationOutput) ToTrainingJobAlgorithmSpecificationPtrOutput() TrainingJobAlgorithmSpecificationPtrOutput {
+	return o.ToTrainingJobAlgorithmSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o TrainingJobAlgorithmSpecificationOutput) ToTrainingJobAlgorithmSpecificationPtrOutputWithContext(ctx context.Context) TrainingJobAlgorithmSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrainingJobAlgorithmSpecification) *TrainingJobAlgorithmSpecification {
+		return &v
+	}).(TrainingJobAlgorithmSpecificationPtrOutput)
+}
+
+// Name or ARN of the algorithm resource to use for the training job.
+func (o TrainingJobAlgorithmSpecificationOutput) AlgorithmName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobAlgorithmSpecification) *string { return v.AlgorithmName }).(pulumi.StringPtrOutput)
+}
+
+// List of arguments for the container entrypoint. Maximum of 100 entries.
+func (o TrainingJobAlgorithmSpecificationOutput) ContainerArguments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TrainingJobAlgorithmSpecification) []string { return v.ContainerArguments }).(pulumi.StringArrayOutput)
+}
+
+// List of entrypoint commands for the container. Maximum of 100 entries.
+func (o TrainingJobAlgorithmSpecificationOutput) ContainerEntrypoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TrainingJobAlgorithmSpecification) []string { return v.ContainerEntrypoints }).(pulumi.StringArrayOutput)
+}
+
+// Whether to enable SageMaker AI metrics time series collection.
+func (o TrainingJobAlgorithmSpecificationOutput) EnableSagemakerMetricsTimeSeries() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TrainingJobAlgorithmSpecification) *bool { return v.EnableSagemakerMetricsTimeSeries }).(pulumi.BoolPtrOutput)
+}
+
+// List of metric definitions for the training job. Maximum of 40. Use this to extract custom metrics from your own training container logs. SageMaker can still publish built-in metrics for built-in algorithms and supported prebuilt images when this block is omitted. See `metricDefinitions` below.
+func (o TrainingJobAlgorithmSpecificationOutput) MetricDefinitions() TrainingJobAlgorithmSpecificationMetricDefinitionArrayOutput {
+	return o.ApplyT(func(v TrainingJobAlgorithmSpecification) []TrainingJobAlgorithmSpecificationMetricDefinition {
+		return v.MetricDefinitions
+	}).(TrainingJobAlgorithmSpecificationMetricDefinitionArrayOutput)
+}
+
+// Registry path of the Docker image that contains the training algorithm.
+func (o TrainingJobAlgorithmSpecificationOutput) TrainingImage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobAlgorithmSpecification) *string { return v.TrainingImage }).(pulumi.StringPtrOutput)
+}
+
+// Training image configuration. See `trainingImageConfig` below.
+func (o TrainingJobAlgorithmSpecificationOutput) TrainingImageConfig() TrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput {
+	return o.ApplyT(func(v TrainingJobAlgorithmSpecification) *TrainingJobAlgorithmSpecificationTrainingImageConfig {
+		return v.TrainingImageConfig
+	}).(TrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput)
+}
+
+// Input mode for the training data. Valid values: `File`, `Pipe`, `FastFile`.
+func (o TrainingJobAlgorithmSpecificationOutput) TrainingInputMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobAlgorithmSpecification) *string { return v.TrainingInputMode }).(pulumi.StringPtrOutput)
+}
+
+type TrainingJobAlgorithmSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobAlgorithmSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobAlgorithmSpecification)(nil)).Elem()
+}
+
+func (o TrainingJobAlgorithmSpecificationPtrOutput) ToTrainingJobAlgorithmSpecificationPtrOutput() TrainingJobAlgorithmSpecificationPtrOutput {
+	return o
+}
+
+func (o TrainingJobAlgorithmSpecificationPtrOutput) ToTrainingJobAlgorithmSpecificationPtrOutputWithContext(ctx context.Context) TrainingJobAlgorithmSpecificationPtrOutput {
+	return o
+}
+
+func (o TrainingJobAlgorithmSpecificationPtrOutput) Elem() TrainingJobAlgorithmSpecificationOutput {
+	return o.ApplyT(func(v *TrainingJobAlgorithmSpecification) TrainingJobAlgorithmSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret TrainingJobAlgorithmSpecification
+		return ret
+	}).(TrainingJobAlgorithmSpecificationOutput)
+}
+
+// Name or ARN of the algorithm resource to use for the training job.
+func (o TrainingJobAlgorithmSpecificationPtrOutput) AlgorithmName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobAlgorithmSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AlgorithmName
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of arguments for the container entrypoint. Maximum of 100 entries.
+func (o TrainingJobAlgorithmSpecificationPtrOutput) ContainerArguments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TrainingJobAlgorithmSpecification) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerArguments
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of entrypoint commands for the container. Maximum of 100 entries.
+func (o TrainingJobAlgorithmSpecificationPtrOutput) ContainerEntrypoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TrainingJobAlgorithmSpecification) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerEntrypoints
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether to enable SageMaker AI metrics time series collection.
+func (o TrainingJobAlgorithmSpecificationPtrOutput) EnableSagemakerMetricsTimeSeries() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TrainingJobAlgorithmSpecification) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableSagemakerMetricsTimeSeries
+	}).(pulumi.BoolPtrOutput)
+}
+
+// List of metric definitions for the training job. Maximum of 40. Use this to extract custom metrics from your own training container logs. SageMaker can still publish built-in metrics for built-in algorithms and supported prebuilt images when this block is omitted. See `metricDefinitions` below.
+func (o TrainingJobAlgorithmSpecificationPtrOutput) MetricDefinitions() TrainingJobAlgorithmSpecificationMetricDefinitionArrayOutput {
+	return o.ApplyT(func(v *TrainingJobAlgorithmSpecification) []TrainingJobAlgorithmSpecificationMetricDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.MetricDefinitions
+	}).(TrainingJobAlgorithmSpecificationMetricDefinitionArrayOutput)
+}
+
+// Registry path of the Docker image that contains the training algorithm.
+func (o TrainingJobAlgorithmSpecificationPtrOutput) TrainingImage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobAlgorithmSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrainingImage
+	}).(pulumi.StringPtrOutput)
+}
+
+// Training image configuration. See `trainingImageConfig` below.
+func (o TrainingJobAlgorithmSpecificationPtrOutput) TrainingImageConfig() TrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput {
+	return o.ApplyT(func(v *TrainingJobAlgorithmSpecification) *TrainingJobAlgorithmSpecificationTrainingImageConfig {
+		if v == nil {
+			return nil
+		}
+		return v.TrainingImageConfig
+	}).(TrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput)
+}
+
+// Input mode for the training data. Valid values: `File`, `Pipe`, `FastFile`.
+func (o TrainingJobAlgorithmSpecificationPtrOutput) TrainingInputMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobAlgorithmSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrainingInputMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrainingJobAlgorithmSpecificationMetricDefinition struct {
+	// Name of the metric.
+	Name string `pulumi:"name"`
+	// Regular expression that searches the output of the training job and captures the value of the metric.
+	Regex string `pulumi:"regex"`
+}
+
+// TrainingJobAlgorithmSpecificationMetricDefinitionInput is an input type that accepts TrainingJobAlgorithmSpecificationMetricDefinitionArgs and TrainingJobAlgorithmSpecificationMetricDefinitionOutput values.
+// You can construct a concrete instance of `TrainingJobAlgorithmSpecificationMetricDefinitionInput` via:
+//
+//	TrainingJobAlgorithmSpecificationMetricDefinitionArgs{...}
+type TrainingJobAlgorithmSpecificationMetricDefinitionInput interface {
+	pulumi.Input
+
+	ToTrainingJobAlgorithmSpecificationMetricDefinitionOutput() TrainingJobAlgorithmSpecificationMetricDefinitionOutput
+	ToTrainingJobAlgorithmSpecificationMetricDefinitionOutputWithContext(context.Context) TrainingJobAlgorithmSpecificationMetricDefinitionOutput
+}
+
+type TrainingJobAlgorithmSpecificationMetricDefinitionArgs struct {
+	// Name of the metric.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Regular expression that searches the output of the training job and captures the value of the metric.
+	Regex pulumi.StringInput `pulumi:"regex"`
+}
+
+func (TrainingJobAlgorithmSpecificationMetricDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobAlgorithmSpecificationMetricDefinition)(nil)).Elem()
+}
+
+func (i TrainingJobAlgorithmSpecificationMetricDefinitionArgs) ToTrainingJobAlgorithmSpecificationMetricDefinitionOutput() TrainingJobAlgorithmSpecificationMetricDefinitionOutput {
+	return i.ToTrainingJobAlgorithmSpecificationMetricDefinitionOutputWithContext(context.Background())
+}
+
+func (i TrainingJobAlgorithmSpecificationMetricDefinitionArgs) ToTrainingJobAlgorithmSpecificationMetricDefinitionOutputWithContext(ctx context.Context) TrainingJobAlgorithmSpecificationMetricDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobAlgorithmSpecificationMetricDefinitionOutput)
+}
+
+// TrainingJobAlgorithmSpecificationMetricDefinitionArrayInput is an input type that accepts TrainingJobAlgorithmSpecificationMetricDefinitionArray and TrainingJobAlgorithmSpecificationMetricDefinitionArrayOutput values.
+// You can construct a concrete instance of `TrainingJobAlgorithmSpecificationMetricDefinitionArrayInput` via:
+//
+//	TrainingJobAlgorithmSpecificationMetricDefinitionArray{ TrainingJobAlgorithmSpecificationMetricDefinitionArgs{...} }
+type TrainingJobAlgorithmSpecificationMetricDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToTrainingJobAlgorithmSpecificationMetricDefinitionArrayOutput() TrainingJobAlgorithmSpecificationMetricDefinitionArrayOutput
+	ToTrainingJobAlgorithmSpecificationMetricDefinitionArrayOutputWithContext(context.Context) TrainingJobAlgorithmSpecificationMetricDefinitionArrayOutput
+}
+
+type TrainingJobAlgorithmSpecificationMetricDefinitionArray []TrainingJobAlgorithmSpecificationMetricDefinitionInput
+
+func (TrainingJobAlgorithmSpecificationMetricDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrainingJobAlgorithmSpecificationMetricDefinition)(nil)).Elem()
+}
+
+func (i TrainingJobAlgorithmSpecificationMetricDefinitionArray) ToTrainingJobAlgorithmSpecificationMetricDefinitionArrayOutput() TrainingJobAlgorithmSpecificationMetricDefinitionArrayOutput {
+	return i.ToTrainingJobAlgorithmSpecificationMetricDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i TrainingJobAlgorithmSpecificationMetricDefinitionArray) ToTrainingJobAlgorithmSpecificationMetricDefinitionArrayOutputWithContext(ctx context.Context) TrainingJobAlgorithmSpecificationMetricDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobAlgorithmSpecificationMetricDefinitionArrayOutput)
+}
+
+type TrainingJobAlgorithmSpecificationMetricDefinitionOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobAlgorithmSpecificationMetricDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobAlgorithmSpecificationMetricDefinition)(nil)).Elem()
+}
+
+func (o TrainingJobAlgorithmSpecificationMetricDefinitionOutput) ToTrainingJobAlgorithmSpecificationMetricDefinitionOutput() TrainingJobAlgorithmSpecificationMetricDefinitionOutput {
+	return o
+}
+
+func (o TrainingJobAlgorithmSpecificationMetricDefinitionOutput) ToTrainingJobAlgorithmSpecificationMetricDefinitionOutputWithContext(ctx context.Context) TrainingJobAlgorithmSpecificationMetricDefinitionOutput {
+	return o
+}
+
+// Name of the metric.
+func (o TrainingJobAlgorithmSpecificationMetricDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TrainingJobAlgorithmSpecificationMetricDefinition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Regular expression that searches the output of the training job and captures the value of the metric.
+func (o TrainingJobAlgorithmSpecificationMetricDefinitionOutput) Regex() pulumi.StringOutput {
+	return o.ApplyT(func(v TrainingJobAlgorithmSpecificationMetricDefinition) string { return v.Regex }).(pulumi.StringOutput)
+}
+
+type TrainingJobAlgorithmSpecificationMetricDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobAlgorithmSpecificationMetricDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrainingJobAlgorithmSpecificationMetricDefinition)(nil)).Elem()
+}
+
+func (o TrainingJobAlgorithmSpecificationMetricDefinitionArrayOutput) ToTrainingJobAlgorithmSpecificationMetricDefinitionArrayOutput() TrainingJobAlgorithmSpecificationMetricDefinitionArrayOutput {
+	return o
+}
+
+func (o TrainingJobAlgorithmSpecificationMetricDefinitionArrayOutput) ToTrainingJobAlgorithmSpecificationMetricDefinitionArrayOutputWithContext(ctx context.Context) TrainingJobAlgorithmSpecificationMetricDefinitionArrayOutput {
+	return o
+}
+
+func (o TrainingJobAlgorithmSpecificationMetricDefinitionArrayOutput) Index(i pulumi.IntInput) TrainingJobAlgorithmSpecificationMetricDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrainingJobAlgorithmSpecificationMetricDefinition {
+		return vs[0].([]TrainingJobAlgorithmSpecificationMetricDefinition)[vs[1].(int)]
+	}).(TrainingJobAlgorithmSpecificationMetricDefinitionOutput)
+}
+
+type TrainingJobAlgorithmSpecificationTrainingImageConfig struct {
+	// Access mode for the training image repository.
+	TrainingRepositoryAccessMode *string `pulumi:"trainingRepositoryAccessMode"`
+	// Authentication configuration for the training image repository. See `trainingRepositoryAuthConfig` below.
+	TrainingRepositoryAuthConfig *TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfig `pulumi:"trainingRepositoryAuthConfig"`
+}
+
+// TrainingJobAlgorithmSpecificationTrainingImageConfigInput is an input type that accepts TrainingJobAlgorithmSpecificationTrainingImageConfigArgs and TrainingJobAlgorithmSpecificationTrainingImageConfigOutput values.
+// You can construct a concrete instance of `TrainingJobAlgorithmSpecificationTrainingImageConfigInput` via:
+//
+//	TrainingJobAlgorithmSpecificationTrainingImageConfigArgs{...}
+type TrainingJobAlgorithmSpecificationTrainingImageConfigInput interface {
+	pulumi.Input
+
+	ToTrainingJobAlgorithmSpecificationTrainingImageConfigOutput() TrainingJobAlgorithmSpecificationTrainingImageConfigOutput
+	ToTrainingJobAlgorithmSpecificationTrainingImageConfigOutputWithContext(context.Context) TrainingJobAlgorithmSpecificationTrainingImageConfigOutput
+}
+
+type TrainingJobAlgorithmSpecificationTrainingImageConfigArgs struct {
+	// Access mode for the training image repository.
+	TrainingRepositoryAccessMode pulumi.StringPtrInput `pulumi:"trainingRepositoryAccessMode"`
+	// Authentication configuration for the training image repository. See `trainingRepositoryAuthConfig` below.
+	TrainingRepositoryAuthConfig TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrInput `pulumi:"trainingRepositoryAuthConfig"`
+}
+
+func (TrainingJobAlgorithmSpecificationTrainingImageConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobAlgorithmSpecificationTrainingImageConfig)(nil)).Elem()
+}
+
+func (i TrainingJobAlgorithmSpecificationTrainingImageConfigArgs) ToTrainingJobAlgorithmSpecificationTrainingImageConfigOutput() TrainingJobAlgorithmSpecificationTrainingImageConfigOutput {
+	return i.ToTrainingJobAlgorithmSpecificationTrainingImageConfigOutputWithContext(context.Background())
+}
+
+func (i TrainingJobAlgorithmSpecificationTrainingImageConfigArgs) ToTrainingJobAlgorithmSpecificationTrainingImageConfigOutputWithContext(ctx context.Context) TrainingJobAlgorithmSpecificationTrainingImageConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobAlgorithmSpecificationTrainingImageConfigOutput)
+}
+
+func (i TrainingJobAlgorithmSpecificationTrainingImageConfigArgs) ToTrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput() TrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput {
+	return i.ToTrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TrainingJobAlgorithmSpecificationTrainingImageConfigArgs) ToTrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutputWithContext(ctx context.Context) TrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobAlgorithmSpecificationTrainingImageConfigOutput).ToTrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutputWithContext(ctx)
+}
+
+// TrainingJobAlgorithmSpecificationTrainingImageConfigPtrInput is an input type that accepts TrainingJobAlgorithmSpecificationTrainingImageConfigArgs, TrainingJobAlgorithmSpecificationTrainingImageConfigPtr and TrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput values.
+// You can construct a concrete instance of `TrainingJobAlgorithmSpecificationTrainingImageConfigPtrInput` via:
+//
+//	        TrainingJobAlgorithmSpecificationTrainingImageConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrainingJobAlgorithmSpecificationTrainingImageConfigPtrInput interface {
+	pulumi.Input
+
+	ToTrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput() TrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput
+	ToTrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutputWithContext(context.Context) TrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput
+}
+
+type trainingJobAlgorithmSpecificationTrainingImageConfigPtrType TrainingJobAlgorithmSpecificationTrainingImageConfigArgs
+
+func TrainingJobAlgorithmSpecificationTrainingImageConfigPtr(v *TrainingJobAlgorithmSpecificationTrainingImageConfigArgs) TrainingJobAlgorithmSpecificationTrainingImageConfigPtrInput {
+	return (*trainingJobAlgorithmSpecificationTrainingImageConfigPtrType)(v)
+}
+
+func (*trainingJobAlgorithmSpecificationTrainingImageConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobAlgorithmSpecificationTrainingImageConfig)(nil)).Elem()
+}
+
+func (i *trainingJobAlgorithmSpecificationTrainingImageConfigPtrType) ToTrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput() TrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput {
+	return i.ToTrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *trainingJobAlgorithmSpecificationTrainingImageConfigPtrType) ToTrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutputWithContext(ctx context.Context) TrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput)
+}
+
+type TrainingJobAlgorithmSpecificationTrainingImageConfigOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobAlgorithmSpecificationTrainingImageConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobAlgorithmSpecificationTrainingImageConfig)(nil)).Elem()
+}
+
+func (o TrainingJobAlgorithmSpecificationTrainingImageConfigOutput) ToTrainingJobAlgorithmSpecificationTrainingImageConfigOutput() TrainingJobAlgorithmSpecificationTrainingImageConfigOutput {
+	return o
+}
+
+func (o TrainingJobAlgorithmSpecificationTrainingImageConfigOutput) ToTrainingJobAlgorithmSpecificationTrainingImageConfigOutputWithContext(ctx context.Context) TrainingJobAlgorithmSpecificationTrainingImageConfigOutput {
+	return o
+}
+
+func (o TrainingJobAlgorithmSpecificationTrainingImageConfigOutput) ToTrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput() TrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput {
+	return o.ToTrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TrainingJobAlgorithmSpecificationTrainingImageConfigOutput) ToTrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutputWithContext(ctx context.Context) TrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrainingJobAlgorithmSpecificationTrainingImageConfig) *TrainingJobAlgorithmSpecificationTrainingImageConfig {
+		return &v
+	}).(TrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput)
+}
+
+// Access mode for the training image repository.
+func (o TrainingJobAlgorithmSpecificationTrainingImageConfigOutput) TrainingRepositoryAccessMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobAlgorithmSpecificationTrainingImageConfig) *string {
+		return v.TrainingRepositoryAccessMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Authentication configuration for the training image repository. See `trainingRepositoryAuthConfig` below.
+func (o TrainingJobAlgorithmSpecificationTrainingImageConfigOutput) TrainingRepositoryAuthConfig() TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput {
+	return o.ApplyT(func(v TrainingJobAlgorithmSpecificationTrainingImageConfig) *TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfig {
+		return v.TrainingRepositoryAuthConfig
+	}).(TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput)
+}
+
+type TrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobAlgorithmSpecificationTrainingImageConfig)(nil)).Elem()
+}
+
+func (o TrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput) ToTrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput() TrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput) ToTrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutputWithContext(ctx context.Context) TrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput) Elem() TrainingJobAlgorithmSpecificationTrainingImageConfigOutput {
+	return o.ApplyT(func(v *TrainingJobAlgorithmSpecificationTrainingImageConfig) TrainingJobAlgorithmSpecificationTrainingImageConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TrainingJobAlgorithmSpecificationTrainingImageConfig
+		return ret
+	}).(TrainingJobAlgorithmSpecificationTrainingImageConfigOutput)
+}
+
+// Access mode for the training image repository.
+func (o TrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput) TrainingRepositoryAccessMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobAlgorithmSpecificationTrainingImageConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrainingRepositoryAccessMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Authentication configuration for the training image repository. See `trainingRepositoryAuthConfig` below.
+func (o TrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput) TrainingRepositoryAuthConfig() TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput {
+	return o.ApplyT(func(v *TrainingJobAlgorithmSpecificationTrainingImageConfig) *TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfig {
+		if v == nil {
+			return nil
+		}
+		return v.TrainingRepositoryAuthConfig
+	}).(TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput)
+}
+
+type TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfig struct {
+	// ARN of the Lambda function that provides credentials to authenticate to the private Docker registry.
+	TrainingRepositoryCredentialsProviderArn *string `pulumi:"trainingRepositoryCredentialsProviderArn"`
+}
+
+// TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigInput is an input type that accepts TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigArgs and TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigOutput values.
+// You can construct a concrete instance of `TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigInput` via:
+//
+//	TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigArgs{...}
+type TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigInput interface {
+	pulumi.Input
+
+	ToTrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigOutput() TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigOutput
+	ToTrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigOutputWithContext(context.Context) TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigOutput
+}
+
+type TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigArgs struct {
+	// ARN of the Lambda function that provides credentials to authenticate to the private Docker registry.
+	TrainingRepositoryCredentialsProviderArn pulumi.StringPtrInput `pulumi:"trainingRepositoryCredentialsProviderArn"`
+}
+
+func (TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfig)(nil)).Elem()
+}
+
+func (i TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigArgs) ToTrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigOutput() TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigOutput {
+	return i.ToTrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigOutputWithContext(context.Background())
+}
+
+func (i TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigArgs) ToTrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigOutputWithContext(ctx context.Context) TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigOutput)
+}
+
+func (i TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigArgs) ToTrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput() TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput {
+	return i.ToTrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigArgs) ToTrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutputWithContext(ctx context.Context) TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigOutput).ToTrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutputWithContext(ctx)
+}
+
+// TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrInput is an input type that accepts TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigArgs, TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtr and TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput values.
+// You can construct a concrete instance of `TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrInput` via:
+//
+//	        TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrInput interface {
+	pulumi.Input
+
+	ToTrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput() TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput
+	ToTrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutputWithContext(context.Context) TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput
+}
+
+type trainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrType TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigArgs
+
+func TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtr(v *TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigArgs) TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrInput {
+	return (*trainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrType)(v)
+}
+
+func (*trainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfig)(nil)).Elem()
+}
+
+func (i *trainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrType) ToTrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput() TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput {
+	return i.ToTrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *trainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrType) ToTrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutputWithContext(ctx context.Context) TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput)
+}
+
+type TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfig)(nil)).Elem()
+}
+
+func (o TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigOutput) ToTrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigOutput() TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigOutput {
+	return o
+}
+
+func (o TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigOutput) ToTrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigOutputWithContext(ctx context.Context) TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigOutput {
+	return o
+}
+
+func (o TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigOutput) ToTrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput() TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput {
+	return o.ToTrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigOutput) ToTrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutputWithContext(ctx context.Context) TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfig) *TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfig {
+		return &v
+	}).(TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput)
+}
+
+// ARN of the Lambda function that provides credentials to authenticate to the private Docker registry.
+func (o TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigOutput) TrainingRepositoryCredentialsProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfig) *string {
+		return v.TrainingRepositoryCredentialsProviderArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfig)(nil)).Elem()
+}
+
+func (o TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput) ToTrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput() TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput) ToTrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutputWithContext(ctx context.Context) TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput) Elem() TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigOutput {
+	return o.ApplyT(func(v *TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfig) TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfig
+		return ret
+	}).(TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigOutput)
+}
+
+// ARN of the Lambda function that provides credentials to authenticate to the private Docker registry.
+func (o TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput) TrainingRepositoryCredentialsProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrainingRepositoryCredentialsProviderArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrainingJobCheckpointConfig struct {
+	// Local path where checkpoints are written.
+	LocalPath *string `pulumi:"localPath"`
+	// S3 URI where checkpoints are stored.
+	S3Uri string `pulumi:"s3Uri"`
+}
+
+// TrainingJobCheckpointConfigInput is an input type that accepts TrainingJobCheckpointConfigArgs and TrainingJobCheckpointConfigOutput values.
+// You can construct a concrete instance of `TrainingJobCheckpointConfigInput` via:
+//
+//	TrainingJobCheckpointConfigArgs{...}
+type TrainingJobCheckpointConfigInput interface {
+	pulumi.Input
+
+	ToTrainingJobCheckpointConfigOutput() TrainingJobCheckpointConfigOutput
+	ToTrainingJobCheckpointConfigOutputWithContext(context.Context) TrainingJobCheckpointConfigOutput
+}
+
+type TrainingJobCheckpointConfigArgs struct {
+	// Local path where checkpoints are written.
+	LocalPath pulumi.StringPtrInput `pulumi:"localPath"`
+	// S3 URI where checkpoints are stored.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+}
+
+func (TrainingJobCheckpointConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobCheckpointConfig)(nil)).Elem()
+}
+
+func (i TrainingJobCheckpointConfigArgs) ToTrainingJobCheckpointConfigOutput() TrainingJobCheckpointConfigOutput {
+	return i.ToTrainingJobCheckpointConfigOutputWithContext(context.Background())
+}
+
+func (i TrainingJobCheckpointConfigArgs) ToTrainingJobCheckpointConfigOutputWithContext(ctx context.Context) TrainingJobCheckpointConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobCheckpointConfigOutput)
+}
+
+func (i TrainingJobCheckpointConfigArgs) ToTrainingJobCheckpointConfigPtrOutput() TrainingJobCheckpointConfigPtrOutput {
+	return i.ToTrainingJobCheckpointConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TrainingJobCheckpointConfigArgs) ToTrainingJobCheckpointConfigPtrOutputWithContext(ctx context.Context) TrainingJobCheckpointConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobCheckpointConfigOutput).ToTrainingJobCheckpointConfigPtrOutputWithContext(ctx)
+}
+
+// TrainingJobCheckpointConfigPtrInput is an input type that accepts TrainingJobCheckpointConfigArgs, TrainingJobCheckpointConfigPtr and TrainingJobCheckpointConfigPtrOutput values.
+// You can construct a concrete instance of `TrainingJobCheckpointConfigPtrInput` via:
+//
+//	        TrainingJobCheckpointConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrainingJobCheckpointConfigPtrInput interface {
+	pulumi.Input
+
+	ToTrainingJobCheckpointConfigPtrOutput() TrainingJobCheckpointConfigPtrOutput
+	ToTrainingJobCheckpointConfigPtrOutputWithContext(context.Context) TrainingJobCheckpointConfigPtrOutput
+}
+
+type trainingJobCheckpointConfigPtrType TrainingJobCheckpointConfigArgs
+
+func TrainingJobCheckpointConfigPtr(v *TrainingJobCheckpointConfigArgs) TrainingJobCheckpointConfigPtrInput {
+	return (*trainingJobCheckpointConfigPtrType)(v)
+}
+
+func (*trainingJobCheckpointConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobCheckpointConfig)(nil)).Elem()
+}
+
+func (i *trainingJobCheckpointConfigPtrType) ToTrainingJobCheckpointConfigPtrOutput() TrainingJobCheckpointConfigPtrOutput {
+	return i.ToTrainingJobCheckpointConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *trainingJobCheckpointConfigPtrType) ToTrainingJobCheckpointConfigPtrOutputWithContext(ctx context.Context) TrainingJobCheckpointConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobCheckpointConfigPtrOutput)
+}
+
+type TrainingJobCheckpointConfigOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobCheckpointConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobCheckpointConfig)(nil)).Elem()
+}
+
+func (o TrainingJobCheckpointConfigOutput) ToTrainingJobCheckpointConfigOutput() TrainingJobCheckpointConfigOutput {
+	return o
+}
+
+func (o TrainingJobCheckpointConfigOutput) ToTrainingJobCheckpointConfigOutputWithContext(ctx context.Context) TrainingJobCheckpointConfigOutput {
+	return o
+}
+
+func (o TrainingJobCheckpointConfigOutput) ToTrainingJobCheckpointConfigPtrOutput() TrainingJobCheckpointConfigPtrOutput {
+	return o.ToTrainingJobCheckpointConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TrainingJobCheckpointConfigOutput) ToTrainingJobCheckpointConfigPtrOutputWithContext(ctx context.Context) TrainingJobCheckpointConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrainingJobCheckpointConfig) *TrainingJobCheckpointConfig {
+		return &v
+	}).(TrainingJobCheckpointConfigPtrOutput)
+}
+
+// Local path where checkpoints are written.
+func (o TrainingJobCheckpointConfigOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobCheckpointConfig) *string { return v.LocalPath }).(pulumi.StringPtrOutput)
+}
+
+// S3 URI where checkpoints are stored.
+func (o TrainingJobCheckpointConfigOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v TrainingJobCheckpointConfig) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+type TrainingJobCheckpointConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobCheckpointConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobCheckpointConfig)(nil)).Elem()
+}
+
+func (o TrainingJobCheckpointConfigPtrOutput) ToTrainingJobCheckpointConfigPtrOutput() TrainingJobCheckpointConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobCheckpointConfigPtrOutput) ToTrainingJobCheckpointConfigPtrOutputWithContext(ctx context.Context) TrainingJobCheckpointConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobCheckpointConfigPtrOutput) Elem() TrainingJobCheckpointConfigOutput {
+	return o.ApplyT(func(v *TrainingJobCheckpointConfig) TrainingJobCheckpointConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TrainingJobCheckpointConfig
+		return ret
+	}).(TrainingJobCheckpointConfigOutput)
+}
+
+// Local path where checkpoints are written.
+func (o TrainingJobCheckpointConfigPtrOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobCheckpointConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 URI where checkpoints are stored.
+func (o TrainingJobCheckpointConfigPtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobCheckpointConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrainingJobDebugHookConfig struct {
+	// List of tensor collections to configure for the debug hook. Maximum of 20. See `collectionConfigurations` below.
+	CollectionConfigurations []TrainingJobDebugHookConfigCollectionConfiguration `pulumi:"collectionConfigurations"`
+	// Map of parameters for the debug hook. Maximum of 20 entries.
+	HookParameters map[string]string `pulumi:"hookParameters"`
+	// Local path where debug output is written.
+	LocalPath *string `pulumi:"localPath"`
+	// S3 URI where debug output is stored.
+	S3OutputPath string `pulumi:"s3OutputPath"`
+}
+
+// TrainingJobDebugHookConfigInput is an input type that accepts TrainingJobDebugHookConfigArgs and TrainingJobDebugHookConfigOutput values.
+// You can construct a concrete instance of `TrainingJobDebugHookConfigInput` via:
+//
+//	TrainingJobDebugHookConfigArgs{...}
+type TrainingJobDebugHookConfigInput interface {
+	pulumi.Input
+
+	ToTrainingJobDebugHookConfigOutput() TrainingJobDebugHookConfigOutput
+	ToTrainingJobDebugHookConfigOutputWithContext(context.Context) TrainingJobDebugHookConfigOutput
+}
+
+type TrainingJobDebugHookConfigArgs struct {
+	// List of tensor collections to configure for the debug hook. Maximum of 20. See `collectionConfigurations` below.
+	CollectionConfigurations TrainingJobDebugHookConfigCollectionConfigurationArrayInput `pulumi:"collectionConfigurations"`
+	// Map of parameters for the debug hook. Maximum of 20 entries.
+	HookParameters pulumi.StringMapInput `pulumi:"hookParameters"`
+	// Local path where debug output is written.
+	LocalPath pulumi.StringPtrInput `pulumi:"localPath"`
+	// S3 URI where debug output is stored.
+	S3OutputPath pulumi.StringInput `pulumi:"s3OutputPath"`
+}
+
+func (TrainingJobDebugHookConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobDebugHookConfig)(nil)).Elem()
+}
+
+func (i TrainingJobDebugHookConfigArgs) ToTrainingJobDebugHookConfigOutput() TrainingJobDebugHookConfigOutput {
+	return i.ToTrainingJobDebugHookConfigOutputWithContext(context.Background())
+}
+
+func (i TrainingJobDebugHookConfigArgs) ToTrainingJobDebugHookConfigOutputWithContext(ctx context.Context) TrainingJobDebugHookConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobDebugHookConfigOutput)
+}
+
+func (i TrainingJobDebugHookConfigArgs) ToTrainingJobDebugHookConfigPtrOutput() TrainingJobDebugHookConfigPtrOutput {
+	return i.ToTrainingJobDebugHookConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TrainingJobDebugHookConfigArgs) ToTrainingJobDebugHookConfigPtrOutputWithContext(ctx context.Context) TrainingJobDebugHookConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobDebugHookConfigOutput).ToTrainingJobDebugHookConfigPtrOutputWithContext(ctx)
+}
+
+// TrainingJobDebugHookConfigPtrInput is an input type that accepts TrainingJobDebugHookConfigArgs, TrainingJobDebugHookConfigPtr and TrainingJobDebugHookConfigPtrOutput values.
+// You can construct a concrete instance of `TrainingJobDebugHookConfigPtrInput` via:
+//
+//	        TrainingJobDebugHookConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrainingJobDebugHookConfigPtrInput interface {
+	pulumi.Input
+
+	ToTrainingJobDebugHookConfigPtrOutput() TrainingJobDebugHookConfigPtrOutput
+	ToTrainingJobDebugHookConfigPtrOutputWithContext(context.Context) TrainingJobDebugHookConfigPtrOutput
+}
+
+type trainingJobDebugHookConfigPtrType TrainingJobDebugHookConfigArgs
+
+func TrainingJobDebugHookConfigPtr(v *TrainingJobDebugHookConfigArgs) TrainingJobDebugHookConfigPtrInput {
+	return (*trainingJobDebugHookConfigPtrType)(v)
+}
+
+func (*trainingJobDebugHookConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobDebugHookConfig)(nil)).Elem()
+}
+
+func (i *trainingJobDebugHookConfigPtrType) ToTrainingJobDebugHookConfigPtrOutput() TrainingJobDebugHookConfigPtrOutput {
+	return i.ToTrainingJobDebugHookConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *trainingJobDebugHookConfigPtrType) ToTrainingJobDebugHookConfigPtrOutputWithContext(ctx context.Context) TrainingJobDebugHookConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobDebugHookConfigPtrOutput)
+}
+
+type TrainingJobDebugHookConfigOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobDebugHookConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobDebugHookConfig)(nil)).Elem()
+}
+
+func (o TrainingJobDebugHookConfigOutput) ToTrainingJobDebugHookConfigOutput() TrainingJobDebugHookConfigOutput {
+	return o
+}
+
+func (o TrainingJobDebugHookConfigOutput) ToTrainingJobDebugHookConfigOutputWithContext(ctx context.Context) TrainingJobDebugHookConfigOutput {
+	return o
+}
+
+func (o TrainingJobDebugHookConfigOutput) ToTrainingJobDebugHookConfigPtrOutput() TrainingJobDebugHookConfigPtrOutput {
+	return o.ToTrainingJobDebugHookConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TrainingJobDebugHookConfigOutput) ToTrainingJobDebugHookConfigPtrOutputWithContext(ctx context.Context) TrainingJobDebugHookConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrainingJobDebugHookConfig) *TrainingJobDebugHookConfig {
+		return &v
+	}).(TrainingJobDebugHookConfigPtrOutput)
+}
+
+// List of tensor collections to configure for the debug hook. Maximum of 20. See `collectionConfigurations` below.
+func (o TrainingJobDebugHookConfigOutput) CollectionConfigurations() TrainingJobDebugHookConfigCollectionConfigurationArrayOutput {
+	return o.ApplyT(func(v TrainingJobDebugHookConfig) []TrainingJobDebugHookConfigCollectionConfiguration {
+		return v.CollectionConfigurations
+	}).(TrainingJobDebugHookConfigCollectionConfigurationArrayOutput)
+}
+
+// Map of parameters for the debug hook. Maximum of 20 entries.
+func (o TrainingJobDebugHookConfigOutput) HookParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TrainingJobDebugHookConfig) map[string]string { return v.HookParameters }).(pulumi.StringMapOutput)
+}
+
+// Local path where debug output is written.
+func (o TrainingJobDebugHookConfigOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobDebugHookConfig) *string { return v.LocalPath }).(pulumi.StringPtrOutput)
+}
+
+// S3 URI where debug output is stored.
+func (o TrainingJobDebugHookConfigOutput) S3OutputPath() pulumi.StringOutput {
+	return o.ApplyT(func(v TrainingJobDebugHookConfig) string { return v.S3OutputPath }).(pulumi.StringOutput)
+}
+
+type TrainingJobDebugHookConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobDebugHookConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobDebugHookConfig)(nil)).Elem()
+}
+
+func (o TrainingJobDebugHookConfigPtrOutput) ToTrainingJobDebugHookConfigPtrOutput() TrainingJobDebugHookConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobDebugHookConfigPtrOutput) ToTrainingJobDebugHookConfigPtrOutputWithContext(ctx context.Context) TrainingJobDebugHookConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobDebugHookConfigPtrOutput) Elem() TrainingJobDebugHookConfigOutput {
+	return o.ApplyT(func(v *TrainingJobDebugHookConfig) TrainingJobDebugHookConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TrainingJobDebugHookConfig
+		return ret
+	}).(TrainingJobDebugHookConfigOutput)
+}
+
+// List of tensor collections to configure for the debug hook. Maximum of 20. See `collectionConfigurations` below.
+func (o TrainingJobDebugHookConfigPtrOutput) CollectionConfigurations() TrainingJobDebugHookConfigCollectionConfigurationArrayOutput {
+	return o.ApplyT(func(v *TrainingJobDebugHookConfig) []TrainingJobDebugHookConfigCollectionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CollectionConfigurations
+	}).(TrainingJobDebugHookConfigCollectionConfigurationArrayOutput)
+}
+
+// Map of parameters for the debug hook. Maximum of 20 entries.
+func (o TrainingJobDebugHookConfigPtrOutput) HookParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *TrainingJobDebugHookConfig) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.HookParameters
+	}).(pulumi.StringMapOutput)
+}
+
+// Local path where debug output is written.
+func (o TrainingJobDebugHookConfigPtrOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobDebugHookConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 URI where debug output is stored.
+func (o TrainingJobDebugHookConfigPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobDebugHookConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3OutputPath
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrainingJobDebugHookConfigCollectionConfiguration struct {
+	// Name of the tensor collection.
+	CollectionName *string `pulumi:"collectionName"`
+	// Map of parameters for the tensor collection.
+	CollectionParameters map[string]string `pulumi:"collectionParameters"`
+}
+
+// TrainingJobDebugHookConfigCollectionConfigurationInput is an input type that accepts TrainingJobDebugHookConfigCollectionConfigurationArgs and TrainingJobDebugHookConfigCollectionConfigurationOutput values.
+// You can construct a concrete instance of `TrainingJobDebugHookConfigCollectionConfigurationInput` via:
+//
+//	TrainingJobDebugHookConfigCollectionConfigurationArgs{...}
+type TrainingJobDebugHookConfigCollectionConfigurationInput interface {
+	pulumi.Input
+
+	ToTrainingJobDebugHookConfigCollectionConfigurationOutput() TrainingJobDebugHookConfigCollectionConfigurationOutput
+	ToTrainingJobDebugHookConfigCollectionConfigurationOutputWithContext(context.Context) TrainingJobDebugHookConfigCollectionConfigurationOutput
+}
+
+type TrainingJobDebugHookConfigCollectionConfigurationArgs struct {
+	// Name of the tensor collection.
+	CollectionName pulumi.StringPtrInput `pulumi:"collectionName"`
+	// Map of parameters for the tensor collection.
+	CollectionParameters pulumi.StringMapInput `pulumi:"collectionParameters"`
+}
+
+func (TrainingJobDebugHookConfigCollectionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobDebugHookConfigCollectionConfiguration)(nil)).Elem()
+}
+
+func (i TrainingJobDebugHookConfigCollectionConfigurationArgs) ToTrainingJobDebugHookConfigCollectionConfigurationOutput() TrainingJobDebugHookConfigCollectionConfigurationOutput {
+	return i.ToTrainingJobDebugHookConfigCollectionConfigurationOutputWithContext(context.Background())
+}
+
+func (i TrainingJobDebugHookConfigCollectionConfigurationArgs) ToTrainingJobDebugHookConfigCollectionConfigurationOutputWithContext(ctx context.Context) TrainingJobDebugHookConfigCollectionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobDebugHookConfigCollectionConfigurationOutput)
+}
+
+// TrainingJobDebugHookConfigCollectionConfigurationArrayInput is an input type that accepts TrainingJobDebugHookConfigCollectionConfigurationArray and TrainingJobDebugHookConfigCollectionConfigurationArrayOutput values.
+// You can construct a concrete instance of `TrainingJobDebugHookConfigCollectionConfigurationArrayInput` via:
+//
+//	TrainingJobDebugHookConfigCollectionConfigurationArray{ TrainingJobDebugHookConfigCollectionConfigurationArgs{...} }
+type TrainingJobDebugHookConfigCollectionConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToTrainingJobDebugHookConfigCollectionConfigurationArrayOutput() TrainingJobDebugHookConfigCollectionConfigurationArrayOutput
+	ToTrainingJobDebugHookConfigCollectionConfigurationArrayOutputWithContext(context.Context) TrainingJobDebugHookConfigCollectionConfigurationArrayOutput
+}
+
+type TrainingJobDebugHookConfigCollectionConfigurationArray []TrainingJobDebugHookConfigCollectionConfigurationInput
+
+func (TrainingJobDebugHookConfigCollectionConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrainingJobDebugHookConfigCollectionConfiguration)(nil)).Elem()
+}
+
+func (i TrainingJobDebugHookConfigCollectionConfigurationArray) ToTrainingJobDebugHookConfigCollectionConfigurationArrayOutput() TrainingJobDebugHookConfigCollectionConfigurationArrayOutput {
+	return i.ToTrainingJobDebugHookConfigCollectionConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i TrainingJobDebugHookConfigCollectionConfigurationArray) ToTrainingJobDebugHookConfigCollectionConfigurationArrayOutputWithContext(ctx context.Context) TrainingJobDebugHookConfigCollectionConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobDebugHookConfigCollectionConfigurationArrayOutput)
+}
+
+type TrainingJobDebugHookConfigCollectionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobDebugHookConfigCollectionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobDebugHookConfigCollectionConfiguration)(nil)).Elem()
+}
+
+func (o TrainingJobDebugHookConfigCollectionConfigurationOutput) ToTrainingJobDebugHookConfigCollectionConfigurationOutput() TrainingJobDebugHookConfigCollectionConfigurationOutput {
+	return o
+}
+
+func (o TrainingJobDebugHookConfigCollectionConfigurationOutput) ToTrainingJobDebugHookConfigCollectionConfigurationOutputWithContext(ctx context.Context) TrainingJobDebugHookConfigCollectionConfigurationOutput {
+	return o
+}
+
+// Name of the tensor collection.
+func (o TrainingJobDebugHookConfigCollectionConfigurationOutput) CollectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobDebugHookConfigCollectionConfiguration) *string { return v.CollectionName }).(pulumi.StringPtrOutput)
+}
+
+// Map of parameters for the tensor collection.
+func (o TrainingJobDebugHookConfigCollectionConfigurationOutput) CollectionParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TrainingJobDebugHookConfigCollectionConfiguration) map[string]string {
+		return v.CollectionParameters
+	}).(pulumi.StringMapOutput)
+}
+
+type TrainingJobDebugHookConfigCollectionConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobDebugHookConfigCollectionConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrainingJobDebugHookConfigCollectionConfiguration)(nil)).Elem()
+}
+
+func (o TrainingJobDebugHookConfigCollectionConfigurationArrayOutput) ToTrainingJobDebugHookConfigCollectionConfigurationArrayOutput() TrainingJobDebugHookConfigCollectionConfigurationArrayOutput {
+	return o
+}
+
+func (o TrainingJobDebugHookConfigCollectionConfigurationArrayOutput) ToTrainingJobDebugHookConfigCollectionConfigurationArrayOutputWithContext(ctx context.Context) TrainingJobDebugHookConfigCollectionConfigurationArrayOutput {
+	return o
+}
+
+func (o TrainingJobDebugHookConfigCollectionConfigurationArrayOutput) Index(i pulumi.IntInput) TrainingJobDebugHookConfigCollectionConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrainingJobDebugHookConfigCollectionConfiguration {
+		return vs[0].([]TrainingJobDebugHookConfigCollectionConfiguration)[vs[1].(int)]
+	}).(TrainingJobDebugHookConfigCollectionConfigurationOutput)
+}
+
+type TrainingJobDebugRuleConfiguration struct {
+	// Instance type to deploy for the debug rule evaluation. Valid values are SageMaker AI processing instance types.
+	InstanceType *string `pulumi:"instanceType"`
+	// Local path where debug rule output is written.
+	LocalPath *string `pulumi:"localPath"`
+	// Name of the rule configuration. Must be between 1 and 256 characters.
+	RuleConfigurationName string `pulumi:"ruleConfigurationName"`
+	// Docker image URI for the rule evaluator.
+	RuleEvaluatorImage string `pulumi:"ruleEvaluatorImage"`
+	// Map of parameters for the rule configuration. Maximum of 100 entries.
+	RuleParameters map[string]string `pulumi:"ruleParameters"`
+	// S3 URI where rule output is stored.
+	S3OutputPath *string `pulumi:"s3OutputPath"`
+	// Size of the storage volume for the rule evaluator, in GB.
+	VolumeSizeInGb *int `pulumi:"volumeSizeInGb"`
+}
+
+// TrainingJobDebugRuleConfigurationInput is an input type that accepts TrainingJobDebugRuleConfigurationArgs and TrainingJobDebugRuleConfigurationOutput values.
+// You can construct a concrete instance of `TrainingJobDebugRuleConfigurationInput` via:
+//
+//	TrainingJobDebugRuleConfigurationArgs{...}
+type TrainingJobDebugRuleConfigurationInput interface {
+	pulumi.Input
+
+	ToTrainingJobDebugRuleConfigurationOutput() TrainingJobDebugRuleConfigurationOutput
+	ToTrainingJobDebugRuleConfigurationOutputWithContext(context.Context) TrainingJobDebugRuleConfigurationOutput
+}
+
+type TrainingJobDebugRuleConfigurationArgs struct {
+	// Instance type to deploy for the debug rule evaluation. Valid values are SageMaker AI processing instance types.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// Local path where debug rule output is written.
+	LocalPath pulumi.StringPtrInput `pulumi:"localPath"`
+	// Name of the rule configuration. Must be between 1 and 256 characters.
+	RuleConfigurationName pulumi.StringInput `pulumi:"ruleConfigurationName"`
+	// Docker image URI for the rule evaluator.
+	RuleEvaluatorImage pulumi.StringInput `pulumi:"ruleEvaluatorImage"`
+	// Map of parameters for the rule configuration. Maximum of 100 entries.
+	RuleParameters pulumi.StringMapInput `pulumi:"ruleParameters"`
+	// S3 URI where rule output is stored.
+	S3OutputPath pulumi.StringPtrInput `pulumi:"s3OutputPath"`
+	// Size of the storage volume for the rule evaluator, in GB.
+	VolumeSizeInGb pulumi.IntPtrInput `pulumi:"volumeSizeInGb"`
+}
+
+func (TrainingJobDebugRuleConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobDebugRuleConfiguration)(nil)).Elem()
+}
+
+func (i TrainingJobDebugRuleConfigurationArgs) ToTrainingJobDebugRuleConfigurationOutput() TrainingJobDebugRuleConfigurationOutput {
+	return i.ToTrainingJobDebugRuleConfigurationOutputWithContext(context.Background())
+}
+
+func (i TrainingJobDebugRuleConfigurationArgs) ToTrainingJobDebugRuleConfigurationOutputWithContext(ctx context.Context) TrainingJobDebugRuleConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobDebugRuleConfigurationOutput)
+}
+
+// TrainingJobDebugRuleConfigurationArrayInput is an input type that accepts TrainingJobDebugRuleConfigurationArray and TrainingJobDebugRuleConfigurationArrayOutput values.
+// You can construct a concrete instance of `TrainingJobDebugRuleConfigurationArrayInput` via:
+//
+//	TrainingJobDebugRuleConfigurationArray{ TrainingJobDebugRuleConfigurationArgs{...} }
+type TrainingJobDebugRuleConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToTrainingJobDebugRuleConfigurationArrayOutput() TrainingJobDebugRuleConfigurationArrayOutput
+	ToTrainingJobDebugRuleConfigurationArrayOutputWithContext(context.Context) TrainingJobDebugRuleConfigurationArrayOutput
+}
+
+type TrainingJobDebugRuleConfigurationArray []TrainingJobDebugRuleConfigurationInput
+
+func (TrainingJobDebugRuleConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrainingJobDebugRuleConfiguration)(nil)).Elem()
+}
+
+func (i TrainingJobDebugRuleConfigurationArray) ToTrainingJobDebugRuleConfigurationArrayOutput() TrainingJobDebugRuleConfigurationArrayOutput {
+	return i.ToTrainingJobDebugRuleConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i TrainingJobDebugRuleConfigurationArray) ToTrainingJobDebugRuleConfigurationArrayOutputWithContext(ctx context.Context) TrainingJobDebugRuleConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobDebugRuleConfigurationArrayOutput)
+}
+
+type TrainingJobDebugRuleConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobDebugRuleConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobDebugRuleConfiguration)(nil)).Elem()
+}
+
+func (o TrainingJobDebugRuleConfigurationOutput) ToTrainingJobDebugRuleConfigurationOutput() TrainingJobDebugRuleConfigurationOutput {
+	return o
+}
+
+func (o TrainingJobDebugRuleConfigurationOutput) ToTrainingJobDebugRuleConfigurationOutputWithContext(ctx context.Context) TrainingJobDebugRuleConfigurationOutput {
+	return o
+}
+
+// Instance type to deploy for the debug rule evaluation. Valid values are SageMaker AI processing instance types.
+func (o TrainingJobDebugRuleConfigurationOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobDebugRuleConfiguration) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// Local path where debug rule output is written.
+func (o TrainingJobDebugRuleConfigurationOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobDebugRuleConfiguration) *string { return v.LocalPath }).(pulumi.StringPtrOutput)
+}
+
+// Name of the rule configuration. Must be between 1 and 256 characters.
+func (o TrainingJobDebugRuleConfigurationOutput) RuleConfigurationName() pulumi.StringOutput {
+	return o.ApplyT(func(v TrainingJobDebugRuleConfiguration) string { return v.RuleConfigurationName }).(pulumi.StringOutput)
+}
+
+// Docker image URI for the rule evaluator.
+func (o TrainingJobDebugRuleConfigurationOutput) RuleEvaluatorImage() pulumi.StringOutput {
+	return o.ApplyT(func(v TrainingJobDebugRuleConfiguration) string { return v.RuleEvaluatorImage }).(pulumi.StringOutput)
+}
+
+// Map of parameters for the rule configuration. Maximum of 100 entries.
+func (o TrainingJobDebugRuleConfigurationOutput) RuleParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TrainingJobDebugRuleConfiguration) map[string]string { return v.RuleParameters }).(pulumi.StringMapOutput)
+}
+
+// S3 URI where rule output is stored.
+func (o TrainingJobDebugRuleConfigurationOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobDebugRuleConfiguration) *string { return v.S3OutputPath }).(pulumi.StringPtrOutput)
+}
+
+// Size of the storage volume for the rule evaluator, in GB.
+func (o TrainingJobDebugRuleConfigurationOutput) VolumeSizeInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TrainingJobDebugRuleConfiguration) *int { return v.VolumeSizeInGb }).(pulumi.IntPtrOutput)
+}
+
+type TrainingJobDebugRuleConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobDebugRuleConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrainingJobDebugRuleConfiguration)(nil)).Elem()
+}
+
+func (o TrainingJobDebugRuleConfigurationArrayOutput) ToTrainingJobDebugRuleConfigurationArrayOutput() TrainingJobDebugRuleConfigurationArrayOutput {
+	return o
+}
+
+func (o TrainingJobDebugRuleConfigurationArrayOutput) ToTrainingJobDebugRuleConfigurationArrayOutputWithContext(ctx context.Context) TrainingJobDebugRuleConfigurationArrayOutput {
+	return o
+}
+
+func (o TrainingJobDebugRuleConfigurationArrayOutput) Index(i pulumi.IntInput) TrainingJobDebugRuleConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrainingJobDebugRuleConfiguration {
+		return vs[0].([]TrainingJobDebugRuleConfiguration)[vs[1].(int)]
+	}).(TrainingJobDebugRuleConfigurationOutput)
+}
+
+type TrainingJobExperimentConfig struct {
+	// Name of the SageMaker AI Experiment to associate with.
+	ExperimentName *string `pulumi:"experimentName"`
+	// Name of the Experiment Run to associate with.
+	RunName *string `pulumi:"runName"`
+	// Display name for the trial component.
+	TrialComponentDisplayName *string `pulumi:"trialComponentDisplayName"`
+	// Name of the SageMaker AI Trial to associate with.
+	TrialName *string `pulumi:"trialName"`
+}
+
+// TrainingJobExperimentConfigInput is an input type that accepts TrainingJobExperimentConfigArgs and TrainingJobExperimentConfigOutput values.
+// You can construct a concrete instance of `TrainingJobExperimentConfigInput` via:
+//
+//	TrainingJobExperimentConfigArgs{...}
+type TrainingJobExperimentConfigInput interface {
+	pulumi.Input
+
+	ToTrainingJobExperimentConfigOutput() TrainingJobExperimentConfigOutput
+	ToTrainingJobExperimentConfigOutputWithContext(context.Context) TrainingJobExperimentConfigOutput
+}
+
+type TrainingJobExperimentConfigArgs struct {
+	// Name of the SageMaker AI Experiment to associate with.
+	ExperimentName pulumi.StringPtrInput `pulumi:"experimentName"`
+	// Name of the Experiment Run to associate with.
+	RunName pulumi.StringPtrInput `pulumi:"runName"`
+	// Display name for the trial component.
+	TrialComponentDisplayName pulumi.StringPtrInput `pulumi:"trialComponentDisplayName"`
+	// Name of the SageMaker AI Trial to associate with.
+	TrialName pulumi.StringPtrInput `pulumi:"trialName"`
+}
+
+func (TrainingJobExperimentConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobExperimentConfig)(nil)).Elem()
+}
+
+func (i TrainingJobExperimentConfigArgs) ToTrainingJobExperimentConfigOutput() TrainingJobExperimentConfigOutput {
+	return i.ToTrainingJobExperimentConfigOutputWithContext(context.Background())
+}
+
+func (i TrainingJobExperimentConfigArgs) ToTrainingJobExperimentConfigOutputWithContext(ctx context.Context) TrainingJobExperimentConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobExperimentConfigOutput)
+}
+
+func (i TrainingJobExperimentConfigArgs) ToTrainingJobExperimentConfigPtrOutput() TrainingJobExperimentConfigPtrOutput {
+	return i.ToTrainingJobExperimentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TrainingJobExperimentConfigArgs) ToTrainingJobExperimentConfigPtrOutputWithContext(ctx context.Context) TrainingJobExperimentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobExperimentConfigOutput).ToTrainingJobExperimentConfigPtrOutputWithContext(ctx)
+}
+
+// TrainingJobExperimentConfigPtrInput is an input type that accepts TrainingJobExperimentConfigArgs, TrainingJobExperimentConfigPtr and TrainingJobExperimentConfigPtrOutput values.
+// You can construct a concrete instance of `TrainingJobExperimentConfigPtrInput` via:
+//
+//	        TrainingJobExperimentConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrainingJobExperimentConfigPtrInput interface {
+	pulumi.Input
+
+	ToTrainingJobExperimentConfigPtrOutput() TrainingJobExperimentConfigPtrOutput
+	ToTrainingJobExperimentConfigPtrOutputWithContext(context.Context) TrainingJobExperimentConfigPtrOutput
+}
+
+type trainingJobExperimentConfigPtrType TrainingJobExperimentConfigArgs
+
+func TrainingJobExperimentConfigPtr(v *TrainingJobExperimentConfigArgs) TrainingJobExperimentConfigPtrInput {
+	return (*trainingJobExperimentConfigPtrType)(v)
+}
+
+func (*trainingJobExperimentConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobExperimentConfig)(nil)).Elem()
+}
+
+func (i *trainingJobExperimentConfigPtrType) ToTrainingJobExperimentConfigPtrOutput() TrainingJobExperimentConfigPtrOutput {
+	return i.ToTrainingJobExperimentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *trainingJobExperimentConfigPtrType) ToTrainingJobExperimentConfigPtrOutputWithContext(ctx context.Context) TrainingJobExperimentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobExperimentConfigPtrOutput)
+}
+
+type TrainingJobExperimentConfigOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobExperimentConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobExperimentConfig)(nil)).Elem()
+}
+
+func (o TrainingJobExperimentConfigOutput) ToTrainingJobExperimentConfigOutput() TrainingJobExperimentConfigOutput {
+	return o
+}
+
+func (o TrainingJobExperimentConfigOutput) ToTrainingJobExperimentConfigOutputWithContext(ctx context.Context) TrainingJobExperimentConfigOutput {
+	return o
+}
+
+func (o TrainingJobExperimentConfigOutput) ToTrainingJobExperimentConfigPtrOutput() TrainingJobExperimentConfigPtrOutput {
+	return o.ToTrainingJobExperimentConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TrainingJobExperimentConfigOutput) ToTrainingJobExperimentConfigPtrOutputWithContext(ctx context.Context) TrainingJobExperimentConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrainingJobExperimentConfig) *TrainingJobExperimentConfig {
+		return &v
+	}).(TrainingJobExperimentConfigPtrOutput)
+}
+
+// Name of the SageMaker AI Experiment to associate with.
+func (o TrainingJobExperimentConfigOutput) ExperimentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobExperimentConfig) *string { return v.ExperimentName }).(pulumi.StringPtrOutput)
+}
+
+// Name of the Experiment Run to associate with.
+func (o TrainingJobExperimentConfigOutput) RunName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobExperimentConfig) *string { return v.RunName }).(pulumi.StringPtrOutput)
+}
+
+// Display name for the trial component.
+func (o TrainingJobExperimentConfigOutput) TrialComponentDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobExperimentConfig) *string { return v.TrialComponentDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Name of the SageMaker AI Trial to associate with.
+func (o TrainingJobExperimentConfigOutput) TrialName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobExperimentConfig) *string { return v.TrialName }).(pulumi.StringPtrOutput)
+}
+
+type TrainingJobExperimentConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobExperimentConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobExperimentConfig)(nil)).Elem()
+}
+
+func (o TrainingJobExperimentConfigPtrOutput) ToTrainingJobExperimentConfigPtrOutput() TrainingJobExperimentConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobExperimentConfigPtrOutput) ToTrainingJobExperimentConfigPtrOutputWithContext(ctx context.Context) TrainingJobExperimentConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobExperimentConfigPtrOutput) Elem() TrainingJobExperimentConfigOutput {
+	return o.ApplyT(func(v *TrainingJobExperimentConfig) TrainingJobExperimentConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TrainingJobExperimentConfig
+		return ret
+	}).(TrainingJobExperimentConfigOutput)
+}
+
+// Name of the SageMaker AI Experiment to associate with.
+func (o TrainingJobExperimentConfigPtrOutput) ExperimentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobExperimentConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExperimentName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the Experiment Run to associate with.
+func (o TrainingJobExperimentConfigPtrOutput) RunName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobExperimentConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RunName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Display name for the trial component.
+func (o TrainingJobExperimentConfigPtrOutput) TrialComponentDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobExperimentConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrialComponentDisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the SageMaker AI Trial to associate with.
+func (o TrainingJobExperimentConfigPtrOutput) TrialName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobExperimentConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrialName
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrainingJobInfraCheckConfig struct {
+	// Whether to enable infrastructure health checks before training.
+	EnableInfraCheck *bool `pulumi:"enableInfraCheck"`
+}
+
+// TrainingJobInfraCheckConfigInput is an input type that accepts TrainingJobInfraCheckConfigArgs and TrainingJobInfraCheckConfigOutput values.
+// You can construct a concrete instance of `TrainingJobInfraCheckConfigInput` via:
+//
+//	TrainingJobInfraCheckConfigArgs{...}
+type TrainingJobInfraCheckConfigInput interface {
+	pulumi.Input
+
+	ToTrainingJobInfraCheckConfigOutput() TrainingJobInfraCheckConfigOutput
+	ToTrainingJobInfraCheckConfigOutputWithContext(context.Context) TrainingJobInfraCheckConfigOutput
+}
+
+type TrainingJobInfraCheckConfigArgs struct {
+	// Whether to enable infrastructure health checks before training.
+	EnableInfraCheck pulumi.BoolPtrInput `pulumi:"enableInfraCheck"`
+}
+
+func (TrainingJobInfraCheckConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobInfraCheckConfig)(nil)).Elem()
+}
+
+func (i TrainingJobInfraCheckConfigArgs) ToTrainingJobInfraCheckConfigOutput() TrainingJobInfraCheckConfigOutput {
+	return i.ToTrainingJobInfraCheckConfigOutputWithContext(context.Background())
+}
+
+func (i TrainingJobInfraCheckConfigArgs) ToTrainingJobInfraCheckConfigOutputWithContext(ctx context.Context) TrainingJobInfraCheckConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobInfraCheckConfigOutput)
+}
+
+func (i TrainingJobInfraCheckConfigArgs) ToTrainingJobInfraCheckConfigPtrOutput() TrainingJobInfraCheckConfigPtrOutput {
+	return i.ToTrainingJobInfraCheckConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TrainingJobInfraCheckConfigArgs) ToTrainingJobInfraCheckConfigPtrOutputWithContext(ctx context.Context) TrainingJobInfraCheckConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobInfraCheckConfigOutput).ToTrainingJobInfraCheckConfigPtrOutputWithContext(ctx)
+}
+
+// TrainingJobInfraCheckConfigPtrInput is an input type that accepts TrainingJobInfraCheckConfigArgs, TrainingJobInfraCheckConfigPtr and TrainingJobInfraCheckConfigPtrOutput values.
+// You can construct a concrete instance of `TrainingJobInfraCheckConfigPtrInput` via:
+//
+//	        TrainingJobInfraCheckConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrainingJobInfraCheckConfigPtrInput interface {
+	pulumi.Input
+
+	ToTrainingJobInfraCheckConfigPtrOutput() TrainingJobInfraCheckConfigPtrOutput
+	ToTrainingJobInfraCheckConfigPtrOutputWithContext(context.Context) TrainingJobInfraCheckConfigPtrOutput
+}
+
+type trainingJobInfraCheckConfigPtrType TrainingJobInfraCheckConfigArgs
+
+func TrainingJobInfraCheckConfigPtr(v *TrainingJobInfraCheckConfigArgs) TrainingJobInfraCheckConfigPtrInput {
+	return (*trainingJobInfraCheckConfigPtrType)(v)
+}
+
+func (*trainingJobInfraCheckConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobInfraCheckConfig)(nil)).Elem()
+}
+
+func (i *trainingJobInfraCheckConfigPtrType) ToTrainingJobInfraCheckConfigPtrOutput() TrainingJobInfraCheckConfigPtrOutput {
+	return i.ToTrainingJobInfraCheckConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *trainingJobInfraCheckConfigPtrType) ToTrainingJobInfraCheckConfigPtrOutputWithContext(ctx context.Context) TrainingJobInfraCheckConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobInfraCheckConfigPtrOutput)
+}
+
+type TrainingJobInfraCheckConfigOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobInfraCheckConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobInfraCheckConfig)(nil)).Elem()
+}
+
+func (o TrainingJobInfraCheckConfigOutput) ToTrainingJobInfraCheckConfigOutput() TrainingJobInfraCheckConfigOutput {
+	return o
+}
+
+func (o TrainingJobInfraCheckConfigOutput) ToTrainingJobInfraCheckConfigOutputWithContext(ctx context.Context) TrainingJobInfraCheckConfigOutput {
+	return o
+}
+
+func (o TrainingJobInfraCheckConfigOutput) ToTrainingJobInfraCheckConfigPtrOutput() TrainingJobInfraCheckConfigPtrOutput {
+	return o.ToTrainingJobInfraCheckConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TrainingJobInfraCheckConfigOutput) ToTrainingJobInfraCheckConfigPtrOutputWithContext(ctx context.Context) TrainingJobInfraCheckConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrainingJobInfraCheckConfig) *TrainingJobInfraCheckConfig {
+		return &v
+	}).(TrainingJobInfraCheckConfigPtrOutput)
+}
+
+// Whether to enable infrastructure health checks before training.
+func (o TrainingJobInfraCheckConfigOutput) EnableInfraCheck() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TrainingJobInfraCheckConfig) *bool { return v.EnableInfraCheck }).(pulumi.BoolPtrOutput)
+}
+
+type TrainingJobInfraCheckConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobInfraCheckConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobInfraCheckConfig)(nil)).Elem()
+}
+
+func (o TrainingJobInfraCheckConfigPtrOutput) ToTrainingJobInfraCheckConfigPtrOutput() TrainingJobInfraCheckConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobInfraCheckConfigPtrOutput) ToTrainingJobInfraCheckConfigPtrOutputWithContext(ctx context.Context) TrainingJobInfraCheckConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobInfraCheckConfigPtrOutput) Elem() TrainingJobInfraCheckConfigOutput {
+	return o.ApplyT(func(v *TrainingJobInfraCheckConfig) TrainingJobInfraCheckConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TrainingJobInfraCheckConfig
+		return ret
+	}).(TrainingJobInfraCheckConfigOutput)
+}
+
+// Whether to enable infrastructure health checks before training.
+func (o TrainingJobInfraCheckConfigPtrOutput) EnableInfraCheck() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TrainingJobInfraCheckConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableInfraCheck
+	}).(pulumi.BoolPtrOutput)
+}
+
+type TrainingJobInputDataConfig struct {
+	// Name of the channel. Must be between 1 and 64 characters.
+	ChannelName string `pulumi:"channelName"`
+	// Compression type for the input data. Valid values: `None`, `Gzip`.
+	CompressionType *string `pulumi:"compressionType"`
+	// MIME type of the input data.
+	ContentType *string `pulumi:"contentType"`
+	// Location of the channel data. See `dataSource` below.
+	DataSource *TrainingJobInputDataConfigDataSource `pulumi:"dataSource"`
+	// Input mode for the channel data. Valid values: `File`, `Pipe`, `FastFile`.
+	InputMode *string `pulumi:"inputMode"`
+	// Record wrapper type. Valid values: `None`, `RecordIO`.
+	RecordWrapperType *string `pulumi:"recordWrapperType"`
+	// Configuration for shuffling data in the channel. See `shuffleConfig` below.
+	ShuffleConfig *TrainingJobInputDataConfigShuffleConfig `pulumi:"shuffleConfig"`
+}
+
+// TrainingJobInputDataConfigInput is an input type that accepts TrainingJobInputDataConfigArgs and TrainingJobInputDataConfigOutput values.
+// You can construct a concrete instance of `TrainingJobInputDataConfigInput` via:
+//
+//	TrainingJobInputDataConfigArgs{...}
+type TrainingJobInputDataConfigInput interface {
+	pulumi.Input
+
+	ToTrainingJobInputDataConfigOutput() TrainingJobInputDataConfigOutput
+	ToTrainingJobInputDataConfigOutputWithContext(context.Context) TrainingJobInputDataConfigOutput
+}
+
+type TrainingJobInputDataConfigArgs struct {
+	// Name of the channel. Must be between 1 and 64 characters.
+	ChannelName pulumi.StringInput `pulumi:"channelName"`
+	// Compression type for the input data. Valid values: `None`, `Gzip`.
+	CompressionType pulumi.StringPtrInput `pulumi:"compressionType"`
+	// MIME type of the input data.
+	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
+	// Location of the channel data. See `dataSource` below.
+	DataSource TrainingJobInputDataConfigDataSourcePtrInput `pulumi:"dataSource"`
+	// Input mode for the channel data. Valid values: `File`, `Pipe`, `FastFile`.
+	InputMode pulumi.StringPtrInput `pulumi:"inputMode"`
+	// Record wrapper type. Valid values: `None`, `RecordIO`.
+	RecordWrapperType pulumi.StringPtrInput `pulumi:"recordWrapperType"`
+	// Configuration for shuffling data in the channel. See `shuffleConfig` below.
+	ShuffleConfig TrainingJobInputDataConfigShuffleConfigPtrInput `pulumi:"shuffleConfig"`
+}
+
+func (TrainingJobInputDataConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobInputDataConfig)(nil)).Elem()
+}
+
+func (i TrainingJobInputDataConfigArgs) ToTrainingJobInputDataConfigOutput() TrainingJobInputDataConfigOutput {
+	return i.ToTrainingJobInputDataConfigOutputWithContext(context.Background())
+}
+
+func (i TrainingJobInputDataConfigArgs) ToTrainingJobInputDataConfigOutputWithContext(ctx context.Context) TrainingJobInputDataConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobInputDataConfigOutput)
+}
+
+// TrainingJobInputDataConfigArrayInput is an input type that accepts TrainingJobInputDataConfigArray and TrainingJobInputDataConfigArrayOutput values.
+// You can construct a concrete instance of `TrainingJobInputDataConfigArrayInput` via:
+//
+//	TrainingJobInputDataConfigArray{ TrainingJobInputDataConfigArgs{...} }
+type TrainingJobInputDataConfigArrayInput interface {
+	pulumi.Input
+
+	ToTrainingJobInputDataConfigArrayOutput() TrainingJobInputDataConfigArrayOutput
+	ToTrainingJobInputDataConfigArrayOutputWithContext(context.Context) TrainingJobInputDataConfigArrayOutput
+}
+
+type TrainingJobInputDataConfigArray []TrainingJobInputDataConfigInput
+
+func (TrainingJobInputDataConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrainingJobInputDataConfig)(nil)).Elem()
+}
+
+func (i TrainingJobInputDataConfigArray) ToTrainingJobInputDataConfigArrayOutput() TrainingJobInputDataConfigArrayOutput {
+	return i.ToTrainingJobInputDataConfigArrayOutputWithContext(context.Background())
+}
+
+func (i TrainingJobInputDataConfigArray) ToTrainingJobInputDataConfigArrayOutputWithContext(ctx context.Context) TrainingJobInputDataConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobInputDataConfigArrayOutput)
+}
+
+type TrainingJobInputDataConfigOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobInputDataConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobInputDataConfig)(nil)).Elem()
+}
+
+func (o TrainingJobInputDataConfigOutput) ToTrainingJobInputDataConfigOutput() TrainingJobInputDataConfigOutput {
+	return o
+}
+
+func (o TrainingJobInputDataConfigOutput) ToTrainingJobInputDataConfigOutputWithContext(ctx context.Context) TrainingJobInputDataConfigOutput {
+	return o
+}
+
+// Name of the channel. Must be between 1 and 64 characters.
+func (o TrainingJobInputDataConfigOutput) ChannelName() pulumi.StringOutput {
+	return o.ApplyT(func(v TrainingJobInputDataConfig) string { return v.ChannelName }).(pulumi.StringOutput)
+}
+
+// Compression type for the input data. Valid values: `None`, `Gzip`.
+func (o TrainingJobInputDataConfigOutput) CompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobInputDataConfig) *string { return v.CompressionType }).(pulumi.StringPtrOutput)
+}
+
+// MIME type of the input data.
+func (o TrainingJobInputDataConfigOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobInputDataConfig) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+// Location of the channel data. See `dataSource` below.
+func (o TrainingJobInputDataConfigOutput) DataSource() TrainingJobInputDataConfigDataSourcePtrOutput {
+	return o.ApplyT(func(v TrainingJobInputDataConfig) *TrainingJobInputDataConfigDataSource { return v.DataSource }).(TrainingJobInputDataConfigDataSourcePtrOutput)
+}
+
+// Input mode for the channel data. Valid values: `File`, `Pipe`, `FastFile`.
+func (o TrainingJobInputDataConfigOutput) InputMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobInputDataConfig) *string { return v.InputMode }).(pulumi.StringPtrOutput)
+}
+
+// Record wrapper type. Valid values: `None`, `RecordIO`.
+func (o TrainingJobInputDataConfigOutput) RecordWrapperType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobInputDataConfig) *string { return v.RecordWrapperType }).(pulumi.StringPtrOutput)
+}
+
+// Configuration for shuffling data in the channel. See `shuffleConfig` below.
+func (o TrainingJobInputDataConfigOutput) ShuffleConfig() TrainingJobInputDataConfigShuffleConfigPtrOutput {
+	return o.ApplyT(func(v TrainingJobInputDataConfig) *TrainingJobInputDataConfigShuffleConfig { return v.ShuffleConfig }).(TrainingJobInputDataConfigShuffleConfigPtrOutput)
+}
+
+type TrainingJobInputDataConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobInputDataConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrainingJobInputDataConfig)(nil)).Elem()
+}
+
+func (o TrainingJobInputDataConfigArrayOutput) ToTrainingJobInputDataConfigArrayOutput() TrainingJobInputDataConfigArrayOutput {
+	return o
+}
+
+func (o TrainingJobInputDataConfigArrayOutput) ToTrainingJobInputDataConfigArrayOutputWithContext(ctx context.Context) TrainingJobInputDataConfigArrayOutput {
+	return o
+}
+
+func (o TrainingJobInputDataConfigArrayOutput) Index(i pulumi.IntInput) TrainingJobInputDataConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrainingJobInputDataConfig {
+		return vs[0].([]TrainingJobInputDataConfig)[vs[1].(int)]
+	}).(TrainingJobInputDataConfigOutput)
+}
+
+type TrainingJobInputDataConfigDataSource struct {
+	// File system data source. See `fileSystemDataSource` below.
+	FileSystemDataSource *TrainingJobInputDataConfigDataSourceFileSystemDataSource `pulumi:"fileSystemDataSource"`
+	// S3 data source. See `s3DataSource` below.
+	S3DataSource *TrainingJobInputDataConfigDataSourceS3DataSource `pulumi:"s3DataSource"`
+}
+
+// TrainingJobInputDataConfigDataSourceInput is an input type that accepts TrainingJobInputDataConfigDataSourceArgs and TrainingJobInputDataConfigDataSourceOutput values.
+// You can construct a concrete instance of `TrainingJobInputDataConfigDataSourceInput` via:
+//
+//	TrainingJobInputDataConfigDataSourceArgs{...}
+type TrainingJobInputDataConfigDataSourceInput interface {
+	pulumi.Input
+
+	ToTrainingJobInputDataConfigDataSourceOutput() TrainingJobInputDataConfigDataSourceOutput
+	ToTrainingJobInputDataConfigDataSourceOutputWithContext(context.Context) TrainingJobInputDataConfigDataSourceOutput
+}
+
+type TrainingJobInputDataConfigDataSourceArgs struct {
+	// File system data source. See `fileSystemDataSource` below.
+	FileSystemDataSource TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrInput `pulumi:"fileSystemDataSource"`
+	// S3 data source. See `s3DataSource` below.
+	S3DataSource TrainingJobInputDataConfigDataSourceS3DataSourcePtrInput `pulumi:"s3DataSource"`
+}
+
+func (TrainingJobInputDataConfigDataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobInputDataConfigDataSource)(nil)).Elem()
+}
+
+func (i TrainingJobInputDataConfigDataSourceArgs) ToTrainingJobInputDataConfigDataSourceOutput() TrainingJobInputDataConfigDataSourceOutput {
+	return i.ToTrainingJobInputDataConfigDataSourceOutputWithContext(context.Background())
+}
+
+func (i TrainingJobInputDataConfigDataSourceArgs) ToTrainingJobInputDataConfigDataSourceOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobInputDataConfigDataSourceOutput)
+}
+
+func (i TrainingJobInputDataConfigDataSourceArgs) ToTrainingJobInputDataConfigDataSourcePtrOutput() TrainingJobInputDataConfigDataSourcePtrOutput {
+	return i.ToTrainingJobInputDataConfigDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i TrainingJobInputDataConfigDataSourceArgs) ToTrainingJobInputDataConfigDataSourcePtrOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobInputDataConfigDataSourceOutput).ToTrainingJobInputDataConfigDataSourcePtrOutputWithContext(ctx)
+}
+
+// TrainingJobInputDataConfigDataSourcePtrInput is an input type that accepts TrainingJobInputDataConfigDataSourceArgs, TrainingJobInputDataConfigDataSourcePtr and TrainingJobInputDataConfigDataSourcePtrOutput values.
+// You can construct a concrete instance of `TrainingJobInputDataConfigDataSourcePtrInput` via:
+//
+//	        TrainingJobInputDataConfigDataSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrainingJobInputDataConfigDataSourcePtrInput interface {
+	pulumi.Input
+
+	ToTrainingJobInputDataConfigDataSourcePtrOutput() TrainingJobInputDataConfigDataSourcePtrOutput
+	ToTrainingJobInputDataConfigDataSourcePtrOutputWithContext(context.Context) TrainingJobInputDataConfigDataSourcePtrOutput
+}
+
+type trainingJobInputDataConfigDataSourcePtrType TrainingJobInputDataConfigDataSourceArgs
+
+func TrainingJobInputDataConfigDataSourcePtr(v *TrainingJobInputDataConfigDataSourceArgs) TrainingJobInputDataConfigDataSourcePtrInput {
+	return (*trainingJobInputDataConfigDataSourcePtrType)(v)
+}
+
+func (*trainingJobInputDataConfigDataSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobInputDataConfigDataSource)(nil)).Elem()
+}
+
+func (i *trainingJobInputDataConfigDataSourcePtrType) ToTrainingJobInputDataConfigDataSourcePtrOutput() TrainingJobInputDataConfigDataSourcePtrOutput {
+	return i.ToTrainingJobInputDataConfigDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *trainingJobInputDataConfigDataSourcePtrType) ToTrainingJobInputDataConfigDataSourcePtrOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobInputDataConfigDataSourcePtrOutput)
+}
+
+type TrainingJobInputDataConfigDataSourceOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobInputDataConfigDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobInputDataConfigDataSource)(nil)).Elem()
+}
+
+func (o TrainingJobInputDataConfigDataSourceOutput) ToTrainingJobInputDataConfigDataSourceOutput() TrainingJobInputDataConfigDataSourceOutput {
+	return o
+}
+
+func (o TrainingJobInputDataConfigDataSourceOutput) ToTrainingJobInputDataConfigDataSourceOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourceOutput {
+	return o
+}
+
+func (o TrainingJobInputDataConfigDataSourceOutput) ToTrainingJobInputDataConfigDataSourcePtrOutput() TrainingJobInputDataConfigDataSourcePtrOutput {
+	return o.ToTrainingJobInputDataConfigDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (o TrainingJobInputDataConfigDataSourceOutput) ToTrainingJobInputDataConfigDataSourcePtrOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrainingJobInputDataConfigDataSource) *TrainingJobInputDataConfigDataSource {
+		return &v
+	}).(TrainingJobInputDataConfigDataSourcePtrOutput)
+}
+
+// File system data source. See `fileSystemDataSource` below.
+func (o TrainingJobInputDataConfigDataSourceOutput) FileSystemDataSource() TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput {
+	return o.ApplyT(func(v TrainingJobInputDataConfigDataSource) *TrainingJobInputDataConfigDataSourceFileSystemDataSource {
+		return v.FileSystemDataSource
+	}).(TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput)
+}
+
+// S3 data source. See `s3DataSource` below.
+func (o TrainingJobInputDataConfigDataSourceOutput) S3DataSource() TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput {
+	return o.ApplyT(func(v TrainingJobInputDataConfigDataSource) *TrainingJobInputDataConfigDataSourceS3DataSource {
+		return v.S3DataSource
+	}).(TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput)
+}
+
+type TrainingJobInputDataConfigDataSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobInputDataConfigDataSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobInputDataConfigDataSource)(nil)).Elem()
+}
+
+func (o TrainingJobInputDataConfigDataSourcePtrOutput) ToTrainingJobInputDataConfigDataSourcePtrOutput() TrainingJobInputDataConfigDataSourcePtrOutput {
+	return o
+}
+
+func (o TrainingJobInputDataConfigDataSourcePtrOutput) ToTrainingJobInputDataConfigDataSourcePtrOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourcePtrOutput {
+	return o
+}
+
+func (o TrainingJobInputDataConfigDataSourcePtrOutput) Elem() TrainingJobInputDataConfigDataSourceOutput {
+	return o.ApplyT(func(v *TrainingJobInputDataConfigDataSource) TrainingJobInputDataConfigDataSource {
+		if v != nil {
+			return *v
+		}
+		var ret TrainingJobInputDataConfigDataSource
+		return ret
+	}).(TrainingJobInputDataConfigDataSourceOutput)
+}
+
+// File system data source. See `fileSystemDataSource` below.
+func (o TrainingJobInputDataConfigDataSourcePtrOutput) FileSystemDataSource() TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput {
+	return o.ApplyT(func(v *TrainingJobInputDataConfigDataSource) *TrainingJobInputDataConfigDataSourceFileSystemDataSource {
+		if v == nil {
+			return nil
+		}
+		return v.FileSystemDataSource
+	}).(TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput)
+}
+
+// S3 data source. See `s3DataSource` below.
+func (o TrainingJobInputDataConfigDataSourcePtrOutput) S3DataSource() TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput {
+	return o.ApplyT(func(v *TrainingJobInputDataConfigDataSource) *TrainingJobInputDataConfigDataSourceS3DataSource {
+		if v == nil {
+			return nil
+		}
+		return v.S3DataSource
+	}).(TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput)
+}
+
+type TrainingJobInputDataConfigDataSourceFileSystemDataSource struct {
+	// Full path to the directory on the file system.
+	DirectoryPath string `pulumi:"directoryPath"`
+	// Access mode for the file system. Valid values: `ro`, `rw`.
+	FileSystemAccessMode string `pulumi:"fileSystemAccessMode"`
+	// File system ID.
+	FileSystemId string `pulumi:"fileSystemId"`
+	// File system type. Valid values: `EFS`, `FSxLustre`.
+	FileSystemType string `pulumi:"fileSystemType"`
+}
+
+// TrainingJobInputDataConfigDataSourceFileSystemDataSourceInput is an input type that accepts TrainingJobInputDataConfigDataSourceFileSystemDataSourceArgs and TrainingJobInputDataConfigDataSourceFileSystemDataSourceOutput values.
+// You can construct a concrete instance of `TrainingJobInputDataConfigDataSourceFileSystemDataSourceInput` via:
+//
+//	TrainingJobInputDataConfigDataSourceFileSystemDataSourceArgs{...}
+type TrainingJobInputDataConfigDataSourceFileSystemDataSourceInput interface {
+	pulumi.Input
+
+	ToTrainingJobInputDataConfigDataSourceFileSystemDataSourceOutput() TrainingJobInputDataConfigDataSourceFileSystemDataSourceOutput
+	ToTrainingJobInputDataConfigDataSourceFileSystemDataSourceOutputWithContext(context.Context) TrainingJobInputDataConfigDataSourceFileSystemDataSourceOutput
+}
+
+type TrainingJobInputDataConfigDataSourceFileSystemDataSourceArgs struct {
+	// Full path to the directory on the file system.
+	DirectoryPath pulumi.StringInput `pulumi:"directoryPath"`
+	// Access mode for the file system. Valid values: `ro`, `rw`.
+	FileSystemAccessMode pulumi.StringInput `pulumi:"fileSystemAccessMode"`
+	// File system ID.
+	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
+	// File system type. Valid values: `EFS`, `FSxLustre`.
+	FileSystemType pulumi.StringInput `pulumi:"fileSystemType"`
+}
+
+func (TrainingJobInputDataConfigDataSourceFileSystemDataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobInputDataConfigDataSourceFileSystemDataSource)(nil)).Elem()
+}
+
+func (i TrainingJobInputDataConfigDataSourceFileSystemDataSourceArgs) ToTrainingJobInputDataConfigDataSourceFileSystemDataSourceOutput() TrainingJobInputDataConfigDataSourceFileSystemDataSourceOutput {
+	return i.ToTrainingJobInputDataConfigDataSourceFileSystemDataSourceOutputWithContext(context.Background())
+}
+
+func (i TrainingJobInputDataConfigDataSourceFileSystemDataSourceArgs) ToTrainingJobInputDataConfigDataSourceFileSystemDataSourceOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourceFileSystemDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobInputDataConfigDataSourceFileSystemDataSourceOutput)
+}
+
+func (i TrainingJobInputDataConfigDataSourceFileSystemDataSourceArgs) ToTrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput() TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput {
+	return i.ToTrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i TrainingJobInputDataConfigDataSourceFileSystemDataSourceArgs) ToTrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobInputDataConfigDataSourceFileSystemDataSourceOutput).ToTrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutputWithContext(ctx)
+}
+
+// TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrInput is an input type that accepts TrainingJobInputDataConfigDataSourceFileSystemDataSourceArgs, TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtr and TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput values.
+// You can construct a concrete instance of `TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrInput` via:
+//
+//	        TrainingJobInputDataConfigDataSourceFileSystemDataSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrInput interface {
+	pulumi.Input
+
+	ToTrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput() TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput
+	ToTrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutputWithContext(context.Context) TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput
+}
+
+type trainingJobInputDataConfigDataSourceFileSystemDataSourcePtrType TrainingJobInputDataConfigDataSourceFileSystemDataSourceArgs
+
+func TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtr(v *TrainingJobInputDataConfigDataSourceFileSystemDataSourceArgs) TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrInput {
+	return (*trainingJobInputDataConfigDataSourceFileSystemDataSourcePtrType)(v)
+}
+
+func (*trainingJobInputDataConfigDataSourceFileSystemDataSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobInputDataConfigDataSourceFileSystemDataSource)(nil)).Elem()
+}
+
+func (i *trainingJobInputDataConfigDataSourceFileSystemDataSourcePtrType) ToTrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput() TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput {
+	return i.ToTrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *trainingJobInputDataConfigDataSourceFileSystemDataSourcePtrType) ToTrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput)
+}
+
+type TrainingJobInputDataConfigDataSourceFileSystemDataSourceOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobInputDataConfigDataSourceFileSystemDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobInputDataConfigDataSourceFileSystemDataSource)(nil)).Elem()
+}
+
+func (o TrainingJobInputDataConfigDataSourceFileSystemDataSourceOutput) ToTrainingJobInputDataConfigDataSourceFileSystemDataSourceOutput() TrainingJobInputDataConfigDataSourceFileSystemDataSourceOutput {
+	return o
+}
+
+func (o TrainingJobInputDataConfigDataSourceFileSystemDataSourceOutput) ToTrainingJobInputDataConfigDataSourceFileSystemDataSourceOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourceFileSystemDataSourceOutput {
+	return o
+}
+
+func (o TrainingJobInputDataConfigDataSourceFileSystemDataSourceOutput) ToTrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput() TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput {
+	return o.ToTrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (o TrainingJobInputDataConfigDataSourceFileSystemDataSourceOutput) ToTrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrainingJobInputDataConfigDataSourceFileSystemDataSource) *TrainingJobInputDataConfigDataSourceFileSystemDataSource {
+		return &v
+	}).(TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput)
+}
+
+// Full path to the directory on the file system.
+func (o TrainingJobInputDataConfigDataSourceFileSystemDataSourceOutput) DirectoryPath() pulumi.StringOutput {
+	return o.ApplyT(func(v TrainingJobInputDataConfigDataSourceFileSystemDataSource) string { return v.DirectoryPath }).(pulumi.StringOutput)
+}
+
+// Access mode for the file system. Valid values: `ro`, `rw`.
+func (o TrainingJobInputDataConfigDataSourceFileSystemDataSourceOutput) FileSystemAccessMode() pulumi.StringOutput {
+	return o.ApplyT(func(v TrainingJobInputDataConfigDataSourceFileSystemDataSource) string { return v.FileSystemAccessMode }).(pulumi.StringOutput)
+}
+
+// File system ID.
+func (o TrainingJobInputDataConfigDataSourceFileSystemDataSourceOutput) FileSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v TrainingJobInputDataConfigDataSourceFileSystemDataSource) string { return v.FileSystemId }).(pulumi.StringOutput)
+}
+
+// File system type. Valid values: `EFS`, `FSxLustre`.
+func (o TrainingJobInputDataConfigDataSourceFileSystemDataSourceOutput) FileSystemType() pulumi.StringOutput {
+	return o.ApplyT(func(v TrainingJobInputDataConfigDataSourceFileSystemDataSource) string { return v.FileSystemType }).(pulumi.StringOutput)
+}
+
+type TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobInputDataConfigDataSourceFileSystemDataSource)(nil)).Elem()
+}
+
+func (o TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput) ToTrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput() TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput {
+	return o
+}
+
+func (o TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput) ToTrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput {
+	return o
+}
+
+func (o TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput) Elem() TrainingJobInputDataConfigDataSourceFileSystemDataSourceOutput {
+	return o.ApplyT(func(v *TrainingJobInputDataConfigDataSourceFileSystemDataSource) TrainingJobInputDataConfigDataSourceFileSystemDataSource {
+		if v != nil {
+			return *v
+		}
+		var ret TrainingJobInputDataConfigDataSourceFileSystemDataSource
+		return ret
+	}).(TrainingJobInputDataConfigDataSourceFileSystemDataSourceOutput)
+}
+
+// Full path to the directory on the file system.
+func (o TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput) DirectoryPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobInputDataConfigDataSourceFileSystemDataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DirectoryPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Access mode for the file system. Valid values: `ro`, `rw`.
+func (o TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput) FileSystemAccessMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobInputDataConfigDataSourceFileSystemDataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileSystemAccessMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// File system ID.
+func (o TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobInputDataConfigDataSourceFileSystemDataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileSystemId
+	}).(pulumi.StringPtrOutput)
+}
+
+// File system type. Valid values: `EFS`, `FSxLustre`.
+func (o TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput) FileSystemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobInputDataConfigDataSourceFileSystemDataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileSystemType
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrainingJobInputDataConfigDataSourceS3DataSource struct {
+	// List of attribute names to include in the training dataset. Maximum of 16.
+	AttributeNames []string `pulumi:"attributeNames"`
+	// SageMaker AI Hub access configuration. See `hubAccessConfig` below.
+	HubAccessConfig *TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfig `pulumi:"hubAccessConfig"`
+	// List of instance group names for the training data distribution. Maximum of 5.
+	InstanceGroupNames []string `pulumi:"instanceGroupNames"`
+	// Model access configuration. See `modelAccessConfig` below.
+	ModelAccessConfig *TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfig `pulumi:"modelAccessConfig"`
+	// Distribution type for S3 data. Valid values: `FullyReplicated`, `ShardedByS3Key`.
+	S3DataDistributionType *string `pulumi:"s3DataDistributionType"`
+	// S3 data type. Valid values: `ManifestFile`, `S3Prefix`, `AugmentedManifestFile`.
+	S3DataType string `pulumi:"s3DataType"`
+	// S3 URI of the data.
+	S3Uri string `pulumi:"s3Uri"`
+}
+
+// TrainingJobInputDataConfigDataSourceS3DataSourceInput is an input type that accepts TrainingJobInputDataConfigDataSourceS3DataSourceArgs and TrainingJobInputDataConfigDataSourceS3DataSourceOutput values.
+// You can construct a concrete instance of `TrainingJobInputDataConfigDataSourceS3DataSourceInput` via:
+//
+//	TrainingJobInputDataConfigDataSourceS3DataSourceArgs{...}
+type TrainingJobInputDataConfigDataSourceS3DataSourceInput interface {
+	pulumi.Input
+
+	ToTrainingJobInputDataConfigDataSourceS3DataSourceOutput() TrainingJobInputDataConfigDataSourceS3DataSourceOutput
+	ToTrainingJobInputDataConfigDataSourceS3DataSourceOutputWithContext(context.Context) TrainingJobInputDataConfigDataSourceS3DataSourceOutput
+}
+
+type TrainingJobInputDataConfigDataSourceS3DataSourceArgs struct {
+	// List of attribute names to include in the training dataset. Maximum of 16.
+	AttributeNames pulumi.StringArrayInput `pulumi:"attributeNames"`
+	// SageMaker AI Hub access configuration. See `hubAccessConfig` below.
+	HubAccessConfig TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrInput `pulumi:"hubAccessConfig"`
+	// List of instance group names for the training data distribution. Maximum of 5.
+	InstanceGroupNames pulumi.StringArrayInput `pulumi:"instanceGroupNames"`
+	// Model access configuration. See `modelAccessConfig` below.
+	ModelAccessConfig TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrInput `pulumi:"modelAccessConfig"`
+	// Distribution type for S3 data. Valid values: `FullyReplicated`, `ShardedByS3Key`.
+	S3DataDistributionType pulumi.StringPtrInput `pulumi:"s3DataDistributionType"`
+	// S3 data type. Valid values: `ManifestFile`, `S3Prefix`, `AugmentedManifestFile`.
+	S3DataType pulumi.StringInput `pulumi:"s3DataType"`
+	// S3 URI of the data.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+}
+
+func (TrainingJobInputDataConfigDataSourceS3DataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobInputDataConfigDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (i TrainingJobInputDataConfigDataSourceS3DataSourceArgs) ToTrainingJobInputDataConfigDataSourceS3DataSourceOutput() TrainingJobInputDataConfigDataSourceS3DataSourceOutput {
+	return i.ToTrainingJobInputDataConfigDataSourceS3DataSourceOutputWithContext(context.Background())
+}
+
+func (i TrainingJobInputDataConfigDataSourceS3DataSourceArgs) ToTrainingJobInputDataConfigDataSourceS3DataSourceOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourceS3DataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobInputDataConfigDataSourceS3DataSourceOutput)
+}
+
+func (i TrainingJobInputDataConfigDataSourceS3DataSourceArgs) ToTrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput() TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput {
+	return i.ToTrainingJobInputDataConfigDataSourceS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i TrainingJobInputDataConfigDataSourceS3DataSourceArgs) ToTrainingJobInputDataConfigDataSourceS3DataSourcePtrOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobInputDataConfigDataSourceS3DataSourceOutput).ToTrainingJobInputDataConfigDataSourceS3DataSourcePtrOutputWithContext(ctx)
+}
+
+// TrainingJobInputDataConfigDataSourceS3DataSourcePtrInput is an input type that accepts TrainingJobInputDataConfigDataSourceS3DataSourceArgs, TrainingJobInputDataConfigDataSourceS3DataSourcePtr and TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput values.
+// You can construct a concrete instance of `TrainingJobInputDataConfigDataSourceS3DataSourcePtrInput` via:
+//
+//	        TrainingJobInputDataConfigDataSourceS3DataSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrainingJobInputDataConfigDataSourceS3DataSourcePtrInput interface {
+	pulumi.Input
+
+	ToTrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput() TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput
+	ToTrainingJobInputDataConfigDataSourceS3DataSourcePtrOutputWithContext(context.Context) TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput
+}
+
+type trainingJobInputDataConfigDataSourceS3DataSourcePtrType TrainingJobInputDataConfigDataSourceS3DataSourceArgs
+
+func TrainingJobInputDataConfigDataSourceS3DataSourcePtr(v *TrainingJobInputDataConfigDataSourceS3DataSourceArgs) TrainingJobInputDataConfigDataSourceS3DataSourcePtrInput {
+	return (*trainingJobInputDataConfigDataSourceS3DataSourcePtrType)(v)
+}
+
+func (*trainingJobInputDataConfigDataSourceS3DataSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobInputDataConfigDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (i *trainingJobInputDataConfigDataSourceS3DataSourcePtrType) ToTrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput() TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput {
+	return i.ToTrainingJobInputDataConfigDataSourceS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *trainingJobInputDataConfigDataSourceS3DataSourcePtrType) ToTrainingJobInputDataConfigDataSourceS3DataSourcePtrOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput)
+}
+
+type TrainingJobInputDataConfigDataSourceS3DataSourceOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobInputDataConfigDataSourceS3DataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobInputDataConfigDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceOutput) ToTrainingJobInputDataConfigDataSourceS3DataSourceOutput() TrainingJobInputDataConfigDataSourceS3DataSourceOutput {
+	return o
+}
+
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceOutput) ToTrainingJobInputDataConfigDataSourceS3DataSourceOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourceS3DataSourceOutput {
+	return o
+}
+
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceOutput) ToTrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput() TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput {
+	return o.ToTrainingJobInputDataConfigDataSourceS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceOutput) ToTrainingJobInputDataConfigDataSourceS3DataSourcePtrOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrainingJobInputDataConfigDataSourceS3DataSource) *TrainingJobInputDataConfigDataSourceS3DataSource {
+		return &v
+	}).(TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput)
+}
+
+// List of attribute names to include in the training dataset. Maximum of 16.
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceOutput) AttributeNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TrainingJobInputDataConfigDataSourceS3DataSource) []string { return v.AttributeNames }).(pulumi.StringArrayOutput)
+}
+
+// SageMaker AI Hub access configuration. See `hubAccessConfig` below.
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceOutput) HubAccessConfig() TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o.ApplyT(func(v TrainingJobInputDataConfigDataSourceS3DataSource) *TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfig {
+		return v.HubAccessConfig
+	}).(TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput)
+}
+
+// List of instance group names for the training data distribution. Maximum of 5.
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceOutput) InstanceGroupNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TrainingJobInputDataConfigDataSourceS3DataSource) []string { return v.InstanceGroupNames }).(pulumi.StringArrayOutput)
+}
+
+// Model access configuration. See `modelAccessConfig` below.
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceOutput) ModelAccessConfig() TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o.ApplyT(func(v TrainingJobInputDataConfigDataSourceS3DataSource) *TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfig {
+		return v.ModelAccessConfig
+	}).(TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput)
+}
+
+// Distribution type for S3 data. Valid values: `FullyReplicated`, `ShardedByS3Key`.
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceOutput) S3DataDistributionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobInputDataConfigDataSourceS3DataSource) *string { return v.S3DataDistributionType }).(pulumi.StringPtrOutput)
+}
+
+// S3 data type. Valid values: `ManifestFile`, `S3Prefix`, `AugmentedManifestFile`.
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceOutput) S3DataType() pulumi.StringOutput {
+	return o.ApplyT(func(v TrainingJobInputDataConfigDataSourceS3DataSource) string { return v.S3DataType }).(pulumi.StringOutput)
+}
+
+// S3 URI of the data.
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v TrainingJobInputDataConfigDataSourceS3DataSource) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+type TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobInputDataConfigDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (o TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput) ToTrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput() TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput {
+	return o
+}
+
+func (o TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput) ToTrainingJobInputDataConfigDataSourceS3DataSourcePtrOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput {
+	return o
+}
+
+func (o TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput) Elem() TrainingJobInputDataConfigDataSourceS3DataSourceOutput {
+	return o.ApplyT(func(v *TrainingJobInputDataConfigDataSourceS3DataSource) TrainingJobInputDataConfigDataSourceS3DataSource {
+		if v != nil {
+			return *v
+		}
+		var ret TrainingJobInputDataConfigDataSourceS3DataSource
+		return ret
+	}).(TrainingJobInputDataConfigDataSourceS3DataSourceOutput)
+}
+
+// List of attribute names to include in the training dataset. Maximum of 16.
+func (o TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput) AttributeNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TrainingJobInputDataConfigDataSourceS3DataSource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AttributeNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// SageMaker AI Hub access configuration. See `hubAccessConfig` below.
+func (o TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput) HubAccessConfig() TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o.ApplyT(func(v *TrainingJobInputDataConfigDataSourceS3DataSource) *TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfig {
+		if v == nil {
+			return nil
+		}
+		return v.HubAccessConfig
+	}).(TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput)
+}
+
+// List of instance group names for the training data distribution. Maximum of 5.
+func (o TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput) InstanceGroupNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TrainingJobInputDataConfigDataSourceS3DataSource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceGroupNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// Model access configuration. See `modelAccessConfig` below.
+func (o TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput) ModelAccessConfig() TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o.ApplyT(func(v *TrainingJobInputDataConfigDataSourceS3DataSource) *TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ModelAccessConfig
+	}).(TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput)
+}
+
+// Distribution type for S3 data. Valid values: `FullyReplicated`, `ShardedByS3Key`.
+func (o TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput) S3DataDistributionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobInputDataConfigDataSourceS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3DataDistributionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 data type. Valid values: `ManifestFile`, `S3Prefix`, `AugmentedManifestFile`.
+func (o TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput) S3DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobInputDataConfigDataSourceS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3DataType
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 URI of the data.
+func (o TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobInputDataConfigDataSourceS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfig struct {
+	// ARN of the hub content.
+	HubContentArn string `pulumi:"hubContentArn"`
+}
+
+// TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigInput is an input type that accepts TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs and TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput values.
+// You can construct a concrete instance of `TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigInput` via:
+//
+//	TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs{...}
+type TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigInput interface {
+	pulumi.Input
+
+	ToTrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput() TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput
+	ToTrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigOutputWithContext(context.Context) TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput
+}
+
+type TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs struct {
+	// ARN of the hub content.
+	HubContentArn pulumi.StringInput `pulumi:"hubContentArn"`
+}
+
+func (TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (i TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs) ToTrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput() TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput {
+	return i.ToTrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigOutputWithContext(context.Background())
+}
+
+func (i TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs) ToTrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput)
+}
+
+func (i TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs) ToTrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput() TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return i.ToTrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs) ToTrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput).ToTrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx)
+}
+
+// TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrInput is an input type that accepts TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs, TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtr and TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput values.
+// You can construct a concrete instance of `TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrInput` via:
+//
+//	        TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrInput interface {
+	pulumi.Input
+
+	ToTrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput() TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput
+	ToTrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Context) TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput
+}
+
+type trainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrType TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs
+
+func TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtr(v *TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs) TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrInput {
+	return (*trainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrType)(v)
+}
+
+func (*trainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (i *trainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrType) ToTrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput() TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return i.ToTrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *trainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrType) ToTrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput)
+}
+
+type TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput) ToTrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput() TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput {
+	return o
+}
+
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput) ToTrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput {
+	return o
+}
+
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput) ToTrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput() TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o.ToTrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput) ToTrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfig) *TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfig {
+		return &v
+	}).(TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput)
+}
+
+// ARN of the hub content.
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput) HubContentArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfig) string { return v.HubContentArn }).(pulumi.StringOutput)
+}
+
+type TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfig)(nil)).Elem()
+}
+
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput) ToTrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput() TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput) ToTrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput) Elem() TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput {
+	return o.ApplyT(func(v *TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfig) TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfig
+		return ret
+	}).(TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput)
+}
+
+// ARN of the hub content.
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput) HubContentArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HubContentArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfig struct {
+	// Whether to accept the model EULA.
+	AcceptEula bool `pulumi:"acceptEula"`
+}
+
+// TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigInput is an input type that accepts TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs and TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput values.
+// You can construct a concrete instance of `TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigInput` via:
+//
+//	TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs{...}
+type TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigInput interface {
+	pulumi.Input
+
+	ToTrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput() TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput
+	ToTrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigOutputWithContext(context.Context) TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput
+}
+
+type TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs struct {
+	// Whether to accept the model EULA.
+	AcceptEula pulumi.BoolInput `pulumi:"acceptEula"`
+}
+
+func (TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfig)(nil)).Elem()
+}
+
+func (i TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs) ToTrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput() TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput {
+	return i.ToTrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigOutputWithContext(context.Background())
+}
+
+func (i TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs) ToTrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput)
+}
+
+func (i TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs) ToTrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput() TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return i.ToTrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs) ToTrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput).ToTrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(ctx)
+}
+
+// TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrInput is an input type that accepts TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs, TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtr and TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput values.
+// You can construct a concrete instance of `TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrInput` via:
+//
+//	        TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrInput interface {
+	pulumi.Input
+
+	ToTrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput() TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput
+	ToTrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(context.Context) TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput
+}
+
+type trainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrType TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs
+
+func TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtr(v *TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs) TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrInput {
+	return (*trainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrType)(v)
+}
+
+func (*trainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfig)(nil)).Elem()
+}
+
+func (i *trainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrType) ToTrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput() TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return i.ToTrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *trainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrType) ToTrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput)
+}
+
+type TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfig)(nil)).Elem()
+}
+
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput) ToTrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput() TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput {
+	return o
+}
+
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput) ToTrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput {
+	return o
+}
+
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput) ToTrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput() TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o.ToTrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput) ToTrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfig) *TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfig {
+		return &v
+	}).(TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput)
+}
+
+// Whether to accept the model EULA.
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput) AcceptEula() pulumi.BoolOutput {
+	return o.ApplyT(func(v TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfig) bool { return v.AcceptEula }).(pulumi.BoolOutput)
+}
+
+type TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfig)(nil)).Elem()
+}
+
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput) ToTrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput() TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput) ToTrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutputWithContext(ctx context.Context) TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput) Elem() TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput {
+	return o.ApplyT(func(v *TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfig) TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfig
+		return ret
+	}).(TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput)
+}
+
+// Whether to accept the model EULA.
+func (o TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput) AcceptEula() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AcceptEula
+	}).(pulumi.BoolPtrOutput)
+}
+
+type TrainingJobInputDataConfigShuffleConfig struct {
+	// Seed value used to shuffle the training data.
+	Seed *int `pulumi:"seed"`
+}
+
+// TrainingJobInputDataConfigShuffleConfigInput is an input type that accepts TrainingJobInputDataConfigShuffleConfigArgs and TrainingJobInputDataConfigShuffleConfigOutput values.
+// You can construct a concrete instance of `TrainingJobInputDataConfigShuffleConfigInput` via:
+//
+//	TrainingJobInputDataConfigShuffleConfigArgs{...}
+type TrainingJobInputDataConfigShuffleConfigInput interface {
+	pulumi.Input
+
+	ToTrainingJobInputDataConfigShuffleConfigOutput() TrainingJobInputDataConfigShuffleConfigOutput
+	ToTrainingJobInputDataConfigShuffleConfigOutputWithContext(context.Context) TrainingJobInputDataConfigShuffleConfigOutput
+}
+
+type TrainingJobInputDataConfigShuffleConfigArgs struct {
+	// Seed value used to shuffle the training data.
+	Seed pulumi.IntPtrInput `pulumi:"seed"`
+}
+
+func (TrainingJobInputDataConfigShuffleConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobInputDataConfigShuffleConfig)(nil)).Elem()
+}
+
+func (i TrainingJobInputDataConfigShuffleConfigArgs) ToTrainingJobInputDataConfigShuffleConfigOutput() TrainingJobInputDataConfigShuffleConfigOutput {
+	return i.ToTrainingJobInputDataConfigShuffleConfigOutputWithContext(context.Background())
+}
+
+func (i TrainingJobInputDataConfigShuffleConfigArgs) ToTrainingJobInputDataConfigShuffleConfigOutputWithContext(ctx context.Context) TrainingJobInputDataConfigShuffleConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobInputDataConfigShuffleConfigOutput)
+}
+
+func (i TrainingJobInputDataConfigShuffleConfigArgs) ToTrainingJobInputDataConfigShuffleConfigPtrOutput() TrainingJobInputDataConfigShuffleConfigPtrOutput {
+	return i.ToTrainingJobInputDataConfigShuffleConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TrainingJobInputDataConfigShuffleConfigArgs) ToTrainingJobInputDataConfigShuffleConfigPtrOutputWithContext(ctx context.Context) TrainingJobInputDataConfigShuffleConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobInputDataConfigShuffleConfigOutput).ToTrainingJobInputDataConfigShuffleConfigPtrOutputWithContext(ctx)
+}
+
+// TrainingJobInputDataConfigShuffleConfigPtrInput is an input type that accepts TrainingJobInputDataConfigShuffleConfigArgs, TrainingJobInputDataConfigShuffleConfigPtr and TrainingJobInputDataConfigShuffleConfigPtrOutput values.
+// You can construct a concrete instance of `TrainingJobInputDataConfigShuffleConfigPtrInput` via:
+//
+//	        TrainingJobInputDataConfigShuffleConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrainingJobInputDataConfigShuffleConfigPtrInput interface {
+	pulumi.Input
+
+	ToTrainingJobInputDataConfigShuffleConfigPtrOutput() TrainingJobInputDataConfigShuffleConfigPtrOutput
+	ToTrainingJobInputDataConfigShuffleConfigPtrOutputWithContext(context.Context) TrainingJobInputDataConfigShuffleConfigPtrOutput
+}
+
+type trainingJobInputDataConfigShuffleConfigPtrType TrainingJobInputDataConfigShuffleConfigArgs
+
+func TrainingJobInputDataConfigShuffleConfigPtr(v *TrainingJobInputDataConfigShuffleConfigArgs) TrainingJobInputDataConfigShuffleConfigPtrInput {
+	return (*trainingJobInputDataConfigShuffleConfigPtrType)(v)
+}
+
+func (*trainingJobInputDataConfigShuffleConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobInputDataConfigShuffleConfig)(nil)).Elem()
+}
+
+func (i *trainingJobInputDataConfigShuffleConfigPtrType) ToTrainingJobInputDataConfigShuffleConfigPtrOutput() TrainingJobInputDataConfigShuffleConfigPtrOutput {
+	return i.ToTrainingJobInputDataConfigShuffleConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *trainingJobInputDataConfigShuffleConfigPtrType) ToTrainingJobInputDataConfigShuffleConfigPtrOutputWithContext(ctx context.Context) TrainingJobInputDataConfigShuffleConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobInputDataConfigShuffleConfigPtrOutput)
+}
+
+type TrainingJobInputDataConfigShuffleConfigOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobInputDataConfigShuffleConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobInputDataConfigShuffleConfig)(nil)).Elem()
+}
+
+func (o TrainingJobInputDataConfigShuffleConfigOutput) ToTrainingJobInputDataConfigShuffleConfigOutput() TrainingJobInputDataConfigShuffleConfigOutput {
+	return o
+}
+
+func (o TrainingJobInputDataConfigShuffleConfigOutput) ToTrainingJobInputDataConfigShuffleConfigOutputWithContext(ctx context.Context) TrainingJobInputDataConfigShuffleConfigOutput {
+	return o
+}
+
+func (o TrainingJobInputDataConfigShuffleConfigOutput) ToTrainingJobInputDataConfigShuffleConfigPtrOutput() TrainingJobInputDataConfigShuffleConfigPtrOutput {
+	return o.ToTrainingJobInputDataConfigShuffleConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TrainingJobInputDataConfigShuffleConfigOutput) ToTrainingJobInputDataConfigShuffleConfigPtrOutputWithContext(ctx context.Context) TrainingJobInputDataConfigShuffleConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrainingJobInputDataConfigShuffleConfig) *TrainingJobInputDataConfigShuffleConfig {
+		return &v
+	}).(TrainingJobInputDataConfigShuffleConfigPtrOutput)
+}
+
+// Seed value used to shuffle the training data.
+func (o TrainingJobInputDataConfigShuffleConfigOutput) Seed() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TrainingJobInputDataConfigShuffleConfig) *int { return v.Seed }).(pulumi.IntPtrOutput)
+}
+
+type TrainingJobInputDataConfigShuffleConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobInputDataConfigShuffleConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobInputDataConfigShuffleConfig)(nil)).Elem()
+}
+
+func (o TrainingJobInputDataConfigShuffleConfigPtrOutput) ToTrainingJobInputDataConfigShuffleConfigPtrOutput() TrainingJobInputDataConfigShuffleConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobInputDataConfigShuffleConfigPtrOutput) ToTrainingJobInputDataConfigShuffleConfigPtrOutputWithContext(ctx context.Context) TrainingJobInputDataConfigShuffleConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobInputDataConfigShuffleConfigPtrOutput) Elem() TrainingJobInputDataConfigShuffleConfigOutput {
+	return o.ApplyT(func(v *TrainingJobInputDataConfigShuffleConfig) TrainingJobInputDataConfigShuffleConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TrainingJobInputDataConfigShuffleConfig
+		return ret
+	}).(TrainingJobInputDataConfigShuffleConfigOutput)
+}
+
+// Seed value used to shuffle the training data.
+func (o TrainingJobInputDataConfigShuffleConfigPtrOutput) Seed() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TrainingJobInputDataConfigShuffleConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Seed
+	}).(pulumi.IntPtrOutput)
+}
+
+type TrainingJobMlflowConfig struct {
+	// Name of the MLflow experiment.
+	MlflowExperimentName *string `pulumi:"mlflowExperimentName"`
+	// ARN of the MLflow tracking server.
+	MlflowResourceArn string `pulumi:"mlflowResourceArn"`
+	// Name of the MLflow run.
+	MlflowRunName *string `pulumi:"mlflowRunName"`
+}
+
+// TrainingJobMlflowConfigInput is an input type that accepts TrainingJobMlflowConfigArgs and TrainingJobMlflowConfigOutput values.
+// You can construct a concrete instance of `TrainingJobMlflowConfigInput` via:
+//
+//	TrainingJobMlflowConfigArgs{...}
+type TrainingJobMlflowConfigInput interface {
+	pulumi.Input
+
+	ToTrainingJobMlflowConfigOutput() TrainingJobMlflowConfigOutput
+	ToTrainingJobMlflowConfigOutputWithContext(context.Context) TrainingJobMlflowConfigOutput
+}
+
+type TrainingJobMlflowConfigArgs struct {
+	// Name of the MLflow experiment.
+	MlflowExperimentName pulumi.StringPtrInput `pulumi:"mlflowExperimentName"`
+	// ARN of the MLflow tracking server.
+	MlflowResourceArn pulumi.StringInput `pulumi:"mlflowResourceArn"`
+	// Name of the MLflow run.
+	MlflowRunName pulumi.StringPtrInput `pulumi:"mlflowRunName"`
+}
+
+func (TrainingJobMlflowConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobMlflowConfig)(nil)).Elem()
+}
+
+func (i TrainingJobMlflowConfigArgs) ToTrainingJobMlflowConfigOutput() TrainingJobMlflowConfigOutput {
+	return i.ToTrainingJobMlflowConfigOutputWithContext(context.Background())
+}
+
+func (i TrainingJobMlflowConfigArgs) ToTrainingJobMlflowConfigOutputWithContext(ctx context.Context) TrainingJobMlflowConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobMlflowConfigOutput)
+}
+
+func (i TrainingJobMlflowConfigArgs) ToTrainingJobMlflowConfigPtrOutput() TrainingJobMlflowConfigPtrOutput {
+	return i.ToTrainingJobMlflowConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TrainingJobMlflowConfigArgs) ToTrainingJobMlflowConfigPtrOutputWithContext(ctx context.Context) TrainingJobMlflowConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobMlflowConfigOutput).ToTrainingJobMlflowConfigPtrOutputWithContext(ctx)
+}
+
+// TrainingJobMlflowConfigPtrInput is an input type that accepts TrainingJobMlflowConfigArgs, TrainingJobMlflowConfigPtr and TrainingJobMlflowConfigPtrOutput values.
+// You can construct a concrete instance of `TrainingJobMlflowConfigPtrInput` via:
+//
+//	        TrainingJobMlflowConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrainingJobMlflowConfigPtrInput interface {
+	pulumi.Input
+
+	ToTrainingJobMlflowConfigPtrOutput() TrainingJobMlflowConfigPtrOutput
+	ToTrainingJobMlflowConfigPtrOutputWithContext(context.Context) TrainingJobMlflowConfigPtrOutput
+}
+
+type trainingJobMlflowConfigPtrType TrainingJobMlflowConfigArgs
+
+func TrainingJobMlflowConfigPtr(v *TrainingJobMlflowConfigArgs) TrainingJobMlflowConfigPtrInput {
+	return (*trainingJobMlflowConfigPtrType)(v)
+}
+
+func (*trainingJobMlflowConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobMlflowConfig)(nil)).Elem()
+}
+
+func (i *trainingJobMlflowConfigPtrType) ToTrainingJobMlflowConfigPtrOutput() TrainingJobMlflowConfigPtrOutput {
+	return i.ToTrainingJobMlflowConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *trainingJobMlflowConfigPtrType) ToTrainingJobMlflowConfigPtrOutputWithContext(ctx context.Context) TrainingJobMlflowConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobMlflowConfigPtrOutput)
+}
+
+type TrainingJobMlflowConfigOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobMlflowConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobMlflowConfig)(nil)).Elem()
+}
+
+func (o TrainingJobMlflowConfigOutput) ToTrainingJobMlflowConfigOutput() TrainingJobMlflowConfigOutput {
+	return o
+}
+
+func (o TrainingJobMlflowConfigOutput) ToTrainingJobMlflowConfigOutputWithContext(ctx context.Context) TrainingJobMlflowConfigOutput {
+	return o
+}
+
+func (o TrainingJobMlflowConfigOutput) ToTrainingJobMlflowConfigPtrOutput() TrainingJobMlflowConfigPtrOutput {
+	return o.ToTrainingJobMlflowConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TrainingJobMlflowConfigOutput) ToTrainingJobMlflowConfigPtrOutputWithContext(ctx context.Context) TrainingJobMlflowConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrainingJobMlflowConfig) *TrainingJobMlflowConfig {
+		return &v
+	}).(TrainingJobMlflowConfigPtrOutput)
+}
+
+// Name of the MLflow experiment.
+func (o TrainingJobMlflowConfigOutput) MlflowExperimentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobMlflowConfig) *string { return v.MlflowExperimentName }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the MLflow tracking server.
+func (o TrainingJobMlflowConfigOutput) MlflowResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TrainingJobMlflowConfig) string { return v.MlflowResourceArn }).(pulumi.StringOutput)
+}
+
+// Name of the MLflow run.
+func (o TrainingJobMlflowConfigOutput) MlflowRunName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobMlflowConfig) *string { return v.MlflowRunName }).(pulumi.StringPtrOutput)
+}
+
+type TrainingJobMlflowConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobMlflowConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobMlflowConfig)(nil)).Elem()
+}
+
+func (o TrainingJobMlflowConfigPtrOutput) ToTrainingJobMlflowConfigPtrOutput() TrainingJobMlflowConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobMlflowConfigPtrOutput) ToTrainingJobMlflowConfigPtrOutputWithContext(ctx context.Context) TrainingJobMlflowConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobMlflowConfigPtrOutput) Elem() TrainingJobMlflowConfigOutput {
+	return o.ApplyT(func(v *TrainingJobMlflowConfig) TrainingJobMlflowConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TrainingJobMlflowConfig
+		return ret
+	}).(TrainingJobMlflowConfigOutput)
+}
+
+// Name of the MLflow experiment.
+func (o TrainingJobMlflowConfigPtrOutput) MlflowExperimentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobMlflowConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MlflowExperimentName
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the MLflow tracking server.
+func (o TrainingJobMlflowConfigPtrOutput) MlflowResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobMlflowConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MlflowResourceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the MLflow run.
+func (o TrainingJobMlflowConfigPtrOutput) MlflowRunName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobMlflowConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MlflowRunName
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrainingJobModelPackageConfig struct {
+	// ARN of the model package group.
+	ModelPackageGroupArn string `pulumi:"modelPackageGroupArn"`
+	// ARN of the source model package.
+	SourceModelPackageArn *string `pulumi:"sourceModelPackageArn"`
+}
+
+// TrainingJobModelPackageConfigInput is an input type that accepts TrainingJobModelPackageConfigArgs and TrainingJobModelPackageConfigOutput values.
+// You can construct a concrete instance of `TrainingJobModelPackageConfigInput` via:
+//
+//	TrainingJobModelPackageConfigArgs{...}
+type TrainingJobModelPackageConfigInput interface {
+	pulumi.Input
+
+	ToTrainingJobModelPackageConfigOutput() TrainingJobModelPackageConfigOutput
+	ToTrainingJobModelPackageConfigOutputWithContext(context.Context) TrainingJobModelPackageConfigOutput
+}
+
+type TrainingJobModelPackageConfigArgs struct {
+	// ARN of the model package group.
+	ModelPackageGroupArn pulumi.StringInput `pulumi:"modelPackageGroupArn"`
+	// ARN of the source model package.
+	SourceModelPackageArn pulumi.StringPtrInput `pulumi:"sourceModelPackageArn"`
+}
+
+func (TrainingJobModelPackageConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobModelPackageConfig)(nil)).Elem()
+}
+
+func (i TrainingJobModelPackageConfigArgs) ToTrainingJobModelPackageConfigOutput() TrainingJobModelPackageConfigOutput {
+	return i.ToTrainingJobModelPackageConfigOutputWithContext(context.Background())
+}
+
+func (i TrainingJobModelPackageConfigArgs) ToTrainingJobModelPackageConfigOutputWithContext(ctx context.Context) TrainingJobModelPackageConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobModelPackageConfigOutput)
+}
+
+func (i TrainingJobModelPackageConfigArgs) ToTrainingJobModelPackageConfigPtrOutput() TrainingJobModelPackageConfigPtrOutput {
+	return i.ToTrainingJobModelPackageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TrainingJobModelPackageConfigArgs) ToTrainingJobModelPackageConfigPtrOutputWithContext(ctx context.Context) TrainingJobModelPackageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobModelPackageConfigOutput).ToTrainingJobModelPackageConfigPtrOutputWithContext(ctx)
+}
+
+// TrainingJobModelPackageConfigPtrInput is an input type that accepts TrainingJobModelPackageConfigArgs, TrainingJobModelPackageConfigPtr and TrainingJobModelPackageConfigPtrOutput values.
+// You can construct a concrete instance of `TrainingJobModelPackageConfigPtrInput` via:
+//
+//	        TrainingJobModelPackageConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrainingJobModelPackageConfigPtrInput interface {
+	pulumi.Input
+
+	ToTrainingJobModelPackageConfigPtrOutput() TrainingJobModelPackageConfigPtrOutput
+	ToTrainingJobModelPackageConfigPtrOutputWithContext(context.Context) TrainingJobModelPackageConfigPtrOutput
+}
+
+type trainingJobModelPackageConfigPtrType TrainingJobModelPackageConfigArgs
+
+func TrainingJobModelPackageConfigPtr(v *TrainingJobModelPackageConfigArgs) TrainingJobModelPackageConfigPtrInput {
+	return (*trainingJobModelPackageConfigPtrType)(v)
+}
+
+func (*trainingJobModelPackageConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobModelPackageConfig)(nil)).Elem()
+}
+
+func (i *trainingJobModelPackageConfigPtrType) ToTrainingJobModelPackageConfigPtrOutput() TrainingJobModelPackageConfigPtrOutput {
+	return i.ToTrainingJobModelPackageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *trainingJobModelPackageConfigPtrType) ToTrainingJobModelPackageConfigPtrOutputWithContext(ctx context.Context) TrainingJobModelPackageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobModelPackageConfigPtrOutput)
+}
+
+type TrainingJobModelPackageConfigOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobModelPackageConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobModelPackageConfig)(nil)).Elem()
+}
+
+func (o TrainingJobModelPackageConfigOutput) ToTrainingJobModelPackageConfigOutput() TrainingJobModelPackageConfigOutput {
+	return o
+}
+
+func (o TrainingJobModelPackageConfigOutput) ToTrainingJobModelPackageConfigOutputWithContext(ctx context.Context) TrainingJobModelPackageConfigOutput {
+	return o
+}
+
+func (o TrainingJobModelPackageConfigOutput) ToTrainingJobModelPackageConfigPtrOutput() TrainingJobModelPackageConfigPtrOutput {
+	return o.ToTrainingJobModelPackageConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TrainingJobModelPackageConfigOutput) ToTrainingJobModelPackageConfigPtrOutputWithContext(ctx context.Context) TrainingJobModelPackageConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrainingJobModelPackageConfig) *TrainingJobModelPackageConfig {
+		return &v
+	}).(TrainingJobModelPackageConfigPtrOutput)
+}
+
+// ARN of the model package group.
+func (o TrainingJobModelPackageConfigOutput) ModelPackageGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TrainingJobModelPackageConfig) string { return v.ModelPackageGroupArn }).(pulumi.StringOutput)
+}
+
+// ARN of the source model package.
+func (o TrainingJobModelPackageConfigOutput) SourceModelPackageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobModelPackageConfig) *string { return v.SourceModelPackageArn }).(pulumi.StringPtrOutput)
+}
+
+type TrainingJobModelPackageConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobModelPackageConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobModelPackageConfig)(nil)).Elem()
+}
+
+func (o TrainingJobModelPackageConfigPtrOutput) ToTrainingJobModelPackageConfigPtrOutput() TrainingJobModelPackageConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobModelPackageConfigPtrOutput) ToTrainingJobModelPackageConfigPtrOutputWithContext(ctx context.Context) TrainingJobModelPackageConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobModelPackageConfigPtrOutput) Elem() TrainingJobModelPackageConfigOutput {
+	return o.ApplyT(func(v *TrainingJobModelPackageConfig) TrainingJobModelPackageConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TrainingJobModelPackageConfig
+		return ret
+	}).(TrainingJobModelPackageConfigOutput)
+}
+
+// ARN of the model package group.
+func (o TrainingJobModelPackageConfigPtrOutput) ModelPackageGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobModelPackageConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelPackageGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the source model package.
+func (o TrainingJobModelPackageConfigPtrOutput) SourceModelPackageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobModelPackageConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceModelPackageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrainingJobOutputDataConfig struct {
+	// Output compression type. Valid values: `GZIP`, `NONE`.
+	CompressionType *string `pulumi:"compressionType"`
+	// KMS key ID used to encrypt the output data.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// S3 URI where output data is stored.
+	S3OutputPath string `pulumi:"s3OutputPath"`
+}
+
+// TrainingJobOutputDataConfigInput is an input type that accepts TrainingJobOutputDataConfigArgs and TrainingJobOutputDataConfigOutput values.
+// You can construct a concrete instance of `TrainingJobOutputDataConfigInput` via:
+//
+//	TrainingJobOutputDataConfigArgs{...}
+type TrainingJobOutputDataConfigInput interface {
+	pulumi.Input
+
+	ToTrainingJobOutputDataConfigOutput() TrainingJobOutputDataConfigOutput
+	ToTrainingJobOutputDataConfigOutputWithContext(context.Context) TrainingJobOutputDataConfigOutput
+}
+
+type TrainingJobOutputDataConfigArgs struct {
+	// Output compression type. Valid values: `GZIP`, `NONE`.
+	CompressionType pulumi.StringPtrInput `pulumi:"compressionType"`
+	// KMS key ID used to encrypt the output data.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// S3 URI where output data is stored.
+	S3OutputPath pulumi.StringInput `pulumi:"s3OutputPath"`
+}
+
+func (TrainingJobOutputDataConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobOutputDataConfig)(nil)).Elem()
+}
+
+func (i TrainingJobOutputDataConfigArgs) ToTrainingJobOutputDataConfigOutput() TrainingJobOutputDataConfigOutput {
+	return i.ToTrainingJobOutputDataConfigOutputWithContext(context.Background())
+}
+
+func (i TrainingJobOutputDataConfigArgs) ToTrainingJobOutputDataConfigOutputWithContext(ctx context.Context) TrainingJobOutputDataConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobOutputDataConfigOutput)
+}
+
+func (i TrainingJobOutputDataConfigArgs) ToTrainingJobOutputDataConfigPtrOutput() TrainingJobOutputDataConfigPtrOutput {
+	return i.ToTrainingJobOutputDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TrainingJobOutputDataConfigArgs) ToTrainingJobOutputDataConfigPtrOutputWithContext(ctx context.Context) TrainingJobOutputDataConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobOutputDataConfigOutput).ToTrainingJobOutputDataConfigPtrOutputWithContext(ctx)
+}
+
+// TrainingJobOutputDataConfigPtrInput is an input type that accepts TrainingJobOutputDataConfigArgs, TrainingJobOutputDataConfigPtr and TrainingJobOutputDataConfigPtrOutput values.
+// You can construct a concrete instance of `TrainingJobOutputDataConfigPtrInput` via:
+//
+//	        TrainingJobOutputDataConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrainingJobOutputDataConfigPtrInput interface {
+	pulumi.Input
+
+	ToTrainingJobOutputDataConfigPtrOutput() TrainingJobOutputDataConfigPtrOutput
+	ToTrainingJobOutputDataConfigPtrOutputWithContext(context.Context) TrainingJobOutputDataConfigPtrOutput
+}
+
+type trainingJobOutputDataConfigPtrType TrainingJobOutputDataConfigArgs
+
+func TrainingJobOutputDataConfigPtr(v *TrainingJobOutputDataConfigArgs) TrainingJobOutputDataConfigPtrInput {
+	return (*trainingJobOutputDataConfigPtrType)(v)
+}
+
+func (*trainingJobOutputDataConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobOutputDataConfig)(nil)).Elem()
+}
+
+func (i *trainingJobOutputDataConfigPtrType) ToTrainingJobOutputDataConfigPtrOutput() TrainingJobOutputDataConfigPtrOutput {
+	return i.ToTrainingJobOutputDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *trainingJobOutputDataConfigPtrType) ToTrainingJobOutputDataConfigPtrOutputWithContext(ctx context.Context) TrainingJobOutputDataConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobOutputDataConfigPtrOutput)
+}
+
+type TrainingJobOutputDataConfigOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobOutputDataConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobOutputDataConfig)(nil)).Elem()
+}
+
+func (o TrainingJobOutputDataConfigOutput) ToTrainingJobOutputDataConfigOutput() TrainingJobOutputDataConfigOutput {
+	return o
+}
+
+func (o TrainingJobOutputDataConfigOutput) ToTrainingJobOutputDataConfigOutputWithContext(ctx context.Context) TrainingJobOutputDataConfigOutput {
+	return o
+}
+
+func (o TrainingJobOutputDataConfigOutput) ToTrainingJobOutputDataConfigPtrOutput() TrainingJobOutputDataConfigPtrOutput {
+	return o.ToTrainingJobOutputDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TrainingJobOutputDataConfigOutput) ToTrainingJobOutputDataConfigPtrOutputWithContext(ctx context.Context) TrainingJobOutputDataConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrainingJobOutputDataConfig) *TrainingJobOutputDataConfig {
+		return &v
+	}).(TrainingJobOutputDataConfigPtrOutput)
+}
+
+// Output compression type. Valid values: `GZIP`, `NONE`.
+func (o TrainingJobOutputDataConfigOutput) CompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobOutputDataConfig) *string { return v.CompressionType }).(pulumi.StringPtrOutput)
+}
+
+// KMS key ID used to encrypt the output data.
+func (o TrainingJobOutputDataConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobOutputDataConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// S3 URI where output data is stored.
+func (o TrainingJobOutputDataConfigOutput) S3OutputPath() pulumi.StringOutput {
+	return o.ApplyT(func(v TrainingJobOutputDataConfig) string { return v.S3OutputPath }).(pulumi.StringOutput)
+}
+
+type TrainingJobOutputDataConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobOutputDataConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobOutputDataConfig)(nil)).Elem()
+}
+
+func (o TrainingJobOutputDataConfigPtrOutput) ToTrainingJobOutputDataConfigPtrOutput() TrainingJobOutputDataConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobOutputDataConfigPtrOutput) ToTrainingJobOutputDataConfigPtrOutputWithContext(ctx context.Context) TrainingJobOutputDataConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobOutputDataConfigPtrOutput) Elem() TrainingJobOutputDataConfigOutput {
+	return o.ApplyT(func(v *TrainingJobOutputDataConfig) TrainingJobOutputDataConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TrainingJobOutputDataConfig
+		return ret
+	}).(TrainingJobOutputDataConfigOutput)
+}
+
+// Output compression type. Valid values: `GZIP`, `NONE`.
+func (o TrainingJobOutputDataConfigPtrOutput) CompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobOutputDataConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CompressionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// KMS key ID used to encrypt the output data.
+func (o TrainingJobOutputDataConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobOutputDataConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 URI where output data is stored.
+func (o TrainingJobOutputDataConfigPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobOutputDataConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3OutputPath
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrainingJobProfilerConfig struct {
+	// Whether to disable the profiler.
+	DisableProfiler *bool `pulumi:"disableProfiler"`
+	// Time interval in milliseconds for capturing system metrics. Valid values: `100`, `200`, `500`, `1000`, `5000`, `60000`.
+	ProfilingIntervalInMilliseconds *int `pulumi:"profilingIntervalInMilliseconds"`
+	// Map of profiling parameters. Maximum of 20 entries.
+	ProfilingParameters map[string]string `pulumi:"profilingParameters"`
+	// S3 URI where profiler output is stored.
+	S3OutputPath *string `pulumi:"s3OutputPath"`
+}
+
+// TrainingJobProfilerConfigInput is an input type that accepts TrainingJobProfilerConfigArgs and TrainingJobProfilerConfigOutput values.
+// You can construct a concrete instance of `TrainingJobProfilerConfigInput` via:
+//
+//	TrainingJobProfilerConfigArgs{...}
+type TrainingJobProfilerConfigInput interface {
+	pulumi.Input
+
+	ToTrainingJobProfilerConfigOutput() TrainingJobProfilerConfigOutput
+	ToTrainingJobProfilerConfigOutputWithContext(context.Context) TrainingJobProfilerConfigOutput
+}
+
+type TrainingJobProfilerConfigArgs struct {
+	// Whether to disable the profiler.
+	DisableProfiler pulumi.BoolPtrInput `pulumi:"disableProfiler"`
+	// Time interval in milliseconds for capturing system metrics. Valid values: `100`, `200`, `500`, `1000`, `5000`, `60000`.
+	ProfilingIntervalInMilliseconds pulumi.IntPtrInput `pulumi:"profilingIntervalInMilliseconds"`
+	// Map of profiling parameters. Maximum of 20 entries.
+	ProfilingParameters pulumi.StringMapInput `pulumi:"profilingParameters"`
+	// S3 URI where profiler output is stored.
+	S3OutputPath pulumi.StringPtrInput `pulumi:"s3OutputPath"`
+}
+
+func (TrainingJobProfilerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobProfilerConfig)(nil)).Elem()
+}
+
+func (i TrainingJobProfilerConfigArgs) ToTrainingJobProfilerConfigOutput() TrainingJobProfilerConfigOutput {
+	return i.ToTrainingJobProfilerConfigOutputWithContext(context.Background())
+}
+
+func (i TrainingJobProfilerConfigArgs) ToTrainingJobProfilerConfigOutputWithContext(ctx context.Context) TrainingJobProfilerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobProfilerConfigOutput)
+}
+
+func (i TrainingJobProfilerConfigArgs) ToTrainingJobProfilerConfigPtrOutput() TrainingJobProfilerConfigPtrOutput {
+	return i.ToTrainingJobProfilerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TrainingJobProfilerConfigArgs) ToTrainingJobProfilerConfigPtrOutputWithContext(ctx context.Context) TrainingJobProfilerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobProfilerConfigOutput).ToTrainingJobProfilerConfigPtrOutputWithContext(ctx)
+}
+
+// TrainingJobProfilerConfigPtrInput is an input type that accepts TrainingJobProfilerConfigArgs, TrainingJobProfilerConfigPtr and TrainingJobProfilerConfigPtrOutput values.
+// You can construct a concrete instance of `TrainingJobProfilerConfigPtrInput` via:
+//
+//	        TrainingJobProfilerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrainingJobProfilerConfigPtrInput interface {
+	pulumi.Input
+
+	ToTrainingJobProfilerConfigPtrOutput() TrainingJobProfilerConfigPtrOutput
+	ToTrainingJobProfilerConfigPtrOutputWithContext(context.Context) TrainingJobProfilerConfigPtrOutput
+}
+
+type trainingJobProfilerConfigPtrType TrainingJobProfilerConfigArgs
+
+func TrainingJobProfilerConfigPtr(v *TrainingJobProfilerConfigArgs) TrainingJobProfilerConfigPtrInput {
+	return (*trainingJobProfilerConfigPtrType)(v)
+}
+
+func (*trainingJobProfilerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobProfilerConfig)(nil)).Elem()
+}
+
+func (i *trainingJobProfilerConfigPtrType) ToTrainingJobProfilerConfigPtrOutput() TrainingJobProfilerConfigPtrOutput {
+	return i.ToTrainingJobProfilerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *trainingJobProfilerConfigPtrType) ToTrainingJobProfilerConfigPtrOutputWithContext(ctx context.Context) TrainingJobProfilerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobProfilerConfigPtrOutput)
+}
+
+type TrainingJobProfilerConfigOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobProfilerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobProfilerConfig)(nil)).Elem()
+}
+
+func (o TrainingJobProfilerConfigOutput) ToTrainingJobProfilerConfigOutput() TrainingJobProfilerConfigOutput {
+	return o
+}
+
+func (o TrainingJobProfilerConfigOutput) ToTrainingJobProfilerConfigOutputWithContext(ctx context.Context) TrainingJobProfilerConfigOutput {
+	return o
+}
+
+func (o TrainingJobProfilerConfigOutput) ToTrainingJobProfilerConfigPtrOutput() TrainingJobProfilerConfigPtrOutput {
+	return o.ToTrainingJobProfilerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TrainingJobProfilerConfigOutput) ToTrainingJobProfilerConfigPtrOutputWithContext(ctx context.Context) TrainingJobProfilerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrainingJobProfilerConfig) *TrainingJobProfilerConfig {
+		return &v
+	}).(TrainingJobProfilerConfigPtrOutput)
+}
+
+// Whether to disable the profiler.
+func (o TrainingJobProfilerConfigOutput) DisableProfiler() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TrainingJobProfilerConfig) *bool { return v.DisableProfiler }).(pulumi.BoolPtrOutput)
+}
+
+// Time interval in milliseconds for capturing system metrics. Valid values: `100`, `200`, `500`, `1000`, `5000`, `60000`.
+func (o TrainingJobProfilerConfigOutput) ProfilingIntervalInMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TrainingJobProfilerConfig) *int { return v.ProfilingIntervalInMilliseconds }).(pulumi.IntPtrOutput)
+}
+
+// Map of profiling parameters. Maximum of 20 entries.
+func (o TrainingJobProfilerConfigOutput) ProfilingParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TrainingJobProfilerConfig) map[string]string { return v.ProfilingParameters }).(pulumi.StringMapOutput)
+}
+
+// S3 URI where profiler output is stored.
+func (o TrainingJobProfilerConfigOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobProfilerConfig) *string { return v.S3OutputPath }).(pulumi.StringPtrOutput)
+}
+
+type TrainingJobProfilerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobProfilerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobProfilerConfig)(nil)).Elem()
+}
+
+func (o TrainingJobProfilerConfigPtrOutput) ToTrainingJobProfilerConfigPtrOutput() TrainingJobProfilerConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobProfilerConfigPtrOutput) ToTrainingJobProfilerConfigPtrOutputWithContext(ctx context.Context) TrainingJobProfilerConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobProfilerConfigPtrOutput) Elem() TrainingJobProfilerConfigOutput {
+	return o.ApplyT(func(v *TrainingJobProfilerConfig) TrainingJobProfilerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TrainingJobProfilerConfig
+		return ret
+	}).(TrainingJobProfilerConfigOutput)
+}
+
+// Whether to disable the profiler.
+func (o TrainingJobProfilerConfigPtrOutput) DisableProfiler() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TrainingJobProfilerConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableProfiler
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Time interval in milliseconds for capturing system metrics. Valid values: `100`, `200`, `500`, `1000`, `5000`, `60000`.
+func (o TrainingJobProfilerConfigPtrOutput) ProfilingIntervalInMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TrainingJobProfilerConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ProfilingIntervalInMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Map of profiling parameters. Maximum of 20 entries.
+func (o TrainingJobProfilerConfigPtrOutput) ProfilingParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *TrainingJobProfilerConfig) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.ProfilingParameters
+	}).(pulumi.StringMapOutput)
+}
+
+// S3 URI where profiler output is stored.
+func (o TrainingJobProfilerConfigPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobProfilerConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3OutputPath
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrainingJobProfilerRuleConfiguration struct {
+	// Instance type to deploy for the profiler rule evaluation. Valid values are SageMaker AI processing instance types.
+	InstanceType *string `pulumi:"instanceType"`
+	// Local path where profiler rule output is written.
+	LocalPath *string `pulumi:"localPath"`
+	// Name of the profiler rule configuration. Must be between 1 and 256 characters.
+	RuleConfigurationName string `pulumi:"ruleConfigurationName"`
+	// Docker image URI for the profiler rule evaluator.
+	RuleEvaluatorImage string `pulumi:"ruleEvaluatorImage"`
+	// Map of parameters for the profiler rule. Maximum of 100 entries.
+	RuleParameters map[string]string `pulumi:"ruleParameters"`
+	// S3 URI where profiler rule output is stored.
+	S3OutputPath *string `pulumi:"s3OutputPath"`
+	// Size of the storage volume for the profiler rule evaluator, in GB.
+	VolumeSizeInGb *int `pulumi:"volumeSizeInGb"`
+}
+
+// TrainingJobProfilerRuleConfigurationInput is an input type that accepts TrainingJobProfilerRuleConfigurationArgs and TrainingJobProfilerRuleConfigurationOutput values.
+// You can construct a concrete instance of `TrainingJobProfilerRuleConfigurationInput` via:
+//
+//	TrainingJobProfilerRuleConfigurationArgs{...}
+type TrainingJobProfilerRuleConfigurationInput interface {
+	pulumi.Input
+
+	ToTrainingJobProfilerRuleConfigurationOutput() TrainingJobProfilerRuleConfigurationOutput
+	ToTrainingJobProfilerRuleConfigurationOutputWithContext(context.Context) TrainingJobProfilerRuleConfigurationOutput
+}
+
+type TrainingJobProfilerRuleConfigurationArgs struct {
+	// Instance type to deploy for the profiler rule evaluation. Valid values are SageMaker AI processing instance types.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// Local path where profiler rule output is written.
+	LocalPath pulumi.StringPtrInput `pulumi:"localPath"`
+	// Name of the profiler rule configuration. Must be between 1 and 256 characters.
+	RuleConfigurationName pulumi.StringInput `pulumi:"ruleConfigurationName"`
+	// Docker image URI for the profiler rule evaluator.
+	RuleEvaluatorImage pulumi.StringInput `pulumi:"ruleEvaluatorImage"`
+	// Map of parameters for the profiler rule. Maximum of 100 entries.
+	RuleParameters pulumi.StringMapInput `pulumi:"ruleParameters"`
+	// S3 URI where profiler rule output is stored.
+	S3OutputPath pulumi.StringPtrInput `pulumi:"s3OutputPath"`
+	// Size of the storage volume for the profiler rule evaluator, in GB.
+	VolumeSizeInGb pulumi.IntPtrInput `pulumi:"volumeSizeInGb"`
+}
+
+func (TrainingJobProfilerRuleConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobProfilerRuleConfiguration)(nil)).Elem()
+}
+
+func (i TrainingJobProfilerRuleConfigurationArgs) ToTrainingJobProfilerRuleConfigurationOutput() TrainingJobProfilerRuleConfigurationOutput {
+	return i.ToTrainingJobProfilerRuleConfigurationOutputWithContext(context.Background())
+}
+
+func (i TrainingJobProfilerRuleConfigurationArgs) ToTrainingJobProfilerRuleConfigurationOutputWithContext(ctx context.Context) TrainingJobProfilerRuleConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobProfilerRuleConfigurationOutput)
+}
+
+// TrainingJobProfilerRuleConfigurationArrayInput is an input type that accepts TrainingJobProfilerRuleConfigurationArray and TrainingJobProfilerRuleConfigurationArrayOutput values.
+// You can construct a concrete instance of `TrainingJobProfilerRuleConfigurationArrayInput` via:
+//
+//	TrainingJobProfilerRuleConfigurationArray{ TrainingJobProfilerRuleConfigurationArgs{...} }
+type TrainingJobProfilerRuleConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToTrainingJobProfilerRuleConfigurationArrayOutput() TrainingJobProfilerRuleConfigurationArrayOutput
+	ToTrainingJobProfilerRuleConfigurationArrayOutputWithContext(context.Context) TrainingJobProfilerRuleConfigurationArrayOutput
+}
+
+type TrainingJobProfilerRuleConfigurationArray []TrainingJobProfilerRuleConfigurationInput
+
+func (TrainingJobProfilerRuleConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrainingJobProfilerRuleConfiguration)(nil)).Elem()
+}
+
+func (i TrainingJobProfilerRuleConfigurationArray) ToTrainingJobProfilerRuleConfigurationArrayOutput() TrainingJobProfilerRuleConfigurationArrayOutput {
+	return i.ToTrainingJobProfilerRuleConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i TrainingJobProfilerRuleConfigurationArray) ToTrainingJobProfilerRuleConfigurationArrayOutputWithContext(ctx context.Context) TrainingJobProfilerRuleConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobProfilerRuleConfigurationArrayOutput)
+}
+
+type TrainingJobProfilerRuleConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobProfilerRuleConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobProfilerRuleConfiguration)(nil)).Elem()
+}
+
+func (o TrainingJobProfilerRuleConfigurationOutput) ToTrainingJobProfilerRuleConfigurationOutput() TrainingJobProfilerRuleConfigurationOutput {
+	return o
+}
+
+func (o TrainingJobProfilerRuleConfigurationOutput) ToTrainingJobProfilerRuleConfigurationOutputWithContext(ctx context.Context) TrainingJobProfilerRuleConfigurationOutput {
+	return o
+}
+
+// Instance type to deploy for the profiler rule evaluation. Valid values are SageMaker AI processing instance types.
+func (o TrainingJobProfilerRuleConfigurationOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobProfilerRuleConfiguration) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// Local path where profiler rule output is written.
+func (o TrainingJobProfilerRuleConfigurationOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobProfilerRuleConfiguration) *string { return v.LocalPath }).(pulumi.StringPtrOutput)
+}
+
+// Name of the profiler rule configuration. Must be between 1 and 256 characters.
+func (o TrainingJobProfilerRuleConfigurationOutput) RuleConfigurationName() pulumi.StringOutput {
+	return o.ApplyT(func(v TrainingJobProfilerRuleConfiguration) string { return v.RuleConfigurationName }).(pulumi.StringOutput)
+}
+
+// Docker image URI for the profiler rule evaluator.
+func (o TrainingJobProfilerRuleConfigurationOutput) RuleEvaluatorImage() pulumi.StringOutput {
+	return o.ApplyT(func(v TrainingJobProfilerRuleConfiguration) string { return v.RuleEvaluatorImage }).(pulumi.StringOutput)
+}
+
+// Map of parameters for the profiler rule. Maximum of 100 entries.
+func (o TrainingJobProfilerRuleConfigurationOutput) RuleParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TrainingJobProfilerRuleConfiguration) map[string]string { return v.RuleParameters }).(pulumi.StringMapOutput)
+}
+
+// S3 URI where profiler rule output is stored.
+func (o TrainingJobProfilerRuleConfigurationOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobProfilerRuleConfiguration) *string { return v.S3OutputPath }).(pulumi.StringPtrOutput)
+}
+
+// Size of the storage volume for the profiler rule evaluator, in GB.
+func (o TrainingJobProfilerRuleConfigurationOutput) VolumeSizeInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TrainingJobProfilerRuleConfiguration) *int { return v.VolumeSizeInGb }).(pulumi.IntPtrOutput)
+}
+
+type TrainingJobProfilerRuleConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobProfilerRuleConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrainingJobProfilerRuleConfiguration)(nil)).Elem()
+}
+
+func (o TrainingJobProfilerRuleConfigurationArrayOutput) ToTrainingJobProfilerRuleConfigurationArrayOutput() TrainingJobProfilerRuleConfigurationArrayOutput {
+	return o
+}
+
+func (o TrainingJobProfilerRuleConfigurationArrayOutput) ToTrainingJobProfilerRuleConfigurationArrayOutputWithContext(ctx context.Context) TrainingJobProfilerRuleConfigurationArrayOutput {
+	return o
+}
+
+func (o TrainingJobProfilerRuleConfigurationArrayOutput) Index(i pulumi.IntInput) TrainingJobProfilerRuleConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrainingJobProfilerRuleConfiguration {
+		return vs[0].([]TrainingJobProfilerRuleConfiguration)[vs[1].(int)]
+	}).(TrainingJobProfilerRuleConfigurationOutput)
+}
+
+type TrainingJobRemoteDebugConfig struct {
+	// Whether to enable remote debugging for the training job.
+	EnableRemoteDebug *bool `pulumi:"enableRemoteDebug"`
+}
+
+// TrainingJobRemoteDebugConfigInput is an input type that accepts TrainingJobRemoteDebugConfigArgs and TrainingJobRemoteDebugConfigOutput values.
+// You can construct a concrete instance of `TrainingJobRemoteDebugConfigInput` via:
+//
+//	TrainingJobRemoteDebugConfigArgs{...}
+type TrainingJobRemoteDebugConfigInput interface {
+	pulumi.Input
+
+	ToTrainingJobRemoteDebugConfigOutput() TrainingJobRemoteDebugConfigOutput
+	ToTrainingJobRemoteDebugConfigOutputWithContext(context.Context) TrainingJobRemoteDebugConfigOutput
+}
+
+type TrainingJobRemoteDebugConfigArgs struct {
+	// Whether to enable remote debugging for the training job.
+	EnableRemoteDebug pulumi.BoolPtrInput `pulumi:"enableRemoteDebug"`
+}
+
+func (TrainingJobRemoteDebugConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobRemoteDebugConfig)(nil)).Elem()
+}
+
+func (i TrainingJobRemoteDebugConfigArgs) ToTrainingJobRemoteDebugConfigOutput() TrainingJobRemoteDebugConfigOutput {
+	return i.ToTrainingJobRemoteDebugConfigOutputWithContext(context.Background())
+}
+
+func (i TrainingJobRemoteDebugConfigArgs) ToTrainingJobRemoteDebugConfigOutputWithContext(ctx context.Context) TrainingJobRemoteDebugConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobRemoteDebugConfigOutput)
+}
+
+func (i TrainingJobRemoteDebugConfigArgs) ToTrainingJobRemoteDebugConfigPtrOutput() TrainingJobRemoteDebugConfigPtrOutput {
+	return i.ToTrainingJobRemoteDebugConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TrainingJobRemoteDebugConfigArgs) ToTrainingJobRemoteDebugConfigPtrOutputWithContext(ctx context.Context) TrainingJobRemoteDebugConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobRemoteDebugConfigOutput).ToTrainingJobRemoteDebugConfigPtrOutputWithContext(ctx)
+}
+
+// TrainingJobRemoteDebugConfigPtrInput is an input type that accepts TrainingJobRemoteDebugConfigArgs, TrainingJobRemoteDebugConfigPtr and TrainingJobRemoteDebugConfigPtrOutput values.
+// You can construct a concrete instance of `TrainingJobRemoteDebugConfigPtrInput` via:
+//
+//	        TrainingJobRemoteDebugConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrainingJobRemoteDebugConfigPtrInput interface {
+	pulumi.Input
+
+	ToTrainingJobRemoteDebugConfigPtrOutput() TrainingJobRemoteDebugConfigPtrOutput
+	ToTrainingJobRemoteDebugConfigPtrOutputWithContext(context.Context) TrainingJobRemoteDebugConfigPtrOutput
+}
+
+type trainingJobRemoteDebugConfigPtrType TrainingJobRemoteDebugConfigArgs
+
+func TrainingJobRemoteDebugConfigPtr(v *TrainingJobRemoteDebugConfigArgs) TrainingJobRemoteDebugConfigPtrInput {
+	return (*trainingJobRemoteDebugConfigPtrType)(v)
+}
+
+func (*trainingJobRemoteDebugConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobRemoteDebugConfig)(nil)).Elem()
+}
+
+func (i *trainingJobRemoteDebugConfigPtrType) ToTrainingJobRemoteDebugConfigPtrOutput() TrainingJobRemoteDebugConfigPtrOutput {
+	return i.ToTrainingJobRemoteDebugConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *trainingJobRemoteDebugConfigPtrType) ToTrainingJobRemoteDebugConfigPtrOutputWithContext(ctx context.Context) TrainingJobRemoteDebugConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobRemoteDebugConfigPtrOutput)
+}
+
+type TrainingJobRemoteDebugConfigOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobRemoteDebugConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobRemoteDebugConfig)(nil)).Elem()
+}
+
+func (o TrainingJobRemoteDebugConfigOutput) ToTrainingJobRemoteDebugConfigOutput() TrainingJobRemoteDebugConfigOutput {
+	return o
+}
+
+func (o TrainingJobRemoteDebugConfigOutput) ToTrainingJobRemoteDebugConfigOutputWithContext(ctx context.Context) TrainingJobRemoteDebugConfigOutput {
+	return o
+}
+
+func (o TrainingJobRemoteDebugConfigOutput) ToTrainingJobRemoteDebugConfigPtrOutput() TrainingJobRemoteDebugConfigPtrOutput {
+	return o.ToTrainingJobRemoteDebugConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TrainingJobRemoteDebugConfigOutput) ToTrainingJobRemoteDebugConfigPtrOutputWithContext(ctx context.Context) TrainingJobRemoteDebugConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrainingJobRemoteDebugConfig) *TrainingJobRemoteDebugConfig {
+		return &v
+	}).(TrainingJobRemoteDebugConfigPtrOutput)
+}
+
+// Whether to enable remote debugging for the training job.
+func (o TrainingJobRemoteDebugConfigOutput) EnableRemoteDebug() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TrainingJobRemoteDebugConfig) *bool { return v.EnableRemoteDebug }).(pulumi.BoolPtrOutput)
+}
+
+type TrainingJobRemoteDebugConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobRemoteDebugConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobRemoteDebugConfig)(nil)).Elem()
+}
+
+func (o TrainingJobRemoteDebugConfigPtrOutput) ToTrainingJobRemoteDebugConfigPtrOutput() TrainingJobRemoteDebugConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobRemoteDebugConfigPtrOutput) ToTrainingJobRemoteDebugConfigPtrOutputWithContext(ctx context.Context) TrainingJobRemoteDebugConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobRemoteDebugConfigPtrOutput) Elem() TrainingJobRemoteDebugConfigOutput {
+	return o.ApplyT(func(v *TrainingJobRemoteDebugConfig) TrainingJobRemoteDebugConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TrainingJobRemoteDebugConfig
+		return ret
+	}).(TrainingJobRemoteDebugConfigOutput)
+}
+
+// Whether to enable remote debugging for the training job.
+func (o TrainingJobRemoteDebugConfigPtrOutput) EnableRemoteDebug() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TrainingJobRemoteDebugConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableRemoteDebug
+	}).(pulumi.BoolPtrOutput)
+}
+
+type TrainingJobResourceConfig struct {
+	// Number of ML compute instances to use. Conflicts with `instanceGroups`.
+	InstanceCount *int `pulumi:"instanceCount"`
+	// List of instance groups for heterogeneous cluster training. Maximum of 5. Conflicts with `instanceCount`, `instanceType`, and `keepAlivePeriodInSeconds`. See `instanceGroups` below.
+	InstanceGroups []TrainingJobResourceConfigInstanceGroup `pulumi:"instanceGroups"`
+	// Instance placement configuration. See `instancePlacementConfig` below.
+	InstancePlacementConfig *TrainingJobResourceConfigInstancePlacementConfig `pulumi:"instancePlacementConfig"`
+	// ML compute instance type. Conflicts with `instanceGroups`.
+	InstanceType *string `pulumi:"instanceType"`
+	// Time in seconds to keep instances alive after training completes, for warm pool reuse. Valid values: 0–3600. Conflicts with `instanceGroups`.
+	KeepAlivePeriodInSeconds *int `pulumi:"keepAlivePeriodInSeconds"`
+	// ARN of the training plan to use.
+	TrainingPlanArn *string `pulumi:"trainingPlanArn"`
+	// KMS key ID used to encrypt data on the storage volume.
+	VolumeKmsKeyId *string `pulumi:"volumeKmsKeyId"`
+	// Size of the storage volume attached to each instance, in GB.
+	VolumeSizeInGb *int `pulumi:"volumeSizeInGb"`
+}
+
+// TrainingJobResourceConfigInput is an input type that accepts TrainingJobResourceConfigArgs and TrainingJobResourceConfigOutput values.
+// You can construct a concrete instance of `TrainingJobResourceConfigInput` via:
+//
+//	TrainingJobResourceConfigArgs{...}
+type TrainingJobResourceConfigInput interface {
+	pulumi.Input
+
+	ToTrainingJobResourceConfigOutput() TrainingJobResourceConfigOutput
+	ToTrainingJobResourceConfigOutputWithContext(context.Context) TrainingJobResourceConfigOutput
+}
+
+type TrainingJobResourceConfigArgs struct {
+	// Number of ML compute instances to use. Conflicts with `instanceGroups`.
+	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
+	// List of instance groups for heterogeneous cluster training. Maximum of 5. Conflicts with `instanceCount`, `instanceType`, and `keepAlivePeriodInSeconds`. See `instanceGroups` below.
+	InstanceGroups TrainingJobResourceConfigInstanceGroupArrayInput `pulumi:"instanceGroups"`
+	// Instance placement configuration. See `instancePlacementConfig` below.
+	InstancePlacementConfig TrainingJobResourceConfigInstancePlacementConfigPtrInput `pulumi:"instancePlacementConfig"`
+	// ML compute instance type. Conflicts with `instanceGroups`.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// Time in seconds to keep instances alive after training completes, for warm pool reuse. Valid values: 0–3600. Conflicts with `instanceGroups`.
+	KeepAlivePeriodInSeconds pulumi.IntPtrInput `pulumi:"keepAlivePeriodInSeconds"`
+	// ARN of the training plan to use.
+	TrainingPlanArn pulumi.StringPtrInput `pulumi:"trainingPlanArn"`
+	// KMS key ID used to encrypt data on the storage volume.
+	VolumeKmsKeyId pulumi.StringPtrInput `pulumi:"volumeKmsKeyId"`
+	// Size of the storage volume attached to each instance, in GB.
+	VolumeSizeInGb pulumi.IntPtrInput `pulumi:"volumeSizeInGb"`
+}
+
+func (TrainingJobResourceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobResourceConfig)(nil)).Elem()
+}
+
+func (i TrainingJobResourceConfigArgs) ToTrainingJobResourceConfigOutput() TrainingJobResourceConfigOutput {
+	return i.ToTrainingJobResourceConfigOutputWithContext(context.Background())
+}
+
+func (i TrainingJobResourceConfigArgs) ToTrainingJobResourceConfigOutputWithContext(ctx context.Context) TrainingJobResourceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobResourceConfigOutput)
+}
+
+func (i TrainingJobResourceConfigArgs) ToTrainingJobResourceConfigPtrOutput() TrainingJobResourceConfigPtrOutput {
+	return i.ToTrainingJobResourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TrainingJobResourceConfigArgs) ToTrainingJobResourceConfigPtrOutputWithContext(ctx context.Context) TrainingJobResourceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobResourceConfigOutput).ToTrainingJobResourceConfigPtrOutputWithContext(ctx)
+}
+
+// TrainingJobResourceConfigPtrInput is an input type that accepts TrainingJobResourceConfigArgs, TrainingJobResourceConfigPtr and TrainingJobResourceConfigPtrOutput values.
+// You can construct a concrete instance of `TrainingJobResourceConfigPtrInput` via:
+//
+//	        TrainingJobResourceConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrainingJobResourceConfigPtrInput interface {
+	pulumi.Input
+
+	ToTrainingJobResourceConfigPtrOutput() TrainingJobResourceConfigPtrOutput
+	ToTrainingJobResourceConfigPtrOutputWithContext(context.Context) TrainingJobResourceConfigPtrOutput
+}
+
+type trainingJobResourceConfigPtrType TrainingJobResourceConfigArgs
+
+func TrainingJobResourceConfigPtr(v *TrainingJobResourceConfigArgs) TrainingJobResourceConfigPtrInput {
+	return (*trainingJobResourceConfigPtrType)(v)
+}
+
+func (*trainingJobResourceConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobResourceConfig)(nil)).Elem()
+}
+
+func (i *trainingJobResourceConfigPtrType) ToTrainingJobResourceConfigPtrOutput() TrainingJobResourceConfigPtrOutput {
+	return i.ToTrainingJobResourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *trainingJobResourceConfigPtrType) ToTrainingJobResourceConfigPtrOutputWithContext(ctx context.Context) TrainingJobResourceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobResourceConfigPtrOutput)
+}
+
+type TrainingJobResourceConfigOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobResourceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobResourceConfig)(nil)).Elem()
+}
+
+func (o TrainingJobResourceConfigOutput) ToTrainingJobResourceConfigOutput() TrainingJobResourceConfigOutput {
+	return o
+}
+
+func (o TrainingJobResourceConfigOutput) ToTrainingJobResourceConfigOutputWithContext(ctx context.Context) TrainingJobResourceConfigOutput {
+	return o
+}
+
+func (o TrainingJobResourceConfigOutput) ToTrainingJobResourceConfigPtrOutput() TrainingJobResourceConfigPtrOutput {
+	return o.ToTrainingJobResourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TrainingJobResourceConfigOutput) ToTrainingJobResourceConfigPtrOutputWithContext(ctx context.Context) TrainingJobResourceConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrainingJobResourceConfig) *TrainingJobResourceConfig {
+		return &v
+	}).(TrainingJobResourceConfigPtrOutput)
+}
+
+// Number of ML compute instances to use. Conflicts with `instanceGroups`.
+func (o TrainingJobResourceConfigOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TrainingJobResourceConfig) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+// List of instance groups for heterogeneous cluster training. Maximum of 5. Conflicts with `instanceCount`, `instanceType`, and `keepAlivePeriodInSeconds`. See `instanceGroups` below.
+func (o TrainingJobResourceConfigOutput) InstanceGroups() TrainingJobResourceConfigInstanceGroupArrayOutput {
+	return o.ApplyT(func(v TrainingJobResourceConfig) []TrainingJobResourceConfigInstanceGroup { return v.InstanceGroups }).(TrainingJobResourceConfigInstanceGroupArrayOutput)
+}
+
+// Instance placement configuration. See `instancePlacementConfig` below.
+func (o TrainingJobResourceConfigOutput) InstancePlacementConfig() TrainingJobResourceConfigInstancePlacementConfigPtrOutput {
+	return o.ApplyT(func(v TrainingJobResourceConfig) *TrainingJobResourceConfigInstancePlacementConfig {
+		return v.InstancePlacementConfig
+	}).(TrainingJobResourceConfigInstancePlacementConfigPtrOutput)
+}
+
+// ML compute instance type. Conflicts with `instanceGroups`.
+func (o TrainingJobResourceConfigOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobResourceConfig) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// Time in seconds to keep instances alive after training completes, for warm pool reuse. Valid values: 0–3600. Conflicts with `instanceGroups`.
+func (o TrainingJobResourceConfigOutput) KeepAlivePeriodInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TrainingJobResourceConfig) *int { return v.KeepAlivePeriodInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// ARN of the training plan to use.
+func (o TrainingJobResourceConfigOutput) TrainingPlanArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobResourceConfig) *string { return v.TrainingPlanArn }).(pulumi.StringPtrOutput)
+}
+
+// KMS key ID used to encrypt data on the storage volume.
+func (o TrainingJobResourceConfigOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobResourceConfig) *string { return v.VolumeKmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// Size of the storage volume attached to each instance, in GB.
+func (o TrainingJobResourceConfigOutput) VolumeSizeInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TrainingJobResourceConfig) *int { return v.VolumeSizeInGb }).(pulumi.IntPtrOutput)
+}
+
+type TrainingJobResourceConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobResourceConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobResourceConfig)(nil)).Elem()
+}
+
+func (o TrainingJobResourceConfigPtrOutput) ToTrainingJobResourceConfigPtrOutput() TrainingJobResourceConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobResourceConfigPtrOutput) ToTrainingJobResourceConfigPtrOutputWithContext(ctx context.Context) TrainingJobResourceConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobResourceConfigPtrOutput) Elem() TrainingJobResourceConfigOutput {
+	return o.ApplyT(func(v *TrainingJobResourceConfig) TrainingJobResourceConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TrainingJobResourceConfig
+		return ret
+	}).(TrainingJobResourceConfigOutput)
+}
+
+// Number of ML compute instances to use. Conflicts with `instanceGroups`.
+func (o TrainingJobResourceConfigPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TrainingJobResourceConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// List of instance groups for heterogeneous cluster training. Maximum of 5. Conflicts with `instanceCount`, `instanceType`, and `keepAlivePeriodInSeconds`. See `instanceGroups` below.
+func (o TrainingJobResourceConfigPtrOutput) InstanceGroups() TrainingJobResourceConfigInstanceGroupArrayOutput {
+	return o.ApplyT(func(v *TrainingJobResourceConfig) []TrainingJobResourceConfigInstanceGroup {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceGroups
+	}).(TrainingJobResourceConfigInstanceGroupArrayOutput)
+}
+
+// Instance placement configuration. See `instancePlacementConfig` below.
+func (o TrainingJobResourceConfigPtrOutput) InstancePlacementConfig() TrainingJobResourceConfigInstancePlacementConfigPtrOutput {
+	return o.ApplyT(func(v *TrainingJobResourceConfig) *TrainingJobResourceConfigInstancePlacementConfig {
+		if v == nil {
+			return nil
+		}
+		return v.InstancePlacementConfig
+	}).(TrainingJobResourceConfigInstancePlacementConfigPtrOutput)
+}
+
+// ML compute instance type. Conflicts with `instanceGroups`.
+func (o TrainingJobResourceConfigPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobResourceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Time in seconds to keep instances alive after training completes, for warm pool reuse. Valid values: 0–3600. Conflicts with `instanceGroups`.
+func (o TrainingJobResourceConfigPtrOutput) KeepAlivePeriodInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TrainingJobResourceConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.KeepAlivePeriodInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// ARN of the training plan to use.
+func (o TrainingJobResourceConfigPtrOutput) TrainingPlanArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobResourceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrainingPlanArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// KMS key ID used to encrypt data on the storage volume.
+func (o TrainingJobResourceConfigPtrOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobResourceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Size of the storage volume attached to each instance, in GB.
+func (o TrainingJobResourceConfigPtrOutput) VolumeSizeInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TrainingJobResourceConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeSizeInGb
+	}).(pulumi.IntPtrOutput)
+}
+
+type TrainingJobResourceConfigInstanceGroup struct {
+	// Number of instances in the group.
+	InstanceCount *int `pulumi:"instanceCount"`
+	// Name of the instance group.
+	InstanceGroupName *string `pulumi:"instanceGroupName"`
+	// ML compute instance type for the group.
+	InstanceType *string `pulumi:"instanceType"`
+}
+
+// TrainingJobResourceConfigInstanceGroupInput is an input type that accepts TrainingJobResourceConfigInstanceGroupArgs and TrainingJobResourceConfigInstanceGroupOutput values.
+// You can construct a concrete instance of `TrainingJobResourceConfigInstanceGroupInput` via:
+//
+//	TrainingJobResourceConfigInstanceGroupArgs{...}
+type TrainingJobResourceConfigInstanceGroupInput interface {
+	pulumi.Input
+
+	ToTrainingJobResourceConfigInstanceGroupOutput() TrainingJobResourceConfigInstanceGroupOutput
+	ToTrainingJobResourceConfigInstanceGroupOutputWithContext(context.Context) TrainingJobResourceConfigInstanceGroupOutput
+}
+
+type TrainingJobResourceConfigInstanceGroupArgs struct {
+	// Number of instances in the group.
+	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
+	// Name of the instance group.
+	InstanceGroupName pulumi.StringPtrInput `pulumi:"instanceGroupName"`
+	// ML compute instance type for the group.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+}
+
+func (TrainingJobResourceConfigInstanceGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobResourceConfigInstanceGroup)(nil)).Elem()
+}
+
+func (i TrainingJobResourceConfigInstanceGroupArgs) ToTrainingJobResourceConfigInstanceGroupOutput() TrainingJobResourceConfigInstanceGroupOutput {
+	return i.ToTrainingJobResourceConfigInstanceGroupOutputWithContext(context.Background())
+}
+
+func (i TrainingJobResourceConfigInstanceGroupArgs) ToTrainingJobResourceConfigInstanceGroupOutputWithContext(ctx context.Context) TrainingJobResourceConfigInstanceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobResourceConfigInstanceGroupOutput)
+}
+
+// TrainingJobResourceConfigInstanceGroupArrayInput is an input type that accepts TrainingJobResourceConfigInstanceGroupArray and TrainingJobResourceConfigInstanceGroupArrayOutput values.
+// You can construct a concrete instance of `TrainingJobResourceConfigInstanceGroupArrayInput` via:
+//
+//	TrainingJobResourceConfigInstanceGroupArray{ TrainingJobResourceConfigInstanceGroupArgs{...} }
+type TrainingJobResourceConfigInstanceGroupArrayInput interface {
+	pulumi.Input
+
+	ToTrainingJobResourceConfigInstanceGroupArrayOutput() TrainingJobResourceConfigInstanceGroupArrayOutput
+	ToTrainingJobResourceConfigInstanceGroupArrayOutputWithContext(context.Context) TrainingJobResourceConfigInstanceGroupArrayOutput
+}
+
+type TrainingJobResourceConfigInstanceGroupArray []TrainingJobResourceConfigInstanceGroupInput
+
+func (TrainingJobResourceConfigInstanceGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrainingJobResourceConfigInstanceGroup)(nil)).Elem()
+}
+
+func (i TrainingJobResourceConfigInstanceGroupArray) ToTrainingJobResourceConfigInstanceGroupArrayOutput() TrainingJobResourceConfigInstanceGroupArrayOutput {
+	return i.ToTrainingJobResourceConfigInstanceGroupArrayOutputWithContext(context.Background())
+}
+
+func (i TrainingJobResourceConfigInstanceGroupArray) ToTrainingJobResourceConfigInstanceGroupArrayOutputWithContext(ctx context.Context) TrainingJobResourceConfigInstanceGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobResourceConfigInstanceGroupArrayOutput)
+}
+
+type TrainingJobResourceConfigInstanceGroupOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobResourceConfigInstanceGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobResourceConfigInstanceGroup)(nil)).Elem()
+}
+
+func (o TrainingJobResourceConfigInstanceGroupOutput) ToTrainingJobResourceConfigInstanceGroupOutput() TrainingJobResourceConfigInstanceGroupOutput {
+	return o
+}
+
+func (o TrainingJobResourceConfigInstanceGroupOutput) ToTrainingJobResourceConfigInstanceGroupOutputWithContext(ctx context.Context) TrainingJobResourceConfigInstanceGroupOutput {
+	return o
+}
+
+// Number of instances in the group.
+func (o TrainingJobResourceConfigInstanceGroupOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TrainingJobResourceConfigInstanceGroup) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+// Name of the instance group.
+func (o TrainingJobResourceConfigInstanceGroupOutput) InstanceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobResourceConfigInstanceGroup) *string { return v.InstanceGroupName }).(pulumi.StringPtrOutput)
+}
+
+// ML compute instance type for the group.
+func (o TrainingJobResourceConfigInstanceGroupOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobResourceConfigInstanceGroup) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+type TrainingJobResourceConfigInstanceGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobResourceConfigInstanceGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrainingJobResourceConfigInstanceGroup)(nil)).Elem()
+}
+
+func (o TrainingJobResourceConfigInstanceGroupArrayOutput) ToTrainingJobResourceConfigInstanceGroupArrayOutput() TrainingJobResourceConfigInstanceGroupArrayOutput {
+	return o
+}
+
+func (o TrainingJobResourceConfigInstanceGroupArrayOutput) ToTrainingJobResourceConfigInstanceGroupArrayOutputWithContext(ctx context.Context) TrainingJobResourceConfigInstanceGroupArrayOutput {
+	return o
+}
+
+func (o TrainingJobResourceConfigInstanceGroupArrayOutput) Index(i pulumi.IntInput) TrainingJobResourceConfigInstanceGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrainingJobResourceConfigInstanceGroup {
+		return vs[0].([]TrainingJobResourceConfigInstanceGroup)[vs[1].(int)]
+	}).(TrainingJobResourceConfigInstanceGroupOutput)
+}
+
+type TrainingJobResourceConfigInstancePlacementConfig struct {
+	// Whether to enable multiple jobs on the same instance.
+	EnableMultipleJobs *bool `pulumi:"enableMultipleJobs"`
+	// Placement specifications for instance placement. See `placementSpecifications` below.
+	PlacementSpecifications []TrainingJobResourceConfigInstancePlacementConfigPlacementSpecification `pulumi:"placementSpecifications"`
+}
+
+// TrainingJobResourceConfigInstancePlacementConfigInput is an input type that accepts TrainingJobResourceConfigInstancePlacementConfigArgs and TrainingJobResourceConfigInstancePlacementConfigOutput values.
+// You can construct a concrete instance of `TrainingJobResourceConfigInstancePlacementConfigInput` via:
+//
+//	TrainingJobResourceConfigInstancePlacementConfigArgs{...}
+type TrainingJobResourceConfigInstancePlacementConfigInput interface {
+	pulumi.Input
+
+	ToTrainingJobResourceConfigInstancePlacementConfigOutput() TrainingJobResourceConfigInstancePlacementConfigOutput
+	ToTrainingJobResourceConfigInstancePlacementConfigOutputWithContext(context.Context) TrainingJobResourceConfigInstancePlacementConfigOutput
+}
+
+type TrainingJobResourceConfigInstancePlacementConfigArgs struct {
+	// Whether to enable multiple jobs on the same instance.
+	EnableMultipleJobs pulumi.BoolPtrInput `pulumi:"enableMultipleJobs"`
+	// Placement specifications for instance placement. See `placementSpecifications` below.
+	PlacementSpecifications TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayInput `pulumi:"placementSpecifications"`
+}
+
+func (TrainingJobResourceConfigInstancePlacementConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobResourceConfigInstancePlacementConfig)(nil)).Elem()
+}
+
+func (i TrainingJobResourceConfigInstancePlacementConfigArgs) ToTrainingJobResourceConfigInstancePlacementConfigOutput() TrainingJobResourceConfigInstancePlacementConfigOutput {
+	return i.ToTrainingJobResourceConfigInstancePlacementConfigOutputWithContext(context.Background())
+}
+
+func (i TrainingJobResourceConfigInstancePlacementConfigArgs) ToTrainingJobResourceConfigInstancePlacementConfigOutputWithContext(ctx context.Context) TrainingJobResourceConfigInstancePlacementConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobResourceConfigInstancePlacementConfigOutput)
+}
+
+func (i TrainingJobResourceConfigInstancePlacementConfigArgs) ToTrainingJobResourceConfigInstancePlacementConfigPtrOutput() TrainingJobResourceConfigInstancePlacementConfigPtrOutput {
+	return i.ToTrainingJobResourceConfigInstancePlacementConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TrainingJobResourceConfigInstancePlacementConfigArgs) ToTrainingJobResourceConfigInstancePlacementConfigPtrOutputWithContext(ctx context.Context) TrainingJobResourceConfigInstancePlacementConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobResourceConfigInstancePlacementConfigOutput).ToTrainingJobResourceConfigInstancePlacementConfigPtrOutputWithContext(ctx)
+}
+
+// TrainingJobResourceConfigInstancePlacementConfigPtrInput is an input type that accepts TrainingJobResourceConfigInstancePlacementConfigArgs, TrainingJobResourceConfigInstancePlacementConfigPtr and TrainingJobResourceConfigInstancePlacementConfigPtrOutput values.
+// You can construct a concrete instance of `TrainingJobResourceConfigInstancePlacementConfigPtrInput` via:
+//
+//	        TrainingJobResourceConfigInstancePlacementConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrainingJobResourceConfigInstancePlacementConfigPtrInput interface {
+	pulumi.Input
+
+	ToTrainingJobResourceConfigInstancePlacementConfigPtrOutput() TrainingJobResourceConfigInstancePlacementConfigPtrOutput
+	ToTrainingJobResourceConfigInstancePlacementConfigPtrOutputWithContext(context.Context) TrainingJobResourceConfigInstancePlacementConfigPtrOutput
+}
+
+type trainingJobResourceConfigInstancePlacementConfigPtrType TrainingJobResourceConfigInstancePlacementConfigArgs
+
+func TrainingJobResourceConfigInstancePlacementConfigPtr(v *TrainingJobResourceConfigInstancePlacementConfigArgs) TrainingJobResourceConfigInstancePlacementConfigPtrInput {
+	return (*trainingJobResourceConfigInstancePlacementConfigPtrType)(v)
+}
+
+func (*trainingJobResourceConfigInstancePlacementConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobResourceConfigInstancePlacementConfig)(nil)).Elem()
+}
+
+func (i *trainingJobResourceConfigInstancePlacementConfigPtrType) ToTrainingJobResourceConfigInstancePlacementConfigPtrOutput() TrainingJobResourceConfigInstancePlacementConfigPtrOutput {
+	return i.ToTrainingJobResourceConfigInstancePlacementConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *trainingJobResourceConfigInstancePlacementConfigPtrType) ToTrainingJobResourceConfigInstancePlacementConfigPtrOutputWithContext(ctx context.Context) TrainingJobResourceConfigInstancePlacementConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobResourceConfigInstancePlacementConfigPtrOutput)
+}
+
+type TrainingJobResourceConfigInstancePlacementConfigOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobResourceConfigInstancePlacementConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobResourceConfigInstancePlacementConfig)(nil)).Elem()
+}
+
+func (o TrainingJobResourceConfigInstancePlacementConfigOutput) ToTrainingJobResourceConfigInstancePlacementConfigOutput() TrainingJobResourceConfigInstancePlacementConfigOutput {
+	return o
+}
+
+func (o TrainingJobResourceConfigInstancePlacementConfigOutput) ToTrainingJobResourceConfigInstancePlacementConfigOutputWithContext(ctx context.Context) TrainingJobResourceConfigInstancePlacementConfigOutput {
+	return o
+}
+
+func (o TrainingJobResourceConfigInstancePlacementConfigOutput) ToTrainingJobResourceConfigInstancePlacementConfigPtrOutput() TrainingJobResourceConfigInstancePlacementConfigPtrOutput {
+	return o.ToTrainingJobResourceConfigInstancePlacementConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TrainingJobResourceConfigInstancePlacementConfigOutput) ToTrainingJobResourceConfigInstancePlacementConfigPtrOutputWithContext(ctx context.Context) TrainingJobResourceConfigInstancePlacementConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrainingJobResourceConfigInstancePlacementConfig) *TrainingJobResourceConfigInstancePlacementConfig {
+		return &v
+	}).(TrainingJobResourceConfigInstancePlacementConfigPtrOutput)
+}
+
+// Whether to enable multiple jobs on the same instance.
+func (o TrainingJobResourceConfigInstancePlacementConfigOutput) EnableMultipleJobs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TrainingJobResourceConfigInstancePlacementConfig) *bool { return v.EnableMultipleJobs }).(pulumi.BoolPtrOutput)
+}
+
+// Placement specifications for instance placement. See `placementSpecifications` below.
+func (o TrainingJobResourceConfigInstancePlacementConfigOutput) PlacementSpecifications() TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput {
+	return o.ApplyT(func(v TrainingJobResourceConfigInstancePlacementConfig) []TrainingJobResourceConfigInstancePlacementConfigPlacementSpecification {
+		return v.PlacementSpecifications
+	}).(TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput)
+}
+
+type TrainingJobResourceConfigInstancePlacementConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobResourceConfigInstancePlacementConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobResourceConfigInstancePlacementConfig)(nil)).Elem()
+}
+
+func (o TrainingJobResourceConfigInstancePlacementConfigPtrOutput) ToTrainingJobResourceConfigInstancePlacementConfigPtrOutput() TrainingJobResourceConfigInstancePlacementConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobResourceConfigInstancePlacementConfigPtrOutput) ToTrainingJobResourceConfigInstancePlacementConfigPtrOutputWithContext(ctx context.Context) TrainingJobResourceConfigInstancePlacementConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobResourceConfigInstancePlacementConfigPtrOutput) Elem() TrainingJobResourceConfigInstancePlacementConfigOutput {
+	return o.ApplyT(func(v *TrainingJobResourceConfigInstancePlacementConfig) TrainingJobResourceConfigInstancePlacementConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TrainingJobResourceConfigInstancePlacementConfig
+		return ret
+	}).(TrainingJobResourceConfigInstancePlacementConfigOutput)
+}
+
+// Whether to enable multiple jobs on the same instance.
+func (o TrainingJobResourceConfigInstancePlacementConfigPtrOutput) EnableMultipleJobs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TrainingJobResourceConfigInstancePlacementConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableMultipleJobs
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Placement specifications for instance placement. See `placementSpecifications` below.
+func (o TrainingJobResourceConfigInstancePlacementConfigPtrOutput) PlacementSpecifications() TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput {
+	return o.ApplyT(func(v *TrainingJobResourceConfigInstancePlacementConfig) []TrainingJobResourceConfigInstancePlacementConfigPlacementSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.PlacementSpecifications
+	}).(TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput)
+}
+
+type TrainingJobResourceConfigInstancePlacementConfigPlacementSpecification struct {
+	// Number of instances in the placement.
+	InstanceCount *int `pulumi:"instanceCount"`
+	// Ultra server ID for the placement.
+	UltraServerId *string `pulumi:"ultraServerId"`
+}
+
+// TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationInput is an input type that accepts TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArgs and TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationOutput values.
+// You can construct a concrete instance of `TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationInput` via:
+//
+//	TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArgs{...}
+type TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationInput interface {
+	pulumi.Input
+
+	ToTrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationOutput() TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationOutput
+	ToTrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationOutputWithContext(context.Context) TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationOutput
+}
+
+type TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArgs struct {
+	// Number of instances in the placement.
+	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
+	// Ultra server ID for the placement.
+	UltraServerId pulumi.StringPtrInput `pulumi:"ultraServerId"`
+}
+
+func (TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobResourceConfigInstancePlacementConfigPlacementSpecification)(nil)).Elem()
+}
+
+func (i TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArgs) ToTrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationOutput() TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationOutput {
+	return i.ToTrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationOutputWithContext(context.Background())
+}
+
+func (i TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArgs) ToTrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationOutputWithContext(ctx context.Context) TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationOutput)
+}
+
+// TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayInput is an input type that accepts TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArray and TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput values.
+// You can construct a concrete instance of `TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayInput` via:
+//
+//	TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArray{ TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArgs{...} }
+type TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToTrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput() TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput
+	ToTrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutputWithContext(context.Context) TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput
+}
+
+type TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArray []TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationInput
+
+func (TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrainingJobResourceConfigInstancePlacementConfigPlacementSpecification)(nil)).Elem()
+}
+
+func (i TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArray) ToTrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput() TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput {
+	return i.ToTrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArray) ToTrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutputWithContext(ctx context.Context) TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput)
+}
+
+type TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobResourceConfigInstancePlacementConfigPlacementSpecification)(nil)).Elem()
+}
+
+func (o TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationOutput) ToTrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationOutput() TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationOutput {
+	return o
+}
+
+func (o TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationOutput) ToTrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationOutputWithContext(ctx context.Context) TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationOutput {
+	return o
+}
+
+// Number of instances in the placement.
+func (o TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TrainingJobResourceConfigInstancePlacementConfigPlacementSpecification) *int {
+		return v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Ultra server ID for the placement.
+func (o TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationOutput) UltraServerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobResourceConfigInstancePlacementConfigPlacementSpecification) *string {
+		return v.UltraServerId
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrainingJobResourceConfigInstancePlacementConfigPlacementSpecification)(nil)).Elem()
+}
+
+func (o TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput) ToTrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput() TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput {
+	return o
+}
+
+func (o TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput) ToTrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutputWithContext(ctx context.Context) TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput {
+	return o
+}
+
+func (o TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput) Index(i pulumi.IntInput) TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrainingJobResourceConfigInstancePlacementConfigPlacementSpecification {
+		return vs[0].([]TrainingJobResourceConfigInstancePlacementConfigPlacementSpecification)[vs[1].(int)]
+	}).(TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationOutput)
+}
+
+type TrainingJobRetryStrategy struct {
+	// Maximum number of retry attempts. Valid values: 1–30.
+	MaximumRetryAttempts int `pulumi:"maximumRetryAttempts"`
+}
+
+// TrainingJobRetryStrategyInput is an input type that accepts TrainingJobRetryStrategyArgs and TrainingJobRetryStrategyOutput values.
+// You can construct a concrete instance of `TrainingJobRetryStrategyInput` via:
+//
+//	TrainingJobRetryStrategyArgs{...}
+type TrainingJobRetryStrategyInput interface {
+	pulumi.Input
+
+	ToTrainingJobRetryStrategyOutput() TrainingJobRetryStrategyOutput
+	ToTrainingJobRetryStrategyOutputWithContext(context.Context) TrainingJobRetryStrategyOutput
+}
+
+type TrainingJobRetryStrategyArgs struct {
+	// Maximum number of retry attempts. Valid values: 1–30.
+	MaximumRetryAttempts pulumi.IntInput `pulumi:"maximumRetryAttempts"`
+}
+
+func (TrainingJobRetryStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobRetryStrategy)(nil)).Elem()
+}
+
+func (i TrainingJobRetryStrategyArgs) ToTrainingJobRetryStrategyOutput() TrainingJobRetryStrategyOutput {
+	return i.ToTrainingJobRetryStrategyOutputWithContext(context.Background())
+}
+
+func (i TrainingJobRetryStrategyArgs) ToTrainingJobRetryStrategyOutputWithContext(ctx context.Context) TrainingJobRetryStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobRetryStrategyOutput)
+}
+
+func (i TrainingJobRetryStrategyArgs) ToTrainingJobRetryStrategyPtrOutput() TrainingJobRetryStrategyPtrOutput {
+	return i.ToTrainingJobRetryStrategyPtrOutputWithContext(context.Background())
+}
+
+func (i TrainingJobRetryStrategyArgs) ToTrainingJobRetryStrategyPtrOutputWithContext(ctx context.Context) TrainingJobRetryStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobRetryStrategyOutput).ToTrainingJobRetryStrategyPtrOutputWithContext(ctx)
+}
+
+// TrainingJobRetryStrategyPtrInput is an input type that accepts TrainingJobRetryStrategyArgs, TrainingJobRetryStrategyPtr and TrainingJobRetryStrategyPtrOutput values.
+// You can construct a concrete instance of `TrainingJobRetryStrategyPtrInput` via:
+//
+//	        TrainingJobRetryStrategyArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrainingJobRetryStrategyPtrInput interface {
+	pulumi.Input
+
+	ToTrainingJobRetryStrategyPtrOutput() TrainingJobRetryStrategyPtrOutput
+	ToTrainingJobRetryStrategyPtrOutputWithContext(context.Context) TrainingJobRetryStrategyPtrOutput
+}
+
+type trainingJobRetryStrategyPtrType TrainingJobRetryStrategyArgs
+
+func TrainingJobRetryStrategyPtr(v *TrainingJobRetryStrategyArgs) TrainingJobRetryStrategyPtrInput {
+	return (*trainingJobRetryStrategyPtrType)(v)
+}
+
+func (*trainingJobRetryStrategyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobRetryStrategy)(nil)).Elem()
+}
+
+func (i *trainingJobRetryStrategyPtrType) ToTrainingJobRetryStrategyPtrOutput() TrainingJobRetryStrategyPtrOutput {
+	return i.ToTrainingJobRetryStrategyPtrOutputWithContext(context.Background())
+}
+
+func (i *trainingJobRetryStrategyPtrType) ToTrainingJobRetryStrategyPtrOutputWithContext(ctx context.Context) TrainingJobRetryStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobRetryStrategyPtrOutput)
+}
+
+type TrainingJobRetryStrategyOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobRetryStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobRetryStrategy)(nil)).Elem()
+}
+
+func (o TrainingJobRetryStrategyOutput) ToTrainingJobRetryStrategyOutput() TrainingJobRetryStrategyOutput {
+	return o
+}
+
+func (o TrainingJobRetryStrategyOutput) ToTrainingJobRetryStrategyOutputWithContext(ctx context.Context) TrainingJobRetryStrategyOutput {
+	return o
+}
+
+func (o TrainingJobRetryStrategyOutput) ToTrainingJobRetryStrategyPtrOutput() TrainingJobRetryStrategyPtrOutput {
+	return o.ToTrainingJobRetryStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o TrainingJobRetryStrategyOutput) ToTrainingJobRetryStrategyPtrOutputWithContext(ctx context.Context) TrainingJobRetryStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrainingJobRetryStrategy) *TrainingJobRetryStrategy {
+		return &v
+	}).(TrainingJobRetryStrategyPtrOutput)
+}
+
+// Maximum number of retry attempts. Valid values: 1–30.
+func (o TrainingJobRetryStrategyOutput) MaximumRetryAttempts() pulumi.IntOutput {
+	return o.ApplyT(func(v TrainingJobRetryStrategy) int { return v.MaximumRetryAttempts }).(pulumi.IntOutput)
+}
+
+type TrainingJobRetryStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobRetryStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobRetryStrategy)(nil)).Elem()
+}
+
+func (o TrainingJobRetryStrategyPtrOutput) ToTrainingJobRetryStrategyPtrOutput() TrainingJobRetryStrategyPtrOutput {
+	return o
+}
+
+func (o TrainingJobRetryStrategyPtrOutput) ToTrainingJobRetryStrategyPtrOutputWithContext(ctx context.Context) TrainingJobRetryStrategyPtrOutput {
+	return o
+}
+
+func (o TrainingJobRetryStrategyPtrOutput) Elem() TrainingJobRetryStrategyOutput {
+	return o.ApplyT(func(v *TrainingJobRetryStrategy) TrainingJobRetryStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret TrainingJobRetryStrategy
+		return ret
+	}).(TrainingJobRetryStrategyOutput)
+}
+
+// Maximum number of retry attempts. Valid values: 1–30.
+func (o TrainingJobRetryStrategyPtrOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TrainingJobRetryStrategy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaximumRetryAttempts
+	}).(pulumi.IntPtrOutput)
+}
+
+type TrainingJobServerlessJobConfig struct {
+	// Whether to accept the model EULA.
+	AcceptEula *bool `pulumi:"acceptEula"`
+	// ARN of the base foundation model from the SageMaker AI Public Hub.
+	BaseModelArn string `pulumi:"baseModelArn"`
+	// Customization technique to apply. Valid values: `FINE_TUNING`, `DOMAIN_ADAPTION`.
+	CustomizationTechnique *string `pulumi:"customizationTechnique"`
+	// Evaluation type. Valid values: `AUTOMATIC`, `HUMAN`, `NONE`.
+	EvaluationType *string `pulumi:"evaluationType"`
+	// ARN of the evaluator.
+	EvaluatorArn *string `pulumi:"evaluatorArn"`
+	// Serverless job type. Valid values: `FINE_TUNING`, `EVALUATION`, `DISTILLATION`.
+	JobType string `pulumi:"jobType"`
+	// Parameter-Efficient Fine-Tuning (PEFT) method. Valid values: `LORA`.
+	Peft *string `pulumi:"peft"`
+}
+
+// TrainingJobServerlessJobConfigInput is an input type that accepts TrainingJobServerlessJobConfigArgs and TrainingJobServerlessJobConfigOutput values.
+// You can construct a concrete instance of `TrainingJobServerlessJobConfigInput` via:
+//
+//	TrainingJobServerlessJobConfigArgs{...}
+type TrainingJobServerlessJobConfigInput interface {
+	pulumi.Input
+
+	ToTrainingJobServerlessJobConfigOutput() TrainingJobServerlessJobConfigOutput
+	ToTrainingJobServerlessJobConfigOutputWithContext(context.Context) TrainingJobServerlessJobConfigOutput
+}
+
+type TrainingJobServerlessJobConfigArgs struct {
+	// Whether to accept the model EULA.
+	AcceptEula pulumi.BoolPtrInput `pulumi:"acceptEula"`
+	// ARN of the base foundation model from the SageMaker AI Public Hub.
+	BaseModelArn pulumi.StringInput `pulumi:"baseModelArn"`
+	// Customization technique to apply. Valid values: `FINE_TUNING`, `DOMAIN_ADAPTION`.
+	CustomizationTechnique pulumi.StringPtrInput `pulumi:"customizationTechnique"`
+	// Evaluation type. Valid values: `AUTOMATIC`, `HUMAN`, `NONE`.
+	EvaluationType pulumi.StringPtrInput `pulumi:"evaluationType"`
+	// ARN of the evaluator.
+	EvaluatorArn pulumi.StringPtrInput `pulumi:"evaluatorArn"`
+	// Serverless job type. Valid values: `FINE_TUNING`, `EVALUATION`, `DISTILLATION`.
+	JobType pulumi.StringInput `pulumi:"jobType"`
+	// Parameter-Efficient Fine-Tuning (PEFT) method. Valid values: `LORA`.
+	Peft pulumi.StringPtrInput `pulumi:"peft"`
+}
+
+func (TrainingJobServerlessJobConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobServerlessJobConfig)(nil)).Elem()
+}
+
+func (i TrainingJobServerlessJobConfigArgs) ToTrainingJobServerlessJobConfigOutput() TrainingJobServerlessJobConfigOutput {
+	return i.ToTrainingJobServerlessJobConfigOutputWithContext(context.Background())
+}
+
+func (i TrainingJobServerlessJobConfigArgs) ToTrainingJobServerlessJobConfigOutputWithContext(ctx context.Context) TrainingJobServerlessJobConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobServerlessJobConfigOutput)
+}
+
+func (i TrainingJobServerlessJobConfigArgs) ToTrainingJobServerlessJobConfigPtrOutput() TrainingJobServerlessJobConfigPtrOutput {
+	return i.ToTrainingJobServerlessJobConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TrainingJobServerlessJobConfigArgs) ToTrainingJobServerlessJobConfigPtrOutputWithContext(ctx context.Context) TrainingJobServerlessJobConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobServerlessJobConfigOutput).ToTrainingJobServerlessJobConfigPtrOutputWithContext(ctx)
+}
+
+// TrainingJobServerlessJobConfigPtrInput is an input type that accepts TrainingJobServerlessJobConfigArgs, TrainingJobServerlessJobConfigPtr and TrainingJobServerlessJobConfigPtrOutput values.
+// You can construct a concrete instance of `TrainingJobServerlessJobConfigPtrInput` via:
+//
+//	        TrainingJobServerlessJobConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrainingJobServerlessJobConfigPtrInput interface {
+	pulumi.Input
+
+	ToTrainingJobServerlessJobConfigPtrOutput() TrainingJobServerlessJobConfigPtrOutput
+	ToTrainingJobServerlessJobConfigPtrOutputWithContext(context.Context) TrainingJobServerlessJobConfigPtrOutput
+}
+
+type trainingJobServerlessJobConfigPtrType TrainingJobServerlessJobConfigArgs
+
+func TrainingJobServerlessJobConfigPtr(v *TrainingJobServerlessJobConfigArgs) TrainingJobServerlessJobConfigPtrInput {
+	return (*trainingJobServerlessJobConfigPtrType)(v)
+}
+
+func (*trainingJobServerlessJobConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobServerlessJobConfig)(nil)).Elem()
+}
+
+func (i *trainingJobServerlessJobConfigPtrType) ToTrainingJobServerlessJobConfigPtrOutput() TrainingJobServerlessJobConfigPtrOutput {
+	return i.ToTrainingJobServerlessJobConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *trainingJobServerlessJobConfigPtrType) ToTrainingJobServerlessJobConfigPtrOutputWithContext(ctx context.Context) TrainingJobServerlessJobConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobServerlessJobConfigPtrOutput)
+}
+
+type TrainingJobServerlessJobConfigOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobServerlessJobConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobServerlessJobConfig)(nil)).Elem()
+}
+
+func (o TrainingJobServerlessJobConfigOutput) ToTrainingJobServerlessJobConfigOutput() TrainingJobServerlessJobConfigOutput {
+	return o
+}
+
+func (o TrainingJobServerlessJobConfigOutput) ToTrainingJobServerlessJobConfigOutputWithContext(ctx context.Context) TrainingJobServerlessJobConfigOutput {
+	return o
+}
+
+func (o TrainingJobServerlessJobConfigOutput) ToTrainingJobServerlessJobConfigPtrOutput() TrainingJobServerlessJobConfigPtrOutput {
+	return o.ToTrainingJobServerlessJobConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TrainingJobServerlessJobConfigOutput) ToTrainingJobServerlessJobConfigPtrOutputWithContext(ctx context.Context) TrainingJobServerlessJobConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrainingJobServerlessJobConfig) *TrainingJobServerlessJobConfig {
+		return &v
+	}).(TrainingJobServerlessJobConfigPtrOutput)
+}
+
+// Whether to accept the model EULA.
+func (o TrainingJobServerlessJobConfigOutput) AcceptEula() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TrainingJobServerlessJobConfig) *bool { return v.AcceptEula }).(pulumi.BoolPtrOutput)
+}
+
+// ARN of the base foundation model from the SageMaker AI Public Hub.
+func (o TrainingJobServerlessJobConfigOutput) BaseModelArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TrainingJobServerlessJobConfig) string { return v.BaseModelArn }).(pulumi.StringOutput)
+}
+
+// Customization technique to apply. Valid values: `FINE_TUNING`, `DOMAIN_ADAPTION`.
+func (o TrainingJobServerlessJobConfigOutput) CustomizationTechnique() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobServerlessJobConfig) *string { return v.CustomizationTechnique }).(pulumi.StringPtrOutput)
+}
+
+// Evaluation type. Valid values: `AUTOMATIC`, `HUMAN`, `NONE`.
+func (o TrainingJobServerlessJobConfigOutput) EvaluationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobServerlessJobConfig) *string { return v.EvaluationType }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the evaluator.
+func (o TrainingJobServerlessJobConfigOutput) EvaluatorArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobServerlessJobConfig) *string { return v.EvaluatorArn }).(pulumi.StringPtrOutput)
+}
+
+// Serverless job type. Valid values: `FINE_TUNING`, `EVALUATION`, `DISTILLATION`.
+func (o TrainingJobServerlessJobConfigOutput) JobType() pulumi.StringOutput {
+	return o.ApplyT(func(v TrainingJobServerlessJobConfig) string { return v.JobType }).(pulumi.StringOutput)
+}
+
+// Parameter-Efficient Fine-Tuning (PEFT) method. Valid values: `LORA`.
+func (o TrainingJobServerlessJobConfigOutput) Peft() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobServerlessJobConfig) *string { return v.Peft }).(pulumi.StringPtrOutput)
+}
+
+type TrainingJobServerlessJobConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobServerlessJobConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobServerlessJobConfig)(nil)).Elem()
+}
+
+func (o TrainingJobServerlessJobConfigPtrOutput) ToTrainingJobServerlessJobConfigPtrOutput() TrainingJobServerlessJobConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobServerlessJobConfigPtrOutput) ToTrainingJobServerlessJobConfigPtrOutputWithContext(ctx context.Context) TrainingJobServerlessJobConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobServerlessJobConfigPtrOutput) Elem() TrainingJobServerlessJobConfigOutput {
+	return o.ApplyT(func(v *TrainingJobServerlessJobConfig) TrainingJobServerlessJobConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TrainingJobServerlessJobConfig
+		return ret
+	}).(TrainingJobServerlessJobConfigOutput)
+}
+
+// Whether to accept the model EULA.
+func (o TrainingJobServerlessJobConfigPtrOutput) AcceptEula() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TrainingJobServerlessJobConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AcceptEula
+	}).(pulumi.BoolPtrOutput)
+}
+
+// ARN of the base foundation model from the SageMaker AI Public Hub.
+func (o TrainingJobServerlessJobConfigPtrOutput) BaseModelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobServerlessJobConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BaseModelArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Customization technique to apply. Valid values: `FINE_TUNING`, `DOMAIN_ADAPTION`.
+func (o TrainingJobServerlessJobConfigPtrOutput) CustomizationTechnique() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobServerlessJobConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomizationTechnique
+	}).(pulumi.StringPtrOutput)
+}
+
+// Evaluation type. Valid values: `AUTOMATIC`, `HUMAN`, `NONE`.
+func (o TrainingJobServerlessJobConfigPtrOutput) EvaluationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobServerlessJobConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EvaluationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the evaluator.
+func (o TrainingJobServerlessJobConfigPtrOutput) EvaluatorArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobServerlessJobConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EvaluatorArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Serverless job type. Valid values: `FINE_TUNING`, `EVALUATION`, `DISTILLATION`.
+func (o TrainingJobServerlessJobConfigPtrOutput) JobType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobServerlessJobConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.JobType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Parameter-Efficient Fine-Tuning (PEFT) method. Valid values: `LORA`.
+func (o TrainingJobServerlessJobConfigPtrOutput) Peft() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobServerlessJobConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Peft
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrainingJobSessionChainingConfig struct {
+	// Whether to enable session tag chaining for the training job.
+	EnableSessionTagChaining *bool `pulumi:"enableSessionTagChaining"`
+}
+
+// TrainingJobSessionChainingConfigInput is an input type that accepts TrainingJobSessionChainingConfigArgs and TrainingJobSessionChainingConfigOutput values.
+// You can construct a concrete instance of `TrainingJobSessionChainingConfigInput` via:
+//
+//	TrainingJobSessionChainingConfigArgs{...}
+type TrainingJobSessionChainingConfigInput interface {
+	pulumi.Input
+
+	ToTrainingJobSessionChainingConfigOutput() TrainingJobSessionChainingConfigOutput
+	ToTrainingJobSessionChainingConfigOutputWithContext(context.Context) TrainingJobSessionChainingConfigOutput
+}
+
+type TrainingJobSessionChainingConfigArgs struct {
+	// Whether to enable session tag chaining for the training job.
+	EnableSessionTagChaining pulumi.BoolPtrInput `pulumi:"enableSessionTagChaining"`
+}
+
+func (TrainingJobSessionChainingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobSessionChainingConfig)(nil)).Elem()
+}
+
+func (i TrainingJobSessionChainingConfigArgs) ToTrainingJobSessionChainingConfigOutput() TrainingJobSessionChainingConfigOutput {
+	return i.ToTrainingJobSessionChainingConfigOutputWithContext(context.Background())
+}
+
+func (i TrainingJobSessionChainingConfigArgs) ToTrainingJobSessionChainingConfigOutputWithContext(ctx context.Context) TrainingJobSessionChainingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobSessionChainingConfigOutput)
+}
+
+func (i TrainingJobSessionChainingConfigArgs) ToTrainingJobSessionChainingConfigPtrOutput() TrainingJobSessionChainingConfigPtrOutput {
+	return i.ToTrainingJobSessionChainingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TrainingJobSessionChainingConfigArgs) ToTrainingJobSessionChainingConfigPtrOutputWithContext(ctx context.Context) TrainingJobSessionChainingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobSessionChainingConfigOutput).ToTrainingJobSessionChainingConfigPtrOutputWithContext(ctx)
+}
+
+// TrainingJobSessionChainingConfigPtrInput is an input type that accepts TrainingJobSessionChainingConfigArgs, TrainingJobSessionChainingConfigPtr and TrainingJobSessionChainingConfigPtrOutput values.
+// You can construct a concrete instance of `TrainingJobSessionChainingConfigPtrInput` via:
+//
+//	        TrainingJobSessionChainingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrainingJobSessionChainingConfigPtrInput interface {
+	pulumi.Input
+
+	ToTrainingJobSessionChainingConfigPtrOutput() TrainingJobSessionChainingConfigPtrOutput
+	ToTrainingJobSessionChainingConfigPtrOutputWithContext(context.Context) TrainingJobSessionChainingConfigPtrOutput
+}
+
+type trainingJobSessionChainingConfigPtrType TrainingJobSessionChainingConfigArgs
+
+func TrainingJobSessionChainingConfigPtr(v *TrainingJobSessionChainingConfigArgs) TrainingJobSessionChainingConfigPtrInput {
+	return (*trainingJobSessionChainingConfigPtrType)(v)
+}
+
+func (*trainingJobSessionChainingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobSessionChainingConfig)(nil)).Elem()
+}
+
+func (i *trainingJobSessionChainingConfigPtrType) ToTrainingJobSessionChainingConfigPtrOutput() TrainingJobSessionChainingConfigPtrOutput {
+	return i.ToTrainingJobSessionChainingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *trainingJobSessionChainingConfigPtrType) ToTrainingJobSessionChainingConfigPtrOutputWithContext(ctx context.Context) TrainingJobSessionChainingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobSessionChainingConfigPtrOutput)
+}
+
+type TrainingJobSessionChainingConfigOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobSessionChainingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobSessionChainingConfig)(nil)).Elem()
+}
+
+func (o TrainingJobSessionChainingConfigOutput) ToTrainingJobSessionChainingConfigOutput() TrainingJobSessionChainingConfigOutput {
+	return o
+}
+
+func (o TrainingJobSessionChainingConfigOutput) ToTrainingJobSessionChainingConfigOutputWithContext(ctx context.Context) TrainingJobSessionChainingConfigOutput {
+	return o
+}
+
+func (o TrainingJobSessionChainingConfigOutput) ToTrainingJobSessionChainingConfigPtrOutput() TrainingJobSessionChainingConfigPtrOutput {
+	return o.ToTrainingJobSessionChainingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TrainingJobSessionChainingConfigOutput) ToTrainingJobSessionChainingConfigPtrOutputWithContext(ctx context.Context) TrainingJobSessionChainingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrainingJobSessionChainingConfig) *TrainingJobSessionChainingConfig {
+		return &v
+	}).(TrainingJobSessionChainingConfigPtrOutput)
+}
+
+// Whether to enable session tag chaining for the training job.
+func (o TrainingJobSessionChainingConfigOutput) EnableSessionTagChaining() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TrainingJobSessionChainingConfig) *bool { return v.EnableSessionTagChaining }).(pulumi.BoolPtrOutput)
+}
+
+type TrainingJobSessionChainingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobSessionChainingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobSessionChainingConfig)(nil)).Elem()
+}
+
+func (o TrainingJobSessionChainingConfigPtrOutput) ToTrainingJobSessionChainingConfigPtrOutput() TrainingJobSessionChainingConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobSessionChainingConfigPtrOutput) ToTrainingJobSessionChainingConfigPtrOutputWithContext(ctx context.Context) TrainingJobSessionChainingConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobSessionChainingConfigPtrOutput) Elem() TrainingJobSessionChainingConfigOutput {
+	return o.ApplyT(func(v *TrainingJobSessionChainingConfig) TrainingJobSessionChainingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TrainingJobSessionChainingConfig
+		return ret
+	}).(TrainingJobSessionChainingConfigOutput)
+}
+
+// Whether to enable session tag chaining for the training job.
+func (o TrainingJobSessionChainingConfigPtrOutput) EnableSessionTagChaining() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TrainingJobSessionChainingConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableSessionTagChaining
+	}).(pulumi.BoolPtrOutput)
+}
+
+type TrainingJobStoppingCondition struct {
+	// Maximum time in seconds a training job can be pending before it is stopped. Valid values: 7200–2419200.
+	MaxPendingTimeInSeconds *int `pulumi:"maxPendingTimeInSeconds"`
+	// Maximum time in seconds the training job can run before it is stopped.
+	MaxRuntimeInSeconds *int `pulumi:"maxRuntimeInSeconds"`
+	// Maximum time in seconds to wait for a managed spot training job to complete.
+	MaxWaitTimeInSeconds *int `pulumi:"maxWaitTimeInSeconds"`
+}
+
+// TrainingJobStoppingConditionInput is an input type that accepts TrainingJobStoppingConditionArgs and TrainingJobStoppingConditionOutput values.
+// You can construct a concrete instance of `TrainingJobStoppingConditionInput` via:
+//
+//	TrainingJobStoppingConditionArgs{...}
+type TrainingJobStoppingConditionInput interface {
+	pulumi.Input
+
+	ToTrainingJobStoppingConditionOutput() TrainingJobStoppingConditionOutput
+	ToTrainingJobStoppingConditionOutputWithContext(context.Context) TrainingJobStoppingConditionOutput
+}
+
+type TrainingJobStoppingConditionArgs struct {
+	// Maximum time in seconds a training job can be pending before it is stopped. Valid values: 7200–2419200.
+	MaxPendingTimeInSeconds pulumi.IntPtrInput `pulumi:"maxPendingTimeInSeconds"`
+	// Maximum time in seconds the training job can run before it is stopped.
+	MaxRuntimeInSeconds pulumi.IntPtrInput `pulumi:"maxRuntimeInSeconds"`
+	// Maximum time in seconds to wait for a managed spot training job to complete.
+	MaxWaitTimeInSeconds pulumi.IntPtrInput `pulumi:"maxWaitTimeInSeconds"`
+}
+
+func (TrainingJobStoppingConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobStoppingCondition)(nil)).Elem()
+}
+
+func (i TrainingJobStoppingConditionArgs) ToTrainingJobStoppingConditionOutput() TrainingJobStoppingConditionOutput {
+	return i.ToTrainingJobStoppingConditionOutputWithContext(context.Background())
+}
+
+func (i TrainingJobStoppingConditionArgs) ToTrainingJobStoppingConditionOutputWithContext(ctx context.Context) TrainingJobStoppingConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobStoppingConditionOutput)
+}
+
+func (i TrainingJobStoppingConditionArgs) ToTrainingJobStoppingConditionPtrOutput() TrainingJobStoppingConditionPtrOutput {
+	return i.ToTrainingJobStoppingConditionPtrOutputWithContext(context.Background())
+}
+
+func (i TrainingJobStoppingConditionArgs) ToTrainingJobStoppingConditionPtrOutputWithContext(ctx context.Context) TrainingJobStoppingConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobStoppingConditionOutput).ToTrainingJobStoppingConditionPtrOutputWithContext(ctx)
+}
+
+// TrainingJobStoppingConditionPtrInput is an input type that accepts TrainingJobStoppingConditionArgs, TrainingJobStoppingConditionPtr and TrainingJobStoppingConditionPtrOutput values.
+// You can construct a concrete instance of `TrainingJobStoppingConditionPtrInput` via:
+//
+//	        TrainingJobStoppingConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrainingJobStoppingConditionPtrInput interface {
+	pulumi.Input
+
+	ToTrainingJobStoppingConditionPtrOutput() TrainingJobStoppingConditionPtrOutput
+	ToTrainingJobStoppingConditionPtrOutputWithContext(context.Context) TrainingJobStoppingConditionPtrOutput
+}
+
+type trainingJobStoppingConditionPtrType TrainingJobStoppingConditionArgs
+
+func TrainingJobStoppingConditionPtr(v *TrainingJobStoppingConditionArgs) TrainingJobStoppingConditionPtrInput {
+	return (*trainingJobStoppingConditionPtrType)(v)
+}
+
+func (*trainingJobStoppingConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobStoppingCondition)(nil)).Elem()
+}
+
+func (i *trainingJobStoppingConditionPtrType) ToTrainingJobStoppingConditionPtrOutput() TrainingJobStoppingConditionPtrOutput {
+	return i.ToTrainingJobStoppingConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *trainingJobStoppingConditionPtrType) ToTrainingJobStoppingConditionPtrOutputWithContext(ctx context.Context) TrainingJobStoppingConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobStoppingConditionPtrOutput)
+}
+
+type TrainingJobStoppingConditionOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobStoppingConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobStoppingCondition)(nil)).Elem()
+}
+
+func (o TrainingJobStoppingConditionOutput) ToTrainingJobStoppingConditionOutput() TrainingJobStoppingConditionOutput {
+	return o
+}
+
+func (o TrainingJobStoppingConditionOutput) ToTrainingJobStoppingConditionOutputWithContext(ctx context.Context) TrainingJobStoppingConditionOutput {
+	return o
+}
+
+func (o TrainingJobStoppingConditionOutput) ToTrainingJobStoppingConditionPtrOutput() TrainingJobStoppingConditionPtrOutput {
+	return o.ToTrainingJobStoppingConditionPtrOutputWithContext(context.Background())
+}
+
+func (o TrainingJobStoppingConditionOutput) ToTrainingJobStoppingConditionPtrOutputWithContext(ctx context.Context) TrainingJobStoppingConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrainingJobStoppingCondition) *TrainingJobStoppingCondition {
+		return &v
+	}).(TrainingJobStoppingConditionPtrOutput)
+}
+
+// Maximum time in seconds a training job can be pending before it is stopped. Valid values: 7200–2419200.
+func (o TrainingJobStoppingConditionOutput) MaxPendingTimeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TrainingJobStoppingCondition) *int { return v.MaxPendingTimeInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Maximum time in seconds the training job can run before it is stopped.
+func (o TrainingJobStoppingConditionOutput) MaxRuntimeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TrainingJobStoppingCondition) *int { return v.MaxRuntimeInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Maximum time in seconds to wait for a managed spot training job to complete.
+func (o TrainingJobStoppingConditionOutput) MaxWaitTimeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TrainingJobStoppingCondition) *int { return v.MaxWaitTimeInSeconds }).(pulumi.IntPtrOutput)
+}
+
+type TrainingJobStoppingConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobStoppingConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobStoppingCondition)(nil)).Elem()
+}
+
+func (o TrainingJobStoppingConditionPtrOutput) ToTrainingJobStoppingConditionPtrOutput() TrainingJobStoppingConditionPtrOutput {
+	return o
+}
+
+func (o TrainingJobStoppingConditionPtrOutput) ToTrainingJobStoppingConditionPtrOutputWithContext(ctx context.Context) TrainingJobStoppingConditionPtrOutput {
+	return o
+}
+
+func (o TrainingJobStoppingConditionPtrOutput) Elem() TrainingJobStoppingConditionOutput {
+	return o.ApplyT(func(v *TrainingJobStoppingCondition) TrainingJobStoppingCondition {
+		if v != nil {
+			return *v
+		}
+		var ret TrainingJobStoppingCondition
+		return ret
+	}).(TrainingJobStoppingConditionOutput)
+}
+
+// Maximum time in seconds a training job can be pending before it is stopped. Valid values: 7200–2419200.
+func (o TrainingJobStoppingConditionPtrOutput) MaxPendingTimeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TrainingJobStoppingCondition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPendingTimeInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum time in seconds the training job can run before it is stopped.
+func (o TrainingJobStoppingConditionPtrOutput) MaxRuntimeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TrainingJobStoppingCondition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxRuntimeInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum time in seconds to wait for a managed spot training job to complete.
+func (o TrainingJobStoppingConditionPtrOutput) MaxWaitTimeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TrainingJobStoppingCondition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxWaitTimeInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type TrainingJobTensorBoardOutputConfig struct {
+	// Local path where TensorBoard output is written.
+	LocalPath *string `pulumi:"localPath"`
+	// S3 URI where TensorBoard output is stored.
+	S3OutputPath string `pulumi:"s3OutputPath"`
+}
+
+// TrainingJobTensorBoardOutputConfigInput is an input type that accepts TrainingJobTensorBoardOutputConfigArgs and TrainingJobTensorBoardOutputConfigOutput values.
+// You can construct a concrete instance of `TrainingJobTensorBoardOutputConfigInput` via:
+//
+//	TrainingJobTensorBoardOutputConfigArgs{...}
+type TrainingJobTensorBoardOutputConfigInput interface {
+	pulumi.Input
+
+	ToTrainingJobTensorBoardOutputConfigOutput() TrainingJobTensorBoardOutputConfigOutput
+	ToTrainingJobTensorBoardOutputConfigOutputWithContext(context.Context) TrainingJobTensorBoardOutputConfigOutput
+}
+
+type TrainingJobTensorBoardOutputConfigArgs struct {
+	// Local path where TensorBoard output is written.
+	LocalPath pulumi.StringPtrInput `pulumi:"localPath"`
+	// S3 URI where TensorBoard output is stored.
+	S3OutputPath pulumi.StringInput `pulumi:"s3OutputPath"`
+}
+
+func (TrainingJobTensorBoardOutputConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobTensorBoardOutputConfig)(nil)).Elem()
+}
+
+func (i TrainingJobTensorBoardOutputConfigArgs) ToTrainingJobTensorBoardOutputConfigOutput() TrainingJobTensorBoardOutputConfigOutput {
+	return i.ToTrainingJobTensorBoardOutputConfigOutputWithContext(context.Background())
+}
+
+func (i TrainingJobTensorBoardOutputConfigArgs) ToTrainingJobTensorBoardOutputConfigOutputWithContext(ctx context.Context) TrainingJobTensorBoardOutputConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobTensorBoardOutputConfigOutput)
+}
+
+func (i TrainingJobTensorBoardOutputConfigArgs) ToTrainingJobTensorBoardOutputConfigPtrOutput() TrainingJobTensorBoardOutputConfigPtrOutput {
+	return i.ToTrainingJobTensorBoardOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TrainingJobTensorBoardOutputConfigArgs) ToTrainingJobTensorBoardOutputConfigPtrOutputWithContext(ctx context.Context) TrainingJobTensorBoardOutputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobTensorBoardOutputConfigOutput).ToTrainingJobTensorBoardOutputConfigPtrOutputWithContext(ctx)
+}
+
+// TrainingJobTensorBoardOutputConfigPtrInput is an input type that accepts TrainingJobTensorBoardOutputConfigArgs, TrainingJobTensorBoardOutputConfigPtr and TrainingJobTensorBoardOutputConfigPtrOutput values.
+// You can construct a concrete instance of `TrainingJobTensorBoardOutputConfigPtrInput` via:
+//
+//	        TrainingJobTensorBoardOutputConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrainingJobTensorBoardOutputConfigPtrInput interface {
+	pulumi.Input
+
+	ToTrainingJobTensorBoardOutputConfigPtrOutput() TrainingJobTensorBoardOutputConfigPtrOutput
+	ToTrainingJobTensorBoardOutputConfigPtrOutputWithContext(context.Context) TrainingJobTensorBoardOutputConfigPtrOutput
+}
+
+type trainingJobTensorBoardOutputConfigPtrType TrainingJobTensorBoardOutputConfigArgs
+
+func TrainingJobTensorBoardOutputConfigPtr(v *TrainingJobTensorBoardOutputConfigArgs) TrainingJobTensorBoardOutputConfigPtrInput {
+	return (*trainingJobTensorBoardOutputConfigPtrType)(v)
+}
+
+func (*trainingJobTensorBoardOutputConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobTensorBoardOutputConfig)(nil)).Elem()
+}
+
+func (i *trainingJobTensorBoardOutputConfigPtrType) ToTrainingJobTensorBoardOutputConfigPtrOutput() TrainingJobTensorBoardOutputConfigPtrOutput {
+	return i.ToTrainingJobTensorBoardOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *trainingJobTensorBoardOutputConfigPtrType) ToTrainingJobTensorBoardOutputConfigPtrOutputWithContext(ctx context.Context) TrainingJobTensorBoardOutputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobTensorBoardOutputConfigPtrOutput)
+}
+
+type TrainingJobTensorBoardOutputConfigOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobTensorBoardOutputConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobTensorBoardOutputConfig)(nil)).Elem()
+}
+
+func (o TrainingJobTensorBoardOutputConfigOutput) ToTrainingJobTensorBoardOutputConfigOutput() TrainingJobTensorBoardOutputConfigOutput {
+	return o
+}
+
+func (o TrainingJobTensorBoardOutputConfigOutput) ToTrainingJobTensorBoardOutputConfigOutputWithContext(ctx context.Context) TrainingJobTensorBoardOutputConfigOutput {
+	return o
+}
+
+func (o TrainingJobTensorBoardOutputConfigOutput) ToTrainingJobTensorBoardOutputConfigPtrOutput() TrainingJobTensorBoardOutputConfigPtrOutput {
+	return o.ToTrainingJobTensorBoardOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TrainingJobTensorBoardOutputConfigOutput) ToTrainingJobTensorBoardOutputConfigPtrOutputWithContext(ctx context.Context) TrainingJobTensorBoardOutputConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrainingJobTensorBoardOutputConfig) *TrainingJobTensorBoardOutputConfig {
+		return &v
+	}).(TrainingJobTensorBoardOutputConfigPtrOutput)
+}
+
+// Local path where TensorBoard output is written.
+func (o TrainingJobTensorBoardOutputConfigOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobTensorBoardOutputConfig) *string { return v.LocalPath }).(pulumi.StringPtrOutput)
+}
+
+// S3 URI where TensorBoard output is stored.
+func (o TrainingJobTensorBoardOutputConfigOutput) S3OutputPath() pulumi.StringOutput {
+	return o.ApplyT(func(v TrainingJobTensorBoardOutputConfig) string { return v.S3OutputPath }).(pulumi.StringOutput)
+}
+
+type TrainingJobTensorBoardOutputConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobTensorBoardOutputConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobTensorBoardOutputConfig)(nil)).Elem()
+}
+
+func (o TrainingJobTensorBoardOutputConfigPtrOutput) ToTrainingJobTensorBoardOutputConfigPtrOutput() TrainingJobTensorBoardOutputConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobTensorBoardOutputConfigPtrOutput) ToTrainingJobTensorBoardOutputConfigPtrOutputWithContext(ctx context.Context) TrainingJobTensorBoardOutputConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobTensorBoardOutputConfigPtrOutput) Elem() TrainingJobTensorBoardOutputConfigOutput {
+	return o.ApplyT(func(v *TrainingJobTensorBoardOutputConfig) TrainingJobTensorBoardOutputConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TrainingJobTensorBoardOutputConfig
+		return ret
+	}).(TrainingJobTensorBoardOutputConfigOutput)
+}
+
+// Local path where TensorBoard output is written.
+func (o TrainingJobTensorBoardOutputConfigPtrOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobTensorBoardOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 URI where TensorBoard output is stored.
+func (o TrainingJobTensorBoardOutputConfigPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobTensorBoardOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3OutputPath
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrainingJobTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// TrainingJobTimeoutsInput is an input type that accepts TrainingJobTimeoutsArgs and TrainingJobTimeoutsOutput values.
+// You can construct a concrete instance of `TrainingJobTimeoutsInput` via:
+//
+//	TrainingJobTimeoutsArgs{...}
+type TrainingJobTimeoutsInput interface {
+	pulumi.Input
+
+	ToTrainingJobTimeoutsOutput() TrainingJobTimeoutsOutput
+	ToTrainingJobTimeoutsOutputWithContext(context.Context) TrainingJobTimeoutsOutput
+}
+
+type TrainingJobTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (TrainingJobTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobTimeouts)(nil)).Elem()
+}
+
+func (i TrainingJobTimeoutsArgs) ToTrainingJobTimeoutsOutput() TrainingJobTimeoutsOutput {
+	return i.ToTrainingJobTimeoutsOutputWithContext(context.Background())
+}
+
+func (i TrainingJobTimeoutsArgs) ToTrainingJobTimeoutsOutputWithContext(ctx context.Context) TrainingJobTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobTimeoutsOutput)
+}
+
+func (i TrainingJobTimeoutsArgs) ToTrainingJobTimeoutsPtrOutput() TrainingJobTimeoutsPtrOutput {
+	return i.ToTrainingJobTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i TrainingJobTimeoutsArgs) ToTrainingJobTimeoutsPtrOutputWithContext(ctx context.Context) TrainingJobTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobTimeoutsOutput).ToTrainingJobTimeoutsPtrOutputWithContext(ctx)
+}
+
+// TrainingJobTimeoutsPtrInput is an input type that accepts TrainingJobTimeoutsArgs, TrainingJobTimeoutsPtr and TrainingJobTimeoutsPtrOutput values.
+// You can construct a concrete instance of `TrainingJobTimeoutsPtrInput` via:
+//
+//	        TrainingJobTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrainingJobTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToTrainingJobTimeoutsPtrOutput() TrainingJobTimeoutsPtrOutput
+	ToTrainingJobTimeoutsPtrOutputWithContext(context.Context) TrainingJobTimeoutsPtrOutput
+}
+
+type trainingJobTimeoutsPtrType TrainingJobTimeoutsArgs
+
+func TrainingJobTimeoutsPtr(v *TrainingJobTimeoutsArgs) TrainingJobTimeoutsPtrInput {
+	return (*trainingJobTimeoutsPtrType)(v)
+}
+
+func (*trainingJobTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobTimeouts)(nil)).Elem()
+}
+
+func (i *trainingJobTimeoutsPtrType) ToTrainingJobTimeoutsPtrOutput() TrainingJobTimeoutsPtrOutput {
+	return i.ToTrainingJobTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *trainingJobTimeoutsPtrType) ToTrainingJobTimeoutsPtrOutputWithContext(ctx context.Context) TrainingJobTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobTimeoutsPtrOutput)
+}
+
+type TrainingJobTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobTimeouts)(nil)).Elem()
+}
+
+func (o TrainingJobTimeoutsOutput) ToTrainingJobTimeoutsOutput() TrainingJobTimeoutsOutput {
+	return o
+}
+
+func (o TrainingJobTimeoutsOutput) ToTrainingJobTimeoutsOutputWithContext(ctx context.Context) TrainingJobTimeoutsOutput {
+	return o
+}
+
+func (o TrainingJobTimeoutsOutput) ToTrainingJobTimeoutsPtrOutput() TrainingJobTimeoutsPtrOutput {
+	return o.ToTrainingJobTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o TrainingJobTimeoutsOutput) ToTrainingJobTimeoutsPtrOutputWithContext(ctx context.Context) TrainingJobTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrainingJobTimeouts) *TrainingJobTimeouts {
+		return &v
+	}).(TrainingJobTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TrainingJobTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o TrainingJobTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TrainingJobTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrainingJobTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type TrainingJobTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobTimeouts)(nil)).Elem()
+}
+
+func (o TrainingJobTimeoutsPtrOutput) ToTrainingJobTimeoutsPtrOutput() TrainingJobTimeoutsPtrOutput {
+	return o
+}
+
+func (o TrainingJobTimeoutsPtrOutput) ToTrainingJobTimeoutsPtrOutputWithContext(ctx context.Context) TrainingJobTimeoutsPtrOutput {
+	return o
+}
+
+func (o TrainingJobTimeoutsPtrOutput) Elem() TrainingJobTimeoutsOutput {
+	return o.ApplyT(func(v *TrainingJobTimeouts) TrainingJobTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret TrainingJobTimeouts
+		return ret
+	}).(TrainingJobTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TrainingJobTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o TrainingJobTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TrainingJobTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrainingJobTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrainingJobVpcConfig struct {
+	// List of VPC security group IDs. Maximum of 5.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// List of subnet IDs. Maximum of 16.
+	Subnets []string `pulumi:"subnets"`
+}
+
+// TrainingJobVpcConfigInput is an input type that accepts TrainingJobVpcConfigArgs and TrainingJobVpcConfigOutput values.
+// You can construct a concrete instance of `TrainingJobVpcConfigInput` via:
+//
+//	TrainingJobVpcConfigArgs{...}
+type TrainingJobVpcConfigInput interface {
+	pulumi.Input
+
+	ToTrainingJobVpcConfigOutput() TrainingJobVpcConfigOutput
+	ToTrainingJobVpcConfigOutputWithContext(context.Context) TrainingJobVpcConfigOutput
+}
+
+type TrainingJobVpcConfigArgs struct {
+	// List of VPC security group IDs. Maximum of 5.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// List of subnet IDs. Maximum of 16.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (TrainingJobVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobVpcConfig)(nil)).Elem()
+}
+
+func (i TrainingJobVpcConfigArgs) ToTrainingJobVpcConfigOutput() TrainingJobVpcConfigOutput {
+	return i.ToTrainingJobVpcConfigOutputWithContext(context.Background())
+}
+
+func (i TrainingJobVpcConfigArgs) ToTrainingJobVpcConfigOutputWithContext(ctx context.Context) TrainingJobVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobVpcConfigOutput)
+}
+
+func (i TrainingJobVpcConfigArgs) ToTrainingJobVpcConfigPtrOutput() TrainingJobVpcConfigPtrOutput {
+	return i.ToTrainingJobVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TrainingJobVpcConfigArgs) ToTrainingJobVpcConfigPtrOutputWithContext(ctx context.Context) TrainingJobVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobVpcConfigOutput).ToTrainingJobVpcConfigPtrOutputWithContext(ctx)
+}
+
+// TrainingJobVpcConfigPtrInput is an input type that accepts TrainingJobVpcConfigArgs, TrainingJobVpcConfigPtr and TrainingJobVpcConfigPtrOutput values.
+// You can construct a concrete instance of `TrainingJobVpcConfigPtrInput` via:
+//
+//	        TrainingJobVpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrainingJobVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToTrainingJobVpcConfigPtrOutput() TrainingJobVpcConfigPtrOutput
+	ToTrainingJobVpcConfigPtrOutputWithContext(context.Context) TrainingJobVpcConfigPtrOutput
+}
+
+type trainingJobVpcConfigPtrType TrainingJobVpcConfigArgs
+
+func TrainingJobVpcConfigPtr(v *TrainingJobVpcConfigArgs) TrainingJobVpcConfigPtrInput {
+	return (*trainingJobVpcConfigPtrType)(v)
+}
+
+func (*trainingJobVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobVpcConfig)(nil)).Elem()
+}
+
+func (i *trainingJobVpcConfigPtrType) ToTrainingJobVpcConfigPtrOutput() TrainingJobVpcConfigPtrOutput {
+	return i.ToTrainingJobVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *trainingJobVpcConfigPtrType) ToTrainingJobVpcConfigPtrOutputWithContext(ctx context.Context) TrainingJobVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrainingJobVpcConfigPtrOutput)
+}
+
+type TrainingJobVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrainingJobVpcConfig)(nil)).Elem()
+}
+
+func (o TrainingJobVpcConfigOutput) ToTrainingJobVpcConfigOutput() TrainingJobVpcConfigOutput {
+	return o
+}
+
+func (o TrainingJobVpcConfigOutput) ToTrainingJobVpcConfigOutputWithContext(ctx context.Context) TrainingJobVpcConfigOutput {
+	return o
+}
+
+func (o TrainingJobVpcConfigOutput) ToTrainingJobVpcConfigPtrOutput() TrainingJobVpcConfigPtrOutput {
+	return o.ToTrainingJobVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TrainingJobVpcConfigOutput) ToTrainingJobVpcConfigPtrOutputWithContext(ctx context.Context) TrainingJobVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrainingJobVpcConfig) *TrainingJobVpcConfig {
+		return &v
+	}).(TrainingJobVpcConfigPtrOutput)
+}
+
+// List of VPC security group IDs. Maximum of 5.
+func (o TrainingJobVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TrainingJobVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// List of subnet IDs. Maximum of 16.
+func (o TrainingJobVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TrainingJobVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+type TrainingJobVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TrainingJobVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrainingJobVpcConfig)(nil)).Elem()
+}
+
+func (o TrainingJobVpcConfigPtrOutput) ToTrainingJobVpcConfigPtrOutput() TrainingJobVpcConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobVpcConfigPtrOutput) ToTrainingJobVpcConfigPtrOutputWithContext(ctx context.Context) TrainingJobVpcConfigPtrOutput {
+	return o
+}
+
+func (o TrainingJobVpcConfigPtrOutput) Elem() TrainingJobVpcConfigOutput {
+	return o.ApplyT(func(v *TrainingJobVpcConfig) TrainingJobVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TrainingJobVpcConfig
+		return ret
+	}).(TrainingJobVpcConfigOutput)
+}
+
+// List of VPC security group IDs. Maximum of 5.
+func (o TrainingJobVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TrainingJobVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of subnet IDs. Maximum of 16.
+func (o TrainingJobVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TrainingJobVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
 type UserProfileUserSettings struct {
 	// Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
 	AutoMountHomeEfs *string `pulumi:"autoMountHomeEfs"`
@@ -55469,6 +61091,74 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrInput)(nil)).Elem(), SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSharingSettingsInput)(nil)).Elem(), SpaceSpaceSharingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSharingSettingsPtrInput)(nil)).Elem(), SpaceSpaceSharingSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobAlgorithmSpecificationInput)(nil)).Elem(), TrainingJobAlgorithmSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobAlgorithmSpecificationPtrInput)(nil)).Elem(), TrainingJobAlgorithmSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobAlgorithmSpecificationMetricDefinitionInput)(nil)).Elem(), TrainingJobAlgorithmSpecificationMetricDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobAlgorithmSpecificationMetricDefinitionArrayInput)(nil)).Elem(), TrainingJobAlgorithmSpecificationMetricDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobAlgorithmSpecificationTrainingImageConfigInput)(nil)).Elem(), TrainingJobAlgorithmSpecificationTrainingImageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobAlgorithmSpecificationTrainingImageConfigPtrInput)(nil)).Elem(), TrainingJobAlgorithmSpecificationTrainingImageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigInput)(nil)).Elem(), TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrInput)(nil)).Elem(), TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobCheckpointConfigInput)(nil)).Elem(), TrainingJobCheckpointConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobCheckpointConfigPtrInput)(nil)).Elem(), TrainingJobCheckpointConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobDebugHookConfigInput)(nil)).Elem(), TrainingJobDebugHookConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobDebugHookConfigPtrInput)(nil)).Elem(), TrainingJobDebugHookConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobDebugHookConfigCollectionConfigurationInput)(nil)).Elem(), TrainingJobDebugHookConfigCollectionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobDebugHookConfigCollectionConfigurationArrayInput)(nil)).Elem(), TrainingJobDebugHookConfigCollectionConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobDebugRuleConfigurationInput)(nil)).Elem(), TrainingJobDebugRuleConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobDebugRuleConfigurationArrayInput)(nil)).Elem(), TrainingJobDebugRuleConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobExperimentConfigInput)(nil)).Elem(), TrainingJobExperimentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobExperimentConfigPtrInput)(nil)).Elem(), TrainingJobExperimentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobInfraCheckConfigInput)(nil)).Elem(), TrainingJobInfraCheckConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobInfraCheckConfigPtrInput)(nil)).Elem(), TrainingJobInfraCheckConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobInputDataConfigInput)(nil)).Elem(), TrainingJobInputDataConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobInputDataConfigArrayInput)(nil)).Elem(), TrainingJobInputDataConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobInputDataConfigDataSourceInput)(nil)).Elem(), TrainingJobInputDataConfigDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobInputDataConfigDataSourcePtrInput)(nil)).Elem(), TrainingJobInputDataConfigDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobInputDataConfigDataSourceFileSystemDataSourceInput)(nil)).Elem(), TrainingJobInputDataConfigDataSourceFileSystemDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrInput)(nil)).Elem(), TrainingJobInputDataConfigDataSourceFileSystemDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobInputDataConfigDataSourceS3DataSourceInput)(nil)).Elem(), TrainingJobInputDataConfigDataSourceS3DataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobInputDataConfigDataSourceS3DataSourcePtrInput)(nil)).Elem(), TrainingJobInputDataConfigDataSourceS3DataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigInput)(nil)).Elem(), TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrInput)(nil)).Elem(), TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigInput)(nil)).Elem(), TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrInput)(nil)).Elem(), TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobInputDataConfigShuffleConfigInput)(nil)).Elem(), TrainingJobInputDataConfigShuffleConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobInputDataConfigShuffleConfigPtrInput)(nil)).Elem(), TrainingJobInputDataConfigShuffleConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobMlflowConfigInput)(nil)).Elem(), TrainingJobMlflowConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobMlflowConfigPtrInput)(nil)).Elem(), TrainingJobMlflowConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobModelPackageConfigInput)(nil)).Elem(), TrainingJobModelPackageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobModelPackageConfigPtrInput)(nil)).Elem(), TrainingJobModelPackageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobOutputDataConfigInput)(nil)).Elem(), TrainingJobOutputDataConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobOutputDataConfigPtrInput)(nil)).Elem(), TrainingJobOutputDataConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobProfilerConfigInput)(nil)).Elem(), TrainingJobProfilerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobProfilerConfigPtrInput)(nil)).Elem(), TrainingJobProfilerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobProfilerRuleConfigurationInput)(nil)).Elem(), TrainingJobProfilerRuleConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobProfilerRuleConfigurationArrayInput)(nil)).Elem(), TrainingJobProfilerRuleConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobRemoteDebugConfigInput)(nil)).Elem(), TrainingJobRemoteDebugConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobRemoteDebugConfigPtrInput)(nil)).Elem(), TrainingJobRemoteDebugConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobResourceConfigInput)(nil)).Elem(), TrainingJobResourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobResourceConfigPtrInput)(nil)).Elem(), TrainingJobResourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobResourceConfigInstanceGroupInput)(nil)).Elem(), TrainingJobResourceConfigInstanceGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobResourceConfigInstanceGroupArrayInput)(nil)).Elem(), TrainingJobResourceConfigInstanceGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobResourceConfigInstancePlacementConfigInput)(nil)).Elem(), TrainingJobResourceConfigInstancePlacementConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobResourceConfigInstancePlacementConfigPtrInput)(nil)).Elem(), TrainingJobResourceConfigInstancePlacementConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationInput)(nil)).Elem(), TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayInput)(nil)).Elem(), TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobRetryStrategyInput)(nil)).Elem(), TrainingJobRetryStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobRetryStrategyPtrInput)(nil)).Elem(), TrainingJobRetryStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobServerlessJobConfigInput)(nil)).Elem(), TrainingJobServerlessJobConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobServerlessJobConfigPtrInput)(nil)).Elem(), TrainingJobServerlessJobConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobSessionChainingConfigInput)(nil)).Elem(), TrainingJobSessionChainingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobSessionChainingConfigPtrInput)(nil)).Elem(), TrainingJobSessionChainingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobStoppingConditionInput)(nil)).Elem(), TrainingJobStoppingConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobStoppingConditionPtrInput)(nil)).Elem(), TrainingJobStoppingConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobTensorBoardOutputConfigInput)(nil)).Elem(), TrainingJobTensorBoardOutputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobTensorBoardOutputConfigPtrInput)(nil)).Elem(), TrainingJobTensorBoardOutputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobTimeoutsInput)(nil)).Elem(), TrainingJobTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobTimeoutsPtrInput)(nil)).Elem(), TrainingJobTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobVpcConfigInput)(nil)).Elem(), TrainingJobVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrainingJobVpcConfigPtrInput)(nil)).Elem(), TrainingJobVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsInput)(nil)).Elem(), UserProfileUserSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsArgs{})
@@ -56125,6 +61815,74 @@ func init() {
 	pulumi.RegisterOutputType(SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SpaceSpaceSharingSettingsOutput{})
 	pulumi.RegisterOutputType(SpaceSpaceSharingSettingsPtrOutput{})
+	pulumi.RegisterOutputType(TrainingJobAlgorithmSpecificationOutput{})
+	pulumi.RegisterOutputType(TrainingJobAlgorithmSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(TrainingJobAlgorithmSpecificationMetricDefinitionOutput{})
+	pulumi.RegisterOutputType(TrainingJobAlgorithmSpecificationMetricDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(TrainingJobAlgorithmSpecificationTrainingImageConfigOutput{})
+	pulumi.RegisterOutputType(TrainingJobAlgorithmSpecificationTrainingImageConfigPtrOutput{})
+	pulumi.RegisterOutputType(TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigOutput{})
+	pulumi.RegisterOutputType(TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigPtrOutput{})
+	pulumi.RegisterOutputType(TrainingJobCheckpointConfigOutput{})
+	pulumi.RegisterOutputType(TrainingJobCheckpointConfigPtrOutput{})
+	pulumi.RegisterOutputType(TrainingJobDebugHookConfigOutput{})
+	pulumi.RegisterOutputType(TrainingJobDebugHookConfigPtrOutput{})
+	pulumi.RegisterOutputType(TrainingJobDebugHookConfigCollectionConfigurationOutput{})
+	pulumi.RegisterOutputType(TrainingJobDebugHookConfigCollectionConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(TrainingJobDebugRuleConfigurationOutput{})
+	pulumi.RegisterOutputType(TrainingJobDebugRuleConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(TrainingJobExperimentConfigOutput{})
+	pulumi.RegisterOutputType(TrainingJobExperimentConfigPtrOutput{})
+	pulumi.RegisterOutputType(TrainingJobInfraCheckConfigOutput{})
+	pulumi.RegisterOutputType(TrainingJobInfraCheckConfigPtrOutput{})
+	pulumi.RegisterOutputType(TrainingJobInputDataConfigOutput{})
+	pulumi.RegisterOutputType(TrainingJobInputDataConfigArrayOutput{})
+	pulumi.RegisterOutputType(TrainingJobInputDataConfigDataSourceOutput{})
+	pulumi.RegisterOutputType(TrainingJobInputDataConfigDataSourcePtrOutput{})
+	pulumi.RegisterOutputType(TrainingJobInputDataConfigDataSourceFileSystemDataSourceOutput{})
+	pulumi.RegisterOutputType(TrainingJobInputDataConfigDataSourceFileSystemDataSourcePtrOutput{})
+	pulumi.RegisterOutputType(TrainingJobInputDataConfigDataSourceS3DataSourceOutput{})
+	pulumi.RegisterOutputType(TrainingJobInputDataConfigDataSourceS3DataSourcePtrOutput{})
+	pulumi.RegisterOutputType(TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigOutput{})
+	pulumi.RegisterOutputType(TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigPtrOutput{})
+	pulumi.RegisterOutputType(TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigOutput{})
+	pulumi.RegisterOutputType(TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigPtrOutput{})
+	pulumi.RegisterOutputType(TrainingJobInputDataConfigShuffleConfigOutput{})
+	pulumi.RegisterOutputType(TrainingJobInputDataConfigShuffleConfigPtrOutput{})
+	pulumi.RegisterOutputType(TrainingJobMlflowConfigOutput{})
+	pulumi.RegisterOutputType(TrainingJobMlflowConfigPtrOutput{})
+	pulumi.RegisterOutputType(TrainingJobModelPackageConfigOutput{})
+	pulumi.RegisterOutputType(TrainingJobModelPackageConfigPtrOutput{})
+	pulumi.RegisterOutputType(TrainingJobOutputDataConfigOutput{})
+	pulumi.RegisterOutputType(TrainingJobOutputDataConfigPtrOutput{})
+	pulumi.RegisterOutputType(TrainingJobProfilerConfigOutput{})
+	pulumi.RegisterOutputType(TrainingJobProfilerConfigPtrOutput{})
+	pulumi.RegisterOutputType(TrainingJobProfilerRuleConfigurationOutput{})
+	pulumi.RegisterOutputType(TrainingJobProfilerRuleConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(TrainingJobRemoteDebugConfigOutput{})
+	pulumi.RegisterOutputType(TrainingJobRemoteDebugConfigPtrOutput{})
+	pulumi.RegisterOutputType(TrainingJobResourceConfigOutput{})
+	pulumi.RegisterOutputType(TrainingJobResourceConfigPtrOutput{})
+	pulumi.RegisterOutputType(TrainingJobResourceConfigInstanceGroupOutput{})
+	pulumi.RegisterOutputType(TrainingJobResourceConfigInstanceGroupArrayOutput{})
+	pulumi.RegisterOutputType(TrainingJobResourceConfigInstancePlacementConfigOutput{})
+	pulumi.RegisterOutputType(TrainingJobResourceConfigInstancePlacementConfigPtrOutput{})
+	pulumi.RegisterOutputType(TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationOutput{})
+	pulumi.RegisterOutputType(TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(TrainingJobRetryStrategyOutput{})
+	pulumi.RegisterOutputType(TrainingJobRetryStrategyPtrOutput{})
+	pulumi.RegisterOutputType(TrainingJobServerlessJobConfigOutput{})
+	pulumi.RegisterOutputType(TrainingJobServerlessJobConfigPtrOutput{})
+	pulumi.RegisterOutputType(TrainingJobSessionChainingConfigOutput{})
+	pulumi.RegisterOutputType(TrainingJobSessionChainingConfigPtrOutput{})
+	pulumi.RegisterOutputType(TrainingJobStoppingConditionOutput{})
+	pulumi.RegisterOutputType(TrainingJobStoppingConditionPtrOutput{})
+	pulumi.RegisterOutputType(TrainingJobTensorBoardOutputConfigOutput{})
+	pulumi.RegisterOutputType(TrainingJobTensorBoardOutputConfigPtrOutput{})
+	pulumi.RegisterOutputType(TrainingJobTimeoutsOutput{})
+	pulumi.RegisterOutputType(TrainingJobTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(TrainingJobVpcConfigOutput{})
+	pulumi.RegisterOutputType(TrainingJobVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsOutput{})

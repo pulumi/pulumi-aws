@@ -85,6 +85,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Space{}
 	case "aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig":
 		r = &StudioLifecycleConfig{}
+	case "aws:sagemaker/trainingJob:TrainingJob":
+		r = &TrainingJob{}
 	case "aws:sagemaker/userProfile:UserProfile":
 		r = &UserProfile{}
 	case "aws:sagemaker/workforce:Workforce":
@@ -262,6 +264,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"sagemaker/studioLifecycleConfig",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sagemaker/trainingJob",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

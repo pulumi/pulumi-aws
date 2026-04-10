@@ -79,7 +79,6 @@ namespace Pulumi.Aws.Iam
     /// #### Optional
     /// 
     /// * `AccountId` (String) AWS Account where this resource is managed.
-    /// * `Region` (String) Region where this resource is managed.
     /// 
     /// Using `pulumi import`, import IAM Users using the `Name`. For example:
     /// 

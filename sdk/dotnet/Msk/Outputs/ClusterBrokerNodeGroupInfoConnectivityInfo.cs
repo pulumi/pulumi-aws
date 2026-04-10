@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Msk.Outputs
     public sealed class ClusterBrokerNodeGroupInfoConnectivityInfo
     {
         /// <summary>
+        /// Network type of the cluster. Valid values are: `IPV4` or `DUAL`. Default value: `IPV4`. Only updating from `IPV4` to `DUAL` is allowed.
+        /// </summary>
+        public readonly string? NetworkType;
+        /// <summary>
         /// Access control settings for brokers. See ConnectivityInfo public_access Argument Reference below.
         /// </summary>
         public readonly Outputs.ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess? PublicAccess;
@@ -24,10 +28,13 @@ namespace Pulumi.Aws.Msk.Outputs
 
         [OutputConstructor]
         private ClusterBrokerNodeGroupInfoConnectivityInfo(
+            string? networkType,
+
             Outputs.ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess? publicAccess,
 
             Outputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity? vpcConnectivity)
         {
+            NetworkType = networkType;
             PublicAccess = publicAccess;
             VpcConnectivity = vpcConnectivity;
         }

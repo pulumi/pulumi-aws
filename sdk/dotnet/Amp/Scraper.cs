@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Amp
 {
     /// <summary>
-    /// &gt; **Note:** If you change a Scraper's source (EKS cluster), Terraform
+    /// &gt; **Note:** If you change a Scraper's source (EKS cluster or VPC configuration), Terraform
     /// will delete the current Scraper and create a new one.
     /// 
     /// Provides an Amazon Managed Service for Prometheus fully managed collector
@@ -101,6 +101,60 @@ namespace Pulumi.Aws.Amp
     ///       target_label: __address__
     ///       regex: (.+?)(\\\\:\\\\d+)?
     ///       replacement: $1:10249
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### VPC Configuration
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Amp.Scraper("example", new()
+    ///     {
+    ///         Source = new Aws.Amp.Inputs.ScraperSourceArgs
+    ///         {
+    ///             Vpc = new Aws.Amp.Inputs.ScraperSourceVpcArgs
+    ///             {
+    ///                 SecurityGroupIds = new[]
+    ///                 {
+    ///                     exampleAwsSecurityGroup.Id,
+    ///                 },
+    ///                 SubnetIds = new[]
+    ///                 {
+    ///                     example1.Id,
+    ///                     example2.Id,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Destination = new Aws.Amp.Inputs.ScraperDestinationArgs
+    ///         {
+    ///             Amp = new Aws.Amp.Inputs.ScraperDestinationAmpArgs
+    ///             {
+    ///                 WorkspaceArn = exampleAwsPrometheusWorkspace.Arn,
+    ///             },
+    ///         },
+    ///         ScrapeConfiguration = @"global:
+    ///   scrape_interval: 30s
+    /// scrape_configs:
+    ///   - job_name: 'my-service'
+    ///     dns_sd_configs:
+    ///       - names: ['my-service.my-namespace']
+    ///         type: A
+    ///         port: 8080
+    ///     metrics_path: '/metrics'
+    ///     relabel_configs:
+    ///       - target_label: service_name
+    ///         replacement: 'my-service'
+    ///       - target_label: discovery_method
+    ///         replacement: 'cloudmap-dns'
     /// ",
     ///     });
     /// 

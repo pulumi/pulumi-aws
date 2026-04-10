@@ -25,7 +25,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public Input<string>? PrimaryDomainName { get; set; }
 
         /// <summary>
-        /// Host for validation token. Valid values: `Cloudfront`, `Domain`.
+        /// Host for validation token. Valid values: `Cloudfront`, `self-hosted`.
         /// </summary>
         [Input("validationTokenHost")]
         public Input<string>? ValidationTokenHost { get; set; }

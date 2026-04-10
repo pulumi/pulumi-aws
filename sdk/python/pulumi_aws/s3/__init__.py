@@ -44,6 +44,11 @@ from .bucket_versioning_v2 import *
 from .bucket_website_configuration import *
 from .bucket_website_configuration_v2 import *
 from .directory_bucket import *
+from .files_access_point import *
+from .files_file_system import *
+from .files_file_system_policy import *
+from .files_mount_target import *
+from .files_synchronization_configuration import *
 from .get_access_point import *
 from .get_account_public_access_block import *
 from .get_bucket import *
@@ -54,6 +59,10 @@ from .get_bucket_policy import *
 from .get_bucket_replication_configuration import *
 from .get_canonical_user_id import *
 from .get_directory_buckets import *
+from .get_files_access_point import *
+from .get_files_file_system import *
+from .get_files_file_systems import *
+from .get_files_mount_target import *
 from .get_object import *
 from .get_objects import *
 from .inventory import *

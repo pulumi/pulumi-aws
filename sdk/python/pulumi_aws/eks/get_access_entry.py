@@ -121,11 +121,12 @@ class GetAccessEntryResult:
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+    def tags(self) -> Mapping[str, _builtins.str]:
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""tags_all is deprecated.""")
     def tags_all(self) -> Mapping[str, _builtins.str]:
         """
         (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.

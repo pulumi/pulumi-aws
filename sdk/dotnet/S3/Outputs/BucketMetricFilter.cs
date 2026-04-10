@@ -22,7 +22,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string? Prefix;
         /// <summary>
-        /// Object tags for filtering (up to 10).
+        /// Object tags for filtering (up to 10). Unsupported for S3 directory buckets.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 

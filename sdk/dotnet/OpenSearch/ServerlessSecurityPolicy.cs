@@ -297,6 +297,18 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Name` (String) Name of the policy.
+    /// * `Type` (String) Type of security policy.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import OpenSearchServerless Security Policy using the `Name` and `Type` arguments separated by a slash (`/`). For example:
     /// 
     /// ```sh

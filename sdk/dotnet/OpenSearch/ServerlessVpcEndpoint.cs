@@ -39,7 +39,18 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import OpenSearchServerless Vpc Endpointa using the `Id`. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Id` (String) Unique identifier for the VPC endpoint.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import OpenSearchServerless Vpc Endpoint using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589

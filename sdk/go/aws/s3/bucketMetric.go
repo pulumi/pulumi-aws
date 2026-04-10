@@ -14,8 +14,6 @@ import (
 
 // Provides a S3 bucket [metrics configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html) resource.
 //
-// > This resource cannot be used with S3 directory buckets.
-//
 // ## Example Usage
 //
 // ### Add metrics configuration for entire S3 bucket
@@ -127,6 +125,60 @@ import (
 //						"priority": pulumi.String("high"),
 //						"class":    pulumi.String("blue"),
 //					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Add metrics configuration for S3 directory bucket
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
+//				State: pulumi.StringRef("available"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := s3.NewDirectoryBucket(ctx, "example", &s3.DirectoryBucketArgs{
+//				Bucket: pulumi.String("example--zoneId--x-s3"),
+//				Location: &s3.DirectoryBucketLocationArgs{
+//					Name: pulumi.String(available.ZoneIds[0]),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example_access_point, err := s3.NewAccessPoint(ctx, "example-access-point", &s3.AccessPointArgs{
+//				Bucket: example.ID(),
+//				Name:   pulumi.String("example--zoneId--xa-s3"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketMetric(ctx, "example-bucket-metric", &s3.BucketMetricArgs{
+//				Bucket: example.ID(),
+//				Name:   pulumi.String("ExampleBucketMetricForDirectoryBuckets"),
+//				Filter: &s3.BucketMetricFilterArgs{
+//					AccessPoint: example_access_point.Arn,
+//					Prefix:      pulumi.String("documents/"),
 //				},
 //			})
 //			if err != nil {

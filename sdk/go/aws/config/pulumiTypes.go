@@ -848,6 +848,8 @@ type Endpoints struct {
 	// Use this to override the default service endpoint URL
 	S3control *string `pulumi:"s3control"`
 	// Use this to override the default service endpoint URL
+	S3files *string `pulumi:"s3files"`
+	// Use this to override the default service endpoint URL
 	S3outposts *string `pulumi:"s3outposts"`
 	// Use this to override the default service endpoint URL
 	S3tables *string `pulumi:"s3tables"`
@@ -933,6 +935,8 @@ type Endpoints struct {
 	Transcribeservice *string `pulumi:"transcribeservice"`
 	// Use this to override the default service endpoint URL
 	Transfer *string `pulumi:"transfer"`
+	// Use this to override the default service endpoint URL
+	Uxc *string `pulumi:"uxc"`
 	// Use this to override the default service endpoint URL
 	Verifiedpermissions *string `pulumi:"verifiedpermissions"`
 	// Use this to override the default service endpoint URL
@@ -1480,6 +1484,8 @@ type EndpointsArgs struct {
 	// Use this to override the default service endpoint URL
 	S3control pulumi.StringPtrInput `pulumi:"s3control"`
 	// Use this to override the default service endpoint URL
+	S3files pulumi.StringPtrInput `pulumi:"s3files"`
+	// Use this to override the default service endpoint URL
 	S3outposts pulumi.StringPtrInput `pulumi:"s3outposts"`
 	// Use this to override the default service endpoint URL
 	S3tables pulumi.StringPtrInput `pulumi:"s3tables"`
@@ -1565,6 +1571,8 @@ type EndpointsArgs struct {
 	Transcribeservice pulumi.StringPtrInput `pulumi:"transcribeservice"`
 	// Use this to override the default service endpoint URL
 	Transfer pulumi.StringPtrInput `pulumi:"transfer"`
+	// Use this to override the default service endpoint URL
+	Uxc pulumi.StringPtrInput `pulumi:"uxc"`
 	// Use this to override the default service endpoint URL
 	Verifiedpermissions pulumi.StringPtrInput `pulumi:"verifiedpermissions"`
 	// Use this to override the default service endpoint URL
@@ -2919,6 +2927,11 @@ func (o EndpointsOutput) S3control() pulumi.StringPtrOutput {
 }
 
 // Use this to override the default service endpoint URL
+func (o EndpointsOutput) S3files() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.S3files }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) S3outposts() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.S3outposts }).(pulumi.StringPtrOutput)
 }
@@ -3131,6 +3144,11 @@ func (o EndpointsOutput) Transcribeservice() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o EndpointsOutput) Transfer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Transfer }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Uxc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Uxc }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

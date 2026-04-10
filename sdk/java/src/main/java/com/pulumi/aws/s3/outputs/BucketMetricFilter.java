@@ -23,7 +23,7 @@ public final class BucketMetricFilter {
      */
     private @Nullable String prefix;
     /**
-     * @return Object tags for filtering (up to 10).
+     * @return Object tags for filtering (up to 10). Unsupported for S3 directory buckets.
      * 
      */
     private @Nullable Map<String,String> tags;
@@ -44,7 +44,7 @@ public final class BucketMetricFilter {
         return Optional.ofNullable(this.prefix);
     }
     /**
-     * @return Object tags for filtering (up to 10).
+     * @return Object tags for filtering (up to 10). Unsupported for S3 directory buckets.
      * 
      */
     public Map<String,String> tags() {

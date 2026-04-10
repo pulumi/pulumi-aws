@@ -53,9 +53,17 @@ public final class CapacityProviderArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.instanceRequirements);
     }
 
+    /**
+     * ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+     * 
+     */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
+    /**
+     * @return ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+     * 
+     */
     public Optional<Output<String>> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
@@ -240,11 +248,23 @@ public final class CapacityProviderArgs extends com.pulumi.resources.ResourceArg
             return instanceRequirements(List.of(instanceRequirements));
         }
 
+        /**
+         * @param kmsKeyArn ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
+        /**
+         * @param kmsKeyArn ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }

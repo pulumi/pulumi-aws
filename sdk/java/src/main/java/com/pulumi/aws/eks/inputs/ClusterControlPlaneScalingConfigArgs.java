@@ -16,14 +16,14 @@ public final class ClusterControlPlaneScalingConfigArgs extends com.pulumi.resou
     public static final ClusterControlPlaneScalingConfigArgs Empty = new ClusterControlPlaneScalingConfigArgs();
 
     /**
-     * The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
+     * The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, `tier-4xl`, or `tier-8xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
      * 
      */
     @Import(name="tier")
     private @Nullable Output<String> tier;
 
     /**
-     * @return The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
+     * @return The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, `tier-4xl`, or `tier-8xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
      * 
      */
     public Optional<Output<String>> tier() {
@@ -55,7 +55,7 @@ public final class ClusterControlPlaneScalingConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param tier The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
+         * @param tier The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, `tier-4xl`, or `tier-8xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ClusterControlPlaneScalingConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param tier The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
+         * @param tier The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, `tier-4xl`, or `tier-8xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
          * 
          * @return builder
          * 

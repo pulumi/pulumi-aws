@@ -174,7 +174,9 @@ class ClusterBrokerNodeGroupInfoConnectivityInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "publicAccess":
+        if key == "networkType":
+            suggest = "network_type"
+        elif key == "publicAccess":
             suggest = "public_access"
         elif key == "vpcConnectivity":
             suggest = "vpc_connectivity"
@@ -191,16 +193,28 @@ class ClusterBrokerNodeGroupInfoConnectivityInfo(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 network_type: Optional[_builtins.str] = None,
                  public_access: Optional['outputs.ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess'] = None,
                  vpc_connectivity: Optional['outputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity'] = None):
         """
+        :param _builtins.str network_type: Network type of the cluster. Valid values are: `IPV4` or `DUAL`. Default value: `IPV4`. Only updating from `IPV4` to `DUAL` is allowed.
         :param 'ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs' public_access: Access control settings for brokers. See connectivity_info public_access Argument Reference below.
         :param 'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs' vpc_connectivity: VPC connectivity access control for brokers. See connectivity_info vpc_connectivity Argument Reference below.
         """
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if public_access is not None:
             pulumi.set(__self__, "public_access", public_access)
         if vpc_connectivity is not None:
             pulumi.set(__self__, "vpc_connectivity", vpc_connectivity)
+
+    @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[_builtins.str]:
+        """
+        Network type of the cluster. Valid values are: `IPV4` or `DUAL`. Default value: `IPV4`. Only updating from `IPV4` to `DUAL` is allowed.
+        """
+        return pulumi.get(self, "network_type")
 
     @_builtins.property
     @pulumi.getter(name="publicAccess")
@@ -1806,10 +1820,17 @@ class GetClusterBrokerNodeGroupInfoResult(dict):
 @pulumi.output_type
 class GetClusterBrokerNodeGroupInfoConnectivityInfoResult(dict):
     def __init__(__self__, *,
+                 network_type: _builtins.str,
                  public_accesses: Sequence['outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessResult'],
                  vpc_connectivities: Sequence['outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityResult']):
+        pulumi.set(__self__, "network_type", network_type)
         pulumi.set(__self__, "public_accesses", public_accesses)
         pulumi.set(__self__, "vpc_connectivities", vpc_connectivities)
+
+    @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> _builtins.str:
+        return pulumi.get(self, "network_type")
 
     @_builtins.property
     @pulumi.getter(name="publicAccesses")

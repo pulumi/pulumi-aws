@@ -3859,6 +3859,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="s3files")
+    private @Nullable Output<String> s3files;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> s3files() {
+        return Optional.ofNullable(this.s3files);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="s3outposts")
     private @Nullable Output<String> s3outposts;
 
@@ -4504,6 +4519,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="uxc")
+    private @Nullable Output<String> uxc;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> uxc() {
+        return Optional.ofNullable(this.uxc);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="verifiedpermissions")
     private @Nullable Output<String> verifiedpermissions;
 
@@ -4909,6 +4939,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.s3 = $.s3;
         this.s3api = $.s3api;
         this.s3control = $.s3control;
+        this.s3files = $.s3files;
         this.s3outposts = $.s3outposts;
         this.s3tables = $.s3tables;
         this.s3vectors = $.s3vectors;
@@ -4952,6 +4983,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.transcribe = $.transcribe;
         this.transcribeservice = $.transcribeservice;
         this.transfer = $.transfer;
+        this.uxc = $.uxc;
         this.verifiedpermissions = $.verifiedpermissions;
         this.vpclattice = $.vpclattice;
         this.waf = $.waf;
@@ -10359,6 +10391,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param s3files Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3files(@Nullable Output<String> s3files) {
+            $.s3files = s3files;
+            return this;
+        }
+
+        /**
+         * @param s3files Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3files(String s3files) {
+            return s3files(Output.of(s3files));
+        }
+
+        /**
          * @param s3outposts Use this to override the default service endpoint URL
          * 
          * @return builder
@@ -11259,6 +11312,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder transfer(String transfer) {
             return transfer(Output.of(transfer));
+        }
+
+        /**
+         * @param uxc Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder uxc(@Nullable Output<String> uxc) {
+            $.uxc = uxc;
+            return this;
+        }
+
+        /**
+         * @param uxc Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder uxc(String uxc) {
+            return uxc(Output.of(uxc));
         }
 
         /**

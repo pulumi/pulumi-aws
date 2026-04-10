@@ -19,7 +19,18 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import the AWS Config retention configuration using the `name`. For example:
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `name` (String) Name of the rule.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import Config Retention Configurations using the `name`. For example:
  *
  * ```sh
  * $ pulumi import aws:cfg/retentionConfiguration:RetentionConfiguration example default

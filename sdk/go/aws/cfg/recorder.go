@@ -163,15 +163,26 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Configuration Recorder using the name. For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// * `name` (String) Name of the configuration recorder.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import Configuration Recorders using the `name`. For example:
 //
 // ```sh
-// $ pulumi import aws:cfg/recorder:Recorder foo example
+// $ pulumi import aws:cfg/recorder:Recorder example example
 // ```
 type Recorder struct {
 	pulumi.CustomResourceState
 
-	// The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+	// The name of the configuration recorder. Defaults to `default`. Changing it recreates the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Recording group - see below.
 	RecordingGroup RecorderRecordingGroupOutput `pulumi:"recordingGroup"`
@@ -216,7 +227,7 @@ func GetRecorder(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Recorder resources.
 type recorderState struct {
-	// The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+	// The name of the configuration recorder. Defaults to `default`. Changing it recreates the resource.
 	Name *string `pulumi:"name"`
 	// Recording group - see below.
 	RecordingGroup *RecorderRecordingGroup `pulumi:"recordingGroup"`
@@ -229,7 +240,7 @@ type recorderState struct {
 }
 
 type RecorderState struct {
-	// The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+	// The name of the configuration recorder. Defaults to `default`. Changing it recreates the resource.
 	Name pulumi.StringPtrInput
 	// Recording group - see below.
 	RecordingGroup RecorderRecordingGroupPtrInput
@@ -246,7 +257,7 @@ func (RecorderState) ElementType() reflect.Type {
 }
 
 type recorderArgs struct {
-	// The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+	// The name of the configuration recorder. Defaults to `default`. Changing it recreates the resource.
 	Name *string `pulumi:"name"`
 	// Recording group - see below.
 	RecordingGroup *RecorderRecordingGroup `pulumi:"recordingGroup"`
@@ -260,7 +271,7 @@ type recorderArgs struct {
 
 // The set of arguments for constructing a Recorder resource.
 type RecorderArgs struct {
-	// The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+	// The name of the configuration recorder. Defaults to `default`. Changing it recreates the resource.
 	Name pulumi.StringPtrInput
 	// Recording group - see below.
 	RecordingGroup RecorderRecordingGroupPtrInput
@@ -359,7 +370,7 @@ func (o RecorderOutput) ToRecorderOutputWithContext(ctx context.Context) Recorde
 	return o
 }
 
-// The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+// The name of the configuration recorder. Defaults to `default`. Changing it recreates the resource.
 func (o RecorderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Recorder) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -177,8 +177,6 @@ class BucketMetric(pulumi.CustomResource):
         """
         Provides a S3 bucket [metrics configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html) resource.
 
-        > This resource cannot be used with S3 directory buckets.
-
         ## Example Usage
 
         ### Add metrics configuration for entire S3 bucket
@@ -231,6 +229,30 @@ class BucketMetric(pulumi.CustomResource):
                     "priority": "high",
                     "class": "blue",
                 },
+            })
+        ```
+
+        ### Add metrics configuration for S3 directory bucket
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        available = aws.get_availability_zones(state="available")
+        example = aws.s3.DirectoryBucket("example",
+            bucket="example--zoneId--x-s3",
+            location={
+                "name": available.zone_ids[0],
+            })
+        example_access_point = aws.s3.AccessPoint("example-access-point",
+            bucket=example.id,
+            name="example--zoneId--xa-s3")
+        example_bucket_metric = aws.s3.BucketMetric("example-bucket-metric",
+            bucket=example.id,
+            name="ExampleBucketMetricForDirectoryBuckets",
+            filter={
+                "access_point": example_access_point.arn,
+                "prefix": "documents/",
             })
         ```
 
@@ -259,8 +281,6 @@ class BucketMetric(pulumi.CustomResource):
         """
         Provides a S3 bucket [metrics configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html) resource.
 
-        > This resource cannot be used with S3 directory buckets.
-
         ## Example Usage
 
         ### Add metrics configuration for entire S3 bucket
@@ -313,6 +333,30 @@ class BucketMetric(pulumi.CustomResource):
                     "priority": "high",
                     "class": "blue",
                 },
+            })
+        ```
+
+        ### Add metrics configuration for S3 directory bucket
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        available = aws.get_availability_zones(state="available")
+        example = aws.s3.DirectoryBucket("example",
+            bucket="example--zoneId--x-s3",
+            location={
+                "name": available.zone_ids[0],
+            })
+        example_access_point = aws.s3.AccessPoint("example-access-point",
+            bucket=example.id,
+            name="example--zoneId--xa-s3")
+        example_bucket_metric = aws.s3.BucketMetric("example-bucket-metric",
+            bucket=example.id,
+            name="ExampleBucketMetricForDirectoryBuckets",
+            filter={
+                "access_point": example_access_point.arn,
+                "prefix": "documents/",
             })
         ```
 

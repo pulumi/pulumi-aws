@@ -110,6 +110,9 @@ export class CapacityProvider extends pulumi.CustomResource {
      * Configuration block for instance requirements settings. See Instance Requirements below.
      */
     declare public readonly instanceRequirements: pulumi.Output<outputs.lambda.CapacityProviderInstanceRequirement[]>;
+    /**
+     * ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+     */
     declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
      * The name of the Capacity Provider.
@@ -204,6 +207,9 @@ export interface CapacityProviderState {
      * Configuration block for instance requirements settings. See Instance Requirements below.
      */
     instanceRequirements?: pulumi.Input<pulumi.Input<inputs.lambda.CapacityProviderInstanceRequirement>[]>;
+    /**
+     * ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+     */
     kmsKeyArn?: pulumi.Input<string>;
     /**
      * The name of the Capacity Provider.
@@ -246,6 +252,9 @@ export interface CapacityProviderArgs {
      * Configuration block for instance requirements settings. See Instance Requirements below.
      */
     instanceRequirements?: pulumi.Input<pulumi.Input<inputs.lambda.CapacityProviderInstanceRequirement>[]>;
+    /**
+     * ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+     */
     kmsKeyArn?: pulumi.Input<string>;
     /**
      * The name of the Capacity Provider.

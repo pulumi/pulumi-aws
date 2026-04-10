@@ -6,6 +6,8 @@ package com.pulumi.aws.cloudformation.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -14,6 +16,21 @@ import javax.annotation.Nullable;
 public final class StackSetAutoDeploymentArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final StackSetAutoDeploymentArgs Empty = new StackSetAutoDeploymentArgs();
+
+    /**
+     * A list of StackSet ARNs that this StackSet depends on for auto-deployment operations. When auto-deployment is triggered, operations will be sequenced to ensure all dependencies complete successfully before this StackSet&#39;s operation begins.
+     * 
+     */
+    @Import(name="dependsOnStackSets")
+    private @Nullable Output<List<String>> dependsOnStackSets;
+
+    /**
+     * @return A list of StackSet ARNs that this StackSet depends on for auto-deployment operations. When auto-deployment is triggered, operations will be sequenced to ensure all dependencies complete successfully before this StackSet&#39;s operation begins.
+     * 
+     */
+    public Optional<Output<List<String>>> dependsOnStackSets() {
+        return Optional.ofNullable(this.dependsOnStackSets);
+    }
 
     /**
      * Whether or not auto-deployment is enabled.
@@ -48,6 +65,7 @@ public final class StackSetAutoDeploymentArgs extends com.pulumi.resources.Resou
     private StackSetAutoDeploymentArgs() {}
 
     private StackSetAutoDeploymentArgs(StackSetAutoDeploymentArgs $) {
+        this.dependsOnStackSets = $.dependsOnStackSets;
         this.enabled = $.enabled;
         this.retainStacksOnAccountRemoval = $.retainStacksOnAccountRemoval;
     }
@@ -68,6 +86,37 @@ public final class StackSetAutoDeploymentArgs extends com.pulumi.resources.Resou
 
         public Builder(StackSetAutoDeploymentArgs defaults) {
             $ = new StackSetAutoDeploymentArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param dependsOnStackSets A list of StackSet ARNs that this StackSet depends on for auto-deployment operations. When auto-deployment is triggered, operations will be sequenced to ensure all dependencies complete successfully before this StackSet&#39;s operation begins.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dependsOnStackSets(@Nullable Output<List<String>> dependsOnStackSets) {
+            $.dependsOnStackSets = dependsOnStackSets;
+            return this;
+        }
+
+        /**
+         * @param dependsOnStackSets A list of StackSet ARNs that this StackSet depends on for auto-deployment operations. When auto-deployment is triggered, operations will be sequenced to ensure all dependencies complete successfully before this StackSet&#39;s operation begins.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dependsOnStackSets(List<String> dependsOnStackSets) {
+            return dependsOnStackSets(Output.of(dependsOnStackSets));
+        }
+
+        /**
+         * @param dependsOnStackSets A list of StackSet ARNs that this StackSet depends on for auto-deployment operations. When auto-deployment is triggered, operations will be sequenced to ensure all dependencies complete successfully before this StackSet&#39;s operation begins.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dependsOnStackSets(String... dependsOnStackSets) {
+            return dependsOnStackSets(List.of(dependsOnStackSets));
         }
 
         /**

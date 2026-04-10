@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class ExpressGatewayServiceScalingTargetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Metric to use for auto-scaling. Valid values are `CPU` and `MEMORY`.
+        /// Metric to use for auto-scaling. Valid values are `AVERAGE_CPU`, `AVERAGE_MEMORY` and `REQUEST_COUNT_PER_TARGET`.
         /// </summary>
         [Input("autoScalingMetric", required: true)]
         public Input<string> AutoScalingMetric { get; set; } = null!;

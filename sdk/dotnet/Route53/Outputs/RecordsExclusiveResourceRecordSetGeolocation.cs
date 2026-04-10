@@ -13,8 +13,19 @@ namespace Pulumi.Aws.Route53.Outputs
     [OutputType]
     public sealed class RecordsExclusiveResourceRecordSetGeolocation
     {
+        /// <summary>
+        /// Two-letter continent code.
+        /// See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
+        /// </summary>
         public readonly string? ContinentCode;
+        /// <summary>
+        /// Two-letter country code.
+        /// See the ISO standard linked from the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
+        /// </summary>
         public readonly string? CountryCode;
+        /// <summary>
+        /// Subdivision code.
+        /// </summary>
         public readonly string? SubdivisionCode;
 
         [OutputConstructor]

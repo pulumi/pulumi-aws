@@ -12,14 +12,18 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * resource "aws.quicksight.CustomPermissions" "example" {
- *   customPermissionsName = "example-permissions"
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
  *
- *   capabilities {
- *     printReports    = "DENY"
- *     shareDashboards = "DENY"
- *   }
- * }
+ * const example = new aws.quicksight.CustomPermissions("example", {
+ *     customPermissionsName: "example-permissions",
+ *     capabilities: {
+ *         printReports: "DENY",
+ *         shareDashboards: "DENY",
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *

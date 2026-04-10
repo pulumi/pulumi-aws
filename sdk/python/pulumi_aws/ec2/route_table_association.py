@@ -190,21 +190,32 @@ class RouteTableAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        a = aws.ec2.RouteTableAssociation("a",
-            subnet_id=foo["id"],
-            route_table_id=bar["id"])
+        example = aws.ec2.RouteTableAssociation("example",
+            subnet_id=example_aws_subnet["id"],
+            route_table_id=example_aws_route_table["id"])
         ```
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        b = aws.ec2.RouteTableAssociation("b",
-            gateway_id=foo["id"],
-            route_table_id=bar["id"])
+        example = aws.ec2.RouteTableAssociation("example",
+            gateway_id=example_aws_internet_gateway["id"],
+            route_table_id=example_aws_route_table["id"])
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `id` - (String) ID of the association.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         With EC2 Internet Gateways:
 
@@ -213,13 +224,13 @@ class RouteTableAssociation(pulumi.CustomResource):
         With EC2 Subnets:
 
         ```sh
-        $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72
+        $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation example subnet-6777656e646f6c796e/rtb-656c65616e6f72
         ```
 
         With EC2 Internet Gateways:
 
         ```sh
-        $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
+        $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation example igw-01b3a60780f8d034a/rtb-656c65616e6f72
         ```
 
 
@@ -248,21 +259,32 @@ class RouteTableAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        a = aws.ec2.RouteTableAssociation("a",
-            subnet_id=foo["id"],
-            route_table_id=bar["id"])
+        example = aws.ec2.RouteTableAssociation("example",
+            subnet_id=example_aws_subnet["id"],
+            route_table_id=example_aws_route_table["id"])
         ```
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        b = aws.ec2.RouteTableAssociation("b",
-            gateway_id=foo["id"],
-            route_table_id=bar["id"])
+        example = aws.ec2.RouteTableAssociation("example",
+            gateway_id=example_aws_internet_gateway["id"],
+            route_table_id=example_aws_route_table["id"])
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `id` - (String) ID of the association.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         With EC2 Internet Gateways:
 
@@ -271,13 +293,13 @@ class RouteTableAssociation(pulumi.CustomResource):
         With EC2 Subnets:
 
         ```sh
-        $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72
+        $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation example subnet-6777656e646f6c796e/rtb-656c65616e6f72
         ```
 
         With EC2 Internet Gateways:
 
         ```sh
-        $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
+        $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation example igw-01b3a60780f8d034a/rtb-656c65616e6f72
         ```
 
 

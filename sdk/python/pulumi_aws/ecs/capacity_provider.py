@@ -321,7 +321,7 @@ class CapacityProvider(pulumi.CustomResource):
                 "propagate_tags": "CAPACITY_PROVIDER",
                 "instance_launch_template": {
                     "ec2_instance_profile_arn": ecs_instance["arn"],
-                    "monitoring": "ENABLED",
+                    "monitoring": "DETAILED",
                     "network_configuration": {
                         "subnets": [example_aws_subnet["id"]],
                         "security_groups": [example_aws_security_group["id"]],
@@ -426,7 +426,7 @@ class CapacityProvider(pulumi.CustomResource):
                 "propagate_tags": "CAPACITY_PROVIDER",
                 "instance_launch_template": {
                     "ec2_instance_profile_arn": ecs_instance["arn"],
-                    "monitoring": "ENABLED",
+                    "monitoring": "DETAILED",
                     "network_configuration": {
                         "subnets": [example_aws_subnet["id"]],
                         "security_groups": [example_aws_security_group["id"]],

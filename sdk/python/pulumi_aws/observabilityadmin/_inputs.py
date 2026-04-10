@@ -441,7 +441,8 @@ class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgsDict
     """
     Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
     """
-    log_group_selection_criteria: pulumi.Input[_builtins.str]
+    data_source_selection_criteria: NotRequired[pulumi.Input[_builtins.str]]
+    log_group_selection_criteria: NotRequired[pulumi.Input[_builtins.str]]
     """
     Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE '/aws/lambda%'`. Must be between 1 and 2000 characters.
     """
@@ -450,13 +451,17 @@ class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgsDict
 class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs:
     def __init__(__self__, *,
                  encrypted_log_group_strategy: pulumi.Input[_builtins.str],
-                 log_group_selection_criteria: pulumi.Input[_builtins.str]):
+                 data_source_selection_criteria: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_group_selection_criteria: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] encrypted_log_group_strategy: Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
         :param pulumi.Input[_builtins.str] log_group_selection_criteria: Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE '/aws/lambda%'`. Must be between 1 and 2000 characters.
         """
         pulumi.set(__self__, "encrypted_log_group_strategy", encrypted_log_group_strategy)
-        pulumi.set(__self__, "log_group_selection_criteria", log_group_selection_criteria)
+        if data_source_selection_criteria is not None:
+            pulumi.set(__self__, "data_source_selection_criteria", data_source_selection_criteria)
+        if log_group_selection_criteria is not None:
+            pulumi.set(__self__, "log_group_selection_criteria", log_group_selection_criteria)
 
     @_builtins.property
     @pulumi.getter(name="encryptedLogGroupStrategy")
@@ -471,15 +476,24 @@ class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs:
         pulumi.set(self, "encrypted_log_group_strategy", value)
 
     @_builtins.property
+    @pulumi.getter(name="dataSourceSelectionCriteria")
+    def data_source_selection_criteria(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "data_source_selection_criteria")
+
+    @data_source_selection_criteria.setter
+    def data_source_selection_criteria(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "data_source_selection_criteria", value)
+
+    @_builtins.property
     @pulumi.getter(name="logGroupSelectionCriteria")
-    def log_group_selection_criteria(self) -> pulumi.Input[_builtins.str]:
+    def log_group_selection_criteria(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE '/aws/lambda%'`. Must be between 1 and 2000 characters.
         """
         return pulumi.get(self, "log_group_selection_criteria")
 
     @log_group_selection_criteria.setter
-    def log_group_selection_criteria(self, value: pulumi.Input[_builtins.str]):
+    def log_group_selection_criteria(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "log_group_selection_criteria", value)
 
 

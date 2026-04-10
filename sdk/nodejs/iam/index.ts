@@ -76,6 +76,16 @@ export const getRole: typeof import("./getRole").getRole = null as any;
 export const getRoleOutput: typeof import("./getRole").getRoleOutput = null as any;
 utilities.lazyLoad(exports, ["getRole","getRoleOutput"], () => require("./getRole"));
 
+export { GetRolePoliciesArgs, GetRolePoliciesResult, GetRolePoliciesOutputArgs } from "./getRolePolicies";
+export const getRolePolicies: typeof import("./getRolePolicies").getRolePolicies = null as any;
+export const getRolePoliciesOutput: typeof import("./getRolePolicies").getRolePoliciesOutput = null as any;
+utilities.lazyLoad(exports, ["getRolePolicies","getRolePoliciesOutput"], () => require("./getRolePolicies"));
+
+export { GetRolePolicyAttachmentsArgs, GetRolePolicyAttachmentsResult, GetRolePolicyAttachmentsOutputArgs } from "./getRolePolicyAttachments";
+export const getRolePolicyAttachments: typeof import("./getRolePolicyAttachments").getRolePolicyAttachments = null as any;
+export const getRolePolicyAttachmentsOutput: typeof import("./getRolePolicyAttachments").getRolePolicyAttachmentsOutput = null as any;
+utilities.lazyLoad(exports, ["getRolePolicyAttachments","getRolePolicyAttachmentsOutput"], () => require("./getRolePolicyAttachments"));
+
 export { GetRolesArgs, GetRolesResult, GetRolesOutputArgs } from "./getRoles";
 export const getRoles: typeof import("./getRoles").getRoles = null as any;
 export const getRolesOutput: typeof import("./getRoles").getRolesOutput = null as any;

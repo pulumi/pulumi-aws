@@ -12,12 +12,23 @@ namespace Pulumi.Aws.Route53.Inputs
 
     public sealed class RecordsExclusiveResourceRecordSetGeolocationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Two-letter continent code.
+        /// See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
+        /// </summary>
         [Input("continentCode")]
         public Input<string>? ContinentCode { get; set; }
 
+        /// <summary>
+        /// Two-letter country code.
+        /// See the ISO standard linked from the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
+        /// </summary>
         [Input("countryCode")]
         public Input<string>? CountryCode { get; set; }
 
+        /// <summary>
+        /// Subdivision code.
+        /// </summary>
         [Input("subdivisionCode")]
         public Input<string>? SubdivisionCode { get; set; }
 

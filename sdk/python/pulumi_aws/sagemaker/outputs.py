@@ -293,6 +293,40 @@ __all__ = [
     'SpaceSpaceSettingsSpaceStorageSettings',
     'SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings',
     'SpaceSpaceSharingSettings',
+    'TrainingJobAlgorithmSpecification',
+    'TrainingJobAlgorithmSpecificationMetricDefinition',
+    'TrainingJobAlgorithmSpecificationTrainingImageConfig',
+    'TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfig',
+    'TrainingJobCheckpointConfig',
+    'TrainingJobDebugHookConfig',
+    'TrainingJobDebugHookConfigCollectionConfiguration',
+    'TrainingJobDebugRuleConfiguration',
+    'TrainingJobExperimentConfig',
+    'TrainingJobInfraCheckConfig',
+    'TrainingJobInputDataConfig',
+    'TrainingJobInputDataConfigDataSource',
+    'TrainingJobInputDataConfigDataSourceFileSystemDataSource',
+    'TrainingJobInputDataConfigDataSourceS3DataSource',
+    'TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfig',
+    'TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfig',
+    'TrainingJobInputDataConfigShuffleConfig',
+    'TrainingJobMlflowConfig',
+    'TrainingJobModelPackageConfig',
+    'TrainingJobOutputDataConfig',
+    'TrainingJobProfilerConfig',
+    'TrainingJobProfilerRuleConfiguration',
+    'TrainingJobRemoteDebugConfig',
+    'TrainingJobResourceConfig',
+    'TrainingJobResourceConfigInstanceGroup',
+    'TrainingJobResourceConfigInstancePlacementConfig',
+    'TrainingJobResourceConfigInstancePlacementConfigPlacementSpecification',
+    'TrainingJobRetryStrategy',
+    'TrainingJobServerlessJobConfig',
+    'TrainingJobSessionChainingConfig',
+    'TrainingJobStoppingCondition',
+    'TrainingJobTensorBoardOutputConfig',
+    'TrainingJobTimeouts',
+    'TrainingJobVpcConfig',
     'UserProfileUserSettings',
     'UserProfileUserSettingsCanvasAppSettings',
     'UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings',
@@ -17061,6 +17095,2207 @@ class SpaceSpaceSharingSettings(dict):
         Specifies the sharing type of the space. Valid values are `Private` and `Shared`.
         """
         return pulumi.get(self, "sharing_type")
+
+
+@pulumi.output_type
+class TrainingJobAlgorithmSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "algorithmName":
+            suggest = "algorithm_name"
+        elif key == "containerArguments":
+            suggest = "container_arguments"
+        elif key == "containerEntrypoints":
+            suggest = "container_entrypoints"
+        elif key == "enableSagemakerMetricsTimeSeries":
+            suggest = "enable_sagemaker_metrics_time_series"
+        elif key == "metricDefinitions":
+            suggest = "metric_definitions"
+        elif key == "trainingImage":
+            suggest = "training_image"
+        elif key == "trainingImageConfig":
+            suggest = "training_image_config"
+        elif key == "trainingInputMode":
+            suggest = "training_input_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobAlgorithmSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobAlgorithmSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobAlgorithmSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 algorithm_name: Optional[_builtins.str] = None,
+                 container_arguments: Optional[Sequence[_builtins.str]] = None,
+                 container_entrypoints: Optional[Sequence[_builtins.str]] = None,
+                 enable_sagemaker_metrics_time_series: Optional[_builtins.bool] = None,
+                 metric_definitions: Optional[Sequence['outputs.TrainingJobAlgorithmSpecificationMetricDefinition']] = None,
+                 training_image: Optional[_builtins.str] = None,
+                 training_image_config: Optional['outputs.TrainingJobAlgorithmSpecificationTrainingImageConfig'] = None,
+                 training_input_mode: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str algorithm_name: Name or ARN of the algorithm resource to use for the training job.
+        :param Sequence[_builtins.str] container_arguments: List of arguments for the container entrypoint. Maximum of 100 entries.
+        :param Sequence[_builtins.str] container_entrypoints: List of entrypoint commands for the container. Maximum of 100 entries.
+        :param _builtins.bool enable_sagemaker_metrics_time_series: Whether to enable SageMaker AI metrics time series collection.
+        :param Sequence['TrainingJobAlgorithmSpecificationMetricDefinitionArgs'] metric_definitions: List of metric definitions for the training job. Maximum of 40. Use this to extract custom metrics from your own training container logs. SageMaker can still publish built-in metrics for built-in algorithms and supported prebuilt images when this block is omitted. See `metric_definitions` below.
+        :param _builtins.str training_image: Registry path of the Docker image that contains the training algorithm.
+        :param 'TrainingJobAlgorithmSpecificationTrainingImageConfigArgs' training_image_config: Training image configuration. See `training_image_config` below.
+        :param _builtins.str training_input_mode: Input mode for the training data. Valid values: `File`, `Pipe`, `FastFile`.
+        """
+        if algorithm_name is not None:
+            pulumi.set(__self__, "algorithm_name", algorithm_name)
+        if container_arguments is not None:
+            pulumi.set(__self__, "container_arguments", container_arguments)
+        if container_entrypoints is not None:
+            pulumi.set(__self__, "container_entrypoints", container_entrypoints)
+        if enable_sagemaker_metrics_time_series is not None:
+            pulumi.set(__self__, "enable_sagemaker_metrics_time_series", enable_sagemaker_metrics_time_series)
+        if metric_definitions is not None:
+            pulumi.set(__self__, "metric_definitions", metric_definitions)
+        if training_image is not None:
+            pulumi.set(__self__, "training_image", training_image)
+        if training_image_config is not None:
+            pulumi.set(__self__, "training_image_config", training_image_config)
+        if training_input_mode is not None:
+            pulumi.set(__self__, "training_input_mode", training_input_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="algorithmName")
+    def algorithm_name(self) -> Optional[_builtins.str]:
+        """
+        Name or ARN of the algorithm resource to use for the training job.
+        """
+        return pulumi.get(self, "algorithm_name")
+
+    @_builtins.property
+    @pulumi.getter(name="containerArguments")
+    def container_arguments(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of arguments for the container entrypoint. Maximum of 100 entries.
+        """
+        return pulumi.get(self, "container_arguments")
+
+    @_builtins.property
+    @pulumi.getter(name="containerEntrypoints")
+    def container_entrypoints(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of entrypoint commands for the container. Maximum of 100 entries.
+        """
+        return pulumi.get(self, "container_entrypoints")
+
+    @_builtins.property
+    @pulumi.getter(name="enableSagemakerMetricsTimeSeries")
+    def enable_sagemaker_metrics_time_series(self) -> Optional[_builtins.bool]:
+        """
+        Whether to enable SageMaker AI metrics time series collection.
+        """
+        return pulumi.get(self, "enable_sagemaker_metrics_time_series")
+
+    @_builtins.property
+    @pulumi.getter(name="metricDefinitions")
+    def metric_definitions(self) -> Optional[Sequence['outputs.TrainingJobAlgorithmSpecificationMetricDefinition']]:
+        """
+        List of metric definitions for the training job. Maximum of 40. Use this to extract custom metrics from your own training container logs. SageMaker can still publish built-in metrics for built-in algorithms and supported prebuilt images when this block is omitted. See `metric_definitions` below.
+        """
+        return pulumi.get(self, "metric_definitions")
+
+    @_builtins.property
+    @pulumi.getter(name="trainingImage")
+    def training_image(self) -> Optional[_builtins.str]:
+        """
+        Registry path of the Docker image that contains the training algorithm.
+        """
+        return pulumi.get(self, "training_image")
+
+    @_builtins.property
+    @pulumi.getter(name="trainingImageConfig")
+    def training_image_config(self) -> Optional['outputs.TrainingJobAlgorithmSpecificationTrainingImageConfig']:
+        """
+        Training image configuration. See `training_image_config` below.
+        """
+        return pulumi.get(self, "training_image_config")
+
+    @_builtins.property
+    @pulumi.getter(name="trainingInputMode")
+    def training_input_mode(self) -> Optional[_builtins.str]:
+        """
+        Input mode for the training data. Valid values: `File`, `Pipe`, `FastFile`.
+        """
+        return pulumi.get(self, "training_input_mode")
+
+
+@pulumi.output_type
+class TrainingJobAlgorithmSpecificationMetricDefinition(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 regex: _builtins.str):
+        """
+        :param _builtins.str name: Name of the metric.
+        :param _builtins.str regex: Regular expression that searches the output of the training job and captures the value of the metric.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "regex", regex)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the metric.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def regex(self) -> _builtins.str:
+        """
+        Regular expression that searches the output of the training job and captures the value of the metric.
+        """
+        return pulumi.get(self, "regex")
+
+
+@pulumi.output_type
+class TrainingJobAlgorithmSpecificationTrainingImageConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trainingRepositoryAccessMode":
+            suggest = "training_repository_access_mode"
+        elif key == "trainingRepositoryAuthConfig":
+            suggest = "training_repository_auth_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobAlgorithmSpecificationTrainingImageConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobAlgorithmSpecificationTrainingImageConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobAlgorithmSpecificationTrainingImageConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 training_repository_access_mode: Optional[_builtins.str] = None,
+                 training_repository_auth_config: Optional['outputs.TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfig'] = None):
+        """
+        :param _builtins.str training_repository_access_mode: Access mode for the training image repository.
+        :param 'TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigArgs' training_repository_auth_config: Authentication configuration for the training image repository. See `training_repository_auth_config` below.
+        """
+        if training_repository_access_mode is not None:
+            pulumi.set(__self__, "training_repository_access_mode", training_repository_access_mode)
+        if training_repository_auth_config is not None:
+            pulumi.set(__self__, "training_repository_auth_config", training_repository_auth_config)
+
+    @_builtins.property
+    @pulumi.getter(name="trainingRepositoryAccessMode")
+    def training_repository_access_mode(self) -> Optional[_builtins.str]:
+        """
+        Access mode for the training image repository.
+        """
+        return pulumi.get(self, "training_repository_access_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="trainingRepositoryAuthConfig")
+    def training_repository_auth_config(self) -> Optional['outputs.TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfig']:
+        """
+        Authentication configuration for the training image repository. See `training_repository_auth_config` below.
+        """
+        return pulumi.get(self, "training_repository_auth_config")
+
+
+@pulumi.output_type
+class TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trainingRepositoryCredentialsProviderArn":
+            suggest = "training_repository_credentials_provider_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 training_repository_credentials_provider_arn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str training_repository_credentials_provider_arn: ARN of the Lambda function that provides credentials to authenticate to the private Docker registry.
+        """
+        if training_repository_credentials_provider_arn is not None:
+            pulumi.set(__self__, "training_repository_credentials_provider_arn", training_repository_credentials_provider_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="trainingRepositoryCredentialsProviderArn")
+    def training_repository_credentials_provider_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the Lambda function that provides credentials to authenticate to the private Docker registry.
+        """
+        return pulumi.get(self, "training_repository_credentials_provider_arn")
+
+
+@pulumi.output_type
+class TrainingJobCheckpointConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Uri":
+            suggest = "s3_uri"
+        elif key == "localPath":
+            suggest = "local_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobCheckpointConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobCheckpointConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobCheckpointConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_uri: _builtins.str,
+                 local_path: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str s3_uri: S3 URI where checkpoints are stored.
+        :param _builtins.str local_path: Local path where checkpoints are written.
+        """
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if local_path is not None:
+            pulumi.set(__self__, "local_path", local_path)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> _builtins.str:
+        """
+        S3 URI where checkpoints are stored.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> Optional[_builtins.str]:
+        """
+        Local path where checkpoints are written.
+        """
+        return pulumi.get(self, "local_path")
+
+
+@pulumi.output_type
+class TrainingJobDebugHookConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3OutputPath":
+            suggest = "s3_output_path"
+        elif key == "collectionConfigurations":
+            suggest = "collection_configurations"
+        elif key == "hookParameters":
+            suggest = "hook_parameters"
+        elif key == "localPath":
+            suggest = "local_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobDebugHookConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobDebugHookConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobDebugHookConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_output_path: _builtins.str,
+                 collection_configurations: Optional[Sequence['outputs.TrainingJobDebugHookConfigCollectionConfiguration']] = None,
+                 hook_parameters: Optional[Mapping[str, _builtins.str]] = None,
+                 local_path: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str s3_output_path: S3 URI where debug output is stored.
+        :param Sequence['TrainingJobDebugHookConfigCollectionConfigurationArgs'] collection_configurations: List of tensor collections to configure for the debug hook. Maximum of 20. See `collection_configurations` below.
+        :param Mapping[str, _builtins.str] hook_parameters: Map of parameters for the debug hook. Maximum of 20 entries.
+        :param _builtins.str local_path: Local path where debug output is written.
+        """
+        pulumi.set(__self__, "s3_output_path", s3_output_path)
+        if collection_configurations is not None:
+            pulumi.set(__self__, "collection_configurations", collection_configurations)
+        if hook_parameters is not None:
+            pulumi.set(__self__, "hook_parameters", hook_parameters)
+        if local_path is not None:
+            pulumi.set(__self__, "local_path", local_path)
+
+    @_builtins.property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> _builtins.str:
+        """
+        S3 URI where debug output is stored.
+        """
+        return pulumi.get(self, "s3_output_path")
+
+    @_builtins.property
+    @pulumi.getter(name="collectionConfigurations")
+    def collection_configurations(self) -> Optional[Sequence['outputs.TrainingJobDebugHookConfigCollectionConfiguration']]:
+        """
+        List of tensor collections to configure for the debug hook. Maximum of 20. See `collection_configurations` below.
+        """
+        return pulumi.get(self, "collection_configurations")
+
+    @_builtins.property
+    @pulumi.getter(name="hookParameters")
+    def hook_parameters(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Map of parameters for the debug hook. Maximum of 20 entries.
+        """
+        return pulumi.get(self, "hook_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> Optional[_builtins.str]:
+        """
+        Local path where debug output is written.
+        """
+        return pulumi.get(self, "local_path")
+
+
+@pulumi.output_type
+class TrainingJobDebugHookConfigCollectionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "collectionName":
+            suggest = "collection_name"
+        elif key == "collectionParameters":
+            suggest = "collection_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobDebugHookConfigCollectionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobDebugHookConfigCollectionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobDebugHookConfigCollectionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 collection_name: Optional[_builtins.str] = None,
+                 collection_parameters: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        :param _builtins.str collection_name: Name of the tensor collection.
+        :param Mapping[str, _builtins.str] collection_parameters: Map of parameters for the tensor collection.
+        """
+        if collection_name is not None:
+            pulumi.set(__self__, "collection_name", collection_name)
+        if collection_parameters is not None:
+            pulumi.set(__self__, "collection_parameters", collection_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="collectionName")
+    def collection_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the tensor collection.
+        """
+        return pulumi.get(self, "collection_name")
+
+    @_builtins.property
+    @pulumi.getter(name="collectionParameters")
+    def collection_parameters(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Map of parameters for the tensor collection.
+        """
+        return pulumi.get(self, "collection_parameters")
+
+
+@pulumi.output_type
+class TrainingJobDebugRuleConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleConfigurationName":
+            suggest = "rule_configuration_name"
+        elif key == "ruleEvaluatorImage":
+            suggest = "rule_evaluator_image"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "localPath":
+            suggest = "local_path"
+        elif key == "ruleParameters":
+            suggest = "rule_parameters"
+        elif key == "s3OutputPath":
+            suggest = "s3_output_path"
+        elif key == "volumeSizeInGb":
+            suggest = "volume_size_in_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobDebugRuleConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobDebugRuleConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobDebugRuleConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_configuration_name: _builtins.str,
+                 rule_evaluator_image: _builtins.str,
+                 instance_type: Optional[_builtins.str] = None,
+                 local_path: Optional[_builtins.str] = None,
+                 rule_parameters: Optional[Mapping[str, _builtins.str]] = None,
+                 s3_output_path: Optional[_builtins.str] = None,
+                 volume_size_in_gb: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str rule_configuration_name: Name of the rule configuration. Must be between 1 and 256 characters.
+        :param _builtins.str rule_evaluator_image: Docker image URI for the rule evaluator.
+        :param _builtins.str instance_type: Instance type to deploy for the debug rule evaluation. Valid values are SageMaker AI processing instance types.
+        :param _builtins.str local_path: Local path where debug rule output is written.
+        :param Mapping[str, _builtins.str] rule_parameters: Map of parameters for the rule configuration. Maximum of 100 entries.
+        :param _builtins.str s3_output_path: S3 URI where rule output is stored.
+        :param _builtins.int volume_size_in_gb: Size of the storage volume for the rule evaluator, in GB.
+        """
+        pulumi.set(__self__, "rule_configuration_name", rule_configuration_name)
+        pulumi.set(__self__, "rule_evaluator_image", rule_evaluator_image)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if local_path is not None:
+            pulumi.set(__self__, "local_path", local_path)
+        if rule_parameters is not None:
+            pulumi.set(__self__, "rule_parameters", rule_parameters)
+        if s3_output_path is not None:
+            pulumi.set(__self__, "s3_output_path", s3_output_path)
+        if volume_size_in_gb is not None:
+            pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleConfigurationName")
+    def rule_configuration_name(self) -> _builtins.str:
+        """
+        Name of the rule configuration. Must be between 1 and 256 characters.
+        """
+        return pulumi.get(self, "rule_configuration_name")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleEvaluatorImage")
+    def rule_evaluator_image(self) -> _builtins.str:
+        """
+        Docker image URI for the rule evaluator.
+        """
+        return pulumi.get(self, "rule_evaluator_image")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[_builtins.str]:
+        """
+        Instance type to deploy for the debug rule evaluation. Valid values are SageMaker AI processing instance types.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @_builtins.property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> Optional[_builtins.str]:
+        """
+        Local path where debug rule output is written.
+        """
+        return pulumi.get(self, "local_path")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleParameters")
+    def rule_parameters(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Map of parameters for the rule configuration. Maximum of 100 entries.
+        """
+        return pulumi.get(self, "rule_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> Optional[_builtins.str]:
+        """
+        S3 URI where rule output is stored.
+        """
+        return pulumi.get(self, "s3_output_path")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeSizeInGb")
+    def volume_size_in_gb(self) -> Optional[_builtins.int]:
+        """
+        Size of the storage volume for the rule evaluator, in GB.
+        """
+        return pulumi.get(self, "volume_size_in_gb")
+
+
+@pulumi.output_type
+class TrainingJobExperimentConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "experimentName":
+            suggest = "experiment_name"
+        elif key == "runName":
+            suggest = "run_name"
+        elif key == "trialComponentDisplayName":
+            suggest = "trial_component_display_name"
+        elif key == "trialName":
+            suggest = "trial_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobExperimentConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobExperimentConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobExperimentConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 experiment_name: Optional[_builtins.str] = None,
+                 run_name: Optional[_builtins.str] = None,
+                 trial_component_display_name: Optional[_builtins.str] = None,
+                 trial_name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str experiment_name: Name of the SageMaker AI Experiment to associate with.
+        :param _builtins.str run_name: Name of the Experiment Run to associate with.
+        :param _builtins.str trial_component_display_name: Display name for the trial component.
+        :param _builtins.str trial_name: Name of the SageMaker AI Trial to associate with.
+        """
+        if experiment_name is not None:
+            pulumi.set(__self__, "experiment_name", experiment_name)
+        if run_name is not None:
+            pulumi.set(__self__, "run_name", run_name)
+        if trial_component_display_name is not None:
+            pulumi.set(__self__, "trial_component_display_name", trial_component_display_name)
+        if trial_name is not None:
+            pulumi.set(__self__, "trial_name", trial_name)
+
+    @_builtins.property
+    @pulumi.getter(name="experimentName")
+    def experiment_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the SageMaker AI Experiment to associate with.
+        """
+        return pulumi.get(self, "experiment_name")
+
+    @_builtins.property
+    @pulumi.getter(name="runName")
+    def run_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the Experiment Run to associate with.
+        """
+        return pulumi.get(self, "run_name")
+
+    @_builtins.property
+    @pulumi.getter(name="trialComponentDisplayName")
+    def trial_component_display_name(self) -> Optional[_builtins.str]:
+        """
+        Display name for the trial component.
+        """
+        return pulumi.get(self, "trial_component_display_name")
+
+    @_builtins.property
+    @pulumi.getter(name="trialName")
+    def trial_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the SageMaker AI Trial to associate with.
+        """
+        return pulumi.get(self, "trial_name")
+
+
+@pulumi.output_type
+class TrainingJobInfraCheckConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableInfraCheck":
+            suggest = "enable_infra_check"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobInfraCheckConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobInfraCheckConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobInfraCheckConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_infra_check: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool enable_infra_check: Whether to enable infrastructure health checks before training.
+        """
+        if enable_infra_check is not None:
+            pulumi.set(__self__, "enable_infra_check", enable_infra_check)
+
+    @_builtins.property
+    @pulumi.getter(name="enableInfraCheck")
+    def enable_infra_check(self) -> Optional[_builtins.bool]:
+        """
+        Whether to enable infrastructure health checks before training.
+        """
+        return pulumi.get(self, "enable_infra_check")
+
+
+@pulumi.output_type
+class TrainingJobInputDataConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "channelName":
+            suggest = "channel_name"
+        elif key == "compressionType":
+            suggest = "compression_type"
+        elif key == "contentType":
+            suggest = "content_type"
+        elif key == "dataSource":
+            suggest = "data_source"
+        elif key == "inputMode":
+            suggest = "input_mode"
+        elif key == "recordWrapperType":
+            suggest = "record_wrapper_type"
+        elif key == "shuffleConfig":
+            suggest = "shuffle_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobInputDataConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobInputDataConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobInputDataConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 channel_name: _builtins.str,
+                 compression_type: Optional[_builtins.str] = None,
+                 content_type: Optional[_builtins.str] = None,
+                 data_source: Optional['outputs.TrainingJobInputDataConfigDataSource'] = None,
+                 input_mode: Optional[_builtins.str] = None,
+                 record_wrapper_type: Optional[_builtins.str] = None,
+                 shuffle_config: Optional['outputs.TrainingJobInputDataConfigShuffleConfig'] = None):
+        """
+        :param _builtins.str channel_name: Name of the channel. Must be between 1 and 64 characters.
+        :param _builtins.str compression_type: Compression type for the input data. Valid values: `None`, `Gzip`.
+        :param _builtins.str content_type: MIME type of the input data.
+        :param 'TrainingJobInputDataConfigDataSourceArgs' data_source: Location of the channel data. See `data_source` below.
+        :param _builtins.str input_mode: Input mode for the channel data. Valid values: `File`, `Pipe`, `FastFile`.
+        :param _builtins.str record_wrapper_type: Record wrapper type. Valid values: `None`, `RecordIO`.
+        :param 'TrainingJobInputDataConfigShuffleConfigArgs' shuffle_config: Configuration for shuffling data in the channel. See `shuffle_config` below.
+        """
+        pulumi.set(__self__, "channel_name", channel_name)
+        if compression_type is not None:
+            pulumi.set(__self__, "compression_type", compression_type)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
+        if input_mode is not None:
+            pulumi.set(__self__, "input_mode", input_mode)
+        if record_wrapper_type is not None:
+            pulumi.set(__self__, "record_wrapper_type", record_wrapper_type)
+        if shuffle_config is not None:
+            pulumi.set(__self__, "shuffle_config", shuffle_config)
+
+    @_builtins.property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> _builtins.str:
+        """
+        Name of the channel. Must be between 1 and 64 characters.
+        """
+        return pulumi.get(self, "channel_name")
+
+    @_builtins.property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> Optional[_builtins.str]:
+        """
+        Compression type for the input data. Valid values: `None`, `Gzip`.
+        """
+        return pulumi.get(self, "compression_type")
+
+    @_builtins.property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[_builtins.str]:
+        """
+        MIME type of the input data.
+        """
+        return pulumi.get(self, "content_type")
+
+    @_builtins.property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> Optional['outputs.TrainingJobInputDataConfigDataSource']:
+        """
+        Location of the channel data. See `data_source` below.
+        """
+        return pulumi.get(self, "data_source")
+
+    @_builtins.property
+    @pulumi.getter(name="inputMode")
+    def input_mode(self) -> Optional[_builtins.str]:
+        """
+        Input mode for the channel data. Valid values: `File`, `Pipe`, `FastFile`.
+        """
+        return pulumi.get(self, "input_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="recordWrapperType")
+    def record_wrapper_type(self) -> Optional[_builtins.str]:
+        """
+        Record wrapper type. Valid values: `None`, `RecordIO`.
+        """
+        return pulumi.get(self, "record_wrapper_type")
+
+    @_builtins.property
+    @pulumi.getter(name="shuffleConfig")
+    def shuffle_config(self) -> Optional['outputs.TrainingJobInputDataConfigShuffleConfig']:
+        """
+        Configuration for shuffling data in the channel. See `shuffle_config` below.
+        """
+        return pulumi.get(self, "shuffle_config")
+
+
+@pulumi.output_type
+class TrainingJobInputDataConfigDataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileSystemDataSource":
+            suggest = "file_system_data_source"
+        elif key == "s3DataSource":
+            suggest = "s3_data_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobInputDataConfigDataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobInputDataConfigDataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobInputDataConfigDataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_system_data_source: Optional['outputs.TrainingJobInputDataConfigDataSourceFileSystemDataSource'] = None,
+                 s3_data_source: Optional['outputs.TrainingJobInputDataConfigDataSourceS3DataSource'] = None):
+        """
+        :param 'TrainingJobInputDataConfigDataSourceFileSystemDataSourceArgs' file_system_data_source: File system data source. See `file_system_data_source` below.
+        :param 'TrainingJobInputDataConfigDataSourceS3DataSourceArgs' s3_data_source: S3 data source. See `s3_data_source` below.
+        """
+        if file_system_data_source is not None:
+            pulumi.set(__self__, "file_system_data_source", file_system_data_source)
+        if s3_data_source is not None:
+            pulumi.set(__self__, "s3_data_source", s3_data_source)
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemDataSource")
+    def file_system_data_source(self) -> Optional['outputs.TrainingJobInputDataConfigDataSourceFileSystemDataSource']:
+        """
+        File system data source. See `file_system_data_source` below.
+        """
+        return pulumi.get(self, "file_system_data_source")
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataSource")
+    def s3_data_source(self) -> Optional['outputs.TrainingJobInputDataConfigDataSourceS3DataSource']:
+        """
+        S3 data source. See `s3_data_source` below.
+        """
+        return pulumi.get(self, "s3_data_source")
+
+
+@pulumi.output_type
+class TrainingJobInputDataConfigDataSourceFileSystemDataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "directoryPath":
+            suggest = "directory_path"
+        elif key == "fileSystemAccessMode":
+            suggest = "file_system_access_mode"
+        elif key == "fileSystemId":
+            suggest = "file_system_id"
+        elif key == "fileSystemType":
+            suggest = "file_system_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobInputDataConfigDataSourceFileSystemDataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobInputDataConfigDataSourceFileSystemDataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobInputDataConfigDataSourceFileSystemDataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 directory_path: _builtins.str,
+                 file_system_access_mode: _builtins.str,
+                 file_system_id: _builtins.str,
+                 file_system_type: _builtins.str):
+        """
+        :param _builtins.str directory_path: Full path to the directory on the file system.
+        :param _builtins.str file_system_access_mode: Access mode for the file system. Valid values: `ro`, `rw`.
+        :param _builtins.str file_system_id: File system ID.
+        :param _builtins.str file_system_type: File system type. Valid values: `EFS`, `FSxLustre`.
+        """
+        pulumi.set(__self__, "directory_path", directory_path)
+        pulumi.set(__self__, "file_system_access_mode", file_system_access_mode)
+        pulumi.set(__self__, "file_system_id", file_system_id)
+        pulumi.set(__self__, "file_system_type", file_system_type)
+
+    @_builtins.property
+    @pulumi.getter(name="directoryPath")
+    def directory_path(self) -> _builtins.str:
+        """
+        Full path to the directory on the file system.
+        """
+        return pulumi.get(self, "directory_path")
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemAccessMode")
+    def file_system_access_mode(self) -> _builtins.str:
+        """
+        Access mode for the file system. Valid values: `ro`, `rw`.
+        """
+        return pulumi.get(self, "file_system_access_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> _builtins.str:
+        """
+        File system ID.
+        """
+        return pulumi.get(self, "file_system_id")
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemType")
+    def file_system_type(self) -> _builtins.str:
+        """
+        File system type. Valid values: `EFS`, `FSxLustre`.
+        """
+        return pulumi.get(self, "file_system_type")
+
+
+@pulumi.output_type
+class TrainingJobInputDataConfigDataSourceS3DataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3DataType":
+            suggest = "s3_data_type"
+        elif key == "s3Uri":
+            suggest = "s3_uri"
+        elif key == "attributeNames":
+            suggest = "attribute_names"
+        elif key == "hubAccessConfig":
+            suggest = "hub_access_config"
+        elif key == "instanceGroupNames":
+            suggest = "instance_group_names"
+        elif key == "modelAccessConfig":
+            suggest = "model_access_config"
+        elif key == "s3DataDistributionType":
+            suggest = "s3_data_distribution_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobInputDataConfigDataSourceS3DataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobInputDataConfigDataSourceS3DataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobInputDataConfigDataSourceS3DataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_data_type: _builtins.str,
+                 s3_uri: _builtins.str,
+                 attribute_names: Optional[Sequence[_builtins.str]] = None,
+                 hub_access_config: Optional['outputs.TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfig'] = None,
+                 instance_group_names: Optional[Sequence[_builtins.str]] = None,
+                 model_access_config: Optional['outputs.TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfig'] = None,
+                 s3_data_distribution_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str s3_data_type: S3 data type. Valid values: `ManifestFile`, `S3Prefix`, `AugmentedManifestFile`.
+        :param _builtins.str s3_uri: S3 URI of the data.
+        :param Sequence[_builtins.str] attribute_names: List of attribute names to include in the training dataset. Maximum of 16.
+        :param 'TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs' hub_access_config: SageMaker AI Hub access configuration. See `hub_access_config` below.
+        :param Sequence[_builtins.str] instance_group_names: List of instance group names for the training data distribution. Maximum of 5.
+        :param 'TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs' model_access_config: Model access configuration. See `model_access_config` below.
+        :param _builtins.str s3_data_distribution_type: Distribution type for S3 data. Valid values: `FullyReplicated`, `ShardedByS3Key`.
+        """
+        pulumi.set(__self__, "s3_data_type", s3_data_type)
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if attribute_names is not None:
+            pulumi.set(__self__, "attribute_names", attribute_names)
+        if hub_access_config is not None:
+            pulumi.set(__self__, "hub_access_config", hub_access_config)
+        if instance_group_names is not None:
+            pulumi.set(__self__, "instance_group_names", instance_group_names)
+        if model_access_config is not None:
+            pulumi.set(__self__, "model_access_config", model_access_config)
+        if s3_data_distribution_type is not None:
+            pulumi.set(__self__, "s3_data_distribution_type", s3_data_distribution_type)
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataType")
+    def s3_data_type(self) -> _builtins.str:
+        """
+        S3 data type. Valid values: `ManifestFile`, `S3Prefix`, `AugmentedManifestFile`.
+        """
+        return pulumi.get(self, "s3_data_type")
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> _builtins.str:
+        """
+        S3 URI of the data.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="attributeNames")
+    def attribute_names(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of attribute names to include in the training dataset. Maximum of 16.
+        """
+        return pulumi.get(self, "attribute_names")
+
+    @_builtins.property
+    @pulumi.getter(name="hubAccessConfig")
+    def hub_access_config(self) -> Optional['outputs.TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfig']:
+        """
+        SageMaker AI Hub access configuration. See `hub_access_config` below.
+        """
+        return pulumi.get(self, "hub_access_config")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceGroupNames")
+    def instance_group_names(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of instance group names for the training data distribution. Maximum of 5.
+        """
+        return pulumi.get(self, "instance_group_names")
+
+    @_builtins.property
+    @pulumi.getter(name="modelAccessConfig")
+    def model_access_config(self) -> Optional['outputs.TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfig']:
+        """
+        Model access configuration. See `model_access_config` below.
+        """
+        return pulumi.get(self, "model_access_config")
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataDistributionType")
+    def s3_data_distribution_type(self) -> Optional[_builtins.str]:
+        """
+        Distribution type for S3 data. Valid values: `FullyReplicated`, `ShardedByS3Key`.
+        """
+        return pulumi.get(self, "s3_data_distribution_type")
+
+
+@pulumi.output_type
+class TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hubContentArn":
+            suggest = "hub_content_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hub_content_arn: _builtins.str):
+        """
+        :param _builtins.str hub_content_arn: ARN of the hub content.
+        """
+        pulumi.set(__self__, "hub_content_arn", hub_content_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="hubContentArn")
+    def hub_content_arn(self) -> _builtins.str:
+        """
+        ARN of the hub content.
+        """
+        return pulumi.get(self, "hub_content_arn")
+
+
+@pulumi.output_type
+class TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "acceptEula":
+            suggest = "accept_eula"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 accept_eula: _builtins.bool):
+        """
+        :param _builtins.bool accept_eula: Whether to accept the model EULA.
+        """
+        pulumi.set(__self__, "accept_eula", accept_eula)
+
+    @_builtins.property
+    @pulumi.getter(name="acceptEula")
+    def accept_eula(self) -> _builtins.bool:
+        """
+        Whether to accept the model EULA.
+        """
+        return pulumi.get(self, "accept_eula")
+
+
+@pulumi.output_type
+class TrainingJobInputDataConfigShuffleConfig(dict):
+    def __init__(__self__, *,
+                 seed: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int seed: Seed value used to shuffle the training data.
+        """
+        if seed is not None:
+            pulumi.set(__self__, "seed", seed)
+
+    @_builtins.property
+    @pulumi.getter
+    def seed(self) -> Optional[_builtins.int]:
+        """
+        Seed value used to shuffle the training data.
+        """
+        return pulumi.get(self, "seed")
+
+
+@pulumi.output_type
+class TrainingJobMlflowConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mlflowResourceArn":
+            suggest = "mlflow_resource_arn"
+        elif key == "mlflowExperimentName":
+            suggest = "mlflow_experiment_name"
+        elif key == "mlflowRunName":
+            suggest = "mlflow_run_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobMlflowConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobMlflowConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobMlflowConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mlflow_resource_arn: _builtins.str,
+                 mlflow_experiment_name: Optional[_builtins.str] = None,
+                 mlflow_run_name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str mlflow_resource_arn: ARN of the MLflow tracking server.
+        :param _builtins.str mlflow_experiment_name: Name of the MLflow experiment.
+        :param _builtins.str mlflow_run_name: Name of the MLflow run.
+        """
+        pulumi.set(__self__, "mlflow_resource_arn", mlflow_resource_arn)
+        if mlflow_experiment_name is not None:
+            pulumi.set(__self__, "mlflow_experiment_name", mlflow_experiment_name)
+        if mlflow_run_name is not None:
+            pulumi.set(__self__, "mlflow_run_name", mlflow_run_name)
+
+    @_builtins.property
+    @pulumi.getter(name="mlflowResourceArn")
+    def mlflow_resource_arn(self) -> _builtins.str:
+        """
+        ARN of the MLflow tracking server.
+        """
+        return pulumi.get(self, "mlflow_resource_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="mlflowExperimentName")
+    def mlflow_experiment_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the MLflow experiment.
+        """
+        return pulumi.get(self, "mlflow_experiment_name")
+
+    @_builtins.property
+    @pulumi.getter(name="mlflowRunName")
+    def mlflow_run_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the MLflow run.
+        """
+        return pulumi.get(self, "mlflow_run_name")
+
+
+@pulumi.output_type
+class TrainingJobModelPackageConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelPackageGroupArn":
+            suggest = "model_package_group_arn"
+        elif key == "sourceModelPackageArn":
+            suggest = "source_model_package_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobModelPackageConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobModelPackageConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobModelPackageConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 model_package_group_arn: _builtins.str,
+                 source_model_package_arn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str model_package_group_arn: ARN of the model package group.
+        :param _builtins.str source_model_package_arn: ARN of the source model package.
+        """
+        pulumi.set(__self__, "model_package_group_arn", model_package_group_arn)
+        if source_model_package_arn is not None:
+            pulumi.set(__self__, "source_model_package_arn", source_model_package_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="modelPackageGroupArn")
+    def model_package_group_arn(self) -> _builtins.str:
+        """
+        ARN of the model package group.
+        """
+        return pulumi.get(self, "model_package_group_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceModelPackageArn")
+    def source_model_package_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the source model package.
+        """
+        return pulumi.get(self, "source_model_package_arn")
+
+
+@pulumi.output_type
+class TrainingJobOutputDataConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3OutputPath":
+            suggest = "s3_output_path"
+        elif key == "compressionType":
+            suggest = "compression_type"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobOutputDataConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobOutputDataConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobOutputDataConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_output_path: _builtins.str,
+                 compression_type: Optional[_builtins.str] = None,
+                 kms_key_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str s3_output_path: S3 URI where output data is stored.
+        :param _builtins.str compression_type: Output compression type. Valid values: `GZIP`, `NONE`.
+        :param _builtins.str kms_key_id: KMS key ID used to encrypt the output data.
+        """
+        pulumi.set(__self__, "s3_output_path", s3_output_path)
+        if compression_type is not None:
+            pulumi.set(__self__, "compression_type", compression_type)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> _builtins.str:
+        """
+        S3 URI where output data is stored.
+        """
+        return pulumi.get(self, "s3_output_path")
+
+    @_builtins.property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> Optional[_builtins.str]:
+        """
+        Output compression type. Valid values: `GZIP`, `NONE`.
+        """
+        return pulumi.get(self, "compression_type")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        KMS key ID used to encrypt the output data.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class TrainingJobProfilerConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableProfiler":
+            suggest = "disable_profiler"
+        elif key == "profilingIntervalInMilliseconds":
+            suggest = "profiling_interval_in_milliseconds"
+        elif key == "profilingParameters":
+            suggest = "profiling_parameters"
+        elif key == "s3OutputPath":
+            suggest = "s3_output_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobProfilerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobProfilerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobProfilerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 disable_profiler: Optional[_builtins.bool] = None,
+                 profiling_interval_in_milliseconds: Optional[_builtins.int] = None,
+                 profiling_parameters: Optional[Mapping[str, _builtins.str]] = None,
+                 s3_output_path: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool disable_profiler: Whether to disable the profiler.
+        :param _builtins.int profiling_interval_in_milliseconds: Time interval in milliseconds for capturing system metrics. Valid values: `100`, `200`, `500`, `1000`, `5000`, `60000`.
+        :param Mapping[str, _builtins.str] profiling_parameters: Map of profiling parameters. Maximum of 20 entries.
+        :param _builtins.str s3_output_path: S3 URI where profiler output is stored.
+        """
+        if disable_profiler is not None:
+            pulumi.set(__self__, "disable_profiler", disable_profiler)
+        if profiling_interval_in_milliseconds is not None:
+            pulumi.set(__self__, "profiling_interval_in_milliseconds", profiling_interval_in_milliseconds)
+        if profiling_parameters is not None:
+            pulumi.set(__self__, "profiling_parameters", profiling_parameters)
+        if s3_output_path is not None:
+            pulumi.set(__self__, "s3_output_path", s3_output_path)
+
+    @_builtins.property
+    @pulumi.getter(name="disableProfiler")
+    def disable_profiler(self) -> Optional[_builtins.bool]:
+        """
+        Whether to disable the profiler.
+        """
+        return pulumi.get(self, "disable_profiler")
+
+    @_builtins.property
+    @pulumi.getter(name="profilingIntervalInMilliseconds")
+    def profiling_interval_in_milliseconds(self) -> Optional[_builtins.int]:
+        """
+        Time interval in milliseconds for capturing system metrics. Valid values: `100`, `200`, `500`, `1000`, `5000`, `60000`.
+        """
+        return pulumi.get(self, "profiling_interval_in_milliseconds")
+
+    @_builtins.property
+    @pulumi.getter(name="profilingParameters")
+    def profiling_parameters(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Map of profiling parameters. Maximum of 20 entries.
+        """
+        return pulumi.get(self, "profiling_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> Optional[_builtins.str]:
+        """
+        S3 URI where profiler output is stored.
+        """
+        return pulumi.get(self, "s3_output_path")
+
+
+@pulumi.output_type
+class TrainingJobProfilerRuleConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleConfigurationName":
+            suggest = "rule_configuration_name"
+        elif key == "ruleEvaluatorImage":
+            suggest = "rule_evaluator_image"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "localPath":
+            suggest = "local_path"
+        elif key == "ruleParameters":
+            suggest = "rule_parameters"
+        elif key == "s3OutputPath":
+            suggest = "s3_output_path"
+        elif key == "volumeSizeInGb":
+            suggest = "volume_size_in_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobProfilerRuleConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobProfilerRuleConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobProfilerRuleConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_configuration_name: _builtins.str,
+                 rule_evaluator_image: _builtins.str,
+                 instance_type: Optional[_builtins.str] = None,
+                 local_path: Optional[_builtins.str] = None,
+                 rule_parameters: Optional[Mapping[str, _builtins.str]] = None,
+                 s3_output_path: Optional[_builtins.str] = None,
+                 volume_size_in_gb: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str rule_configuration_name: Name of the profiler rule configuration. Must be between 1 and 256 characters.
+        :param _builtins.str rule_evaluator_image: Docker image URI for the profiler rule evaluator.
+        :param _builtins.str instance_type: Instance type to deploy for the profiler rule evaluation. Valid values are SageMaker AI processing instance types.
+        :param _builtins.str local_path: Local path where profiler rule output is written.
+        :param Mapping[str, _builtins.str] rule_parameters: Map of parameters for the profiler rule. Maximum of 100 entries.
+        :param _builtins.str s3_output_path: S3 URI where profiler rule output is stored.
+        :param _builtins.int volume_size_in_gb: Size of the storage volume for the profiler rule evaluator, in GB.
+        """
+        pulumi.set(__self__, "rule_configuration_name", rule_configuration_name)
+        pulumi.set(__self__, "rule_evaluator_image", rule_evaluator_image)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if local_path is not None:
+            pulumi.set(__self__, "local_path", local_path)
+        if rule_parameters is not None:
+            pulumi.set(__self__, "rule_parameters", rule_parameters)
+        if s3_output_path is not None:
+            pulumi.set(__self__, "s3_output_path", s3_output_path)
+        if volume_size_in_gb is not None:
+            pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleConfigurationName")
+    def rule_configuration_name(self) -> _builtins.str:
+        """
+        Name of the profiler rule configuration. Must be between 1 and 256 characters.
+        """
+        return pulumi.get(self, "rule_configuration_name")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleEvaluatorImage")
+    def rule_evaluator_image(self) -> _builtins.str:
+        """
+        Docker image URI for the profiler rule evaluator.
+        """
+        return pulumi.get(self, "rule_evaluator_image")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[_builtins.str]:
+        """
+        Instance type to deploy for the profiler rule evaluation. Valid values are SageMaker AI processing instance types.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @_builtins.property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> Optional[_builtins.str]:
+        """
+        Local path where profiler rule output is written.
+        """
+        return pulumi.get(self, "local_path")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleParameters")
+    def rule_parameters(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Map of parameters for the profiler rule. Maximum of 100 entries.
+        """
+        return pulumi.get(self, "rule_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> Optional[_builtins.str]:
+        """
+        S3 URI where profiler rule output is stored.
+        """
+        return pulumi.get(self, "s3_output_path")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeSizeInGb")
+    def volume_size_in_gb(self) -> Optional[_builtins.int]:
+        """
+        Size of the storage volume for the profiler rule evaluator, in GB.
+        """
+        return pulumi.get(self, "volume_size_in_gb")
+
+
+@pulumi.output_type
+class TrainingJobRemoteDebugConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableRemoteDebug":
+            suggest = "enable_remote_debug"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobRemoteDebugConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobRemoteDebugConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobRemoteDebugConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_remote_debug: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool enable_remote_debug: Whether to enable remote debugging for the training job.
+        """
+        if enable_remote_debug is not None:
+            pulumi.set(__self__, "enable_remote_debug", enable_remote_debug)
+
+    @_builtins.property
+    @pulumi.getter(name="enableRemoteDebug")
+    def enable_remote_debug(self) -> Optional[_builtins.bool]:
+        """
+        Whether to enable remote debugging for the training job.
+        """
+        return pulumi.get(self, "enable_remote_debug")
+
+
+@pulumi.output_type
+class TrainingJobResourceConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "instanceGroups":
+            suggest = "instance_groups"
+        elif key == "instancePlacementConfig":
+            suggest = "instance_placement_config"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "keepAlivePeriodInSeconds":
+            suggest = "keep_alive_period_in_seconds"
+        elif key == "trainingPlanArn":
+            suggest = "training_plan_arn"
+        elif key == "volumeKmsKeyId":
+            suggest = "volume_kms_key_id"
+        elif key == "volumeSizeInGb":
+            suggest = "volume_size_in_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobResourceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobResourceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobResourceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_count: Optional[_builtins.int] = None,
+                 instance_groups: Optional[Sequence['outputs.TrainingJobResourceConfigInstanceGroup']] = None,
+                 instance_placement_config: Optional['outputs.TrainingJobResourceConfigInstancePlacementConfig'] = None,
+                 instance_type: Optional[_builtins.str] = None,
+                 keep_alive_period_in_seconds: Optional[_builtins.int] = None,
+                 training_plan_arn: Optional[_builtins.str] = None,
+                 volume_kms_key_id: Optional[_builtins.str] = None,
+                 volume_size_in_gb: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int instance_count: Number of ML compute instances to use. Conflicts with `instance_groups`.
+        :param Sequence['TrainingJobResourceConfigInstanceGroupArgs'] instance_groups: List of instance groups for heterogeneous cluster training. Maximum of 5. Conflicts with `instance_count`, `instance_type`, and `keep_alive_period_in_seconds`. See `instance_groups` below.
+        :param 'TrainingJobResourceConfigInstancePlacementConfigArgs' instance_placement_config: Instance placement configuration. See `instance_placement_config` below.
+        :param _builtins.str instance_type: ML compute instance type. Conflicts with `instance_groups`.
+        :param _builtins.int keep_alive_period_in_seconds: Time in seconds to keep instances alive after training completes, for warm pool reuse. Valid values: 0–3600. Conflicts with `instance_groups`.
+        :param _builtins.str training_plan_arn: ARN of the training plan to use.
+        :param _builtins.str volume_kms_key_id: KMS key ID used to encrypt data on the storage volume.
+        :param _builtins.int volume_size_in_gb: Size of the storage volume attached to each instance, in GB.
+        """
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if instance_groups is not None:
+            pulumi.set(__self__, "instance_groups", instance_groups)
+        if instance_placement_config is not None:
+            pulumi.set(__self__, "instance_placement_config", instance_placement_config)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if keep_alive_period_in_seconds is not None:
+            pulumi.set(__self__, "keep_alive_period_in_seconds", keep_alive_period_in_seconds)
+        if training_plan_arn is not None:
+            pulumi.set(__self__, "training_plan_arn", training_plan_arn)
+        if volume_kms_key_id is not None:
+            pulumi.set(__self__, "volume_kms_key_id", volume_kms_key_id)
+        if volume_size_in_gb is not None:
+            pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[_builtins.int]:
+        """
+        Number of ML compute instances to use. Conflicts with `instance_groups`.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceGroups")
+    def instance_groups(self) -> Optional[Sequence['outputs.TrainingJobResourceConfigInstanceGroup']]:
+        """
+        List of instance groups for heterogeneous cluster training. Maximum of 5. Conflicts with `instance_count`, `instance_type`, and `keep_alive_period_in_seconds`. See `instance_groups` below.
+        """
+        return pulumi.get(self, "instance_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="instancePlacementConfig")
+    def instance_placement_config(self) -> Optional['outputs.TrainingJobResourceConfigInstancePlacementConfig']:
+        """
+        Instance placement configuration. See `instance_placement_config` below.
+        """
+        return pulumi.get(self, "instance_placement_config")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[_builtins.str]:
+        """
+        ML compute instance type. Conflicts with `instance_groups`.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @_builtins.property
+    @pulumi.getter(name="keepAlivePeriodInSeconds")
+    def keep_alive_period_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        Time in seconds to keep instances alive after training completes, for warm pool reuse. Valid values: 0–3600. Conflicts with `instance_groups`.
+        """
+        return pulumi.get(self, "keep_alive_period_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="trainingPlanArn")
+    def training_plan_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the training plan to use.
+        """
+        return pulumi.get(self, "training_plan_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeKmsKeyId")
+    def volume_kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        KMS key ID used to encrypt data on the storage volume.
+        """
+        return pulumi.get(self, "volume_kms_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeSizeInGb")
+    def volume_size_in_gb(self) -> Optional[_builtins.int]:
+        """
+        Size of the storage volume attached to each instance, in GB.
+        """
+        return pulumi.get(self, "volume_size_in_gb")
+
+
+@pulumi.output_type
+class TrainingJobResourceConfigInstanceGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "instanceGroupName":
+            suggest = "instance_group_name"
+        elif key == "instanceType":
+            suggest = "instance_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobResourceConfigInstanceGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobResourceConfigInstanceGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobResourceConfigInstanceGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_count: Optional[_builtins.int] = None,
+                 instance_group_name: Optional[_builtins.str] = None,
+                 instance_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int instance_count: Number of instances in the group.
+        :param _builtins.str instance_group_name: Name of the instance group.
+        :param _builtins.str instance_type: ML compute instance type for the group.
+        """
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if instance_group_name is not None:
+            pulumi.set(__self__, "instance_group_name", instance_group_name)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[_builtins.int]:
+        """
+        Number of instances in the group.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceGroupName")
+    def instance_group_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the instance group.
+        """
+        return pulumi.get(self, "instance_group_name")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[_builtins.str]:
+        """
+        ML compute instance type for the group.
+        """
+        return pulumi.get(self, "instance_type")
+
+
+@pulumi.output_type
+class TrainingJobResourceConfigInstancePlacementConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableMultipleJobs":
+            suggest = "enable_multiple_jobs"
+        elif key == "placementSpecifications":
+            suggest = "placement_specifications"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobResourceConfigInstancePlacementConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobResourceConfigInstancePlacementConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobResourceConfigInstancePlacementConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_multiple_jobs: Optional[_builtins.bool] = None,
+                 placement_specifications: Optional[Sequence['outputs.TrainingJobResourceConfigInstancePlacementConfigPlacementSpecification']] = None):
+        """
+        :param _builtins.bool enable_multiple_jobs: Whether to enable multiple jobs on the same instance.
+        :param Sequence['TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArgs'] placement_specifications: Placement specifications for instance placement. See `placement_specifications` below.
+        """
+        if enable_multiple_jobs is not None:
+            pulumi.set(__self__, "enable_multiple_jobs", enable_multiple_jobs)
+        if placement_specifications is not None:
+            pulumi.set(__self__, "placement_specifications", placement_specifications)
+
+    @_builtins.property
+    @pulumi.getter(name="enableMultipleJobs")
+    def enable_multiple_jobs(self) -> Optional[_builtins.bool]:
+        """
+        Whether to enable multiple jobs on the same instance.
+        """
+        return pulumi.get(self, "enable_multiple_jobs")
+
+    @_builtins.property
+    @pulumi.getter(name="placementSpecifications")
+    def placement_specifications(self) -> Optional[Sequence['outputs.TrainingJobResourceConfigInstancePlacementConfigPlacementSpecification']]:
+        """
+        Placement specifications for instance placement. See `placement_specifications` below.
+        """
+        return pulumi.get(self, "placement_specifications")
+
+
+@pulumi.output_type
+class TrainingJobResourceConfigInstancePlacementConfigPlacementSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "ultraServerId":
+            suggest = "ultra_server_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobResourceConfigInstancePlacementConfigPlacementSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobResourceConfigInstancePlacementConfigPlacementSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobResourceConfigInstancePlacementConfigPlacementSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_count: Optional[_builtins.int] = None,
+                 ultra_server_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int instance_count: Number of instances in the placement.
+        :param _builtins.str ultra_server_id: Ultra server ID for the placement.
+        """
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if ultra_server_id is not None:
+            pulumi.set(__self__, "ultra_server_id", ultra_server_id)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[_builtins.int]:
+        """
+        Number of instances in the placement.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @_builtins.property
+    @pulumi.getter(name="ultraServerId")
+    def ultra_server_id(self) -> Optional[_builtins.str]:
+        """
+        Ultra server ID for the placement.
+        """
+        return pulumi.get(self, "ultra_server_id")
+
+
+@pulumi.output_type
+class TrainingJobRetryStrategy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumRetryAttempts":
+            suggest = "maximum_retry_attempts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobRetryStrategy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobRetryStrategy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobRetryStrategy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maximum_retry_attempts: _builtins.int):
+        """
+        :param _builtins.int maximum_retry_attempts: Maximum number of retry attempts. Valid values: 1–30.
+        """
+        pulumi.set(__self__, "maximum_retry_attempts", maximum_retry_attempts)
+
+    @_builtins.property
+    @pulumi.getter(name="maximumRetryAttempts")
+    def maximum_retry_attempts(self) -> _builtins.int:
+        """
+        Maximum number of retry attempts. Valid values: 1–30.
+        """
+        return pulumi.get(self, "maximum_retry_attempts")
+
+
+@pulumi.output_type
+class TrainingJobServerlessJobConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseModelArn":
+            suggest = "base_model_arn"
+        elif key == "jobType":
+            suggest = "job_type"
+        elif key == "acceptEula":
+            suggest = "accept_eula"
+        elif key == "customizationTechnique":
+            suggest = "customization_technique"
+        elif key == "evaluationType":
+            suggest = "evaluation_type"
+        elif key == "evaluatorArn":
+            suggest = "evaluator_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobServerlessJobConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobServerlessJobConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobServerlessJobConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 base_model_arn: _builtins.str,
+                 job_type: _builtins.str,
+                 accept_eula: Optional[_builtins.bool] = None,
+                 customization_technique: Optional[_builtins.str] = None,
+                 evaluation_type: Optional[_builtins.str] = None,
+                 evaluator_arn: Optional[_builtins.str] = None,
+                 peft: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str base_model_arn: ARN of the base foundation model from the SageMaker AI Public Hub.
+        :param _builtins.str job_type: Serverless job type. Valid values: `FINE_TUNING`, `EVALUATION`, `DISTILLATION`.
+        :param _builtins.bool accept_eula: Whether to accept the model EULA.
+        :param _builtins.str customization_technique: Customization technique to apply. Valid values: `FINE_TUNING`, `DOMAIN_ADAPTION`.
+        :param _builtins.str evaluation_type: Evaluation type. Valid values: `AUTOMATIC`, `HUMAN`, `NONE`.
+        :param _builtins.str evaluator_arn: ARN of the evaluator.
+        :param _builtins.str peft: Parameter-Efficient Fine-Tuning (PEFT) method. Valid values: `LORA`.
+        """
+        pulumi.set(__self__, "base_model_arn", base_model_arn)
+        pulumi.set(__self__, "job_type", job_type)
+        if accept_eula is not None:
+            pulumi.set(__self__, "accept_eula", accept_eula)
+        if customization_technique is not None:
+            pulumi.set(__self__, "customization_technique", customization_technique)
+        if evaluation_type is not None:
+            pulumi.set(__self__, "evaluation_type", evaluation_type)
+        if evaluator_arn is not None:
+            pulumi.set(__self__, "evaluator_arn", evaluator_arn)
+        if peft is not None:
+            pulumi.set(__self__, "peft", peft)
+
+    @_builtins.property
+    @pulumi.getter(name="baseModelArn")
+    def base_model_arn(self) -> _builtins.str:
+        """
+        ARN of the base foundation model from the SageMaker AI Public Hub.
+        """
+        return pulumi.get(self, "base_model_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="jobType")
+    def job_type(self) -> _builtins.str:
+        """
+        Serverless job type. Valid values: `FINE_TUNING`, `EVALUATION`, `DISTILLATION`.
+        """
+        return pulumi.get(self, "job_type")
+
+    @_builtins.property
+    @pulumi.getter(name="acceptEula")
+    def accept_eula(self) -> Optional[_builtins.bool]:
+        """
+        Whether to accept the model EULA.
+        """
+        return pulumi.get(self, "accept_eula")
+
+    @_builtins.property
+    @pulumi.getter(name="customizationTechnique")
+    def customization_technique(self) -> Optional[_builtins.str]:
+        """
+        Customization technique to apply. Valid values: `FINE_TUNING`, `DOMAIN_ADAPTION`.
+        """
+        return pulumi.get(self, "customization_technique")
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationType")
+    def evaluation_type(self) -> Optional[_builtins.str]:
+        """
+        Evaluation type. Valid values: `AUTOMATIC`, `HUMAN`, `NONE`.
+        """
+        return pulumi.get(self, "evaluation_type")
+
+    @_builtins.property
+    @pulumi.getter(name="evaluatorArn")
+    def evaluator_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the evaluator.
+        """
+        return pulumi.get(self, "evaluator_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def peft(self) -> Optional[_builtins.str]:
+        """
+        Parameter-Efficient Fine-Tuning (PEFT) method. Valid values: `LORA`.
+        """
+        return pulumi.get(self, "peft")
+
+
+@pulumi.output_type
+class TrainingJobSessionChainingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableSessionTagChaining":
+            suggest = "enable_session_tag_chaining"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobSessionChainingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobSessionChainingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobSessionChainingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_session_tag_chaining: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool enable_session_tag_chaining: Whether to enable session tag chaining for the training job.
+        """
+        if enable_session_tag_chaining is not None:
+            pulumi.set(__self__, "enable_session_tag_chaining", enable_session_tag_chaining)
+
+    @_builtins.property
+    @pulumi.getter(name="enableSessionTagChaining")
+    def enable_session_tag_chaining(self) -> Optional[_builtins.bool]:
+        """
+        Whether to enable session tag chaining for the training job.
+        """
+        return pulumi.get(self, "enable_session_tag_chaining")
+
+
+@pulumi.output_type
+class TrainingJobStoppingCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxPendingTimeInSeconds":
+            suggest = "max_pending_time_in_seconds"
+        elif key == "maxRuntimeInSeconds":
+            suggest = "max_runtime_in_seconds"
+        elif key == "maxWaitTimeInSeconds":
+            suggest = "max_wait_time_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobStoppingCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobStoppingCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobStoppingCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_pending_time_in_seconds: Optional[_builtins.int] = None,
+                 max_runtime_in_seconds: Optional[_builtins.int] = None,
+                 max_wait_time_in_seconds: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int max_pending_time_in_seconds: Maximum time in seconds a training job can be pending before it is stopped. Valid values: 7200–2419200.
+        :param _builtins.int max_runtime_in_seconds: Maximum time in seconds the training job can run before it is stopped.
+        :param _builtins.int max_wait_time_in_seconds: Maximum time in seconds to wait for a managed spot training job to complete.
+        """
+        if max_pending_time_in_seconds is not None:
+            pulumi.set(__self__, "max_pending_time_in_seconds", max_pending_time_in_seconds)
+        if max_runtime_in_seconds is not None:
+            pulumi.set(__self__, "max_runtime_in_seconds", max_runtime_in_seconds)
+        if max_wait_time_in_seconds is not None:
+            pulumi.set(__self__, "max_wait_time_in_seconds", max_wait_time_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="maxPendingTimeInSeconds")
+    def max_pending_time_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        Maximum time in seconds a training job can be pending before it is stopped. Valid values: 7200–2419200.
+        """
+        return pulumi.get(self, "max_pending_time_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="maxRuntimeInSeconds")
+    def max_runtime_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        Maximum time in seconds the training job can run before it is stopped.
+        """
+        return pulumi.get(self, "max_runtime_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="maxWaitTimeInSeconds")
+    def max_wait_time_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        Maximum time in seconds to wait for a managed spot training job to complete.
+        """
+        return pulumi.get(self, "max_wait_time_in_seconds")
+
+
+@pulumi.output_type
+class TrainingJobTensorBoardOutputConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3OutputPath":
+            suggest = "s3_output_path"
+        elif key == "localPath":
+            suggest = "local_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobTensorBoardOutputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobTensorBoardOutputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobTensorBoardOutputConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_output_path: _builtins.str,
+                 local_path: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str s3_output_path: S3 URI where TensorBoard output is stored.
+        :param _builtins.str local_path: Local path where TensorBoard output is written.
+        """
+        pulumi.set(__self__, "s3_output_path", s3_output_path)
+        if local_path is not None:
+            pulumi.set(__self__, "local_path", local_path)
+
+    @_builtins.property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> _builtins.str:
+        """
+        S3 URI where TensorBoard output is stored.
+        """
+        return pulumi.get(self, "s3_output_path")
+
+    @_builtins.property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> Optional[_builtins.str]:
+        """
+        Local path where TensorBoard output is written.
+        """
+        return pulumi.get(self, "local_path")
+
+
+@pulumi.output_type
+class TrainingJobTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class TrainingJobVpcConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrainingJobVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrainingJobVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrainingJobVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_ids: Sequence[_builtins.str],
+                 subnets: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] security_group_ids: List of VPC security group IDs. Maximum of 5.
+        :param Sequence[_builtins.str] subnets: List of subnet IDs. Maximum of 16.
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[_builtins.str]:
+        """
+        List of VPC security group IDs. Maximum of 5.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> Sequence[_builtins.str]:
+        """
+        List of subnet IDs. Maximum of 16.
+        """
+        return pulumi.get(self, "subnets")
 
 
 @pulumi.output_type

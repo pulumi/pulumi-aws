@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AutoManagementArgs, AutoManagementState } from "./autoManagement";
+export type AutoManagement = import("./autoManagement").AutoManagement;
+export const AutoManagement: typeof import("./autoManagement").AutoManagement = null as any;
+utilities.lazyLoad(exports, ["AutoManagement"], () => require("./autoManagement"));
+
 export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
 export const getService: typeof import("./getService").getService = null as any;
 export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
@@ -40,6 +45,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:servicequotas/autoManagement:AutoManagement":
+                return new AutoManagement(name, <any>undefined, { urn })
             case "aws:servicequotas/serviceQuota:ServiceQuota":
                 return new ServiceQuota(name, <any>undefined, { urn })
             case "aws:servicequotas/template:Template":
@@ -51,6 +58,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "servicequotas/autoManagement", _module)
 pulumi.runtime.registerResourceModule("aws", "servicequotas/serviceQuota", _module)
 pulumi.runtime.registerResourceModule("aws", "servicequotas/template", _module)
 pulumi.runtime.registerResourceModule("aws", "servicequotas/templateAssociation", _module)

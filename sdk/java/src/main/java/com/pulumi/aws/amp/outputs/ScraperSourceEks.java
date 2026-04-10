@@ -12,6 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScraperSourceEks {
+    /**
+     * @return The Amazon Resource Name (ARN) of the source EKS cluster.
+     * 
+     */
     private String clusterArn;
     /**
      * @return List of the security group IDs for the Amazon EKS cluster VPC configuration.
@@ -25,6 +29,10 @@ public final class ScraperSourceEks {
     private List<String> subnetIds;
 
     private ScraperSourceEks() {}
+    /**
+     * @return The Amazon Resource Name (ARN) of the source EKS cluster.
+     * 
+     */
     public String clusterArn() {
         return this.clusterArn;
     }

@@ -95,6 +95,10 @@ __all__ = [
     'OutboundConnectionRemoteDomainInfoArgsDict',
     'PackagePackageSourceArgs',
     'PackagePackageSourceArgsDict',
+    'ServerlessCollectionEncryptionConfigArgs',
+    'ServerlessCollectionEncryptionConfigArgsDict',
+    'ServerlessCollectionGroupCapacityLimitArgs',
+    'ServerlessCollectionGroupCapacityLimitArgsDict',
     'ServerlessCollectionTimeoutsArgs',
     'ServerlessCollectionTimeoutsArgsDict',
     'ServerlessSecurityConfigSamlOptionsArgs',
@@ -2715,6 +2719,138 @@ class PackagePackageSourceArgs:
     @s3_key.setter
     def s3_key(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "s3_key", value)
+
+
+class ServerlessCollectionEncryptionConfigArgsDict(TypedDict):
+    aws_owned_key: pulumi.Input[_builtins.bool]
+    """
+    Whether to use an AWS owned key for collection encryption.
+    """
+    kms_key_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the AWS KMS key to use for collection encryption.
+    """
+
+@pulumi.input_type
+class ServerlessCollectionEncryptionConfigArgs:
+    def __init__(__self__, *,
+                 aws_owned_key: pulumi.Input[_builtins.bool],
+                 kms_key_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.bool] aws_owned_key: Whether to use an AWS owned key for collection encryption.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the AWS KMS key to use for collection encryption.
+        """
+        pulumi.set(__self__, "aws_owned_key", aws_owned_key)
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="awsOwnedKey")
+    def aws_owned_key(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether to use an AWS owned key for collection encryption.
+        """
+        return pulumi.get(self, "aws_owned_key")
+
+    @aws_owned_key.setter
+    def aws_owned_key(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "aws_owned_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the AWS KMS key to use for collection encryption.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "kms_key_arn", value)
+
+
+class ServerlessCollectionGroupCapacityLimitArgsDict(TypedDict):
+    max_indexing_capacity_in_ocu: pulumi.Input[_builtins.float]
+    """
+    Maximum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+    """
+    max_search_capacity_in_ocu: pulumi.Input[_builtins.float]
+    """
+    Maximum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+    """
+    min_indexing_capacity_in_ocu: pulumi.Input[_builtins.float]
+    """
+    Minimum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+    """
+    min_search_capacity_in_ocu: pulumi.Input[_builtins.float]
+    """
+    Minimum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+    """
+
+@pulumi.input_type
+class ServerlessCollectionGroupCapacityLimitArgs:
+    def __init__(__self__, *,
+                 max_indexing_capacity_in_ocu: pulumi.Input[_builtins.float],
+                 max_search_capacity_in_ocu: pulumi.Input[_builtins.float],
+                 min_indexing_capacity_in_ocu: pulumi.Input[_builtins.float],
+                 min_search_capacity_in_ocu: pulumi.Input[_builtins.float]):
+        """
+        :param pulumi.Input[_builtins.float] max_indexing_capacity_in_ocu: Maximum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        :param pulumi.Input[_builtins.float] max_search_capacity_in_ocu: Maximum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        :param pulumi.Input[_builtins.float] min_indexing_capacity_in_ocu: Minimum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        :param pulumi.Input[_builtins.float] min_search_capacity_in_ocu: Minimum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        """
+        pulumi.set(__self__, "max_indexing_capacity_in_ocu", max_indexing_capacity_in_ocu)
+        pulumi.set(__self__, "max_search_capacity_in_ocu", max_search_capacity_in_ocu)
+        pulumi.set(__self__, "min_indexing_capacity_in_ocu", min_indexing_capacity_in_ocu)
+        pulumi.set(__self__, "min_search_capacity_in_ocu", min_search_capacity_in_ocu)
+
+    @_builtins.property
+    @pulumi.getter(name="maxIndexingCapacityInOcu")
+    def max_indexing_capacity_in_ocu(self) -> pulumi.Input[_builtins.float]:
+        """
+        Maximum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        """
+        return pulumi.get(self, "max_indexing_capacity_in_ocu")
+
+    @max_indexing_capacity_in_ocu.setter
+    def max_indexing_capacity_in_ocu(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "max_indexing_capacity_in_ocu", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxSearchCapacityInOcu")
+    def max_search_capacity_in_ocu(self) -> pulumi.Input[_builtins.float]:
+        """
+        Maximum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        """
+        return pulumi.get(self, "max_search_capacity_in_ocu")
+
+    @max_search_capacity_in_ocu.setter
+    def max_search_capacity_in_ocu(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "max_search_capacity_in_ocu", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minIndexingCapacityInOcu")
+    def min_indexing_capacity_in_ocu(self) -> pulumi.Input[_builtins.float]:
+        """
+        Minimum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        """
+        return pulumi.get(self, "min_indexing_capacity_in_ocu")
+
+    @min_indexing_capacity_in_ocu.setter
+    def min_indexing_capacity_in_ocu(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "min_indexing_capacity_in_ocu", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minSearchCapacityInOcu")
+    def min_search_capacity_in_ocu(self) -> pulumi.Input[_builtins.float]:
+        """
+        Minimum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        """
+        return pulumi.get(self, "min_search_capacity_in_ocu")
+
+    @min_search_capacity_in_ocu.setter
+    def min_search_capacity_in_ocu(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "min_search_capacity_in_ocu", value)
 
 
 class ServerlessCollectionTimeoutsArgsDict(TypedDict):

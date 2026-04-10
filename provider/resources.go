@@ -262,6 +262,7 @@ const (
 	timestreamQuery             = "TimestreamQuery"          // Timestream Query"
 	transcribeMod               = "Transcribe"               // Transcribe
 	transferMod                 = "Transfer"                 // Transfer Service
+	uxcMod                      = "Uxc"                      // User Experience Customization
 	verifiedpermissionsMod      = "VerifiedPermissions"      // Verified Permissions
 	verifiedaccessMod           = "VerifiedAccess"           // Verified Access
 	vpcMod                      = "Vpc"                      // VPC
@@ -505,6 +506,7 @@ var moduleMap = map[string]string{
 	"timestreamquery":                 timestreamQuery,
 	"transcribe":                      transcribeMod,
 	"transfer":                        transferMod,
+	"uxc":                             uxcMod,
 	"verifiedaccess":                  verifiedaccessMod,
 	"verifiedpermissions":             verifiedpermissionsMod,
 	"vpclattice":                      vpclatticeMod,

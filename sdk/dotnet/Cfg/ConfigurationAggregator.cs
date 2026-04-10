@@ -112,10 +112,21 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Configuration Aggregators using the name. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Name` (String) Name of the configuration aggregator.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Configuration Aggregators using the `Name`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
+    /// $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/configurationAggregator:ConfigurationAggregator")]

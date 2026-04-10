@@ -30,7 +30,7 @@ class RecorderArgs:
         The set of arguments for constructing a Recorder resource.
 
         :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-        :param pulumi.Input[_builtins.str] name: The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+        :param pulumi.Input[_builtins.str] name: The name of the configuration recorder. Defaults to `default`. Changing it recreates the resource.
         :param pulumi.Input['RecorderRecordingGroupArgs'] recording_group: Recording group - see below.
         :param pulumi.Input['RecorderRecordingModeArgs'] recording_mode: Recording mode - see below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -61,7 +61,7 @@ class RecorderArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+        The name of the configuration recorder. Defaults to `default`. Changing it recreates the resource.
         """
         return pulumi.get(self, "name")
 
@@ -117,7 +117,7 @@ class _RecorderState:
         """
         Input properties used for looking up and filtering Recorder resources.
 
-        :param pulumi.Input[_builtins.str] name: The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+        :param pulumi.Input[_builtins.str] name: The name of the configuration recorder. Defaults to `default`. Changing it recreates the resource.
         :param pulumi.Input['RecorderRecordingGroupArgs'] recording_group: Recording group - see below.
         :param pulumi.Input['RecorderRecordingModeArgs'] recording_mode: Recording mode - see below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -138,7 +138,7 @@ class _RecorderState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+        The name of the configuration recorder. Defaults to `default`. Changing it recreates the resource.
         """
         return pulumi.get(self, "name")
 
@@ -285,16 +285,27 @@ class Recorder(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Configuration Recorder using the name. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the configuration recorder.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Configuration Recorders using the `name`. For example:
 
         ```sh
-        $ pulumi import aws:cfg/recorder:Recorder foo example
+        $ pulumi import aws:cfg/recorder:Recorder example example
         ```
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+        :param pulumi.Input[_builtins.str] name: The name of the configuration recorder. Defaults to `default`. Changing it recreates the resource.
         :param pulumi.Input[Union['RecorderRecordingGroupArgs', 'RecorderRecordingGroupArgsDict']] recording_group: Recording group - see below.
         :param pulumi.Input[Union['RecorderRecordingModeArgs', 'RecorderRecordingModeArgsDict']] recording_mode: Recording mode - see below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -384,10 +395,21 @@ class Recorder(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Configuration Recorder using the name. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the configuration recorder.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Configuration Recorders using the `name`. For example:
 
         ```sh
-        $ pulumi import aws:cfg/recorder:Recorder foo example
+        $ pulumi import aws:cfg/recorder:Recorder example example
         ```
 
 
@@ -449,7 +471,7 @@ class Recorder(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+        :param pulumi.Input[_builtins.str] name: The name of the configuration recorder. Defaults to `default`. Changing it recreates the resource.
         :param pulumi.Input[Union['RecorderRecordingGroupArgs', 'RecorderRecordingGroupArgsDict']] recording_group: Recording group - see below.
         :param pulumi.Input[Union['RecorderRecordingModeArgs', 'RecorderRecordingModeArgsDict']] recording_mode: Recording mode - see below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -470,7 +492,7 @@ class Recorder(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+        The name of the configuration recorder. Defaults to `default`. Changing it recreates the resource.
         """
         return pulumi.get(self, "name")
 

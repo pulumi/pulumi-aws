@@ -1019,10 +1019,21 @@ class Job(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the Glue Job.
+
+        #### Optional
+
+        * `account_id` (String) AWS account ID.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import Glue Jobs using `name`. For example:
 
         ```sh
-        $ pulumi import aws:glue/job:Job MyJob MyJob
+        $ pulumi import aws:glue/job:Job example example
         ```
 
 
@@ -1245,10 +1256,21 @@ class Job(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the Glue Job.
+
+        #### Optional
+
+        * `account_id` (String) AWS account ID.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import Glue Jobs using `name`. For example:
 
         ```sh
-        $ pulumi import aws:glue/job:Job MyJob MyJob
+        $ pulumi import aws:glue/job:Job example example
         ```
 
 

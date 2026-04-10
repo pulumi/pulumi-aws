@@ -55,6 +55,12 @@ namespace Pulumi.Aws.ControlTower
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies list of remediation actions to apply. Currently only supports the `INHERITANCE_DRIFT` value.
+        /// </summary>
+        [Output("remediationTypes")]
+        public Output<ImmutableArray<string>> RemediationTypes { get; private set; } = null!;
+
+        /// <summary>
         /// Tags to apply to the landing zone. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -130,6 +136,18 @@ namespace Pulumi.Aws.ControlTower
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        [Input("remediationTypes")]
+        private InputList<string>? _remediationTypes;
+
+        /// <summary>
+        /// Specifies list of remediation actions to apply. Currently only supports the `INHERITANCE_DRIFT` value.
+        /// </summary>
+        public InputList<string> RemediationTypes
+        {
+            get => _remediationTypes ?? (_remediationTypes = new InputList<string>());
+            set => _remediationTypes = value;
+        }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -191,6 +209,18 @@ namespace Pulumi.Aws.ControlTower
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        [Input("remediationTypes")]
+        private InputList<string>? _remediationTypes;
+
+        /// <summary>
+        /// Specifies list of remediation actions to apply. Currently only supports the `INHERITANCE_DRIFT` value.
+        /// </summary>
+        public InputList<string> RemediationTypes
+        {
+            get => _remediationTypes ?? (_remediationTypes = new InputList<string>());
+            set => _remediationTypes = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

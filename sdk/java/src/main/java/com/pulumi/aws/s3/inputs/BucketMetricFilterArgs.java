@@ -47,14 +47,14 @@ public final class BucketMetricFilterArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Object tags for filtering (up to 10).
+     * Object tags for filtering (up to 10). Unsupported for S3 directory buckets.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Object tags for filtering (up to 10).
+     * @return Object tags for filtering (up to 10). Unsupported for S3 directory buckets.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -130,7 +130,7 @@ public final class BucketMetricFilterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags Object tags for filtering (up to 10).
+         * @param tags Object tags for filtering (up to 10). Unsupported for S3 directory buckets.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class BucketMetricFilterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags Object tags for filtering (up to 10).
+         * @param tags Object tags for filtering (up to 10). Unsupported for S3 directory buckets.
          * 
          * @return builder
          * 

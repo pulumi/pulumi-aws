@@ -91,10 +91,21 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Configuration Recorder using the name. For example:
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `name` (String) Name of the configuration recorder.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import Configuration Recorders using the `name`. For example:
  *
  * ```sh
- * $ pulumi import aws:cfg/recorder:Recorder foo example
+ * $ pulumi import aws:cfg/recorder:Recorder example example
  * ```
  */
 export class Recorder extends pulumi.CustomResource {
@@ -126,7 +137,7 @@ export class Recorder extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+     * The name of the configuration recorder. Defaults to `default`. Changing it recreates the resource.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -185,7 +196,7 @@ export class Recorder extends pulumi.CustomResource {
  */
 export interface RecorderState {
     /**
-     * The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+     * The name of the configuration recorder. Defaults to `default`. Changing it recreates the resource.
      */
     name?: pulumi.Input<string>;
     /**
@@ -211,7 +222,7 @@ export interface RecorderState {
  */
 export interface RecorderArgs {
     /**
-     * The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+     * The name of the configuration recorder. Defaults to `default`. Changing it recreates the resource.
      */
     name?: pulumi.Input<string>;
     /**

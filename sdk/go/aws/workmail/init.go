@@ -25,8 +25,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DefaultDomain{}
 	case "aws:workmail/domain:Domain":
 		r = &Domain{}
+	case "aws:workmail/group:Group":
+		r = &Group{}
 	case "aws:workmail/organization:Organization":
 		r = &Organization{}
+	case "aws:workmail/user:User":
+		r = &User{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -52,7 +56,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"workmail/group",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"workmail/organization",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"workmail/user",
 		&module{version},
 	)
 }

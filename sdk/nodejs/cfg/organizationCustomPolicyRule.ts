@@ -40,10 +40,21 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import a Config Organization Custom Policy Rule using the `name` argument. For example:
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `name` (String) Name of the rule.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import Config Organization Custom Policy Rules using the `name`. For example:
  *
  * ```sh
- * $ pulumi import aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule example example_rule_name
+ * $ pulumi import aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule example example
  * ```
  */
 export class OrganizationCustomPolicyRule extends pulumi.CustomResource {

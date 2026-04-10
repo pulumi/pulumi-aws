@@ -35,6 +35,8 @@ type LandingZone struct {
 	ManifestJson pulumi.StringOutput `pulumi:"manifestJson"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
+	// Specifies list of remediation actions to apply. Currently only supports the `INHERITANCE_DRIFT` value.
+	RemediationTypes pulumi.StringArrayOutput `pulumi:"remediationTypes"`
 	// Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the landing zone, including those inherited from the provider `defaultTags` configuration block.
@@ -89,6 +91,8 @@ type landingZoneState struct {
 	ManifestJson *string `pulumi:"manifestJson"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// Specifies list of remediation actions to apply. Currently only supports the `INHERITANCE_DRIFT` value.
+	RemediationTypes []string `pulumi:"remediationTypes"`
 	// Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the landing zone, including those inherited from the provider `defaultTags` configuration block.
@@ -108,6 +112,8 @@ type LandingZoneState struct {
 	ManifestJson pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// Specifies list of remediation actions to apply. Currently only supports the `INHERITANCE_DRIFT` value.
+	RemediationTypes pulumi.StringArrayInput
 	// Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the landing zone, including those inherited from the provider `defaultTags` configuration block.
@@ -125,6 +131,8 @@ type landingZoneArgs struct {
 	ManifestJson string `pulumi:"manifestJson"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// Specifies list of remediation actions to apply. Currently only supports the `INHERITANCE_DRIFT` value.
+	RemediationTypes []string `pulumi:"remediationTypes"`
 	// Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The landing zone version.
@@ -137,6 +145,8 @@ type LandingZoneArgs struct {
 	ManifestJson pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// Specifies list of remediation actions to apply. Currently only supports the `INHERITANCE_DRIFT` value.
+	RemediationTypes pulumi.StringArrayInput
 	// Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The landing zone version.
@@ -253,6 +263,11 @@ func (o LandingZoneOutput) ManifestJson() pulumi.StringOutput {
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LandingZoneOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LandingZone) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
+// Specifies list of remediation actions to apply. Currently only supports the `INHERITANCE_DRIFT` value.
+func (o LandingZoneOutput) RemediationTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LandingZone) pulumi.StringArrayOutput { return v.RemediationTypes }).(pulumi.StringArrayOutput)
 }
 
 // Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

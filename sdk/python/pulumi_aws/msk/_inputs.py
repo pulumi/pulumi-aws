@@ -220,6 +220,10 @@ class ClusterBrokerNodeGroupInfoArgs:
 
 
 class ClusterBrokerNodeGroupInfoConnectivityInfoArgsDict(TypedDict):
+    network_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Network type of the cluster. Valid values are: `IPV4` or `DUAL`. Default value: `IPV4`. Only updating from `IPV4` to `DUAL` is allowed.
+    """
     public_access: NotRequired[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgsDict']]
     """
     Access control settings for brokers. See connectivity_info public_access Argument Reference below.
@@ -232,16 +236,32 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterBrokerNodeGroupInfoConnectivityInfoArgs:
     def __init__(__self__, *,
+                 network_type: Optional[pulumi.Input[_builtins.str]] = None,
                  public_access: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs']] = None,
                  vpc_connectivity: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs']] = None):
         """
+        :param pulumi.Input[_builtins.str] network_type: Network type of the cluster. Valid values are: `IPV4` or `DUAL`. Default value: `IPV4`. Only updating from `IPV4` to `DUAL` is allowed.
         :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs'] public_access: Access control settings for brokers. See connectivity_info public_access Argument Reference below.
         :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs'] vpc_connectivity: VPC connectivity access control for brokers. See connectivity_info vpc_connectivity Argument Reference below.
         """
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if public_access is not None:
             pulumi.set(__self__, "public_access", public_access)
         if vpc_connectivity is not None:
             pulumi.set(__self__, "vpc_connectivity", vpc_connectivity)
+
+    @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Network type of the cluster. Valid values are: `IPV4` or `DUAL`. Default value: `IPV4`. Only updating from `IPV4` to `DUAL` is allowed.
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "network_type", value)
 
     @_builtins.property
     @pulumi.getter(name="publicAccess")

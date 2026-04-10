@@ -5,6 +5,7 @@ package com.pulumi.aws.s3control.inputs;
 
 import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs;
 import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs;
+import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.Objects;
@@ -46,11 +47,27 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportArg
         return Optional.ofNullable(this.s3BucketDestination);
     }
 
+    /**
+     * S3 table bucket where the S3 Storage Lens metrics export will be located. See Storage Lens Table Destination below for more details.
+     * 
+     */
+    @Import(name="storageLensTableDestination")
+    private @Nullable Output<StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationArgs> storageLensTableDestination;
+
+    /**
+     * @return S3 table bucket where the S3 Storage Lens metrics export will be located. See Storage Lens Table Destination below for more details.
+     * 
+     */
+    public Optional<Output<StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationArgs>> storageLensTableDestination() {
+        return Optional.ofNullable(this.storageLensTableDestination);
+    }
+
     private StorageLensConfigurationStorageLensConfigurationDataExportArgs() {}
 
     private StorageLensConfigurationStorageLensConfigurationDataExportArgs(StorageLensConfigurationStorageLensConfigurationDataExportArgs $) {
         this.cloudWatchMetrics = $.cloudWatchMetrics;
         this.s3BucketDestination = $.s3BucketDestination;
+        this.storageLensTableDestination = $.storageLensTableDestination;
     }
 
     public static Builder builder() {
@@ -111,6 +128,27 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportArg
          */
         public Builder s3BucketDestination(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs s3BucketDestination) {
             return s3BucketDestination(Output.of(s3BucketDestination));
+        }
+
+        /**
+         * @param storageLensTableDestination S3 table bucket where the S3 Storage Lens metrics export will be located. See Storage Lens Table Destination below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageLensTableDestination(@Nullable Output<StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationArgs> storageLensTableDestination) {
+            $.storageLensTableDestination = storageLensTableDestination;
+            return this;
+        }
+
+        /**
+         * @param storageLensTableDestination S3 table bucket where the S3 Storage Lens metrics export will be located. See Storage Lens Table Destination below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageLensTableDestination(StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationArgs storageLensTableDestination) {
+            return storageLensTableDestination(Output.of(storageLensTableDestination));
         }
 
         public StorageLensConfigurationStorageLensConfigurationDataExportArgs build() {

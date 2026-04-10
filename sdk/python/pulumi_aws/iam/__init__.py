@@ -21,6 +21,8 @@ from .get_policy import *
 from .get_policy_document import *
 from .get_principal_policy_simulation import *
 from .get_role import *
+from .get_role_policies import *
+from .get_role_policy_attachments import *
 from .get_roles import *
 from .get_saml_provider import *
 from .get_server_certificate import *

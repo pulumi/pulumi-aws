@@ -71,14 +71,22 @@ public final class GetAccessEntryPlainArgs extends com.pulumi.resources.InvokeAr
     /**
      * (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
      * 
+     * @deprecated
+     * tags_all is deprecated.
+     * 
      */
+    @Deprecated /* tags_all is deprecated. */
     @Import(name="tagsAll")
     private @Nullable Map<String,String> tagsAll;
 
     /**
      * @return (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
      * 
+     * @deprecated
+     * tags_all is deprecated.
+     * 
      */
+    @Deprecated /* tags_all is deprecated. */
     public Optional<Map<String,String>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -154,7 +162,11 @@ public final class GetAccessEntryPlainArgs extends com.pulumi.resources.InvokeAr
          * 
          * @return builder
          * 
+         * @deprecated
+         * tags_all is deprecated.
+         * 
          */
+        @Deprecated /* tags_all is deprecated. */
         public Builder tagsAll(@Nullable Map<String,String> tagsAll) {
             $.tagsAll = tagsAll;
             return this;

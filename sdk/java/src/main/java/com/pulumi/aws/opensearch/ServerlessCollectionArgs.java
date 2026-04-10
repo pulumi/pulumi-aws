@@ -3,10 +3,12 @@
 
 package com.pulumi.aws.opensearch;
 
+import com.pulumi.aws.opensearch.inputs.ServerlessCollectionEncryptionConfigArgs;
 import com.pulumi.aws.opensearch.inputs.ServerlessCollectionTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,6 +18,21 @@ import javax.annotation.Nullable;
 public final class ServerlessCollectionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ServerlessCollectionArgs Empty = new ServerlessCollectionArgs();
+
+    /**
+     * Name of the collection group to associate with this collection.
+     * 
+     */
+    @Import(name="collectionGroupName")
+    private @Nullable Output<String> collectionGroupName;
+
+    /**
+     * @return Name of the collection group to associate with this collection.
+     * 
+     */
+    public Optional<Output<String>> collectionGroupName() {
+        return Optional.ofNullable(this.collectionGroupName);
+    }
 
     /**
      * Description of the collection.
@@ -30,6 +47,21 @@ public final class ServerlessCollectionArgs extends com.pulumi.resources.Resourc
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * Configuration block for direct collection encryption settings. See `encryptionConfig` below for details.
+     * 
+     */
+    @Import(name="encryptionConfigs")
+    private @Nullable Output<List<ServerlessCollectionEncryptionConfigArgs>> encryptionConfigs;
+
+    /**
+     * @return Configuration block for direct collection encryption settings. See `encryptionConfig` below for details.
+     * 
+     */
+    public Optional<Output<List<ServerlessCollectionEncryptionConfigArgs>>> encryptionConfigs() {
+        return Optional.ofNullable(this.encryptionConfigs);
     }
 
     /**
@@ -121,7 +153,9 @@ public final class ServerlessCollectionArgs extends com.pulumi.resources.Resourc
     private ServerlessCollectionArgs() {}
 
     private ServerlessCollectionArgs(ServerlessCollectionArgs $) {
+        this.collectionGroupName = $.collectionGroupName;
         this.description = $.description;
+        this.encryptionConfigs = $.encryptionConfigs;
         this.name = $.name;
         this.region = $.region;
         this.standbyReplicas = $.standbyReplicas;
@@ -149,6 +183,27 @@ public final class ServerlessCollectionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
+         * @param collectionGroupName Name of the collection group to associate with this collection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder collectionGroupName(@Nullable Output<String> collectionGroupName) {
+            $.collectionGroupName = collectionGroupName;
+            return this;
+        }
+
+        /**
+         * @param collectionGroupName Name of the collection group to associate with this collection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder collectionGroupName(String collectionGroupName) {
+            return collectionGroupName(Output.of(collectionGroupName));
+        }
+
+        /**
          * @param description Description of the collection.
          * 
          * @return builder
@@ -167,6 +222,37 @@ public final class ServerlessCollectionArgs extends com.pulumi.resources.Resourc
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param encryptionConfigs Configuration block for direct collection encryption settings. See `encryptionConfig` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionConfigs(@Nullable Output<List<ServerlessCollectionEncryptionConfigArgs>> encryptionConfigs) {
+            $.encryptionConfigs = encryptionConfigs;
+            return this;
+        }
+
+        /**
+         * @param encryptionConfigs Configuration block for direct collection encryption settings. See `encryptionConfig` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionConfigs(List<ServerlessCollectionEncryptionConfigArgs> encryptionConfigs) {
+            return encryptionConfigs(Output.of(encryptionConfigs));
+        }
+
+        /**
+         * @param encryptionConfigs Configuration block for direct collection encryption settings. See `encryptionConfig` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionConfigs(ServerlessCollectionEncryptionConfigArgs... encryptionConfigs) {
+            return encryptionConfigs(List.of(encryptionConfigs));
         }
 
         /**

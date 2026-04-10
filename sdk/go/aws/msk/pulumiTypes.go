@@ -248,6 +248,8 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) StorageInfo() ClusterBrokerNodeGrou
 }
 
 type ClusterBrokerNodeGroupInfoConnectivityInfo struct {
+	// Network type of the cluster. Valid values are: `IPV4` or `DUAL`. Default value: `IPV4`. Only updating from `IPV4` to `DUAL` is allowed.
+	NetworkType *string `pulumi:"networkType"`
 	// Access control settings for brokers. See connectivityInfo public_access Argument Reference below.
 	PublicAccess *ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess `pulumi:"publicAccess"`
 	// VPC connectivity access control for brokers. See connectivityInfo vpc_connectivity Argument Reference below.
@@ -266,6 +268,8 @@ type ClusterBrokerNodeGroupInfoConnectivityInfoInput interface {
 }
 
 type ClusterBrokerNodeGroupInfoConnectivityInfoArgs struct {
+	// Network type of the cluster. Valid values are: `IPV4` or `DUAL`. Default value: `IPV4`. Only updating from `IPV4` to `DUAL` is allowed.
+	NetworkType pulumi.StringPtrInput `pulumi:"networkType"`
 	// Access control settings for brokers. See connectivityInfo public_access Argument Reference below.
 	PublicAccess ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrInput `pulumi:"publicAccess"`
 	// VPC connectivity access control for brokers. See connectivityInfo vpc_connectivity Argument Reference below.
@@ -349,6 +353,11 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoOutput) ToClusterBrokerNodeGro
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput)
 }
 
+// Network type of the cluster. Valid values are: `IPV4` or `DUAL`. Default value: `IPV4`. Only updating from `IPV4` to `DUAL` is allowed.
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoOutput) NetworkType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoConnectivityInfo) *string { return v.NetworkType }).(pulumi.StringPtrOutput)
+}
+
 // Access control settings for brokers. See connectivityInfo public_access Argument Reference below.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoOutput) PublicAccess() ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoConnectivityInfo) *ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess {
@@ -385,6 +394,16 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput) Elem() ClusterBroke
 		var ret ClusterBrokerNodeGroupInfoConnectivityInfo
 		return ret
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoOutput)
+}
+
+// Network type of the cluster. Valid values are: `IPV4` or `DUAL`. Default value: `IPV4`. Only updating from `IPV4` to `DUAL` is allowed.
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput) NetworkType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoConnectivityInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Access control settings for brokers. See connectivityInfo public_access Argument Reference below.
@@ -5873,6 +5892,7 @@ func (o GetClusterBrokerNodeGroupInfoArrayOutput) Index(i pulumi.IntInput) GetCl
 }
 
 type GetClusterBrokerNodeGroupInfoConnectivityInfo struct {
+	NetworkType       string                                                         `pulumi:"networkType"`
 	PublicAccesses    []GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess    `pulumi:"publicAccesses"`
 	VpcConnectivities []GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity `pulumi:"vpcConnectivities"`
 }
@@ -5889,6 +5909,7 @@ type GetClusterBrokerNodeGroupInfoConnectivityInfoInput interface {
 }
 
 type GetClusterBrokerNodeGroupInfoConnectivityInfoArgs struct {
+	NetworkType       pulumi.StringInput                                                     `pulumi:"networkType"`
 	PublicAccesses    GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayInput    `pulumi:"publicAccesses"`
 	VpcConnectivities GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayInput `pulumi:"vpcConnectivities"`
 }
@@ -5942,6 +5963,10 @@ func (o GetClusterBrokerNodeGroupInfoConnectivityInfoOutput) ToGetClusterBrokerN
 
 func (o GetClusterBrokerNodeGroupInfoConnectivityInfoOutput) ToGetClusterBrokerNodeGroupInfoConnectivityInfoOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoOutput {
 	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoOutput) NetworkType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoConnectivityInfo) string { return v.NetworkType }).(pulumi.StringOutput)
 }
 
 func (o GetClusterBrokerNodeGroupInfoConnectivityInfoOutput) PublicAccesses() GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayOutput {

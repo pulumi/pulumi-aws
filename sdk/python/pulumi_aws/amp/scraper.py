@@ -342,7 +342,7 @@ class Scraper(pulumi.CustomResource):
                  timeouts: Optional[pulumi.Input[Union['ScraperTimeoutsArgs', 'ScraperTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        > **Note:** If you change a Scraper's source (EKS cluster), Terraform
+        > **Note:** If you change a Scraper's source (EKS cluster or VPC configuration), Terraform
         will delete the current Scraper and create a new one.
 
         Provides an Amazon Managed Service for Prometheus fully managed collector
@@ -424,6 +424,44 @@ class Scraper(pulumi.CustomResource):
               target_label: __address__
               regex: (.+?)(\\\\\\\\:\\\\\\\\d+)?
               replacement: $1:10249
+        \"\"\")
+        ```
+
+        ### VPC Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.amp.Scraper("example",
+            source={
+                "vpc": {
+                    "security_group_ids": [example_aws_security_group["id"]],
+                    "subnet_ids": [
+                        example1["id"],
+                        example2["id"],
+                    ],
+                },
+            },
+            destination={
+                "amp": {
+                    "workspace_arn": example_aws_prometheus_workspace["arn"],
+                },
+            },
+            scrape_configuration=\"\"\"global:
+          scrape_interval: 30s
+        scrape_configs:
+          - job_name: 'my-service'
+            dns_sd_configs:
+              - names: ['my-service.my-namespace']
+                type: A
+                port: 8080
+            metrics_path: '/metrics'
+            relabel_configs:
+              - target_label: service_name
+                replacement: 'my-service'
+              - target_label: discovery_method
+                replacement: 'cloudmap-dns'
         \"\"\")
         ```
 
@@ -548,7 +586,7 @@ class Scraper(pulumi.CustomResource):
                  args: ScraperArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **Note:** If you change a Scraper's source (EKS cluster), Terraform
+        > **Note:** If you change a Scraper's source (EKS cluster or VPC configuration), Terraform
         will delete the current Scraper and create a new one.
 
         Provides an Amazon Managed Service for Prometheus fully managed collector
@@ -630,6 +668,44 @@ class Scraper(pulumi.CustomResource):
               target_label: __address__
               regex: (.+?)(\\\\\\\\:\\\\\\\\d+)?
               replacement: $1:10249
+        \"\"\")
+        ```
+
+        ### VPC Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.amp.Scraper("example",
+            source={
+                "vpc": {
+                    "security_group_ids": [example_aws_security_group["id"]],
+                    "subnet_ids": [
+                        example1["id"],
+                        example2["id"],
+                    ],
+                },
+            },
+            destination={
+                "amp": {
+                    "workspace_arn": example_aws_prometheus_workspace["arn"],
+                },
+            },
+            scrape_configuration=\"\"\"global:
+          scrape_interval: 30s
+        scrape_configs:
+          - job_name: 'my-service'
+            dns_sd_configs:
+              - names: ['my-service.my-namespace']
+                type: A
+                port: 8080
+            metrics_path: '/metrics'
+            relabel_configs:
+              - target_label: service_name
+                replacement: 'my-service'
+              - target_label: discovery_method
+                replacement: 'cloudmap-dns'
         \"\"\")
         ```
 

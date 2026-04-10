@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a S3 bucket [metrics configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html) resource.
  *
- * > This resource cannot be used with S3 directory buckets.
- *
  * ## Example Usage
  *
  * ### Add metrics configuration for entire S3 bucket
@@ -67,6 +65,35 @@ import * as utilities from "../utilities";
  *             priority: "high",
  *             "class": "blue",
  *         },
+ *     },
+ * });
+ * ```
+ *
+ * ### Add metrics configuration for S3 directory bucket
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const available = aws.getAvailabilityZones({
+ *     state: "available",
+ * });
+ * const example = new aws.s3.DirectoryBucket("example", {
+ *     bucket: "example--zoneId--x-s3",
+ *     location: {
+ *         name: available.then(available => available.zoneIds?.[0]),
+ *     },
+ * });
+ * const example_access_point = new aws.s3.AccessPoint("example-access-point", {
+ *     bucket: example.id,
+ *     name: "example--zoneId--xa-s3",
+ * });
+ * const example_bucket_metric = new aws.s3.BucketMetric("example-bucket-metric", {
+ *     bucket: example.id,
+ *     name: "ExampleBucketMetricForDirectoryBuckets",
+ *     filter: {
+ *         accessPoint: example_access_point.arn,
+ *         prefix: "documents/",
  *     },
  * });
  * ```

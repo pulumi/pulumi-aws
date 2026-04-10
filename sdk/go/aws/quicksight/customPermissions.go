@@ -16,14 +16,33 @@ import (
 //
 // ## Example Usage
 //
-//	resource "quicksight.CustomPermissions" "example" {
-//	  customPermissionsName = "example-permissions"
+// ```go
+// package main
 //
-//	  capabilities {
-//	    printReports    = "DENY"
-//	    shareDashboards = "DENY"
-//	  }
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := quicksight.NewCustomPermissions(ctx, "example", &quicksight.CustomPermissionsArgs{
+//				CustomPermissionsName: pulumi.String("example-permissions"),
+//				Capabilities: &quicksight.CustomPermissionsCapabilitiesArgs{
+//					PrintReports:    pulumi.String("DENY"),
+//					ShareDashboards: pulumi.String("DENY"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
 //	}
+//
+// ```
 //
 // ## Import
 //

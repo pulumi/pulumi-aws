@@ -34,7 +34,7 @@ import (
 //				Description:   pulumi.String("Example Configuration"),
 //				Name:          pulumi.String("example"),
 //				EngineType:    pulumi.String("ActiveMQ"),
-//				EngineVersion: pulumi.String("5.17.6"),
+//				EngineVersion: pulumi.String("5.19"),
 //				Data: pulumi.String(`<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>
 //
 // <broker xmlns=\"http://activemq.apache.org/schema/core\">
@@ -76,7 +76,7 @@ import (
 //				Description:   pulumi.String("Example Configuration"),
 //				Name:          pulumi.String("example"),
 //				EngineType:    pulumi.String("RabbitMQ"),
-//				EngineVersion: pulumi.String("3.11.20"),
+//				EngineVersion: pulumi.String("4.2"),
 //				Data:          pulumi.String("# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds\nconsumer_timeout = 1800000\n"),
 //			})
 //			if err != nil {

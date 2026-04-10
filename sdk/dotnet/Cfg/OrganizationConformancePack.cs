@@ -132,6 +132,17 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Name` (String) Name of the configuration recorder.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import Config Organization Conformance Packs using the `Name`. For example:
     /// 
     /// ```sh

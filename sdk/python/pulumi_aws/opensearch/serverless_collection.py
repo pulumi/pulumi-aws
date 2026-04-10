@@ -21,7 +21,9 @@ __all__ = ['ServerlessCollectionArgs', 'ServerlessCollection']
 @pulumi.input_type
 class ServerlessCollectionArgs:
     def __init__(__self__, *,
+                 collection_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCollectionEncryptionConfigArgs']]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  standby_replicas: Optional[pulumi.Input[_builtins.str]] = None,
@@ -31,7 +33,9 @@ class ServerlessCollectionArgs:
         """
         The set of arguments for constructing a ServerlessCollection resource.
 
+        :param pulumi.Input[_builtins.str] collection_group_name: Name of the collection group to associate with this collection.
         :param pulumi.Input[_builtins.str] description: Description of the collection.
+        :param pulumi.Input[Sequence[pulumi.Input['ServerlessCollectionEncryptionConfigArgs']]] encryption_configs: Configuration block for direct collection encryption settings. See `encryption_config` below for details.
         :param pulumi.Input[_builtins.str] name: Name of the collection.
                
                The following arguments are optional:
@@ -40,8 +44,12 @@ class ServerlessCollectionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] type: Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         """
+        if collection_group_name is not None:
+            pulumi.set(__self__, "collection_group_name", collection_group_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if encryption_configs is not None:
+            pulumi.set(__self__, "encryption_configs", encryption_configs)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if region is not None:
@@ -56,6 +64,18 @@ class ServerlessCollectionArgs:
             pulumi.set(__self__, "type", type)
 
     @_builtins.property
+    @pulumi.getter(name="collectionGroupName")
+    def collection_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the collection group to associate with this collection.
+        """
+        return pulumi.get(self, "collection_group_name")
+
+    @collection_group_name.setter
+    def collection_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "collection_group_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -66,6 +86,18 @@ class ServerlessCollectionArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionConfigs")
+    def encryption_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCollectionEncryptionConfigArgs']]]]:
+        """
+        Configuration block for direct collection encryption settings. See `encryption_config` below for details.
+        """
+        return pulumi.get(self, "encryption_configs")
+
+    @encryption_configs.setter
+    def encryption_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCollectionEncryptionConfigArgs']]]]):
+        pulumi.set(self, "encryption_configs", value)
 
     @_builtins.property
     @pulumi.getter
@@ -144,8 +176,10 @@ class _ServerlessCollectionState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
                  collection_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 collection_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  dashboard_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCollectionEncryptionConfigArgs']]]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -159,8 +193,10 @@ class _ServerlessCollectionState:
 
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the collection.
         :param pulumi.Input[_builtins.str] collection_endpoint: Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
+        :param pulumi.Input[_builtins.str] collection_group_name: Name of the collection group to associate with this collection.
         :param pulumi.Input[_builtins.str] dashboard_endpoint: Collection-specific endpoint used to access OpenSearch Dashboards.
         :param pulumi.Input[_builtins.str] description: Description of the collection.
+        :param pulumi.Input[Sequence[pulumi.Input['ServerlessCollectionEncryptionConfigArgs']]] encryption_configs: Configuration block for direct collection encryption settings. See `encryption_config` below for details.
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the Amazon Web Services KMS key used to encrypt the collection.
         :param pulumi.Input[_builtins.str] name: Name of the collection.
                
@@ -168,16 +204,21 @@ class _ServerlessCollectionState:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] standby_replicas: Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] type: Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if collection_endpoint is not None:
             pulumi.set(__self__, "collection_endpoint", collection_endpoint)
+        if collection_group_name is not None:
+            pulumi.set(__self__, "collection_group_name", collection_group_name)
         if dashboard_endpoint is not None:
             pulumi.set(__self__, "dashboard_endpoint", dashboard_endpoint)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if encryption_configs is not None:
+            pulumi.set(__self__, "encryption_configs", encryption_configs)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if name is not None:
@@ -220,6 +261,18 @@ class _ServerlessCollectionState:
         pulumi.set(self, "collection_endpoint", value)
 
     @_builtins.property
+    @pulumi.getter(name="collectionGroupName")
+    def collection_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the collection group to associate with this collection.
+        """
+        return pulumi.get(self, "collection_group_name")
+
+    @collection_group_name.setter
+    def collection_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "collection_group_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="dashboardEndpoint")
     def dashboard_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -242,6 +295,18 @@ class _ServerlessCollectionState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionConfigs")
+    def encryption_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCollectionEncryptionConfigArgs']]]]:
+        """
+        Configuration block for direct collection encryption settings. See `encryption_config` below for details.
+        """
+        return pulumi.get(self, "encryption_configs")
+
+    @encryption_configs.setter
+    def encryption_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCollectionEncryptionConfigArgs']]]]):
+        pulumi.set(self, "encryption_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
@@ -308,6 +373,9 @@ class _ServerlessCollectionState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -342,7 +410,9 @@ class ServerlessCollection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 collection_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCollectionEncryptionConfigArgs', 'ServerlessCollectionEncryptionConfigArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  standby_replicas: Optional[pulumi.Input[_builtins.str]] = None,
@@ -353,7 +423,7 @@ class ServerlessCollection(pulumi.CustomResource):
         """
         Resource for managing an AWS OpenSearch Serverless Collection.
 
-        > **NOTE:** An `opensearch.ServerlessCollection` cannot be created without having an applicable encryption security policy. Use the `depends_on` meta-argument to define this dependency.
+        > **NOTE:** An `opensearch.ServerlessCollection` must have encryption configured either by an applicable encryption security policy or by setting `encryption_config` directly on the resource.
 
         > **NOTE:** An `opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
 
@@ -380,7 +450,39 @@ class ServerlessCollection(pulumi.CustomResource):
         opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
+        ### With a Collection Group and Direct Encryption Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kms.Key("example",
+            description="example",
+            deletion_window_in_days=7)
+        example_serverless_collection_group = aws.opensearch.ServerlessCollectionGroup("example",
+            name="example-group",
+            standby_replicas="ENABLED")
+        example_serverless_collection = aws.opensearch.ServerlessCollection("example",
+            name="example",
+            type="SEARCH",
+            collection_group_name=example_serverless_collection_group.name,
+            encryption_configs=[{
+                "kms_key_arn": example.arn,
+            }])
+        ```
+
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) Unique identifier for the collection.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For example:
 
@@ -391,7 +493,9 @@ class ServerlessCollection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] collection_group_name: Name of the collection group to associate with this collection.
         :param pulumi.Input[_builtins.str] description: Description of the collection.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCollectionEncryptionConfigArgs', 'ServerlessCollectionEncryptionConfigArgsDict']]]] encryption_configs: Configuration block for direct collection encryption settings. See `encryption_config` below for details.
         :param pulumi.Input[_builtins.str] name: Name of the collection.
                
                The following arguments are optional:
@@ -409,7 +513,7 @@ class ServerlessCollection(pulumi.CustomResource):
         """
         Resource for managing an AWS OpenSearch Serverless Collection.
 
-        > **NOTE:** An `opensearch.ServerlessCollection` cannot be created without having an applicable encryption security policy. Use the `depends_on` meta-argument to define this dependency.
+        > **NOTE:** An `opensearch.ServerlessCollection` must have encryption configured either by an applicable encryption security policy or by setting `encryption_config` directly on the resource.
 
         > **NOTE:** An `opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
 
@@ -436,7 +540,39 @@ class ServerlessCollection(pulumi.CustomResource):
         opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
+        ### With a Collection Group and Direct Encryption Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kms.Key("example",
+            description="example",
+            deletion_window_in_days=7)
+        example_serverless_collection_group = aws.opensearch.ServerlessCollectionGroup("example",
+            name="example-group",
+            standby_replicas="ENABLED")
+        example_serverless_collection = aws.opensearch.ServerlessCollection("example",
+            name="example",
+            type="SEARCH",
+            collection_group_name=example_serverless_collection_group.name,
+            encryption_configs=[{
+                "kms_key_arn": example.arn,
+            }])
+        ```
+
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) Unique identifier for the collection.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For example:
 
@@ -460,7 +596,9 @@ class ServerlessCollection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 collection_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCollectionEncryptionConfigArgs', 'ServerlessCollectionEncryptionConfigArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  standby_replicas: Optional[pulumi.Input[_builtins.str]] = None,
@@ -476,7 +614,9 @@ class ServerlessCollection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServerlessCollectionArgs.__new__(ServerlessCollectionArgs)
 
+            __props__.__dict__["collection_group_name"] = collection_group_name
             __props__.__dict__["description"] = description
+            __props__.__dict__["encryption_configs"] = encryption_configs
             __props__.__dict__["name"] = name
             __props__.__dict__["region"] = region
             __props__.__dict__["standby_replicas"] = standby_replicas
@@ -500,8 +640,10 @@ class ServerlessCollection(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[_builtins.str]] = None,
             collection_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+            collection_group_name: Optional[pulumi.Input[_builtins.str]] = None,
             dashboard_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
             description: Optional[pulumi.Input[_builtins.str]] = None,
+            encryption_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCollectionEncryptionConfigArgs', 'ServerlessCollectionEncryptionConfigArgsDict']]]]] = None,
             kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -519,8 +661,10 @@ class ServerlessCollection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the collection.
         :param pulumi.Input[_builtins.str] collection_endpoint: Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
+        :param pulumi.Input[_builtins.str] collection_group_name: Name of the collection group to associate with this collection.
         :param pulumi.Input[_builtins.str] dashboard_endpoint: Collection-specific endpoint used to access OpenSearch Dashboards.
         :param pulumi.Input[_builtins.str] description: Description of the collection.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCollectionEncryptionConfigArgs', 'ServerlessCollectionEncryptionConfigArgsDict']]]] encryption_configs: Configuration block for direct collection encryption settings. See `encryption_config` below for details.
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the Amazon Web Services KMS key used to encrypt the collection.
         :param pulumi.Input[_builtins.str] name: Name of the collection.
                
@@ -528,6 +672,7 @@ class ServerlessCollection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] standby_replicas: Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] type: Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -536,8 +681,10 @@ class ServerlessCollection(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["collection_endpoint"] = collection_endpoint
+        __props__.__dict__["collection_group_name"] = collection_group_name
         __props__.__dict__["dashboard_endpoint"] = dashboard_endpoint
         __props__.__dict__["description"] = description
+        __props__.__dict__["encryption_configs"] = encryption_configs
         __props__.__dict__["kms_key_arn"] = kms_key_arn
         __props__.__dict__["name"] = name
         __props__.__dict__["region"] = region
@@ -565,6 +712,14 @@ class ServerlessCollection(pulumi.CustomResource):
         return pulumi.get(self, "collection_endpoint")
 
     @_builtins.property
+    @pulumi.getter(name="collectionGroupName")
+    def collection_group_name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Name of the collection group to associate with this collection.
+        """
+        return pulumi.get(self, "collection_group_name")
+
+    @_builtins.property
     @pulumi.getter(name="dashboardEndpoint")
     def dashboard_endpoint(self) -> pulumi.Output[_builtins.str]:
         """
@@ -579,6 +734,14 @@ class ServerlessCollection(pulumi.CustomResource):
         Description of the collection.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionConfigs")
+    def encryption_configs(self) -> pulumi.Output[Sequence['outputs.ServerlessCollectionEncryptionConfig']]:
+        """
+        Configuration block for direct collection encryption settings. See `encryption_config` below for details.
+        """
+        return pulumi.get(self, "encryption_configs")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
@@ -625,6 +788,9 @@ class ServerlessCollection(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property

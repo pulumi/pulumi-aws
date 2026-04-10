@@ -178,9 +178,17 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
     public Output<List<CapacityProviderInstanceRequirement>> instanceRequirements() {
         return this.instanceRequirements;
     }
+    /**
+     * ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+     * 
+     */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyArn;
 
+    /**
+     * @return ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+     * 
+     */
     public Output<Optional<String>> kmsKeyArn() {
         return Codegen.optional(this.kmsKeyArn);
     }

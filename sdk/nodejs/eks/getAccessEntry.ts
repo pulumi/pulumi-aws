@@ -50,6 +50,8 @@ export interface GetAccessEntryArgs {
     tags?: {[key: string]: string};
     /**
      * (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated tags_all is deprecated.
      */
     tagsAll?: {[key: string]: string};
 }
@@ -81,9 +83,11 @@ export interface GetAccessEntryResult {
     readonly modifiedAt: string;
     readonly principalArn: string;
     readonly region: string;
-    readonly tags?: {[key: string]: string};
+    readonly tags: {[key: string]: string};
     /**
      * (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated tags_all is deprecated.
      */
     readonly tagsAll: {[key: string]: string};
     /**
@@ -141,6 +145,8 @@ export interface GetAccessEntryOutputArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated tags_all is deprecated.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

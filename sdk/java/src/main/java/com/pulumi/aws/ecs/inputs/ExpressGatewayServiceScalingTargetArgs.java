@@ -16,14 +16,14 @@ public final class ExpressGatewayServiceScalingTargetArgs extends com.pulumi.res
     public static final ExpressGatewayServiceScalingTargetArgs Empty = new ExpressGatewayServiceScalingTargetArgs();
 
     /**
-     * Metric to use for auto-scaling. Valid values are `CPU` and `MEMORY`.
+     * Metric to use for auto-scaling. Valid values are `AVERAGE_CPU`, `AVERAGE_MEMORY` and `REQUEST_COUNT_PER_TARGET`.
      * 
      */
     @Import(name="autoScalingMetric", required=true)
     private Output<String> autoScalingMetric;
 
     /**
-     * @return Metric to use for auto-scaling. Valid values are `CPU` and `MEMORY`.
+     * @return Metric to use for auto-scaling. Valid values are `AVERAGE_CPU`, `AVERAGE_MEMORY` and `REQUEST_COUNT_PER_TARGET`.
      * 
      */
     public Output<String> autoScalingMetric() {
@@ -103,7 +103,7 @@ public final class ExpressGatewayServiceScalingTargetArgs extends com.pulumi.res
         }
 
         /**
-         * @param autoScalingMetric Metric to use for auto-scaling. Valid values are `CPU` and `MEMORY`.
+         * @param autoScalingMetric Metric to use for auto-scaling. Valid values are `AVERAGE_CPU`, `AVERAGE_MEMORY` and `REQUEST_COUNT_PER_TARGET`.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class ExpressGatewayServiceScalingTargetArgs extends com.pulumi.res
         }
 
         /**
-         * @param autoScalingMetric Metric to use for auto-scaling. Valid values are `CPU` and `MEMORY`.
+         * @param autoScalingMetric Metric to use for auto-scaling. Valid values are `AVERAGE_CPU`, `AVERAGE_MEMORY` and `REQUEST_COUNT_PER_TARGET`.
          * 
          * @return builder
          * 

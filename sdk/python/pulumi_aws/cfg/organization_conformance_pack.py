@@ -400,6 +400,17 @@ class OrganizationConformancePack(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the configuration recorder.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import Config Organization Conformance Packs using the `name`. For example:
 
         ```sh
@@ -500,6 +511,17 @@ class OrganizationConformancePack(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the configuration recorder.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Config Organization Conformance Packs using the `name`. For example:
 

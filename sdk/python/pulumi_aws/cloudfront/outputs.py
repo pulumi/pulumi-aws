@@ -2980,7 +2980,7 @@ class DistributionTenantManagedCertificateRequest(dict):
         """
         :param _builtins.str certificate_transparency_logging_preference: Certificate transparency logging preference. Valid values: `enabled`, `disabled`.
         :param _builtins.str primary_domain_name: Primary domain name for the certificate.
-        :param _builtins.str validation_token_host: Host for validation token. Valid values: `cloudfront`, `domain`.
+        :param _builtins.str validation_token_host: Host for validation token. Valid values: `cloudfront`, `self-hosted`.
         """
         if certificate_transparency_logging_preference is not None:
             pulumi.set(__self__, "certificate_transparency_logging_preference", certificate_transparency_logging_preference)
@@ -3009,7 +3009,7 @@ class DistributionTenantManagedCertificateRequest(dict):
     @pulumi.getter(name="validationTokenHost")
     def validation_token_host(self) -> Optional[_builtins.str]:
         """
-        Host for validation token. Valid values: `cloudfront`, `domain`.
+        Host for validation token. Valid values: `cloudfront`, `self-hosted`.
         """
         return pulumi.get(self, "validation_token_host")
 

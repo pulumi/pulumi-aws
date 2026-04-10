@@ -68,10 +68,20 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Name` (String) Name of the instance profile.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// 
     /// Using `pulumi import`, import Instance Profiles using the `Name`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
+    /// $ pulumi import aws:iam/instanceProfile:InstanceProfile example app-instance-profile-1
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/instanceProfile:InstanceProfile")]

@@ -193,6 +193,45 @@ import (
 //
 // ```
 //
+// ### Protected View
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := glue.NewCatalogTable(ctx, "example", &glue.CatalogTableArgs{
+//				Name:         pulumi.String("multidialect_view"),
+//				DatabaseName: pulumi.String("catalog_database"),
+//				TableType:    pulumi.String("VIRTUAL_VIEW"),
+//				ViewDefinition: &glue.CatalogTableViewDefinitionArgs{
+//					IsProtected: pulumi.Bool(true),
+//					Representations: glue.CatalogTableViewDefinitionRepresentationArray{
+//						&glue.CatalogTableViewDefinitionRepresentationArgs{
+//							Dialect:              pulumi.String("ATHENA"),
+//							DialectVersion:       pulumi.String("3"),
+//							ViewOriginalText:     pulumi.String("SELECT * FROM catalog_database.base_table"),
+//							ValidationConnection: pulumi.Any(exampleAwsGlueConnection.Name),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:

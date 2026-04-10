@@ -22,6 +22,14 @@ import com.pulumi.aws.s3.inputs.GetBucketReplicationConfigurationArgs;
 import com.pulumi.aws.s3.inputs.GetBucketReplicationConfigurationPlainArgs;
 import com.pulumi.aws.s3.inputs.GetDirectoryBucketsArgs;
 import com.pulumi.aws.s3.inputs.GetDirectoryBucketsPlainArgs;
+import com.pulumi.aws.s3.inputs.GetFilesAccessPointArgs;
+import com.pulumi.aws.s3.inputs.GetFilesAccessPointPlainArgs;
+import com.pulumi.aws.s3.inputs.GetFilesFileSystemArgs;
+import com.pulumi.aws.s3.inputs.GetFilesFileSystemPlainArgs;
+import com.pulumi.aws.s3.inputs.GetFilesFileSystemsArgs;
+import com.pulumi.aws.s3.inputs.GetFilesFileSystemsPlainArgs;
+import com.pulumi.aws.s3.inputs.GetFilesMountTargetArgs;
+import com.pulumi.aws.s3.inputs.GetFilesMountTargetPlainArgs;
 import com.pulumi.aws.s3.inputs.GetObjectArgs;
 import com.pulumi.aws.s3.inputs.GetObjectPlainArgs;
 import com.pulumi.aws.s3.inputs.GetObjectsArgs;
@@ -36,6 +44,10 @@ import com.pulumi.aws.s3.outputs.GetBucketReplicationConfigurationResult;
 import com.pulumi.aws.s3.outputs.GetBucketResult;
 import com.pulumi.aws.s3.outputs.GetCanonicalUserIdResult;
 import com.pulumi.aws.s3.outputs.GetDirectoryBucketsResult;
+import com.pulumi.aws.s3.outputs.GetFilesAccessPointResult;
+import com.pulumi.aws.s3.outputs.GetFilesFileSystemResult;
+import com.pulumi.aws.s3.outputs.GetFilesFileSystemsResult;
+import com.pulumi.aws.s3.outputs.GetFilesMountTargetResult;
 import com.pulumi.aws.s3.outputs.GetObjectResult;
 import com.pulumi.aws.s3.outputs.GetObjectsResult;
 import com.pulumi.core.Output;
@@ -2899,6 +2911,879 @@ public final class S3Functions {
      */
     public static CompletableFuture<GetDirectoryBucketsResult> getDirectoryBucketsPlain(GetDirectoryBucketsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:s3/getDirectoryBuckets:getDirectoryBuckets", TypeShape.of(GetDirectoryBucketsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an S3 Files Access Point.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetFilesAccessPointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getFilesAccessPoint(GetFilesAccessPointArgs.builder()
+     *             .id("fsap-1234567890abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFilesAccessPointResult> getFilesAccessPoint(GetFilesAccessPointArgs args) {
+        return getFilesAccessPoint(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an S3 Files Access Point.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetFilesAccessPointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getFilesAccessPoint(GetFilesAccessPointArgs.builder()
+     *             .id("fsap-1234567890abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFilesAccessPointResult> getFilesAccessPointPlain(GetFilesAccessPointPlainArgs args) {
+        return getFilesAccessPointPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an S3 Files Access Point.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetFilesAccessPointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getFilesAccessPoint(GetFilesAccessPointArgs.builder()
+     *             .id("fsap-1234567890abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFilesAccessPointResult> getFilesAccessPoint(GetFilesAccessPointArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:s3/getFilesAccessPoint:getFilesAccessPoint", TypeShape.of(GetFilesAccessPointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an S3 Files Access Point.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetFilesAccessPointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getFilesAccessPoint(GetFilesAccessPointArgs.builder()
+     *             .id("fsap-1234567890abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFilesAccessPointResult> getFilesAccessPoint(GetFilesAccessPointArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:s3/getFilesAccessPoint:getFilesAccessPoint", TypeShape.of(GetFilesAccessPointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an S3 Files Access Point.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetFilesAccessPointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getFilesAccessPoint(GetFilesAccessPointArgs.builder()
+     *             .id("fsap-1234567890abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFilesAccessPointResult> getFilesAccessPointPlain(GetFilesAccessPointPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:s3/getFilesAccessPoint:getFilesAccessPoint", TypeShape.of(GetFilesAccessPointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get information on an S3 Files File System.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetFilesFileSystemArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getFilesFileSystem(GetFilesFileSystemArgs.builder()
+     *             .id("fs-1234567890abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFilesFileSystemResult> getFilesFileSystem(GetFilesFileSystemArgs args) {
+        return getFilesFileSystem(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get information on an S3 Files File System.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetFilesFileSystemArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getFilesFileSystem(GetFilesFileSystemArgs.builder()
+     *             .id("fs-1234567890abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFilesFileSystemResult> getFilesFileSystemPlain(GetFilesFileSystemPlainArgs args) {
+        return getFilesFileSystemPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get information on an S3 Files File System.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetFilesFileSystemArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getFilesFileSystem(GetFilesFileSystemArgs.builder()
+     *             .id("fs-1234567890abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFilesFileSystemResult> getFilesFileSystem(GetFilesFileSystemArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:s3/getFilesFileSystem:getFilesFileSystem", TypeShape.of(GetFilesFileSystemResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get information on an S3 Files File System.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetFilesFileSystemArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getFilesFileSystem(GetFilesFileSystemArgs.builder()
+     *             .id("fs-1234567890abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFilesFileSystemResult> getFilesFileSystem(GetFilesFileSystemArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:s3/getFilesFileSystem:getFilesFileSystem", TypeShape.of(GetFilesFileSystemResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get information on an S3 Files File System.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetFilesFileSystemArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getFilesFileSystem(GetFilesFileSystemArgs.builder()
+     *             .id("fs-1234567890abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFilesFileSystemResult> getFilesFileSystemPlain(GetFilesFileSystemPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:s3/getFilesFileSystem:getFilesFileSystem", TypeShape.of(GetFilesFileSystemResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about S3 Files File Systems.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetFilesFileSystemsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getFilesFileSystems(GetFilesFileSystemsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFilesFileSystemsResult> getFilesFileSystems() {
+        return getFilesFileSystems(GetFilesFileSystemsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about S3 Files File Systems.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetFilesFileSystemsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getFilesFileSystems(GetFilesFileSystemsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFilesFileSystemsResult> getFilesFileSystemsPlain() {
+        return getFilesFileSystemsPlain(GetFilesFileSystemsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about S3 Files File Systems.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetFilesFileSystemsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getFilesFileSystems(GetFilesFileSystemsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFilesFileSystemsResult> getFilesFileSystems(GetFilesFileSystemsArgs args) {
+        return getFilesFileSystems(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about S3 Files File Systems.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetFilesFileSystemsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getFilesFileSystems(GetFilesFileSystemsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFilesFileSystemsResult> getFilesFileSystemsPlain(GetFilesFileSystemsPlainArgs args) {
+        return getFilesFileSystemsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about S3 Files File Systems.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetFilesFileSystemsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getFilesFileSystems(GetFilesFileSystemsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFilesFileSystemsResult> getFilesFileSystems(GetFilesFileSystemsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:s3/getFilesFileSystems:getFilesFileSystems", TypeShape.of(GetFilesFileSystemsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about S3 Files File Systems.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetFilesFileSystemsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getFilesFileSystems(GetFilesFileSystemsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFilesFileSystemsResult> getFilesFileSystems(GetFilesFileSystemsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:s3/getFilesFileSystems:getFilesFileSystems", TypeShape.of(GetFilesFileSystemsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about S3 Files File Systems.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetFilesFileSystemsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getFilesFileSystems(GetFilesFileSystemsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFilesFileSystemsResult> getFilesFileSystemsPlain(GetFilesFileSystemsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:s3/getFilesFileSystems:getFilesFileSystems", TypeShape.of(GetFilesFileSystemsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an S3 Files Mount Target.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetFilesMountTargetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getFilesMountTarget(GetFilesMountTargetArgs.builder()
+     *             .id("fsmt-1234567890abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFilesMountTargetResult> getFilesMountTarget(GetFilesMountTargetArgs args) {
+        return getFilesMountTarget(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an S3 Files Mount Target.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetFilesMountTargetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getFilesMountTarget(GetFilesMountTargetArgs.builder()
+     *             .id("fsmt-1234567890abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFilesMountTargetResult> getFilesMountTargetPlain(GetFilesMountTargetPlainArgs args) {
+        return getFilesMountTargetPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an S3 Files Mount Target.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetFilesMountTargetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getFilesMountTarget(GetFilesMountTargetArgs.builder()
+     *             .id("fsmt-1234567890abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFilesMountTargetResult> getFilesMountTarget(GetFilesMountTargetArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:s3/getFilesMountTarget:getFilesMountTarget", TypeShape.of(GetFilesMountTargetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an S3 Files Mount Target.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetFilesMountTargetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getFilesMountTarget(GetFilesMountTargetArgs.builder()
+     *             .id("fsmt-1234567890abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFilesMountTargetResult> getFilesMountTarget(GetFilesMountTargetArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:s3/getFilesMountTarget:getFilesMountTarget", TypeShape.of(GetFilesMountTargetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an S3 Files Mount Target.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetFilesMountTargetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getFilesMountTarget(GetFilesMountTargetArgs.builder()
+     *             .id("fsmt-1234567890abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFilesMountTargetResult> getFilesMountTargetPlain(GetFilesMountTargetPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:s3/getFilesMountTarget:getFilesMountTarget", TypeShape.of(GetFilesMountTargetResult.class), args, Utilities.withVersion(options));
     }
     /**
      * The S3 object data source allows access to the metadata and

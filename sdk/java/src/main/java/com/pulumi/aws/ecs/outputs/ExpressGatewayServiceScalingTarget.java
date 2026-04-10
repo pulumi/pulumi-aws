@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class ExpressGatewayServiceScalingTarget {
     /**
-     * @return Metric to use for auto-scaling. Valid values are `CPU` and `MEMORY`.
+     * @return Metric to use for auto-scaling. Valid values are `AVERAGE_CPU`, `AVERAGE_MEMORY` and `REQUEST_COUNT_PER_TARGET`.
      * 
      */
     private String autoScalingMetric;
@@ -34,7 +34,7 @@ public final class ExpressGatewayServiceScalingTarget {
 
     private ExpressGatewayServiceScalingTarget() {}
     /**
-     * @return Metric to use for auto-scaling. Valid values are `CPU` and `MEMORY`.
+     * @return Metric to use for auto-scaling. Valid values are `AVERAGE_CPU`, `AVERAGE_MEMORY` and `REQUEST_COUNT_PER_TARGET`.
      * 
      */
     public String autoScalingMetric() {

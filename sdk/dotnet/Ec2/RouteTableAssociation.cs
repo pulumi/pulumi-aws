@@ -23,10 +23,10 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var a = new Aws.Ec2.RouteTableAssociation("a", new()
+    ///     var example = new Aws.Ec2.RouteTableAssociation("example", new()
     ///     {
-    ///         SubnetId = foo.Id,
-    ///         RouteTableId = bar.Id,
+    ///         SubnetId = exampleAwsSubnet.Id,
+    ///         RouteTableId = exampleAwsRouteTable.Id,
     ///     });
     /// 
     /// });
@@ -40,16 +40,27 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var b = new Aws.Ec2.RouteTableAssociation("b", new()
+    ///     var example = new Aws.Ec2.RouteTableAssociation("example", new()
     ///     {
-    ///         GatewayId = foo.Id,
-    ///         RouteTableId = bar.Id,
+    ///         GatewayId = exampleAwsInternetGateway.Id,
+    ///         RouteTableId = exampleAwsRouteTable.Id,
     ///     });
     /// 
     /// });
     /// ```
     /// 
     /// ## Import
+    /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Id` - (String) ID of the association.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
     /// With EC2 Internet Gateways:
     /// 
@@ -58,13 +69,13 @@ namespace Pulumi.Aws.Ec2
     /// With EC2 Subnets:
     /// 
     /// ```sh
-    /// $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72
+    /// $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation example subnet-6777656e646f6c796e/rtb-656c65616e6f72
     /// ```
     /// 
     /// With EC2 Internet Gateways:
     /// 
     /// ```sh
-    /// $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
+    /// $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation example igw-01b3a60780f8d034a/rtb-656c65616e6f72
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/routeTableAssociation:RouteTableAssociation")]

@@ -15,8 +15,16 @@ namespace Pulumi.Aws.Amp.Inputs
         /// <summary>
         /// Configuration block for an EKS cluster source. See `Eks`.
         /// </summary>
-        [Input("eks", required: true)]
-        public Input<Inputs.ScraperSourceEksGetArgs> Eks { get; set; } = null!;
+        [Input("eks")]
+        public Input<Inputs.ScraperSourceEksGetArgs>? Eks { get; set; }
+
+        /// <summary>
+        /// Configuration block for a VPC source. See `Vpc`.
+        /// 
+        /// &gt; **NOTE:** Either `Eks` or `Vpc` must be specified, but not both.
+        /// </summary>
+        [Input("vpc")]
+        public Input<Inputs.ScraperSourceVpcGetArgs>? Vpc { get; set; }
 
         public ScraperSourceGetArgs()
         {

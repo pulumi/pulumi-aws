@@ -18,6 +18,7 @@ from .device import *
 from .dx_gateway_attachment import *
 from .get_connection import *
 from .get_connections import *
+from .get_core_network import *
 from .get_core_network_policy_document import *
 from .get_device import *
 from .get_devices import *

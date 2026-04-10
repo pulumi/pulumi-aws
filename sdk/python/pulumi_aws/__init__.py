@@ -461,6 +461,8 @@ if typing.TYPE_CHECKING:
     transcribe = __transcribe
     import pulumi_aws.transfer as __transfer
     transfer = __transfer
+    import pulumi_aws.uxc as __uxc
+    uxc = __uxc
     import pulumi_aws.verifiedaccess as __verifiedaccess
     verifiedaccess = __verifiedaccess
     import pulumi_aws.verifiedpermissions as __verifiedpermissions
@@ -704,6 +706,7 @@ else:
     timestreamwrite = _utilities.lazy_import('pulumi_aws.timestreamwrite')
     transcribe = _utilities.lazy_import('pulumi_aws.transcribe')
     transfer = _utilities.lazy_import('pulumi_aws.transfer')
+    uxc = _utilities.lazy_import('pulumi_aws.uxc')
     verifiedaccess = _utilities.lazy_import('pulumi_aws.verifiedaccess')
     verifiedpermissions = _utilities.lazy_import('pulumi_aws.verifiedpermissions')
     vpc = _utilities.lazy_import('pulumi_aws.vpc')
@@ -9378,6 +9381,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "opensearch/serverlessCollectionGroup",
+  "fqn": "pulumi_aws.opensearch",
+  "classes": {
+   "aws:opensearch/serverlessCollectionGroup:ServerlessCollectionGroup": "ServerlessCollectionGroup"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "opensearch/serverlessLifecyclePolicy",
   "fqn": "pulumi_aws.opensearch",
   "classes": {
@@ -9430,6 +9441,14 @@ _utilities.register(
   "fqn": "pulumi_aws.organizations",
   "classes": {
    "aws:organizations/account:Account": "Account"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "organizations/awsServiceAccess",
+  "fqn": "pulumi_aws.organizations",
+  "classes": {
+   "aws:organizations/awsServiceAccess:AwsServiceAccess": "AwsServiceAccess"
   }
  },
  {
@@ -11122,6 +11141,46 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "s3/filesAccessPoint",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/filesAccessPoint:FilesAccessPoint": "FilesAccessPoint"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/filesFileSystem",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/filesFileSystem:FilesFileSystem": "FilesFileSystem"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/filesFileSystemPolicy",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/filesFileSystemPolicy:FilesFileSystemPolicy": "FilesFileSystemPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/filesMountTarget",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/filesMountTarget:FilesMountTarget": "FilesMountTarget"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/filesSynchronizationConfiguration",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/filesSynchronizationConfiguration:FilesSynchronizationConfiguration": "FilesSynchronizationConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "s3/inventory",
   "fqn": "pulumi_aws.s3",
   "classes": {
@@ -11594,6 +11653,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "sagemaker/trainingJob",
+  "fqn": "pulumi_aws.sagemaker",
+  "classes": {
+   "aws:sagemaker/trainingJob:TrainingJob": "TrainingJob"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "sagemaker/userProfile",
   "fqn": "pulumi_aws.sagemaker",
   "classes": {
@@ -12046,6 +12113,14 @@ _utilities.register(
   "fqn": "pulumi_aws.servicediscovery",
   "classes": {
    "aws:servicediscovery/service:Service": "Service"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "servicequotas/autoManagement",
+  "fqn": "pulumi_aws.servicequotas",
+  "classes": {
+   "aws:servicequotas/autoManagement:AutoManagement": "AutoManagement"
   }
  },
  {
@@ -13034,6 +13109,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "uxc/accountCustomizations",
+  "fqn": "pulumi_aws.uxc",
+  "classes": {
+   "aws:uxc/accountCustomizations:AccountCustomizations": "AccountCustomizations"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "verifiedaccess/endpoint",
   "fqn": "pulumi_aws.verifiedaccess",
   "classes": {
@@ -13610,10 +13693,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "workmail/group",
+  "fqn": "pulumi_aws.workmail",
+  "classes": {
+   "aws:workmail/group:Group": "Group"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "workmail/organization",
   "fqn": "pulumi_aws.workmail",
   "classes": {
    "aws:workmail/organization:Organization": "Organization"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workmail/user",
+  "fqn": "pulumi_aws.workmail",
+  "classes": {
+   "aws:workmail/user:User": "User"
   }
  },
  {

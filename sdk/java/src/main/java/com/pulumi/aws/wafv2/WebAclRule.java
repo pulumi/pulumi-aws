@@ -627,17 +627,19 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .statement(WebAclRuleStatementArgs.builder()
- *                 .orStatement(Map.of("statements",                 
- *                     WebAclRuleStatementArgs.builder()
- *                         .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
- *                             .countryCodes("CN")
+ *                 .orStatement(WebAclRuleStatementOrStatementArgs.builder()
+ *                     .statements(                    
+ *                         WebAclRuleStatementArgs.builder()
+ *                             .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
+ *                                 .countryCodes("CN")
+ *                                 .build())
+ *                             .build(),
+ *                         WebAclRuleStatementArgs.builder()
+ *                             .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
+ *                                 .countryCodes("RU")
+ *                                 .build())
  *                             .build())
- *                         .build(),
- *                     WebAclRuleStatementArgs.builder()
- *                         .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
- *                             .countryCodes("RU")
- *                             .build())
- *                         .build()))
+ *                     .build())
  *                 .build())
  *             .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
  *                 .cloudwatchMetricsEnabled(true)
@@ -693,15 +695,13 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .statement(WebAclRuleStatementArgs.builder()
- *                 .notStatement(WebAclRuleStatementNotStatementArgs.builder()
- *                     .statement(WebAclRuleStatementNotStatementStatementArgs.builder()
- *                         .geoMatchStatement(WebAclRuleStatementNotStatementStatementGeoMatchStatementArgs.builder()
- *                             .countryCodes(                            
- *                                 "US",
- *                                 "CA")
- *                             .build())
+ *                 .notStatement(Map.of("statement", WebAclRuleStatementNotStatementStatementArgs.builder()
+ *                     .geoMatchStatement(WebAclRuleStatementNotStatementStatementGeoMatchStatementArgs.builder()
+ *                         .countryCodes(                        
+ *                             "US",
+ *                             "CA")
  *                         .build())
- *                     .build())
+ *                     .build()))
  *                 .build())
  *             .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
  *                 .cloudwatchMetricsEnabled(true)

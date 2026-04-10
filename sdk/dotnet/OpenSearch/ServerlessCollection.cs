@@ -12,7 +12,7 @@ namespace Pulumi.Aws.OpenSearch
     /// <summary>
     /// Resource for managing an AWS OpenSearch Serverless Collection.
     /// 
-    /// &gt; **NOTE:** An `aws.opensearch.ServerlessCollection` cannot be created without having an applicable encryption security policy. Use the `DependsOn` meta-argument to define this dependency.
+    /// &gt; **NOTE:** An `aws.opensearch.ServerlessCollection` must have encryption configured either by an applicable encryption security policy or by setting `EncryptionConfig` directly on the resource.
     /// 
     /// &gt; **NOTE:** An `aws.opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
     /// 
@@ -64,7 +64,57 @@ namespace Pulumi.Aws.OpenSearch
     /// });
     /// ```
     /// 
+    /// ### With a Collection Group and Direct Encryption Configuration
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Kms.Key("example", new()
+    ///     {
+    ///         Description = "example",
+    ///         DeletionWindowInDays = 7,
+    ///     });
+    /// 
+    ///     var exampleServerlessCollectionGroup = new Aws.OpenSearch.ServerlessCollectionGroup("example", new()
+    ///     {
+    ///         Name = "example-group",
+    ///         StandbyReplicas = "ENABLED",
+    ///     });
+    /// 
+    ///     var exampleServerlessCollection = new Aws.OpenSearch.ServerlessCollection("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         Type = "SEARCH",
+    ///         CollectionGroupName = exampleServerlessCollectionGroup.Name,
+    ///         EncryptionConfigs = new[]
+    ///         {
+    ///             new Aws.OpenSearch.Inputs.ServerlessCollectionEncryptionConfigArgs
+    ///             {
+    ///                 KmsKeyArn = example.Arn,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
+    /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Id` (String) Unique identifier for the collection.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
     /// Using `pulumi import`, import OpenSearchServerless Collection using the `Id`. For example:
     /// 
@@ -88,6 +138,12 @@ namespace Pulumi.Aws.OpenSearch
         public Output<string> CollectionEndpoint { get; private set; } = null!;
 
         /// <summary>
+        /// Name of the collection group to associate with this collection.
+        /// </summary>
+        [Output("collectionGroupName")]
+        public Output<string?> CollectionGroupName { get; private set; } = null!;
+
+        /// <summary>
         /// Collection-specific endpoint used to access OpenSearch Dashboards.
         /// </summary>
         [Output("dashboardEndpoint")]
@@ -98,6 +154,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block for direct collection encryption settings. See `EncryptionConfig` below for details.
+        /// </summary>
+        [Output("encryptionConfigs")]
+        public Output<ImmutableArray<Outputs.ServerlessCollectionEncryptionConfig>> EncryptionConfigs { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
@@ -131,6 +193,9 @@ namespace Pulumi.Aws.OpenSearch
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -190,10 +255,28 @@ namespace Pulumi.Aws.OpenSearch
     public sealed class ServerlessCollectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of the collection group to associate with this collection.
+        /// </summary>
+        [Input("collectionGroupName")]
+        public Input<string>? CollectionGroupName { get; set; }
+
+        /// <summary>
         /// Description of the collection.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("encryptionConfigs")]
+        private InputList<Inputs.ServerlessCollectionEncryptionConfigArgs>? _encryptionConfigs;
+
+        /// <summary>
+        /// Configuration block for direct collection encryption settings. See `EncryptionConfig` below for details.
+        /// </summary>
+        public InputList<Inputs.ServerlessCollectionEncryptionConfigArgs> EncryptionConfigs
+        {
+            get => _encryptionConfigs ?? (_encryptionConfigs = new InputList<Inputs.ServerlessCollectionEncryptionConfigArgs>());
+            set => _encryptionConfigs = value;
+        }
 
         /// <summary>
         /// Name of the collection.
@@ -257,6 +340,12 @@ namespace Pulumi.Aws.OpenSearch
         public Input<string>? CollectionEndpoint { get; set; }
 
         /// <summary>
+        /// Name of the collection group to associate with this collection.
+        /// </summary>
+        [Input("collectionGroupName")]
+        public Input<string>? CollectionGroupName { get; set; }
+
+        /// <summary>
         /// Collection-specific endpoint used to access OpenSearch Dashboards.
         /// </summary>
         [Input("dashboardEndpoint")]
@@ -267,6 +356,18 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("encryptionConfigs")]
+        private InputList<Inputs.ServerlessCollectionEncryptionConfigGetArgs>? _encryptionConfigs;
+
+        /// <summary>
+        /// Configuration block for direct collection encryption settings. See `EncryptionConfig` below for details.
+        /// </summary>
+        public InputList<Inputs.ServerlessCollectionEncryptionConfigGetArgs> EncryptionConfigs
+        {
+            get => _encryptionConfigs ?? (_encryptionConfigs = new InputList<Inputs.ServerlessCollectionEncryptionConfigGetArgs>());
+            set => _encryptionConfigs = value;
+        }
 
         /// <summary>
         /// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
@@ -308,6 +409,10 @@ namespace Pulumi.Aws.OpenSearch
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

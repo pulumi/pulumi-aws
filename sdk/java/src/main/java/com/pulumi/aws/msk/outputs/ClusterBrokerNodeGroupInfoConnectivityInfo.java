@@ -6,12 +6,18 @@ package com.pulumi.aws.msk.outputs;
 import com.pulumi.aws.msk.outputs.ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess;
 import com.pulumi.aws.msk.outputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterBrokerNodeGroupInfoConnectivityInfo {
+    /**
+     * @return Network type of the cluster. Valid values are: `IPV4` or `DUAL`. Default value: `IPV4`. Only updating from `IPV4` to `DUAL` is allowed.
+     * 
+     */
+    private @Nullable String networkType;
     /**
      * @return Access control settings for brokers. See connectivityInfo public_access Argument Reference below.
      * 
@@ -24,6 +30,13 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfo {
     private @Nullable ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity vpcConnectivity;
 
     private ClusterBrokerNodeGroupInfoConnectivityInfo() {}
+    /**
+     * @return Network type of the cluster. Valid values are: `IPV4` or `DUAL`. Default value: `IPV4`. Only updating from `IPV4` to `DUAL` is allowed.
+     * 
+     */
+    public Optional<String> networkType() {
+        return Optional.ofNullable(this.networkType);
+    }
     /**
      * @return Access control settings for brokers. See connectivityInfo public_access Argument Reference below.
      * 
@@ -48,15 +61,23 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfo {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String networkType;
         private @Nullable ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess publicAccess;
         private @Nullable ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity vpcConnectivity;
         public Builder() {}
         public Builder(ClusterBrokerNodeGroupInfoConnectivityInfo defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.networkType = defaults.networkType;
     	      this.publicAccess = defaults.publicAccess;
     	      this.vpcConnectivity = defaults.vpcConnectivity;
         }
 
+        @CustomType.Setter
+        public Builder networkType(@Nullable String networkType) {
+
+            this.networkType = networkType;
+            return this;
+        }
         @CustomType.Setter
         public Builder publicAccess(@Nullable ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess publicAccess) {
 
@@ -71,6 +92,7 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfo {
         }
         public ClusterBrokerNodeGroupInfoConnectivityInfo build() {
             final var _resultValue = new ClusterBrokerNodeGroupInfoConnectivityInfo();
+            _resultValue.networkType = networkType;
             _resultValue.publicAccess = publicAccess;
             _resultValue.vpcConnectivity = vpcConnectivity;
             return _resultValue;

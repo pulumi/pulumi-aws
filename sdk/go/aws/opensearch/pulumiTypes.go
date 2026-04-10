@@ -6509,6 +6509,236 @@ func (o PackagePackageSourcePtrOutput) S3Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServerlessCollectionEncryptionConfig struct {
+	// Whether to use an AWS owned key for collection encryption.
+	AwsOwnedKey bool `pulumi:"awsOwnedKey"`
+	// ARN of the AWS KMS key to use for collection encryption.
+	KmsKeyArn string `pulumi:"kmsKeyArn"`
+}
+
+// ServerlessCollectionEncryptionConfigInput is an input type that accepts ServerlessCollectionEncryptionConfigArgs and ServerlessCollectionEncryptionConfigOutput values.
+// You can construct a concrete instance of `ServerlessCollectionEncryptionConfigInput` via:
+//
+//	ServerlessCollectionEncryptionConfigArgs{...}
+type ServerlessCollectionEncryptionConfigInput interface {
+	pulumi.Input
+
+	ToServerlessCollectionEncryptionConfigOutput() ServerlessCollectionEncryptionConfigOutput
+	ToServerlessCollectionEncryptionConfigOutputWithContext(context.Context) ServerlessCollectionEncryptionConfigOutput
+}
+
+type ServerlessCollectionEncryptionConfigArgs struct {
+	// Whether to use an AWS owned key for collection encryption.
+	AwsOwnedKey pulumi.BoolInput `pulumi:"awsOwnedKey"`
+	// ARN of the AWS KMS key to use for collection encryption.
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
+}
+
+func (ServerlessCollectionEncryptionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCollectionEncryptionConfig)(nil)).Elem()
+}
+
+func (i ServerlessCollectionEncryptionConfigArgs) ToServerlessCollectionEncryptionConfigOutput() ServerlessCollectionEncryptionConfigOutput {
+	return i.ToServerlessCollectionEncryptionConfigOutputWithContext(context.Background())
+}
+
+func (i ServerlessCollectionEncryptionConfigArgs) ToServerlessCollectionEncryptionConfigOutputWithContext(ctx context.Context) ServerlessCollectionEncryptionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCollectionEncryptionConfigOutput)
+}
+
+// ServerlessCollectionEncryptionConfigArrayInput is an input type that accepts ServerlessCollectionEncryptionConfigArray and ServerlessCollectionEncryptionConfigArrayOutput values.
+// You can construct a concrete instance of `ServerlessCollectionEncryptionConfigArrayInput` via:
+//
+//	ServerlessCollectionEncryptionConfigArray{ ServerlessCollectionEncryptionConfigArgs{...} }
+type ServerlessCollectionEncryptionConfigArrayInput interface {
+	pulumi.Input
+
+	ToServerlessCollectionEncryptionConfigArrayOutput() ServerlessCollectionEncryptionConfigArrayOutput
+	ToServerlessCollectionEncryptionConfigArrayOutputWithContext(context.Context) ServerlessCollectionEncryptionConfigArrayOutput
+}
+
+type ServerlessCollectionEncryptionConfigArray []ServerlessCollectionEncryptionConfigInput
+
+func (ServerlessCollectionEncryptionConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerlessCollectionEncryptionConfig)(nil)).Elem()
+}
+
+func (i ServerlessCollectionEncryptionConfigArray) ToServerlessCollectionEncryptionConfigArrayOutput() ServerlessCollectionEncryptionConfigArrayOutput {
+	return i.ToServerlessCollectionEncryptionConfigArrayOutputWithContext(context.Background())
+}
+
+func (i ServerlessCollectionEncryptionConfigArray) ToServerlessCollectionEncryptionConfigArrayOutputWithContext(ctx context.Context) ServerlessCollectionEncryptionConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCollectionEncryptionConfigArrayOutput)
+}
+
+type ServerlessCollectionEncryptionConfigOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCollectionEncryptionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCollectionEncryptionConfig)(nil)).Elem()
+}
+
+func (o ServerlessCollectionEncryptionConfigOutput) ToServerlessCollectionEncryptionConfigOutput() ServerlessCollectionEncryptionConfigOutput {
+	return o
+}
+
+func (o ServerlessCollectionEncryptionConfigOutput) ToServerlessCollectionEncryptionConfigOutputWithContext(ctx context.Context) ServerlessCollectionEncryptionConfigOutput {
+	return o
+}
+
+// Whether to use an AWS owned key for collection encryption.
+func (o ServerlessCollectionEncryptionConfigOutput) AwsOwnedKey() pulumi.BoolOutput {
+	return o.ApplyT(func(v ServerlessCollectionEncryptionConfig) bool { return v.AwsOwnedKey }).(pulumi.BoolOutput)
+}
+
+// ARN of the AWS KMS key to use for collection encryption.
+func (o ServerlessCollectionEncryptionConfigOutput) KmsKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerlessCollectionEncryptionConfig) string { return v.KmsKeyArn }).(pulumi.StringOutput)
+}
+
+type ServerlessCollectionEncryptionConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCollectionEncryptionConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerlessCollectionEncryptionConfig)(nil)).Elem()
+}
+
+func (o ServerlessCollectionEncryptionConfigArrayOutput) ToServerlessCollectionEncryptionConfigArrayOutput() ServerlessCollectionEncryptionConfigArrayOutput {
+	return o
+}
+
+func (o ServerlessCollectionEncryptionConfigArrayOutput) ToServerlessCollectionEncryptionConfigArrayOutputWithContext(ctx context.Context) ServerlessCollectionEncryptionConfigArrayOutput {
+	return o
+}
+
+func (o ServerlessCollectionEncryptionConfigArrayOutput) Index(i pulumi.IntInput) ServerlessCollectionEncryptionConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerlessCollectionEncryptionConfig {
+		return vs[0].([]ServerlessCollectionEncryptionConfig)[vs[1].(int)]
+	}).(ServerlessCollectionEncryptionConfigOutput)
+}
+
+type ServerlessCollectionGroupCapacityLimit struct {
+	// Maximum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+	MaxIndexingCapacityInOcu float64 `pulumi:"maxIndexingCapacityInOcu"`
+	// Maximum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+	MaxSearchCapacityInOcu float64 `pulumi:"maxSearchCapacityInOcu"`
+	// Minimum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+	MinIndexingCapacityInOcu float64 `pulumi:"minIndexingCapacityInOcu"`
+	// Minimum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+	MinSearchCapacityInOcu float64 `pulumi:"minSearchCapacityInOcu"`
+}
+
+// ServerlessCollectionGroupCapacityLimitInput is an input type that accepts ServerlessCollectionGroupCapacityLimitArgs and ServerlessCollectionGroupCapacityLimitOutput values.
+// You can construct a concrete instance of `ServerlessCollectionGroupCapacityLimitInput` via:
+//
+//	ServerlessCollectionGroupCapacityLimitArgs{...}
+type ServerlessCollectionGroupCapacityLimitInput interface {
+	pulumi.Input
+
+	ToServerlessCollectionGroupCapacityLimitOutput() ServerlessCollectionGroupCapacityLimitOutput
+	ToServerlessCollectionGroupCapacityLimitOutputWithContext(context.Context) ServerlessCollectionGroupCapacityLimitOutput
+}
+
+type ServerlessCollectionGroupCapacityLimitArgs struct {
+	// Maximum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+	MaxIndexingCapacityInOcu pulumi.Float64Input `pulumi:"maxIndexingCapacityInOcu"`
+	// Maximum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+	MaxSearchCapacityInOcu pulumi.Float64Input `pulumi:"maxSearchCapacityInOcu"`
+	// Minimum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+	MinIndexingCapacityInOcu pulumi.Float64Input `pulumi:"minIndexingCapacityInOcu"`
+	// Minimum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+	MinSearchCapacityInOcu pulumi.Float64Input `pulumi:"minSearchCapacityInOcu"`
+}
+
+func (ServerlessCollectionGroupCapacityLimitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCollectionGroupCapacityLimit)(nil)).Elem()
+}
+
+func (i ServerlessCollectionGroupCapacityLimitArgs) ToServerlessCollectionGroupCapacityLimitOutput() ServerlessCollectionGroupCapacityLimitOutput {
+	return i.ToServerlessCollectionGroupCapacityLimitOutputWithContext(context.Background())
+}
+
+func (i ServerlessCollectionGroupCapacityLimitArgs) ToServerlessCollectionGroupCapacityLimitOutputWithContext(ctx context.Context) ServerlessCollectionGroupCapacityLimitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCollectionGroupCapacityLimitOutput)
+}
+
+// ServerlessCollectionGroupCapacityLimitArrayInput is an input type that accepts ServerlessCollectionGroupCapacityLimitArray and ServerlessCollectionGroupCapacityLimitArrayOutput values.
+// You can construct a concrete instance of `ServerlessCollectionGroupCapacityLimitArrayInput` via:
+//
+//	ServerlessCollectionGroupCapacityLimitArray{ ServerlessCollectionGroupCapacityLimitArgs{...} }
+type ServerlessCollectionGroupCapacityLimitArrayInput interface {
+	pulumi.Input
+
+	ToServerlessCollectionGroupCapacityLimitArrayOutput() ServerlessCollectionGroupCapacityLimitArrayOutput
+	ToServerlessCollectionGroupCapacityLimitArrayOutputWithContext(context.Context) ServerlessCollectionGroupCapacityLimitArrayOutput
+}
+
+type ServerlessCollectionGroupCapacityLimitArray []ServerlessCollectionGroupCapacityLimitInput
+
+func (ServerlessCollectionGroupCapacityLimitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerlessCollectionGroupCapacityLimit)(nil)).Elem()
+}
+
+func (i ServerlessCollectionGroupCapacityLimitArray) ToServerlessCollectionGroupCapacityLimitArrayOutput() ServerlessCollectionGroupCapacityLimitArrayOutput {
+	return i.ToServerlessCollectionGroupCapacityLimitArrayOutputWithContext(context.Background())
+}
+
+func (i ServerlessCollectionGroupCapacityLimitArray) ToServerlessCollectionGroupCapacityLimitArrayOutputWithContext(ctx context.Context) ServerlessCollectionGroupCapacityLimitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCollectionGroupCapacityLimitArrayOutput)
+}
+
+type ServerlessCollectionGroupCapacityLimitOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCollectionGroupCapacityLimitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCollectionGroupCapacityLimit)(nil)).Elem()
+}
+
+func (o ServerlessCollectionGroupCapacityLimitOutput) ToServerlessCollectionGroupCapacityLimitOutput() ServerlessCollectionGroupCapacityLimitOutput {
+	return o
+}
+
+func (o ServerlessCollectionGroupCapacityLimitOutput) ToServerlessCollectionGroupCapacityLimitOutputWithContext(ctx context.Context) ServerlessCollectionGroupCapacityLimitOutput {
+	return o
+}
+
+// Maximum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+func (o ServerlessCollectionGroupCapacityLimitOutput) MaxIndexingCapacityInOcu() pulumi.Float64Output {
+	return o.ApplyT(func(v ServerlessCollectionGroupCapacityLimit) float64 { return v.MaxIndexingCapacityInOcu }).(pulumi.Float64Output)
+}
+
+// Maximum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+func (o ServerlessCollectionGroupCapacityLimitOutput) MaxSearchCapacityInOcu() pulumi.Float64Output {
+	return o.ApplyT(func(v ServerlessCollectionGroupCapacityLimit) float64 { return v.MaxSearchCapacityInOcu }).(pulumi.Float64Output)
+}
+
+// Minimum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+func (o ServerlessCollectionGroupCapacityLimitOutput) MinIndexingCapacityInOcu() pulumi.Float64Output {
+	return o.ApplyT(func(v ServerlessCollectionGroupCapacityLimit) float64 { return v.MinIndexingCapacityInOcu }).(pulumi.Float64Output)
+}
+
+// Minimum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+func (o ServerlessCollectionGroupCapacityLimitOutput) MinSearchCapacityInOcu() pulumi.Float64Output {
+	return o.ApplyT(func(v ServerlessCollectionGroupCapacityLimit) float64 { return v.MinSearchCapacityInOcu }).(pulumi.Float64Output)
+}
+
+type ServerlessCollectionGroupCapacityLimitArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCollectionGroupCapacityLimitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerlessCollectionGroupCapacityLimit)(nil)).Elem()
+}
+
+func (o ServerlessCollectionGroupCapacityLimitArrayOutput) ToServerlessCollectionGroupCapacityLimitArrayOutput() ServerlessCollectionGroupCapacityLimitArrayOutput {
+	return o
+}
+
+func (o ServerlessCollectionGroupCapacityLimitArrayOutput) ToServerlessCollectionGroupCapacityLimitArrayOutputWithContext(ctx context.Context) ServerlessCollectionGroupCapacityLimitArrayOutput {
+	return o
+}
+
+func (o ServerlessCollectionGroupCapacityLimitArrayOutput) Index(i pulumi.IntInput) ServerlessCollectionGroupCapacityLimitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerlessCollectionGroupCapacityLimit {
+		return vs[0].([]ServerlessCollectionGroupCapacityLimit)[vs[1].(int)]
+	}).(ServerlessCollectionGroupCapacityLimitOutput)
+}
+
 type ServerlessCollectionTimeouts struct {
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
@@ -9587,6 +9817,415 @@ func (o GetDomainVpcOptionArrayOutput) Index(i pulumi.IntInput) GetDomainVpcOpti
 	}).(GetDomainVpcOptionOutput)
 }
 
+type GetServerlessCollectionGroupCapacityLimit struct {
+	// Maximum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+	MaxIndexingCapacityInOcu float64 `pulumi:"maxIndexingCapacityInOcu"`
+	// Maximum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+	MaxSearchCapacityInOcu float64 `pulumi:"maxSearchCapacityInOcu"`
+	// Minimum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+	MinIndexingCapacityInOcu float64 `pulumi:"minIndexingCapacityInOcu"`
+	// Minimum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+	MinSearchCapacityInOcu float64 `pulumi:"minSearchCapacityInOcu"`
+}
+
+// GetServerlessCollectionGroupCapacityLimitInput is an input type that accepts GetServerlessCollectionGroupCapacityLimitArgs and GetServerlessCollectionGroupCapacityLimitOutput values.
+// You can construct a concrete instance of `GetServerlessCollectionGroupCapacityLimitInput` via:
+//
+//	GetServerlessCollectionGroupCapacityLimitArgs{...}
+type GetServerlessCollectionGroupCapacityLimitInput interface {
+	pulumi.Input
+
+	ToGetServerlessCollectionGroupCapacityLimitOutput() GetServerlessCollectionGroupCapacityLimitOutput
+	ToGetServerlessCollectionGroupCapacityLimitOutputWithContext(context.Context) GetServerlessCollectionGroupCapacityLimitOutput
+}
+
+type GetServerlessCollectionGroupCapacityLimitArgs struct {
+	// Maximum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+	MaxIndexingCapacityInOcu pulumi.Float64Input `pulumi:"maxIndexingCapacityInOcu"`
+	// Maximum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+	MaxSearchCapacityInOcu pulumi.Float64Input `pulumi:"maxSearchCapacityInOcu"`
+	// Minimum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+	MinIndexingCapacityInOcu pulumi.Float64Input `pulumi:"minIndexingCapacityInOcu"`
+	// Minimum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+	MinSearchCapacityInOcu pulumi.Float64Input `pulumi:"minSearchCapacityInOcu"`
+}
+
+func (GetServerlessCollectionGroupCapacityLimitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerlessCollectionGroupCapacityLimit)(nil)).Elem()
+}
+
+func (i GetServerlessCollectionGroupCapacityLimitArgs) ToGetServerlessCollectionGroupCapacityLimitOutput() GetServerlessCollectionGroupCapacityLimitOutput {
+	return i.ToGetServerlessCollectionGroupCapacityLimitOutputWithContext(context.Background())
+}
+
+func (i GetServerlessCollectionGroupCapacityLimitArgs) ToGetServerlessCollectionGroupCapacityLimitOutputWithContext(ctx context.Context) GetServerlessCollectionGroupCapacityLimitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerlessCollectionGroupCapacityLimitOutput)
+}
+
+// GetServerlessCollectionGroupCapacityLimitArrayInput is an input type that accepts GetServerlessCollectionGroupCapacityLimitArray and GetServerlessCollectionGroupCapacityLimitArrayOutput values.
+// You can construct a concrete instance of `GetServerlessCollectionGroupCapacityLimitArrayInput` via:
+//
+//	GetServerlessCollectionGroupCapacityLimitArray{ GetServerlessCollectionGroupCapacityLimitArgs{...} }
+type GetServerlessCollectionGroupCapacityLimitArrayInput interface {
+	pulumi.Input
+
+	ToGetServerlessCollectionGroupCapacityLimitArrayOutput() GetServerlessCollectionGroupCapacityLimitArrayOutput
+	ToGetServerlessCollectionGroupCapacityLimitArrayOutputWithContext(context.Context) GetServerlessCollectionGroupCapacityLimitArrayOutput
+}
+
+type GetServerlessCollectionGroupCapacityLimitArray []GetServerlessCollectionGroupCapacityLimitInput
+
+func (GetServerlessCollectionGroupCapacityLimitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServerlessCollectionGroupCapacityLimit)(nil)).Elem()
+}
+
+func (i GetServerlessCollectionGroupCapacityLimitArray) ToGetServerlessCollectionGroupCapacityLimitArrayOutput() GetServerlessCollectionGroupCapacityLimitArrayOutput {
+	return i.ToGetServerlessCollectionGroupCapacityLimitArrayOutputWithContext(context.Background())
+}
+
+func (i GetServerlessCollectionGroupCapacityLimitArray) ToGetServerlessCollectionGroupCapacityLimitArrayOutputWithContext(ctx context.Context) GetServerlessCollectionGroupCapacityLimitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerlessCollectionGroupCapacityLimitArrayOutput)
+}
+
+type GetServerlessCollectionGroupCapacityLimitOutput struct{ *pulumi.OutputState }
+
+func (GetServerlessCollectionGroupCapacityLimitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerlessCollectionGroupCapacityLimit)(nil)).Elem()
+}
+
+func (o GetServerlessCollectionGroupCapacityLimitOutput) ToGetServerlessCollectionGroupCapacityLimitOutput() GetServerlessCollectionGroupCapacityLimitOutput {
+	return o
+}
+
+func (o GetServerlessCollectionGroupCapacityLimitOutput) ToGetServerlessCollectionGroupCapacityLimitOutputWithContext(ctx context.Context) GetServerlessCollectionGroupCapacityLimitOutput {
+	return o
+}
+
+// Maximum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+func (o GetServerlessCollectionGroupCapacityLimitOutput) MaxIndexingCapacityInOcu() pulumi.Float64Output {
+	return o.ApplyT(func(v GetServerlessCollectionGroupCapacityLimit) float64 { return v.MaxIndexingCapacityInOcu }).(pulumi.Float64Output)
+}
+
+// Maximum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+func (o GetServerlessCollectionGroupCapacityLimitOutput) MaxSearchCapacityInOcu() pulumi.Float64Output {
+	return o.ApplyT(func(v GetServerlessCollectionGroupCapacityLimit) float64 { return v.MaxSearchCapacityInOcu }).(pulumi.Float64Output)
+}
+
+// Minimum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+func (o GetServerlessCollectionGroupCapacityLimitOutput) MinIndexingCapacityInOcu() pulumi.Float64Output {
+	return o.ApplyT(func(v GetServerlessCollectionGroupCapacityLimit) float64 { return v.MinIndexingCapacityInOcu }).(pulumi.Float64Output)
+}
+
+// Minimum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+func (o GetServerlessCollectionGroupCapacityLimitOutput) MinSearchCapacityInOcu() pulumi.Float64Output {
+	return o.ApplyT(func(v GetServerlessCollectionGroupCapacityLimit) float64 { return v.MinSearchCapacityInOcu }).(pulumi.Float64Output)
+}
+
+type GetServerlessCollectionGroupCapacityLimitArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServerlessCollectionGroupCapacityLimitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServerlessCollectionGroupCapacityLimit)(nil)).Elem()
+}
+
+func (o GetServerlessCollectionGroupCapacityLimitArrayOutput) ToGetServerlessCollectionGroupCapacityLimitArrayOutput() GetServerlessCollectionGroupCapacityLimitArrayOutput {
+	return o
+}
+
+func (o GetServerlessCollectionGroupCapacityLimitArrayOutput) ToGetServerlessCollectionGroupCapacityLimitArrayOutputWithContext(ctx context.Context) GetServerlessCollectionGroupCapacityLimitArrayOutput {
+	return o
+}
+
+func (o GetServerlessCollectionGroupCapacityLimitArrayOutput) Index(i pulumi.IntInput) GetServerlessCollectionGroupCapacityLimitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServerlessCollectionGroupCapacityLimit {
+		return vs[0].([]GetServerlessCollectionGroupCapacityLimit)[vs[1].(int)]
+	}).(GetServerlessCollectionGroupCapacityLimitOutput)
+}
+
+type GetServerlessCollectionGroupsCollectionGroupSummary struct {
+	// Amazon Resource Name (ARN) of the collection group.
+	Arn string `pulumi:"arn"`
+	// Capacity limits configured for the collection group. See `capacityLimits` below for details.
+	CapacityLimits []GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimit `pulumi:"capacityLimits"`
+	// Epoch time, in milliseconds, when the collection group was created.
+	CreatedDate string `pulumi:"createdDate"`
+	// Unique identifier for the collection group.
+	Id string `pulumi:"id"`
+	// Name of the collection group.
+	Name string `pulumi:"name"`
+	// Number of collections currently associated with the collection group.
+	NumberOfCollections int `pulumi:"numberOfCollections"`
+	// Indicates whether standby replicas are used for collections in the group.
+	StandbyReplicas string `pulumi:"standbyReplicas"`
+}
+
+// GetServerlessCollectionGroupsCollectionGroupSummaryInput is an input type that accepts GetServerlessCollectionGroupsCollectionGroupSummaryArgs and GetServerlessCollectionGroupsCollectionGroupSummaryOutput values.
+// You can construct a concrete instance of `GetServerlessCollectionGroupsCollectionGroupSummaryInput` via:
+//
+//	GetServerlessCollectionGroupsCollectionGroupSummaryArgs{...}
+type GetServerlessCollectionGroupsCollectionGroupSummaryInput interface {
+	pulumi.Input
+
+	ToGetServerlessCollectionGroupsCollectionGroupSummaryOutput() GetServerlessCollectionGroupsCollectionGroupSummaryOutput
+	ToGetServerlessCollectionGroupsCollectionGroupSummaryOutputWithContext(context.Context) GetServerlessCollectionGroupsCollectionGroupSummaryOutput
+}
+
+type GetServerlessCollectionGroupsCollectionGroupSummaryArgs struct {
+	// Amazon Resource Name (ARN) of the collection group.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Capacity limits configured for the collection group. See `capacityLimits` below for details.
+	CapacityLimits GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayInput `pulumi:"capacityLimits"`
+	// Epoch time, in milliseconds, when the collection group was created.
+	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
+	// Unique identifier for the collection group.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the collection group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Number of collections currently associated with the collection group.
+	NumberOfCollections pulumi.IntInput `pulumi:"numberOfCollections"`
+	// Indicates whether standby replicas are used for collections in the group.
+	StandbyReplicas pulumi.StringInput `pulumi:"standbyReplicas"`
+}
+
+func (GetServerlessCollectionGroupsCollectionGroupSummaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerlessCollectionGroupsCollectionGroupSummary)(nil)).Elem()
+}
+
+func (i GetServerlessCollectionGroupsCollectionGroupSummaryArgs) ToGetServerlessCollectionGroupsCollectionGroupSummaryOutput() GetServerlessCollectionGroupsCollectionGroupSummaryOutput {
+	return i.ToGetServerlessCollectionGroupsCollectionGroupSummaryOutputWithContext(context.Background())
+}
+
+func (i GetServerlessCollectionGroupsCollectionGroupSummaryArgs) ToGetServerlessCollectionGroupsCollectionGroupSummaryOutputWithContext(ctx context.Context) GetServerlessCollectionGroupsCollectionGroupSummaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerlessCollectionGroupsCollectionGroupSummaryOutput)
+}
+
+// GetServerlessCollectionGroupsCollectionGroupSummaryArrayInput is an input type that accepts GetServerlessCollectionGroupsCollectionGroupSummaryArray and GetServerlessCollectionGroupsCollectionGroupSummaryArrayOutput values.
+// You can construct a concrete instance of `GetServerlessCollectionGroupsCollectionGroupSummaryArrayInput` via:
+//
+//	GetServerlessCollectionGroupsCollectionGroupSummaryArray{ GetServerlessCollectionGroupsCollectionGroupSummaryArgs{...} }
+type GetServerlessCollectionGroupsCollectionGroupSummaryArrayInput interface {
+	pulumi.Input
+
+	ToGetServerlessCollectionGroupsCollectionGroupSummaryArrayOutput() GetServerlessCollectionGroupsCollectionGroupSummaryArrayOutput
+	ToGetServerlessCollectionGroupsCollectionGroupSummaryArrayOutputWithContext(context.Context) GetServerlessCollectionGroupsCollectionGroupSummaryArrayOutput
+}
+
+type GetServerlessCollectionGroupsCollectionGroupSummaryArray []GetServerlessCollectionGroupsCollectionGroupSummaryInput
+
+func (GetServerlessCollectionGroupsCollectionGroupSummaryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServerlessCollectionGroupsCollectionGroupSummary)(nil)).Elem()
+}
+
+func (i GetServerlessCollectionGroupsCollectionGroupSummaryArray) ToGetServerlessCollectionGroupsCollectionGroupSummaryArrayOutput() GetServerlessCollectionGroupsCollectionGroupSummaryArrayOutput {
+	return i.ToGetServerlessCollectionGroupsCollectionGroupSummaryArrayOutputWithContext(context.Background())
+}
+
+func (i GetServerlessCollectionGroupsCollectionGroupSummaryArray) ToGetServerlessCollectionGroupsCollectionGroupSummaryArrayOutputWithContext(ctx context.Context) GetServerlessCollectionGroupsCollectionGroupSummaryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerlessCollectionGroupsCollectionGroupSummaryArrayOutput)
+}
+
+type GetServerlessCollectionGroupsCollectionGroupSummaryOutput struct{ *pulumi.OutputState }
+
+func (GetServerlessCollectionGroupsCollectionGroupSummaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerlessCollectionGroupsCollectionGroupSummary)(nil)).Elem()
+}
+
+func (o GetServerlessCollectionGroupsCollectionGroupSummaryOutput) ToGetServerlessCollectionGroupsCollectionGroupSummaryOutput() GetServerlessCollectionGroupsCollectionGroupSummaryOutput {
+	return o
+}
+
+func (o GetServerlessCollectionGroupsCollectionGroupSummaryOutput) ToGetServerlessCollectionGroupsCollectionGroupSummaryOutputWithContext(ctx context.Context) GetServerlessCollectionGroupsCollectionGroupSummaryOutput {
+	return o
+}
+
+// Amazon Resource Name (ARN) of the collection group.
+func (o GetServerlessCollectionGroupsCollectionGroupSummaryOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerlessCollectionGroupsCollectionGroupSummary) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Capacity limits configured for the collection group. See `capacityLimits` below for details.
+func (o GetServerlessCollectionGroupsCollectionGroupSummaryOutput) CapacityLimits() GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayOutput {
+	return o.ApplyT(func(v GetServerlessCollectionGroupsCollectionGroupSummary) []GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimit {
+		return v.CapacityLimits
+	}).(GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayOutput)
+}
+
+// Epoch time, in milliseconds, when the collection group was created.
+func (o GetServerlessCollectionGroupsCollectionGroupSummaryOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerlessCollectionGroupsCollectionGroupSummary) string { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// Unique identifier for the collection group.
+func (o GetServerlessCollectionGroupsCollectionGroupSummaryOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerlessCollectionGroupsCollectionGroupSummary) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Name of the collection group.
+func (o GetServerlessCollectionGroupsCollectionGroupSummaryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerlessCollectionGroupsCollectionGroupSummary) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Number of collections currently associated with the collection group.
+func (o GetServerlessCollectionGroupsCollectionGroupSummaryOutput) NumberOfCollections() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServerlessCollectionGroupsCollectionGroupSummary) int { return v.NumberOfCollections }).(pulumi.IntOutput)
+}
+
+// Indicates whether standby replicas are used for collections in the group.
+func (o GetServerlessCollectionGroupsCollectionGroupSummaryOutput) StandbyReplicas() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerlessCollectionGroupsCollectionGroupSummary) string { return v.StandbyReplicas }).(pulumi.StringOutput)
+}
+
+type GetServerlessCollectionGroupsCollectionGroupSummaryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServerlessCollectionGroupsCollectionGroupSummaryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServerlessCollectionGroupsCollectionGroupSummary)(nil)).Elem()
+}
+
+func (o GetServerlessCollectionGroupsCollectionGroupSummaryArrayOutput) ToGetServerlessCollectionGroupsCollectionGroupSummaryArrayOutput() GetServerlessCollectionGroupsCollectionGroupSummaryArrayOutput {
+	return o
+}
+
+func (o GetServerlessCollectionGroupsCollectionGroupSummaryArrayOutput) ToGetServerlessCollectionGroupsCollectionGroupSummaryArrayOutputWithContext(ctx context.Context) GetServerlessCollectionGroupsCollectionGroupSummaryArrayOutput {
+	return o
+}
+
+func (o GetServerlessCollectionGroupsCollectionGroupSummaryArrayOutput) Index(i pulumi.IntInput) GetServerlessCollectionGroupsCollectionGroupSummaryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServerlessCollectionGroupsCollectionGroupSummary {
+		return vs[0].([]GetServerlessCollectionGroupsCollectionGroupSummary)[vs[1].(int)]
+	}).(GetServerlessCollectionGroupsCollectionGroupSummaryOutput)
+}
+
+type GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimit struct {
+	// Maximum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+	MaxIndexingCapacityInOcu float64 `pulumi:"maxIndexingCapacityInOcu"`
+	// Maximum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+	MaxSearchCapacityInOcu float64 `pulumi:"maxSearchCapacityInOcu"`
+	// Minimum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+	MinIndexingCapacityInOcu float64 `pulumi:"minIndexingCapacityInOcu"`
+	// Minimum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+	MinSearchCapacityInOcu float64 `pulumi:"minSearchCapacityInOcu"`
+}
+
+// GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitInput is an input type that accepts GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArgs and GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutput values.
+// You can construct a concrete instance of `GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitInput` via:
+//
+//	GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArgs{...}
+type GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitInput interface {
+	pulumi.Input
+
+	ToGetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutput() GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutput
+	ToGetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutputWithContext(context.Context) GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutput
+}
+
+type GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArgs struct {
+	// Maximum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+	MaxIndexingCapacityInOcu pulumi.Float64Input `pulumi:"maxIndexingCapacityInOcu"`
+	// Maximum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+	MaxSearchCapacityInOcu pulumi.Float64Input `pulumi:"maxSearchCapacityInOcu"`
+	// Minimum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+	MinIndexingCapacityInOcu pulumi.Float64Input `pulumi:"minIndexingCapacityInOcu"`
+	// Minimum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+	MinSearchCapacityInOcu pulumi.Float64Input `pulumi:"minSearchCapacityInOcu"`
+}
+
+func (GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimit)(nil)).Elem()
+}
+
+func (i GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArgs) ToGetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutput() GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutput {
+	return i.ToGetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutputWithContext(context.Background())
+}
+
+func (i GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArgs) ToGetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutputWithContext(ctx context.Context) GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutput)
+}
+
+// GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayInput is an input type that accepts GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArray and GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayOutput values.
+// You can construct a concrete instance of `GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayInput` via:
+//
+//	GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArray{ GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArgs{...} }
+type GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayInput interface {
+	pulumi.Input
+
+	ToGetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayOutput() GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayOutput
+	ToGetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayOutputWithContext(context.Context) GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayOutput
+}
+
+type GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArray []GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitInput
+
+func (GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimit)(nil)).Elem()
+}
+
+func (i GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArray) ToGetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayOutput() GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayOutput {
+	return i.ToGetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayOutputWithContext(context.Background())
+}
+
+func (i GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArray) ToGetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayOutputWithContext(ctx context.Context) GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayOutput)
+}
+
+type GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutput struct{ *pulumi.OutputState }
+
+func (GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimit)(nil)).Elem()
+}
+
+func (o GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutput) ToGetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutput() GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutput {
+	return o
+}
+
+func (o GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutput) ToGetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutputWithContext(ctx context.Context) GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutput {
+	return o
+}
+
+// Maximum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+func (o GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutput) MaxIndexingCapacityInOcu() pulumi.Float64Output {
+	return o.ApplyT(func(v GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimit) float64 {
+		return v.MaxIndexingCapacityInOcu
+	}).(pulumi.Float64Output)
+}
+
+// Maximum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+func (o GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutput) MaxSearchCapacityInOcu() pulumi.Float64Output {
+	return o.ApplyT(func(v GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimit) float64 {
+		return v.MaxSearchCapacityInOcu
+	}).(pulumi.Float64Output)
+}
+
+// Minimum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+func (o GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutput) MinIndexingCapacityInOcu() pulumi.Float64Output {
+	return o.ApplyT(func(v GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimit) float64 {
+		return v.MinIndexingCapacityInOcu
+	}).(pulumi.Float64Output)
+}
+
+// Minimum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+func (o GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutput) MinSearchCapacityInOcu() pulumi.Float64Output {
+	return o.ApplyT(func(v GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimit) float64 {
+		return v.MinSearchCapacityInOcu
+	}).(pulumi.Float64Output)
+}
+
+type GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimit)(nil)).Elem()
+}
+
+func (o GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayOutput) ToGetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayOutput() GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayOutput {
+	return o
+}
+
+func (o GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayOutput) ToGetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayOutputWithContext(ctx context.Context) GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayOutput {
+	return o
+}
+
+func (o GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayOutput) Index(i pulumi.IntInput) GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimit {
+		return vs[0].([]GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimit)[vs[1].(int)]
+	}).(GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutput)
+}
+
 type GetServerlessSecurityConfigSamlOption struct {
 	// Group attribute for this SAML integration.
 	GroupAttribute string `pulumi:"groupAttribute"`
@@ -9791,6 +10430,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundConnectionRemoteDomainInfoPtrInput)(nil)).Elem(), OutboundConnectionRemoteDomainInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagePackageSourceInput)(nil)).Elem(), PackagePackageSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagePackageSourcePtrInput)(nil)).Elem(), PackagePackageSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCollectionEncryptionConfigInput)(nil)).Elem(), ServerlessCollectionEncryptionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCollectionEncryptionConfigArrayInput)(nil)).Elem(), ServerlessCollectionEncryptionConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCollectionGroupCapacityLimitInput)(nil)).Elem(), ServerlessCollectionGroupCapacityLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCollectionGroupCapacityLimitArrayInput)(nil)).Elem(), ServerlessCollectionGroupCapacityLimitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCollectionTimeoutsInput)(nil)).Elem(), ServerlessCollectionTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCollectionTimeoutsPtrInput)(nil)).Elem(), ServerlessCollectionTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessSecurityConfigSamlOptionsInput)(nil)).Elem(), ServerlessSecurityConfigSamlOptionsArgs{})
@@ -9840,6 +10483,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainSoftwareUpdateOptionArrayInput)(nil)).Elem(), GetDomainSoftwareUpdateOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainVpcOptionInput)(nil)).Elem(), GetDomainVpcOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainVpcOptionArrayInput)(nil)).Elem(), GetDomainVpcOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessCollectionGroupCapacityLimitInput)(nil)).Elem(), GetServerlessCollectionGroupCapacityLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessCollectionGroupCapacityLimitArrayInput)(nil)).Elem(), GetServerlessCollectionGroupCapacityLimitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessCollectionGroupsCollectionGroupSummaryInput)(nil)).Elem(), GetServerlessCollectionGroupsCollectionGroupSummaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessCollectionGroupsCollectionGroupSummaryArrayInput)(nil)).Elem(), GetServerlessCollectionGroupsCollectionGroupSummaryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitInput)(nil)).Elem(), GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayInput)(nil)).Elem(), GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessSecurityConfigSamlOptionInput)(nil)).Elem(), GetServerlessSecurityConfigSamlOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessSecurityConfigSamlOptionArrayInput)(nil)).Elem(), GetServerlessSecurityConfigSamlOptionArray{})
 	pulumi.RegisterOutputType(ApplicationAppConfigOutput{})
@@ -9921,6 +10570,10 @@ func init() {
 	pulumi.RegisterOutputType(OutboundConnectionRemoteDomainInfoPtrOutput{})
 	pulumi.RegisterOutputType(PackagePackageSourceOutput{})
 	pulumi.RegisterOutputType(PackagePackageSourcePtrOutput{})
+	pulumi.RegisterOutputType(ServerlessCollectionEncryptionConfigOutput{})
+	pulumi.RegisterOutputType(ServerlessCollectionEncryptionConfigArrayOutput{})
+	pulumi.RegisterOutputType(ServerlessCollectionGroupCapacityLimitOutput{})
+	pulumi.RegisterOutputType(ServerlessCollectionGroupCapacityLimitArrayOutput{})
 	pulumi.RegisterOutputType(ServerlessCollectionTimeoutsOutput{})
 	pulumi.RegisterOutputType(ServerlessCollectionTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ServerlessSecurityConfigSamlOptionsOutput{})
@@ -9970,6 +10623,12 @@ func init() {
 	pulumi.RegisterOutputType(GetDomainSoftwareUpdateOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainVpcOptionOutput{})
 	pulumi.RegisterOutputType(GetDomainVpcOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetServerlessCollectionGroupCapacityLimitOutput{})
+	pulumi.RegisterOutputType(GetServerlessCollectionGroupCapacityLimitArrayOutput{})
+	pulumi.RegisterOutputType(GetServerlessCollectionGroupsCollectionGroupSummaryOutput{})
+	pulumi.RegisterOutputType(GetServerlessCollectionGroupsCollectionGroupSummaryArrayOutput{})
+	pulumi.RegisterOutputType(GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutput{})
+	pulumi.RegisterOutputType(GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayOutput{})
 	pulumi.RegisterOutputType(GetServerlessSecurityConfigSamlOptionOutput{})
 	pulumi.RegisterOutputType(GetServerlessSecurityConfigSamlOptionArrayOutput{})
 }

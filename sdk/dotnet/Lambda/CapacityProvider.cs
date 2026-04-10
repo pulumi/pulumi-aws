@@ -133,6 +133,9 @@ namespace Pulumi.Aws.Lambda
         [Output("instanceRequirements")]
         public Output<ImmutableArray<Outputs.CapacityProviderInstanceRequirement>> InstanceRequirements { get; private set; } = null!;
 
+        /// <summary>
+        /// ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+        /// </summary>
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
@@ -247,6 +250,9 @@ namespace Pulumi.Aws.Lambda
             set => _instanceRequirements = value;
         }
 
+        /// <summary>
+        /// ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
@@ -329,6 +335,9 @@ namespace Pulumi.Aws.Lambda
             set => _instanceRequirements = value;
         }
 
+        /// <summary>
+        /// ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly string? PrimaryDomainName;
         /// <summary>
-        /// Host for validation token. Valid values: `Cloudfront`, `Domain`.
+        /// Host for validation token. Valid values: `Cloudfront`, `self-hosted`.
         /// </summary>
         public readonly string? ValidationTokenHost;
 

@@ -22,6 +22,10 @@ import com.pulumi.aws.iam.inputs.GetPrincipalPolicySimulationArgs;
 import com.pulumi.aws.iam.inputs.GetPrincipalPolicySimulationPlainArgs;
 import com.pulumi.aws.iam.inputs.GetRoleArgs;
 import com.pulumi.aws.iam.inputs.GetRolePlainArgs;
+import com.pulumi.aws.iam.inputs.GetRolePoliciesArgs;
+import com.pulumi.aws.iam.inputs.GetRolePoliciesPlainArgs;
+import com.pulumi.aws.iam.inputs.GetRolePolicyAttachmentsArgs;
+import com.pulumi.aws.iam.inputs.GetRolePolicyAttachmentsPlainArgs;
 import com.pulumi.aws.iam.inputs.GetRolesArgs;
 import com.pulumi.aws.iam.inputs.GetRolesPlainArgs;
 import com.pulumi.aws.iam.inputs.GetSamlProviderArgs;
@@ -46,6 +50,8 @@ import com.pulumi.aws.iam.outputs.GetOutboundWebIdentityFederationResult;
 import com.pulumi.aws.iam.outputs.GetPolicyDocumentResult;
 import com.pulumi.aws.iam.outputs.GetPolicyResult;
 import com.pulumi.aws.iam.outputs.GetPrincipalPolicySimulationInvokeResult;
+import com.pulumi.aws.iam.outputs.GetRolePoliciesResult;
+import com.pulumi.aws.iam.outputs.GetRolePolicyAttachmentsResult;
 import com.pulumi.aws.iam.outputs.GetRoleResult;
 import com.pulumi.aws.iam.outputs.GetRolesResult;
 import com.pulumi.aws.iam.outputs.GetSamlProviderResult;
@@ -7117,6 +7123,416 @@ public final class IamFunctions {
      */
     public static CompletableFuture<GetRoleResult> getRolePlain(GetRolePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:iam/getRole:getRole", TypeShape.of(GetRoleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get the names of inline policies associated with an IAM role.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolePoliciesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IamFunctions.getRolePolicies(GetRolePoliciesArgs.builder()
+     *             .roleName("my-role-name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRolePoliciesResult> getRolePolicies(GetRolePoliciesArgs args) {
+        return getRolePolicies(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get the names of inline policies associated with an IAM role.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolePoliciesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IamFunctions.getRolePolicies(GetRolePoliciesArgs.builder()
+     *             .roleName("my-role-name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRolePoliciesResult> getRolePoliciesPlain(GetRolePoliciesPlainArgs args) {
+        return getRolePoliciesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get the names of inline policies associated with an IAM role.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolePoliciesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IamFunctions.getRolePolicies(GetRolePoliciesArgs.builder()
+     *             .roleName("my-role-name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRolePoliciesResult> getRolePolicies(GetRolePoliciesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:iam/getRolePolicies:getRolePolicies", TypeShape.of(GetRolePoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get the names of inline policies associated with an IAM role.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolePoliciesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IamFunctions.getRolePolicies(GetRolePoliciesArgs.builder()
+     *             .roleName("my-role-name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRolePoliciesResult> getRolePolicies(GetRolePoliciesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:iam/getRolePolicies:getRolePolicies", TypeShape.of(GetRolePoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get the names of inline policies associated with an IAM role.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolePoliciesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IamFunctions.getRolePolicies(GetRolePoliciesArgs.builder()
+     *             .roleName("my-role-name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRolePoliciesResult> getRolePoliciesPlain(GetRolePoliciesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:iam/getRolePolicies:getRolePolicies", TypeShape.of(GetRolePoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about the managed policies attached to an AWS IAM Role.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolePolicyAttachmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IamFunctions.getRolePolicyAttachments(GetRolePolicyAttachmentsArgs.builder()
+     *             .roleName("example-role")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRolePolicyAttachmentsResult> getRolePolicyAttachments(GetRolePolicyAttachmentsArgs args) {
+        return getRolePolicyAttachments(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about the managed policies attached to an AWS IAM Role.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolePolicyAttachmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IamFunctions.getRolePolicyAttachments(GetRolePolicyAttachmentsArgs.builder()
+     *             .roleName("example-role")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRolePolicyAttachmentsResult> getRolePolicyAttachmentsPlain(GetRolePolicyAttachmentsPlainArgs args) {
+        return getRolePolicyAttachmentsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about the managed policies attached to an AWS IAM Role.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolePolicyAttachmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IamFunctions.getRolePolicyAttachments(GetRolePolicyAttachmentsArgs.builder()
+     *             .roleName("example-role")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRolePolicyAttachmentsResult> getRolePolicyAttachments(GetRolePolicyAttachmentsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:iam/getRolePolicyAttachments:getRolePolicyAttachments", TypeShape.of(GetRolePolicyAttachmentsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about the managed policies attached to an AWS IAM Role.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolePolicyAttachmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IamFunctions.getRolePolicyAttachments(GetRolePolicyAttachmentsArgs.builder()
+     *             .roleName("example-role")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRolePolicyAttachmentsResult> getRolePolicyAttachments(GetRolePolicyAttachmentsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:iam/getRolePolicyAttachments:getRolePolicyAttachments", TypeShape.of(GetRolePolicyAttachmentsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about the managed policies attached to an AWS IAM Role.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolePolicyAttachmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IamFunctions.getRolePolicyAttachments(GetRolePolicyAttachmentsArgs.builder()
+     *             .roleName("example-role")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRolePolicyAttachmentsResult> getRolePolicyAttachmentsPlain(GetRolePolicyAttachmentsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:iam/getRolePolicyAttachments:getRolePolicyAttachments", TypeShape.of(GetRolePolicyAttachmentsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get the ARNs and Names of IAM Roles.

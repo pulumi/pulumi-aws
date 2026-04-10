@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **Note:** If you change a Scraper's source (EKS cluster), Terraform
+// > **Note:** If you change a Scraper's source (EKS cluster or VPC configuration), Terraform
 // will delete the current Scraper and create a new one.
 //
 // Provides an Amazon Managed Service for Prometheus fully managed collector
@@ -104,6 +104,65 @@ import (
 //	    target_label: __address__
 //	    regex: (.+?)(\\\\:\\\\d+)?
 //	    replacement: $1:10249
+//
+// `),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### VPC Configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amp"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := amp.NewScraper(ctx, "example", &amp.ScraperArgs{
+//				Source: &amp.ScraperSourceArgs{
+//					Vpc: &amp.ScraperSourceVpcArgs{
+//						SecurityGroupIds: pulumi.StringArray{
+//							exampleAwsSecurityGroup.Id,
+//						},
+//						SubnetIds: pulumi.StringArray{
+//							example1.Id,
+//							example2.Id,
+//						},
+//					},
+//				},
+//				Destination: &amp.ScraperDestinationArgs{
+//					Amp: &amp.ScraperDestinationAmpArgs{
+//						WorkspaceArn: pulumi.Any(exampleAwsPrometheusWorkspace.Arn),
+//					},
+//				},
+//				ScrapeConfiguration: pulumi.String(`global:
+//	  scrape_interval: 30s
+//
+// scrape_configs:
+//   - job_name: 'my-service'
+//     dns_sd_configs:
+//   - names: ['my-service.my-namespace']
+//     type: A
+//     port: 8080
+//     metrics_path: '/metrics'
+//     relabel_configs:
+//   - target_label: service_name
+//     replacement: 'my-service'
+//   - target_label: discovery_method
+//     replacement: 'cloudmap-dns'
 //
 // `),
 //

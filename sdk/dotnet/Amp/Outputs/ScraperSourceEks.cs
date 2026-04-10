@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Amp.Outputs
     [OutputType]
     public sealed class ScraperSourceEks
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the source EKS cluster.
+        /// </summary>
         public readonly string ClusterArn;
         /// <summary>
         /// List of the security group IDs for the Amazon EKS cluster VPC configuration.
