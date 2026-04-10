@@ -399,7 +399,7 @@ class RouteServerPeer(pulumi.CustomResource):
             tags={
                 "Name": "Test",
             })
-        test_vpc_route_server_association = aws.index.VpcRouteServerAssociation("test",
+        test_vpc_route_server_association = aws.VpcRouteServerAssociation("test",
             route_server_id=test.route_server_id,
             vpc_id=test_aws_vpc.id)
         test_route_server_endpoint = aws.vpc.RouteServerEndpoint("test",
@@ -483,7 +483,7 @@ class RouteServerPeer(pulumi.CustomResource):
             tags={
                 "Name": "Test",
             })
-        test_vpc_route_server_association = aws.index.VpcRouteServerAssociation("test",
+        test_vpc_route_server_association = aws.VpcRouteServerAssociation("test",
             route_server_id=test.route_server_id,
             vpc_id=test_aws_vpc.id)
         test_route_server_endpoint = aws.vpc.RouteServerEndpoint("test",

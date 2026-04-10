@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var delegated = Aws.GetCallerIdentity.Invoke();
+    ///     var delegated = Aws.Index.GetCallerIdentity.Invoke();
     /// 
     ///     var example = new Aws.Ec2.VpcIpamOrganizationAdminAccount("example", new()
     ///     {

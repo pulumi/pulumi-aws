@@ -243,7 +243,7 @@ import (
 //			// IAM Role for OpenSearch Application
 //			opensearchApplication, err := iam.NewRole(ctx, "opensearch_application", &iam.RoleArgs{
 //				Name:             pulumi.String("opensearch-application-role"),
-//				AssumeRolePolicy: pulumi.String(json1),
+//				AssumeRolePolicy: json1,
 //			})
 //			if err != nil {
 //				return err

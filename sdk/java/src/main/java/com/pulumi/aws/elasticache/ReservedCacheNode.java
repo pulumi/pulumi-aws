@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleReservedCacheNode = new ReservedCacheNode("exampleReservedCacheNode", ReservedCacheNodeArgs.builder()
  *             .reservedCacheNodesOfferingId(example.offeringId())
- *             .id("optionalCustomReservationID")
+ *             .elasticacheReservedCacheNodeId("optionalCustomReservationID")
  *             .cacheNodeCount(3)
  *             .build());
  * 
@@ -139,6 +139,22 @@ public class ReservedCacheNode extends com.pulumi.resources.CustomResource {
      */
     public Output<String> duration() {
         return this.duration;
+    }
+    /**
+     * Customer-specified identifier to track this reservation.
+     * If not specified, AWS will assign a random ID.
+     * 
+     */
+    @Export(name="elasticacheReservedCacheNodeId", refs={String.class}, tree="[0]")
+    private Output<String> elasticacheReservedCacheNodeId;
+
+    /**
+     * @return Customer-specified identifier to track this reservation.
+     * If not specified, AWS will assign a random ID.
+     * 
+     */
+    public Output<String> elasticacheReservedCacheNodeId() {
+        return this.elasticacheReservedCacheNodeId;
     }
     /**
      * Fixed price charged for this reserved cache node.

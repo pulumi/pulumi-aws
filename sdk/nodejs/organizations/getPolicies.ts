@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     input: example.ids,
  * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.organizations.getPolicy({
  *     policyId: __value,
- * }) })));
+ * }) }), {}));
  * ```
  */
 export function getPolicies(args: GetPoliciesArgs, opts?: pulumi.InvokeOptions): Promise<GetPoliciesResult> {
@@ -76,7 +76,7 @@ export interface GetPoliciesResult {
  *     input: example.ids,
  * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.organizations.getPolicy({
  *     policyId: __value,
- * }) })));
+ * }) }), {}));
  * ```
  */
 export function getPoliciesOutput(args: GetPoliciesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPoliciesResult> {

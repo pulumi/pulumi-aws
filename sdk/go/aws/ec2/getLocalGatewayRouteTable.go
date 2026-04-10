@@ -34,7 +34,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			cfg := config.New(ctx, "")
-//			awsEc2LocalGatewayRouteTable := cfg.RequireObject("awsEc2LocalGatewayRouteTable")
+//			var awsEc2LocalGatewayRouteTable interface{}
+//			cfg.RequireObject("awsEc2LocalGatewayRouteTable", &awsEc2LocalGatewayRouteTable)
 //			_, err := ec2.GetLocalGatewayRouteTable(ctx, &ec2.GetLocalGatewayRouteTableArgs{
 //				LocalGatewayRouteTableId: pulumi.StringRef(awsEc2LocalGatewayRouteTable),
 //			}, nil)

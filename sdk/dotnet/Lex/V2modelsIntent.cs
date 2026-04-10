@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Lex
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.GetPartition.Invoke();
+    ///     var current = Aws.Index.GetPartition.Invoke();
     /// 
     ///     var test = new Aws.Iam.Role("test", new()
     ///     {

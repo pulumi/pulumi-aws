@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * const exampleGetNodeGroup = example.then(example => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.eks.getNodeGroup({
  *     clusterName: "example",
  *     nodeGroupName: __value,
- * }) })));
+ * }) }), {}));
  * ```
  */
 export function getNodeGroups(args: GetNodeGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetNodeGroupsResult> {
@@ -74,7 +74,7 @@ export interface GetNodeGroupsResult {
  * const exampleGetNodeGroup = example.then(example => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.eks.getNodeGroup({
  *     clusterName: "example",
  *     nodeGroupName: __value,
- * }) })));
+ * }) }), {}));
  * ```
  */
 export function getNodeGroupsOutput(args: GetNodeGroupsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNodeGroupsResult> {

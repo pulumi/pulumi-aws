@@ -125,7 +125,7 @@ class OrganizationalUnitAssociation(pulumi.CustomResource):
             name="example-ou",
             parent_id=example.roots[0].id)
         # Allow time for organizational unit creation to propagate
-        wait = time.index.Sleep("wait", create_duration=5s,
+        wait = time.Sleep("wait", create_duration=5s,
         opts = pulumi.ResourceOptions(depends_on=[
                 example_organizational_unit,
                 example_notification_configuration,
@@ -191,7 +191,7 @@ class OrganizationalUnitAssociation(pulumi.CustomResource):
             name="example-ou",
             parent_id=example.roots[0].id)
         # Allow time for organizational unit creation to propagate
-        wait = time.index.Sleep("wait", create_duration=5s,
+        wait = time.Sleep("wait", create_duration=5s,
         opts = pulumi.ResourceOptions(depends_on=[
                 example_organizational_unit,
                 example_notification_configuration,

@@ -42,9 +42,9 @@ import (
 //				return err
 //			}
 //			_, err = elasticache.NewReservedCacheNode(ctx, "example", &elasticache.ReservedCacheNodeArgs{
-//				ReservedCacheNodesOfferingId: pulumi.String(pulumi.String(example.OfferingId)),
-//				Id:                           "optionalCustomReservationID",
-//				CacheNodeCount:               pulumi.Int(3),
+//				ReservedCacheNodesOfferingId:   pulumi.String(pulumi.String(example.OfferingId)),
+//				ElasticacheReservedCacheNodeId: pulumi.String("optionalCustomReservationID"),
+//				CacheNodeCount:                 pulumi.Int(3),
 //			})
 //			if err != nil {
 //				return err
@@ -74,6 +74,9 @@ type ReservedCacheNode struct {
 	CacheNodeType pulumi.StringOutput `pulumi:"cacheNodeType"`
 	// Duration of the reservation as an RFC3339 duration.
 	Duration pulumi.StringOutput `pulumi:"duration"`
+	// Customer-specified identifier to track this reservation.
+	// If not specified, AWS will assign a random ID.
+	ElasticacheReservedCacheNodeId pulumi.StringOutput `pulumi:"elasticacheReservedCacheNodeId"`
 	// Fixed price charged for this reserved cache node.
 	FixedPrice pulumi.Float64Output `pulumi:"fixedPrice"`
 	// Offering type of this reserved cache node.
@@ -144,6 +147,9 @@ type reservedCacheNodeState struct {
 	CacheNodeType *string `pulumi:"cacheNodeType"`
 	// Duration of the reservation as an RFC3339 duration.
 	Duration *string `pulumi:"duration"`
+	// Customer-specified identifier to track this reservation.
+	// If not specified, AWS will assign a random ID.
+	ElasticacheReservedCacheNodeId *string `pulumi:"elasticacheReservedCacheNodeId"`
 	// Fixed price charged for this reserved cache node.
 	FixedPrice *float64 `pulumi:"fixedPrice"`
 	// Offering type of this reserved cache node.
@@ -182,6 +188,9 @@ type ReservedCacheNodeState struct {
 	CacheNodeType pulumi.StringPtrInput
 	// Duration of the reservation as an RFC3339 duration.
 	Duration pulumi.StringPtrInput
+	// Customer-specified identifier to track this reservation.
+	// If not specified, AWS will assign a random ID.
+	ElasticacheReservedCacheNodeId pulumi.StringPtrInput
 	// Fixed price charged for this reserved cache node.
 	FixedPrice pulumi.Float64PtrInput
 	// Offering type of this reserved cache node.
@@ -218,6 +227,9 @@ type reservedCacheNodeArgs struct {
 	// Number of cache node instances to reserve.
 	// Default value is `1`.
 	CacheNodeCount *int `pulumi:"cacheNodeCount"`
+	// Customer-specified identifier to track this reservation.
+	// If not specified, AWS will assign a random ID.
+	ElasticacheReservedCacheNodeId *string `pulumi:"elasticacheReservedCacheNodeId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the reserved cache node offering to purchase.
@@ -235,6 +247,9 @@ type ReservedCacheNodeArgs struct {
 	// Number of cache node instances to reserve.
 	// Default value is `1`.
 	CacheNodeCount pulumi.IntPtrInput
+	// Customer-specified identifier to track this reservation.
+	// If not specified, AWS will assign a random ID.
+	ElasticacheReservedCacheNodeId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the reserved cache node offering to purchase.
@@ -353,6 +368,12 @@ func (o ReservedCacheNodeOutput) CacheNodeType() pulumi.StringOutput {
 // Duration of the reservation as an RFC3339 duration.
 func (o ReservedCacheNodeOutput) Duration() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReservedCacheNode) pulumi.StringOutput { return v.Duration }).(pulumi.StringOutput)
+}
+
+// Customer-specified identifier to track this reservation.
+// If not specified, AWS will assign a random ID.
+func (o ReservedCacheNodeOutput) ElasticacheReservedCacheNodeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReservedCacheNode) pulumi.StringOutput { return v.ElasticacheReservedCacheNodeId }).(pulumi.StringOutput)
 }
 
 // Fixed price charged for this reserved cache node.

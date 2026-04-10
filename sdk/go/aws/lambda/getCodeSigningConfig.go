@@ -196,7 +196,7 @@ import (
 //				"devEnforcement":  devPolicy,
 //				"policiesMatch":   prodPolicy == devPolicy,
 //			}
-//			ctx.Export("environmentComparison", configComparison)
+//			ctx.Export("environmentComparison", pulumi.ToMap(configComparison))
 //			return nil
 //		})
 //	}

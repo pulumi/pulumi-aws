@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * const exampleGetConfigurationProfile = example.then(example => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.appconfig.getConfigurationProfile({
  *     configurationProfileId: __value,
  *     applicationId: exampleAwsAppconfigApplication.id,
- * }) })));
+ * }) }), {}));
  * ```
  */
 export function getConfigurationProfiles(args: GetConfigurationProfilesArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfilesResult> {
@@ -80,7 +80,7 @@ export interface GetConfigurationProfilesResult {
  * const exampleGetConfigurationProfile = example.then(example => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.appconfig.getConfigurationProfile({
  *     configurationProfileId: __value,
  *     applicationId: exampleAwsAppconfigApplication.id,
- * }) })));
+ * }) }), {}));
  * ```
  */
 export function getConfigurationProfilesOutput(args: GetConfigurationProfilesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationProfilesResult> {

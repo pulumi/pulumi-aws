@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Eks
         /// {
         ///     var example = Aws.Eks.GetClusters.Invoke();
         /// 
-        ///     var exampleGetCluster = Std.Toset.Invoke(new()
+        ///     var exampleGetCluster = Std.Index.Toset.Invoke(new()
         ///     {
         ///         Input = example.Apply(getClustersResult =&gt; getClustersResult.Names),
         ///     }).Apply(invoke =&gt; );
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Eks
         /// {
         ///     var example = Aws.Eks.GetClusters.Invoke();
         /// 
-        ///     var exampleGetCluster = Std.Toset.Invoke(new()
+        ///     var exampleGetCluster = Std.Index.Toset.Invoke(new()
         ///     {
         ///         Input = example.Apply(getClustersResult =&gt; getClustersResult.Names),
         ///     }).Apply(invoke =&gt; );
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Eks
         /// {
         ///     var example = Aws.Eks.GetClusters.Invoke();
         /// 
-        ///     var exampleGetCluster = Std.Toset.Invoke(new()
+        ///     var exampleGetCluster = Std.Index.Toset.Invoke(new()
         ///     {
         ///         Input = example.Apply(getClustersResult =&gt; getClustersResult.Names),
         ///     }).Apply(invoke =&gt; );

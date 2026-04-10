@@ -23,9 +23,9 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.GetRegion.Invoke();
+    ///     var current = Aws.Index.GetRegion.Invoke();
     /// 
-    ///     var currentGetPartition = Aws.GetPartition.Invoke();
+    ///     var currentGetPartition = Aws.Index.GetPartition.Invoke();
     /// 
     ///     var example = new Aws.Iam.Role("example", new()
     ///     {

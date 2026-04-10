@@ -92,7 +92,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
     /// 
     ///     var example = new Aws.Kms.Key("example", new()
     ///     {

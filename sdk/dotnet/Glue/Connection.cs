@@ -272,7 +272,7 @@ namespace Pulumi.Aws.Glue
     ///         SecretId = example.Id,
     ///         SecretString = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["credentials"] = Std.Base64encode.Invoke(new()
+    ///             ["credentials"] = Std.Index.Base64encode.Invoke(new()
     ///             {
     ///                 Input = @"{
     ///   \""type\"": \""service_account\"",

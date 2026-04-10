@@ -25,7 +25,7 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
     /// 
     ///     var example = new Aws.OpenSearch.ServerlessAccessPolicy("example", new()
     ///     {
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
     /// 
     ///     var example = new Aws.OpenSearch.ServerlessAccessPolicy("example", new()
     ///     {

@@ -328,7 +328,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = kms.NewKey(ctx, "test", &kms.KeyArgs{
 //				DeletionWindowInDays: pulumi.Int(7),
-//				Policy:               pulumi.String(json0),
+//				Policy:               json0,
 //				Tags: pulumi.StringMap{
 //					"EventBridgeApiDestinations": pulumi.String("true"),
 //				},

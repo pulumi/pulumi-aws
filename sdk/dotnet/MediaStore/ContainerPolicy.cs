@@ -26,9 +26,9 @@ namespace Pulumi.Aws.MediaStore
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.GetRegion.Invoke();
+    ///     var current = Aws.Index.GetRegion.Invoke();
     /// 
-    ///     var currentGetCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    ///     var currentGetCallerIdentity = Aws.Index.GetCallerIdentity.Invoke();
     /// 
     ///     var exampleContainer = new Aws.MediaStore.Container("example", new()
     ///     {

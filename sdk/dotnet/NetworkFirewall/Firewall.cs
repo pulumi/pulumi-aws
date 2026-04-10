@@ -59,7 +59,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = Aws.GetAvailabilityZones.Invoke(new()
+    ///     var example = Aws.Index.GetAvailabilityZones.Invoke(new()
     ///     {
     ///         State = "available",
     ///     });

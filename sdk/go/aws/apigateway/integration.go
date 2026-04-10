@@ -266,8 +266,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			cfg := config.New(ctx, "")
-//			name := cfg.RequireObject("name")
-//			subnetId := cfg.RequireObject("subnetId")
+//			var name interface{}
+//			cfg.RequireObject("name", &name)
+//			var subnetId interface{}
+//			cfg.RequireObject("subnetId", &subnetId)
 //			test, err := lb.NewLoadBalancer(ctx, "test", &lb.LoadBalancerArgs{
 //				Name:             pulumi.Any(name),
 //				Internal:         pulumi.Bool(true),
@@ -358,7 +360,7 @@ import (
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // var splat0 []interface{}
 // for _, val0 := range exampleAwsSubnet {
-// splat0 = append(splat0, val0.Id)
+// splat0 = append(splat0, val0.(map[string]interface{})["id"])
 // }
 // example, err := apigatewayv2.NewVpcLink(ctx, "example", &apigatewayv2.VpcLinkArgs{
 // Name: pulumi.String("example"),
@@ -372,7 +374,7 @@ import (
 // }
 // var splat1 []interface{}
 // for _, val0 := range exampleAwsSubnet {
-// splat1 = append(splat1, val0.Id)
+// splat1 = append(splat1, val0.(map[string]interface{})["id"])
 // }
 // exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
 // Name: pulumi.String("example-alb"),

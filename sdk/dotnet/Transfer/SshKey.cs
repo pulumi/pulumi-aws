@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePrivateKey = new Tls.PrivateKey("example", new()
+    ///     var examplePrivateKey = new Tls.Index.PrivateKey("example", new()
     ///     {
     ///         Algorithm = "RSA",
     ///         RsaBits = 4096,
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Transfer
     ///     {
     ///         ServerId = exampleServer.Id,
     ///         UserName = exampleUser.UserName,
-    ///         Body = Std.Trimspace.Invoke(new()
+    ///         Body = Std.Index.Trimspace.Invoke(new()
     ///         {
     ///             Input = examplePrivateKey.PublicKeyOpenssh,
     ///         }).Apply(invoke =&gt; invoke.Result),

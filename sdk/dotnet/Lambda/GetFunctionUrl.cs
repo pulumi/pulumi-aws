@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Lambda
         ///         Ttl = 300,
         ///         Records = new[]
         ///         {
-        ///             Std.Replace.Invoke(new()
+        ///             Std.Index.Replace.Invoke(new()
         ///             {
         ///                 Text = example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.FunctionUrl),
         ///                 Search = "https://",
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Lambda
         ///         Ttl = 300,
         ///         Records = new[]
         ///         {
-        ///             Std.Replace.Invoke(new()
+        ///             Std.Index.Replace.Invoke(new()
         ///             {
         ///                 Text = example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.FunctionUrl),
         ///                 Search = "https://",
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.Lambda
         ///         Ttl = 300,
         ///         Records = new[]
         ///         {
-        ///             Std.Replace.Invoke(new()
+        ///             Std.Index.Replace.Invoke(new()
         ///             {
         ///                 Text = example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.FunctionUrl),
         ///                 Search = "https://",

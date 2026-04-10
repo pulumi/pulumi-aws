@@ -30,7 +30,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
     /// 
     ///     var logging = new Aws.S3.Bucket("logging", new()
     ///     {

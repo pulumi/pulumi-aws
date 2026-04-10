@@ -24,7 +24,7 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
     /// 
     ///     var test = new Aws.OpenSearch.AuthorizeVpcEndpointAccess("test", new()
     ///     {

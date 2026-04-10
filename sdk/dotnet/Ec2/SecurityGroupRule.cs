@@ -98,7 +98,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.GetRegion.Invoke();
+    ///     var current = Aws.Index.GetRegion.Invoke();
     /// 
     ///     var s3 = Aws.Ec2.GetPrefixList.Invoke(new()
     ///     {

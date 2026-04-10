@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Ssm
     ///         {
     ///             LambdaParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs
     ///             {
-    ///                 ClientContext = Std.Base64encode.Invoke(new()
+    ///                 ClientContext = Std.Index.Base64encode.Invoke(new()
     ///                 {
     ///                     Input = "{\"key1\":\"value1\"}",
     ///                 }).Apply(invoke =&gt; invoke.Result),

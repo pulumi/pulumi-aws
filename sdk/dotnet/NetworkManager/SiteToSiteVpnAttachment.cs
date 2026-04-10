@@ -142,7 +142,7 @@ namespace Pulumi.Aws.NetworkManager
     ///     var testNetworkmanagerCoreNetwork = new Awscc.Index.NetworkmanagerCoreNetwork("test", new()
     ///     {
     ///         GlobalNetworkId = testGlobalNetwork.Id,
-    ///         PolicyDocument = JsonSerializer.Serialize(Std.Jsondecode.Invoke(new()
+    ///         PolicyDocument = JsonSerializer.Serialize(Std.Index.Jsondecode.Invoke(new()
     ///         {
     ///             Input = test.Apply(getCoreNetworkPolicyDocumentResult =&gt; getCoreNetworkPolicyDocumentResult.Json),
     ///         }).Result),

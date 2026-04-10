@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.GetRegion.Invoke();
+        ///     var current = Aws.Index.GetRegion.Invoke();
         /// 
         ///     var example = Aws.Route53.GetTrafficPolicyDocument.Invoke(new()
         ///     {
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.GetRegion.Invoke();
+        ///     var current = Aws.Index.GetRegion.Invoke();
         /// 
         ///     var example = Aws.Route53.GetTrafficPolicyDocument.Invoke(new()
         ///     {
@@ -362,7 +362,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.GetRegion.Invoke();
+        ///     var current = Aws.Index.GetRegion.Invoke();
         /// 
         ///     var example = Aws.Route53.GetTrafficPolicyDocument.Invoke(new()
         ///     {

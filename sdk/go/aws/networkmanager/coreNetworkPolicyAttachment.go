@@ -110,7 +110,7 @@ import (
 // }
 // var splat0 []interface{}
 // for _, val0 := range exampleAwsSubnet {
-// splat0 = append(splat0, val0.Arn)
+// splat0 = append(splat0, val0.(map[string]interface{})["arn"])
 // }
 // exampleVpcAttachment, err := networkmanager.NewVpcAttachment(ctx, "example", &networkmanager.VpcAttachmentArgs{
 // CoreNetworkId: exampleCoreNetwork.ID(),
@@ -199,7 +199,7 @@ import (
 // }
 // var splat0 []interface{}
 // for _, val0 := range exampleAwsSubnet {
-// splat0 = append(splat0, val0.Arn)
+// splat0 = append(splat0, val0.(map[string]interface{})["arn"])
 // }
 // exampleVpcAttachment, err := networkmanager.NewVpcAttachment(ctx, "example", &networkmanager.VpcAttachmentArgs{
 // CoreNetworkId: exampleCoreNetwork.ID(),
@@ -322,7 +322,7 @@ import (
 // }
 // var splat0 []interface{}
 // for _, val0 := range exampleUsWest2AwsSubnet {
-// splat0 = append(splat0, val0.Arn)
+// splat0 = append(splat0, val0.(map[string]interface{})["arn"])
 // }
 // exampleUsWest2, err := networkmanager.NewVpcAttachment(ctx, "example_us_west_2", &networkmanager.VpcAttachmentArgs{
 // CoreNetworkId: exampleCoreNetwork.ID(),
@@ -334,7 +334,7 @@ import (
 // }
 // var splat1 []interface{}
 // for _, val0 := range exampleUsEast1AwsSubnet {
-// splat1 = append(splat1, val0.Arn)
+// splat1 = append(splat1, val0.(map[string]interface{})["arn"])
 // }
 // exampleUsEast1, err := networkmanager.NewVpcAttachment(ctx, "example_us_east_1", &networkmanager.VpcAttachmentArgs{
 // CoreNetworkId: exampleCoreNetwork.ID(),
@@ -444,7 +444,7 @@ import (
 // }
 // var splat0 []interface{}
 // for _, val0 := range exampleUsWest2AwsSubnet {
-// splat0 = append(splat0, val0.Arn)
+// splat0 = append(splat0, val0.(map[string]interface{})["arn"])
 // }
 // exampleUsWest2, err := networkmanager.NewVpcAttachment(ctx, "example_us_west_2", &networkmanager.VpcAttachmentArgs{
 // CoreNetworkId: exampleCoreNetwork.ID(),
@@ -456,7 +456,7 @@ import (
 // }
 // var splat1 []interface{}
 // for _, val0 := range exampleUsEast1AwsSubnet {
-// splat1 = append(splat1, val0.Arn)
+// splat1 = append(splat1, val0.(map[string]interface{})["arn"])
 // }
 // exampleUsEast1, err := networkmanager.NewVpcAttachment(ctx, "example_us_east_1", &networkmanager.VpcAttachmentArgs{
 // CoreNetworkId: exampleCoreNetwork.ID(),

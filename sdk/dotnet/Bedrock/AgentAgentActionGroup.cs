@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Bedrock
     ///         },
     ///         ApiSchema = new Aws.Bedrock.Inputs.AgentAgentActionGroupApiSchemaArgs
     ///         {
-    ///             Payload = Std.File.Invoke(new()
+    ///             Payload = Std.Index.File.Invoke(new()
     ///             {
     ///                 Input = "path/to/schema.yaml",
     ///             }).Apply(invoke =&gt; invoke.Result),
@@ -159,7 +159,7 @@ namespace Pulumi.Aws.Bedrock
     ///         },
     ///         ApiSchema = new Aws.Bedrock.Inputs.AgentAgentActionGroupApiSchemaArgs
     ///         {
-    ///             Payload = Std.File.Invoke(new()
+    ///             Payload = Std.Index.File.Invoke(new()
     ///             {
     ///                 Input = "path/to/schema.yaml",
     ///             }).Apply(invoke =&gt; invoke.Result),

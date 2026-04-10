@@ -129,7 +129,8 @@ import (
 // __res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-%v", key0), &ec2.SubnetArgs{
 // CidrBlock: pulumi.String(example.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
 // %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
-// return invoke.Result, nil
+// val := invoke.Result
+// return &val, nil
 // }).(pulumi.StringPtrOutput)),
 // AvailabilityZone: pulumi.String(available.Names[val0]),
 // VpcId: example.ID(),

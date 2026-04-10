@@ -40,7 +40,7 @@ namespace Pulumi.Aws.AppMesh
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.GetCallerIdentity.Invoke();
+        ///     var current = Aws.Index.GetCallerIdentity.Invoke();
         /// 
         ///     var simple = Aws.AppMesh.GetMesh.Invoke(new()
         ///     {
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.AppMesh
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.GetCallerIdentity.Invoke();
+        ///     var current = Aws.Index.GetCallerIdentity.Invoke();
         /// 
         ///     var simple = Aws.AppMesh.GetMesh.Invoke(new()
         ///     {
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.AppMesh
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.GetCallerIdentity.Invoke();
+        ///     var current = Aws.Index.GetCallerIdentity.Invoke();
         /// 
         ///     var simple = Aws.AppMesh.GetMesh.Invoke(new()
         ///     {

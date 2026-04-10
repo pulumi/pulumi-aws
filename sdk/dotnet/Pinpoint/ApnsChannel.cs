@@ -29,11 +29,11 @@ namespace Pulumi.Aws.Pinpoint
     ///     var apns = new Aws.Pinpoint.ApnsChannel("apns", new()
     ///     {
     ///         ApplicationId = app.ApplicationId,
-    ///         Certificate = Std.File.Invoke(new()
+    ///         Certificate = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "./certificate.pem",
     ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         PrivateKey = Std.File.Invoke(new()
+    ///         PrivateKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "./private_key.key",
     ///         }).Apply(invoke =&gt; invoke.Result),

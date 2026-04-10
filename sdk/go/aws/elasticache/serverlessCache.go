@@ -31,7 +31,7 @@ import (
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // var splat0 []interface{}
 // for _, val0 := range testAwsSubnet {
-// splat0 = append(splat0, val0.Id)
+// splat0 = append(splat0, val0.(map[string]interface{})["id"])
 // }
 // _, err := elasticache.NewServerlessCache(ctx, "example", &elasticache.ServerlessCacheArgs{
 // Engine: pulumi.String("memcached"),
@@ -85,7 +85,7 @@ import (
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // var splat0 []interface{}
 // for _, val0 := range testAwsSubnet {
-// splat0 = append(splat0, val0.Id)
+// splat0 = append(splat0, val0.(map[string]interface{})["id"])
 // }
 // _, err := elasticache.NewServerlessCache(ctx, "example", &elasticache.ServerlessCacheArgs{
 // Engine: pulumi.String("redis"),
@@ -141,7 +141,7 @@ import (
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // var splat0 []interface{}
 // for _, val0 := range testAwsSubnet {
-// splat0 = append(splat0, val0.Id)
+// splat0 = append(splat0, val0.(map[string]interface{})["id"])
 // }
 // _, err := elasticache.NewServerlessCache(ctx, "example", &elasticache.ServerlessCacheArgs{
 // Engine: pulumi.String("valkey"),

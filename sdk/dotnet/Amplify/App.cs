@@ -130,7 +130,7 @@ namespace Pulumi.Aws.Amplify
     ///     {
     ///         Name = "example",
     ///         EnableBasicAuth = true,
-    ///         BasicAuthCredentials = Std.Base64encode.Invoke(new()
+    ///         BasicAuthCredentials = Std.Index.Base64encode.Invoke(new()
     ///         {
     ///             Input = "username1:password1",
     ///         }).Apply(invoke =&gt; invoke.Result),

@@ -75,7 +75,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			cfg := config.New(ctx, "")
-//			cognitoUserPoolName := cfg.RequireObject("cognitoUserPoolName")
+//			var cognitoUserPoolName interface{}
+//			cfg.RequireObject("cognitoUserPoolName", &cognitoUserPoolName)
 //			this, err := cognito.GetUserPools(ctx, &cognito.GetUserPoolsArgs{
 //				Name: cognitoUserPoolName,
 //			}, nil)

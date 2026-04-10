@@ -26,7 +26,7 @@ namespace Pulumi.Aws.BedrockModel
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
     /// 
     ///     var example = new Aws.S3.Bucket("example", new()
     ///     {

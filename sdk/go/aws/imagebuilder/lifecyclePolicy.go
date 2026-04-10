@@ -58,7 +58,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(json0),
+//				AssumeRolePolicy: json0,
 //				Name:             pulumi.String("example"),
 //			})
 //			if err != nil {

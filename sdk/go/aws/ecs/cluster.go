@@ -193,7 +193,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			exampleKeyPolicy, err := kms.NewKeyPolicy(ctx, "example", &kms.KeyPolicyArgs{
 //				KeyId:  example.ID(),
-//				Policy: pulumi.String(json0),
+//				Policy: json0,
 //			})
 //			if err != nil {
 //				return err

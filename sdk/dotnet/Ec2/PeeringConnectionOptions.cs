@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Ec2
     ///         EnableDnsHostnames = true,
     ///     });
     /// 
-    ///     var peer = Aws.GetCallerIdentity.Invoke();
+    ///     var peer = Aws.Index.GetCallerIdentity.Invoke();
     /// 
     ///     // Requester's side of the connection.
     ///     var peerVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("peer", new()

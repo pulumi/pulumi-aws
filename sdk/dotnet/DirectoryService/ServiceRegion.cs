@@ -24,9 +24,9 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = Aws.GetRegion.Invoke();
+    ///     var example = Aws.Index.GetRegion.Invoke();
     /// 
-    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
+    ///     var available = Aws.Index.GetAvailabilityZones.Invoke(new()
     ///     {
     ///         State = "available",
     ///         Filters = new[]
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.DirectoryService
     ///         {
     ///             VpcId = exampleVpc.Id,
     ///             AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names)[range.Value],
-    ///             CidrBlock = exampleVpc.CidrBlock.Apply(cidrBlock =&gt; Std.Cidrsubnet.Invoke(new()
+    ///             CidrBlock = exampleVpc.CidrBlock.Apply(cidrBlock =&gt; Std.Index.Cidrsubnet.Invoke(new()
     ///             {
     ///                 Input = cidrBlock,
     ///                 Newbits = 8,
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.DirectoryService
     ///         },
     ///     });
     /// 
-    ///     var available_secondary = Aws.GetAvailabilityZones.Invoke(new()
+    ///     var available_secondary = Aws.Index.GetAvailabilityZones.Invoke(new()
     ///     {
     ///         State = "available",
     ///         Filters = new[]
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.DirectoryService
     ///         {
     ///             VpcId = example_secondary.Id,
     ///             AvailabilityZone = available_secondary.Apply(available_secondary =&gt; available_secondary.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names)[range.Value]),
-    ///             CidrBlock = example_secondary.CidrBlock.Apply(cidrBlock =&gt; Std.Cidrsubnet.Invoke(new()
+    ///             CidrBlock = example_secondary.CidrBlock.Apply(cidrBlock =&gt; Std.Index.Cidrsubnet.Invoke(new()
     ///             {
     ///                 Input = cidrBlock,
     ///                 Newbits = 8,

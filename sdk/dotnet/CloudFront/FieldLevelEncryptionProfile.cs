@@ -26,7 +26,7 @@ namespace Pulumi.Aws.CloudFront
     ///     var example = new Aws.CloudFront.PublicKey("example", new()
     ///     {
     ///         Comment = "test public key",
-    ///         EncodedKey = Std.File.Invoke(new()
+    ///         EncodedKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "public_key.pem",
     ///         }).Apply(invoke =&gt; invoke.Result),

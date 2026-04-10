@@ -64,7 +64,8 @@ import (
 // _, err = dynamodb.NewTag(ctx, "test", &dynamodb.TagArgs{
 // ResourceArn: pulumi.String(example.Arn.ApplyT(func(arn string) (std.ReplaceResult, error) {
 // %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.ReplaceResultOutput).ApplyT(func(invoke std.ReplaceResult) (*string, error) {
-// return invoke.Result, nil
+// val := invoke.Result
+// return &val, nil
 // }).(pulumi.StringPtrOutput)),
 // Key: pulumi.String("testkey"),
 // Value: pulumi.String("testvalue"),

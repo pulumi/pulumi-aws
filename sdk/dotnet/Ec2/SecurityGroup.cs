@@ -257,11 +257,11 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var exampleResource = new Null.Resource("example", new()
+    ///     var exampleResource = new Null.Index.Resource("example", new()
     ///     {
     ///         Triggers = 
     ///         {
-    ///             { "rerunUponChangeOf", Std.Join.Invoke(new()
+    ///             { "rerunUponChangeOf", Std.Index.Join.Invoke(new()
     ///             {
     ///                 Separator = ",",
     ///                 Input = exampleAwsVpcEndpoint.SecurityGroupIds,

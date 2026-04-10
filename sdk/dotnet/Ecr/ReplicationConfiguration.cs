@@ -22,9 +22,9 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
     /// 
-    ///     var example = Aws.GetRegions.Invoke();
+    ///     var example = Aws.Index.GetRegions.Invoke();
     /// 
     ///     var exampleReplicationConfiguration = new Aws.Ecr.ReplicationConfiguration("example", new()
     ///     {
@@ -60,9 +60,9 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
     /// 
-    ///     var example = Aws.GetRegions.Invoke();
+    ///     var example = Aws.Index.GetRegions.Invoke();
     /// 
     ///     var exampleReplicationConfiguration = new Aws.Ecr.ReplicationConfiguration("example", new()
     ///     {
@@ -103,9 +103,9 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
     /// 
-    ///     var example = Aws.GetRegions.Invoke();
+    ///     var example = Aws.Index.GetRegions.Invoke();
     /// 
     ///     var exampleReplicationConfiguration = new Aws.Ecr.ReplicationConfiguration("example", new()
     ///     {

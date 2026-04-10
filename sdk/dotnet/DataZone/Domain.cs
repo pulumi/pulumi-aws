@@ -106,7 +106,7 @@ namespace Pulumi.Aws.DataZone
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
     /// 
     ///     // IAM role for Domain Execution
     ///     var assumeRoleDomainExecution = Aws.Iam.GetPolicyDocument.Invoke(new()

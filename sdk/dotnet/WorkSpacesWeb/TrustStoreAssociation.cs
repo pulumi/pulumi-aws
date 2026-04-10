@@ -34,10 +34,10 @@ namespace Pulumi.Aws.WorkSpacesWeb
     ///     {
     ///         CertificateList = new[]
     ///         {
-    ///             Std.File.Invoke(new()
+    ///             Std.Index.File.Invoke(new()
     ///             {
     ///                 Input = "certificate.pem",
-    ///             }).Apply(invoke =&gt; Std.Base64encode.Invoke(new()
+    ///             }).Apply(invoke =&gt; Std.Index.Base64encode.Invoke(new()
     ///             {
     ///                 Input = invoke.Result,
     ///             })).Apply(invoke =&gt; invoke.Result),

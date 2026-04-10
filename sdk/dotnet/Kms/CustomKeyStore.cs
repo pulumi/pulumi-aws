@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Kms
     ///         CloudHsmClusterId = cloudHsmClusterId,
     ///         CustomKeyStoreName = "kms-custom-key-store-test",
     ///         KeyStorePassword = "noplaintextpasswords1",
-    ///         TrustAnchorCertificate = Std.File.Invoke(new()
+    ///         TrustAnchorCertificate = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "anchor-certificate.crt",
     ///         }).Apply(invoke =&gt; invoke.Result),

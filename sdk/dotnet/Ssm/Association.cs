@@ -205,7 +205,7 @@ namespace Pulumi.Aws.Ssm
     ///         ScheduleExpression = "cron(0 2 ? * SUN *)",
     ///         Parameters = 
     ///         {
-    ///             { "commands", Std.Join.Invoke(new()
+    ///             { "commands", Std.Index.Join.Invoke(new()
     ///             {
     ///                 Separator = @"
     /// ",
@@ -284,7 +284,7 @@ namespace Pulumi.Aws.Ssm
     ///             ec2Sg.Id,
     ///         },
     ///         IamInstanceProfile = ec2SsmProfile.Name,
-    ///         UserData = Std.Base64encode.Invoke(new()
+    ///         UserData = Std.Index.Base64encode.Invoke(new()
     ///         {
     ///             Input = @$"#!/bin/bash
     /// yum update -y
@@ -320,7 +320,7 @@ namespace Pulumi.Aws.Ssm
     ///             ec2Sg.Id,
     ///         },
     ///         IamInstanceProfile = ec2SsmProfile.Name,
-    ///         UserData = Std.Base64encode.Invoke(new()
+    ///         UserData = Std.Index.Base64encode.Invoke(new()
     ///         {
     ///             Input = @"#!/bin/bash
     /// yum update -y

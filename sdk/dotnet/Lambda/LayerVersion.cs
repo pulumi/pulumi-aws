@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Lambda
     ///         LayerName = "multi_runtime_layer",
     ///         Description = "Shared utilities for Lambda functions",
     ///         LicenseInfo = "MIT",
-    ///         SourceCodeHash = Std.Filebase64sha256.Invoke(new()
+    ///         SourceCodeHash = Std.Index.Filebase64sha256.Invoke(new()
     ///         {
     ///             Input = "lambda_layer_payload.zip",
     ///         }).Apply(invoke =&gt; invoke.Result),

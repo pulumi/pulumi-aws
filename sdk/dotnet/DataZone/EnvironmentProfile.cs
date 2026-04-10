@@ -112,9 +112,9 @@ namespace Pulumi.Aws.DataZone
     ///         SkipDeletionCheck = true,
     ///     });
     /// 
-    ///     var test = Aws.GetCallerIdentity.Invoke();
+    ///     var test = Aws.Index.GetCallerIdentity.Invoke();
     /// 
-    ///     var testGetRegion = Aws.GetRegion.Invoke();
+    ///     var testGetRegion = Aws.Index.GetRegion.Invoke();
     /// 
     ///     var testGetEnvironmentBlueprint = Aws.DataZone.GetEnvironmentBlueprint.Invoke(new()
     ///     {

@@ -69,7 +69,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = ecr.NewRegistryPolicy(ctx, "example", &ecr.RegistryPolicyArgs{
-//				Policy: pulumi.String(json0),
+//				Policy: json0,
 //			})
 //			if err != nil {
 //				return err

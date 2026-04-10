@@ -26,9 +26,9 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
     /// 
-    ///     var currentGetPartition = Aws.GetPartition.Invoke();
+    ///     var currentGetPartition = Aws.Index.GetPartition.Invoke();
     /// 
     ///     var fooBucket = new Aws.S3.Bucket("foo_bucket", new()
     ///     {
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.S3Control
     ///     {
     ///         Details = new Aws.S3Control.Inputs.MultiRegionAccessPointPolicyDetailsArgs
     ///         {
-    ///             Name = Std.Split.Invoke(new()
+    ///             Name = Std.Index.Split.Invoke(new()
     ///             {
     ///                 Separator = ":",
     ///                 Text = example.Id,

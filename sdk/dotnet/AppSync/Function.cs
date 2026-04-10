@@ -98,7 +98,7 @@ namespace Pulumi.Aws.AppSync
     ///         ApiId = exampleAwsAppsyncGraphqlApi.Id,
     ///         DataSource = exampleAwsAppsyncDatasource.Name,
     ///         Name = "example",
-    ///         Code = Std.File.Invoke(new()
+    ///         Code = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "some-code-dir",
     ///         }).Apply(invoke =&gt; invoke.Result),

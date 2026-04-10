@@ -557,9 +557,9 @@ def get_function(function_name: Optional[_builtins.str] = None,
     import pulumi_aws as aws
 
     def single_or_none(elements):
-        if len(elements) != 1:
+        if len(elements) > 1:
             raise Exception("single_or_none expected input list to have a single element")
-        return elements[0]
+        return elements[0] if elements else None
 
 
     # Get existing function details
@@ -724,9 +724,9 @@ def get_function_output(function_name: Optional[pulumi.Input[_builtins.str]] = N
     import pulumi_aws as aws
 
     def single_or_none(elements):
-        if len(elements) != 1:
+        if len(elements) > 1:
             raise Exception("single_or_none expected input list to have a single element")
-        return elements[0]
+        return elements[0] if elements else None
 
 
     # Get existing function details

@@ -302,7 +302,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.GetPartition.Invoke();
+    ///     var current = Aws.Index.GetPartition.Invoke();
     /// 
     ///     var example = Aws.Sagemaker.GetPrebuiltEcrImage.Invoke(new()
     ///     {

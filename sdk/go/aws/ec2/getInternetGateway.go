@@ -28,7 +28,8 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // cfg := config.New(ctx, "")
-// vpcId := cfg.RequireObject("vpcId")
+// var vpcId interface{}
+// cfg.RequireObject("vpcId", &vpcId)
 // _, err := ec2.LookupInternetGateway(ctx, &ec2.LookupInternetGatewayArgs{
 // Filters: []ec2.GetInternetGatewayFilter{
 // {
