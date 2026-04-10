@@ -120,7 +120,8 @@ type CapacityProvider struct {
 	CapacityProviderScalingConfigs CapacityProviderCapacityProviderScalingConfigArrayOutput `pulumi:"capacityProviderScalingConfigs"`
 	// Configuration block for instance requirements settings. See Instance Requirements below.
 	InstanceRequirements CapacityProviderInstanceRequirementArrayOutput `pulumi:"instanceRequirements"`
-	KmsKeyArn            pulumi.StringPtrOutput                         `pulumi:"kmsKeyArn"`
+	// ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// The name of the Capacity Provider.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration block for permissions settings. See Permissions Config below.
@@ -180,7 +181,8 @@ type capacityProviderState struct {
 	CapacityProviderScalingConfigs []CapacityProviderCapacityProviderScalingConfig `pulumi:"capacityProviderScalingConfigs"`
 	// Configuration block for instance requirements settings. See Instance Requirements below.
 	InstanceRequirements []CapacityProviderInstanceRequirement `pulumi:"instanceRequirements"`
-	KmsKeyArn            *string                               `pulumi:"kmsKeyArn"`
+	// ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The name of the Capacity Provider.
 	Name *string `pulumi:"name"`
 	// Configuration block for permissions settings. See Permissions Config below.
@@ -205,7 +207,8 @@ type CapacityProviderState struct {
 	CapacityProviderScalingConfigs CapacityProviderCapacityProviderScalingConfigArrayInput
 	// Configuration block for instance requirements settings. See Instance Requirements below.
 	InstanceRequirements CapacityProviderInstanceRequirementArrayInput
-	KmsKeyArn            pulumi.StringPtrInput
+	// ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+	KmsKeyArn pulumi.StringPtrInput
 	// The name of the Capacity Provider.
 	Name pulumi.StringPtrInput
 	// Configuration block for permissions settings. See Permissions Config below.
@@ -232,7 +235,8 @@ type capacityProviderArgs struct {
 	CapacityProviderScalingConfigs []CapacityProviderCapacityProviderScalingConfig `pulumi:"capacityProviderScalingConfigs"`
 	// Configuration block for instance requirements settings. See Instance Requirements below.
 	InstanceRequirements []CapacityProviderInstanceRequirement `pulumi:"instanceRequirements"`
-	KmsKeyArn            *string                               `pulumi:"kmsKeyArn"`
+	// ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The name of the Capacity Provider.
 	Name *string `pulumi:"name"`
 	// Configuration block for permissions settings. See Permissions Config below.
@@ -254,7 +258,8 @@ type CapacityProviderArgs struct {
 	CapacityProviderScalingConfigs CapacityProviderCapacityProviderScalingConfigArrayInput
 	// Configuration block for instance requirements settings. See Instance Requirements below.
 	InstanceRequirements CapacityProviderInstanceRequirementArrayInput
-	KmsKeyArn            pulumi.StringPtrInput
+	// ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+	KmsKeyArn pulumi.StringPtrInput
 	// The name of the Capacity Provider.
 	Name pulumi.StringPtrInput
 	// Configuration block for permissions settings. See Permissions Config below.
@@ -376,6 +381,7 @@ func (o CapacityProviderOutput) InstanceRequirements() CapacityProviderInstanceR
 	}).(CapacityProviderInstanceRequirementArrayOutput)
 }
 
+// ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
 func (o CapacityProviderOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityProvider) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }

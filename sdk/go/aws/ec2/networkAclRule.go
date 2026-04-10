@@ -63,17 +63,31 @@ import (
 //
 // ## Import
 //
-// Using the procotol's decimal value:
+// ### Identity Schema
 //
-// **Using `pulumi import` to import** individual rules using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (such as "6") or string (such as "tcp") value. For example:
+// #### Required
 //
-// Using the procotol's string value:
+// * `egress` (Boolean) Indicates whether this is an egress rule.
+// * `networkAclId` (String) The ID of the network ACL.
+// * `protocol` (String) The protocol. This can be a decimal value such as `6` or a keyword such as `tcp`.
+// * `ruleNumber` (Number) The rule number for the entry.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using the protocol's decimal value:
+//
+// Using `pulumi import`, import individual rules using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (such as `"6"`) or string (such as `"tcp"`) value. For example:
+//
+// Using the protocol's string value:
 //
 // ```sh
 // $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
 // ```
 //
-// Using the procotol's decimal value:
+// Using the protocol's decimal value:
 //
 // ```sh
 // $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false

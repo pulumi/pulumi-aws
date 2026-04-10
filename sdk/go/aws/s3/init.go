@@ -95,6 +95,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BucketWebsiteConfigurationV2{}
 	case "aws:s3/directoryBucket:DirectoryBucket":
 		r = &DirectoryBucket{}
+	case "aws:s3/filesAccessPoint:FilesAccessPoint":
+		r = &FilesAccessPoint{}
+	case "aws:s3/filesFileSystem:FilesFileSystem":
+		r = &FilesFileSystem{}
+	case "aws:s3/filesFileSystemPolicy:FilesFileSystemPolicy":
+		r = &FilesFileSystemPolicy{}
+	case "aws:s3/filesMountTarget:FilesMountTarget":
+		r = &FilesMountTarget{}
+	case "aws:s3/filesSynchronizationConfiguration:FilesSynchronizationConfiguration":
+		r = &FilesSynchronizationConfiguration{}
 	case "aws:s3/inventory:Inventory":
 		r = &Inventory{}
 	case "aws:s3/objectCopy:ObjectCopy":
@@ -301,6 +311,31 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"s3/directoryBucket",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3/filesAccessPoint",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3/filesFileSystem",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3/filesFileSystemPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3/filesMountTarget",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3/filesSynchronizationConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

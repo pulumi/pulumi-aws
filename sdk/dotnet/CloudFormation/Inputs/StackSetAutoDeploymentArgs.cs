@@ -12,6 +12,18 @@ namespace Pulumi.Aws.CloudFormation.Inputs
 
     public sealed class StackSetAutoDeploymentArgs : global::Pulumi.ResourceArgs
     {
+        [Input("dependsOnStackSets")]
+        private InputList<string>? _dependsOnStackSets;
+
+        /// <summary>
+        /// A list of StackSet ARNs that this StackSet depends on for auto-deployment operations. When auto-deployment is triggered, operations will be sequenced to ensure all dependencies complete successfully before this StackSet's operation begins.
+        /// </summary>
+        public InputList<string> DependsOnStackSets
+        {
+            get => _dependsOnStackSets ?? (_dependsOnStackSets = new InputList<string>());
+            set => _dependsOnStackSets = value;
+        }
+
         /// <summary>
         /// Whether or not auto-deployment is enabled.
         /// </summary>

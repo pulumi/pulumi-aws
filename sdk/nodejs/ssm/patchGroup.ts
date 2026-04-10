@@ -13,14 +13,34 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const production = new aws.ssm.PatchBaseline("production", {
+ * const example = new aws.ssm.PatchBaseline("example", {
  *     name: "patch-baseline",
  *     approvedPatches: ["KB123456"],
  * });
- * const patchgroup = new aws.ssm.PatchGroup("patchgroup", {
- *     baselineId: production.id,
+ * const examplePatchGroup = new aws.ssm.PatchGroup("example", {
+ *     baselineId: example.id,
  *     patchGroup: "patch-group-name",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `baselineId` (String) The ID of the patch baseline.
+ * * `patchGroup` (String) The name of the patch group.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import an SSM Patch Group using the `patchGroup` and `baselineId` separated by a comma (`,`). For example:
+ *
+ * ```sh
+ * $ pulumi import aws:ssm/patchGroup:PatchGroup example patch-group-name,pb-1234567890abcdef0
  * ```
  */
 export class PatchGroup extends pulumi.CustomResource {

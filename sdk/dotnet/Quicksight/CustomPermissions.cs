@@ -14,14 +14,26 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ## Example Usage
     /// 
-    /// resource "aws.quicksight.CustomPermissions" "example" {
-    ///   CustomPermissionsName = "example-permissions"
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    ///   capabilities {
-    ///     PrintReports    = "DENY"
-    ///     ShareDashboards = "DENY"
-    ///   }
-    /// }
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Quicksight.CustomPermissions("example", new()
+    ///     {
+    ///         CustomPermissionsName = "example-permissions",
+    ///         Capabilities = new Aws.Quicksight.Inputs.CustomPermissionsCapabilitiesArgs
+    ///         {
+    ///             PrintReports = "DENY",
+    ///             ShareDashboards = "DENY",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

@@ -11,17 +11,45 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RecordsExclusiveResourceRecordSetGeolocation {
+    /**
+     * @return Two-letter continent code.
+     * See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
+     * 
+     */
     private @Nullable String continentCode;
+    /**
+     * @return Two-letter country code.
+     * See the ISO standard linked from the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
+     * 
+     */
     private @Nullable String countryCode;
+    /**
+     * @return Subdivision code.
+     * 
+     */
     private @Nullable String subdivisionCode;
 
     private RecordsExclusiveResourceRecordSetGeolocation() {}
+    /**
+     * @return Two-letter continent code.
+     * See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
+     * 
+     */
     public Optional<String> continentCode() {
         return Optional.ofNullable(this.continentCode);
     }
+    /**
+     * @return Two-letter country code.
+     * See the ISO standard linked from the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
+     * 
+     */
     public Optional<String> countryCode() {
         return Optional.ofNullable(this.countryCode);
     }
+    /**
+     * @return Subdivision code.
+     * 
+     */
     public Optional<String> subdivisionCode() {
         return Optional.ofNullable(this.subdivisionCode);
     }

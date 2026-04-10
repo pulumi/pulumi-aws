@@ -90,7 +90,7 @@ import (
 //					PropagateTags:         pulumi.String("CAPACITY_PROVIDER"),
 //					InstanceLaunchTemplate: &ecs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs{
 //						Ec2InstanceProfileArn: pulumi.Any(ecsInstance.Arn),
-//						Monitoring:            pulumi.String("ENABLED"),
+//						Monitoring:            pulumi.String("DETAILED"),
 //						NetworkConfiguration: &ecs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs{
 //							Subnets: pulumi.StringArray{
 //								exampleAwsSubnet.Id,

@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     description: "Example Configuration",
  *     name: "example",
  *     engineType: "ActiveMQ",
- *     engineVersion: "5.17.6",
+ *     engineVersion: "5.19",
  *     data: `<?xml version=\\"1.0\\" encoding=\\"UTF-8\\" standalone=\\"yes\\"?>
  * <broker xmlns=\\"http://activemq.apache.org/schema/core\\">
  *   <plugins>
@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *     description: "Example Configuration",
  *     name: "example",
  *     engineType: "RabbitMQ",
- *     engineVersion: "3.11.20",
+ *     engineVersion: "4.2",
  *     data: `# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
  * consumer_timeout = 1800000
  * `,

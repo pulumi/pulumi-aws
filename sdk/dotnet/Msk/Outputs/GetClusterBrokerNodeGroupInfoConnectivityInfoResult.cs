@@ -13,15 +13,19 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class GetClusterBrokerNodeGroupInfoConnectivityInfoResult
     {
+        public readonly string NetworkType;
         public readonly ImmutableArray<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessResult> PublicAccesses;
         public readonly ImmutableArray<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityResult> VpcConnectivities;
 
         [OutputConstructor]
         private GetClusterBrokerNodeGroupInfoConnectivityInfoResult(
+            string networkType,
+
             ImmutableArray<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessResult> publicAccesses,
 
             ImmutableArray<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityResult> vpcConnectivities)
         {
+            NetworkType = networkType;
             PublicAccesses = publicAccesses;
             VpcConnectivities = vpcConnectivities;
         }

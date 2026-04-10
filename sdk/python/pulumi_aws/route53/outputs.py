@@ -548,13 +548,14 @@ class RecordsExclusiveResourceRecordSet(dict):
         :param 'RecordsExclusiveResourceRecordSetGeoproximityLocationArgs' geoproximity_location: Geoproximity location block.
                See `geoproximity_location` below.
         :param _builtins.str health_check_id: Health check the record should be associated with.
+        :param _builtins.bool multi_value_answer: Set to `true` to indicate this record is a multivalue answer record and traffic should be routed approximately randomly to multiple resources.
         :param _builtins.str region: AWS region of the resource this record set refers to.
                Must be a valid AWS region name.
                See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency) on latency based routing for additional details.
         :param Sequence['RecordsExclusiveResourceRecordSetResourceRecordArgs'] resource_records: Information about the resource records to act upon.
                See `resource_records` below.
         :param _builtins.str set_identifier: An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
-               Required if using `cidr_routing_config`, `failover`, `geolocation`,`geoproximity_location`, `multivalue_answer`, `region`, or `weight`.
+               Required if using `cidr_routing_config`, `failover`, `geolocation`,`geoproximity_location`, `multi_value_answer`, `region`, or `weight`.
         :param _builtins.str traffic_policy_instance_id: ID of the traffic policy instance that Route 53 created this resource record set for.
                To delete the resource record set that is associated with a traffic policy instance, use the `DeleteTrafficPolicyInstance` API.
                Route 53 will delete the resource record set automatically.
@@ -659,6 +660,9 @@ class RecordsExclusiveResourceRecordSet(dict):
     @_builtins.property
     @pulumi.getter(name="multiValueAnswer")
     def multi_value_answer(self) -> Optional[_builtins.bool]:
+        """
+        Set to `true` to indicate this record is a multivalue answer record and traffic should be routed approximately randomly to multiple resources.
+        """
         return pulumi.get(self, "multi_value_answer")
 
     @_builtins.property
@@ -685,7 +689,7 @@ class RecordsExclusiveResourceRecordSet(dict):
     def set_identifier(self) -> Optional[_builtins.str]:
         """
         An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
-        Required if using `cidr_routing_config`, `failover`, `geolocation`,`geoproximity_location`, `multivalue_answer`, `region`, or `weight`.
+        Required if using `cidr_routing_config`, `failover`, `geolocation`,`geoproximity_location`, `multi_value_answer`, `region`, or `weight`.
         """
         return pulumi.get(self, "set_identifier")
 
@@ -874,6 +878,13 @@ class RecordsExclusiveResourceRecordSetGeolocation(dict):
                  continent_code: Optional[_builtins.str] = None,
                  country_code: Optional[_builtins.str] = None,
                  subdivision_code: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str continent_code: Two-letter continent code.
+               See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
+        :param _builtins.str country_code: Two-letter country code.
+               See the ISO standard linked from the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
+        :param _builtins.str subdivision_code: Subdivision code.
+        """
         if continent_code is not None:
             pulumi.set(__self__, "continent_code", continent_code)
         if country_code is not None:
@@ -884,16 +895,27 @@ class RecordsExclusiveResourceRecordSetGeolocation(dict):
     @_builtins.property
     @pulumi.getter(name="continentCode")
     def continent_code(self) -> Optional[_builtins.str]:
+        """
+        Two-letter continent code.
+        See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
+        """
         return pulumi.get(self, "continent_code")
 
     @_builtins.property
     @pulumi.getter(name="countryCode")
     def country_code(self) -> Optional[_builtins.str]:
+        """
+        Two-letter country code.
+        See the ISO standard linked from the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
+        """
         return pulumi.get(self, "country_code")
 
     @_builtins.property
     @pulumi.getter(name="subdivisionCode")
     def subdivision_code(self) -> Optional[_builtins.str]:
+        """
+        Subdivision code.
+        """
         return pulumi.get(self, "subdivision_code")
 
 

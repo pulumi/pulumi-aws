@@ -46,14 +46,14 @@ public final class DistributionTenantManagedCertificateRequestArgs extends com.p
     }
 
     /**
-     * Host for validation token. Valid values: `cloudfront`, `domain`.
+     * Host for validation token. Valid values: `cloudfront`, `self-hosted`.
      * 
      */
     @Import(name="validationTokenHost")
     private @Nullable Output<String> validationTokenHost;
 
     /**
-     * @return Host for validation token. Valid values: `cloudfront`, `domain`.
+     * @return Host for validation token. Valid values: `cloudfront`, `self-hosted`.
      * 
      */
     public Optional<Output<String>> validationTokenHost() {
@@ -129,7 +129,7 @@ public final class DistributionTenantManagedCertificateRequestArgs extends com.p
         }
 
         /**
-         * @param validationTokenHost Host for validation token. Valid values: `cloudfront`, `domain`.
+         * @param validationTokenHost Host for validation token. Valid values: `cloudfront`, `self-hosted`.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class DistributionTenantManagedCertificateRequestArgs extends com.p
         }
 
         /**
-         * @param validationTokenHost Host for validation token. Valid values: `cloudfront`, `domain`.
+         * @param validationTokenHost Host for validation token. Valid values: `cloudfront`, `self-hosted`.
          * 
          * @return builder
          * 

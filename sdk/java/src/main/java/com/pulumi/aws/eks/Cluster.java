@@ -451,10 +451,21 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `name` (String) Name of the cluster.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import EKS Clusters using the `name`. For example:
  * 
  * ```sh
- * $ pulumi import aws:eks/cluster:Cluster my_cluster my_cluster
+ * $ pulumi import aws:eks/cluster:Cluster example example
  * ```
  * 
  */

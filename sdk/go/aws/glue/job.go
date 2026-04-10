@@ -340,10 +340,21 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `name` (String) Name of the Glue Job.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS account ID.
+// * `region` (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import Glue Jobs using `name`. For example:
 //
 // ```sh
-// $ pulumi import aws:glue/job:Job MyJob MyJob
+// $ pulumi import aws:glue/job:Job example example
 // ```
 type Job struct {
 	pulumi.CustomResourceState

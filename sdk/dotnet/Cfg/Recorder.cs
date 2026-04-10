@@ -151,17 +151,28 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Configuration Recorder using the name. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Name` (String) Name of the configuration recorder.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Configuration Recorders using the `Name`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:cfg/recorder:Recorder foo example
+    /// $ pulumi import aws:cfg/recorder:Recorder example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/recorder:Recorder")]
     public partial class Recorder : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the recorder. Defaults to `Default`. Changing it recreates the resource.
+        /// The name of the configuration recorder. Defaults to `Default`. Changing it recreates the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -237,7 +248,7 @@ namespace Pulumi.Aws.Cfg
     public sealed class RecorderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the recorder. Defaults to `Default`. Changing it recreates the resource.
+        /// The name of the configuration recorder. Defaults to `Default`. Changing it recreates the resource.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -275,7 +286,7 @@ namespace Pulumi.Aws.Cfg
     public sealed class RecorderState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the recorder. Defaults to `Default`. Changing it recreates the resource.
+        /// The name of the configuration recorder. Defaults to `Default`. Changing it recreates the resource.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

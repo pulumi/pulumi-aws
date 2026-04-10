@@ -15,10 +15,20 @@ export type Domain = import("./domain").Domain;
 export const Domain: typeof import("./domain").Domain = null as any;
 utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
 
+export { GroupArgs, GroupState } from "./group";
+export type Group = import("./group").Group;
+export const Group: typeof import("./group").Group = null as any;
+utilities.lazyLoad(exports, ["Group"], () => require("./group"));
+
 export { OrganizationArgs, OrganizationState } from "./organization";
 export type Organization = import("./organization").Organization;
 export const Organization: typeof import("./organization").Organization = null as any;
 utilities.lazyLoad(exports, ["Organization"], () => require("./organization"));
+
+export { UserArgs, UserState } from "./user";
+export type User = import("./user").User;
+export const User: typeof import("./user").User = null as any;
+utilities.lazyLoad(exports, ["User"], () => require("./user"));
 
 
 const _module = {
@@ -29,8 +39,12 @@ const _module = {
                 return new DefaultDomain(name, <any>undefined, { urn })
             case "aws:workmail/domain:Domain":
                 return new Domain(name, <any>undefined, { urn })
+            case "aws:workmail/group:Group":
+                return new Group(name, <any>undefined, { urn })
             case "aws:workmail/organization:Organization":
                 return new Organization(name, <any>undefined, { urn })
+            case "aws:workmail/user:User":
+                return new User(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -38,4 +52,6 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "workmail/defaultDomain", _module)
 pulumi.runtime.registerResourceModule("aws", "workmail/domain", _module)
+pulumi.runtime.registerResourceModule("aws", "workmail/group", _module)
 pulumi.runtime.registerResourceModule("aws", "workmail/organization", _module)
+pulumi.runtime.registerResourceModule("aws", "workmail/user", _module)

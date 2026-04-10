@@ -18,8 +18,6 @@ import javax.annotation.Nullable;
 /**
  * Provides a S3 bucket [metrics configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html) resource.
  * 
- * &gt; This resource cannot be used with S3 directory buckets.
- * 
  * ## Example Usage
  * 
  * ### Add metrics configuration for entire S3 bucket
@@ -157,6 +155,68 @@ import javax.annotation.Nullable;
  *                     Map.entry("priority", "high"),
  *                     Map.entry("class", "blue")
  *                 ))
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Add metrics configuration for S3 directory bucket
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+ * import com.pulumi.aws.s3.DirectoryBucket;
+ * import com.pulumi.aws.s3.DirectoryBucketArgs;
+ * import com.pulumi.aws.s3.inputs.DirectoryBucketLocationArgs;
+ * import com.pulumi.aws.s3.AccessPoint;
+ * import com.pulumi.aws.s3.AccessPointArgs;
+ * import com.pulumi.aws.s3.BucketMetric;
+ * import com.pulumi.aws.s3.BucketMetricArgs;
+ * import com.pulumi.aws.s3.inputs.BucketMetricFilterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+ *             .state("available")
+ *             .build());
+ * 
+ *         var example = new DirectoryBucket("example", DirectoryBucketArgs.builder()
+ *             .bucket("example--zoneId--x-s3")
+ *             .location(DirectoryBucketLocationArgs.builder()
+ *                 .name(available.zoneIds()[0])
+ *                 .build())
+ *             .build());
+ * 
+ *         var example_access_point = new AccessPoint("example-access-point", AccessPointArgs.builder()
+ *             .bucket(example.id())
+ *             .name("example--zoneId--xa-s3")
+ *             .build());
+ * 
+ *         var example_bucket_metric = new BucketMetric("example-bucket-metric", BucketMetricArgs.builder()
+ *             .bucket(example.id())
+ *             .name("ExampleBucketMetricForDirectoryBuckets")
+ *             .filter(BucketMetricFilterArgs.builder()
+ *                 .accessPoint(example_access_point.arn())
+ *                 .prefix("documents/")
  *                 .build())
  *             .build());
  * 

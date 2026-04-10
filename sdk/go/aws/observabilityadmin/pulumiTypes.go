@@ -1189,10 +1189,11 @@ func (o CentralizationRuleForOrganizationRuleSourcePtrOutput) SourceLogsConfigur
 }
 
 type CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration struct {
+	DataSourceSelectionCriteria *string `pulumi:"dataSourceSelectionCriteria"`
 	// Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
 	EncryptedLogGroupStrategy string `pulumi:"encryptedLogGroupStrategy"`
 	// Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE '/aws/lambda%'`. Must be between 1 and 2000 characters.
-	LogGroupSelectionCriteria string `pulumi:"logGroupSelectionCriteria"`
+	LogGroupSelectionCriteria *string `pulumi:"logGroupSelectionCriteria"`
 }
 
 // CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationInput is an input type that accepts CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs and CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationOutput values.
@@ -1207,10 +1208,11 @@ type CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationInput int
 }
 
 type CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs struct {
+	DataSourceSelectionCriteria pulumi.StringPtrInput `pulumi:"dataSourceSelectionCriteria"`
 	// Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
 	EncryptedLogGroupStrategy pulumi.StringInput `pulumi:"encryptedLogGroupStrategy"`
 	// Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE '/aws/lambda%'`. Must be between 1 and 2000 characters.
-	LogGroupSelectionCriteria pulumi.StringInput `pulumi:"logGroupSelectionCriteria"`
+	LogGroupSelectionCriteria pulumi.StringPtrInput `pulumi:"logGroupSelectionCriteria"`
 }
 
 func (CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs) ElementType() reflect.Type {
@@ -1290,6 +1292,12 @@ func (o CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationOutput
 	}).(CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrOutput)
 }
 
+func (o CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationOutput) DataSourceSelectionCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration) *string {
+		return v.DataSourceSelectionCriteria
+	}).(pulumi.StringPtrOutput)
+}
+
 // Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
 func (o CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationOutput) EncryptedLogGroupStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration) string {
@@ -1298,10 +1306,10 @@ func (o CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationOutput
 }
 
 // Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE '/aws/lambda%'`. Must be between 1 and 2000 characters.
-func (o CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationOutput) LogGroupSelectionCriteria() pulumi.StringOutput {
-	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration) string {
+func (o CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationOutput) LogGroupSelectionCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration) *string {
 		return v.LogGroupSelectionCriteria
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -1328,6 +1336,15 @@ func (o CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrOut
 	}).(CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationOutput)
 }
 
+func (o CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrOutput) DataSourceSelectionCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataSourceSelectionCriteria
+	}).(pulumi.StringPtrOutput)
+}
+
 // Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
 func (o CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrOutput) EncryptedLogGroupStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration) *string {
@@ -1344,7 +1361,7 @@ func (o CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrOut
 		if v == nil {
 			return nil
 		}
-		return &v.LogGroupSelectionCriteria
+		return v.LogGroupSelectionCriteria
 	}).(pulumi.StringPtrOutput)
 }
 

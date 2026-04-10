@@ -7,6 +7,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .account import *
+from .aws_service_access import *
 from .delegated_administrator import *
 from .get_account import *
 from .get_delegated_administrators import *

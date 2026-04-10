@@ -61,10 +61,21 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Remediation Configurations using the name config_rule_name. For example:
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `configRuleName` (String) Name of the AWS Config rule.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import Remediation Configurations using the `configRuleName`. For example:
  *
  * ```sh
- * $ pulumi import aws:cfg/remediationConfiguration:RemediationConfiguration this example
+ * $ pulumi import aws:cfg/remediationConfiguration:RemediationConfiguration example example
  * ```
  */
 export class RemediationConfiguration extends pulumi.CustomResource {

@@ -13,7 +13,7 @@ import (
 
 // Resource for managing an AWS OpenSearch Serverless Collection.
 //
-// > **NOTE:** An `opensearch.ServerlessCollection` cannot be created without having an applicable encryption security policy. Use the `dependsOn` meta-argument to define this dependency.
+// > **NOTE:** An `opensearch.ServerlessCollection` must have encryption configured either by an applicable encryption security policy or by setting `encryptionConfig` directly on the resource.
 //
 // > **NOTE:** An `opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
 //
@@ -72,7 +72,66 @@ import (
 //
 // ```
 //
+// ### With a Collection Group and Direct Encryption Configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
+//				Description:          pulumi.String("example"),
+//				DeletionWindowInDays: pulumi.Int(7),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServerlessCollectionGroup, err := opensearch.NewServerlessCollectionGroup(ctx, "example", &opensearch.ServerlessCollectionGroupArgs{
+//				Name:            pulumi.String("example-group"),
+//				StandbyReplicas: pulumi.String("ENABLED"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opensearch.NewServerlessCollection(ctx, "example", &opensearch.ServerlessCollectionArgs{
+//				Name:                pulumi.String("example"),
+//				Type:                pulumi.String("SEARCH"),
+//				CollectionGroupName: exampleServerlessCollectionGroup.Name,
+//				EncryptionConfigs: opensearch.ServerlessCollectionEncryptionConfigArray{
+//					&opensearch.ServerlessCollectionEncryptionConfigArgs{
+//						KmsKeyArn: example.Arn,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
+//
+// ### Identity Schema
+//
+// #### Required
+//
+// * `id` (String) Unique identifier for the collection.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
 //
 // Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For example:
 //
@@ -86,10 +145,14 @@ type ServerlessCollection struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
 	CollectionEndpoint pulumi.StringOutput `pulumi:"collectionEndpoint"`
+	// Name of the collection group to associate with this collection.
+	CollectionGroupName pulumi.StringPtrOutput `pulumi:"collectionGroupName"`
 	// Collection-specific endpoint used to access OpenSearch Dashboards.
 	DashboardEndpoint pulumi.StringOutput `pulumi:"dashboardEndpoint"`
 	// Description of the collection.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Configuration block for direct collection encryption settings. See `encryptionConfig` below for details.
+	EncryptionConfigs ServerlessCollectionEncryptionConfigArrayOutput `pulumi:"encryptionConfigs"`
 	// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
 	// Name of the collection.
@@ -101,7 +164,8 @@ type ServerlessCollection struct {
 	// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
 	StandbyReplicas pulumi.StringOutput `pulumi:"standbyReplicas"`
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapOutput                `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput                `pulumi:"tagsAll"`
 	Timeouts ServerlessCollectionTimeoutsPtrOutput `pulumi:"timeouts"`
 	// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
@@ -142,10 +206,14 @@ type serverlessCollectionState struct {
 	Arn *string `pulumi:"arn"`
 	// Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
 	CollectionEndpoint *string `pulumi:"collectionEndpoint"`
+	// Name of the collection group to associate with this collection.
+	CollectionGroupName *string `pulumi:"collectionGroupName"`
 	// Collection-specific endpoint used to access OpenSearch Dashboards.
 	DashboardEndpoint *string `pulumi:"dashboardEndpoint"`
 	// Description of the collection.
 	Description *string `pulumi:"description"`
+	// Configuration block for direct collection encryption settings. See `encryptionConfig` below for details.
+	EncryptionConfigs []ServerlessCollectionEncryptionConfig `pulumi:"encryptionConfigs"`
 	// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Name of the collection.
@@ -157,7 +225,8 @@ type serverlessCollectionState struct {
 	// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
 	StandbyReplicas *string `pulumi:"standbyReplicas"`
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string             `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string             `pulumi:"tagsAll"`
 	Timeouts *ServerlessCollectionTimeouts `pulumi:"timeouts"`
 	// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
@@ -169,10 +238,14 @@ type ServerlessCollectionState struct {
 	Arn pulumi.StringPtrInput
 	// Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
 	CollectionEndpoint pulumi.StringPtrInput
+	// Name of the collection group to associate with this collection.
+	CollectionGroupName pulumi.StringPtrInput
 	// Collection-specific endpoint used to access OpenSearch Dashboards.
 	DashboardEndpoint pulumi.StringPtrInput
 	// Description of the collection.
 	Description pulumi.StringPtrInput
+	// Configuration block for direct collection encryption settings. See `encryptionConfig` below for details.
+	EncryptionConfigs ServerlessCollectionEncryptionConfigArrayInput
 	// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
 	KmsKeyArn pulumi.StringPtrInput
 	// Name of the collection.
@@ -184,7 +257,8 @@ type ServerlessCollectionState struct {
 	// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
 	StandbyReplicas pulumi.StringPtrInput
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
 	Timeouts ServerlessCollectionTimeoutsPtrInput
 	// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
@@ -196,8 +270,12 @@ func (ServerlessCollectionState) ElementType() reflect.Type {
 }
 
 type serverlessCollectionArgs struct {
+	// Name of the collection group to associate with this collection.
+	CollectionGroupName *string `pulumi:"collectionGroupName"`
 	// Description of the collection.
 	Description *string `pulumi:"description"`
+	// Configuration block for direct collection encryption settings. See `encryptionConfig` below for details.
+	EncryptionConfigs []ServerlessCollectionEncryptionConfig `pulumi:"encryptionConfigs"`
 	// Name of the collection.
 	//
 	// The following arguments are optional:
@@ -215,8 +293,12 @@ type serverlessCollectionArgs struct {
 
 // The set of arguments for constructing a ServerlessCollection resource.
 type ServerlessCollectionArgs struct {
+	// Name of the collection group to associate with this collection.
+	CollectionGroupName pulumi.StringPtrInput
 	// Description of the collection.
 	Description pulumi.StringPtrInput
+	// Configuration block for direct collection encryption settings. See `encryptionConfig` below for details.
+	EncryptionConfigs ServerlessCollectionEncryptionConfigArrayInput
 	// Name of the collection.
 	//
 	// The following arguments are optional:
@@ -329,6 +411,11 @@ func (o ServerlessCollectionOutput) CollectionEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringOutput { return v.CollectionEndpoint }).(pulumi.StringOutput)
 }
 
+// Name of the collection group to associate with this collection.
+func (o ServerlessCollectionOutput) CollectionGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringPtrOutput { return v.CollectionGroupName }).(pulumi.StringPtrOutput)
+}
+
 // Collection-specific endpoint used to access OpenSearch Dashboards.
 func (o ServerlessCollectionOutput) DashboardEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringOutput { return v.DashboardEndpoint }).(pulumi.StringOutput)
@@ -337,6 +424,13 @@ func (o ServerlessCollectionOutput) DashboardEndpoint() pulumi.StringOutput {
 // Description of the collection.
 func (o ServerlessCollectionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Configuration block for direct collection encryption settings. See `encryptionConfig` below for details.
+func (o ServerlessCollectionOutput) EncryptionConfigs() ServerlessCollectionEncryptionConfigArrayOutput {
+	return o.ApplyT(func(v *ServerlessCollection) ServerlessCollectionEncryptionConfigArrayOutput {
+		return v.EncryptionConfigs
+	}).(ServerlessCollectionEncryptionConfigArrayOutput)
 }
 
 // The ARN of the Amazon Web Services KMS key used to encrypt the collection.
@@ -366,6 +460,7 @@ func (o ServerlessCollectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ServerlessCollectionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

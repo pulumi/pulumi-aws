@@ -300,10 +300,20 @@ class InstanceProfile(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the instance profile.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
         Using `pulumi import`, import Instance Profiles using the `name`. For example:
 
         ```sh
-        $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
+        $ pulumi import aws:iam/instanceProfile:InstanceProfile example app-instance-profile-1
         ```
 
 
@@ -351,10 +361,20 @@ class InstanceProfile(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the instance profile.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
         Using `pulumi import`, import Instance Profiles using the `name`. For example:
 
         ```sh
-        $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
+        $ pulumi import aws:iam/instanceProfile:InstanceProfile example app-instance-profile-1
         ```
 
 

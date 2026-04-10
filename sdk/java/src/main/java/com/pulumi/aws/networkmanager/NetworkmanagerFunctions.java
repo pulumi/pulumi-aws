@@ -8,6 +8,8 @@ import com.pulumi.aws.networkmanager.inputs.GetConnectionArgs;
 import com.pulumi.aws.networkmanager.inputs.GetConnectionPlainArgs;
 import com.pulumi.aws.networkmanager.inputs.GetConnectionsArgs;
 import com.pulumi.aws.networkmanager.inputs.GetConnectionsPlainArgs;
+import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkArgs;
+import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPlainArgs;
 import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentArgs;
 import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentPlainArgs;
 import com.pulumi.aws.networkmanager.inputs.GetDeviceArgs;
@@ -29,6 +31,7 @@ import com.pulumi.aws.networkmanager.inputs.GetSitesPlainArgs;
 import com.pulumi.aws.networkmanager.outputs.GetConnectionResult;
 import com.pulumi.aws.networkmanager.outputs.GetConnectionsResult;
 import com.pulumi.aws.networkmanager.outputs.GetCoreNetworkPolicyDocumentResult;
+import com.pulumi.aws.networkmanager.outputs.GetCoreNetworkResult;
 import com.pulumi.aws.networkmanager.outputs.GetDeviceResult;
 import com.pulumi.aws.networkmanager.outputs.GetDevicesResult;
 import com.pulumi.aws.networkmanager.outputs.GetGlobalNetworkResult;
@@ -454,6 +457,216 @@ public final class NetworkmanagerFunctions {
      */
     public static CompletableFuture<GetConnectionsResult> getConnectionsPlain(GetConnectionsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:networkmanager/getConnections:getConnections", TypeShape.of(GetConnectionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an AWS Network Manager Core Network.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkmanagerFunctions.getCoreNetwork(GetCoreNetworkArgs.builder()
+     *             .coreNetworkId("core-network-0123456789abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetCoreNetworkResult> getCoreNetwork(GetCoreNetworkArgs args) {
+        return getCoreNetwork(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS Network Manager Core Network.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkmanagerFunctions.getCoreNetwork(GetCoreNetworkArgs.builder()
+     *             .coreNetworkId("core-network-0123456789abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetCoreNetworkResult> getCoreNetworkPlain(GetCoreNetworkPlainArgs args) {
+        return getCoreNetworkPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS Network Manager Core Network.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkmanagerFunctions.getCoreNetwork(GetCoreNetworkArgs.builder()
+     *             .coreNetworkId("core-network-0123456789abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetCoreNetworkResult> getCoreNetwork(GetCoreNetworkArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:networkmanager/getCoreNetwork:getCoreNetwork", TypeShape.of(GetCoreNetworkResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an AWS Network Manager Core Network.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkmanagerFunctions.getCoreNetwork(GetCoreNetworkArgs.builder()
+     *             .coreNetworkId("core-network-0123456789abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetCoreNetworkResult> getCoreNetwork(GetCoreNetworkArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:networkmanager/getCoreNetwork:getCoreNetwork", TypeShape.of(GetCoreNetworkResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an AWS Network Manager Core Network.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkmanagerFunctions.getCoreNetwork(GetCoreNetworkArgs.builder()
+     *             .coreNetworkId("core-network-0123456789abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetCoreNetworkResult> getCoreNetworkPlain(GetCoreNetworkPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:networkmanager/getCoreNetwork:getCoreNetwork", TypeShape.of(GetCoreNetworkResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Generates a Core Network policy document in JSON format for use with resources that expect core network policy documents such as `awsccNetworkmanagerCoreNetwork`. It follows the API definition from the [core-network-policy documentation](https://docs.aws.amazon.com/vpc/latest/cloudwan/cloudwan-policies-json.html).

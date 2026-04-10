@@ -1795,7 +1795,7 @@ func (o ClusterComputeConfigPtrOutput) NodeRoleArn() pulumi.StringPtrOutput {
 }
 
 type ClusterControlPlaneScalingConfig struct {
-	// The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
+	// The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, `tier-4xl`, or `tier-8xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
 	Tier *string `pulumi:"tier"`
 }
 
@@ -1811,7 +1811,7 @@ type ClusterControlPlaneScalingConfigInput interface {
 }
 
 type ClusterControlPlaneScalingConfigArgs struct {
-	// The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
+	// The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, `tier-4xl`, or `tier-8xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
@@ -1892,7 +1892,7 @@ func (o ClusterControlPlaneScalingConfigOutput) ToClusterControlPlaneScalingConf
 	}).(ClusterControlPlaneScalingConfigPtrOutput)
 }
 
-// The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
+// The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, `tier-4xl`, or `tier-8xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
 func (o ClusterControlPlaneScalingConfigOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterControlPlaneScalingConfig) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -1921,7 +1921,7 @@ func (o ClusterControlPlaneScalingConfigPtrOutput) Elem() ClusterControlPlaneSca
 	}).(ClusterControlPlaneScalingConfigOutput)
 }
 
-// The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
+// The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, `tier-4xl`, or `tier-8xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
 func (o ClusterControlPlaneScalingConfigPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterControlPlaneScalingConfig) *string {
 		if v == nil {
@@ -6522,7 +6522,7 @@ func (o GetClusterComputeConfigArrayOutput) Index(i pulumi.IntInput) GetClusterC
 }
 
 type GetClusterControlPlaneScalingConfig struct {
-	// The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`.
+	// The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, `tier-4xl`, or `tier-8xl`.
 	Tier string `pulumi:"tier"`
 }
 
@@ -6538,7 +6538,7 @@ type GetClusterControlPlaneScalingConfigInput interface {
 }
 
 type GetClusterControlPlaneScalingConfigArgs struct {
-	// The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`.
+	// The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, `tier-4xl`, or `tier-8xl`.
 	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
@@ -6593,7 +6593,7 @@ func (o GetClusterControlPlaneScalingConfigOutput) ToGetClusterControlPlaneScali
 	return o
 }
 
-// The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`.
+// The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, `tier-4xl`, or `tier-8xl`.
 func (o GetClusterControlPlaneScalingConfigOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterControlPlaneScalingConfig) string { return v.Tier }).(pulumi.StringOutput)
 }

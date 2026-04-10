@@ -123,10 +123,21 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Configuration Recorder Status using the name of the Configuration Recorder. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Name` (String) Name of the configuration recorder.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Configuration Recorder Statuses using the `Name`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
+    /// $ pulumi import aws:cfg/recorderStatus:RecorderStatus example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/recorderStatus:RecorderStatus")]
@@ -139,7 +150,7 @@ namespace Pulumi.Aws.Cfg
         public Output<bool> IsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the recorder
+        /// The name of the configuration recorder.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -203,7 +214,7 @@ namespace Pulumi.Aws.Cfg
         public Input<bool> IsEnabled { get; set; } = null!;
 
         /// <summary>
-        /// The name of the recorder
+        /// The name of the configuration recorder.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -229,7 +240,7 @@ namespace Pulumi.Aws.Cfg
         public Input<bool>? IsEnabled { get; set; }
 
         /// <summary>
-        /// The name of the recorder
+        /// The name of the configuration recorder.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

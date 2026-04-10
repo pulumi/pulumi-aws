@@ -27,6 +27,7 @@ __all__ = [
     'GetPrincipalPolicySimulationContextResult',
     'GetPrincipalPolicySimulationResultResult',
     'GetPrincipalPolicySimulationResultMatchedStatementResult',
+    'GetRolePolicyAttachmentsAttachedPolicyResult',
     'GetRoleRoleLastUsedResult',
 ]
 
@@ -524,6 +525,35 @@ class GetPrincipalPolicySimulationResultMatchedStatementResult(dict):
         The type of the policy identified in source_policy_id.
         """
         return pulumi.get(self, "source_policy_type")
+
+
+@pulumi.output_type
+class GetRolePolicyAttachmentsAttachedPolicyResult(dict):
+    def __init__(__self__, *,
+                 policy_arn: _builtins.str,
+                 policy_name: _builtins.str):
+        """
+        :param _builtins.str policy_arn: ARN of the attached managed policy.
+        :param _builtins.str policy_name: Name of the attached managed policy.
+        """
+        pulumi.set(__self__, "policy_arn", policy_arn)
+        pulumi.set(__self__, "policy_name", policy_name)
+
+    @_builtins.property
+    @pulumi.getter(name="policyArn")
+    def policy_arn(self) -> _builtins.str:
+        """
+        ARN of the attached managed policy.
+        """
+        return pulumi.get(self, "policy_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> _builtins.str:
+        """
+        Name of the attached managed policy.
+        """
+        return pulumi.get(self, "policy_name")
 
 
 @pulumi.output_type

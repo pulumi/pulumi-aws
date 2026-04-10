@@ -52,7 +52,18 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Config Organization Managed Rules using the name. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Name` (String) Name of the rule.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Config Organization Managed Rules using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example

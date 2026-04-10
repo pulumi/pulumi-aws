@@ -1527,8 +1527,9 @@ type RecordsExclusiveResourceRecordSet struct {
 	// See `geoproximityLocation` below.
 	GeoproximityLocation *RecordsExclusiveResourceRecordSetGeoproximityLocation `pulumi:"geoproximityLocation"`
 	// Health check the record should be associated with.
-	HealthCheckId    *string `pulumi:"healthCheckId"`
-	MultiValueAnswer *bool   `pulumi:"multiValueAnswer"`
+	HealthCheckId *string `pulumi:"healthCheckId"`
+	// Set to `true` to indicate this record is a multivalue answer record and traffic should be routed approximately randomly to multiple resources.
+	MultiValueAnswer *bool `pulumi:"multiValueAnswer"`
 	// Name of the record.
 	Name string `pulumi:"name"`
 	// AWS region of the resource this record set refers to.
@@ -1539,7 +1540,7 @@ type RecordsExclusiveResourceRecordSet struct {
 	// See `resourceRecords` below.
 	ResourceRecords []RecordsExclusiveResourceRecordSetResourceRecord `pulumi:"resourceRecords"`
 	// An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
-	// Required if using `cidrRoutingConfig`, `failover`, `geolocation`,`geoproximityLocation`, `multivalueAnswer`, `region`, or `weight`.
+	// Required if using `cidrRoutingConfig`, `failover`, `geolocation`,`geoproximityLocation`, `multiValueAnswer`, `region`, or `weight`.
 	SetIdentifier *string `pulumi:"setIdentifier"`
 	// ID of the traffic policy instance that Route 53 created this resource record set for.
 	// To delete the resource record set that is associated with a traffic policy instance, use the `DeleteTrafficPolicyInstance` API.
@@ -1586,8 +1587,9 @@ type RecordsExclusiveResourceRecordSetArgs struct {
 	// See `geoproximityLocation` below.
 	GeoproximityLocation RecordsExclusiveResourceRecordSetGeoproximityLocationPtrInput `pulumi:"geoproximityLocation"`
 	// Health check the record should be associated with.
-	HealthCheckId    pulumi.StringPtrInput `pulumi:"healthCheckId"`
-	MultiValueAnswer pulumi.BoolPtrInput   `pulumi:"multiValueAnswer"`
+	HealthCheckId pulumi.StringPtrInput `pulumi:"healthCheckId"`
+	// Set to `true` to indicate this record is a multivalue answer record and traffic should be routed approximately randomly to multiple resources.
+	MultiValueAnswer pulumi.BoolPtrInput `pulumi:"multiValueAnswer"`
 	// Name of the record.
 	Name pulumi.StringInput `pulumi:"name"`
 	// AWS region of the resource this record set refers to.
@@ -1598,7 +1600,7 @@ type RecordsExclusiveResourceRecordSetArgs struct {
 	// See `resourceRecords` below.
 	ResourceRecords RecordsExclusiveResourceRecordSetResourceRecordArrayInput `pulumi:"resourceRecords"`
 	// An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
-	// Required if using `cidrRoutingConfig`, `failover`, `geolocation`,`geoproximityLocation`, `multivalueAnswer`, `region`, or `weight`.
+	// Required if using `cidrRoutingConfig`, `failover`, `geolocation`,`geoproximityLocation`, `multiValueAnswer`, `region`, or `weight`.
 	SetIdentifier pulumi.StringPtrInput `pulumi:"setIdentifier"`
 	// ID of the traffic policy instance that Route 53 created this resource record set for.
 	// To delete the resource record set that is associated with a traffic policy instance, use the `DeleteTrafficPolicyInstance` API.
@@ -1711,6 +1713,7 @@ func (o RecordsExclusiveResourceRecordSetOutput) HealthCheckId() pulumi.StringPt
 	return o.ApplyT(func(v RecordsExclusiveResourceRecordSet) *string { return v.HealthCheckId }).(pulumi.StringPtrOutput)
 }
 
+// Set to `true` to indicate this record is a multivalue answer record and traffic should be routed approximately randomly to multiple resources.
 func (o RecordsExclusiveResourceRecordSetOutput) MultiValueAnswer() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RecordsExclusiveResourceRecordSet) *bool { return v.MultiValueAnswer }).(pulumi.BoolPtrOutput)
 }
@@ -1736,7 +1739,7 @@ func (o RecordsExclusiveResourceRecordSetOutput) ResourceRecords() RecordsExclus
 }
 
 // An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
-// Required if using `cidrRoutingConfig`, `failover`, `geolocation`,`geoproximityLocation`, `multivalueAnswer`, `region`, or `weight`.
+// Required if using `cidrRoutingConfig`, `failover`, `geolocation`,`geoproximityLocation`, `multiValueAnswer`, `region`, or `weight`.
 func (o RecordsExclusiveResourceRecordSetOutput) SetIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecordsExclusiveResourceRecordSet) *string { return v.SetIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -2137,8 +2140,13 @@ func (o RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput) LocationNam
 }
 
 type RecordsExclusiveResourceRecordSetGeolocation struct {
-	ContinentCode   *string `pulumi:"continentCode"`
-	CountryCode     *string `pulumi:"countryCode"`
+	// Two-letter continent code.
+	// See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
+	ContinentCode *string `pulumi:"continentCode"`
+	// Two-letter country code.
+	// See the ISO standard linked from the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
+	CountryCode *string `pulumi:"countryCode"`
+	// Subdivision code.
 	SubdivisionCode *string `pulumi:"subdivisionCode"`
 }
 
@@ -2154,8 +2162,13 @@ type RecordsExclusiveResourceRecordSetGeolocationInput interface {
 }
 
 type RecordsExclusiveResourceRecordSetGeolocationArgs struct {
-	ContinentCode   pulumi.StringPtrInput `pulumi:"continentCode"`
-	CountryCode     pulumi.StringPtrInput `pulumi:"countryCode"`
+	// Two-letter continent code.
+	// See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
+	ContinentCode pulumi.StringPtrInput `pulumi:"continentCode"`
+	// Two-letter country code.
+	// See the ISO standard linked from the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
+	CountryCode pulumi.StringPtrInput `pulumi:"countryCode"`
+	// Subdivision code.
 	SubdivisionCode pulumi.StringPtrInput `pulumi:"subdivisionCode"`
 }
 
@@ -2236,14 +2249,19 @@ func (o RecordsExclusiveResourceRecordSetGeolocationOutput) ToRecordsExclusiveRe
 	}).(RecordsExclusiveResourceRecordSetGeolocationPtrOutput)
 }
 
+// Two-letter continent code.
+// See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
 func (o RecordsExclusiveResourceRecordSetGeolocationOutput) ContinentCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecordsExclusiveResourceRecordSetGeolocation) *string { return v.ContinentCode }).(pulumi.StringPtrOutput)
 }
 
+// Two-letter country code.
+// See the ISO standard linked from the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
 func (o RecordsExclusiveResourceRecordSetGeolocationOutput) CountryCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecordsExclusiveResourceRecordSetGeolocation) *string { return v.CountryCode }).(pulumi.StringPtrOutput)
 }
 
+// Subdivision code.
 func (o RecordsExclusiveResourceRecordSetGeolocationOutput) SubdivisionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecordsExclusiveResourceRecordSetGeolocation) *string { return v.SubdivisionCode }).(pulumi.StringPtrOutput)
 }
@@ -2272,6 +2290,8 @@ func (o RecordsExclusiveResourceRecordSetGeolocationPtrOutput) Elem() RecordsExc
 	}).(RecordsExclusiveResourceRecordSetGeolocationOutput)
 }
 
+// Two-letter continent code.
+// See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
 func (o RecordsExclusiveResourceRecordSetGeolocationPtrOutput) ContinentCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecordsExclusiveResourceRecordSetGeolocation) *string {
 		if v == nil {
@@ -2281,6 +2301,8 @@ func (o RecordsExclusiveResourceRecordSetGeolocationPtrOutput) ContinentCode() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// Two-letter country code.
+// See the ISO standard linked from the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
 func (o RecordsExclusiveResourceRecordSetGeolocationPtrOutput) CountryCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecordsExclusiveResourceRecordSetGeolocation) *string {
 		if v == nil {
@@ -2290,6 +2312,7 @@ func (o RecordsExclusiveResourceRecordSetGeolocationPtrOutput) CountryCode() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// Subdivision code.
 func (o RecordsExclusiveResourceRecordSetGeolocationPtrOutput) SubdivisionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecordsExclusiveResourceRecordSetGeolocation) *string {
 		if v == nil {

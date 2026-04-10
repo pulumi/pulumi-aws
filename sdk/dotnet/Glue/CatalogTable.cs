@@ -194,6 +194,40 @@ namespace Pulumi.Aws.Glue
     /// });
     /// ```
     /// 
+    /// ### Protected View
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Glue.CatalogTable("example", new()
+    ///     {
+    ///         Name = "multidialect_view",
+    ///         DatabaseName = "catalog_database",
+    ///         TableType = "VIRTUAL_VIEW",
+    ///         ViewDefinition = new Aws.Glue.Inputs.CatalogTableViewDefinitionArgs
+    ///         {
+    ///             IsProtected = true,
+    ///             Representations = new[]
+    ///             {
+    ///                 new Aws.Glue.Inputs.CatalogTableViewDefinitionRepresentationArgs
+    ///                 {
+    ///                     Dialect = "ATHENA",
+    ///                     DialectVersion = "3",
+    ///                     ViewOriginalText = "SELECT * FROM catalog_database.base_table",
+    ///                     ValidationConnection = exampleAwsGlueConnection.Name,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:

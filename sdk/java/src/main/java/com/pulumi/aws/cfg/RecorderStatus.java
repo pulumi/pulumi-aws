@@ -123,10 +123,21 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Configuration Recorder Status using the name of the Configuration Recorder. For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `name` (String) Name of the configuration recorder.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import Configuration Recorder Statuses using the `name`. For example:
  * 
  * ```sh
- * $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
+ * $ pulumi import aws:cfg/recorderStatus:RecorderStatus example example
  * ```
  * 
  */
@@ -147,14 +158,14 @@ public class RecorderStatus extends com.pulumi.resources.CustomResource {
         return this.isEnabled;
     }
     /**
-     * The name of the recorder
+     * The name of the configuration recorder.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the recorder
+     * @return The name of the configuration recorder.
      * 
      */
     public Output<String> name() {

@@ -26,6 +26,7 @@ __all__ = [
     'ScraperRoleConfiguration',
     'ScraperSource',
     'ScraperSourceEks',
+    'ScraperSourceVpc',
     'ScraperTimeouts',
     'WorkspaceConfigurationLimitsPerLabelSet',
     'WorkspaceConfigurationLimitsPerLabelSetLimits',
@@ -342,19 +343,36 @@ class ScraperRoleConfiguration(dict):
 @pulumi.output_type
 class ScraperSource(dict):
     def __init__(__self__, *,
-                 eks: 'outputs.ScraperSourceEks'):
+                 eks: Optional['outputs.ScraperSourceEks'] = None,
+                 vpc: Optional['outputs.ScraperSourceVpc'] = None):
         """
         :param 'ScraperSourceEksArgs' eks: Configuration block for an EKS cluster source. See `eks`.
+        :param 'ScraperSourceVpcArgs' vpc: Configuration block for a VPC source. See `vpc`.
+               
+               > **NOTE:** Either `eks` or `vpc` must be specified, but not both.
         """
-        pulumi.set(__self__, "eks", eks)
+        if eks is not None:
+            pulumi.set(__self__, "eks", eks)
+        if vpc is not None:
+            pulumi.set(__self__, "vpc", vpc)
 
     @_builtins.property
     @pulumi.getter
-    def eks(self) -> 'outputs.ScraperSourceEks':
+    def eks(self) -> Optional['outputs.ScraperSourceEks']:
         """
         Configuration block for an EKS cluster source. See `eks`.
         """
         return pulumi.get(self, "eks")
+
+    @_builtins.property
+    @pulumi.getter
+    def vpc(self) -> Optional['outputs.ScraperSourceVpc']:
+        """
+        Configuration block for a VPC source. See `vpc`.
+
+        > **NOTE:** Either `eks` or `vpc` must be specified, but not both.
+        """
+        return pulumi.get(self, "vpc")
 
 
 @pulumi.output_type
@@ -385,6 +403,7 @@ class ScraperSourceEks(dict):
                  subnet_ids: Sequence[_builtins.str],
                  security_group_ids: Optional[Sequence[_builtins.str]] = None):
         """
+        :param _builtins.str cluster_arn: The Amazon Resource Name (ARN) of the source EKS cluster.
         :param Sequence[_builtins.str] subnet_ids: List of subnet IDs. Must be in at least two different availability zones.
         :param Sequence[_builtins.str] security_group_ids: List of the security group IDs for the Amazon EKS cluster VPC configuration.
         """
@@ -396,6 +415,9 @@ class ScraperSourceEks(dict):
     @_builtins.property
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> _builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the source EKS cluster.
+        """
         return pulumi.get(self, "cluster_arn")
 
     @_builtins.property
@@ -413,6 +435,54 @@ class ScraperSourceEks(dict):
         List of the security group IDs for the Amazon EKS cluster VPC configuration.
         """
         return pulumi.get(self, "security_group_ids")
+
+
+@pulumi.output_type
+class ScraperSourceVpc(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScraperSourceVpc. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScraperSourceVpc.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScraperSourceVpc.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_ids: Sequence[_builtins.str],
+                 subnet_ids: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] security_group_ids: List of security group IDs for the VPC configuration.
+        :param Sequence[_builtins.str] subnet_ids: List of subnet IDs. Must be in at least two different availability zones.
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[_builtins.str]:
+        """
+        List of security group IDs for the VPC configuration.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[_builtins.str]:
+        """
+        List of subnet IDs. Must be in at least two different availability zones.
+        """
+        return pulumi.get(self, "subnet_ids")
 
 
 @pulumi.output_type

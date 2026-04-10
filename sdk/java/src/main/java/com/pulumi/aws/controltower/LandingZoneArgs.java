@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -48,6 +49,21 @@ public final class LandingZoneArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies list of remediation actions to apply. Currently only supports the `INHERITANCE_DRIFT` value.
+     * 
+     */
+    @Import(name="remediationTypes")
+    private @Nullable Output<List<String>> remediationTypes;
+
+    /**
+     * @return Specifies list of remediation actions to apply. Currently only supports the `INHERITANCE_DRIFT` value.
+     * 
+     */
+    public Optional<Output<List<String>>> remediationTypes() {
+        return Optional.ofNullable(this.remediationTypes);
+    }
+
+    /**
      * Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -82,6 +98,7 @@ public final class LandingZoneArgs extends com.pulumi.resources.ResourceArgs {
     private LandingZoneArgs(LandingZoneArgs $) {
         this.manifestJson = $.manifestJson;
         this.region = $.region;
+        this.remediationTypes = $.remediationTypes;
         this.tags = $.tags;
         this.version = $.version;
     }
@@ -144,6 +161,37 @@ public final class LandingZoneArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param remediationTypes Specifies list of remediation actions to apply. Currently only supports the `INHERITANCE_DRIFT` value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder remediationTypes(@Nullable Output<List<String>> remediationTypes) {
+            $.remediationTypes = remediationTypes;
+            return this;
+        }
+
+        /**
+         * @param remediationTypes Specifies list of remediation actions to apply. Currently only supports the `INHERITANCE_DRIFT` value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder remediationTypes(List<String> remediationTypes) {
+            return remediationTypes(Output.of(remediationTypes));
+        }
+
+        /**
+         * @param remediationTypes Specifies list of remediation actions to apply. Currently only supports the `INHERITANCE_DRIFT` value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder remediationTypes(String... remediationTypes) {
+            return remediationTypes(List.of(remediationTypes));
         }
 
         /**

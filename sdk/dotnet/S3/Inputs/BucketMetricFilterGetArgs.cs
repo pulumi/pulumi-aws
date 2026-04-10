@@ -28,7 +28,7 @@ namespace Pulumi.Aws.S3.Inputs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Object tags for filtering (up to 10).
+        /// Object tags for filtering (up to 10). Unsupported for S3 directory buckets.
         /// </summary>
         public InputMap<string> Tags
         {

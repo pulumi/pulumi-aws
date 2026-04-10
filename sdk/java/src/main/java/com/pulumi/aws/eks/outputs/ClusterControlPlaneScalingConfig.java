@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterControlPlaneScalingConfig {
     /**
-     * @return The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
+     * @return The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, `tier-4xl`, or `tier-8xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
      * 
      */
     private @Nullable String tier;
 
     private ClusterControlPlaneScalingConfig() {}
     /**
-     * @return The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, or `tier-4xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
+     * @return The control plane scaling tier. Valid values are `standard`, `tier-xl`, `tier-2xl`, `tier-4xl`, or `tier-8xl`. Defaults to `standard`. For more information about each tier, see [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html).
      * 
      */
     public Optional<String> tier() {

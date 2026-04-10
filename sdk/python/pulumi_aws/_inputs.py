@@ -1412,6 +1412,10 @@ class ProviderEndpointArgsDict(TypedDict):
     """
     Use this to override the default service endpoint URL
     """
+    s3files: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
     s3outposts: NotRequired[pulumi.Input[_builtins.str]]
     """
     Use this to override the default service endpoint URL
@@ -1581,6 +1585,10 @@ class ProviderEndpointArgsDict(TypedDict):
     Use this to override the default service endpoint URL
     """
     transfer: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    uxc: NotRequired[pulumi.Input[_builtins.str]]
     """
     Use this to override the default service endpoint URL
     """
@@ -1884,6 +1892,7 @@ class ProviderEndpointArgs:
                  s3: Optional[pulumi.Input[_builtins.str]] = None,
                  s3api: Optional[pulumi.Input[_builtins.str]] = None,
                  s3control: Optional[pulumi.Input[_builtins.str]] = None,
+                 s3files: Optional[pulumi.Input[_builtins.str]] = None,
                  s3outposts: Optional[pulumi.Input[_builtins.str]] = None,
                  s3tables: Optional[pulumi.Input[_builtins.str]] = None,
                  s3vectors: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1927,6 +1936,7 @@ class ProviderEndpointArgs:
                  transcribe: Optional[pulumi.Input[_builtins.str]] = None,
                  transcribeservice: Optional[pulumi.Input[_builtins.str]] = None,
                  transfer: Optional[pulumi.Input[_builtins.str]] = None,
+                 uxc: Optional[pulumi.Input[_builtins.str]] = None,
                  verifiedpermissions: Optional[pulumi.Input[_builtins.str]] = None,
                  vpclattice: Optional[pulumi.Input[_builtins.str]] = None,
                  waf: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2194,6 +2204,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[_builtins.str] s3: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] s3api: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] s3control: Use this to override the default service endpoint URL
+        :param pulumi.Input[_builtins.str] s3files: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] s3outposts: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] s3tables: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] s3vectors: Use this to override the default service endpoint URL
@@ -2237,6 +2248,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[_builtins.str] transcribe: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] transcribeservice: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] transfer: Use this to override the default service endpoint URL
+        :param pulumi.Input[_builtins.str] uxc: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] verifiedpermissions: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] vpclattice: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] waf: Use this to override the default service endpoint URL
@@ -2760,6 +2772,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "s3api", s3api)
         if s3control is not None:
             pulumi.set(__self__, "s3control", s3control)
+        if s3files is not None:
+            pulumi.set(__self__, "s3files", s3files)
         if s3outposts is not None:
             pulumi.set(__self__, "s3outposts", s3outposts)
         if s3tables is not None:
@@ -2846,6 +2860,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "transcribeservice", transcribeservice)
         if transfer is not None:
             pulumi.set(__self__, "transfer", transfer)
+        if uxc is not None:
+            pulumi.set(__self__, "uxc", uxc)
         if verifiedpermissions is not None:
             pulumi.set(__self__, "verifiedpermissions", verifiedpermissions)
         if vpclattice is not None:
@@ -5941,6 +5957,18 @@ class ProviderEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
+    def s3files(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "s3files")
+
+    @s3files.setter
+    def s3files(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "s3files", value)
+
+    @_builtins.property
+    @pulumi.getter
     def s3outposts(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Use this to override the default service endpoint URL
@@ -6454,6 +6482,18 @@ class ProviderEndpointArgs:
     @transfer.setter
     def transfer(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "transfer", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def uxc(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "uxc")
+
+    @uxc.setter
+    def uxc(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "uxc", value)
 
     @_builtins.property
     @pulumi.getter

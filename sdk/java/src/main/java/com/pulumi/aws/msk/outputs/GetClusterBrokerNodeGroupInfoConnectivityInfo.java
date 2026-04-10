@@ -7,15 +7,20 @@ import com.pulumi.aws.msk.outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoP
 import com.pulumi.aws.msk.outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetClusterBrokerNodeGroupInfoConnectivityInfo {
+    private String networkType;
     private List<GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess> publicAccesses;
     private List<GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity> vpcConnectivities;
 
     private GetClusterBrokerNodeGroupInfoConnectivityInfo() {}
+    public String networkType() {
+        return this.networkType;
+    }
     public List<GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess> publicAccesses() {
         return this.publicAccesses;
     }
@@ -32,15 +37,25 @@ public final class GetClusterBrokerNodeGroupInfoConnectivityInfo {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String networkType;
         private List<GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess> publicAccesses;
         private List<GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity> vpcConnectivities;
         public Builder() {}
         public Builder(GetClusterBrokerNodeGroupInfoConnectivityInfo defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.networkType = defaults.networkType;
     	      this.publicAccesses = defaults.publicAccesses;
     	      this.vpcConnectivities = defaults.vpcConnectivities;
         }
 
+        @CustomType.Setter
+        public Builder networkType(String networkType) {
+            if (networkType == null) {
+              throw new MissingRequiredPropertyException("GetClusterBrokerNodeGroupInfoConnectivityInfo", "networkType");
+            }
+            this.networkType = networkType;
+            return this;
+        }
         @CustomType.Setter
         public Builder publicAccesses(List<GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess> publicAccesses) {
             if (publicAccesses == null) {
@@ -65,6 +80,7 @@ public final class GetClusterBrokerNodeGroupInfoConnectivityInfo {
         }
         public GetClusterBrokerNodeGroupInfoConnectivityInfo build() {
             final var _resultValue = new GetClusterBrokerNodeGroupInfoConnectivityInfo();
+            _resultValue.networkType = networkType;
             _resultValue.publicAccesses = publicAccesses;
             _resultValue.vpcConnectivities = vpcConnectivities;
             return _resultValue;

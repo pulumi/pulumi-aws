@@ -10,6 +10,11 @@ export type Account = import("./account").Account;
 export const Account: typeof import("./account").Account = null as any;
 utilities.lazyLoad(exports, ["Account"], () => require("./account"));
 
+export { AwsServiceAccessArgs, AwsServiceAccessState } from "./awsServiceAccess";
+export type AwsServiceAccess = import("./awsServiceAccess").AwsServiceAccess;
+export const AwsServiceAccess: typeof import("./awsServiceAccess").AwsServiceAccess = null as any;
+utilities.lazyLoad(exports, ["AwsServiceAccess"], () => require("./awsServiceAccess"));
+
 export { DelegatedAdministratorArgs, DelegatedAdministratorState } from "./delegatedAdministrator";
 export type DelegatedAdministrator = import("./delegatedAdministrator").DelegatedAdministrator;
 export const DelegatedAdministrator: typeof import("./delegatedAdministrator").DelegatedAdministrator = null as any;
@@ -122,6 +127,8 @@ const _module = {
         switch (type) {
             case "aws:organizations/account:Account":
                 return new Account(name, <any>undefined, { urn })
+            case "aws:organizations/awsServiceAccess:AwsServiceAccess":
+                return new AwsServiceAccess(name, <any>undefined, { urn })
             case "aws:organizations/delegatedAdministrator:DelegatedAdministrator":
                 return new DelegatedAdministrator(name, <any>undefined, { urn })
             case "aws:organizations/organization:Organization":
@@ -142,6 +149,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "organizations/account", _module)
+pulumi.runtime.registerResourceModule("aws", "organizations/awsServiceAccess", _module)
 pulumi.runtime.registerResourceModule("aws", "organizations/delegatedAdministrator", _module)
 pulumi.runtime.registerResourceModule("aws", "organizations/organization", _module)
 pulumi.runtime.registerResourceModule("aws", "organizations/organizationalUnit", _module)

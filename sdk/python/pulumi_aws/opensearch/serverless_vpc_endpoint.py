@@ -258,7 +258,18 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import OpenSearchServerless Vpc Endpointa using the `id`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) Unique identifier for the VPC endpoint.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import OpenSearchServerless Vpc Endpoint using the `id`. For example:
 
         ```sh
         $ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589
@@ -300,7 +311,18 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import OpenSearchServerless Vpc Endpointa using the `id`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) Unique identifier for the VPC endpoint.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import OpenSearchServerless Vpc Endpoint using the `id`. For example:
 
         ```sh
         $ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589

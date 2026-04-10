@@ -1551,6 +1551,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("s3files")]
+        public Input<string>? S3files { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("s3outposts")]
         public Input<string>? S3outposts { get; set; }
 
@@ -1805,6 +1811,12 @@ namespace Pulumi.Aws.Inputs
         /// </summary>
         [Input("transfer")]
         public Input<string>? Transfer { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("uxc")]
+        public Input<string>? Uxc { get; set; }
 
         /// <summary>
         /// Use this to override the default service endpoint URL

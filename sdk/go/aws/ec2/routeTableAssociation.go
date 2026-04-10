@@ -29,9 +29,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewRouteTableAssociation(ctx, "a", &ec2.RouteTableAssociationArgs{
-//				SubnetId:     pulumi.Any(foo.Id),
-//				RouteTableId: pulumi.Any(bar.Id),
+//			_, err := ec2.NewRouteTableAssociation(ctx, "example", &ec2.RouteTableAssociationArgs{
+//				SubnetId:     pulumi.Any(exampleAwsSubnet.Id),
+//				RouteTableId: pulumi.Any(exampleAwsRouteTable.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -54,9 +54,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewRouteTableAssociation(ctx, "b", &ec2.RouteTableAssociationArgs{
-//				GatewayId:    pulumi.Any(foo.Id),
-//				RouteTableId: pulumi.Any(bar.Id),
+//			_, err := ec2.NewRouteTableAssociation(ctx, "example", &ec2.RouteTableAssociationArgs{
+//				GatewayId:    pulumi.Any(exampleAwsInternetGateway.Id),
+//				RouteTableId: pulumi.Any(exampleAwsRouteTable.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -69,6 +69,17 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `id` - (String) ID of the association.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
 // With EC2 Internet Gateways:
 //
 // **Using `pulumi import` to import** EC2 Route Table Associations using the associated resource ID and Route Table ID separated by a forward slash (`/`). For example:
@@ -76,13 +87,13 @@ import (
 // With EC2 Subnets:
 //
 // ```sh
-// $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72
+// $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation example subnet-6777656e646f6c796e/rtb-656c65616e6f72
 // ```
 //
 // With EC2 Internet Gateways:
 //
 // ```sh
-// $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
+// $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation example igw-01b3a60780f8d034a/rtb-656c65616e6f72
 // ```
 type RouteTableAssociation struct {
 	pulumi.CustomResourceState

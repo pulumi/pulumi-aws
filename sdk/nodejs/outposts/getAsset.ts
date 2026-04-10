@@ -53,6 +53,10 @@ export interface GetAssetResult {
      */
     readonly id: string;
     /**
+     * Instance families supported by the asset.
+     */
+    readonly instanceFamilies: string[];
+    /**
      * Position of an asset in a rack measured in rack units.
      */
     readonly rackElevation: number;

@@ -103,6 +103,20 @@ public class LandingZone extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
+     * Specifies list of remediation actions to apply. Currently only supports the `INHERITANCE_DRIFT` value.
+     * 
+     */
+    @Export(name="remediationTypes", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> remediationTypes;
+
+    /**
+     * @return Specifies list of remediation actions to apply. Currently only supports the `INHERITANCE_DRIFT` value.
+     * 
+     */
+    public Output<Optional<List<String>>> remediationTypes() {
+        return Codegen.optional(this.remediationTypes);
+    }
+    /**
      * Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */

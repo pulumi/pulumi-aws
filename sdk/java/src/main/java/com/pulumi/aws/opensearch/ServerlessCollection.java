@@ -6,12 +6,14 @@ package com.pulumi.aws.opensearch;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.opensearch.ServerlessCollectionArgs;
 import com.pulumi.aws.opensearch.inputs.ServerlessCollectionState;
+import com.pulumi.aws.opensearch.outputs.ServerlessCollectionEncryptionConfig;
 import com.pulumi.aws.opensearch.outputs.ServerlessCollectionTimeouts;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -19,7 +21,7 @@ import javax.annotation.Nullable;
 /**
  * Resource for managing an AWS OpenSearch Serverless Collection.
  * 
- * &gt; **NOTE:** An `aws.opensearch.ServerlessCollection` cannot be created without having an applicable encryption security policy. Use the `dependsOn` meta-argument to define this dependency.
+ * &gt; **NOTE:** An `aws.opensearch.ServerlessCollection` must have encryption configured either by an applicable encryption security policy or by setting `encryptionConfig` directly on the resource.
  * 
  * &gt; **NOTE:** An `aws.opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
  * 
@@ -77,7 +79,71 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### With a Collection Group and Direct Encryption Configuration
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.opensearch.ServerlessCollectionGroup;
+ * import com.pulumi.aws.opensearch.ServerlessCollectionGroupArgs;
+ * import com.pulumi.aws.opensearch.ServerlessCollection;
+ * import com.pulumi.aws.opensearch.ServerlessCollectionArgs;
+ * import com.pulumi.aws.opensearch.inputs.ServerlessCollectionEncryptionConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Key("example", KeyArgs.builder()
+ *             .description("example")
+ *             .deletionWindowInDays(7)
+ *             .build());
+ * 
+ *         var exampleServerlessCollectionGroup = new ServerlessCollectionGroup("exampleServerlessCollectionGroup", ServerlessCollectionGroupArgs.builder()
+ *             .name("example-group")
+ *             .standbyReplicas("ENABLED")
+ *             .build());
+ * 
+ *         var exampleServerlessCollection = new ServerlessCollection("exampleServerlessCollection", ServerlessCollectionArgs.builder()
+ *             .name("example")
+ *             .type("SEARCH")
+ *             .collectionGroupName(exampleServerlessCollectionGroup.name())
+ *             .encryptionConfigs(ServerlessCollectionEncryptionConfigArgs.builder()
+ *                 .kmsKeyArn(example.arn())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
+ * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `id` (String) Unique identifier for the collection.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
  * 
  * Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For example:
  * 
@@ -117,6 +183,20 @@ public class ServerlessCollection extends com.pulumi.resources.CustomResource {
         return this.collectionEndpoint;
     }
     /**
+     * Name of the collection group to associate with this collection.
+     * 
+     */
+    @Export(name="collectionGroupName", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> collectionGroupName;
+
+    /**
+     * @return Name of the collection group to associate with this collection.
+     * 
+     */
+    public Output<Optional<String>> collectionGroupName() {
+        return Codegen.optional(this.collectionGroupName);
+    }
+    /**
      * Collection-specific endpoint used to access OpenSearch Dashboards.
      * 
      */
@@ -143,6 +223,20 @@ public class ServerlessCollection extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
+    }
+    /**
+     * Configuration block for direct collection encryption settings. See `encryptionConfig` below for details.
+     * 
+     */
+    @Export(name="encryptionConfigs", refs={List.class,ServerlessCollectionEncryptionConfig.class}, tree="[0,1]")
+    private Output<List<ServerlessCollectionEncryptionConfig>> encryptionConfigs;
+
+    /**
+     * @return Configuration block for direct collection encryption settings. See `encryptionConfig` below for details.
+     * 
+     */
+    public Output<List<ServerlessCollectionEncryptionConfig>> encryptionConfigs() {
+        return this.encryptionConfigs;
     }
     /**
      * The ARN of the Amazon Web Services KMS key used to encrypt the collection.
@@ -218,9 +312,17 @@ public class ServerlessCollection extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

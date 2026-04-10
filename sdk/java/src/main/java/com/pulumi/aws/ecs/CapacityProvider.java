@@ -121,7 +121,7 @@ import javax.annotation.Nullable;
  *                 .propagateTags("CAPACITY_PROVIDER")
  *                 .instanceLaunchTemplate(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs.builder()
  *                     .ec2InstanceProfileArn(ecsInstance.arn())
- *                     .monitoring("ENABLED")
+ *                     .monitoring("DETAILED")
  *                     .networkConfiguration(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs.builder()
  *                         .subnets(exampleAwsSubnet.id())
  *                         .securityGroups(exampleAwsSecurityGroup.id())

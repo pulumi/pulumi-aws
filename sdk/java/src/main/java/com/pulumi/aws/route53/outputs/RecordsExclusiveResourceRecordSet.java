@@ -51,6 +51,10 @@ public final class RecordsExclusiveResourceRecordSet {
      * 
      */
     private @Nullable String healthCheckId;
+    /**
+     * @return Set to `true` to indicate this record is a multivalue answer record and traffic should be routed approximately randomly to multiple resources.
+     * 
+     */
     private @Nullable Boolean multiValueAnswer;
     /**
      * @return Name of the record.
@@ -72,7 +76,7 @@ public final class RecordsExclusiveResourceRecordSet {
     private @Nullable List<RecordsExclusiveResourceRecordSetResourceRecord> resourceRecords;
     /**
      * @return An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
-     * Required if using `cidrRoutingConfig`, `failover`, `geolocation`,`geoproximityLocation`, `multivalueAnswer`, `region`, or `weight`.
+     * Required if using `cidrRoutingConfig`, `failover`, `geolocation`,`geoproximityLocation`, `multiValueAnswer`, `region`, or `weight`.
      * 
      */
     private @Nullable String setIdentifier;
@@ -149,6 +153,10 @@ public final class RecordsExclusiveResourceRecordSet {
     public Optional<String> healthCheckId() {
         return Optional.ofNullable(this.healthCheckId);
     }
+    /**
+     * @return Set to `true` to indicate this record is a multivalue answer record and traffic should be routed approximately randomly to multiple resources.
+     * 
+     */
     public Optional<Boolean> multiValueAnswer() {
         return Optional.ofNullable(this.multiValueAnswer);
     }
@@ -178,7 +186,7 @@ public final class RecordsExclusiveResourceRecordSet {
     }
     /**
      * @return An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
-     * Required if using `cidrRoutingConfig`, `failover`, `geolocation`,`geoproximityLocation`, `multivalueAnswer`, `region`, or `weight`.
+     * Required if using `cidrRoutingConfig`, `failover`, `geolocation`,`geoproximityLocation`, `multiValueAnswer`, `region`, or `weight`.
      * 
      */
     public Optional<String> setIdentifier() {

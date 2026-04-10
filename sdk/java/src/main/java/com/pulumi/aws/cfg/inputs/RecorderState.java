@@ -18,14 +18,14 @@ public final class RecorderState extends com.pulumi.resources.ResourceArgs {
     public static final RecorderState Empty = new RecorderState();
 
     /**
-     * The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+     * The name of the configuration recorder. Defaults to `default`. Changing it recreates the resource.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+     * @return The name of the configuration recorder. Defaults to `default`. Changing it recreates the resource.
      * 
      */
     public Optional<Output<String>> name() {
@@ -121,7 +121,7 @@ public final class RecorderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+         * @param name The name of the configuration recorder. Defaults to `default`. Changing it recreates the resource.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class RecorderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+         * @param name The name of the configuration recorder. Defaults to `default`. Changing it recreates the resource.
          * 
          * @return builder
          * 

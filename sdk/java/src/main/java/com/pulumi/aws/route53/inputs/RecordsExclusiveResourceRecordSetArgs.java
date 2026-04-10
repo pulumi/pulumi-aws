@@ -116,9 +116,17 @@ public final class RecordsExclusiveResourceRecordSetArgs extends com.pulumi.reso
         return Optional.ofNullable(this.healthCheckId);
     }
 
+    /**
+     * Set to `true` to indicate this record is a multivalue answer record and traffic should be routed approximately randomly to multiple resources.
+     * 
+     */
     @Import(name="multiValueAnswer")
     private @Nullable Output<Boolean> multiValueAnswer;
 
+    /**
+     * @return Set to `true` to indicate this record is a multivalue answer record and traffic should be routed approximately randomly to multiple resources.
+     * 
+     */
     public Optional<Output<Boolean>> multiValueAnswer() {
         return Optional.ofNullable(this.multiValueAnswer);
     }
@@ -176,7 +184,7 @@ public final class RecordsExclusiveResourceRecordSetArgs extends com.pulumi.reso
 
     /**
      * An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
-     * Required if using `cidrRoutingConfig`, `failover`, `geolocation`,`geoproximityLocation`, `multivalueAnswer`, `region`, or `weight`.
+     * Required if using `cidrRoutingConfig`, `failover`, `geolocation`,`geoproximityLocation`, `multiValueAnswer`, `region`, or `weight`.
      * 
      */
     @Import(name="setIdentifier")
@@ -184,7 +192,7 @@ public final class RecordsExclusiveResourceRecordSetArgs extends com.pulumi.reso
 
     /**
      * @return An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
-     * Required if using `cidrRoutingConfig`, `failover`, `geolocation`,`geoproximityLocation`, `multivalueAnswer`, `region`, or `weight`.
+     * Required if using `cidrRoutingConfig`, `failover`, `geolocation`,`geoproximityLocation`, `multiValueAnswer`, `region`, or `weight`.
      * 
      */
     public Optional<Output<String>> setIdentifier() {
@@ -429,11 +437,23 @@ public final class RecordsExclusiveResourceRecordSetArgs extends com.pulumi.reso
             return healthCheckId(Output.of(healthCheckId));
         }
 
+        /**
+         * @param multiValueAnswer Set to `true` to indicate this record is a multivalue answer record and traffic should be routed approximately randomly to multiple resources.
+         * 
+         * @return builder
+         * 
+         */
         public Builder multiValueAnswer(@Nullable Output<Boolean> multiValueAnswer) {
             $.multiValueAnswer = multiValueAnswer;
             return this;
         }
 
+        /**
+         * @param multiValueAnswer Set to `true` to indicate this record is a multivalue answer record and traffic should be routed approximately randomly to multiple resources.
+         * 
+         * @return builder
+         * 
+         */
         public Builder multiValueAnswer(Boolean multiValueAnswer) {
             return multiValueAnswer(Output.of(multiValueAnswer));
         }
@@ -520,7 +540,7 @@ public final class RecordsExclusiveResourceRecordSetArgs extends com.pulumi.reso
 
         /**
          * @param setIdentifier An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
-         * Required if using `cidrRoutingConfig`, `failover`, `geolocation`,`geoproximityLocation`, `multivalueAnswer`, `region`, or `weight`.
+         * Required if using `cidrRoutingConfig`, `failover`, `geolocation`,`geoproximityLocation`, `multiValueAnswer`, `region`, or `weight`.
          * 
          * @return builder
          * 
@@ -532,7 +552,7 @@ public final class RecordsExclusiveResourceRecordSetArgs extends com.pulumi.reso
 
         /**
          * @param setIdentifier An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
-         * Required if using `cidrRoutingConfig`, `failover`, `geolocation`,`geoproximityLocation`, `multivalueAnswer`, `region`, or `weight`.
+         * Required if using `cidrRoutingConfig`, `failover`, `geolocation`,`geoproximityLocation`, `multiValueAnswer`, `region`, or `weight`.
          * 
          * @return builder
          * 

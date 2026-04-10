@@ -21,14 +21,41 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * resource &#34;aws.quicksight.CustomPermissions&#34; &#34;example&#34; {
- *   customPermissionsName = &#34;example-permissions&#34;
+ * <pre>
+ * {@code
+ * package generated_program;
  * 
- *   capabilities {
- *     printReports    = &#34;DENY&#34;
- *     shareDashboards = &#34;DENY&#34;
- *   }
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.quicksight.CustomPermissions;
+ * import com.pulumi.aws.quicksight.CustomPermissionsArgs;
+ * import com.pulumi.aws.quicksight.inputs.CustomPermissionsCapabilitiesArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new CustomPermissions("example", CustomPermissionsArgs.builder()
+ *             .customPermissionsName("example-permissions")
+ *             .capabilities(CustomPermissionsCapabilitiesArgs.builder()
+ *                 .printReports("DENY")
+ *                 .shareDashboards("DENY")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
  * }
+ * }
+ * </pre>
  * 
  * ## Import
  * 

@@ -1295,6 +1295,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String s3files;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String s3outposts;
     /**
      * @return Use this to override the default service endpoint URL
@@ -1506,6 +1511,11 @@ public final class Endpoints {
      * 
      */
     private @Nullable String transfer;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    private @Nullable String uxc;
     /**
      * @return Use this to override the default service endpoint URL
      * 
@@ -3354,6 +3364,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> s3files() {
+        return Optional.ofNullable(this.s3files);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> s3outposts() {
         return Optional.ofNullable(this.s3outposts);
     }
@@ -3650,6 +3667,13 @@ public final class Endpoints {
      */
     public Optional<String> transfer() {
         return Optional.ofNullable(this.transfer);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<String> uxc() {
+        return Optional.ofNullable(this.uxc);
     }
     /**
      * @return Use this to override the default service endpoint URL
@@ -3987,6 +4011,7 @@ public final class Endpoints {
         private @Nullable String s3;
         private @Nullable String s3api;
         private @Nullable String s3control;
+        private @Nullable String s3files;
         private @Nullable String s3outposts;
         private @Nullable String s3tables;
         private @Nullable String s3vectors;
@@ -4030,6 +4055,7 @@ public final class Endpoints {
         private @Nullable String transcribe;
         private @Nullable String transcribeservice;
         private @Nullable String transfer;
+        private @Nullable String uxc;
         private @Nullable String verifiedpermissions;
         private @Nullable String vpclattice;
         private @Nullable String waf;
@@ -4299,6 +4325,7 @@ public final class Endpoints {
     	      this.s3 = defaults.s3;
     	      this.s3api = defaults.s3api;
     	      this.s3control = defaults.s3control;
+    	      this.s3files = defaults.s3files;
     	      this.s3outposts = defaults.s3outposts;
     	      this.s3tables = defaults.s3tables;
     	      this.s3vectors = defaults.s3vectors;
@@ -4342,6 +4369,7 @@ public final class Endpoints {
     	      this.transcribe = defaults.transcribe;
     	      this.transcribeservice = defaults.transcribeservice;
     	      this.transfer = defaults.transfer;
+    	      this.uxc = defaults.uxc;
     	      this.verifiedpermissions = defaults.verifiedpermissions;
     	      this.vpclattice = defaults.vpclattice;
     	      this.waf = defaults.waf;
@@ -5891,6 +5919,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder s3files(@Nullable String s3files) {
+
+            this.s3files = s3files;
+            return this;
+        }
+        @CustomType.Setter
         public Builder s3outposts(@Nullable String s3outposts) {
 
             this.s3outposts = s3outposts;
@@ -6146,6 +6180,12 @@ public final class Endpoints {
         public Builder transfer(@Nullable String transfer) {
 
             this.transfer = transfer;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder uxc(@Nullable String uxc) {
+
+            this.uxc = uxc;
             return this;
         }
         @CustomType.Setter
@@ -6466,6 +6506,7 @@ public final class Endpoints {
             _resultValue.s3 = s3;
             _resultValue.s3api = s3api;
             _resultValue.s3control = s3control;
+            _resultValue.s3files = s3files;
             _resultValue.s3outposts = s3outposts;
             _resultValue.s3tables = s3tables;
             _resultValue.s3vectors = s3vectors;
@@ -6509,6 +6550,7 @@ public final class Endpoints {
             _resultValue.transcribe = transcribe;
             _resultValue.transcribeservice = transcribeservice;
             _resultValue.transfer = transfer;
+            _resultValue.uxc = uxc;
             _resultValue.verifiedpermissions = verifiedpermissions;
             _resultValue.vpclattice = vpclattice;
             _resultValue.waf = waf;

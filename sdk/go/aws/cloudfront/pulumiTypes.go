@@ -7514,7 +7514,7 @@ type DistributionTenantManagedCertificateRequest struct {
 	CertificateTransparencyLoggingPreference *string `pulumi:"certificateTransparencyLoggingPreference"`
 	// Primary domain name for the certificate.
 	PrimaryDomainName *string `pulumi:"primaryDomainName"`
-	// Host for validation token. Valid values: `cloudfront`, `domain`.
+	// Host for validation token. Valid values: `cloudfront`, `self-hosted`.
 	ValidationTokenHost *string `pulumi:"validationTokenHost"`
 }
 
@@ -7534,7 +7534,7 @@ type DistributionTenantManagedCertificateRequestArgs struct {
 	CertificateTransparencyLoggingPreference pulumi.StringPtrInput `pulumi:"certificateTransparencyLoggingPreference"`
 	// Primary domain name for the certificate.
 	PrimaryDomainName pulumi.StringPtrInput `pulumi:"primaryDomainName"`
-	// Host for validation token. Valid values: `cloudfront`, `domain`.
+	// Host for validation token. Valid values: `cloudfront`, `self-hosted`.
 	ValidationTokenHost pulumi.StringPtrInput `pulumi:"validationTokenHost"`
 }
 
@@ -7627,7 +7627,7 @@ func (o DistributionTenantManagedCertificateRequestOutput) PrimaryDomainName() p
 	return o.ApplyT(func(v DistributionTenantManagedCertificateRequest) *string { return v.PrimaryDomainName }).(pulumi.StringPtrOutput)
 }
 
-// Host for validation token. Valid values: `cloudfront`, `domain`.
+// Host for validation token. Valid values: `cloudfront`, `self-hosted`.
 func (o DistributionTenantManagedCertificateRequestOutput) ValidationTokenHost() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionTenantManagedCertificateRequest) *string { return v.ValidationTokenHost }).(pulumi.StringPtrOutput)
 }
@@ -7676,7 +7676,7 @@ func (o DistributionTenantManagedCertificateRequestPtrOutput) PrimaryDomainName(
 	}).(pulumi.StringPtrOutput)
 }
 
-// Host for validation token. Valid values: `cloudfront`, `domain`.
+// Host for validation token. Valid values: `cloudfront`, `self-hosted`.
 func (o DistributionTenantManagedCertificateRequestPtrOutput) ValidationTokenHost() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionTenantManagedCertificateRequest) *string {
 		if v == nil {

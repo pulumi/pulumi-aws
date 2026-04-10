@@ -26,7 +26,7 @@ class GetAssetResult:
     """
     A collection of values returned by getAsset.
     """
-    def __init__(__self__, arn=None, asset_id=None, asset_type=None, host_id=None, id=None, rack_elevation=None, rack_id=None, region=None):
+    def __init__(__self__, arn=None, asset_id=None, asset_type=None, host_id=None, id=None, instance_families=None, rack_elevation=None, rack_id=None, region=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -42,6 +42,9 @@ class GetAssetResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if instance_families and not isinstance(instance_families, list):
+            raise TypeError("Expected argument 'instance_families' to be a list")
+        pulumi.set(__self__, "instance_families", instance_families)
         if rack_elevation and not isinstance(rack_elevation, int):
             raise TypeError("Expected argument 'rack_elevation' to be a int")
         pulumi.set(__self__, "rack_elevation", rack_elevation)
@@ -87,6 +90,14 @@ class GetAssetResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter(name="instanceFamilies")
+    def instance_families(self) -> Sequence[_builtins.str]:
+        """
+        Instance families supported by the asset.
+        """
+        return pulumi.get(self, "instance_families")
+
+    @_builtins.property
     @pulumi.getter(name="rackElevation")
     def rack_elevation(self) -> _builtins.int:
         """
@@ -119,6 +130,7 @@ class AwaitableGetAssetResult(GetAssetResult):
             asset_type=self.asset_type,
             host_id=self.host_id,
             id=self.id,
+            instance_families=self.instance_families,
             rack_elevation=self.rack_elevation,
             rack_id=self.rack_id,
             region=self.region)
@@ -149,6 +161,7 @@ def get_asset(arn: Optional[_builtins.str] = None,
         asset_type=pulumi.get(__ret__, 'asset_type'),
         host_id=pulumi.get(__ret__, 'host_id'),
         id=pulumi.get(__ret__, 'id'),
+        instance_families=pulumi.get(__ret__, 'instance_families'),
         rack_elevation=pulumi.get(__ret__, 'rack_elevation'),
         rack_id=pulumi.get(__ret__, 'rack_id'),
         region=pulumi.get(__ret__, 'region'))
@@ -176,6 +189,7 @@ def get_asset_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
         asset_type=pulumi.get(__response__, 'asset_type'),
         host_id=pulumi.get(__response__, 'host_id'),
         id=pulumi.get(__response__, 'id'),
+        instance_families=pulumi.get(__response__, 'instance_families'),
         rack_elevation=pulumi.get(__response__, 'rack_elevation'),
         rack_id=pulumi.get(__response__, 'rack_id'),
         region=pulumi.get(__response__, 'region')))

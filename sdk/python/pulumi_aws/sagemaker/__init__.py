@@ -39,6 +39,7 @@ from .project import *
 from .servicecatalog_portfolio_status import *
 from .space import *
 from .studio_lifecycle_config import *
+from .training_job import *
 from .user_profile import *
 from .workforce import *
 from .workteam import *

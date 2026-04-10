@@ -17,9 +17,17 @@ public final class ScraperSourceEksArgs extends com.pulumi.resources.ResourceArg
 
     public static final ScraperSourceEksArgs Empty = new ScraperSourceEksArgs();
 
+    /**
+     * The Amazon Resource Name (ARN) of the source EKS cluster.
+     * 
+     */
     @Import(name="clusterArn", required=true)
     private Output<String> clusterArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the source EKS cluster.
+     * 
+     */
     public Output<String> clusterArn() {
         return this.clusterArn;
     }
@@ -80,11 +88,23 @@ public final class ScraperSourceEksArgs extends com.pulumi.resources.ResourceArg
             $ = new ScraperSourceEksArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param clusterArn The Amazon Resource Name (ARN) of the source EKS cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterArn(Output<String> clusterArn) {
             $.clusterArn = clusterArn;
             return this;
         }
 
+        /**
+         * @param clusterArn The Amazon Resource Name (ARN) of the source EKS cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterArn(String clusterArn) {
             return clusterArn(Output.of(clusterArn));
         }

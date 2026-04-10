@@ -35,6 +35,8 @@ __all__ = [
     'ScraperSourceArgsDict',
     'ScraperSourceEksArgs',
     'ScraperSourceEksArgsDict',
+    'ScraperSourceVpcArgs',
+    'ScraperSourceVpcArgsDict',
     'ScraperTimeoutsArgs',
     'ScraperTimeoutsArgsDict',
     'WorkspaceConfigurationLimitsPerLabelSetArgs',
@@ -395,35 +397,65 @@ class ScraperRoleConfigurationArgs:
 
 
 class ScraperSourceArgsDict(TypedDict):
-    eks: pulumi.Input['ScraperSourceEksArgsDict']
+    eks: NotRequired[pulumi.Input['ScraperSourceEksArgsDict']]
     """
     Configuration block for an EKS cluster source. See `eks`.
+    """
+    vpc: NotRequired[pulumi.Input['ScraperSourceVpcArgsDict']]
+    """
+    Configuration block for a VPC source. See `vpc`.
+
+    > **NOTE:** Either `eks` or `vpc` must be specified, but not both.
     """
 
 @pulumi.input_type
 class ScraperSourceArgs:
     def __init__(__self__, *,
-                 eks: pulumi.Input['ScraperSourceEksArgs']):
+                 eks: Optional[pulumi.Input['ScraperSourceEksArgs']] = None,
+                 vpc: Optional[pulumi.Input['ScraperSourceVpcArgs']] = None):
         """
         :param pulumi.Input['ScraperSourceEksArgs'] eks: Configuration block for an EKS cluster source. See `eks`.
+        :param pulumi.Input['ScraperSourceVpcArgs'] vpc: Configuration block for a VPC source. See `vpc`.
+               
+               > **NOTE:** Either `eks` or `vpc` must be specified, but not both.
         """
-        pulumi.set(__self__, "eks", eks)
+        if eks is not None:
+            pulumi.set(__self__, "eks", eks)
+        if vpc is not None:
+            pulumi.set(__self__, "vpc", vpc)
 
     @_builtins.property
     @pulumi.getter
-    def eks(self) -> pulumi.Input['ScraperSourceEksArgs']:
+    def eks(self) -> Optional[pulumi.Input['ScraperSourceEksArgs']]:
         """
         Configuration block for an EKS cluster source. See `eks`.
         """
         return pulumi.get(self, "eks")
 
     @eks.setter
-    def eks(self, value: pulumi.Input['ScraperSourceEksArgs']):
+    def eks(self, value: Optional[pulumi.Input['ScraperSourceEksArgs']]):
         pulumi.set(self, "eks", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def vpc(self) -> Optional[pulumi.Input['ScraperSourceVpcArgs']]:
+        """
+        Configuration block for a VPC source. See `vpc`.
+
+        > **NOTE:** Either `eks` or `vpc` must be specified, but not both.
+        """
+        return pulumi.get(self, "vpc")
+
+    @vpc.setter
+    def vpc(self, value: Optional[pulumi.Input['ScraperSourceVpcArgs']]):
+        pulumi.set(self, "vpc", value)
 
 
 class ScraperSourceEksArgsDict(TypedDict):
     cluster_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the source EKS cluster.
+    """
     subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
     List of subnet IDs. Must be in at least two different availability zones.
@@ -440,6 +472,7 @@ class ScraperSourceEksArgs:
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
+        :param pulumi.Input[_builtins.str] cluster_arn: The Amazon Resource Name (ARN) of the source EKS cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet IDs. Must be in at least two different availability zones.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of the security group IDs for the Amazon EKS cluster VPC configuration.
         """
@@ -451,6 +484,9 @@ class ScraperSourceEksArgs:
     @_builtins.property
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the source EKS cluster.
+        """
         return pulumi.get(self, "cluster_arn")
 
     @cluster_arn.setter
@@ -480,6 +516,53 @@ class ScraperSourceEksArgs:
     @security_group_ids.setter
     def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
+
+
+class ScraperSourceVpcArgsDict(TypedDict):
+    security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of security group IDs for the VPC configuration.
+    """
+    subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of subnet IDs. Must be in at least two different availability zones.
+    """
+
+@pulumi.input_type
+class ScraperSourceVpcArgs:
+    def __init__(__self__, *,
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of security group IDs for the VPC configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet IDs. Must be in at least two different availability zones.
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of security group IDs for the VPC configuration.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of subnet IDs. Must be in at least two different availability zones.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "subnet_ids", value)
 
 
 class ScraperTimeoutsArgsDict(TypedDict):

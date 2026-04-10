@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Resource for managing an AWS OpenSearch Serverless Collection.
  *
- * > **NOTE:** An `aws.opensearch.ServerlessCollection` cannot be created without having an applicable encryption security policy. Use the `dependsOn` meta-argument to define this dependency.
+ * > **NOTE:** An `aws.opensearch.ServerlessCollection` must have encryption configured either by an applicable encryption security policy or by setting `encryptionConfig` directly on the resource.
  *
  * > **NOTE:** An `aws.opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
  *
@@ -38,7 +38,42 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### With a Collection Group and Direct Encryption Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.kms.Key("example", {
+ *     description: "example",
+ *     deletionWindowInDays: 7,
+ * });
+ * const exampleServerlessCollectionGroup = new aws.opensearch.ServerlessCollectionGroup("example", {
+ *     name: "example-group",
+ *     standbyReplicas: "ENABLED",
+ * });
+ * const exampleServerlessCollection = new aws.opensearch.ServerlessCollection("example", {
+ *     name: "example",
+ *     type: "SEARCH",
+ *     collectionGroupName: exampleServerlessCollectionGroup.name,
+ *     encryptionConfigs: [{
+ *         kmsKeyArn: example.arn,
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
+ *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `id` (String) Unique identifier for the collection.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
  *
  * Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For example:
  *
@@ -83,6 +118,10 @@ export class ServerlessCollection extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly collectionEndpoint: pulumi.Output<string>;
     /**
+     * Name of the collection group to associate with this collection.
+     */
+    declare public readonly collectionGroupName: pulumi.Output<string | undefined>;
+    /**
      * Collection-specific endpoint used to access OpenSearch Dashboards.
      */
     declare public /*out*/ readonly dashboardEndpoint: pulumi.Output<string>;
@@ -90,6 +129,10 @@ export class ServerlessCollection extends pulumi.CustomResource {
      * Description of the collection.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * Configuration block for direct collection encryption settings. See `encryptionConfig` below for details.
+     */
+    declare public readonly encryptionConfigs: pulumi.Output<outputs.opensearch.ServerlessCollectionEncryptionConfig[]>;
     /**
      * The ARN of the Amazon Web Services KMS key used to encrypt the collection.
      */
@@ -112,6 +155,9 @@ export class ServerlessCollection extends pulumi.CustomResource {
      * A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.opensearch.ServerlessCollectionTimeouts | undefined>;
     /**
@@ -134,8 +180,10 @@ export class ServerlessCollection extends pulumi.CustomResource {
             const state = argsOrState as ServerlessCollectionState | undefined;
             resourceInputs["arn"] = state?.arn;
             resourceInputs["collectionEndpoint"] = state?.collectionEndpoint;
+            resourceInputs["collectionGroupName"] = state?.collectionGroupName;
             resourceInputs["dashboardEndpoint"] = state?.dashboardEndpoint;
             resourceInputs["description"] = state?.description;
+            resourceInputs["encryptionConfigs"] = state?.encryptionConfigs;
             resourceInputs["kmsKeyArn"] = state?.kmsKeyArn;
             resourceInputs["name"] = state?.name;
             resourceInputs["region"] = state?.region;
@@ -146,7 +194,9 @@ export class ServerlessCollection extends pulumi.CustomResource {
             resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as ServerlessCollectionArgs | undefined;
+            resourceInputs["collectionGroupName"] = args?.collectionGroupName;
             resourceInputs["description"] = args?.description;
+            resourceInputs["encryptionConfigs"] = args?.encryptionConfigs;
             resourceInputs["name"] = args?.name;
             resourceInputs["region"] = args?.region;
             resourceInputs["standbyReplicas"] = args?.standbyReplicas;
@@ -177,6 +227,10 @@ export interface ServerlessCollectionState {
      */
     collectionEndpoint?: pulumi.Input<string>;
     /**
+     * Name of the collection group to associate with this collection.
+     */
+    collectionGroupName?: pulumi.Input<string>;
+    /**
      * Collection-specific endpoint used to access OpenSearch Dashboards.
      */
     dashboardEndpoint?: pulumi.Input<string>;
@@ -184,6 +238,10 @@ export interface ServerlessCollectionState {
      * Description of the collection.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Configuration block for direct collection encryption settings. See `encryptionConfig` below for details.
+     */
+    encryptionConfigs?: pulumi.Input<pulumi.Input<inputs.opensearch.ServerlessCollectionEncryptionConfig>[]>;
     /**
      * The ARN of the Amazon Web Services KMS key used to encrypt the collection.
      */
@@ -206,6 +264,9 @@ export interface ServerlessCollectionState {
      * A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.opensearch.ServerlessCollectionTimeouts>;
     /**
@@ -219,9 +280,17 @@ export interface ServerlessCollectionState {
  */
 export interface ServerlessCollectionArgs {
     /**
+     * Name of the collection group to associate with this collection.
+     */
+    collectionGroupName?: pulumi.Input<string>;
+    /**
      * Description of the collection.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Configuration block for direct collection encryption settings. See `encryptionConfig` below for details.
+     */
+    encryptionConfigs?: pulumi.Input<pulumi.Input<inputs.opensearch.ServerlessCollectionEncryptionConfig>[]>;
     /**
      * Name of the collection.
      *

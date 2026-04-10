@@ -56,6 +56,8 @@ __all__ = [
     'OutboundConnectionLocalDomainInfo',
     'OutboundConnectionRemoteDomainInfo',
     'PackagePackageSource',
+    'ServerlessCollectionEncryptionConfig',
+    'ServerlessCollectionGroupCapacityLimit',
     'ServerlessCollectionTimeouts',
     'ServerlessSecurityConfigSamlOptions',
     'ServerlessVpcEndpointTimeouts',
@@ -81,6 +83,9 @@ __all__ = [
     'GetDomainSnapshotOptionResult',
     'GetDomainSoftwareUpdateOptionResult',
     'GetDomainVpcOptionResult',
+    'GetServerlessCollectionGroupCapacityLimitResult',
+    'GetServerlessCollectionGroupsCollectionGroupSummaryResult',
+    'GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitResult',
     'GetServerlessSecurityConfigSamlOptionResult',
 ]
 
@@ -2336,6 +2341,128 @@ class PackagePackageSource(dict):
 
 
 @pulumi.output_type
+class ServerlessCollectionEncryptionConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsOwnedKey":
+            suggest = "aws_owned_key"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerlessCollectionEncryptionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerlessCollectionEncryptionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerlessCollectionEncryptionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_owned_key: _builtins.bool,
+                 kms_key_arn: _builtins.str):
+        """
+        :param _builtins.bool aws_owned_key: Whether to use an AWS owned key for collection encryption.
+        :param _builtins.str kms_key_arn: ARN of the AWS KMS key to use for collection encryption.
+        """
+        pulumi.set(__self__, "aws_owned_key", aws_owned_key)
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="awsOwnedKey")
+    def aws_owned_key(self) -> _builtins.bool:
+        """
+        Whether to use an AWS owned key for collection encryption.
+        """
+        return pulumi.get(self, "aws_owned_key")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> _builtins.str:
+        """
+        ARN of the AWS KMS key to use for collection encryption.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+
+@pulumi.output_type
+class ServerlessCollectionGroupCapacityLimit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxIndexingCapacityInOcu":
+            suggest = "max_indexing_capacity_in_ocu"
+        elif key == "maxSearchCapacityInOcu":
+            suggest = "max_search_capacity_in_ocu"
+        elif key == "minIndexingCapacityInOcu":
+            suggest = "min_indexing_capacity_in_ocu"
+        elif key == "minSearchCapacityInOcu":
+            suggest = "min_search_capacity_in_ocu"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerlessCollectionGroupCapacityLimit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerlessCollectionGroupCapacityLimit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerlessCollectionGroupCapacityLimit.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_indexing_capacity_in_ocu: _builtins.float,
+                 max_search_capacity_in_ocu: _builtins.float,
+                 min_indexing_capacity_in_ocu: _builtins.float,
+                 min_search_capacity_in_ocu: _builtins.float):
+        """
+        :param _builtins.float max_indexing_capacity_in_ocu: Maximum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        :param _builtins.float max_search_capacity_in_ocu: Maximum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        :param _builtins.float min_indexing_capacity_in_ocu: Minimum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        :param _builtins.float min_search_capacity_in_ocu: Minimum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        """
+        pulumi.set(__self__, "max_indexing_capacity_in_ocu", max_indexing_capacity_in_ocu)
+        pulumi.set(__self__, "max_search_capacity_in_ocu", max_search_capacity_in_ocu)
+        pulumi.set(__self__, "min_indexing_capacity_in_ocu", min_indexing_capacity_in_ocu)
+        pulumi.set(__self__, "min_search_capacity_in_ocu", min_search_capacity_in_ocu)
+
+    @_builtins.property
+    @pulumi.getter(name="maxIndexingCapacityInOcu")
+    def max_indexing_capacity_in_ocu(self) -> _builtins.float:
+        """
+        Maximum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        """
+        return pulumi.get(self, "max_indexing_capacity_in_ocu")
+
+    @_builtins.property
+    @pulumi.getter(name="maxSearchCapacityInOcu")
+    def max_search_capacity_in_ocu(self) -> _builtins.float:
+        """
+        Maximum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        """
+        return pulumi.get(self, "max_search_capacity_in_ocu")
+
+    @_builtins.property
+    @pulumi.getter(name="minIndexingCapacityInOcu")
+    def min_indexing_capacity_in_ocu(self) -> _builtins.float:
+        """
+        Minimum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        """
+        return pulumi.get(self, "min_indexing_capacity_in_ocu")
+
+    @_builtins.property
+    @pulumi.getter(name="minSearchCapacityInOcu")
+    def min_search_capacity_in_ocu(self) -> _builtins.float:
+        """
+        Minimum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        """
+        return pulumi.get(self, "min_search_capacity_in_ocu")
+
+
+@pulumi.output_type
 class ServerlessCollectionTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[_builtins.str] = None,
@@ -3373,6 +3500,192 @@ class GetDomainVpcOptionResult(dict):
         VPC used by the domain.
         """
         return pulumi.get(self, "vpc_id")
+
+
+@pulumi.output_type
+class GetServerlessCollectionGroupCapacityLimitResult(dict):
+    def __init__(__self__, *,
+                 max_indexing_capacity_in_ocu: _builtins.float,
+                 max_search_capacity_in_ocu: _builtins.float,
+                 min_indexing_capacity_in_ocu: _builtins.float,
+                 min_search_capacity_in_ocu: _builtins.float):
+        """
+        :param _builtins.float max_indexing_capacity_in_ocu: Maximum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        :param _builtins.float max_search_capacity_in_ocu: Maximum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        :param _builtins.float min_indexing_capacity_in_ocu: Minimum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        :param _builtins.float min_search_capacity_in_ocu: Minimum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        """
+        pulumi.set(__self__, "max_indexing_capacity_in_ocu", max_indexing_capacity_in_ocu)
+        pulumi.set(__self__, "max_search_capacity_in_ocu", max_search_capacity_in_ocu)
+        pulumi.set(__self__, "min_indexing_capacity_in_ocu", min_indexing_capacity_in_ocu)
+        pulumi.set(__self__, "min_search_capacity_in_ocu", min_search_capacity_in_ocu)
+
+    @_builtins.property
+    @pulumi.getter(name="maxIndexingCapacityInOcu")
+    def max_indexing_capacity_in_ocu(self) -> _builtins.float:
+        """
+        Maximum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        """
+        return pulumi.get(self, "max_indexing_capacity_in_ocu")
+
+    @_builtins.property
+    @pulumi.getter(name="maxSearchCapacityInOcu")
+    def max_search_capacity_in_ocu(self) -> _builtins.float:
+        """
+        Maximum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        """
+        return pulumi.get(self, "max_search_capacity_in_ocu")
+
+    @_builtins.property
+    @pulumi.getter(name="minIndexingCapacityInOcu")
+    def min_indexing_capacity_in_ocu(self) -> _builtins.float:
+        """
+        Minimum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        """
+        return pulumi.get(self, "min_indexing_capacity_in_ocu")
+
+    @_builtins.property
+    @pulumi.getter(name="minSearchCapacityInOcu")
+    def min_search_capacity_in_ocu(self) -> _builtins.float:
+        """
+        Minimum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        """
+        return pulumi.get(self, "min_search_capacity_in_ocu")
+
+
+@pulumi.output_type
+class GetServerlessCollectionGroupsCollectionGroupSummaryResult(dict):
+    def __init__(__self__, *,
+                 arn: _builtins.str,
+                 capacity_limits: Sequence['outputs.GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitResult'],
+                 created_date: _builtins.str,
+                 id: _builtins.str,
+                 name: _builtins.str,
+                 number_of_collections: _builtins.int,
+                 standby_replicas: _builtins.str):
+        """
+        :param _builtins.str arn: Amazon Resource Name (ARN) of the collection group.
+        :param Sequence['GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArgs'] capacity_limits: Capacity limits configured for the collection group. See `capacity_limits` below for details.
+        :param _builtins.str created_date: Epoch time, in milliseconds, when the collection group was created.
+        :param _builtins.str id: Unique identifier for the collection group.
+        :param _builtins.str name: Name of the collection group.
+        :param _builtins.int number_of_collections: Number of collections currently associated with the collection group.
+        :param _builtins.str standby_replicas: Indicates whether standby replicas are used for collections in the group.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "capacity_limits", capacity_limits)
+        pulumi.set(__self__, "created_date", created_date)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "number_of_collections", number_of_collections)
+        pulumi.set(__self__, "standby_replicas", standby_replicas)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        """
+        Amazon Resource Name (ARN) of the collection group.
+        """
+        return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="capacityLimits")
+    def capacity_limits(self) -> Sequence['outputs.GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitResult']:
+        """
+        Capacity limits configured for the collection group. See `capacity_limits` below for details.
+        """
+        return pulumi.get(self, "capacity_limits")
+
+    @_builtins.property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> _builtins.str:
+        """
+        Epoch time, in milliseconds, when the collection group was created.
+        """
+        return pulumi.get(self, "created_date")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Unique identifier for the collection group.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the collection group.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfCollections")
+    def number_of_collections(self) -> _builtins.int:
+        """
+        Number of collections currently associated with the collection group.
+        """
+        return pulumi.get(self, "number_of_collections")
+
+    @_builtins.property
+    @pulumi.getter(name="standbyReplicas")
+    def standby_replicas(self) -> _builtins.str:
+        """
+        Indicates whether standby replicas are used for collections in the group.
+        """
+        return pulumi.get(self, "standby_replicas")
+
+
+@pulumi.output_type
+class GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitResult(dict):
+    def __init__(__self__, *,
+                 max_indexing_capacity_in_ocu: _builtins.float,
+                 max_search_capacity_in_ocu: _builtins.float,
+                 min_indexing_capacity_in_ocu: _builtins.float,
+                 min_search_capacity_in_ocu: _builtins.float):
+        """
+        :param _builtins.float max_indexing_capacity_in_ocu: Maximum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        :param _builtins.float max_search_capacity_in_ocu: Maximum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        :param _builtins.float min_indexing_capacity_in_ocu: Minimum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        :param _builtins.float min_search_capacity_in_ocu: Minimum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        """
+        pulumi.set(__self__, "max_indexing_capacity_in_ocu", max_indexing_capacity_in_ocu)
+        pulumi.set(__self__, "max_search_capacity_in_ocu", max_search_capacity_in_ocu)
+        pulumi.set(__self__, "min_indexing_capacity_in_ocu", min_indexing_capacity_in_ocu)
+        pulumi.set(__self__, "min_search_capacity_in_ocu", min_search_capacity_in_ocu)
+
+    @_builtins.property
+    @pulumi.getter(name="maxIndexingCapacityInOcu")
+    def max_indexing_capacity_in_ocu(self) -> _builtins.float:
+        """
+        Maximum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        """
+        return pulumi.get(self, "max_indexing_capacity_in_ocu")
+
+    @_builtins.property
+    @pulumi.getter(name="maxSearchCapacityInOcu")
+    def max_search_capacity_in_ocu(self) -> _builtins.float:
+        """
+        Maximum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        """
+        return pulumi.get(self, "max_search_capacity_in_ocu")
+
+    @_builtins.property
+    @pulumi.getter(name="minIndexingCapacityInOcu")
+    def min_indexing_capacity_in_ocu(self) -> _builtins.float:
+        """
+        Minimum indexing capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        """
+        return pulumi.get(self, "min_indexing_capacity_in_ocu")
+
+    @_builtins.property
+    @pulumi.getter(name="minSearchCapacityInOcu")
+    def min_search_capacity_in_ocu(self) -> _builtins.float:
+        """
+        Minimum search capacity, in OpenSearch Compute Units (OCUs), for the collection group.
+        """
+        return pulumi.get(self, "min_search_capacity_in_ocu")
 
 
 @pulumi.output_type

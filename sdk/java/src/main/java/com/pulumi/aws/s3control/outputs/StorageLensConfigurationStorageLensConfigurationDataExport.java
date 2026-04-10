@@ -5,6 +5,7 @@ package com.pulumi.aws.s3control.outputs;
 
 import com.pulumi.aws.s3control.outputs.StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics;
 import com.pulumi.aws.s3control.outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination;
+import com.pulumi.aws.s3control.outputs.StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestination;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,6 +23,11 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExport {
      * 
      */
     private @Nullable StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination s3BucketDestination;
+    /**
+     * @return S3 table bucket where the S3 Storage Lens metrics export will be located. See Storage Lens Table Destination below for more details.
+     * 
+     */
+    private @Nullable StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestination storageLensTableDestination;
 
     private StorageLensConfigurationStorageLensConfigurationDataExport() {}
     /**
@@ -38,6 +44,13 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExport {
     public Optional<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination> s3BucketDestination() {
         return Optional.ofNullable(this.s3BucketDestination);
     }
+    /**
+     * @return S3 table bucket where the S3 Storage Lens metrics export will be located. See Storage Lens Table Destination below for more details.
+     * 
+     */
+    public Optional<StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestination> storageLensTableDestination() {
+        return Optional.ofNullable(this.storageLensTableDestination);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -50,11 +63,13 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExport {
     public static final class Builder {
         private @Nullable StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics cloudWatchMetrics;
         private @Nullable StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination s3BucketDestination;
+        private @Nullable StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestination storageLensTableDestination;
         public Builder() {}
         public Builder(StorageLensConfigurationStorageLensConfigurationDataExport defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cloudWatchMetrics = defaults.cloudWatchMetrics;
     	      this.s3BucketDestination = defaults.s3BucketDestination;
+    	      this.storageLensTableDestination = defaults.storageLensTableDestination;
         }
 
         @CustomType.Setter
@@ -69,10 +84,17 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExport {
             this.s3BucketDestination = s3BucketDestination;
             return this;
         }
+        @CustomType.Setter
+        public Builder storageLensTableDestination(@Nullable StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestination storageLensTableDestination) {
+
+            this.storageLensTableDestination = storageLensTableDestination;
+            return this;
+        }
         public StorageLensConfigurationStorageLensConfigurationDataExport build() {
             final var _resultValue = new StorageLensConfigurationStorageLensConfigurationDataExport();
             _resultValue.cloudWatchMetrics = cloudWatchMetrics;
             _resultValue.s3BucketDestination = s3BucketDestination;
+            _resultValue.storageLensTableDestination = storageLensTableDestination;
             return _resultValue;
         }
     }

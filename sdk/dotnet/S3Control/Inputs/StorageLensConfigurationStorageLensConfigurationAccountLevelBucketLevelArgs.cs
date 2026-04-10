@@ -31,6 +31,12 @@ namespace Pulumi.Aws.S3Control.Inputs
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsArgs>? AdvancedDataProtectionMetrics { get; set; }
 
         /// <summary>
+        /// Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics above for more details.
+        /// </summary>
+        [Input("advancedPerformanceMetrics")]
+        public Input<Inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedPerformanceMetricsArgs>? AdvancedPerformanceMetrics { get; set; }
+
+        /// <summary>
         /// Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics above for more details.
         /// </summary>
         [Input("detailedStatusCodeMetrics")]

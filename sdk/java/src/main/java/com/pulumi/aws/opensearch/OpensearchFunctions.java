@@ -9,6 +9,10 @@ import com.pulumi.aws.opensearch.inputs.GetDomainPlainArgs;
 import com.pulumi.aws.opensearch.inputs.GetServerlessAccessPolicyArgs;
 import com.pulumi.aws.opensearch.inputs.GetServerlessAccessPolicyPlainArgs;
 import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionArgs;
+import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupArgs;
+import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupPlainArgs;
+import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupsArgs;
+import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupsPlainArgs;
 import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionPlainArgs;
 import com.pulumi.aws.opensearch.inputs.GetServerlessLifecyclePolicyArgs;
 import com.pulumi.aws.opensearch.inputs.GetServerlessLifecyclePolicyPlainArgs;
@@ -20,6 +24,8 @@ import com.pulumi.aws.opensearch.inputs.GetServerlessVpcEndpointArgs;
 import com.pulumi.aws.opensearch.inputs.GetServerlessVpcEndpointPlainArgs;
 import com.pulumi.aws.opensearch.outputs.GetDomainResult;
 import com.pulumi.aws.opensearch.outputs.GetServerlessAccessPolicyResult;
+import com.pulumi.aws.opensearch.outputs.GetServerlessCollectionGroupResult;
+import com.pulumi.aws.opensearch.outputs.GetServerlessCollectionGroupsResult;
 import com.pulumi.aws.opensearch.outputs.GetServerlessCollectionResult;
 import com.pulumi.aws.opensearch.outputs.GetServerlessLifecyclePolicyResult;
 import com.pulumi.aws.opensearch.outputs.GetServerlessSecurityConfigResult;
@@ -741,6 +747,587 @@ public final class OpensearchFunctions {
      */
     public static CompletableFuture<GetServerlessCollectionResult> getServerlessCollectionPlain(GetServerlessCollectionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:opensearch/getServerlessCollection:getServerlessCollection", TypeShape.of(GetServerlessCollectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS OpenSearch Serverless Collection Group.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.opensearch.OpensearchFunctions;
+     * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OpensearchFunctions.getServerlessCollectionGroup(GetServerlessCollectionGroupArgs.builder()
+     *             .name("example-group")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServerlessCollectionGroupResult> getServerlessCollectionGroup() {
+        return getServerlessCollectionGroup(GetServerlessCollectionGroupArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS OpenSearch Serverless Collection Group.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.opensearch.OpensearchFunctions;
+     * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OpensearchFunctions.getServerlessCollectionGroup(GetServerlessCollectionGroupArgs.builder()
+     *             .name("example-group")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetServerlessCollectionGroupResult> getServerlessCollectionGroupPlain() {
+        return getServerlessCollectionGroupPlain(GetServerlessCollectionGroupPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS OpenSearch Serverless Collection Group.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.opensearch.OpensearchFunctions;
+     * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OpensearchFunctions.getServerlessCollectionGroup(GetServerlessCollectionGroupArgs.builder()
+     *             .name("example-group")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServerlessCollectionGroupResult> getServerlessCollectionGroup(GetServerlessCollectionGroupArgs args) {
+        return getServerlessCollectionGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS OpenSearch Serverless Collection Group.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.opensearch.OpensearchFunctions;
+     * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OpensearchFunctions.getServerlessCollectionGroup(GetServerlessCollectionGroupArgs.builder()
+     *             .name("example-group")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetServerlessCollectionGroupResult> getServerlessCollectionGroupPlain(GetServerlessCollectionGroupPlainArgs args) {
+        return getServerlessCollectionGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS OpenSearch Serverless Collection Group.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.opensearch.OpensearchFunctions;
+     * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OpensearchFunctions.getServerlessCollectionGroup(GetServerlessCollectionGroupArgs.builder()
+     *             .name("example-group")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServerlessCollectionGroupResult> getServerlessCollectionGroup(GetServerlessCollectionGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:opensearch/getServerlessCollectionGroup:getServerlessCollectionGroup", TypeShape.of(GetServerlessCollectionGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS OpenSearch Serverless Collection Group.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.opensearch.OpensearchFunctions;
+     * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OpensearchFunctions.getServerlessCollectionGroup(GetServerlessCollectionGroupArgs.builder()
+     *             .name("example-group")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServerlessCollectionGroupResult> getServerlessCollectionGroup(GetServerlessCollectionGroupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:opensearch/getServerlessCollectionGroup:getServerlessCollectionGroup", TypeShape.of(GetServerlessCollectionGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS OpenSearch Serverless Collection Group.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.opensearch.OpensearchFunctions;
+     * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OpensearchFunctions.getServerlessCollectionGroup(GetServerlessCollectionGroupArgs.builder()
+     *             .name("example-group")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetServerlessCollectionGroupResult> getServerlessCollectionGroupPlain(GetServerlessCollectionGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:opensearch/getServerlessCollectionGroup:getServerlessCollectionGroup", TypeShape.of(GetServerlessCollectionGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for listing AWS OpenSearch Serverless Collection Groups.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.opensearch.OpensearchFunctions;
+     * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OpensearchFunctions.getServerlessCollectionGroups(GetServerlessCollectionGroupsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServerlessCollectionGroupsResult> getServerlessCollectionGroups() {
+        return getServerlessCollectionGroups(GetServerlessCollectionGroupsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for listing AWS OpenSearch Serverless Collection Groups.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.opensearch.OpensearchFunctions;
+     * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OpensearchFunctions.getServerlessCollectionGroups(GetServerlessCollectionGroupsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetServerlessCollectionGroupsResult> getServerlessCollectionGroupsPlain() {
+        return getServerlessCollectionGroupsPlain(GetServerlessCollectionGroupsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for listing AWS OpenSearch Serverless Collection Groups.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.opensearch.OpensearchFunctions;
+     * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OpensearchFunctions.getServerlessCollectionGroups(GetServerlessCollectionGroupsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServerlessCollectionGroupsResult> getServerlessCollectionGroups(GetServerlessCollectionGroupsArgs args) {
+        return getServerlessCollectionGroups(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for listing AWS OpenSearch Serverless Collection Groups.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.opensearch.OpensearchFunctions;
+     * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OpensearchFunctions.getServerlessCollectionGroups(GetServerlessCollectionGroupsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetServerlessCollectionGroupsResult> getServerlessCollectionGroupsPlain(GetServerlessCollectionGroupsPlainArgs args) {
+        return getServerlessCollectionGroupsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for listing AWS OpenSearch Serverless Collection Groups.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.opensearch.OpensearchFunctions;
+     * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OpensearchFunctions.getServerlessCollectionGroups(GetServerlessCollectionGroupsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServerlessCollectionGroupsResult> getServerlessCollectionGroups(GetServerlessCollectionGroupsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:opensearch/getServerlessCollectionGroups:getServerlessCollectionGroups", TypeShape.of(GetServerlessCollectionGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for listing AWS OpenSearch Serverless Collection Groups.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.opensearch.OpensearchFunctions;
+     * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OpensearchFunctions.getServerlessCollectionGroups(GetServerlessCollectionGroupsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServerlessCollectionGroupsResult> getServerlessCollectionGroups(GetServerlessCollectionGroupsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:opensearch/getServerlessCollectionGroups:getServerlessCollectionGroups", TypeShape.of(GetServerlessCollectionGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for listing AWS OpenSearch Serverless Collection Groups.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.opensearch.OpensearchFunctions;
+     * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OpensearchFunctions.getServerlessCollectionGroups(GetServerlessCollectionGroupsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetServerlessCollectionGroupsResult> getServerlessCollectionGroupsPlain(GetServerlessCollectionGroupsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:opensearch/getServerlessCollectionGroups:getServerlessCollectionGroups", TypeShape.of(GetServerlessCollectionGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.

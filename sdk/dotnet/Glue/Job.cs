@@ -292,10 +292,21 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Name` (String) Name of the Glue Job.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS account ID.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import Glue Jobs using `Name`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:glue/job:Job MyJob MyJob
+    /// $ pulumi import aws:glue/job:Job example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/job:Job")]

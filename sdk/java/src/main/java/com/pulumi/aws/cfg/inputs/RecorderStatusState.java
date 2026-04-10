@@ -32,14 +32,14 @@ public final class RecorderStatusState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of the recorder
+     * The name of the configuration recorder.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the recorder
+     * @return The name of the configuration recorder.
      * 
      */
     public Optional<Output<String>> name() {
@@ -109,7 +109,7 @@ public final class RecorderStatusState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the recorder
+         * @param name The name of the configuration recorder.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class RecorderStatusState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the recorder
+         * @param name The name of the configuration recorder.
          * 
          * @return builder
          * 

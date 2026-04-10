@@ -45,6 +45,16 @@ export const getServerlessCollection: typeof import("./getServerlessCollection")
 export const getServerlessCollectionOutput: typeof import("./getServerlessCollection").getServerlessCollectionOutput = null as any;
 utilities.lazyLoad(exports, ["getServerlessCollection","getServerlessCollectionOutput"], () => require("./getServerlessCollection"));
 
+export { GetServerlessCollectionGroupArgs, GetServerlessCollectionGroupResult, GetServerlessCollectionGroupOutputArgs } from "./getServerlessCollectionGroup";
+export const getServerlessCollectionGroup: typeof import("./getServerlessCollectionGroup").getServerlessCollectionGroup = null as any;
+export const getServerlessCollectionGroupOutput: typeof import("./getServerlessCollectionGroup").getServerlessCollectionGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getServerlessCollectionGroup","getServerlessCollectionGroupOutput"], () => require("./getServerlessCollectionGroup"));
+
+export { GetServerlessCollectionGroupsArgs, GetServerlessCollectionGroupsResult, GetServerlessCollectionGroupsOutputArgs } from "./getServerlessCollectionGroups";
+export const getServerlessCollectionGroups: typeof import("./getServerlessCollectionGroups").getServerlessCollectionGroups = null as any;
+export const getServerlessCollectionGroupsOutput: typeof import("./getServerlessCollectionGroups").getServerlessCollectionGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getServerlessCollectionGroups","getServerlessCollectionGroupsOutput"], () => require("./getServerlessCollectionGroups"));
+
 export { GetServerlessLifecyclePolicyArgs, GetServerlessLifecyclePolicyResult, GetServerlessLifecyclePolicyOutputArgs } from "./getServerlessLifecyclePolicy";
 export const getServerlessLifecyclePolicy: typeof import("./getServerlessLifecyclePolicy").getServerlessLifecyclePolicy = null as any;
 export const getServerlessLifecyclePolicyOutput: typeof import("./getServerlessLifecyclePolicy").getServerlessLifecyclePolicyOutput = null as any;
@@ -94,6 +104,11 @@ export { ServerlessCollectionArgs, ServerlessCollectionState } from "./serverles
 export type ServerlessCollection = import("./serverlessCollection").ServerlessCollection;
 export const ServerlessCollection: typeof import("./serverlessCollection").ServerlessCollection = null as any;
 utilities.lazyLoad(exports, ["ServerlessCollection"], () => require("./serverlessCollection"));
+
+export { ServerlessCollectionGroupArgs, ServerlessCollectionGroupState } from "./serverlessCollectionGroup";
+export type ServerlessCollectionGroup = import("./serverlessCollectionGroup").ServerlessCollectionGroup;
+export const ServerlessCollectionGroup: typeof import("./serverlessCollectionGroup").ServerlessCollectionGroup = null as any;
+utilities.lazyLoad(exports, ["ServerlessCollectionGroup"], () => require("./serverlessCollectionGroup"));
 
 export { ServerlessLifecyclePolicyArgs, ServerlessLifecyclePolicyState } from "./serverlessLifecyclePolicy";
 export type ServerlessLifecyclePolicy = import("./serverlessLifecyclePolicy").ServerlessLifecyclePolicy;
@@ -147,6 +162,8 @@ const _module = {
                 return new ServerlessAccessPolicy(name, <any>undefined, { urn })
             case "aws:opensearch/serverlessCollection:ServerlessCollection":
                 return new ServerlessCollection(name, <any>undefined, { urn })
+            case "aws:opensearch/serverlessCollectionGroup:ServerlessCollectionGroup":
+                return new ServerlessCollectionGroup(name, <any>undefined, { urn })
             case "aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy":
                 return new ServerlessLifecyclePolicy(name, <any>undefined, { urn })
             case "aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig":
@@ -173,6 +190,7 @@ pulumi.runtime.registerResourceModule("aws", "opensearch/package", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/packageAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessAccessPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessCollection", _module)
+pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessCollectionGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessLifecyclePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessSecurityConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessSecurityPolicy", _module)

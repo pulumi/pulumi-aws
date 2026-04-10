@@ -757,6 +757,27 @@ class CatalogTable(pulumi.CustomResource):
             })
         ```
 
+        ### Protected View
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.CatalogTable("example",
+            name="multidialect_view",
+            database_name="catalog_database",
+            table_type="VIRTUAL_VIEW",
+            view_definition={
+                "is_protected": True,
+                "representations": [{
+                    "dialect": "ATHENA",
+                    "dialect_version": "3",
+                    "view_original_text": "SELECT * FROM catalog_database.base_table",
+                    "validation_connection": example_aws_glue_connection["name"],
+                }],
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:
@@ -921,6 +942,27 @@ class CatalogTable(pulumi.CustomResource):
                         },
                     },
                 },
+            })
+        ```
+
+        ### Protected View
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.CatalogTable("example",
+            name="multidialect_view",
+            database_name="catalog_database",
+            table_type="VIRTUAL_VIEW",
+            view_definition={
+                "is_protected": True,
+                "representations": [{
+                    "dialect": "ATHENA",
+                    "dialect_version": "3",
+                    "view_original_text": "SELECT * FROM catalog_database.base_table",
+                    "validation_connection": example_aws_glue_connection["name"],
+                }],
             })
         ```
 

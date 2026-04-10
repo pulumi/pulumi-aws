@@ -14,6 +14,10 @@ namespace Pulumi.Aws.CloudFormation.Outputs
     public sealed class StackSetAutoDeployment
     {
         /// <summary>
+        /// A list of StackSet ARNs that this StackSet depends on for auto-deployment operations. When auto-deployment is triggered, operations will be sequenced to ensure all dependencies complete successfully before this StackSet's operation begins.
+        /// </summary>
+        public readonly ImmutableArray<string> DependsOnStackSets;
+        /// <summary>
         /// Whether or not auto-deployment is enabled.
         /// </summary>
         public readonly bool? Enabled;
@@ -24,10 +28,13 @@ namespace Pulumi.Aws.CloudFormation.Outputs
 
         [OutputConstructor]
         private StackSetAutoDeployment(
+            ImmutableArray<string> dependsOnStackSets,
+
             bool? enabled,
 
             bool? retainStacksOnAccountRemoval)
         {
+            DependsOnStackSets = dependsOnStackSets;
             Enabled = enabled;
             RetainStacksOnAccountRemoval = retainStacksOnAccountRemoval;
         }

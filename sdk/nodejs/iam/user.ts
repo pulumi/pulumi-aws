@@ -48,7 +48,6 @@ import * as utilities from "../utilities";
  * #### Optional
  *
  * * `accountId` (String) AWS Account where this resource is managed.
- * * `region` (String) Region where this resource is managed.
  *
  * Using `pulumi import`, import IAM Users using the `name`. For example:
  *

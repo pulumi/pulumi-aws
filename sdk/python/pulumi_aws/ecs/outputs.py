@@ -1869,7 +1869,7 @@ class ExpressGatewayServiceScalingTarget(dict):
                  max_task_count: _builtins.int,
                  min_task_count: _builtins.int):
         """
-        :param _builtins.str auto_scaling_metric: Metric to use for auto-scaling. Valid values are `CPU` and `MEMORY`.
+        :param _builtins.str auto_scaling_metric: Metric to use for auto-scaling. Valid values are `AVERAGE_CPU`, `AVERAGE_MEMORY` and `REQUEST_COUNT_PER_TARGET`.
         :param _builtins.int auto_scaling_target_value: Target value for the auto-scaling metric (as a percentage). Defaults to `60`.
         :param _builtins.int max_task_count: Maximum number of tasks to run.
         :param _builtins.int min_task_count: Minimum number of tasks to run.
@@ -1883,7 +1883,7 @@ class ExpressGatewayServiceScalingTarget(dict):
     @pulumi.getter(name="autoScalingMetric")
     def auto_scaling_metric(self) -> _builtins.str:
         """
-        Metric to use for auto-scaling. Valid values are `CPU` and `MEMORY`.
+        Metric to use for auto-scaling. Valid values are `AVERAGE_CPU`, `AVERAGE_MEMORY` and `REQUEST_COUNT_PER_TARGET`.
         """
         return pulumi.get(self, "auto_scaling_metric")
 

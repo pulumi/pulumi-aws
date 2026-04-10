@@ -16,12 +16,22 @@ namespace Pulumi.Aws.Amp.Outputs
         /// <summary>
         /// Configuration block for an EKS cluster source. See `Eks`.
         /// </summary>
-        public readonly Outputs.ScraperSourceEks Eks;
+        public readonly Outputs.ScraperSourceEks? Eks;
+        /// <summary>
+        /// Configuration block for a VPC source. See `Vpc`.
+        /// 
+        /// &gt; **NOTE:** Either `Eks` or `Vpc` must be specified, but not both.
+        /// </summary>
+        public readonly Outputs.ScraperSourceVpc? Vpc;
 
         [OutputConstructor]
-        private ScraperSource(Outputs.ScraperSourceEks eks)
+        private ScraperSource(
+            Outputs.ScraperSourceEks? eks,
+
+            Outputs.ScraperSourceVpc? vpc)
         {
             Eks = eks;
+            Vpc = vpc;
         }
     }
 }

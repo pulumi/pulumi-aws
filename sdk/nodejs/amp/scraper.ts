@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * > **Note:** If you change a Scraper's source (EKS cluster), Terraform
+ * > **Note:** If you change a Scraper's source (EKS cluster or VPC configuration), Terraform
  * will delete the current Scraper and create a new one.
  *
  * Provides an Amazon Managed Service for Prometheus fully managed collector
@@ -90,6 +90,45 @@ import * as utilities from "../utilities";
  *       target_label: __address__
  *       regex: (.+?)(\\\\\\\\:\\\\\\\\d+)?
  *       replacement: 1:10249
+ * `,
+ * });
+ * ```
+ *
+ * ### VPC Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.amp.Scraper("example", {
+ *     source: {
+ *         vpc: {
+ *             securityGroupIds: [exampleAwsSecurityGroup.id],
+ *             subnetIds: [
+ *                 example1.id,
+ *                 example2.id,
+ *             ],
+ *         },
+ *     },
+ *     destination: {
+ *         amp: {
+ *             workspaceArn: exampleAwsPrometheusWorkspace.arn,
+ *         },
+ *     },
+ *     scrapeConfiguration: `global:
+ *   scrape_interval: 30s
+ * scrape_configs:
+ *   - job_name: 'my-service'
+ *     dns_sd_configs:
+ *       - names: ['my-service.my-namespace']
+ *         type: A
+ *         port: 8080
+ *     metrics_path: '/metrics'
+ *     relabel_configs:
+ *       - target_label: service_name
+ *         replacement: 'my-service'
+ *       - target_label: discovery_method
+ *         replacement: 'cloudmap-dns'
  * `,
  * });
  * ```

@@ -251,14 +251,17 @@ class CustomPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
-        resource "quicksight.CustomPermissions" "example" {
-          custom_permissions_name = "example-permissions"
+        ```python
+        import pulumi
+        import pulumi_aws as aws
 
-          capabilities {
-            print_reports    = "DENY"
-            share_dashboards = "DENY"
-          }
-        }
+        example = aws.quicksight.CustomPermissions("example",
+            custom_permissions_name="example-permissions",
+            capabilities={
+                "print_reports": "DENY",
+                "share_dashboards": "DENY",
+            })
+        ```
 
         ## Import
 
@@ -290,14 +293,17 @@ class CustomPermissions(pulumi.CustomResource):
 
         ## Example Usage
 
-        resource "quicksight.CustomPermissions" "example" {
-          custom_permissions_name = "example-permissions"
+        ```python
+        import pulumi
+        import pulumi_aws as aws
 
-          capabilities {
-            print_reports    = "DENY"
-            share_dashboards = "DENY"
-          }
-        }
+        example = aws.quicksight.CustomPermissions("example",
+            custom_permissions_name="example-permissions",
+            capabilities={
+                "print_reports": "DENY",
+                "share_dashboards": "DENY",
+            })
+        ```
 
         ## Import
 

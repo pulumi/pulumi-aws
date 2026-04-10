@@ -39,6 +39,9 @@ namespace Pulumi.Aws.Route53.Outputs
         /// Health check the record should be associated with.
         /// </summary>
         public readonly string? HealthCheckId;
+        /// <summary>
+        /// Set to `True` to indicate this record is a multivalue answer record and traffic should be routed approximately randomly to multiple resources.
+        /// </summary>
         public readonly bool? MultiValueAnswer;
         /// <summary>
         /// Name of the record.
@@ -57,7 +60,7 @@ namespace Pulumi.Aws.Route53.Outputs
         public readonly ImmutableArray<Outputs.RecordsExclusiveResourceRecordSetResourceRecord> ResourceRecords;
         /// <summary>
         /// An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
-        /// Required if using `CidrRoutingConfig`, `Failover`, `Geolocation`,`GeoproximityLocation`, `MultivalueAnswer`, `Region`, or `Weight`.
+        /// Required if using `CidrRoutingConfig`, `Failover`, `Geolocation`,`GeoproximityLocation`, `MultiValueAnswer`, `Region`, or `Weight`.
         /// </summary>
         public readonly string? SetIdentifier;
         /// <summary>

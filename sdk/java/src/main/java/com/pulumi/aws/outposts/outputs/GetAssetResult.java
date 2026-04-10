@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
@@ -28,6 +29,11 @@ public final class GetAssetResult {
      * 
      */
     private String id;
+    /**
+     * @return Instance families supported by the asset.
+     * 
+     */
+    private List<String> instanceFamilies;
     /**
      * @return Position of an asset in a rack measured in rack units.
      * 
@@ -69,6 +75,13 @@ public final class GetAssetResult {
         return this.id;
     }
     /**
+     * @return Instance families supported by the asset.
+     * 
+     */
+    public List<String> instanceFamilies() {
+        return this.instanceFamilies;
+    }
+    /**
      * @return Position of an asset in a rack measured in rack units.
      * 
      */
@@ -100,6 +113,7 @@ public final class GetAssetResult {
         private String assetType;
         private String hostId;
         private String id;
+        private List<String> instanceFamilies;
         private Integer rackElevation;
         private String rackId;
         private String region;
@@ -111,6 +125,7 @@ public final class GetAssetResult {
     	      this.assetType = defaults.assetType;
     	      this.hostId = defaults.hostId;
     	      this.id = defaults.id;
+    	      this.instanceFamilies = defaults.instanceFamilies;
     	      this.rackElevation = defaults.rackElevation;
     	      this.rackId = defaults.rackId;
     	      this.region = defaults.region;
@@ -157,6 +172,17 @@ public final class GetAssetResult {
             return this;
         }
         @CustomType.Setter
+        public Builder instanceFamilies(List<String> instanceFamilies) {
+            if (instanceFamilies == null) {
+              throw new MissingRequiredPropertyException("GetAssetResult", "instanceFamilies");
+            }
+            this.instanceFamilies = instanceFamilies;
+            return this;
+        }
+        public Builder instanceFamilies(String... instanceFamilies) {
+            return instanceFamilies(List.of(instanceFamilies));
+        }
+        @CustomType.Setter
         public Builder rackElevation(Integer rackElevation) {
             if (rackElevation == null) {
               throw new MissingRequiredPropertyException("GetAssetResult", "rackElevation");
@@ -187,6 +213,7 @@ public final class GetAssetResult {
             _resultValue.assetType = assetType;
             _resultValue.hostId = hostId;
             _resultValue.id = id;
+            _resultValue.instanceFamilies = instanceFamilies;
             _resultValue.rackElevation = rackElevation;
             _resultValue.rackId = rackId;
             _resultValue.region = region;

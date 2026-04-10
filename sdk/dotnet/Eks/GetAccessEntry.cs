@@ -134,6 +134,7 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// (Optional) Key-value map of resource tags, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
+        [Obsolete(@"tags_all is deprecated.")]
         public Dictionary<string, string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new Dictionary<string, string>());
@@ -180,6 +181,7 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// (Optional) Key-value map of resource tags, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
+        [Obsolete(@"tags_all is deprecated.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -219,7 +221,7 @@ namespace Pulumi.Aws.Eks
         public readonly string ModifiedAt;
         public readonly string PrincipalArn;
         public readonly string Region;
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// (Optional) Key-value map of resource tags, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
@@ -251,7 +253,7 @@ namespace Pulumi.Aws.Eks
 
             string region,
 
-            ImmutableDictionary<string, string>? tags,
+            ImmutableDictionary<string, string> tags,
 
             ImmutableDictionary<string, string> tagsAll,
 

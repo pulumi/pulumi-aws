@@ -5280,7 +5280,7 @@ func (o ExpressGatewayServicePrimaryContainerSecretArrayOutput) Index(i pulumi.I
 }
 
 type ExpressGatewayServiceScalingTarget struct {
-	// Metric to use for auto-scaling. Valid values are `CPU` and `MEMORY`.
+	// Metric to use for auto-scaling. Valid values are `AVERAGE_CPU`, `AVERAGE_MEMORY` and `REQUEST_COUNT_PER_TARGET`.
 	AutoScalingMetric string `pulumi:"autoScalingMetric"`
 	// Target value for the auto-scaling metric (as a percentage). Defaults to `60`.
 	AutoScalingTargetValue int `pulumi:"autoScalingTargetValue"`
@@ -5302,7 +5302,7 @@ type ExpressGatewayServiceScalingTargetInput interface {
 }
 
 type ExpressGatewayServiceScalingTargetArgs struct {
-	// Metric to use for auto-scaling. Valid values are `CPU` and `MEMORY`.
+	// Metric to use for auto-scaling. Valid values are `AVERAGE_CPU`, `AVERAGE_MEMORY` and `REQUEST_COUNT_PER_TARGET`.
 	AutoScalingMetric pulumi.StringInput `pulumi:"autoScalingMetric"`
 	// Target value for the auto-scaling metric (as a percentage). Defaults to `60`.
 	AutoScalingTargetValue pulumi.IntInput `pulumi:"autoScalingTargetValue"`
@@ -5363,7 +5363,7 @@ func (o ExpressGatewayServiceScalingTargetOutput) ToExpressGatewayServiceScaling
 	return o
 }
 
-// Metric to use for auto-scaling. Valid values are `CPU` and `MEMORY`.
+// Metric to use for auto-scaling. Valid values are `AVERAGE_CPU`, `AVERAGE_MEMORY` and `REQUEST_COUNT_PER_TARGET`.
 func (o ExpressGatewayServiceScalingTargetOutput) AutoScalingMetric() pulumi.StringOutput {
 	return o.ApplyT(func(v ExpressGatewayServiceScalingTarget) string { return v.AutoScalingMetric }).(pulumi.StringOutput)
 }

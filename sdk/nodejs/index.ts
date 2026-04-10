@@ -294,6 +294,7 @@ import * as timestreamwrite from "./timestreamwrite";
 import * as transcribe from "./transcribe";
 import * as transfer from "./transfer";
 import * as types from "./types";
+import * as uxc from "./uxc";
 import * as verifiedaccess from "./verifiedaccess";
 import * as verifiedpermissions from "./verifiedpermissions";
 import * as vpc from "./vpc";
@@ -527,6 +528,7 @@ export {
     transcribe,
     transfer,
     types,
+    uxc,
     verifiedaccess,
     verifiedpermissions,
     vpc,

@@ -10067,7 +10067,7 @@ type BucketMetricFilter struct {
 	AccessPoint *string `pulumi:"accessPoint"`
 	// Object prefix for filtering (singular).
 	Prefix *string `pulumi:"prefix"`
-	// Object tags for filtering (up to 10).
+	// Object tags for filtering (up to 10). Unsupported for S3 directory buckets.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -10087,7 +10087,7 @@ type BucketMetricFilterArgs struct {
 	AccessPoint pulumi.StringPtrInput `pulumi:"accessPoint"`
 	// Object prefix for filtering (singular).
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// Object tags for filtering (up to 10).
+	// Object tags for filtering (up to 10). Unsupported for S3 directory buckets.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -10178,7 +10178,7 @@ func (o BucketMetricFilterOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketMetricFilter) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// Object tags for filtering (up to 10).
+// Object tags for filtering (up to 10). Unsupported for S3 directory buckets.
 func (o BucketMetricFilterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v BucketMetricFilter) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -10227,7 +10227,7 @@ func (o BucketMetricFilterPtrOutput) Prefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Object tags for filtering (up to 10).
+// Object tags for filtering (up to 10). Unsupported for S3 directory buckets.
 func (o BucketMetricFilterPtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BucketMetricFilter) map[string]string {
 		if v == nil {
@@ -21703,6 +21703,1043 @@ func (o DirectoryBucketLocationPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type FilesAccessPointPosixUser struct {
+	// POSIX group ID. Changing this value forces replacement.
+	Gid int `pulumi:"gid"`
+	// Set of secondary POSIX group IDs. Changing this value forces replacement.
+	SecondaryGids []int `pulumi:"secondaryGids"`
+	// POSIX user ID. Changing this value forces replacement.
+	Uid int `pulumi:"uid"`
+}
+
+// FilesAccessPointPosixUserInput is an input type that accepts FilesAccessPointPosixUserArgs and FilesAccessPointPosixUserOutput values.
+// You can construct a concrete instance of `FilesAccessPointPosixUserInput` via:
+//
+//	FilesAccessPointPosixUserArgs{...}
+type FilesAccessPointPosixUserInput interface {
+	pulumi.Input
+
+	ToFilesAccessPointPosixUserOutput() FilesAccessPointPosixUserOutput
+	ToFilesAccessPointPosixUserOutputWithContext(context.Context) FilesAccessPointPosixUserOutput
+}
+
+type FilesAccessPointPosixUserArgs struct {
+	// POSIX group ID. Changing this value forces replacement.
+	Gid pulumi.IntInput `pulumi:"gid"`
+	// Set of secondary POSIX group IDs. Changing this value forces replacement.
+	SecondaryGids pulumi.IntArrayInput `pulumi:"secondaryGids"`
+	// POSIX user ID. Changing this value forces replacement.
+	Uid pulumi.IntInput `pulumi:"uid"`
+}
+
+func (FilesAccessPointPosixUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilesAccessPointPosixUser)(nil)).Elem()
+}
+
+func (i FilesAccessPointPosixUserArgs) ToFilesAccessPointPosixUserOutput() FilesAccessPointPosixUserOutput {
+	return i.ToFilesAccessPointPosixUserOutputWithContext(context.Background())
+}
+
+func (i FilesAccessPointPosixUserArgs) ToFilesAccessPointPosixUserOutputWithContext(ctx context.Context) FilesAccessPointPosixUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilesAccessPointPosixUserOutput)
+}
+
+// FilesAccessPointPosixUserArrayInput is an input type that accepts FilesAccessPointPosixUserArray and FilesAccessPointPosixUserArrayOutput values.
+// You can construct a concrete instance of `FilesAccessPointPosixUserArrayInput` via:
+//
+//	FilesAccessPointPosixUserArray{ FilesAccessPointPosixUserArgs{...} }
+type FilesAccessPointPosixUserArrayInput interface {
+	pulumi.Input
+
+	ToFilesAccessPointPosixUserArrayOutput() FilesAccessPointPosixUserArrayOutput
+	ToFilesAccessPointPosixUserArrayOutputWithContext(context.Context) FilesAccessPointPosixUserArrayOutput
+}
+
+type FilesAccessPointPosixUserArray []FilesAccessPointPosixUserInput
+
+func (FilesAccessPointPosixUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilesAccessPointPosixUser)(nil)).Elem()
+}
+
+func (i FilesAccessPointPosixUserArray) ToFilesAccessPointPosixUserArrayOutput() FilesAccessPointPosixUserArrayOutput {
+	return i.ToFilesAccessPointPosixUserArrayOutputWithContext(context.Background())
+}
+
+func (i FilesAccessPointPosixUserArray) ToFilesAccessPointPosixUserArrayOutputWithContext(ctx context.Context) FilesAccessPointPosixUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilesAccessPointPosixUserArrayOutput)
+}
+
+type FilesAccessPointPosixUserOutput struct{ *pulumi.OutputState }
+
+func (FilesAccessPointPosixUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilesAccessPointPosixUser)(nil)).Elem()
+}
+
+func (o FilesAccessPointPosixUserOutput) ToFilesAccessPointPosixUserOutput() FilesAccessPointPosixUserOutput {
+	return o
+}
+
+func (o FilesAccessPointPosixUserOutput) ToFilesAccessPointPosixUserOutputWithContext(ctx context.Context) FilesAccessPointPosixUserOutput {
+	return o
+}
+
+// POSIX group ID. Changing this value forces replacement.
+func (o FilesAccessPointPosixUserOutput) Gid() pulumi.IntOutput {
+	return o.ApplyT(func(v FilesAccessPointPosixUser) int { return v.Gid }).(pulumi.IntOutput)
+}
+
+// Set of secondary POSIX group IDs. Changing this value forces replacement.
+func (o FilesAccessPointPosixUserOutput) SecondaryGids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v FilesAccessPointPosixUser) []int { return v.SecondaryGids }).(pulumi.IntArrayOutput)
+}
+
+// POSIX user ID. Changing this value forces replacement.
+func (o FilesAccessPointPosixUserOutput) Uid() pulumi.IntOutput {
+	return o.ApplyT(func(v FilesAccessPointPosixUser) int { return v.Uid }).(pulumi.IntOutput)
+}
+
+type FilesAccessPointPosixUserArrayOutput struct{ *pulumi.OutputState }
+
+func (FilesAccessPointPosixUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilesAccessPointPosixUser)(nil)).Elem()
+}
+
+func (o FilesAccessPointPosixUserArrayOutput) ToFilesAccessPointPosixUserArrayOutput() FilesAccessPointPosixUserArrayOutput {
+	return o
+}
+
+func (o FilesAccessPointPosixUserArrayOutput) ToFilesAccessPointPosixUserArrayOutputWithContext(ctx context.Context) FilesAccessPointPosixUserArrayOutput {
+	return o
+}
+
+func (o FilesAccessPointPosixUserArrayOutput) Index(i pulumi.IntInput) FilesAccessPointPosixUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilesAccessPointPosixUser {
+		return vs[0].([]FilesAccessPointPosixUser)[vs[1].(int)]
+	}).(FilesAccessPointPosixUserOutput)
+}
+
+type FilesAccessPointRootDirectory struct {
+	// Permissions to set when creating the root directory. See `creationPermissions` below. Changing this value forces replacement.
+	CreationPermissions []FilesAccessPointRootDirectoryCreationPermission `pulumi:"creationPermissions"`
+	// Root directory path. Changing this value forces replacement.
+	Path *string `pulumi:"path"`
+}
+
+// FilesAccessPointRootDirectoryInput is an input type that accepts FilesAccessPointRootDirectoryArgs and FilesAccessPointRootDirectoryOutput values.
+// You can construct a concrete instance of `FilesAccessPointRootDirectoryInput` via:
+//
+//	FilesAccessPointRootDirectoryArgs{...}
+type FilesAccessPointRootDirectoryInput interface {
+	pulumi.Input
+
+	ToFilesAccessPointRootDirectoryOutput() FilesAccessPointRootDirectoryOutput
+	ToFilesAccessPointRootDirectoryOutputWithContext(context.Context) FilesAccessPointRootDirectoryOutput
+}
+
+type FilesAccessPointRootDirectoryArgs struct {
+	// Permissions to set when creating the root directory. See `creationPermissions` below. Changing this value forces replacement.
+	CreationPermissions FilesAccessPointRootDirectoryCreationPermissionArrayInput `pulumi:"creationPermissions"`
+	// Root directory path. Changing this value forces replacement.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (FilesAccessPointRootDirectoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilesAccessPointRootDirectory)(nil)).Elem()
+}
+
+func (i FilesAccessPointRootDirectoryArgs) ToFilesAccessPointRootDirectoryOutput() FilesAccessPointRootDirectoryOutput {
+	return i.ToFilesAccessPointRootDirectoryOutputWithContext(context.Background())
+}
+
+func (i FilesAccessPointRootDirectoryArgs) ToFilesAccessPointRootDirectoryOutputWithContext(ctx context.Context) FilesAccessPointRootDirectoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilesAccessPointRootDirectoryOutput)
+}
+
+// FilesAccessPointRootDirectoryArrayInput is an input type that accepts FilesAccessPointRootDirectoryArray and FilesAccessPointRootDirectoryArrayOutput values.
+// You can construct a concrete instance of `FilesAccessPointRootDirectoryArrayInput` via:
+//
+//	FilesAccessPointRootDirectoryArray{ FilesAccessPointRootDirectoryArgs{...} }
+type FilesAccessPointRootDirectoryArrayInput interface {
+	pulumi.Input
+
+	ToFilesAccessPointRootDirectoryArrayOutput() FilesAccessPointRootDirectoryArrayOutput
+	ToFilesAccessPointRootDirectoryArrayOutputWithContext(context.Context) FilesAccessPointRootDirectoryArrayOutput
+}
+
+type FilesAccessPointRootDirectoryArray []FilesAccessPointRootDirectoryInput
+
+func (FilesAccessPointRootDirectoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilesAccessPointRootDirectory)(nil)).Elem()
+}
+
+func (i FilesAccessPointRootDirectoryArray) ToFilesAccessPointRootDirectoryArrayOutput() FilesAccessPointRootDirectoryArrayOutput {
+	return i.ToFilesAccessPointRootDirectoryArrayOutputWithContext(context.Background())
+}
+
+func (i FilesAccessPointRootDirectoryArray) ToFilesAccessPointRootDirectoryArrayOutputWithContext(ctx context.Context) FilesAccessPointRootDirectoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilesAccessPointRootDirectoryArrayOutput)
+}
+
+type FilesAccessPointRootDirectoryOutput struct{ *pulumi.OutputState }
+
+func (FilesAccessPointRootDirectoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilesAccessPointRootDirectory)(nil)).Elem()
+}
+
+func (o FilesAccessPointRootDirectoryOutput) ToFilesAccessPointRootDirectoryOutput() FilesAccessPointRootDirectoryOutput {
+	return o
+}
+
+func (o FilesAccessPointRootDirectoryOutput) ToFilesAccessPointRootDirectoryOutputWithContext(ctx context.Context) FilesAccessPointRootDirectoryOutput {
+	return o
+}
+
+// Permissions to set when creating the root directory. See `creationPermissions` below. Changing this value forces replacement.
+func (o FilesAccessPointRootDirectoryOutput) CreationPermissions() FilesAccessPointRootDirectoryCreationPermissionArrayOutput {
+	return o.ApplyT(func(v FilesAccessPointRootDirectory) []FilesAccessPointRootDirectoryCreationPermission {
+		return v.CreationPermissions
+	}).(FilesAccessPointRootDirectoryCreationPermissionArrayOutput)
+}
+
+// Root directory path. Changing this value forces replacement.
+func (o FilesAccessPointRootDirectoryOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FilesAccessPointRootDirectory) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type FilesAccessPointRootDirectoryArrayOutput struct{ *pulumi.OutputState }
+
+func (FilesAccessPointRootDirectoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilesAccessPointRootDirectory)(nil)).Elem()
+}
+
+func (o FilesAccessPointRootDirectoryArrayOutput) ToFilesAccessPointRootDirectoryArrayOutput() FilesAccessPointRootDirectoryArrayOutput {
+	return o
+}
+
+func (o FilesAccessPointRootDirectoryArrayOutput) ToFilesAccessPointRootDirectoryArrayOutputWithContext(ctx context.Context) FilesAccessPointRootDirectoryArrayOutput {
+	return o
+}
+
+func (o FilesAccessPointRootDirectoryArrayOutput) Index(i pulumi.IntInput) FilesAccessPointRootDirectoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilesAccessPointRootDirectory {
+		return vs[0].([]FilesAccessPointRootDirectory)[vs[1].(int)]
+	}).(FilesAccessPointRootDirectoryOutput)
+}
+
+type FilesAccessPointRootDirectoryCreationPermission struct {
+	// Owner group ID. Changing this value forces replacement.
+	OwnerGid int `pulumi:"ownerGid"`
+	// Owner user ID. Changing this value forces replacement.
+	OwnerUid int `pulumi:"ownerUid"`
+	// POSIX permissions in octal notation. Changing this value forces replacement.
+	Permissions string `pulumi:"permissions"`
+}
+
+// FilesAccessPointRootDirectoryCreationPermissionInput is an input type that accepts FilesAccessPointRootDirectoryCreationPermissionArgs and FilesAccessPointRootDirectoryCreationPermissionOutput values.
+// You can construct a concrete instance of `FilesAccessPointRootDirectoryCreationPermissionInput` via:
+//
+//	FilesAccessPointRootDirectoryCreationPermissionArgs{...}
+type FilesAccessPointRootDirectoryCreationPermissionInput interface {
+	pulumi.Input
+
+	ToFilesAccessPointRootDirectoryCreationPermissionOutput() FilesAccessPointRootDirectoryCreationPermissionOutput
+	ToFilesAccessPointRootDirectoryCreationPermissionOutputWithContext(context.Context) FilesAccessPointRootDirectoryCreationPermissionOutput
+}
+
+type FilesAccessPointRootDirectoryCreationPermissionArgs struct {
+	// Owner group ID. Changing this value forces replacement.
+	OwnerGid pulumi.IntInput `pulumi:"ownerGid"`
+	// Owner user ID. Changing this value forces replacement.
+	OwnerUid pulumi.IntInput `pulumi:"ownerUid"`
+	// POSIX permissions in octal notation. Changing this value forces replacement.
+	Permissions pulumi.StringInput `pulumi:"permissions"`
+}
+
+func (FilesAccessPointRootDirectoryCreationPermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilesAccessPointRootDirectoryCreationPermission)(nil)).Elem()
+}
+
+func (i FilesAccessPointRootDirectoryCreationPermissionArgs) ToFilesAccessPointRootDirectoryCreationPermissionOutput() FilesAccessPointRootDirectoryCreationPermissionOutput {
+	return i.ToFilesAccessPointRootDirectoryCreationPermissionOutputWithContext(context.Background())
+}
+
+func (i FilesAccessPointRootDirectoryCreationPermissionArgs) ToFilesAccessPointRootDirectoryCreationPermissionOutputWithContext(ctx context.Context) FilesAccessPointRootDirectoryCreationPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilesAccessPointRootDirectoryCreationPermissionOutput)
+}
+
+// FilesAccessPointRootDirectoryCreationPermissionArrayInput is an input type that accepts FilesAccessPointRootDirectoryCreationPermissionArray and FilesAccessPointRootDirectoryCreationPermissionArrayOutput values.
+// You can construct a concrete instance of `FilesAccessPointRootDirectoryCreationPermissionArrayInput` via:
+//
+//	FilesAccessPointRootDirectoryCreationPermissionArray{ FilesAccessPointRootDirectoryCreationPermissionArgs{...} }
+type FilesAccessPointRootDirectoryCreationPermissionArrayInput interface {
+	pulumi.Input
+
+	ToFilesAccessPointRootDirectoryCreationPermissionArrayOutput() FilesAccessPointRootDirectoryCreationPermissionArrayOutput
+	ToFilesAccessPointRootDirectoryCreationPermissionArrayOutputWithContext(context.Context) FilesAccessPointRootDirectoryCreationPermissionArrayOutput
+}
+
+type FilesAccessPointRootDirectoryCreationPermissionArray []FilesAccessPointRootDirectoryCreationPermissionInput
+
+func (FilesAccessPointRootDirectoryCreationPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilesAccessPointRootDirectoryCreationPermission)(nil)).Elem()
+}
+
+func (i FilesAccessPointRootDirectoryCreationPermissionArray) ToFilesAccessPointRootDirectoryCreationPermissionArrayOutput() FilesAccessPointRootDirectoryCreationPermissionArrayOutput {
+	return i.ToFilesAccessPointRootDirectoryCreationPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i FilesAccessPointRootDirectoryCreationPermissionArray) ToFilesAccessPointRootDirectoryCreationPermissionArrayOutputWithContext(ctx context.Context) FilesAccessPointRootDirectoryCreationPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilesAccessPointRootDirectoryCreationPermissionArrayOutput)
+}
+
+type FilesAccessPointRootDirectoryCreationPermissionOutput struct{ *pulumi.OutputState }
+
+func (FilesAccessPointRootDirectoryCreationPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilesAccessPointRootDirectoryCreationPermission)(nil)).Elem()
+}
+
+func (o FilesAccessPointRootDirectoryCreationPermissionOutput) ToFilesAccessPointRootDirectoryCreationPermissionOutput() FilesAccessPointRootDirectoryCreationPermissionOutput {
+	return o
+}
+
+func (o FilesAccessPointRootDirectoryCreationPermissionOutput) ToFilesAccessPointRootDirectoryCreationPermissionOutputWithContext(ctx context.Context) FilesAccessPointRootDirectoryCreationPermissionOutput {
+	return o
+}
+
+// Owner group ID. Changing this value forces replacement.
+func (o FilesAccessPointRootDirectoryCreationPermissionOutput) OwnerGid() pulumi.IntOutput {
+	return o.ApplyT(func(v FilesAccessPointRootDirectoryCreationPermission) int { return v.OwnerGid }).(pulumi.IntOutput)
+}
+
+// Owner user ID. Changing this value forces replacement.
+func (o FilesAccessPointRootDirectoryCreationPermissionOutput) OwnerUid() pulumi.IntOutput {
+	return o.ApplyT(func(v FilesAccessPointRootDirectoryCreationPermission) int { return v.OwnerUid }).(pulumi.IntOutput)
+}
+
+// POSIX permissions in octal notation. Changing this value forces replacement.
+func (o FilesAccessPointRootDirectoryCreationPermissionOutput) Permissions() pulumi.StringOutput {
+	return o.ApplyT(func(v FilesAccessPointRootDirectoryCreationPermission) string { return v.Permissions }).(pulumi.StringOutput)
+}
+
+type FilesAccessPointRootDirectoryCreationPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (FilesAccessPointRootDirectoryCreationPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilesAccessPointRootDirectoryCreationPermission)(nil)).Elem()
+}
+
+func (o FilesAccessPointRootDirectoryCreationPermissionArrayOutput) ToFilesAccessPointRootDirectoryCreationPermissionArrayOutput() FilesAccessPointRootDirectoryCreationPermissionArrayOutput {
+	return o
+}
+
+func (o FilesAccessPointRootDirectoryCreationPermissionArrayOutput) ToFilesAccessPointRootDirectoryCreationPermissionArrayOutputWithContext(ctx context.Context) FilesAccessPointRootDirectoryCreationPermissionArrayOutput {
+	return o
+}
+
+func (o FilesAccessPointRootDirectoryCreationPermissionArrayOutput) Index(i pulumi.IntInput) FilesAccessPointRootDirectoryCreationPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilesAccessPointRootDirectoryCreationPermission {
+		return vs[0].([]FilesAccessPointRootDirectoryCreationPermission)[vs[1].(int)]
+	}).(FilesAccessPointRootDirectoryCreationPermissionOutput)
+}
+
+type FilesAccessPointTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// FilesAccessPointTimeoutsInput is an input type that accepts FilesAccessPointTimeoutsArgs and FilesAccessPointTimeoutsOutput values.
+// You can construct a concrete instance of `FilesAccessPointTimeoutsInput` via:
+//
+//	FilesAccessPointTimeoutsArgs{...}
+type FilesAccessPointTimeoutsInput interface {
+	pulumi.Input
+
+	ToFilesAccessPointTimeoutsOutput() FilesAccessPointTimeoutsOutput
+	ToFilesAccessPointTimeoutsOutputWithContext(context.Context) FilesAccessPointTimeoutsOutput
+}
+
+type FilesAccessPointTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (FilesAccessPointTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilesAccessPointTimeouts)(nil)).Elem()
+}
+
+func (i FilesAccessPointTimeoutsArgs) ToFilesAccessPointTimeoutsOutput() FilesAccessPointTimeoutsOutput {
+	return i.ToFilesAccessPointTimeoutsOutputWithContext(context.Background())
+}
+
+func (i FilesAccessPointTimeoutsArgs) ToFilesAccessPointTimeoutsOutputWithContext(ctx context.Context) FilesAccessPointTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilesAccessPointTimeoutsOutput)
+}
+
+func (i FilesAccessPointTimeoutsArgs) ToFilesAccessPointTimeoutsPtrOutput() FilesAccessPointTimeoutsPtrOutput {
+	return i.ToFilesAccessPointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i FilesAccessPointTimeoutsArgs) ToFilesAccessPointTimeoutsPtrOutputWithContext(ctx context.Context) FilesAccessPointTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilesAccessPointTimeoutsOutput).ToFilesAccessPointTimeoutsPtrOutputWithContext(ctx)
+}
+
+// FilesAccessPointTimeoutsPtrInput is an input type that accepts FilesAccessPointTimeoutsArgs, FilesAccessPointTimeoutsPtr and FilesAccessPointTimeoutsPtrOutput values.
+// You can construct a concrete instance of `FilesAccessPointTimeoutsPtrInput` via:
+//
+//	        FilesAccessPointTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FilesAccessPointTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToFilesAccessPointTimeoutsPtrOutput() FilesAccessPointTimeoutsPtrOutput
+	ToFilesAccessPointTimeoutsPtrOutputWithContext(context.Context) FilesAccessPointTimeoutsPtrOutput
+}
+
+type filesAccessPointTimeoutsPtrType FilesAccessPointTimeoutsArgs
+
+func FilesAccessPointTimeoutsPtr(v *FilesAccessPointTimeoutsArgs) FilesAccessPointTimeoutsPtrInput {
+	return (*filesAccessPointTimeoutsPtrType)(v)
+}
+
+func (*filesAccessPointTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FilesAccessPointTimeouts)(nil)).Elem()
+}
+
+func (i *filesAccessPointTimeoutsPtrType) ToFilesAccessPointTimeoutsPtrOutput() FilesAccessPointTimeoutsPtrOutput {
+	return i.ToFilesAccessPointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *filesAccessPointTimeoutsPtrType) ToFilesAccessPointTimeoutsPtrOutputWithContext(ctx context.Context) FilesAccessPointTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilesAccessPointTimeoutsPtrOutput)
+}
+
+type FilesAccessPointTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (FilesAccessPointTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilesAccessPointTimeouts)(nil)).Elem()
+}
+
+func (o FilesAccessPointTimeoutsOutput) ToFilesAccessPointTimeoutsOutput() FilesAccessPointTimeoutsOutput {
+	return o
+}
+
+func (o FilesAccessPointTimeoutsOutput) ToFilesAccessPointTimeoutsOutputWithContext(ctx context.Context) FilesAccessPointTimeoutsOutput {
+	return o
+}
+
+func (o FilesAccessPointTimeoutsOutput) ToFilesAccessPointTimeoutsPtrOutput() FilesAccessPointTimeoutsPtrOutput {
+	return o.ToFilesAccessPointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o FilesAccessPointTimeoutsOutput) ToFilesAccessPointTimeoutsPtrOutputWithContext(ctx context.Context) FilesAccessPointTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FilesAccessPointTimeouts) *FilesAccessPointTimeouts {
+		return &v
+	}).(FilesAccessPointTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o FilesAccessPointTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FilesAccessPointTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o FilesAccessPointTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FilesAccessPointTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type FilesAccessPointTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (FilesAccessPointTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FilesAccessPointTimeouts)(nil)).Elem()
+}
+
+func (o FilesAccessPointTimeoutsPtrOutput) ToFilesAccessPointTimeoutsPtrOutput() FilesAccessPointTimeoutsPtrOutput {
+	return o
+}
+
+func (o FilesAccessPointTimeoutsPtrOutput) ToFilesAccessPointTimeoutsPtrOutputWithContext(ctx context.Context) FilesAccessPointTimeoutsPtrOutput {
+	return o
+}
+
+func (o FilesAccessPointTimeoutsPtrOutput) Elem() FilesAccessPointTimeoutsOutput {
+	return o.ApplyT(func(v *FilesAccessPointTimeouts) FilesAccessPointTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret FilesAccessPointTimeouts
+		return ret
+	}).(FilesAccessPointTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o FilesAccessPointTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FilesAccessPointTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o FilesAccessPointTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FilesAccessPointTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+type FilesFileSystemTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// FilesFileSystemTimeoutsInput is an input type that accepts FilesFileSystemTimeoutsArgs and FilesFileSystemTimeoutsOutput values.
+// You can construct a concrete instance of `FilesFileSystemTimeoutsInput` via:
+//
+//	FilesFileSystemTimeoutsArgs{...}
+type FilesFileSystemTimeoutsInput interface {
+	pulumi.Input
+
+	ToFilesFileSystemTimeoutsOutput() FilesFileSystemTimeoutsOutput
+	ToFilesFileSystemTimeoutsOutputWithContext(context.Context) FilesFileSystemTimeoutsOutput
+}
+
+type FilesFileSystemTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (FilesFileSystemTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilesFileSystemTimeouts)(nil)).Elem()
+}
+
+func (i FilesFileSystemTimeoutsArgs) ToFilesFileSystemTimeoutsOutput() FilesFileSystemTimeoutsOutput {
+	return i.ToFilesFileSystemTimeoutsOutputWithContext(context.Background())
+}
+
+func (i FilesFileSystemTimeoutsArgs) ToFilesFileSystemTimeoutsOutputWithContext(ctx context.Context) FilesFileSystemTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilesFileSystemTimeoutsOutput)
+}
+
+func (i FilesFileSystemTimeoutsArgs) ToFilesFileSystemTimeoutsPtrOutput() FilesFileSystemTimeoutsPtrOutput {
+	return i.ToFilesFileSystemTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i FilesFileSystemTimeoutsArgs) ToFilesFileSystemTimeoutsPtrOutputWithContext(ctx context.Context) FilesFileSystemTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilesFileSystemTimeoutsOutput).ToFilesFileSystemTimeoutsPtrOutputWithContext(ctx)
+}
+
+// FilesFileSystemTimeoutsPtrInput is an input type that accepts FilesFileSystemTimeoutsArgs, FilesFileSystemTimeoutsPtr and FilesFileSystemTimeoutsPtrOutput values.
+// You can construct a concrete instance of `FilesFileSystemTimeoutsPtrInput` via:
+//
+//	        FilesFileSystemTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FilesFileSystemTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToFilesFileSystemTimeoutsPtrOutput() FilesFileSystemTimeoutsPtrOutput
+	ToFilesFileSystemTimeoutsPtrOutputWithContext(context.Context) FilesFileSystemTimeoutsPtrOutput
+}
+
+type filesFileSystemTimeoutsPtrType FilesFileSystemTimeoutsArgs
+
+func FilesFileSystemTimeoutsPtr(v *FilesFileSystemTimeoutsArgs) FilesFileSystemTimeoutsPtrInput {
+	return (*filesFileSystemTimeoutsPtrType)(v)
+}
+
+func (*filesFileSystemTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FilesFileSystemTimeouts)(nil)).Elem()
+}
+
+func (i *filesFileSystemTimeoutsPtrType) ToFilesFileSystemTimeoutsPtrOutput() FilesFileSystemTimeoutsPtrOutput {
+	return i.ToFilesFileSystemTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *filesFileSystemTimeoutsPtrType) ToFilesFileSystemTimeoutsPtrOutputWithContext(ctx context.Context) FilesFileSystemTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilesFileSystemTimeoutsPtrOutput)
+}
+
+type FilesFileSystemTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (FilesFileSystemTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilesFileSystemTimeouts)(nil)).Elem()
+}
+
+func (o FilesFileSystemTimeoutsOutput) ToFilesFileSystemTimeoutsOutput() FilesFileSystemTimeoutsOutput {
+	return o
+}
+
+func (o FilesFileSystemTimeoutsOutput) ToFilesFileSystemTimeoutsOutputWithContext(ctx context.Context) FilesFileSystemTimeoutsOutput {
+	return o
+}
+
+func (o FilesFileSystemTimeoutsOutput) ToFilesFileSystemTimeoutsPtrOutput() FilesFileSystemTimeoutsPtrOutput {
+	return o.ToFilesFileSystemTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o FilesFileSystemTimeoutsOutput) ToFilesFileSystemTimeoutsPtrOutputWithContext(ctx context.Context) FilesFileSystemTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FilesFileSystemTimeouts) *FilesFileSystemTimeouts {
+		return &v
+	}).(FilesFileSystemTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o FilesFileSystemTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FilesFileSystemTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o FilesFileSystemTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FilesFileSystemTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type FilesFileSystemTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (FilesFileSystemTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FilesFileSystemTimeouts)(nil)).Elem()
+}
+
+func (o FilesFileSystemTimeoutsPtrOutput) ToFilesFileSystemTimeoutsPtrOutput() FilesFileSystemTimeoutsPtrOutput {
+	return o
+}
+
+func (o FilesFileSystemTimeoutsPtrOutput) ToFilesFileSystemTimeoutsPtrOutputWithContext(ctx context.Context) FilesFileSystemTimeoutsPtrOutput {
+	return o
+}
+
+func (o FilesFileSystemTimeoutsPtrOutput) Elem() FilesFileSystemTimeoutsOutput {
+	return o.ApplyT(func(v *FilesFileSystemTimeouts) FilesFileSystemTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret FilesFileSystemTimeouts
+		return ret
+	}).(FilesFileSystemTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o FilesFileSystemTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FilesFileSystemTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o FilesFileSystemTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FilesFileSystemTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+type FilesMountTargetTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// FilesMountTargetTimeoutsInput is an input type that accepts FilesMountTargetTimeoutsArgs and FilesMountTargetTimeoutsOutput values.
+// You can construct a concrete instance of `FilesMountTargetTimeoutsInput` via:
+//
+//	FilesMountTargetTimeoutsArgs{...}
+type FilesMountTargetTimeoutsInput interface {
+	pulumi.Input
+
+	ToFilesMountTargetTimeoutsOutput() FilesMountTargetTimeoutsOutput
+	ToFilesMountTargetTimeoutsOutputWithContext(context.Context) FilesMountTargetTimeoutsOutput
+}
+
+type FilesMountTargetTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (FilesMountTargetTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilesMountTargetTimeouts)(nil)).Elem()
+}
+
+func (i FilesMountTargetTimeoutsArgs) ToFilesMountTargetTimeoutsOutput() FilesMountTargetTimeoutsOutput {
+	return i.ToFilesMountTargetTimeoutsOutputWithContext(context.Background())
+}
+
+func (i FilesMountTargetTimeoutsArgs) ToFilesMountTargetTimeoutsOutputWithContext(ctx context.Context) FilesMountTargetTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilesMountTargetTimeoutsOutput)
+}
+
+func (i FilesMountTargetTimeoutsArgs) ToFilesMountTargetTimeoutsPtrOutput() FilesMountTargetTimeoutsPtrOutput {
+	return i.ToFilesMountTargetTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i FilesMountTargetTimeoutsArgs) ToFilesMountTargetTimeoutsPtrOutputWithContext(ctx context.Context) FilesMountTargetTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilesMountTargetTimeoutsOutput).ToFilesMountTargetTimeoutsPtrOutputWithContext(ctx)
+}
+
+// FilesMountTargetTimeoutsPtrInput is an input type that accepts FilesMountTargetTimeoutsArgs, FilesMountTargetTimeoutsPtr and FilesMountTargetTimeoutsPtrOutput values.
+// You can construct a concrete instance of `FilesMountTargetTimeoutsPtrInput` via:
+//
+//	        FilesMountTargetTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FilesMountTargetTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToFilesMountTargetTimeoutsPtrOutput() FilesMountTargetTimeoutsPtrOutput
+	ToFilesMountTargetTimeoutsPtrOutputWithContext(context.Context) FilesMountTargetTimeoutsPtrOutput
+}
+
+type filesMountTargetTimeoutsPtrType FilesMountTargetTimeoutsArgs
+
+func FilesMountTargetTimeoutsPtr(v *FilesMountTargetTimeoutsArgs) FilesMountTargetTimeoutsPtrInput {
+	return (*filesMountTargetTimeoutsPtrType)(v)
+}
+
+func (*filesMountTargetTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FilesMountTargetTimeouts)(nil)).Elem()
+}
+
+func (i *filesMountTargetTimeoutsPtrType) ToFilesMountTargetTimeoutsPtrOutput() FilesMountTargetTimeoutsPtrOutput {
+	return i.ToFilesMountTargetTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *filesMountTargetTimeoutsPtrType) ToFilesMountTargetTimeoutsPtrOutputWithContext(ctx context.Context) FilesMountTargetTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilesMountTargetTimeoutsPtrOutput)
+}
+
+type FilesMountTargetTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (FilesMountTargetTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilesMountTargetTimeouts)(nil)).Elem()
+}
+
+func (o FilesMountTargetTimeoutsOutput) ToFilesMountTargetTimeoutsOutput() FilesMountTargetTimeoutsOutput {
+	return o
+}
+
+func (o FilesMountTargetTimeoutsOutput) ToFilesMountTargetTimeoutsOutputWithContext(ctx context.Context) FilesMountTargetTimeoutsOutput {
+	return o
+}
+
+func (o FilesMountTargetTimeoutsOutput) ToFilesMountTargetTimeoutsPtrOutput() FilesMountTargetTimeoutsPtrOutput {
+	return o.ToFilesMountTargetTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o FilesMountTargetTimeoutsOutput) ToFilesMountTargetTimeoutsPtrOutputWithContext(ctx context.Context) FilesMountTargetTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FilesMountTargetTimeouts) *FilesMountTargetTimeouts {
+		return &v
+	}).(FilesMountTargetTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o FilesMountTargetTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FilesMountTargetTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o FilesMountTargetTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FilesMountTargetTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o FilesMountTargetTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FilesMountTargetTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type FilesMountTargetTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (FilesMountTargetTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FilesMountTargetTimeouts)(nil)).Elem()
+}
+
+func (o FilesMountTargetTimeoutsPtrOutput) ToFilesMountTargetTimeoutsPtrOutput() FilesMountTargetTimeoutsPtrOutput {
+	return o
+}
+
+func (o FilesMountTargetTimeoutsPtrOutput) ToFilesMountTargetTimeoutsPtrOutputWithContext(ctx context.Context) FilesMountTargetTimeoutsPtrOutput {
+	return o
+}
+
+func (o FilesMountTargetTimeoutsPtrOutput) Elem() FilesMountTargetTimeoutsOutput {
+	return o.ApplyT(func(v *FilesMountTargetTimeouts) FilesMountTargetTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret FilesMountTargetTimeouts
+		return ret
+	}).(FilesMountTargetTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o FilesMountTargetTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FilesMountTargetTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o FilesMountTargetTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FilesMountTargetTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o FilesMountTargetTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FilesMountTargetTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type FilesSynchronizationConfigurationExpirationDataRule struct {
+	// Number of days after last access before expiring data.
+	DaysAfterLastAccess int `pulumi:"daysAfterLastAccess"`
+}
+
+// FilesSynchronizationConfigurationExpirationDataRuleInput is an input type that accepts FilesSynchronizationConfigurationExpirationDataRuleArgs and FilesSynchronizationConfigurationExpirationDataRuleOutput values.
+// You can construct a concrete instance of `FilesSynchronizationConfigurationExpirationDataRuleInput` via:
+//
+//	FilesSynchronizationConfigurationExpirationDataRuleArgs{...}
+type FilesSynchronizationConfigurationExpirationDataRuleInput interface {
+	pulumi.Input
+
+	ToFilesSynchronizationConfigurationExpirationDataRuleOutput() FilesSynchronizationConfigurationExpirationDataRuleOutput
+	ToFilesSynchronizationConfigurationExpirationDataRuleOutputWithContext(context.Context) FilesSynchronizationConfigurationExpirationDataRuleOutput
+}
+
+type FilesSynchronizationConfigurationExpirationDataRuleArgs struct {
+	// Number of days after last access before expiring data.
+	DaysAfterLastAccess pulumi.IntInput `pulumi:"daysAfterLastAccess"`
+}
+
+func (FilesSynchronizationConfigurationExpirationDataRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilesSynchronizationConfigurationExpirationDataRule)(nil)).Elem()
+}
+
+func (i FilesSynchronizationConfigurationExpirationDataRuleArgs) ToFilesSynchronizationConfigurationExpirationDataRuleOutput() FilesSynchronizationConfigurationExpirationDataRuleOutput {
+	return i.ToFilesSynchronizationConfigurationExpirationDataRuleOutputWithContext(context.Background())
+}
+
+func (i FilesSynchronizationConfigurationExpirationDataRuleArgs) ToFilesSynchronizationConfigurationExpirationDataRuleOutputWithContext(ctx context.Context) FilesSynchronizationConfigurationExpirationDataRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilesSynchronizationConfigurationExpirationDataRuleOutput)
+}
+
+// FilesSynchronizationConfigurationExpirationDataRuleArrayInput is an input type that accepts FilesSynchronizationConfigurationExpirationDataRuleArray and FilesSynchronizationConfigurationExpirationDataRuleArrayOutput values.
+// You can construct a concrete instance of `FilesSynchronizationConfigurationExpirationDataRuleArrayInput` via:
+//
+//	FilesSynchronizationConfigurationExpirationDataRuleArray{ FilesSynchronizationConfigurationExpirationDataRuleArgs{...} }
+type FilesSynchronizationConfigurationExpirationDataRuleArrayInput interface {
+	pulumi.Input
+
+	ToFilesSynchronizationConfigurationExpirationDataRuleArrayOutput() FilesSynchronizationConfigurationExpirationDataRuleArrayOutput
+	ToFilesSynchronizationConfigurationExpirationDataRuleArrayOutputWithContext(context.Context) FilesSynchronizationConfigurationExpirationDataRuleArrayOutput
+}
+
+type FilesSynchronizationConfigurationExpirationDataRuleArray []FilesSynchronizationConfigurationExpirationDataRuleInput
+
+func (FilesSynchronizationConfigurationExpirationDataRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilesSynchronizationConfigurationExpirationDataRule)(nil)).Elem()
+}
+
+func (i FilesSynchronizationConfigurationExpirationDataRuleArray) ToFilesSynchronizationConfigurationExpirationDataRuleArrayOutput() FilesSynchronizationConfigurationExpirationDataRuleArrayOutput {
+	return i.ToFilesSynchronizationConfigurationExpirationDataRuleArrayOutputWithContext(context.Background())
+}
+
+func (i FilesSynchronizationConfigurationExpirationDataRuleArray) ToFilesSynchronizationConfigurationExpirationDataRuleArrayOutputWithContext(ctx context.Context) FilesSynchronizationConfigurationExpirationDataRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilesSynchronizationConfigurationExpirationDataRuleArrayOutput)
+}
+
+type FilesSynchronizationConfigurationExpirationDataRuleOutput struct{ *pulumi.OutputState }
+
+func (FilesSynchronizationConfigurationExpirationDataRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilesSynchronizationConfigurationExpirationDataRule)(nil)).Elem()
+}
+
+func (o FilesSynchronizationConfigurationExpirationDataRuleOutput) ToFilesSynchronizationConfigurationExpirationDataRuleOutput() FilesSynchronizationConfigurationExpirationDataRuleOutput {
+	return o
+}
+
+func (o FilesSynchronizationConfigurationExpirationDataRuleOutput) ToFilesSynchronizationConfigurationExpirationDataRuleOutputWithContext(ctx context.Context) FilesSynchronizationConfigurationExpirationDataRuleOutput {
+	return o
+}
+
+// Number of days after last access before expiring data.
+func (o FilesSynchronizationConfigurationExpirationDataRuleOutput) DaysAfterLastAccess() pulumi.IntOutput {
+	return o.ApplyT(func(v FilesSynchronizationConfigurationExpirationDataRule) int { return v.DaysAfterLastAccess }).(pulumi.IntOutput)
+}
+
+type FilesSynchronizationConfigurationExpirationDataRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (FilesSynchronizationConfigurationExpirationDataRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilesSynchronizationConfigurationExpirationDataRule)(nil)).Elem()
+}
+
+func (o FilesSynchronizationConfigurationExpirationDataRuleArrayOutput) ToFilesSynchronizationConfigurationExpirationDataRuleArrayOutput() FilesSynchronizationConfigurationExpirationDataRuleArrayOutput {
+	return o
+}
+
+func (o FilesSynchronizationConfigurationExpirationDataRuleArrayOutput) ToFilesSynchronizationConfigurationExpirationDataRuleArrayOutputWithContext(ctx context.Context) FilesSynchronizationConfigurationExpirationDataRuleArrayOutput {
+	return o
+}
+
+func (o FilesSynchronizationConfigurationExpirationDataRuleArrayOutput) Index(i pulumi.IntInput) FilesSynchronizationConfigurationExpirationDataRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilesSynchronizationConfigurationExpirationDataRule {
+		return vs[0].([]FilesSynchronizationConfigurationExpirationDataRule)[vs[1].(int)]
+	}).(FilesSynchronizationConfigurationExpirationDataRuleOutput)
+}
+
+type FilesSynchronizationConfigurationImportDataRule struct {
+	// S3 key prefix to apply this rule to. Use `""` for all objects.
+	Prefix string `pulumi:"prefix"`
+	// Maximum object size in bytes to import.
+	SizeLessThan int `pulumi:"sizeLessThan"`
+	// Import trigger. Valid values: `ON_FILE_ACCESS`.
+	Trigger string `pulumi:"trigger"`
+}
+
+// FilesSynchronizationConfigurationImportDataRuleInput is an input type that accepts FilesSynchronizationConfigurationImportDataRuleArgs and FilesSynchronizationConfigurationImportDataRuleOutput values.
+// You can construct a concrete instance of `FilesSynchronizationConfigurationImportDataRuleInput` via:
+//
+//	FilesSynchronizationConfigurationImportDataRuleArgs{...}
+type FilesSynchronizationConfigurationImportDataRuleInput interface {
+	pulumi.Input
+
+	ToFilesSynchronizationConfigurationImportDataRuleOutput() FilesSynchronizationConfigurationImportDataRuleOutput
+	ToFilesSynchronizationConfigurationImportDataRuleOutputWithContext(context.Context) FilesSynchronizationConfigurationImportDataRuleOutput
+}
+
+type FilesSynchronizationConfigurationImportDataRuleArgs struct {
+	// S3 key prefix to apply this rule to. Use `""` for all objects.
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+	// Maximum object size in bytes to import.
+	SizeLessThan pulumi.IntInput `pulumi:"sizeLessThan"`
+	// Import trigger. Valid values: `ON_FILE_ACCESS`.
+	Trigger pulumi.StringInput `pulumi:"trigger"`
+}
+
+func (FilesSynchronizationConfigurationImportDataRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilesSynchronizationConfigurationImportDataRule)(nil)).Elem()
+}
+
+func (i FilesSynchronizationConfigurationImportDataRuleArgs) ToFilesSynchronizationConfigurationImportDataRuleOutput() FilesSynchronizationConfigurationImportDataRuleOutput {
+	return i.ToFilesSynchronizationConfigurationImportDataRuleOutputWithContext(context.Background())
+}
+
+func (i FilesSynchronizationConfigurationImportDataRuleArgs) ToFilesSynchronizationConfigurationImportDataRuleOutputWithContext(ctx context.Context) FilesSynchronizationConfigurationImportDataRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilesSynchronizationConfigurationImportDataRuleOutput)
+}
+
+// FilesSynchronizationConfigurationImportDataRuleArrayInput is an input type that accepts FilesSynchronizationConfigurationImportDataRuleArray and FilesSynchronizationConfigurationImportDataRuleArrayOutput values.
+// You can construct a concrete instance of `FilesSynchronizationConfigurationImportDataRuleArrayInput` via:
+//
+//	FilesSynchronizationConfigurationImportDataRuleArray{ FilesSynchronizationConfigurationImportDataRuleArgs{...} }
+type FilesSynchronizationConfigurationImportDataRuleArrayInput interface {
+	pulumi.Input
+
+	ToFilesSynchronizationConfigurationImportDataRuleArrayOutput() FilesSynchronizationConfigurationImportDataRuleArrayOutput
+	ToFilesSynchronizationConfigurationImportDataRuleArrayOutputWithContext(context.Context) FilesSynchronizationConfigurationImportDataRuleArrayOutput
+}
+
+type FilesSynchronizationConfigurationImportDataRuleArray []FilesSynchronizationConfigurationImportDataRuleInput
+
+func (FilesSynchronizationConfigurationImportDataRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilesSynchronizationConfigurationImportDataRule)(nil)).Elem()
+}
+
+func (i FilesSynchronizationConfigurationImportDataRuleArray) ToFilesSynchronizationConfigurationImportDataRuleArrayOutput() FilesSynchronizationConfigurationImportDataRuleArrayOutput {
+	return i.ToFilesSynchronizationConfigurationImportDataRuleArrayOutputWithContext(context.Background())
+}
+
+func (i FilesSynchronizationConfigurationImportDataRuleArray) ToFilesSynchronizationConfigurationImportDataRuleArrayOutputWithContext(ctx context.Context) FilesSynchronizationConfigurationImportDataRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilesSynchronizationConfigurationImportDataRuleArrayOutput)
+}
+
+type FilesSynchronizationConfigurationImportDataRuleOutput struct{ *pulumi.OutputState }
+
+func (FilesSynchronizationConfigurationImportDataRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilesSynchronizationConfigurationImportDataRule)(nil)).Elem()
+}
+
+func (o FilesSynchronizationConfigurationImportDataRuleOutput) ToFilesSynchronizationConfigurationImportDataRuleOutput() FilesSynchronizationConfigurationImportDataRuleOutput {
+	return o
+}
+
+func (o FilesSynchronizationConfigurationImportDataRuleOutput) ToFilesSynchronizationConfigurationImportDataRuleOutputWithContext(ctx context.Context) FilesSynchronizationConfigurationImportDataRuleOutput {
+	return o
+}
+
+// S3 key prefix to apply this rule to. Use `""` for all objects.
+func (o FilesSynchronizationConfigurationImportDataRuleOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v FilesSynchronizationConfigurationImportDataRule) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+// Maximum object size in bytes to import.
+func (o FilesSynchronizationConfigurationImportDataRuleOutput) SizeLessThan() pulumi.IntOutput {
+	return o.ApplyT(func(v FilesSynchronizationConfigurationImportDataRule) int { return v.SizeLessThan }).(pulumi.IntOutput)
+}
+
+// Import trigger. Valid values: `ON_FILE_ACCESS`.
+func (o FilesSynchronizationConfigurationImportDataRuleOutput) Trigger() pulumi.StringOutput {
+	return o.ApplyT(func(v FilesSynchronizationConfigurationImportDataRule) string { return v.Trigger }).(pulumi.StringOutput)
+}
+
+type FilesSynchronizationConfigurationImportDataRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (FilesSynchronizationConfigurationImportDataRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilesSynchronizationConfigurationImportDataRule)(nil)).Elem()
+}
+
+func (o FilesSynchronizationConfigurationImportDataRuleArrayOutput) ToFilesSynchronizationConfigurationImportDataRuleArrayOutput() FilesSynchronizationConfigurationImportDataRuleArrayOutput {
+	return o
+}
+
+func (o FilesSynchronizationConfigurationImportDataRuleArrayOutput) ToFilesSynchronizationConfigurationImportDataRuleArrayOutputWithContext(ctx context.Context) FilesSynchronizationConfigurationImportDataRuleArrayOutput {
+	return o
+}
+
+func (o FilesSynchronizationConfigurationImportDataRuleArrayOutput) Index(i pulumi.IntInput) FilesSynchronizationConfigurationImportDataRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilesSynchronizationConfigurationImportDataRule {
+		return vs[0].([]FilesSynchronizationConfigurationImportDataRule)[vs[1].(int)]
+	}).(FilesSynchronizationConfigurationImportDataRuleOutput)
+}
+
 type InventoryDestination struct {
 	// S3 bucket configuration where inventory results are published (documented below).
 	Bucket InventoryDestinationBucket `pulumi:"bucket"`
@@ -25905,6 +26942,522 @@ func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryp
 	}).(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput)
 }
 
+type GetFilesAccessPointPosixUser struct {
+	// POSIX group ID.
+	Gid int `pulumi:"gid"`
+	// Set of secondary POSIX group IDs.
+	SecondaryGids []int `pulumi:"secondaryGids"`
+	// POSIX user ID.
+	Uid int `pulumi:"uid"`
+}
+
+// GetFilesAccessPointPosixUserInput is an input type that accepts GetFilesAccessPointPosixUserArgs and GetFilesAccessPointPosixUserOutput values.
+// You can construct a concrete instance of `GetFilesAccessPointPosixUserInput` via:
+//
+//	GetFilesAccessPointPosixUserArgs{...}
+type GetFilesAccessPointPosixUserInput interface {
+	pulumi.Input
+
+	ToGetFilesAccessPointPosixUserOutput() GetFilesAccessPointPosixUserOutput
+	ToGetFilesAccessPointPosixUserOutputWithContext(context.Context) GetFilesAccessPointPosixUserOutput
+}
+
+type GetFilesAccessPointPosixUserArgs struct {
+	// POSIX group ID.
+	Gid pulumi.IntInput `pulumi:"gid"`
+	// Set of secondary POSIX group IDs.
+	SecondaryGids pulumi.IntArrayInput `pulumi:"secondaryGids"`
+	// POSIX user ID.
+	Uid pulumi.IntInput `pulumi:"uid"`
+}
+
+func (GetFilesAccessPointPosixUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFilesAccessPointPosixUser)(nil)).Elem()
+}
+
+func (i GetFilesAccessPointPosixUserArgs) ToGetFilesAccessPointPosixUserOutput() GetFilesAccessPointPosixUserOutput {
+	return i.ToGetFilesAccessPointPosixUserOutputWithContext(context.Background())
+}
+
+func (i GetFilesAccessPointPosixUserArgs) ToGetFilesAccessPointPosixUserOutputWithContext(ctx context.Context) GetFilesAccessPointPosixUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFilesAccessPointPosixUserOutput)
+}
+
+// GetFilesAccessPointPosixUserArrayInput is an input type that accepts GetFilesAccessPointPosixUserArray and GetFilesAccessPointPosixUserArrayOutput values.
+// You can construct a concrete instance of `GetFilesAccessPointPosixUserArrayInput` via:
+//
+//	GetFilesAccessPointPosixUserArray{ GetFilesAccessPointPosixUserArgs{...} }
+type GetFilesAccessPointPosixUserArrayInput interface {
+	pulumi.Input
+
+	ToGetFilesAccessPointPosixUserArrayOutput() GetFilesAccessPointPosixUserArrayOutput
+	ToGetFilesAccessPointPosixUserArrayOutputWithContext(context.Context) GetFilesAccessPointPosixUserArrayOutput
+}
+
+type GetFilesAccessPointPosixUserArray []GetFilesAccessPointPosixUserInput
+
+func (GetFilesAccessPointPosixUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFilesAccessPointPosixUser)(nil)).Elem()
+}
+
+func (i GetFilesAccessPointPosixUserArray) ToGetFilesAccessPointPosixUserArrayOutput() GetFilesAccessPointPosixUserArrayOutput {
+	return i.ToGetFilesAccessPointPosixUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetFilesAccessPointPosixUserArray) ToGetFilesAccessPointPosixUserArrayOutputWithContext(ctx context.Context) GetFilesAccessPointPosixUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFilesAccessPointPosixUserArrayOutput)
+}
+
+type GetFilesAccessPointPosixUserOutput struct{ *pulumi.OutputState }
+
+func (GetFilesAccessPointPosixUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFilesAccessPointPosixUser)(nil)).Elem()
+}
+
+func (o GetFilesAccessPointPosixUserOutput) ToGetFilesAccessPointPosixUserOutput() GetFilesAccessPointPosixUserOutput {
+	return o
+}
+
+func (o GetFilesAccessPointPosixUserOutput) ToGetFilesAccessPointPosixUserOutputWithContext(ctx context.Context) GetFilesAccessPointPosixUserOutput {
+	return o
+}
+
+// POSIX group ID.
+func (o GetFilesAccessPointPosixUserOutput) Gid() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFilesAccessPointPosixUser) int { return v.Gid }).(pulumi.IntOutput)
+}
+
+// Set of secondary POSIX group IDs.
+func (o GetFilesAccessPointPosixUserOutput) SecondaryGids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v GetFilesAccessPointPosixUser) []int { return v.SecondaryGids }).(pulumi.IntArrayOutput)
+}
+
+// POSIX user ID.
+func (o GetFilesAccessPointPosixUserOutput) Uid() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFilesAccessPointPosixUser) int { return v.Uid }).(pulumi.IntOutput)
+}
+
+type GetFilesAccessPointPosixUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFilesAccessPointPosixUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFilesAccessPointPosixUser)(nil)).Elem()
+}
+
+func (o GetFilesAccessPointPosixUserArrayOutput) ToGetFilesAccessPointPosixUserArrayOutput() GetFilesAccessPointPosixUserArrayOutput {
+	return o
+}
+
+func (o GetFilesAccessPointPosixUserArrayOutput) ToGetFilesAccessPointPosixUserArrayOutputWithContext(ctx context.Context) GetFilesAccessPointPosixUserArrayOutput {
+	return o
+}
+
+func (o GetFilesAccessPointPosixUserArrayOutput) Index(i pulumi.IntInput) GetFilesAccessPointPosixUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFilesAccessPointPosixUser {
+		return vs[0].([]GetFilesAccessPointPosixUser)[vs[1].(int)]
+	}).(GetFilesAccessPointPosixUserOutput)
+}
+
+type GetFilesAccessPointRootDirectory struct {
+	// Permissions set when the root directory was created. See `creationPermissions` below.
+	CreationPermissions []GetFilesAccessPointRootDirectoryCreationPermission `pulumi:"creationPermissions"`
+	// Root directory path.
+	Path string `pulumi:"path"`
+}
+
+// GetFilesAccessPointRootDirectoryInput is an input type that accepts GetFilesAccessPointRootDirectoryArgs and GetFilesAccessPointRootDirectoryOutput values.
+// You can construct a concrete instance of `GetFilesAccessPointRootDirectoryInput` via:
+//
+//	GetFilesAccessPointRootDirectoryArgs{...}
+type GetFilesAccessPointRootDirectoryInput interface {
+	pulumi.Input
+
+	ToGetFilesAccessPointRootDirectoryOutput() GetFilesAccessPointRootDirectoryOutput
+	ToGetFilesAccessPointRootDirectoryOutputWithContext(context.Context) GetFilesAccessPointRootDirectoryOutput
+}
+
+type GetFilesAccessPointRootDirectoryArgs struct {
+	// Permissions set when the root directory was created. See `creationPermissions` below.
+	CreationPermissions GetFilesAccessPointRootDirectoryCreationPermissionArrayInput `pulumi:"creationPermissions"`
+	// Root directory path.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (GetFilesAccessPointRootDirectoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFilesAccessPointRootDirectory)(nil)).Elem()
+}
+
+func (i GetFilesAccessPointRootDirectoryArgs) ToGetFilesAccessPointRootDirectoryOutput() GetFilesAccessPointRootDirectoryOutput {
+	return i.ToGetFilesAccessPointRootDirectoryOutputWithContext(context.Background())
+}
+
+func (i GetFilesAccessPointRootDirectoryArgs) ToGetFilesAccessPointRootDirectoryOutputWithContext(ctx context.Context) GetFilesAccessPointRootDirectoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFilesAccessPointRootDirectoryOutput)
+}
+
+// GetFilesAccessPointRootDirectoryArrayInput is an input type that accepts GetFilesAccessPointRootDirectoryArray and GetFilesAccessPointRootDirectoryArrayOutput values.
+// You can construct a concrete instance of `GetFilesAccessPointRootDirectoryArrayInput` via:
+//
+//	GetFilesAccessPointRootDirectoryArray{ GetFilesAccessPointRootDirectoryArgs{...} }
+type GetFilesAccessPointRootDirectoryArrayInput interface {
+	pulumi.Input
+
+	ToGetFilesAccessPointRootDirectoryArrayOutput() GetFilesAccessPointRootDirectoryArrayOutput
+	ToGetFilesAccessPointRootDirectoryArrayOutputWithContext(context.Context) GetFilesAccessPointRootDirectoryArrayOutput
+}
+
+type GetFilesAccessPointRootDirectoryArray []GetFilesAccessPointRootDirectoryInput
+
+func (GetFilesAccessPointRootDirectoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFilesAccessPointRootDirectory)(nil)).Elem()
+}
+
+func (i GetFilesAccessPointRootDirectoryArray) ToGetFilesAccessPointRootDirectoryArrayOutput() GetFilesAccessPointRootDirectoryArrayOutput {
+	return i.ToGetFilesAccessPointRootDirectoryArrayOutputWithContext(context.Background())
+}
+
+func (i GetFilesAccessPointRootDirectoryArray) ToGetFilesAccessPointRootDirectoryArrayOutputWithContext(ctx context.Context) GetFilesAccessPointRootDirectoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFilesAccessPointRootDirectoryArrayOutput)
+}
+
+type GetFilesAccessPointRootDirectoryOutput struct{ *pulumi.OutputState }
+
+func (GetFilesAccessPointRootDirectoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFilesAccessPointRootDirectory)(nil)).Elem()
+}
+
+func (o GetFilesAccessPointRootDirectoryOutput) ToGetFilesAccessPointRootDirectoryOutput() GetFilesAccessPointRootDirectoryOutput {
+	return o
+}
+
+func (o GetFilesAccessPointRootDirectoryOutput) ToGetFilesAccessPointRootDirectoryOutputWithContext(ctx context.Context) GetFilesAccessPointRootDirectoryOutput {
+	return o
+}
+
+// Permissions set when the root directory was created. See `creationPermissions` below.
+func (o GetFilesAccessPointRootDirectoryOutput) CreationPermissions() GetFilesAccessPointRootDirectoryCreationPermissionArrayOutput {
+	return o.ApplyT(func(v GetFilesAccessPointRootDirectory) []GetFilesAccessPointRootDirectoryCreationPermission {
+		return v.CreationPermissions
+	}).(GetFilesAccessPointRootDirectoryCreationPermissionArrayOutput)
+}
+
+// Root directory path.
+func (o GetFilesAccessPointRootDirectoryOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFilesAccessPointRootDirectory) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type GetFilesAccessPointRootDirectoryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFilesAccessPointRootDirectoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFilesAccessPointRootDirectory)(nil)).Elem()
+}
+
+func (o GetFilesAccessPointRootDirectoryArrayOutput) ToGetFilesAccessPointRootDirectoryArrayOutput() GetFilesAccessPointRootDirectoryArrayOutput {
+	return o
+}
+
+func (o GetFilesAccessPointRootDirectoryArrayOutput) ToGetFilesAccessPointRootDirectoryArrayOutputWithContext(ctx context.Context) GetFilesAccessPointRootDirectoryArrayOutput {
+	return o
+}
+
+func (o GetFilesAccessPointRootDirectoryArrayOutput) Index(i pulumi.IntInput) GetFilesAccessPointRootDirectoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFilesAccessPointRootDirectory {
+		return vs[0].([]GetFilesAccessPointRootDirectory)[vs[1].(int)]
+	}).(GetFilesAccessPointRootDirectoryOutput)
+}
+
+type GetFilesAccessPointRootDirectoryCreationPermission struct {
+	// Owner group ID.
+	OwnerGid int `pulumi:"ownerGid"`
+	// Owner user ID.
+	OwnerUid int `pulumi:"ownerUid"`
+	// POSIX permissions in octal notation.
+	Permissions string `pulumi:"permissions"`
+}
+
+// GetFilesAccessPointRootDirectoryCreationPermissionInput is an input type that accepts GetFilesAccessPointRootDirectoryCreationPermissionArgs and GetFilesAccessPointRootDirectoryCreationPermissionOutput values.
+// You can construct a concrete instance of `GetFilesAccessPointRootDirectoryCreationPermissionInput` via:
+//
+//	GetFilesAccessPointRootDirectoryCreationPermissionArgs{...}
+type GetFilesAccessPointRootDirectoryCreationPermissionInput interface {
+	pulumi.Input
+
+	ToGetFilesAccessPointRootDirectoryCreationPermissionOutput() GetFilesAccessPointRootDirectoryCreationPermissionOutput
+	ToGetFilesAccessPointRootDirectoryCreationPermissionOutputWithContext(context.Context) GetFilesAccessPointRootDirectoryCreationPermissionOutput
+}
+
+type GetFilesAccessPointRootDirectoryCreationPermissionArgs struct {
+	// Owner group ID.
+	OwnerGid pulumi.IntInput `pulumi:"ownerGid"`
+	// Owner user ID.
+	OwnerUid pulumi.IntInput `pulumi:"ownerUid"`
+	// POSIX permissions in octal notation.
+	Permissions pulumi.StringInput `pulumi:"permissions"`
+}
+
+func (GetFilesAccessPointRootDirectoryCreationPermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFilesAccessPointRootDirectoryCreationPermission)(nil)).Elem()
+}
+
+func (i GetFilesAccessPointRootDirectoryCreationPermissionArgs) ToGetFilesAccessPointRootDirectoryCreationPermissionOutput() GetFilesAccessPointRootDirectoryCreationPermissionOutput {
+	return i.ToGetFilesAccessPointRootDirectoryCreationPermissionOutputWithContext(context.Background())
+}
+
+func (i GetFilesAccessPointRootDirectoryCreationPermissionArgs) ToGetFilesAccessPointRootDirectoryCreationPermissionOutputWithContext(ctx context.Context) GetFilesAccessPointRootDirectoryCreationPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFilesAccessPointRootDirectoryCreationPermissionOutput)
+}
+
+// GetFilesAccessPointRootDirectoryCreationPermissionArrayInput is an input type that accepts GetFilesAccessPointRootDirectoryCreationPermissionArray and GetFilesAccessPointRootDirectoryCreationPermissionArrayOutput values.
+// You can construct a concrete instance of `GetFilesAccessPointRootDirectoryCreationPermissionArrayInput` via:
+//
+//	GetFilesAccessPointRootDirectoryCreationPermissionArray{ GetFilesAccessPointRootDirectoryCreationPermissionArgs{...} }
+type GetFilesAccessPointRootDirectoryCreationPermissionArrayInput interface {
+	pulumi.Input
+
+	ToGetFilesAccessPointRootDirectoryCreationPermissionArrayOutput() GetFilesAccessPointRootDirectoryCreationPermissionArrayOutput
+	ToGetFilesAccessPointRootDirectoryCreationPermissionArrayOutputWithContext(context.Context) GetFilesAccessPointRootDirectoryCreationPermissionArrayOutput
+}
+
+type GetFilesAccessPointRootDirectoryCreationPermissionArray []GetFilesAccessPointRootDirectoryCreationPermissionInput
+
+func (GetFilesAccessPointRootDirectoryCreationPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFilesAccessPointRootDirectoryCreationPermission)(nil)).Elem()
+}
+
+func (i GetFilesAccessPointRootDirectoryCreationPermissionArray) ToGetFilesAccessPointRootDirectoryCreationPermissionArrayOutput() GetFilesAccessPointRootDirectoryCreationPermissionArrayOutput {
+	return i.ToGetFilesAccessPointRootDirectoryCreationPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i GetFilesAccessPointRootDirectoryCreationPermissionArray) ToGetFilesAccessPointRootDirectoryCreationPermissionArrayOutputWithContext(ctx context.Context) GetFilesAccessPointRootDirectoryCreationPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFilesAccessPointRootDirectoryCreationPermissionArrayOutput)
+}
+
+type GetFilesAccessPointRootDirectoryCreationPermissionOutput struct{ *pulumi.OutputState }
+
+func (GetFilesAccessPointRootDirectoryCreationPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFilesAccessPointRootDirectoryCreationPermission)(nil)).Elem()
+}
+
+func (o GetFilesAccessPointRootDirectoryCreationPermissionOutput) ToGetFilesAccessPointRootDirectoryCreationPermissionOutput() GetFilesAccessPointRootDirectoryCreationPermissionOutput {
+	return o
+}
+
+func (o GetFilesAccessPointRootDirectoryCreationPermissionOutput) ToGetFilesAccessPointRootDirectoryCreationPermissionOutputWithContext(ctx context.Context) GetFilesAccessPointRootDirectoryCreationPermissionOutput {
+	return o
+}
+
+// Owner group ID.
+func (o GetFilesAccessPointRootDirectoryCreationPermissionOutput) OwnerGid() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFilesAccessPointRootDirectoryCreationPermission) int { return v.OwnerGid }).(pulumi.IntOutput)
+}
+
+// Owner user ID.
+func (o GetFilesAccessPointRootDirectoryCreationPermissionOutput) OwnerUid() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFilesAccessPointRootDirectoryCreationPermission) int { return v.OwnerUid }).(pulumi.IntOutput)
+}
+
+// POSIX permissions in octal notation.
+func (o GetFilesAccessPointRootDirectoryCreationPermissionOutput) Permissions() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFilesAccessPointRootDirectoryCreationPermission) string { return v.Permissions }).(pulumi.StringOutput)
+}
+
+type GetFilesAccessPointRootDirectoryCreationPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFilesAccessPointRootDirectoryCreationPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFilesAccessPointRootDirectoryCreationPermission)(nil)).Elem()
+}
+
+func (o GetFilesAccessPointRootDirectoryCreationPermissionArrayOutput) ToGetFilesAccessPointRootDirectoryCreationPermissionArrayOutput() GetFilesAccessPointRootDirectoryCreationPermissionArrayOutput {
+	return o
+}
+
+func (o GetFilesAccessPointRootDirectoryCreationPermissionArrayOutput) ToGetFilesAccessPointRootDirectoryCreationPermissionArrayOutputWithContext(ctx context.Context) GetFilesAccessPointRootDirectoryCreationPermissionArrayOutput {
+	return o
+}
+
+func (o GetFilesAccessPointRootDirectoryCreationPermissionArrayOutput) Index(i pulumi.IntInput) GetFilesAccessPointRootDirectoryCreationPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFilesAccessPointRootDirectoryCreationPermission {
+		return vs[0].([]GetFilesAccessPointRootDirectoryCreationPermission)[vs[1].(int)]
+	}).(GetFilesAccessPointRootDirectoryCreationPermissionOutput)
+}
+
+type GetFilesFileSystemsFileSystem struct {
+	// ARN of the file system.
+	Arn string `pulumi:"arn"`
+	// S3 bucket ARN.
+	Bucket string `pulumi:"bucket"`
+	// Creation time.
+	CreationTime string `pulumi:"creationTime"`
+	// Identifier of the file system.
+	Id string `pulumi:"id"`
+	// KMS key ID for encryption.
+	KmsKeyId string `pulumi:"kmsKeyId"`
+	// File system name.
+	Name string `pulumi:"name"`
+	// AWS account ID of the owner.
+	OwnerId string `pulumi:"ownerId"`
+	// IAM role ARN for S3 access.
+	RoleArn string `pulumi:"roleArn"`
+	// File system status.
+	Status string `pulumi:"status"`
+	// Status message.
+	StatusMessage string `pulumi:"statusMessage"`
+}
+
+// GetFilesFileSystemsFileSystemInput is an input type that accepts GetFilesFileSystemsFileSystemArgs and GetFilesFileSystemsFileSystemOutput values.
+// You can construct a concrete instance of `GetFilesFileSystemsFileSystemInput` via:
+//
+//	GetFilesFileSystemsFileSystemArgs{...}
+type GetFilesFileSystemsFileSystemInput interface {
+	pulumi.Input
+
+	ToGetFilesFileSystemsFileSystemOutput() GetFilesFileSystemsFileSystemOutput
+	ToGetFilesFileSystemsFileSystemOutputWithContext(context.Context) GetFilesFileSystemsFileSystemOutput
+}
+
+type GetFilesFileSystemsFileSystemArgs struct {
+	// ARN of the file system.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// S3 bucket ARN.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// Creation time.
+	CreationTime pulumi.StringInput `pulumi:"creationTime"`
+	// Identifier of the file system.
+	Id pulumi.StringInput `pulumi:"id"`
+	// KMS key ID for encryption.
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
+	// File system name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// AWS account ID of the owner.
+	OwnerId pulumi.StringInput `pulumi:"ownerId"`
+	// IAM role ARN for S3 access.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// File system status.
+	Status pulumi.StringInput `pulumi:"status"`
+	// Status message.
+	StatusMessage pulumi.StringInput `pulumi:"statusMessage"`
+}
+
+func (GetFilesFileSystemsFileSystemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFilesFileSystemsFileSystem)(nil)).Elem()
+}
+
+func (i GetFilesFileSystemsFileSystemArgs) ToGetFilesFileSystemsFileSystemOutput() GetFilesFileSystemsFileSystemOutput {
+	return i.ToGetFilesFileSystemsFileSystemOutputWithContext(context.Background())
+}
+
+func (i GetFilesFileSystemsFileSystemArgs) ToGetFilesFileSystemsFileSystemOutputWithContext(ctx context.Context) GetFilesFileSystemsFileSystemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFilesFileSystemsFileSystemOutput)
+}
+
+// GetFilesFileSystemsFileSystemArrayInput is an input type that accepts GetFilesFileSystemsFileSystemArray and GetFilesFileSystemsFileSystemArrayOutput values.
+// You can construct a concrete instance of `GetFilesFileSystemsFileSystemArrayInput` via:
+//
+//	GetFilesFileSystemsFileSystemArray{ GetFilesFileSystemsFileSystemArgs{...} }
+type GetFilesFileSystemsFileSystemArrayInput interface {
+	pulumi.Input
+
+	ToGetFilesFileSystemsFileSystemArrayOutput() GetFilesFileSystemsFileSystemArrayOutput
+	ToGetFilesFileSystemsFileSystemArrayOutputWithContext(context.Context) GetFilesFileSystemsFileSystemArrayOutput
+}
+
+type GetFilesFileSystemsFileSystemArray []GetFilesFileSystemsFileSystemInput
+
+func (GetFilesFileSystemsFileSystemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFilesFileSystemsFileSystem)(nil)).Elem()
+}
+
+func (i GetFilesFileSystemsFileSystemArray) ToGetFilesFileSystemsFileSystemArrayOutput() GetFilesFileSystemsFileSystemArrayOutput {
+	return i.ToGetFilesFileSystemsFileSystemArrayOutputWithContext(context.Background())
+}
+
+func (i GetFilesFileSystemsFileSystemArray) ToGetFilesFileSystemsFileSystemArrayOutputWithContext(ctx context.Context) GetFilesFileSystemsFileSystemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFilesFileSystemsFileSystemArrayOutput)
+}
+
+type GetFilesFileSystemsFileSystemOutput struct{ *pulumi.OutputState }
+
+func (GetFilesFileSystemsFileSystemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFilesFileSystemsFileSystem)(nil)).Elem()
+}
+
+func (o GetFilesFileSystemsFileSystemOutput) ToGetFilesFileSystemsFileSystemOutput() GetFilesFileSystemsFileSystemOutput {
+	return o
+}
+
+func (o GetFilesFileSystemsFileSystemOutput) ToGetFilesFileSystemsFileSystemOutputWithContext(ctx context.Context) GetFilesFileSystemsFileSystemOutput {
+	return o
+}
+
+// ARN of the file system.
+func (o GetFilesFileSystemsFileSystemOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFilesFileSystemsFileSystem) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// S3 bucket ARN.
+func (o GetFilesFileSystemsFileSystemOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFilesFileSystemsFileSystem) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// Creation time.
+func (o GetFilesFileSystemsFileSystemOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFilesFileSystemsFileSystem) string { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// Identifier of the file system.
+func (o GetFilesFileSystemsFileSystemOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFilesFileSystemsFileSystem) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// KMS key ID for encryption.
+func (o GetFilesFileSystemsFileSystemOutput) KmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFilesFileSystemsFileSystem) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+// File system name.
+func (o GetFilesFileSystemsFileSystemOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFilesFileSystemsFileSystem) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// AWS account ID of the owner.
+func (o GetFilesFileSystemsFileSystemOutput) OwnerId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFilesFileSystemsFileSystem) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// IAM role ARN for S3 access.
+func (o GetFilesFileSystemsFileSystemOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFilesFileSystemsFileSystem) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// File system status.
+func (o GetFilesFileSystemsFileSystemOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFilesFileSystemsFileSystem) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Status message.
+func (o GetFilesFileSystemsFileSystemOutput) StatusMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFilesFileSystemsFileSystem) string { return v.StatusMessage }).(pulumi.StringOutput)
+}
+
+type GetFilesFileSystemsFileSystemArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFilesFileSystemsFileSystemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFilesFileSystemsFileSystem)(nil)).Elem()
+}
+
+func (o GetFilesFileSystemsFileSystemArrayOutput) ToGetFilesFileSystemsFileSystemArrayOutput() GetFilesFileSystemsFileSystemArrayOutput {
+	return o
+}
+
+func (o GetFilesFileSystemsFileSystemArrayOutput) ToGetFilesFileSystemsFileSystemArrayOutputWithContext(ctx context.Context) GetFilesFileSystemsFileSystemArrayOutput {
+	return o
+}
+
+func (o GetFilesFileSystemsFileSystemArrayOutput) Index(i pulumi.IntInput) GetFilesFileSystemsFileSystemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFilesFileSystemsFileSystem {
+		return vs[0].([]GetFilesFileSystemsFileSystem)[vs[1].(int)]
+	}).(GetFilesFileSystemsFileSystemOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPublicAccessBlockConfigurationInput)(nil)).Elem(), AccessPointPublicAccessBlockConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPublicAccessBlockConfigurationPtrInput)(nil)).Elem(), AccessPointPublicAccessBlockConfigurationArgs{})
@@ -26201,6 +27754,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteConfigurationV2RoutingRuleRedirectInput)(nil)).Elem(), BucketWebsiteConfigurationV2RoutingRuleRedirectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketLocationInput)(nil)).Elem(), DirectoryBucketLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketLocationPtrInput)(nil)).Elem(), DirectoryBucketLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilesAccessPointPosixUserInput)(nil)).Elem(), FilesAccessPointPosixUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilesAccessPointPosixUserArrayInput)(nil)).Elem(), FilesAccessPointPosixUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilesAccessPointRootDirectoryInput)(nil)).Elem(), FilesAccessPointRootDirectoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilesAccessPointRootDirectoryArrayInput)(nil)).Elem(), FilesAccessPointRootDirectoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilesAccessPointRootDirectoryCreationPermissionInput)(nil)).Elem(), FilesAccessPointRootDirectoryCreationPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilesAccessPointRootDirectoryCreationPermissionArrayInput)(nil)).Elem(), FilesAccessPointRootDirectoryCreationPermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilesAccessPointTimeoutsInput)(nil)).Elem(), FilesAccessPointTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilesAccessPointTimeoutsPtrInput)(nil)).Elem(), FilesAccessPointTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilesFileSystemTimeoutsInput)(nil)).Elem(), FilesFileSystemTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilesFileSystemTimeoutsPtrInput)(nil)).Elem(), FilesFileSystemTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilesMountTargetTimeoutsInput)(nil)).Elem(), FilesMountTargetTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilesMountTargetTimeoutsPtrInput)(nil)).Elem(), FilesMountTargetTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilesSynchronizationConfigurationExpirationDataRuleInput)(nil)).Elem(), FilesSynchronizationConfigurationExpirationDataRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilesSynchronizationConfigurationExpirationDataRuleArrayInput)(nil)).Elem(), FilesSynchronizationConfigurationExpirationDataRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilesSynchronizationConfigurationImportDataRuleInput)(nil)).Elem(), FilesSynchronizationConfigurationImportDataRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilesSynchronizationConfigurationImportDataRuleArrayInput)(nil)).Elem(), FilesSynchronizationConfigurationImportDataRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InventoryDestinationInput)(nil)).Elem(), InventoryDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InventoryDestinationPtrInput)(nil)).Elem(), InventoryDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InventoryDestinationBucketInput)(nil)).Elem(), InventoryDestinationBucketArgs{})
@@ -26271,6 +27840,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFilesAccessPointPosixUserInput)(nil)).Elem(), GetFilesAccessPointPosixUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFilesAccessPointPosixUserArrayInput)(nil)).Elem(), GetFilesAccessPointPosixUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFilesAccessPointRootDirectoryInput)(nil)).Elem(), GetFilesAccessPointRootDirectoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFilesAccessPointRootDirectoryArrayInput)(nil)).Elem(), GetFilesAccessPointRootDirectoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFilesAccessPointRootDirectoryCreationPermissionInput)(nil)).Elem(), GetFilesAccessPointRootDirectoryCreationPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFilesAccessPointRootDirectoryCreationPermissionArrayInput)(nil)).Elem(), GetFilesAccessPointRootDirectoryCreationPermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFilesFileSystemsFileSystemInput)(nil)).Elem(), GetFilesFileSystemsFileSystemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFilesFileSystemsFileSystemArrayInput)(nil)).Elem(), GetFilesFileSystemsFileSystemArray{})
 	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationOutput{})
 	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AccessPointVpcConfigurationOutput{})
@@ -26566,6 +28143,22 @@ func init() {
 	pulumi.RegisterOutputType(BucketWebsiteConfigurationV2RoutingRuleRedirectOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketLocationOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketLocationPtrOutput{})
+	pulumi.RegisterOutputType(FilesAccessPointPosixUserOutput{})
+	pulumi.RegisterOutputType(FilesAccessPointPosixUserArrayOutput{})
+	pulumi.RegisterOutputType(FilesAccessPointRootDirectoryOutput{})
+	pulumi.RegisterOutputType(FilesAccessPointRootDirectoryArrayOutput{})
+	pulumi.RegisterOutputType(FilesAccessPointRootDirectoryCreationPermissionOutput{})
+	pulumi.RegisterOutputType(FilesAccessPointRootDirectoryCreationPermissionArrayOutput{})
+	pulumi.RegisterOutputType(FilesAccessPointTimeoutsOutput{})
+	pulumi.RegisterOutputType(FilesAccessPointTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(FilesFileSystemTimeoutsOutput{})
+	pulumi.RegisterOutputType(FilesFileSystemTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(FilesMountTargetTimeoutsOutput{})
+	pulumi.RegisterOutputType(FilesMountTargetTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(FilesSynchronizationConfigurationExpirationDataRuleOutput{})
+	pulumi.RegisterOutputType(FilesSynchronizationConfigurationExpirationDataRuleArrayOutput{})
+	pulumi.RegisterOutputType(FilesSynchronizationConfigurationImportDataRuleOutput{})
+	pulumi.RegisterOutputType(FilesSynchronizationConfigurationImportDataRuleArrayOutput{})
 	pulumi.RegisterOutputType(InventoryDestinationOutput{})
 	pulumi.RegisterOutputType(InventoryDestinationPtrOutput{})
 	pulumi.RegisterOutputType(InventoryDestinationBucketOutput{})
@@ -26636,4 +28229,12 @@ func init() {
 	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayOutput{})
 	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput{})
 	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput{})
+	pulumi.RegisterOutputType(GetFilesAccessPointPosixUserOutput{})
+	pulumi.RegisterOutputType(GetFilesAccessPointPosixUserArrayOutput{})
+	pulumi.RegisterOutputType(GetFilesAccessPointRootDirectoryOutput{})
+	pulumi.RegisterOutputType(GetFilesAccessPointRootDirectoryArrayOutput{})
+	pulumi.RegisterOutputType(GetFilesAccessPointRootDirectoryCreationPermissionOutput{})
+	pulumi.RegisterOutputType(GetFilesAccessPointRootDirectoryCreationPermissionArrayOutput{})
+	pulumi.RegisterOutputType(GetFilesFileSystemsFileSystemOutput{})
+	pulumi.RegisterOutputType(GetFilesFileSystemsFileSystemArrayOutput{})
 }

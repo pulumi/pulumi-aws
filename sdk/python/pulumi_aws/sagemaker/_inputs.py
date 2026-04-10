@@ -569,6 +569,74 @@ __all__ = [
     'SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgsDict',
     'SpaceSpaceSharingSettingsArgs',
     'SpaceSpaceSharingSettingsArgsDict',
+    'TrainingJobAlgorithmSpecificationArgs',
+    'TrainingJobAlgorithmSpecificationArgsDict',
+    'TrainingJobAlgorithmSpecificationMetricDefinitionArgs',
+    'TrainingJobAlgorithmSpecificationMetricDefinitionArgsDict',
+    'TrainingJobAlgorithmSpecificationTrainingImageConfigArgs',
+    'TrainingJobAlgorithmSpecificationTrainingImageConfigArgsDict',
+    'TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigArgs',
+    'TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigArgsDict',
+    'TrainingJobCheckpointConfigArgs',
+    'TrainingJobCheckpointConfigArgsDict',
+    'TrainingJobDebugHookConfigArgs',
+    'TrainingJobDebugHookConfigArgsDict',
+    'TrainingJobDebugHookConfigCollectionConfigurationArgs',
+    'TrainingJobDebugHookConfigCollectionConfigurationArgsDict',
+    'TrainingJobDebugRuleConfigurationArgs',
+    'TrainingJobDebugRuleConfigurationArgsDict',
+    'TrainingJobExperimentConfigArgs',
+    'TrainingJobExperimentConfigArgsDict',
+    'TrainingJobInfraCheckConfigArgs',
+    'TrainingJobInfraCheckConfigArgsDict',
+    'TrainingJobInputDataConfigArgs',
+    'TrainingJobInputDataConfigArgsDict',
+    'TrainingJobInputDataConfigDataSourceArgs',
+    'TrainingJobInputDataConfigDataSourceArgsDict',
+    'TrainingJobInputDataConfigDataSourceFileSystemDataSourceArgs',
+    'TrainingJobInputDataConfigDataSourceFileSystemDataSourceArgsDict',
+    'TrainingJobInputDataConfigDataSourceS3DataSourceArgs',
+    'TrainingJobInputDataConfigDataSourceS3DataSourceArgsDict',
+    'TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs',
+    'TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigArgsDict',
+    'TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs',
+    'TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigArgsDict',
+    'TrainingJobInputDataConfigShuffleConfigArgs',
+    'TrainingJobInputDataConfigShuffleConfigArgsDict',
+    'TrainingJobMlflowConfigArgs',
+    'TrainingJobMlflowConfigArgsDict',
+    'TrainingJobModelPackageConfigArgs',
+    'TrainingJobModelPackageConfigArgsDict',
+    'TrainingJobOutputDataConfigArgs',
+    'TrainingJobOutputDataConfigArgsDict',
+    'TrainingJobProfilerConfigArgs',
+    'TrainingJobProfilerConfigArgsDict',
+    'TrainingJobProfilerRuleConfigurationArgs',
+    'TrainingJobProfilerRuleConfigurationArgsDict',
+    'TrainingJobRemoteDebugConfigArgs',
+    'TrainingJobRemoteDebugConfigArgsDict',
+    'TrainingJobResourceConfigArgs',
+    'TrainingJobResourceConfigArgsDict',
+    'TrainingJobResourceConfigInstanceGroupArgs',
+    'TrainingJobResourceConfigInstanceGroupArgsDict',
+    'TrainingJobResourceConfigInstancePlacementConfigArgs',
+    'TrainingJobResourceConfigInstancePlacementConfigArgsDict',
+    'TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArgs',
+    'TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArgsDict',
+    'TrainingJobRetryStrategyArgs',
+    'TrainingJobRetryStrategyArgsDict',
+    'TrainingJobServerlessJobConfigArgs',
+    'TrainingJobServerlessJobConfigArgsDict',
+    'TrainingJobSessionChainingConfigArgs',
+    'TrainingJobSessionChainingConfigArgsDict',
+    'TrainingJobStoppingConditionArgs',
+    'TrainingJobStoppingConditionArgsDict',
+    'TrainingJobTensorBoardOutputConfigArgs',
+    'TrainingJobTensorBoardOutputConfigArgsDict',
+    'TrainingJobTimeoutsArgs',
+    'TrainingJobTimeoutsArgsDict',
+    'TrainingJobVpcConfigArgs',
+    'TrainingJobVpcConfigArgsDict',
     'UserProfileUserSettingsArgs',
     'UserProfileUserSettingsArgsDict',
     'UserProfileUserSettingsCanvasAppSettingsArgs',
@@ -19253,6 +19321,2486 @@ class SpaceSpaceSharingSettingsArgs:
     @sharing_type.setter
     def sharing_type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "sharing_type", value)
+
+
+class TrainingJobAlgorithmSpecificationArgsDict(TypedDict):
+    algorithm_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name or ARN of the algorithm resource to use for the training job.
+    """
+    container_arguments: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of arguments for the container entrypoint. Maximum of 100 entries.
+    """
+    container_entrypoints: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of entrypoint commands for the container. Maximum of 100 entries.
+    """
+    enable_sagemaker_metrics_time_series: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable SageMaker AI metrics time series collection.
+    """
+    metric_definitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['TrainingJobAlgorithmSpecificationMetricDefinitionArgsDict']]]]
+    """
+    List of metric definitions for the training job. Maximum of 40. Use this to extract custom metrics from your own training container logs. SageMaker can still publish built-in metrics for built-in algorithms and supported prebuilt images when this block is omitted. See `metric_definitions` below.
+    """
+    training_image: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Registry path of the Docker image that contains the training algorithm.
+    """
+    training_image_config: NotRequired[pulumi.Input['TrainingJobAlgorithmSpecificationTrainingImageConfigArgsDict']]
+    """
+    Training image configuration. See `training_image_config` below.
+    """
+    training_input_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Input mode for the training data. Valid values: `File`, `Pipe`, `FastFile`.
+    """
+
+@pulumi.input_type
+class TrainingJobAlgorithmSpecificationArgs:
+    def __init__(__self__, *,
+                 algorithm_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 container_arguments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 container_entrypoints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enable_sagemaker_metrics_time_series: Optional[pulumi.Input[_builtins.bool]] = None,
+                 metric_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobAlgorithmSpecificationMetricDefinitionArgs']]]] = None,
+                 training_image: Optional[pulumi.Input[_builtins.str]] = None,
+                 training_image_config: Optional[pulumi.Input['TrainingJobAlgorithmSpecificationTrainingImageConfigArgs']] = None,
+                 training_input_mode: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] algorithm_name: Name or ARN of the algorithm resource to use for the training job.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] container_arguments: List of arguments for the container entrypoint. Maximum of 100 entries.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] container_entrypoints: List of entrypoint commands for the container. Maximum of 100 entries.
+        :param pulumi.Input[_builtins.bool] enable_sagemaker_metrics_time_series: Whether to enable SageMaker AI metrics time series collection.
+        :param pulumi.Input[Sequence[pulumi.Input['TrainingJobAlgorithmSpecificationMetricDefinitionArgs']]] metric_definitions: List of metric definitions for the training job. Maximum of 40. Use this to extract custom metrics from your own training container logs. SageMaker can still publish built-in metrics for built-in algorithms and supported prebuilt images when this block is omitted. See `metric_definitions` below.
+        :param pulumi.Input[_builtins.str] training_image: Registry path of the Docker image that contains the training algorithm.
+        :param pulumi.Input['TrainingJobAlgorithmSpecificationTrainingImageConfigArgs'] training_image_config: Training image configuration. See `training_image_config` below.
+        :param pulumi.Input[_builtins.str] training_input_mode: Input mode for the training data. Valid values: `File`, `Pipe`, `FastFile`.
+        """
+        if algorithm_name is not None:
+            pulumi.set(__self__, "algorithm_name", algorithm_name)
+        if container_arguments is not None:
+            pulumi.set(__self__, "container_arguments", container_arguments)
+        if container_entrypoints is not None:
+            pulumi.set(__self__, "container_entrypoints", container_entrypoints)
+        if enable_sagemaker_metrics_time_series is not None:
+            pulumi.set(__self__, "enable_sagemaker_metrics_time_series", enable_sagemaker_metrics_time_series)
+        if metric_definitions is not None:
+            pulumi.set(__self__, "metric_definitions", metric_definitions)
+        if training_image is not None:
+            pulumi.set(__self__, "training_image", training_image)
+        if training_image_config is not None:
+            pulumi.set(__self__, "training_image_config", training_image_config)
+        if training_input_mode is not None:
+            pulumi.set(__self__, "training_input_mode", training_input_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="algorithmName")
+    def algorithm_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name or ARN of the algorithm resource to use for the training job.
+        """
+        return pulumi.get(self, "algorithm_name")
+
+    @algorithm_name.setter
+    def algorithm_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "algorithm_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="containerArguments")
+    def container_arguments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of arguments for the container entrypoint. Maximum of 100 entries.
+        """
+        return pulumi.get(self, "container_arguments")
+
+    @container_arguments.setter
+    def container_arguments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "container_arguments", value)
+
+    @_builtins.property
+    @pulumi.getter(name="containerEntrypoints")
+    def container_entrypoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of entrypoint commands for the container. Maximum of 100 entries.
+        """
+        return pulumi.get(self, "container_entrypoints")
+
+    @container_entrypoints.setter
+    def container_entrypoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "container_entrypoints", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableSagemakerMetricsTimeSeries")
+    def enable_sagemaker_metrics_time_series(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to enable SageMaker AI metrics time series collection.
+        """
+        return pulumi.get(self, "enable_sagemaker_metrics_time_series")
+
+    @enable_sagemaker_metrics_time_series.setter
+    def enable_sagemaker_metrics_time_series(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_sagemaker_metrics_time_series", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metricDefinitions")
+    def metric_definitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobAlgorithmSpecificationMetricDefinitionArgs']]]]:
+        """
+        List of metric definitions for the training job. Maximum of 40. Use this to extract custom metrics from your own training container logs. SageMaker can still publish built-in metrics for built-in algorithms and supported prebuilt images when this block is omitted. See `metric_definitions` below.
+        """
+        return pulumi.get(self, "metric_definitions")
+
+    @metric_definitions.setter
+    def metric_definitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobAlgorithmSpecificationMetricDefinitionArgs']]]]):
+        pulumi.set(self, "metric_definitions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trainingImage")
+    def training_image(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Registry path of the Docker image that contains the training algorithm.
+        """
+        return pulumi.get(self, "training_image")
+
+    @training_image.setter
+    def training_image(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "training_image", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trainingImageConfig")
+    def training_image_config(self) -> Optional[pulumi.Input['TrainingJobAlgorithmSpecificationTrainingImageConfigArgs']]:
+        """
+        Training image configuration. See `training_image_config` below.
+        """
+        return pulumi.get(self, "training_image_config")
+
+    @training_image_config.setter
+    def training_image_config(self, value: Optional[pulumi.Input['TrainingJobAlgorithmSpecificationTrainingImageConfigArgs']]):
+        pulumi.set(self, "training_image_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trainingInputMode")
+    def training_input_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Input mode for the training data. Valid values: `File`, `Pipe`, `FastFile`.
+        """
+        return pulumi.get(self, "training_input_mode")
+
+    @training_input_mode.setter
+    def training_input_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "training_input_mode", value)
+
+
+class TrainingJobAlgorithmSpecificationMetricDefinitionArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the metric.
+    """
+    regex: pulumi.Input[_builtins.str]
+    """
+    Regular expression that searches the output of the training job and captures the value of the metric.
+    """
+
+@pulumi.input_type
+class TrainingJobAlgorithmSpecificationMetricDefinitionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 regex: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the metric.
+        :param pulumi.Input[_builtins.str] regex: Regular expression that searches the output of the training job and captures the value of the metric.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "regex", regex)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the metric.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def regex(self) -> pulumi.Input[_builtins.str]:
+        """
+        Regular expression that searches the output of the training job and captures the value of the metric.
+        """
+        return pulumi.get(self, "regex")
+
+    @regex.setter
+    def regex(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "regex", value)
+
+
+class TrainingJobAlgorithmSpecificationTrainingImageConfigArgsDict(TypedDict):
+    training_repository_access_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Access mode for the training image repository.
+    """
+    training_repository_auth_config: NotRequired[pulumi.Input['TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigArgsDict']]
+    """
+    Authentication configuration for the training image repository. See `training_repository_auth_config` below.
+    """
+
+@pulumi.input_type
+class TrainingJobAlgorithmSpecificationTrainingImageConfigArgs:
+    def __init__(__self__, *,
+                 training_repository_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
+                 training_repository_auth_config: Optional[pulumi.Input['TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] training_repository_access_mode: Access mode for the training image repository.
+        :param pulumi.Input['TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigArgs'] training_repository_auth_config: Authentication configuration for the training image repository. See `training_repository_auth_config` below.
+        """
+        if training_repository_access_mode is not None:
+            pulumi.set(__self__, "training_repository_access_mode", training_repository_access_mode)
+        if training_repository_auth_config is not None:
+            pulumi.set(__self__, "training_repository_auth_config", training_repository_auth_config)
+
+    @_builtins.property
+    @pulumi.getter(name="trainingRepositoryAccessMode")
+    def training_repository_access_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Access mode for the training image repository.
+        """
+        return pulumi.get(self, "training_repository_access_mode")
+
+    @training_repository_access_mode.setter
+    def training_repository_access_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "training_repository_access_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trainingRepositoryAuthConfig")
+    def training_repository_auth_config(self) -> Optional[pulumi.Input['TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigArgs']]:
+        """
+        Authentication configuration for the training image repository. See `training_repository_auth_config` below.
+        """
+        return pulumi.get(self, "training_repository_auth_config")
+
+    @training_repository_auth_config.setter
+    def training_repository_auth_config(self, value: Optional[pulumi.Input['TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigArgs']]):
+        pulumi.set(self, "training_repository_auth_config", value)
+
+
+class TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigArgsDict(TypedDict):
+    training_repository_credentials_provider_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the Lambda function that provides credentials to authenticate to the private Docker registry.
+    """
+
+@pulumi.input_type
+class TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigArgs:
+    def __init__(__self__, *,
+                 training_repository_credentials_provider_arn: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] training_repository_credentials_provider_arn: ARN of the Lambda function that provides credentials to authenticate to the private Docker registry.
+        """
+        if training_repository_credentials_provider_arn is not None:
+            pulumi.set(__self__, "training_repository_credentials_provider_arn", training_repository_credentials_provider_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="trainingRepositoryCredentialsProviderArn")
+    def training_repository_credentials_provider_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN of the Lambda function that provides credentials to authenticate to the private Docker registry.
+        """
+        return pulumi.get(self, "training_repository_credentials_provider_arn")
+
+    @training_repository_credentials_provider_arn.setter
+    def training_repository_credentials_provider_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "training_repository_credentials_provider_arn", value)
+
+
+class TrainingJobCheckpointConfigArgsDict(TypedDict):
+    s3_uri: pulumi.Input[_builtins.str]
+    """
+    S3 URI where checkpoints are stored.
+    """
+    local_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Local path where checkpoints are written.
+    """
+
+@pulumi.input_type
+class TrainingJobCheckpointConfigArgs:
+    def __init__(__self__, *,
+                 s3_uri: pulumi.Input[_builtins.str],
+                 local_path: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] s3_uri: S3 URI where checkpoints are stored.
+        :param pulumi.Input[_builtins.str] local_path: Local path where checkpoints are written.
+        """
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if local_path is not None:
+            pulumi.set(__self__, "local_path", local_path)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> pulumi.Input[_builtins.str]:
+        """
+        S3 URI where checkpoints are stored.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @s3_uri.setter
+    def s3_uri(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "s3_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Local path where checkpoints are written.
+        """
+        return pulumi.get(self, "local_path")
+
+    @local_path.setter
+    def local_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "local_path", value)
+
+
+class TrainingJobDebugHookConfigArgsDict(TypedDict):
+    s3_output_path: pulumi.Input[_builtins.str]
+    """
+    S3 URI where debug output is stored.
+    """
+    collection_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['TrainingJobDebugHookConfigCollectionConfigurationArgsDict']]]]
+    """
+    List of tensor collections to configure for the debug hook. Maximum of 20. See `collection_configurations` below.
+    """
+    hook_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Map of parameters for the debug hook. Maximum of 20 entries.
+    """
+    local_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Local path where debug output is written.
+    """
+
+@pulumi.input_type
+class TrainingJobDebugHookConfigArgs:
+    def __init__(__self__, *,
+                 s3_output_path: pulumi.Input[_builtins.str],
+                 collection_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobDebugHookConfigCollectionConfigurationArgs']]]] = None,
+                 hook_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 local_path: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] s3_output_path: S3 URI where debug output is stored.
+        :param pulumi.Input[Sequence[pulumi.Input['TrainingJobDebugHookConfigCollectionConfigurationArgs']]] collection_configurations: List of tensor collections to configure for the debug hook. Maximum of 20. See `collection_configurations` below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] hook_parameters: Map of parameters for the debug hook. Maximum of 20 entries.
+        :param pulumi.Input[_builtins.str] local_path: Local path where debug output is written.
+        """
+        pulumi.set(__self__, "s3_output_path", s3_output_path)
+        if collection_configurations is not None:
+            pulumi.set(__self__, "collection_configurations", collection_configurations)
+        if hook_parameters is not None:
+            pulumi.set(__self__, "hook_parameters", hook_parameters)
+        if local_path is not None:
+            pulumi.set(__self__, "local_path", local_path)
+
+    @_builtins.property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> pulumi.Input[_builtins.str]:
+        """
+        S3 URI where debug output is stored.
+        """
+        return pulumi.get(self, "s3_output_path")
+
+    @s3_output_path.setter
+    def s3_output_path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "s3_output_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="collectionConfigurations")
+    def collection_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobDebugHookConfigCollectionConfigurationArgs']]]]:
+        """
+        List of tensor collections to configure for the debug hook. Maximum of 20. See `collection_configurations` below.
+        """
+        return pulumi.get(self, "collection_configurations")
+
+    @collection_configurations.setter
+    def collection_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobDebugHookConfigCollectionConfigurationArgs']]]]):
+        pulumi.set(self, "collection_configurations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hookParameters")
+    def hook_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Map of parameters for the debug hook. Maximum of 20 entries.
+        """
+        return pulumi.get(self, "hook_parameters")
+
+    @hook_parameters.setter
+    def hook_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "hook_parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Local path where debug output is written.
+        """
+        return pulumi.get(self, "local_path")
+
+    @local_path.setter
+    def local_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "local_path", value)
+
+
+class TrainingJobDebugHookConfigCollectionConfigurationArgsDict(TypedDict):
+    collection_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the tensor collection.
+    """
+    collection_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Map of parameters for the tensor collection.
+    """
+
+@pulumi.input_type
+class TrainingJobDebugHookConfigCollectionConfigurationArgs:
+    def __init__(__self__, *,
+                 collection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 collection_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] collection_name: Name of the tensor collection.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] collection_parameters: Map of parameters for the tensor collection.
+        """
+        if collection_name is not None:
+            pulumi.set(__self__, "collection_name", collection_name)
+        if collection_parameters is not None:
+            pulumi.set(__self__, "collection_parameters", collection_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="collectionName")
+    def collection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the tensor collection.
+        """
+        return pulumi.get(self, "collection_name")
+
+    @collection_name.setter
+    def collection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "collection_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="collectionParameters")
+    def collection_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Map of parameters for the tensor collection.
+        """
+        return pulumi.get(self, "collection_parameters")
+
+    @collection_parameters.setter
+    def collection_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "collection_parameters", value)
+
+
+class TrainingJobDebugRuleConfigurationArgsDict(TypedDict):
+    rule_configuration_name: pulumi.Input[_builtins.str]
+    """
+    Name of the rule configuration. Must be between 1 and 256 characters.
+    """
+    rule_evaluator_image: pulumi.Input[_builtins.str]
+    """
+    Docker image URI for the rule evaluator.
+    """
+    instance_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Instance type to deploy for the debug rule evaluation. Valid values are SageMaker AI processing instance types.
+    """
+    local_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Local path where debug rule output is written.
+    """
+    rule_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Map of parameters for the rule configuration. Maximum of 100 entries.
+    """
+    s3_output_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    S3 URI where rule output is stored.
+    """
+    volume_size_in_gb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Size of the storage volume for the rule evaluator, in GB.
+    """
+
+@pulumi.input_type
+class TrainingJobDebugRuleConfigurationArgs:
+    def __init__(__self__, *,
+                 rule_configuration_name: pulumi.Input[_builtins.str],
+                 rule_evaluator_image: pulumi.Input[_builtins.str],
+                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 local_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 rule_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 s3_output_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 volume_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] rule_configuration_name: Name of the rule configuration. Must be between 1 and 256 characters.
+        :param pulumi.Input[_builtins.str] rule_evaluator_image: Docker image URI for the rule evaluator.
+        :param pulumi.Input[_builtins.str] instance_type: Instance type to deploy for the debug rule evaluation. Valid values are SageMaker AI processing instance types.
+        :param pulumi.Input[_builtins.str] local_path: Local path where debug rule output is written.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] rule_parameters: Map of parameters for the rule configuration. Maximum of 100 entries.
+        :param pulumi.Input[_builtins.str] s3_output_path: S3 URI where rule output is stored.
+        :param pulumi.Input[_builtins.int] volume_size_in_gb: Size of the storage volume for the rule evaluator, in GB.
+        """
+        pulumi.set(__self__, "rule_configuration_name", rule_configuration_name)
+        pulumi.set(__self__, "rule_evaluator_image", rule_evaluator_image)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if local_path is not None:
+            pulumi.set(__self__, "local_path", local_path)
+        if rule_parameters is not None:
+            pulumi.set(__self__, "rule_parameters", rule_parameters)
+        if s3_output_path is not None:
+            pulumi.set(__self__, "s3_output_path", s3_output_path)
+        if volume_size_in_gb is not None:
+            pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleConfigurationName")
+    def rule_configuration_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the rule configuration. Must be between 1 and 256 characters.
+        """
+        return pulumi.get(self, "rule_configuration_name")
+
+    @rule_configuration_name.setter
+    def rule_configuration_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rule_configuration_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleEvaluatorImage")
+    def rule_evaluator_image(self) -> pulumi.Input[_builtins.str]:
+        """
+        Docker image URI for the rule evaluator.
+        """
+        return pulumi.get(self, "rule_evaluator_image")
+
+    @rule_evaluator_image.setter
+    def rule_evaluator_image(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rule_evaluator_image", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Instance type to deploy for the debug rule evaluation. Valid values are SageMaker AI processing instance types.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Local path where debug rule output is written.
+        """
+        return pulumi.get(self, "local_path")
+
+    @local_path.setter
+    def local_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "local_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleParameters")
+    def rule_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Map of parameters for the rule configuration. Maximum of 100 entries.
+        """
+        return pulumi.get(self, "rule_parameters")
+
+    @rule_parameters.setter
+    def rule_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "rule_parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        S3 URI where rule output is stored.
+        """
+        return pulumi.get(self, "s3_output_path")
+
+    @s3_output_path.setter
+    def s3_output_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "s3_output_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeSizeInGb")
+    def volume_size_in_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Size of the storage volume for the rule evaluator, in GB.
+        """
+        return pulumi.get(self, "volume_size_in_gb")
+
+    @volume_size_in_gb.setter
+    def volume_size_in_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "volume_size_in_gb", value)
+
+
+class TrainingJobExperimentConfigArgsDict(TypedDict):
+    experiment_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the SageMaker AI Experiment to associate with.
+    """
+    run_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Experiment Run to associate with.
+    """
+    trial_component_display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Display name for the trial component.
+    """
+    trial_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the SageMaker AI Trial to associate with.
+    """
+
+@pulumi.input_type
+class TrainingJobExperimentConfigArgs:
+    def __init__(__self__, *,
+                 experiment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 run_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 trial_component_display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 trial_name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] experiment_name: Name of the SageMaker AI Experiment to associate with.
+        :param pulumi.Input[_builtins.str] run_name: Name of the Experiment Run to associate with.
+        :param pulumi.Input[_builtins.str] trial_component_display_name: Display name for the trial component.
+        :param pulumi.Input[_builtins.str] trial_name: Name of the SageMaker AI Trial to associate with.
+        """
+        if experiment_name is not None:
+            pulumi.set(__self__, "experiment_name", experiment_name)
+        if run_name is not None:
+            pulumi.set(__self__, "run_name", run_name)
+        if trial_component_display_name is not None:
+            pulumi.set(__self__, "trial_component_display_name", trial_component_display_name)
+        if trial_name is not None:
+            pulumi.set(__self__, "trial_name", trial_name)
+
+    @_builtins.property
+    @pulumi.getter(name="experimentName")
+    def experiment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the SageMaker AI Experiment to associate with.
+        """
+        return pulumi.get(self, "experiment_name")
+
+    @experiment_name.setter
+    def experiment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "experiment_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="runName")
+    def run_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the Experiment Run to associate with.
+        """
+        return pulumi.get(self, "run_name")
+
+    @run_name.setter
+    def run_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "run_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trialComponentDisplayName")
+    def trial_component_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Display name for the trial component.
+        """
+        return pulumi.get(self, "trial_component_display_name")
+
+    @trial_component_display_name.setter
+    def trial_component_display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "trial_component_display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trialName")
+    def trial_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the SageMaker AI Trial to associate with.
+        """
+        return pulumi.get(self, "trial_name")
+
+    @trial_name.setter
+    def trial_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "trial_name", value)
+
+
+class TrainingJobInfraCheckConfigArgsDict(TypedDict):
+    enable_infra_check: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable infrastructure health checks before training.
+    """
+
+@pulumi.input_type
+class TrainingJobInfraCheckConfigArgs:
+    def __init__(__self__, *,
+                 enable_infra_check: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enable_infra_check: Whether to enable infrastructure health checks before training.
+        """
+        if enable_infra_check is not None:
+            pulumi.set(__self__, "enable_infra_check", enable_infra_check)
+
+    @_builtins.property
+    @pulumi.getter(name="enableInfraCheck")
+    def enable_infra_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to enable infrastructure health checks before training.
+        """
+        return pulumi.get(self, "enable_infra_check")
+
+    @enable_infra_check.setter
+    def enable_infra_check(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_infra_check", value)
+
+
+class TrainingJobInputDataConfigArgsDict(TypedDict):
+    channel_name: pulumi.Input[_builtins.str]
+    """
+    Name of the channel. Must be between 1 and 64 characters.
+    """
+    compression_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Compression type for the input data. Valid values: `None`, `Gzip`.
+    """
+    content_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    MIME type of the input data.
+    """
+    data_source: NotRequired[pulumi.Input['TrainingJobInputDataConfigDataSourceArgsDict']]
+    """
+    Location of the channel data. See `data_source` below.
+    """
+    input_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Input mode for the channel data. Valid values: `File`, `Pipe`, `FastFile`.
+    """
+    record_wrapper_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Record wrapper type. Valid values: `None`, `RecordIO`.
+    """
+    shuffle_config: NotRequired[pulumi.Input['TrainingJobInputDataConfigShuffleConfigArgsDict']]
+    """
+    Configuration for shuffling data in the channel. See `shuffle_config` below.
+    """
+
+@pulumi.input_type
+class TrainingJobInputDataConfigArgs:
+    def __init__(__self__, *,
+                 channel_name: pulumi.Input[_builtins.str],
+                 compression_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_source: Optional[pulumi.Input['TrainingJobInputDataConfigDataSourceArgs']] = None,
+                 input_mode: Optional[pulumi.Input[_builtins.str]] = None,
+                 record_wrapper_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 shuffle_config: Optional[pulumi.Input['TrainingJobInputDataConfigShuffleConfigArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] channel_name: Name of the channel. Must be between 1 and 64 characters.
+        :param pulumi.Input[_builtins.str] compression_type: Compression type for the input data. Valid values: `None`, `Gzip`.
+        :param pulumi.Input[_builtins.str] content_type: MIME type of the input data.
+        :param pulumi.Input['TrainingJobInputDataConfigDataSourceArgs'] data_source: Location of the channel data. See `data_source` below.
+        :param pulumi.Input[_builtins.str] input_mode: Input mode for the channel data. Valid values: `File`, `Pipe`, `FastFile`.
+        :param pulumi.Input[_builtins.str] record_wrapper_type: Record wrapper type. Valid values: `None`, `RecordIO`.
+        :param pulumi.Input['TrainingJobInputDataConfigShuffleConfigArgs'] shuffle_config: Configuration for shuffling data in the channel. See `shuffle_config` below.
+        """
+        pulumi.set(__self__, "channel_name", channel_name)
+        if compression_type is not None:
+            pulumi.set(__self__, "compression_type", compression_type)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
+        if input_mode is not None:
+            pulumi.set(__self__, "input_mode", input_mode)
+        if record_wrapper_type is not None:
+            pulumi.set(__self__, "record_wrapper_type", record_wrapper_type)
+        if shuffle_config is not None:
+            pulumi.set(__self__, "shuffle_config", shuffle_config)
+
+    @_builtins.property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the channel. Must be between 1 and 64 characters.
+        """
+        return pulumi.get(self, "channel_name")
+
+    @channel_name.setter
+    def channel_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "channel_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Compression type for the input data. Valid values: `None`, `Gzip`.
+        """
+        return pulumi.get(self, "compression_type")
+
+    @compression_type.setter
+    def compression_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "compression_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        MIME type of the input data.
+        """
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "content_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> Optional[pulumi.Input['TrainingJobInputDataConfigDataSourceArgs']]:
+        """
+        Location of the channel data. See `data_source` below.
+        """
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: Optional[pulumi.Input['TrainingJobInputDataConfigDataSourceArgs']]):
+        pulumi.set(self, "data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inputMode")
+    def input_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Input mode for the channel data. Valid values: `File`, `Pipe`, `FastFile`.
+        """
+        return pulumi.get(self, "input_mode")
+
+    @input_mode.setter
+    def input_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "input_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recordWrapperType")
+    def record_wrapper_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Record wrapper type. Valid values: `None`, `RecordIO`.
+        """
+        return pulumi.get(self, "record_wrapper_type")
+
+    @record_wrapper_type.setter
+    def record_wrapper_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "record_wrapper_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shuffleConfig")
+    def shuffle_config(self) -> Optional[pulumi.Input['TrainingJobInputDataConfigShuffleConfigArgs']]:
+        """
+        Configuration for shuffling data in the channel. See `shuffle_config` below.
+        """
+        return pulumi.get(self, "shuffle_config")
+
+    @shuffle_config.setter
+    def shuffle_config(self, value: Optional[pulumi.Input['TrainingJobInputDataConfigShuffleConfigArgs']]):
+        pulumi.set(self, "shuffle_config", value)
+
+
+class TrainingJobInputDataConfigDataSourceArgsDict(TypedDict):
+    file_system_data_source: NotRequired[pulumi.Input['TrainingJobInputDataConfigDataSourceFileSystemDataSourceArgsDict']]
+    """
+    File system data source. See `file_system_data_source` below.
+    """
+    s3_data_source: NotRequired[pulumi.Input['TrainingJobInputDataConfigDataSourceS3DataSourceArgsDict']]
+    """
+    S3 data source. See `s3_data_source` below.
+    """
+
+@pulumi.input_type
+class TrainingJobInputDataConfigDataSourceArgs:
+    def __init__(__self__, *,
+                 file_system_data_source: Optional[pulumi.Input['TrainingJobInputDataConfigDataSourceFileSystemDataSourceArgs']] = None,
+                 s3_data_source: Optional[pulumi.Input['TrainingJobInputDataConfigDataSourceS3DataSourceArgs']] = None):
+        """
+        :param pulumi.Input['TrainingJobInputDataConfigDataSourceFileSystemDataSourceArgs'] file_system_data_source: File system data source. See `file_system_data_source` below.
+        :param pulumi.Input['TrainingJobInputDataConfigDataSourceS3DataSourceArgs'] s3_data_source: S3 data source. See `s3_data_source` below.
+        """
+        if file_system_data_source is not None:
+            pulumi.set(__self__, "file_system_data_source", file_system_data_source)
+        if s3_data_source is not None:
+            pulumi.set(__self__, "s3_data_source", s3_data_source)
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemDataSource")
+    def file_system_data_source(self) -> Optional[pulumi.Input['TrainingJobInputDataConfigDataSourceFileSystemDataSourceArgs']]:
+        """
+        File system data source. See `file_system_data_source` below.
+        """
+        return pulumi.get(self, "file_system_data_source")
+
+    @file_system_data_source.setter
+    def file_system_data_source(self, value: Optional[pulumi.Input['TrainingJobInputDataConfigDataSourceFileSystemDataSourceArgs']]):
+        pulumi.set(self, "file_system_data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataSource")
+    def s3_data_source(self) -> Optional[pulumi.Input['TrainingJobInputDataConfigDataSourceS3DataSourceArgs']]:
+        """
+        S3 data source. See `s3_data_source` below.
+        """
+        return pulumi.get(self, "s3_data_source")
+
+    @s3_data_source.setter
+    def s3_data_source(self, value: Optional[pulumi.Input['TrainingJobInputDataConfigDataSourceS3DataSourceArgs']]):
+        pulumi.set(self, "s3_data_source", value)
+
+
+class TrainingJobInputDataConfigDataSourceFileSystemDataSourceArgsDict(TypedDict):
+    directory_path: pulumi.Input[_builtins.str]
+    """
+    Full path to the directory on the file system.
+    """
+    file_system_access_mode: pulumi.Input[_builtins.str]
+    """
+    Access mode for the file system. Valid values: `ro`, `rw`.
+    """
+    file_system_id: pulumi.Input[_builtins.str]
+    """
+    File system ID.
+    """
+    file_system_type: pulumi.Input[_builtins.str]
+    """
+    File system type. Valid values: `EFS`, `FSxLustre`.
+    """
+
+@pulumi.input_type
+class TrainingJobInputDataConfigDataSourceFileSystemDataSourceArgs:
+    def __init__(__self__, *,
+                 directory_path: pulumi.Input[_builtins.str],
+                 file_system_access_mode: pulumi.Input[_builtins.str],
+                 file_system_id: pulumi.Input[_builtins.str],
+                 file_system_type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] directory_path: Full path to the directory on the file system.
+        :param pulumi.Input[_builtins.str] file_system_access_mode: Access mode for the file system. Valid values: `ro`, `rw`.
+        :param pulumi.Input[_builtins.str] file_system_id: File system ID.
+        :param pulumi.Input[_builtins.str] file_system_type: File system type. Valid values: `EFS`, `FSxLustre`.
+        """
+        pulumi.set(__self__, "directory_path", directory_path)
+        pulumi.set(__self__, "file_system_access_mode", file_system_access_mode)
+        pulumi.set(__self__, "file_system_id", file_system_id)
+        pulumi.set(__self__, "file_system_type", file_system_type)
+
+    @_builtins.property
+    @pulumi.getter(name="directoryPath")
+    def directory_path(self) -> pulumi.Input[_builtins.str]:
+        """
+        Full path to the directory on the file system.
+        """
+        return pulumi.get(self, "directory_path")
+
+    @directory_path.setter
+    def directory_path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "directory_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemAccessMode")
+    def file_system_access_mode(self) -> pulumi.Input[_builtins.str]:
+        """
+        Access mode for the file system. Valid values: `ro`, `rw`.
+        """
+        return pulumi.get(self, "file_system_access_mode")
+
+    @file_system_access_mode.setter
+    def file_system_access_mode(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "file_system_access_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        File system ID.
+        """
+        return pulumi.get(self, "file_system_id")
+
+    @file_system_id.setter
+    def file_system_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "file_system_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemType")
+    def file_system_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        File system type. Valid values: `EFS`, `FSxLustre`.
+        """
+        return pulumi.get(self, "file_system_type")
+
+    @file_system_type.setter
+    def file_system_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "file_system_type", value)
+
+
+class TrainingJobInputDataConfigDataSourceS3DataSourceArgsDict(TypedDict):
+    s3_data_type: pulumi.Input[_builtins.str]
+    """
+    S3 data type. Valid values: `ManifestFile`, `S3Prefix`, `AugmentedManifestFile`.
+    """
+    s3_uri: pulumi.Input[_builtins.str]
+    """
+    S3 URI of the data.
+    """
+    attribute_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of attribute names to include in the training dataset. Maximum of 16.
+    """
+    hub_access_config: NotRequired[pulumi.Input['TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigArgsDict']]
+    """
+    SageMaker AI Hub access configuration. See `hub_access_config` below.
+    """
+    instance_group_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of instance group names for the training data distribution. Maximum of 5.
+    """
+    model_access_config: NotRequired[pulumi.Input['TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigArgsDict']]
+    """
+    Model access configuration. See `model_access_config` below.
+    """
+    s3_data_distribution_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Distribution type for S3 data. Valid values: `FullyReplicated`, `ShardedByS3Key`.
+    """
+
+@pulumi.input_type
+class TrainingJobInputDataConfigDataSourceS3DataSourceArgs:
+    def __init__(__self__, *,
+                 s3_data_type: pulumi.Input[_builtins.str],
+                 s3_uri: pulumi.Input[_builtins.str],
+                 attribute_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 hub_access_config: Optional[pulumi.Input['TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs']] = None,
+                 instance_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 model_access_config: Optional[pulumi.Input['TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs']] = None,
+                 s3_data_distribution_type: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] s3_data_type: S3 data type. Valid values: `ManifestFile`, `S3Prefix`, `AugmentedManifestFile`.
+        :param pulumi.Input[_builtins.str] s3_uri: S3 URI of the data.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] attribute_names: List of attribute names to include in the training dataset. Maximum of 16.
+        :param pulumi.Input['TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs'] hub_access_config: SageMaker AI Hub access configuration. See `hub_access_config` below.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] instance_group_names: List of instance group names for the training data distribution. Maximum of 5.
+        :param pulumi.Input['TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs'] model_access_config: Model access configuration. See `model_access_config` below.
+        :param pulumi.Input[_builtins.str] s3_data_distribution_type: Distribution type for S3 data. Valid values: `FullyReplicated`, `ShardedByS3Key`.
+        """
+        pulumi.set(__self__, "s3_data_type", s3_data_type)
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if attribute_names is not None:
+            pulumi.set(__self__, "attribute_names", attribute_names)
+        if hub_access_config is not None:
+            pulumi.set(__self__, "hub_access_config", hub_access_config)
+        if instance_group_names is not None:
+            pulumi.set(__self__, "instance_group_names", instance_group_names)
+        if model_access_config is not None:
+            pulumi.set(__self__, "model_access_config", model_access_config)
+        if s3_data_distribution_type is not None:
+            pulumi.set(__self__, "s3_data_distribution_type", s3_data_distribution_type)
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataType")
+    def s3_data_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        S3 data type. Valid values: `ManifestFile`, `S3Prefix`, `AugmentedManifestFile`.
+        """
+        return pulumi.get(self, "s3_data_type")
+
+    @s3_data_type.setter
+    def s3_data_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "s3_data_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> pulumi.Input[_builtins.str]:
+        """
+        S3 URI of the data.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @s3_uri.setter
+    def s3_uri(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "s3_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="attributeNames")
+    def attribute_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of attribute names to include in the training dataset. Maximum of 16.
+        """
+        return pulumi.get(self, "attribute_names")
+
+    @attribute_names.setter
+    def attribute_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "attribute_names", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hubAccessConfig")
+    def hub_access_config(self) -> Optional[pulumi.Input['TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs']]:
+        """
+        SageMaker AI Hub access configuration. See `hub_access_config` below.
+        """
+        return pulumi.get(self, "hub_access_config")
+
+    @hub_access_config.setter
+    def hub_access_config(self, value: Optional[pulumi.Input['TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs']]):
+        pulumi.set(self, "hub_access_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceGroupNames")
+    def instance_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of instance group names for the training data distribution. Maximum of 5.
+        """
+        return pulumi.get(self, "instance_group_names")
+
+    @instance_group_names.setter
+    def instance_group_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "instance_group_names", value)
+
+    @_builtins.property
+    @pulumi.getter(name="modelAccessConfig")
+    def model_access_config(self) -> Optional[pulumi.Input['TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs']]:
+        """
+        Model access configuration. See `model_access_config` below.
+        """
+        return pulumi.get(self, "model_access_config")
+
+    @model_access_config.setter
+    def model_access_config(self, value: Optional[pulumi.Input['TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs']]):
+        pulumi.set(self, "model_access_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataDistributionType")
+    def s3_data_distribution_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Distribution type for S3 data. Valid values: `FullyReplicated`, `ShardedByS3Key`.
+        """
+        return pulumi.get(self, "s3_data_distribution_type")
+
+    @s3_data_distribution_type.setter
+    def s3_data_distribution_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "s3_data_distribution_type", value)
+
+
+class TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigArgsDict(TypedDict):
+    hub_content_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the hub content.
+    """
+
+@pulumi.input_type
+class TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs:
+    def __init__(__self__, *,
+                 hub_content_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] hub_content_arn: ARN of the hub content.
+        """
+        pulumi.set(__self__, "hub_content_arn", hub_content_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="hubContentArn")
+    def hub_content_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the hub content.
+        """
+        return pulumi.get(self, "hub_content_arn")
+
+    @hub_content_arn.setter
+    def hub_content_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "hub_content_arn", value)
+
+
+class TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigArgsDict(TypedDict):
+    accept_eula: pulumi.Input[_builtins.bool]
+    """
+    Whether to accept the model EULA.
+    """
+
+@pulumi.input_type
+class TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs:
+    def __init__(__self__, *,
+                 accept_eula: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] accept_eula: Whether to accept the model EULA.
+        """
+        pulumi.set(__self__, "accept_eula", accept_eula)
+
+    @_builtins.property
+    @pulumi.getter(name="acceptEula")
+    def accept_eula(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether to accept the model EULA.
+        """
+        return pulumi.get(self, "accept_eula")
+
+    @accept_eula.setter
+    def accept_eula(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "accept_eula", value)
+
+
+class TrainingJobInputDataConfigShuffleConfigArgsDict(TypedDict):
+    seed: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Seed value used to shuffle the training data.
+    """
+
+@pulumi.input_type
+class TrainingJobInputDataConfigShuffleConfigArgs:
+    def __init__(__self__, *,
+                 seed: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] seed: Seed value used to shuffle the training data.
+        """
+        if seed is not None:
+            pulumi.set(__self__, "seed", seed)
+
+    @_builtins.property
+    @pulumi.getter
+    def seed(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Seed value used to shuffle the training data.
+        """
+        return pulumi.get(self, "seed")
+
+    @seed.setter
+    def seed(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "seed", value)
+
+
+class TrainingJobMlflowConfigArgsDict(TypedDict):
+    mlflow_resource_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the MLflow tracking server.
+    """
+    mlflow_experiment_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the MLflow experiment.
+    """
+    mlflow_run_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the MLflow run.
+    """
+
+@pulumi.input_type
+class TrainingJobMlflowConfigArgs:
+    def __init__(__self__, *,
+                 mlflow_resource_arn: pulumi.Input[_builtins.str],
+                 mlflow_experiment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 mlflow_run_name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] mlflow_resource_arn: ARN of the MLflow tracking server.
+        :param pulumi.Input[_builtins.str] mlflow_experiment_name: Name of the MLflow experiment.
+        :param pulumi.Input[_builtins.str] mlflow_run_name: Name of the MLflow run.
+        """
+        pulumi.set(__self__, "mlflow_resource_arn", mlflow_resource_arn)
+        if mlflow_experiment_name is not None:
+            pulumi.set(__self__, "mlflow_experiment_name", mlflow_experiment_name)
+        if mlflow_run_name is not None:
+            pulumi.set(__self__, "mlflow_run_name", mlflow_run_name)
+
+    @_builtins.property
+    @pulumi.getter(name="mlflowResourceArn")
+    def mlflow_resource_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the MLflow tracking server.
+        """
+        return pulumi.get(self, "mlflow_resource_arn")
+
+    @mlflow_resource_arn.setter
+    def mlflow_resource_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "mlflow_resource_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mlflowExperimentName")
+    def mlflow_experiment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the MLflow experiment.
+        """
+        return pulumi.get(self, "mlflow_experiment_name")
+
+    @mlflow_experiment_name.setter
+    def mlflow_experiment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "mlflow_experiment_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mlflowRunName")
+    def mlflow_run_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the MLflow run.
+        """
+        return pulumi.get(self, "mlflow_run_name")
+
+    @mlflow_run_name.setter
+    def mlflow_run_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "mlflow_run_name", value)
+
+
+class TrainingJobModelPackageConfigArgsDict(TypedDict):
+    model_package_group_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the model package group.
+    """
+    source_model_package_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the source model package.
+    """
+
+@pulumi.input_type
+class TrainingJobModelPackageConfigArgs:
+    def __init__(__self__, *,
+                 model_package_group_arn: pulumi.Input[_builtins.str],
+                 source_model_package_arn: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] model_package_group_arn: ARN of the model package group.
+        :param pulumi.Input[_builtins.str] source_model_package_arn: ARN of the source model package.
+        """
+        pulumi.set(__self__, "model_package_group_arn", model_package_group_arn)
+        if source_model_package_arn is not None:
+            pulumi.set(__self__, "source_model_package_arn", source_model_package_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="modelPackageGroupArn")
+    def model_package_group_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the model package group.
+        """
+        return pulumi.get(self, "model_package_group_arn")
+
+    @model_package_group_arn.setter
+    def model_package_group_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "model_package_group_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceModelPackageArn")
+    def source_model_package_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN of the source model package.
+        """
+        return pulumi.get(self, "source_model_package_arn")
+
+    @source_model_package_arn.setter
+    def source_model_package_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source_model_package_arn", value)
+
+
+class TrainingJobOutputDataConfigArgsDict(TypedDict):
+    s3_output_path: pulumi.Input[_builtins.str]
+    """
+    S3 URI where output data is stored.
+    """
+    compression_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Output compression type. Valid values: `GZIP`, `NONE`.
+    """
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    KMS key ID used to encrypt the output data.
+    """
+
+@pulumi.input_type
+class TrainingJobOutputDataConfigArgs:
+    def __init__(__self__, *,
+                 s3_output_path: pulumi.Input[_builtins.str],
+                 compression_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] s3_output_path: S3 URI where output data is stored.
+        :param pulumi.Input[_builtins.str] compression_type: Output compression type. Valid values: `GZIP`, `NONE`.
+        :param pulumi.Input[_builtins.str] kms_key_id: KMS key ID used to encrypt the output data.
+        """
+        pulumi.set(__self__, "s3_output_path", s3_output_path)
+        if compression_type is not None:
+            pulumi.set(__self__, "compression_type", compression_type)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> pulumi.Input[_builtins.str]:
+        """
+        S3 URI where output data is stored.
+        """
+        return pulumi.get(self, "s3_output_path")
+
+    @s3_output_path.setter
+    def s3_output_path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "s3_output_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Output compression type. Valid values: `GZIP`, `NONE`.
+        """
+        return pulumi.get(self, "compression_type")
+
+    @compression_type.setter
+    def compression_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "compression_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        KMS key ID used to encrypt the output data.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+
+class TrainingJobProfilerConfigArgsDict(TypedDict):
+    disable_profiler: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to disable the profiler.
+    """
+    profiling_interval_in_milliseconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Time interval in milliseconds for capturing system metrics. Valid values: `100`, `200`, `500`, `1000`, `5000`, `60000`.
+    """
+    profiling_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Map of profiling parameters. Maximum of 20 entries.
+    """
+    s3_output_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    S3 URI where profiler output is stored.
+    """
+
+@pulumi.input_type
+class TrainingJobProfilerConfigArgs:
+    def __init__(__self__, *,
+                 disable_profiler: Optional[pulumi.Input[_builtins.bool]] = None,
+                 profiling_interval_in_milliseconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 profiling_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 s3_output_path: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] disable_profiler: Whether to disable the profiler.
+        :param pulumi.Input[_builtins.int] profiling_interval_in_milliseconds: Time interval in milliseconds for capturing system metrics. Valid values: `100`, `200`, `500`, `1000`, `5000`, `60000`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] profiling_parameters: Map of profiling parameters. Maximum of 20 entries.
+        :param pulumi.Input[_builtins.str] s3_output_path: S3 URI where profiler output is stored.
+        """
+        if disable_profiler is not None:
+            pulumi.set(__self__, "disable_profiler", disable_profiler)
+        if profiling_interval_in_milliseconds is not None:
+            pulumi.set(__self__, "profiling_interval_in_milliseconds", profiling_interval_in_milliseconds)
+        if profiling_parameters is not None:
+            pulumi.set(__self__, "profiling_parameters", profiling_parameters)
+        if s3_output_path is not None:
+            pulumi.set(__self__, "s3_output_path", s3_output_path)
+
+    @_builtins.property
+    @pulumi.getter(name="disableProfiler")
+    def disable_profiler(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to disable the profiler.
+        """
+        return pulumi.get(self, "disable_profiler")
+
+    @disable_profiler.setter
+    def disable_profiler(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "disable_profiler", value)
+
+    @_builtins.property
+    @pulumi.getter(name="profilingIntervalInMilliseconds")
+    def profiling_interval_in_milliseconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Time interval in milliseconds for capturing system metrics. Valid values: `100`, `200`, `500`, `1000`, `5000`, `60000`.
+        """
+        return pulumi.get(self, "profiling_interval_in_milliseconds")
+
+    @profiling_interval_in_milliseconds.setter
+    def profiling_interval_in_milliseconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "profiling_interval_in_milliseconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="profilingParameters")
+    def profiling_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Map of profiling parameters. Maximum of 20 entries.
+        """
+        return pulumi.get(self, "profiling_parameters")
+
+    @profiling_parameters.setter
+    def profiling_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "profiling_parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        S3 URI where profiler output is stored.
+        """
+        return pulumi.get(self, "s3_output_path")
+
+    @s3_output_path.setter
+    def s3_output_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "s3_output_path", value)
+
+
+class TrainingJobProfilerRuleConfigurationArgsDict(TypedDict):
+    rule_configuration_name: pulumi.Input[_builtins.str]
+    """
+    Name of the profiler rule configuration. Must be between 1 and 256 characters.
+    """
+    rule_evaluator_image: pulumi.Input[_builtins.str]
+    """
+    Docker image URI for the profiler rule evaluator.
+    """
+    instance_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Instance type to deploy for the profiler rule evaluation. Valid values are SageMaker AI processing instance types.
+    """
+    local_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Local path where profiler rule output is written.
+    """
+    rule_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Map of parameters for the profiler rule. Maximum of 100 entries.
+    """
+    s3_output_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    S3 URI where profiler rule output is stored.
+    """
+    volume_size_in_gb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Size of the storage volume for the profiler rule evaluator, in GB.
+    """
+
+@pulumi.input_type
+class TrainingJobProfilerRuleConfigurationArgs:
+    def __init__(__self__, *,
+                 rule_configuration_name: pulumi.Input[_builtins.str],
+                 rule_evaluator_image: pulumi.Input[_builtins.str],
+                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 local_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 rule_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 s3_output_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 volume_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] rule_configuration_name: Name of the profiler rule configuration. Must be between 1 and 256 characters.
+        :param pulumi.Input[_builtins.str] rule_evaluator_image: Docker image URI for the profiler rule evaluator.
+        :param pulumi.Input[_builtins.str] instance_type: Instance type to deploy for the profiler rule evaluation. Valid values are SageMaker AI processing instance types.
+        :param pulumi.Input[_builtins.str] local_path: Local path where profiler rule output is written.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] rule_parameters: Map of parameters for the profiler rule. Maximum of 100 entries.
+        :param pulumi.Input[_builtins.str] s3_output_path: S3 URI where profiler rule output is stored.
+        :param pulumi.Input[_builtins.int] volume_size_in_gb: Size of the storage volume for the profiler rule evaluator, in GB.
+        """
+        pulumi.set(__self__, "rule_configuration_name", rule_configuration_name)
+        pulumi.set(__self__, "rule_evaluator_image", rule_evaluator_image)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if local_path is not None:
+            pulumi.set(__self__, "local_path", local_path)
+        if rule_parameters is not None:
+            pulumi.set(__self__, "rule_parameters", rule_parameters)
+        if s3_output_path is not None:
+            pulumi.set(__self__, "s3_output_path", s3_output_path)
+        if volume_size_in_gb is not None:
+            pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleConfigurationName")
+    def rule_configuration_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the profiler rule configuration. Must be between 1 and 256 characters.
+        """
+        return pulumi.get(self, "rule_configuration_name")
+
+    @rule_configuration_name.setter
+    def rule_configuration_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rule_configuration_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleEvaluatorImage")
+    def rule_evaluator_image(self) -> pulumi.Input[_builtins.str]:
+        """
+        Docker image URI for the profiler rule evaluator.
+        """
+        return pulumi.get(self, "rule_evaluator_image")
+
+    @rule_evaluator_image.setter
+    def rule_evaluator_image(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rule_evaluator_image", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Instance type to deploy for the profiler rule evaluation. Valid values are SageMaker AI processing instance types.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Local path where profiler rule output is written.
+        """
+        return pulumi.get(self, "local_path")
+
+    @local_path.setter
+    def local_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "local_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleParameters")
+    def rule_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Map of parameters for the profiler rule. Maximum of 100 entries.
+        """
+        return pulumi.get(self, "rule_parameters")
+
+    @rule_parameters.setter
+    def rule_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "rule_parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        S3 URI where profiler rule output is stored.
+        """
+        return pulumi.get(self, "s3_output_path")
+
+    @s3_output_path.setter
+    def s3_output_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "s3_output_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeSizeInGb")
+    def volume_size_in_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Size of the storage volume for the profiler rule evaluator, in GB.
+        """
+        return pulumi.get(self, "volume_size_in_gb")
+
+    @volume_size_in_gb.setter
+    def volume_size_in_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "volume_size_in_gb", value)
+
+
+class TrainingJobRemoteDebugConfigArgsDict(TypedDict):
+    enable_remote_debug: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable remote debugging for the training job.
+    """
+
+@pulumi.input_type
+class TrainingJobRemoteDebugConfigArgs:
+    def __init__(__self__, *,
+                 enable_remote_debug: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enable_remote_debug: Whether to enable remote debugging for the training job.
+        """
+        if enable_remote_debug is not None:
+            pulumi.set(__self__, "enable_remote_debug", enable_remote_debug)
+
+    @_builtins.property
+    @pulumi.getter(name="enableRemoteDebug")
+    def enable_remote_debug(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to enable remote debugging for the training job.
+        """
+        return pulumi.get(self, "enable_remote_debug")
+
+    @enable_remote_debug.setter
+    def enable_remote_debug(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_remote_debug", value)
+
+
+class TrainingJobResourceConfigArgsDict(TypedDict):
+    instance_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of ML compute instances to use. Conflicts with `instance_groups`.
+    """
+    instance_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['TrainingJobResourceConfigInstanceGroupArgsDict']]]]
+    """
+    List of instance groups for heterogeneous cluster training. Maximum of 5. Conflicts with `instance_count`, `instance_type`, and `keep_alive_period_in_seconds`. See `instance_groups` below.
+    """
+    instance_placement_config: NotRequired[pulumi.Input['TrainingJobResourceConfigInstancePlacementConfigArgsDict']]
+    """
+    Instance placement configuration. See `instance_placement_config` below.
+    """
+    instance_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ML compute instance type. Conflicts with `instance_groups`.
+    """
+    keep_alive_period_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Time in seconds to keep instances alive after training completes, for warm pool reuse. Valid values: 0–3600. Conflicts with `instance_groups`.
+    """
+    training_plan_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the training plan to use.
+    """
+    volume_kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    KMS key ID used to encrypt data on the storage volume.
+    """
+    volume_size_in_gb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Size of the storage volume attached to each instance, in GB.
+    """
+
+@pulumi.input_type
+class TrainingJobResourceConfigArgs:
+    def __init__(__self__, *,
+                 instance_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobResourceConfigInstanceGroupArgs']]]] = None,
+                 instance_placement_config: Optional[pulumi.Input['TrainingJobResourceConfigInstancePlacementConfigArgs']] = None,
+                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 keep_alive_period_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 training_plan_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 volume_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 volume_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] instance_count: Number of ML compute instances to use. Conflicts with `instance_groups`.
+        :param pulumi.Input[Sequence[pulumi.Input['TrainingJobResourceConfigInstanceGroupArgs']]] instance_groups: List of instance groups for heterogeneous cluster training. Maximum of 5. Conflicts with `instance_count`, `instance_type`, and `keep_alive_period_in_seconds`. See `instance_groups` below.
+        :param pulumi.Input['TrainingJobResourceConfigInstancePlacementConfigArgs'] instance_placement_config: Instance placement configuration. See `instance_placement_config` below.
+        :param pulumi.Input[_builtins.str] instance_type: ML compute instance type. Conflicts with `instance_groups`.
+        :param pulumi.Input[_builtins.int] keep_alive_period_in_seconds: Time in seconds to keep instances alive after training completes, for warm pool reuse. Valid values: 0–3600. Conflicts with `instance_groups`.
+        :param pulumi.Input[_builtins.str] training_plan_arn: ARN of the training plan to use.
+        :param pulumi.Input[_builtins.str] volume_kms_key_id: KMS key ID used to encrypt data on the storage volume.
+        :param pulumi.Input[_builtins.int] volume_size_in_gb: Size of the storage volume attached to each instance, in GB.
+        """
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if instance_groups is not None:
+            pulumi.set(__self__, "instance_groups", instance_groups)
+        if instance_placement_config is not None:
+            pulumi.set(__self__, "instance_placement_config", instance_placement_config)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if keep_alive_period_in_seconds is not None:
+            pulumi.set(__self__, "keep_alive_period_in_seconds", keep_alive_period_in_seconds)
+        if training_plan_arn is not None:
+            pulumi.set(__self__, "training_plan_arn", training_plan_arn)
+        if volume_kms_key_id is not None:
+            pulumi.set(__self__, "volume_kms_key_id", volume_kms_key_id)
+        if volume_size_in_gb is not None:
+            pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Number of ML compute instances to use. Conflicts with `instance_groups`.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @instance_count.setter
+    def instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "instance_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceGroups")
+    def instance_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobResourceConfigInstanceGroupArgs']]]]:
+        """
+        List of instance groups for heterogeneous cluster training. Maximum of 5. Conflicts with `instance_count`, `instance_type`, and `keep_alive_period_in_seconds`. See `instance_groups` below.
+        """
+        return pulumi.get(self, "instance_groups")
+
+    @instance_groups.setter
+    def instance_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobResourceConfigInstanceGroupArgs']]]]):
+        pulumi.set(self, "instance_groups", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instancePlacementConfig")
+    def instance_placement_config(self) -> Optional[pulumi.Input['TrainingJobResourceConfigInstancePlacementConfigArgs']]:
+        """
+        Instance placement configuration. See `instance_placement_config` below.
+        """
+        return pulumi.get(self, "instance_placement_config")
+
+    @instance_placement_config.setter
+    def instance_placement_config(self, value: Optional[pulumi.Input['TrainingJobResourceConfigInstancePlacementConfigArgs']]):
+        pulumi.set(self, "instance_placement_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ML compute instance type. Conflicts with `instance_groups`.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keepAlivePeriodInSeconds")
+    def keep_alive_period_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Time in seconds to keep instances alive after training completes, for warm pool reuse. Valid values: 0–3600. Conflicts with `instance_groups`.
+        """
+        return pulumi.get(self, "keep_alive_period_in_seconds")
+
+    @keep_alive_period_in_seconds.setter
+    def keep_alive_period_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "keep_alive_period_in_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trainingPlanArn")
+    def training_plan_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN of the training plan to use.
+        """
+        return pulumi.get(self, "training_plan_arn")
+
+    @training_plan_arn.setter
+    def training_plan_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "training_plan_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeKmsKeyId")
+    def volume_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        KMS key ID used to encrypt data on the storage volume.
+        """
+        return pulumi.get(self, "volume_kms_key_id")
+
+    @volume_kms_key_id.setter
+    def volume_kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "volume_kms_key_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeSizeInGb")
+    def volume_size_in_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Size of the storage volume attached to each instance, in GB.
+        """
+        return pulumi.get(self, "volume_size_in_gb")
+
+    @volume_size_in_gb.setter
+    def volume_size_in_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "volume_size_in_gb", value)
+
+
+class TrainingJobResourceConfigInstanceGroupArgsDict(TypedDict):
+    instance_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of instances in the group.
+    """
+    instance_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the instance group.
+    """
+    instance_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ML compute instance type for the group.
+    """
+
+@pulumi.input_type
+class TrainingJobResourceConfigInstanceGroupArgs:
+    def __init__(__self__, *,
+                 instance_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 instance_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 instance_type: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.int] instance_count: Number of instances in the group.
+        :param pulumi.Input[_builtins.str] instance_group_name: Name of the instance group.
+        :param pulumi.Input[_builtins.str] instance_type: ML compute instance type for the group.
+        """
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if instance_group_name is not None:
+            pulumi.set(__self__, "instance_group_name", instance_group_name)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Number of instances in the group.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @instance_count.setter
+    def instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "instance_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceGroupName")
+    def instance_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the instance group.
+        """
+        return pulumi.get(self, "instance_group_name")
+
+    @instance_group_name.setter
+    def instance_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "instance_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ML compute instance type for the group.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "instance_type", value)
+
+
+class TrainingJobResourceConfigInstancePlacementConfigArgsDict(TypedDict):
+    enable_multiple_jobs: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable multiple jobs on the same instance.
+    """
+    placement_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArgsDict']]]]
+    """
+    Placement specifications for instance placement. See `placement_specifications` below.
+    """
+
+@pulumi.input_type
+class TrainingJobResourceConfigInstancePlacementConfigArgs:
+    def __init__(__self__, *,
+                 enable_multiple_jobs: Optional[pulumi.Input[_builtins.bool]] = None,
+                 placement_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enable_multiple_jobs: Whether to enable multiple jobs on the same instance.
+        :param pulumi.Input[Sequence[pulumi.Input['TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArgs']]] placement_specifications: Placement specifications for instance placement. See `placement_specifications` below.
+        """
+        if enable_multiple_jobs is not None:
+            pulumi.set(__self__, "enable_multiple_jobs", enable_multiple_jobs)
+        if placement_specifications is not None:
+            pulumi.set(__self__, "placement_specifications", placement_specifications)
+
+    @_builtins.property
+    @pulumi.getter(name="enableMultipleJobs")
+    def enable_multiple_jobs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to enable multiple jobs on the same instance.
+        """
+        return pulumi.get(self, "enable_multiple_jobs")
+
+    @enable_multiple_jobs.setter
+    def enable_multiple_jobs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_multiple_jobs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="placementSpecifications")
+    def placement_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArgs']]]]:
+        """
+        Placement specifications for instance placement. See `placement_specifications` below.
+        """
+        return pulumi.get(self, "placement_specifications")
+
+    @placement_specifications.setter
+    def placement_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArgs']]]]):
+        pulumi.set(self, "placement_specifications", value)
+
+
+class TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArgsDict(TypedDict):
+    instance_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of instances in the placement.
+    """
+    ultra_server_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Ultra server ID for the placement.
+    """
+
+@pulumi.input_type
+class TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArgs:
+    def __init__(__self__, *,
+                 instance_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 ultra_server_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.int] instance_count: Number of instances in the placement.
+        :param pulumi.Input[_builtins.str] ultra_server_id: Ultra server ID for the placement.
+        """
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if ultra_server_id is not None:
+            pulumi.set(__self__, "ultra_server_id", ultra_server_id)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Number of instances in the placement.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @instance_count.setter
+    def instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "instance_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ultraServerId")
+    def ultra_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Ultra server ID for the placement.
+        """
+        return pulumi.get(self, "ultra_server_id")
+
+    @ultra_server_id.setter
+    def ultra_server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ultra_server_id", value)
+
+
+class TrainingJobRetryStrategyArgsDict(TypedDict):
+    maximum_retry_attempts: pulumi.Input[_builtins.int]
+    """
+    Maximum number of retry attempts. Valid values: 1–30.
+    """
+
+@pulumi.input_type
+class TrainingJobRetryStrategyArgs:
+    def __init__(__self__, *,
+                 maximum_retry_attempts: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.int] maximum_retry_attempts: Maximum number of retry attempts. Valid values: 1–30.
+        """
+        pulumi.set(__self__, "maximum_retry_attempts", maximum_retry_attempts)
+
+    @_builtins.property
+    @pulumi.getter(name="maximumRetryAttempts")
+    def maximum_retry_attempts(self) -> pulumi.Input[_builtins.int]:
+        """
+        Maximum number of retry attempts. Valid values: 1–30.
+        """
+        return pulumi.get(self, "maximum_retry_attempts")
+
+    @maximum_retry_attempts.setter
+    def maximum_retry_attempts(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "maximum_retry_attempts", value)
+
+
+class TrainingJobServerlessJobConfigArgsDict(TypedDict):
+    base_model_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the base foundation model from the SageMaker AI Public Hub.
+    """
+    job_type: pulumi.Input[_builtins.str]
+    """
+    Serverless job type. Valid values: `FINE_TUNING`, `EVALUATION`, `DISTILLATION`.
+    """
+    accept_eula: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to accept the model EULA.
+    """
+    customization_technique: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Customization technique to apply. Valid values: `FINE_TUNING`, `DOMAIN_ADAPTION`.
+    """
+    evaluation_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Evaluation type. Valid values: `AUTOMATIC`, `HUMAN`, `NONE`.
+    """
+    evaluator_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the evaluator.
+    """
+    peft: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Parameter-Efficient Fine-Tuning (PEFT) method. Valid values: `LORA`.
+    """
+
+@pulumi.input_type
+class TrainingJobServerlessJobConfigArgs:
+    def __init__(__self__, *,
+                 base_model_arn: pulumi.Input[_builtins.str],
+                 job_type: pulumi.Input[_builtins.str],
+                 accept_eula: Optional[pulumi.Input[_builtins.bool]] = None,
+                 customization_technique: Optional[pulumi.Input[_builtins.str]] = None,
+                 evaluation_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 evaluator_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 peft: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] base_model_arn: ARN of the base foundation model from the SageMaker AI Public Hub.
+        :param pulumi.Input[_builtins.str] job_type: Serverless job type. Valid values: `FINE_TUNING`, `EVALUATION`, `DISTILLATION`.
+        :param pulumi.Input[_builtins.bool] accept_eula: Whether to accept the model EULA.
+        :param pulumi.Input[_builtins.str] customization_technique: Customization technique to apply. Valid values: `FINE_TUNING`, `DOMAIN_ADAPTION`.
+        :param pulumi.Input[_builtins.str] evaluation_type: Evaluation type. Valid values: `AUTOMATIC`, `HUMAN`, `NONE`.
+        :param pulumi.Input[_builtins.str] evaluator_arn: ARN of the evaluator.
+        :param pulumi.Input[_builtins.str] peft: Parameter-Efficient Fine-Tuning (PEFT) method. Valid values: `LORA`.
+        """
+        pulumi.set(__self__, "base_model_arn", base_model_arn)
+        pulumi.set(__self__, "job_type", job_type)
+        if accept_eula is not None:
+            pulumi.set(__self__, "accept_eula", accept_eula)
+        if customization_technique is not None:
+            pulumi.set(__self__, "customization_technique", customization_technique)
+        if evaluation_type is not None:
+            pulumi.set(__self__, "evaluation_type", evaluation_type)
+        if evaluator_arn is not None:
+            pulumi.set(__self__, "evaluator_arn", evaluator_arn)
+        if peft is not None:
+            pulumi.set(__self__, "peft", peft)
+
+    @_builtins.property
+    @pulumi.getter(name="baseModelArn")
+    def base_model_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the base foundation model from the SageMaker AI Public Hub.
+        """
+        return pulumi.get(self, "base_model_arn")
+
+    @base_model_arn.setter
+    def base_model_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "base_model_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jobType")
+    def job_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Serverless job type. Valid values: `FINE_TUNING`, `EVALUATION`, `DISTILLATION`.
+        """
+        return pulumi.get(self, "job_type")
+
+    @job_type.setter
+    def job_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "job_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="acceptEula")
+    def accept_eula(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to accept the model EULA.
+        """
+        return pulumi.get(self, "accept_eula")
+
+    @accept_eula.setter
+    def accept_eula(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "accept_eula", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customizationTechnique")
+    def customization_technique(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Customization technique to apply. Valid values: `FINE_TUNING`, `DOMAIN_ADAPTION`.
+        """
+        return pulumi.get(self, "customization_technique")
+
+    @customization_technique.setter
+    def customization_technique(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "customization_technique", value)
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationType")
+    def evaluation_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Evaluation type. Valid values: `AUTOMATIC`, `HUMAN`, `NONE`.
+        """
+        return pulumi.get(self, "evaluation_type")
+
+    @evaluation_type.setter
+    def evaluation_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "evaluation_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="evaluatorArn")
+    def evaluator_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN of the evaluator.
+        """
+        return pulumi.get(self, "evaluator_arn")
+
+    @evaluator_arn.setter
+    def evaluator_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "evaluator_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def peft(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Parameter-Efficient Fine-Tuning (PEFT) method. Valid values: `LORA`.
+        """
+        return pulumi.get(self, "peft")
+
+    @peft.setter
+    def peft(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "peft", value)
+
+
+class TrainingJobSessionChainingConfigArgsDict(TypedDict):
+    enable_session_tag_chaining: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable session tag chaining for the training job.
+    """
+
+@pulumi.input_type
+class TrainingJobSessionChainingConfigArgs:
+    def __init__(__self__, *,
+                 enable_session_tag_chaining: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enable_session_tag_chaining: Whether to enable session tag chaining for the training job.
+        """
+        if enable_session_tag_chaining is not None:
+            pulumi.set(__self__, "enable_session_tag_chaining", enable_session_tag_chaining)
+
+    @_builtins.property
+    @pulumi.getter(name="enableSessionTagChaining")
+    def enable_session_tag_chaining(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to enable session tag chaining for the training job.
+        """
+        return pulumi.get(self, "enable_session_tag_chaining")
+
+    @enable_session_tag_chaining.setter
+    def enable_session_tag_chaining(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_session_tag_chaining", value)
+
+
+class TrainingJobStoppingConditionArgsDict(TypedDict):
+    max_pending_time_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum time in seconds a training job can be pending before it is stopped. Valid values: 7200–2419200.
+    """
+    max_runtime_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum time in seconds the training job can run before it is stopped.
+    """
+    max_wait_time_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum time in seconds to wait for a managed spot training job to complete.
+    """
+
+@pulumi.input_type
+class TrainingJobStoppingConditionArgs:
+    def __init__(__self__, *,
+                 max_pending_time_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 max_runtime_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 max_wait_time_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] max_pending_time_in_seconds: Maximum time in seconds a training job can be pending before it is stopped. Valid values: 7200–2419200.
+        :param pulumi.Input[_builtins.int] max_runtime_in_seconds: Maximum time in seconds the training job can run before it is stopped.
+        :param pulumi.Input[_builtins.int] max_wait_time_in_seconds: Maximum time in seconds to wait for a managed spot training job to complete.
+        """
+        if max_pending_time_in_seconds is not None:
+            pulumi.set(__self__, "max_pending_time_in_seconds", max_pending_time_in_seconds)
+        if max_runtime_in_seconds is not None:
+            pulumi.set(__self__, "max_runtime_in_seconds", max_runtime_in_seconds)
+        if max_wait_time_in_seconds is not None:
+            pulumi.set(__self__, "max_wait_time_in_seconds", max_wait_time_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="maxPendingTimeInSeconds")
+    def max_pending_time_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Maximum time in seconds a training job can be pending before it is stopped. Valid values: 7200–2419200.
+        """
+        return pulumi.get(self, "max_pending_time_in_seconds")
+
+    @max_pending_time_in_seconds.setter
+    def max_pending_time_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_pending_time_in_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxRuntimeInSeconds")
+    def max_runtime_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Maximum time in seconds the training job can run before it is stopped.
+        """
+        return pulumi.get(self, "max_runtime_in_seconds")
+
+    @max_runtime_in_seconds.setter
+    def max_runtime_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_runtime_in_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxWaitTimeInSeconds")
+    def max_wait_time_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Maximum time in seconds to wait for a managed spot training job to complete.
+        """
+        return pulumi.get(self, "max_wait_time_in_seconds")
+
+    @max_wait_time_in_seconds.setter
+    def max_wait_time_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_wait_time_in_seconds", value)
+
+
+class TrainingJobTensorBoardOutputConfigArgsDict(TypedDict):
+    s3_output_path: pulumi.Input[_builtins.str]
+    """
+    S3 URI where TensorBoard output is stored.
+    """
+    local_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Local path where TensorBoard output is written.
+    """
+
+@pulumi.input_type
+class TrainingJobTensorBoardOutputConfigArgs:
+    def __init__(__self__, *,
+                 s3_output_path: pulumi.Input[_builtins.str],
+                 local_path: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] s3_output_path: S3 URI where TensorBoard output is stored.
+        :param pulumi.Input[_builtins.str] local_path: Local path where TensorBoard output is written.
+        """
+        pulumi.set(__self__, "s3_output_path", s3_output_path)
+        if local_path is not None:
+            pulumi.set(__self__, "local_path", local_path)
+
+    @_builtins.property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> pulumi.Input[_builtins.str]:
+        """
+        S3 URI where TensorBoard output is stored.
+        """
+        return pulumi.get(self, "s3_output_path")
+
+    @s3_output_path.setter
+    def s3_output_path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "s3_output_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Local path where TensorBoard output is written.
+        """
+        return pulumi.get(self, "local_path")
+
+    @local_path.setter
+    def local_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "local_path", value)
+
+
+class TrainingJobTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+
+@pulumi.input_type
+class TrainingJobTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete: Optional[pulumi.Input[_builtins.str]] = None,
+                 update: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "update", value)
+
+
+class TrainingJobVpcConfigArgsDict(TypedDict):
+    security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of VPC security group IDs. Maximum of 5.
+    """
+    subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of subnet IDs. Maximum of 16.
+    """
+
+@pulumi.input_type
+class TrainingJobVpcConfigArgs:
+    def __init__(__self__, *,
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of VPC security group IDs. Maximum of 5.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: List of subnet IDs. Maximum of 16.
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of VPC security group IDs. Maximum of 5.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of subnet IDs. Maximum of 16.
+        """
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "subnets", value)
 
 
 class UserProfileUserSettingsArgsDict(TypedDict):

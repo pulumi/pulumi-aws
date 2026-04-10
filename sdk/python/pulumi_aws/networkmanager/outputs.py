@@ -28,6 +28,9 @@ __all__ = [
     'LinkBandwidth',
     'SiteLocation',
     'VpcAttachmentOptions',
+    'GetCoreNetworkEdgeResult',
+    'GetCoreNetworkNetworkFunctionGroupResult',
+    'GetCoreNetworkNetworkFunctionGroupSegmentResult',
     'GetCoreNetworkPolicyDocumentAttachmentPolicyResult',
     'GetCoreNetworkPolicyDocumentAttachmentPolicyActionResult',
     'GetCoreNetworkPolicyDocumentAttachmentPolicyConditionResult',
@@ -48,6 +51,7 @@ __all__ = [
     'GetCoreNetworkPolicyDocumentSegmentActionViaResult',
     'GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideResult',
     'GetCoreNetworkPolicyDocumentSegmentActionWhenSentToResult',
+    'GetCoreNetworkSegmentResult',
     'GetDeviceAwsLocationResult',
     'GetDeviceLocationResult',
     'GetLinkBandwidthResult',
@@ -700,6 +704,115 @@ class VpcAttachmentOptions(dict):
         Whether to enable security group referencing support for this VPC attachment. The default is `true`. However, at the core network policy-level the default is set to `false`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
         """
         return pulumi.get(self, "security_group_referencing_support")
+
+
+@pulumi.output_type
+class GetCoreNetworkEdgeResult(dict):
+    def __init__(__self__, *,
+                 asn: _builtins.int,
+                 edge_location: _builtins.str,
+                 inside_cidr_blocks: Sequence[_builtins.str]):
+        """
+        :param _builtins.int asn: ASN of the core network edge.
+        :param _builtins.str edge_location: AWS region where the edge is located.
+        :param Sequence[_builtins.str] inside_cidr_blocks: Inside IP addresses used for core network edges.
+        """
+        pulumi.set(__self__, "asn", asn)
+        pulumi.set(__self__, "edge_location", edge_location)
+        pulumi.set(__self__, "inside_cidr_blocks", inside_cidr_blocks)
+
+    @_builtins.property
+    @pulumi.getter
+    def asn(self) -> _builtins.int:
+        """
+        ASN of the core network edge.
+        """
+        return pulumi.get(self, "asn")
+
+    @_builtins.property
+    @pulumi.getter(name="edgeLocation")
+    def edge_location(self) -> _builtins.str:
+        """
+        AWS region where the edge is located.
+        """
+        return pulumi.get(self, "edge_location")
+
+    @_builtins.property
+    @pulumi.getter(name="insideCidrBlocks")
+    def inside_cidr_blocks(self) -> Sequence[_builtins.str]:
+        """
+        Inside IP addresses used for core network edges.
+        """
+        return pulumi.get(self, "inside_cidr_blocks")
+
+
+@pulumi.output_type
+class GetCoreNetworkNetworkFunctionGroupResult(dict):
+    def __init__(__self__, *,
+                 edge_locations: Sequence[_builtins.str],
+                 name: _builtins.str,
+                 segments: Sequence['outputs.GetCoreNetworkNetworkFunctionGroupSegmentResult']):
+        """
+        :param Sequence[_builtins.str] edge_locations: AWS regions where the edges are located.
+        :param _builtins.str name: Name of the core network segment.
+        :param Sequence['GetCoreNetworkNetworkFunctionGroupSegmentArgs'] segments: Segments associated with the network function group. See `network_function_groups.segments` Attribute Reference for details.
+        """
+        pulumi.set(__self__, "edge_locations", edge_locations)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "segments", segments)
+
+    @_builtins.property
+    @pulumi.getter(name="edgeLocations")
+    def edge_locations(self) -> Sequence[_builtins.str]:
+        """
+        AWS regions where the edges are located.
+        """
+        return pulumi.get(self, "edge_locations")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the core network segment.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def segments(self) -> Sequence['outputs.GetCoreNetworkNetworkFunctionGroupSegmentResult']:
+        """
+        Segments associated with the network function group. See `network_function_groups.segments` Attribute Reference for details.
+        """
+        return pulumi.get(self, "segments")
+
+
+@pulumi.output_type
+class GetCoreNetworkNetworkFunctionGroupSegmentResult(dict):
+    def __init__(__self__, *,
+                 send_tos: Sequence[_builtins.str],
+                 send_vias: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] send_tos: List of segments associated with the `send-to` action.
+        :param Sequence[_builtins.str] send_vias: List of segments associated with the `send-via` action.
+        """
+        pulumi.set(__self__, "send_tos", send_tos)
+        pulumi.set(__self__, "send_vias", send_vias)
+
+    @_builtins.property
+    @pulumi.getter(name="sendTos")
+    def send_tos(self) -> Sequence[_builtins.str]:
+        """
+        List of segments associated with the `send-to` action.
+        """
+        return pulumi.get(self, "send_tos")
+
+    @_builtins.property
+    @pulumi.getter(name="sendVias")
+    def send_vias(self) -> Sequence[_builtins.str]:
+        """
+        List of segments associated with the `send-via` action.
+        """
+        return pulumi.get(self, "send_vias")
 
 
 @pulumi.output_type
@@ -1718,6 +1831,46 @@ class GetCoreNetworkPolicyDocumentSegmentActionWhenSentToResult(dict):
         A list of strings. The list of segments that the `send-via` `action` uses.
         """
         return pulumi.get(self, "segments")
+
+
+@pulumi.output_type
+class GetCoreNetworkSegmentResult(dict):
+    def __init__(__self__, *,
+                 edge_locations: Sequence[_builtins.str],
+                 name: _builtins.str,
+                 shared_segments: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] edge_locations: AWS regions where the edges are located.
+        :param _builtins.str name: Name of the core network segment.
+        :param Sequence[_builtins.str] shared_segments: Shared segments of the core network.
+        """
+        pulumi.set(__self__, "edge_locations", edge_locations)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "shared_segments", shared_segments)
+
+    @_builtins.property
+    @pulumi.getter(name="edgeLocations")
+    def edge_locations(self) -> Sequence[_builtins.str]:
+        """
+        AWS regions where the edges are located.
+        """
+        return pulumi.get(self, "edge_locations")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the core network segment.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="sharedSegments")
+    def shared_segments(self) -> Sequence[_builtins.str]:
+        """
+        Shared segments of the core network.
+        """
+        return pulumi.get(self, "shared_segments")
 
 
 @pulumi.output_type

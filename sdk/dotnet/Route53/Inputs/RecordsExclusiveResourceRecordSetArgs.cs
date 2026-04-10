@@ -50,6 +50,9 @@ namespace Pulumi.Aws.Route53.Inputs
         [Input("healthCheckId")]
         public Input<string>? HealthCheckId { get; set; }
 
+        /// <summary>
+        /// Set to `True` to indicate this record is a multivalue answer record and traffic should be routed approximately randomly to multiple resources.
+        /// </summary>
         [Input("multiValueAnswer")]
         public Input<bool>? MultiValueAnswer { get; set; }
 
@@ -82,7 +85,7 @@ namespace Pulumi.Aws.Route53.Inputs
 
         /// <summary>
         /// An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
-        /// Required if using `CidrRoutingConfig`, `Failover`, `Geolocation`,`GeoproximityLocation`, `MultivalueAnswer`, `Region`, or `Weight`.
+        /// Required if using `CidrRoutingConfig`, `Failover`, `Geolocation`,`GeoproximityLocation`, `MultiValueAnswer`, `Region`, or `Weight`.
         /// </summary>
         [Input("setIdentifier")]
         public Input<string>? SetIdentifier { get; set; }

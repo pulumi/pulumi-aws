@@ -8,6 +8,8 @@ import typing
 # Export this package's modules as members:
 from .default_domain import *
 from .domain import *
+from .group import *
 from .organization import *
+from .user import *
 from ._inputs import *
 from . import outputs

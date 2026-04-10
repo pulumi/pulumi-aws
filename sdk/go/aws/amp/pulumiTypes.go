@@ -1009,7 +1009,11 @@ func (o ScraperRoleConfigurationPtrOutput) TargetRoleArn() pulumi.StringPtrOutpu
 
 type ScraperSource struct {
 	// Configuration block for an EKS cluster source. See `eks`.
-	Eks ScraperSourceEks `pulumi:"eks"`
+	Eks *ScraperSourceEks `pulumi:"eks"`
+	// Configuration block for a VPC source. See `vpc`.
+	//
+	// > **NOTE:** Either `eks` or `vpc` must be specified, but not both.
+	Vpc *ScraperSourceVpc `pulumi:"vpc"`
 }
 
 // ScraperSourceInput is an input type that accepts ScraperSourceArgs and ScraperSourceOutput values.
@@ -1025,7 +1029,11 @@ type ScraperSourceInput interface {
 
 type ScraperSourceArgs struct {
 	// Configuration block for an EKS cluster source. See `eks`.
-	Eks ScraperSourceEksInput `pulumi:"eks"`
+	Eks ScraperSourceEksPtrInput `pulumi:"eks"`
+	// Configuration block for a VPC source. See `vpc`.
+	//
+	// > **NOTE:** Either `eks` or `vpc` must be specified, but not both.
+	Vpc ScraperSourceVpcPtrInput `pulumi:"vpc"`
 }
 
 func (ScraperSourceArgs) ElementType() reflect.Type {
@@ -1106,8 +1114,15 @@ func (o ScraperSourceOutput) ToScraperSourcePtrOutputWithContext(ctx context.Con
 }
 
 // Configuration block for an EKS cluster source. See `eks`.
-func (o ScraperSourceOutput) Eks() ScraperSourceEksOutput {
-	return o.ApplyT(func(v ScraperSource) ScraperSourceEks { return v.Eks }).(ScraperSourceEksOutput)
+func (o ScraperSourceOutput) Eks() ScraperSourceEksPtrOutput {
+	return o.ApplyT(func(v ScraperSource) *ScraperSourceEks { return v.Eks }).(ScraperSourceEksPtrOutput)
+}
+
+// Configuration block for a VPC source. See `vpc`.
+//
+// > **NOTE:** Either `eks` or `vpc` must be specified, but not both.
+func (o ScraperSourceOutput) Vpc() ScraperSourceVpcPtrOutput {
+	return o.ApplyT(func(v ScraperSource) *ScraperSourceVpc { return v.Vpc }).(ScraperSourceVpcPtrOutput)
 }
 
 type ScraperSourcePtrOutput struct{ *pulumi.OutputState }
@@ -1140,11 +1155,24 @@ func (o ScraperSourcePtrOutput) Eks() ScraperSourceEksPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Eks
+		return v.Eks
 	}).(ScraperSourceEksPtrOutput)
 }
 
+// Configuration block for a VPC source. See `vpc`.
+//
+// > **NOTE:** Either `eks` or `vpc` must be specified, but not both.
+func (o ScraperSourcePtrOutput) Vpc() ScraperSourceVpcPtrOutput {
+	return o.ApplyT(func(v *ScraperSource) *ScraperSourceVpc {
+		if v == nil {
+			return nil
+		}
+		return v.Vpc
+	}).(ScraperSourceVpcPtrOutput)
+}
+
 type ScraperSourceEks struct {
+	// The Amazon Resource Name (ARN) of the source EKS cluster.
 	ClusterArn string `pulumi:"clusterArn"`
 	// List of the security group IDs for the Amazon EKS cluster VPC configuration.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -1164,6 +1192,7 @@ type ScraperSourceEksInput interface {
 }
 
 type ScraperSourceEksArgs struct {
+	// The Amazon Resource Name (ARN) of the source EKS cluster.
 	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
 	// List of the security group IDs for the Amazon EKS cluster VPC configuration.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
@@ -1248,6 +1277,7 @@ func (o ScraperSourceEksOutput) ToScraperSourceEksPtrOutputWithContext(ctx conte
 	}).(ScraperSourceEksPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the source EKS cluster.
 func (o ScraperSourceEksOutput) ClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ScraperSourceEks) string { return v.ClusterArn }).(pulumi.StringOutput)
 }
@@ -1286,6 +1316,7 @@ func (o ScraperSourceEksPtrOutput) Elem() ScraperSourceEksOutput {
 	}).(ScraperSourceEksOutput)
 }
 
+// The Amazon Resource Name (ARN) of the source EKS cluster.
 func (o ScraperSourceEksPtrOutput) ClusterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScraperSourceEks) *string {
 		if v == nil {
@@ -1308,6 +1339,162 @@ func (o ScraperSourceEksPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 // List of subnet IDs. Must be in at least two different availability zones.
 func (o ScraperSourceEksPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScraperSourceEks) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+type ScraperSourceVpc struct {
+	// List of security group IDs for the VPC configuration.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// List of subnet IDs. Must be in at least two different availability zones.
+	SubnetIds []string `pulumi:"subnetIds"`
+}
+
+// ScraperSourceVpcInput is an input type that accepts ScraperSourceVpcArgs and ScraperSourceVpcOutput values.
+// You can construct a concrete instance of `ScraperSourceVpcInput` via:
+//
+//	ScraperSourceVpcArgs{...}
+type ScraperSourceVpcInput interface {
+	pulumi.Input
+
+	ToScraperSourceVpcOutput() ScraperSourceVpcOutput
+	ToScraperSourceVpcOutputWithContext(context.Context) ScraperSourceVpcOutput
+}
+
+type ScraperSourceVpcArgs struct {
+	// List of security group IDs for the VPC configuration.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// List of subnet IDs. Must be in at least two different availability zones.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+}
+
+func (ScraperSourceVpcArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperSourceVpc)(nil)).Elem()
+}
+
+func (i ScraperSourceVpcArgs) ToScraperSourceVpcOutput() ScraperSourceVpcOutput {
+	return i.ToScraperSourceVpcOutputWithContext(context.Background())
+}
+
+func (i ScraperSourceVpcArgs) ToScraperSourceVpcOutputWithContext(ctx context.Context) ScraperSourceVpcOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperSourceVpcOutput)
+}
+
+func (i ScraperSourceVpcArgs) ToScraperSourceVpcPtrOutput() ScraperSourceVpcPtrOutput {
+	return i.ToScraperSourceVpcPtrOutputWithContext(context.Background())
+}
+
+func (i ScraperSourceVpcArgs) ToScraperSourceVpcPtrOutputWithContext(ctx context.Context) ScraperSourceVpcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperSourceVpcOutput).ToScraperSourceVpcPtrOutputWithContext(ctx)
+}
+
+// ScraperSourceVpcPtrInput is an input type that accepts ScraperSourceVpcArgs, ScraperSourceVpcPtr and ScraperSourceVpcPtrOutput values.
+// You can construct a concrete instance of `ScraperSourceVpcPtrInput` via:
+//
+//	        ScraperSourceVpcArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScraperSourceVpcPtrInput interface {
+	pulumi.Input
+
+	ToScraperSourceVpcPtrOutput() ScraperSourceVpcPtrOutput
+	ToScraperSourceVpcPtrOutputWithContext(context.Context) ScraperSourceVpcPtrOutput
+}
+
+type scraperSourceVpcPtrType ScraperSourceVpcArgs
+
+func ScraperSourceVpcPtr(v *ScraperSourceVpcArgs) ScraperSourceVpcPtrInput {
+	return (*scraperSourceVpcPtrType)(v)
+}
+
+func (*scraperSourceVpcPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperSourceVpc)(nil)).Elem()
+}
+
+func (i *scraperSourceVpcPtrType) ToScraperSourceVpcPtrOutput() ScraperSourceVpcPtrOutput {
+	return i.ToScraperSourceVpcPtrOutputWithContext(context.Background())
+}
+
+func (i *scraperSourceVpcPtrType) ToScraperSourceVpcPtrOutputWithContext(ctx context.Context) ScraperSourceVpcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperSourceVpcPtrOutput)
+}
+
+type ScraperSourceVpcOutput struct{ *pulumi.OutputState }
+
+func (ScraperSourceVpcOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperSourceVpc)(nil)).Elem()
+}
+
+func (o ScraperSourceVpcOutput) ToScraperSourceVpcOutput() ScraperSourceVpcOutput {
+	return o
+}
+
+func (o ScraperSourceVpcOutput) ToScraperSourceVpcOutputWithContext(ctx context.Context) ScraperSourceVpcOutput {
+	return o
+}
+
+func (o ScraperSourceVpcOutput) ToScraperSourceVpcPtrOutput() ScraperSourceVpcPtrOutput {
+	return o.ToScraperSourceVpcPtrOutputWithContext(context.Background())
+}
+
+func (o ScraperSourceVpcOutput) ToScraperSourceVpcPtrOutputWithContext(ctx context.Context) ScraperSourceVpcPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScraperSourceVpc) *ScraperSourceVpc {
+		return &v
+	}).(ScraperSourceVpcPtrOutput)
+}
+
+// List of security group IDs for the VPC configuration.
+func (o ScraperSourceVpcOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScraperSourceVpc) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// List of subnet IDs. Must be in at least two different availability zones.
+func (o ScraperSourceVpcOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScraperSourceVpc) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+type ScraperSourceVpcPtrOutput struct{ *pulumi.OutputState }
+
+func (ScraperSourceVpcPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperSourceVpc)(nil)).Elem()
+}
+
+func (o ScraperSourceVpcPtrOutput) ToScraperSourceVpcPtrOutput() ScraperSourceVpcPtrOutput {
+	return o
+}
+
+func (o ScraperSourceVpcPtrOutput) ToScraperSourceVpcPtrOutputWithContext(ctx context.Context) ScraperSourceVpcPtrOutput {
+	return o
+}
+
+func (o ScraperSourceVpcPtrOutput) Elem() ScraperSourceVpcOutput {
+	return o.ApplyT(func(v *ScraperSourceVpc) ScraperSourceVpc {
+		if v != nil {
+			return *v
+		}
+		var ret ScraperSourceVpc
+		return ret
+	}).(ScraperSourceVpcOutput)
+}
+
+// List of security group IDs for the VPC configuration.
+func (o ScraperSourceVpcPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ScraperSourceVpc) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of subnet IDs. Must be in at least two different availability zones.
+func (o ScraperSourceVpcPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ScraperSourceVpc) []string {
 		if v == nil {
 			return nil
 		}
@@ -1962,6 +2149,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperSourcePtrInput)(nil)).Elem(), ScraperSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperSourceEksInput)(nil)).Elem(), ScraperSourceEksArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperSourceEksPtrInput)(nil)).Elem(), ScraperSourceEksArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperSourceVpcInput)(nil)).Elem(), ScraperSourceVpcArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperSourceVpcPtrInput)(nil)).Elem(), ScraperSourceVpcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperTimeoutsInput)(nil)).Elem(), ScraperTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperTimeoutsPtrInput)(nil)).Elem(), ScraperTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceConfigurationLimitsPerLabelSetInput)(nil)).Elem(), WorkspaceConfigurationLimitsPerLabelSetArgs{})
@@ -1989,6 +2178,8 @@ func init() {
 	pulumi.RegisterOutputType(ScraperSourcePtrOutput{})
 	pulumi.RegisterOutputType(ScraperSourceEksOutput{})
 	pulumi.RegisterOutputType(ScraperSourceEksPtrOutput{})
+	pulumi.RegisterOutputType(ScraperSourceVpcOutput{})
+	pulumi.RegisterOutputType(ScraperSourceVpcPtrOutput{})
 	pulumi.RegisterOutputType(ScraperTimeoutsOutput{})
 	pulumi.RegisterOutputType(ScraperTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceConfigurationLimitsPerLabelSetOutput{})

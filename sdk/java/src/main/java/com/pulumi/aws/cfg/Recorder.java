@@ -174,24 +174,35 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Configuration Recorder using the name. For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `name` (String) Name of the configuration recorder.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import Configuration Recorders using the `name`. For example:
  * 
  * ```sh
- * $ pulumi import aws:cfg/recorder:Recorder foo example
+ * $ pulumi import aws:cfg/recorder:Recorder example example
  * ```
  * 
  */
 @ResourceType(type="aws:cfg/recorder:Recorder")
 public class Recorder extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+     * The name of the configuration recorder. Defaults to `default`. Changing it recreates the resource.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+     * @return The name of the configuration recorder. Defaults to `default`. Changing it recreates the resource.
      * 
      */
     public Output<String> name() {

@@ -170,6 +170,11 @@ export type StudioLifecycleConfig = import("./studioLifecycleConfig").StudioLife
 export const StudioLifecycleConfig: typeof import("./studioLifecycleConfig").StudioLifecycleConfig = null as any;
 utilities.lazyLoad(exports, ["StudioLifecycleConfig"], () => require("./studioLifecycleConfig"));
 
+export { TrainingJobArgs, TrainingJobState } from "./trainingJob";
+export type TrainingJob = import("./trainingJob").TrainingJob;
+export const TrainingJob: typeof import("./trainingJob").TrainingJob = null as any;
+utilities.lazyLoad(exports, ["TrainingJob"], () => require("./trainingJob"));
+
 export { UserProfileArgs, UserProfileState } from "./userProfile";
 export type UserProfile = import("./userProfile").UserProfile;
 export const UserProfile: typeof import("./userProfile").UserProfile = null as any;
@@ -254,6 +259,8 @@ const _module = {
                 return new Space(name, <any>undefined, { urn })
             case "aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig":
                 return new StudioLifecycleConfig(name, <any>undefined, { urn })
+            case "aws:sagemaker/trainingJob:TrainingJob":
+                return new TrainingJob(name, <any>undefined, { urn })
             case "aws:sagemaker/userProfile:UserProfile":
                 return new UserProfile(name, <any>undefined, { urn })
             case "aws:sagemaker/workforce:Workforce":
@@ -297,6 +304,7 @@ pulumi.runtime.registerResourceModule("aws", "sagemaker/project", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/servicecatalogPortfolioStatus", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/space", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/studioLifecycleConfig", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/trainingJob", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/userProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/workforce", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/workteam", _module)

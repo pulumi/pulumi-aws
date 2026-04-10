@@ -60,6 +60,8 @@ type LookupAccessEntryArgs struct {
 	Region *string           `pulumi:"region"`
 	Tags   map[string]string `pulumi:"tags"`
 	// (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: tags_all is deprecated.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -80,6 +82,8 @@ type LookupAccessEntryResult struct {
 	Region       string            `pulumi:"region"`
 	Tags         map[string]string `pulumi:"tags"`
 	// (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: tags_all is deprecated.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
 	Type string `pulumi:"type"`
@@ -106,6 +110,8 @@ type LookupAccessEntryOutputArgs struct {
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	Tags   pulumi.StringMapInput `pulumi:"tags"`
 	// (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: tags_all is deprecated.
 	TagsAll pulumi.StringMapInput `pulumi:"tagsAll"`
 }
 
@@ -170,6 +176,8 @@ func (o LookupAccessEntryResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: tags_all is deprecated.
 func (o LookupAccessEntryResultOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupAccessEntryResult) map[string]string { return v.TagsAll }).(pulumi.StringMapOutput)
 }

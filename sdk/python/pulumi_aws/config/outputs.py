@@ -498,6 +498,7 @@ class Endpoints(dict):
                  s3: Optional[_builtins.str] = None,
                  s3api: Optional[_builtins.str] = None,
                  s3control: Optional[_builtins.str] = None,
+                 s3files: Optional[_builtins.str] = None,
                  s3outposts: Optional[_builtins.str] = None,
                  s3tables: Optional[_builtins.str] = None,
                  s3vectors: Optional[_builtins.str] = None,
@@ -541,6 +542,7 @@ class Endpoints(dict):
                  transcribe: Optional[_builtins.str] = None,
                  transcribeservice: Optional[_builtins.str] = None,
                  transfer: Optional[_builtins.str] = None,
+                 uxc: Optional[_builtins.str] = None,
                  verifiedpermissions: Optional[_builtins.str] = None,
                  vpclattice: Optional[_builtins.str] = None,
                  waf: Optional[_builtins.str] = None,
@@ -808,6 +810,7 @@ class Endpoints(dict):
         :param _builtins.str s3: Use this to override the default service endpoint URL
         :param _builtins.str s3api: Use this to override the default service endpoint URL
         :param _builtins.str s3control: Use this to override the default service endpoint URL
+        :param _builtins.str s3files: Use this to override the default service endpoint URL
         :param _builtins.str s3outposts: Use this to override the default service endpoint URL
         :param _builtins.str s3tables: Use this to override the default service endpoint URL
         :param _builtins.str s3vectors: Use this to override the default service endpoint URL
@@ -851,6 +854,7 @@ class Endpoints(dict):
         :param _builtins.str transcribe: Use this to override the default service endpoint URL
         :param _builtins.str transcribeservice: Use this to override the default service endpoint URL
         :param _builtins.str transfer: Use this to override the default service endpoint URL
+        :param _builtins.str uxc: Use this to override the default service endpoint URL
         :param _builtins.str verifiedpermissions: Use this to override the default service endpoint URL
         :param _builtins.str vpclattice: Use this to override the default service endpoint URL
         :param _builtins.str waf: Use this to override the default service endpoint URL
@@ -1374,6 +1378,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "s3api", s3api)
         if s3control is not None:
             pulumi.set(__self__, "s3control", s3control)
+        if s3files is not None:
+            pulumi.set(__self__, "s3files", s3files)
         if s3outposts is not None:
             pulumi.set(__self__, "s3outposts", s3outposts)
         if s3tables is not None:
@@ -1460,6 +1466,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "transcribeservice", transcribeservice)
         if transfer is not None:
             pulumi.set(__self__, "transfer", transfer)
+        if uxc is not None:
+            pulumi.set(__self__, "uxc", uxc)
         if verifiedpermissions is not None:
             pulumi.set(__self__, "verifiedpermissions", verifiedpermissions)
         if vpclattice is not None:
@@ -3531,6 +3539,14 @@ class Endpoints(dict):
 
     @_builtins.property
     @pulumi.getter
+    def s3files(self) -> Optional[_builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "s3files")
+
+    @_builtins.property
+    @pulumi.getter
     def s3outposts(self) -> Optional[_builtins.str]:
         """
         Use this to override the default service endpoint URL
@@ -3872,6 +3888,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "transfer")
+
+    @_builtins.property
+    @pulumi.getter
+    def uxc(self) -> Optional[_builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "uxc")
 
     @_builtins.property
     @pulumi.getter

@@ -6,6 +6,7 @@ import builtins as _builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .auto_management import *
 from .get_service import *
 from .get_service_quota import *
 from .get_templates import *

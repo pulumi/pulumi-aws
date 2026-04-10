@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			production, err := ssm.NewPatchBaseline(ctx, "production", &ssm.PatchBaselineArgs{
+//			example, err := ssm.NewPatchBaseline(ctx, "example", &ssm.PatchBaselineArgs{
 //				Name: pulumi.String("patch-baseline"),
 //				ApprovedPatches: pulumi.StringArray{
 //					pulumi.String("KB123456"),
@@ -37,8 +37,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ssm.NewPatchGroup(ctx, "patchgroup", &ssm.PatchGroupArgs{
-//				BaselineId: production.ID(),
+//			_, err = ssm.NewPatchGroup(ctx, "example", &ssm.PatchGroupArgs{
+//				BaselineId: example.ID(),
 //				PatchGroup: pulumi.String("patch-group-name"),
 //			})
 //			if err != nil {
@@ -48,6 +48,26 @@ import (
 //		})
 //	}
 //
+// ```
+//
+// ## Import
+//
+// ### Identity Schema
+//
+// #### Required
+//
+// * `baselineId` (String) The ID of the patch baseline.
+// * `patchGroup` (String) The name of the patch group.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import an SSM Patch Group using the `patchGroup` and `baselineId` separated by a comma (`,`). For example:
+//
+// ```sh
+// $ pulumi import aws:ssm/patchGroup:PatchGroup example patch-group-name,pb-1234567890abcdef0
 // ```
 type PatchGroup struct {
 	pulumi.CustomResourceState

@@ -12,8 +12,6 @@ namespace Pulumi.Aws.S3
     /// <summary>
     /// Provides a S3 bucket [metrics configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html) resource.
     /// 
-    /// &gt; This resource cannot be used with S3 directory buckets.
-    /// 
     /// ## Example Usage
     /// 
     /// ### Add metrics configuration for entire S3 bucket
@@ -106,6 +104,50 @@ namespace Pulumi.Aws.S3
     ///                 { "priority", "high" },
     ///                 { "class", "blue" },
     ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Add metrics configuration for S3 directory bucket
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var available = Aws.Index.GetAvailabilityZones.Invoke(new()
+    ///     {
+    ///         State = "available",
+    ///     });
+    /// 
+    ///     var example = new Aws.S3.DirectoryBucket("example", new()
+    ///     {
+    ///         Bucket = "example--zoneId--x-s3",
+    ///         Location = new Aws.S3.Inputs.DirectoryBucketLocationArgs
+    ///         {
+    ///             Name = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.ZoneIds[0]),
+    ///         },
+    ///     });
+    /// 
+    ///     var example_access_point = new Aws.S3.AccessPoint("example-access-point", new()
+    ///     {
+    ///         Bucket = example.Id,
+    ///         Name = "example--zoneId--xa-s3",
+    ///     });
+    /// 
+    ///     var example_bucket_metric = new Aws.S3.BucketMetric("example-bucket-metric", new()
+    ///     {
+    ///         Bucket = example.Id,
+    ///         Name = "ExampleBucketMetricForDirectoryBuckets",
+    ///         Filter = new Aws.S3.Inputs.BucketMetricFilterArgs
+    ///         {
+    ///             AccessPoint = example_access_point.Arn,
+    ///             Prefix = "documents/",
     ///         },
     ///     });
     /// 

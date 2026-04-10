@@ -20,7 +20,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * &gt; **Note:** If you change a Scraper&#39;s source (EKS cluster), Terraform
+ * &gt; **Note:** If you change a Scraper&#39;s source (EKS cluster or VPC configuration), Terraform
  * will delete the current Scraper and create a new one.
  * 
  * Provides an Amazon Managed Service for Prometheus fully managed collector
@@ -125,6 +125,71 @@ import javax.annotation.Nullable;
  *       target_label: __address__
  *       regex: (.+?)(\\\\:\\\\d+)?
  *       replacement: $1:10249
+ *             """)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### VPC Configuration
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.amp.Scraper;
+ * import com.pulumi.aws.amp.ScraperArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperSourceArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperSourceVpcArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperDestinationArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperDestinationAmpArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Scraper("example", ScraperArgs.builder()
+ *             .source(ScraperSourceArgs.builder()
+ *                 .vpc(ScraperSourceVpcArgs.builder()
+ *                     .securityGroupIds(exampleAwsSecurityGroup.id())
+ *                     .subnetIds(                    
+ *                         example1.id(),
+ *                         example2.id())
+ *                     .build())
+ *                 .build())
+ *             .destination(ScraperDestinationArgs.builder()
+ *                 .amp(ScraperDestinationAmpArgs.builder()
+ *                     .workspaceArn(exampleAwsPrometheusWorkspace.arn())
+ *                     .build())
+ *                 .build())
+ *             .scrapeConfiguration("""
+ * global:
+ *   scrape_interval: 30s
+ * scrape_configs:
+ *   - job_name: 'my-service'
+ *     dns_sd_configs:
+ *       - names: ['my-service.my-namespace']
+ *         type: A
+ *         port: 8080
+ *     metrics_path: '/metrics'
+ *     relabel_configs:
+ *       - target_label: service_name
+ *         replacement: 'my-service'
+ *       - target_label: discovery_method
+ *         replacement: 'cloudmap-dns'
  *             """)
  *             .build());
  * 

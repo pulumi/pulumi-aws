@@ -9,7 +9,6 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAccessEntryResult {
@@ -41,11 +40,15 @@ public final class GetAccessEntryResult {
     private String modifiedAt;
     private String principalArn;
     private String region;
-    private @Nullable Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
      * 
+     * @deprecated
+     * tags_all is deprecated.
+     * 
      */
+    @Deprecated /* tags_all is deprecated. */
     private Map<String,String> tagsAll;
     /**
      * @return Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
@@ -104,12 +107,16 @@ public final class GetAccessEntryResult {
         return this.region;
     }
     public Map<String,String> tags() {
-        return this.tags == null ? Map.of() : this.tags;
+        return this.tags;
     }
     /**
      * @return (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
      * 
+     * @deprecated
+     * tags_all is deprecated.
+     * 
      */
+    @Deprecated /* tags_all is deprecated. */
     public Map<String,String> tagsAll() {
         return this.tagsAll;
     }
@@ -145,7 +152,7 @@ public final class GetAccessEntryResult {
         private String modifiedAt;
         private String principalArn;
         private String region;
-        private @Nullable Map<String,String> tags;
+        private Map<String,String> tags;
         private Map<String,String> tagsAll;
         private String type;
         private String userName;
@@ -234,8 +241,10 @@ public final class GetAccessEntryResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(@Nullable Map<String,String> tags) {
-
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetAccessEntryResult", "tags");
+            }
             this.tags = tags;
             return this;
         }

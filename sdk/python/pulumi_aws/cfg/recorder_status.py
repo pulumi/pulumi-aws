@@ -26,7 +26,7 @@ class RecorderStatusArgs:
         The set of arguments for constructing a RecorderStatus resource.
 
         :param pulumi.Input[_builtins.bool] is_enabled: Whether the configuration recorder should be enabled or disabled.
-        :param pulumi.Input[_builtins.str] name: The name of the recorder
+        :param pulumi.Input[_builtins.str] name: The name of the configuration recorder.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "is_enabled", is_enabled)
@@ -51,7 +51,7 @@ class RecorderStatusArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the recorder
+        The name of the configuration recorder.
         """
         return pulumi.get(self, "name")
 
@@ -82,7 +82,7 @@ class _RecorderStatusState:
         Input properties used for looking up and filtering RecorderStatus resources.
 
         :param pulumi.Input[_builtins.bool] is_enabled: Whether the configuration recorder should be enabled or disabled.
-        :param pulumi.Input[_builtins.str] name: The name of the recorder
+        :param pulumi.Input[_builtins.str] name: The name of the configuration recorder.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if is_enabled is not None:
@@ -108,7 +108,7 @@ class _RecorderStatusState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the recorder
+        The name of the configuration recorder.
         """
         return pulumi.get(self, "name")
 
@@ -191,17 +191,28 @@ class RecorderStatus(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Configuration Recorder Status using the name of the Configuration Recorder. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the configuration recorder.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Configuration Recorder Statuses using the `name`. For example:
 
         ```sh
-        $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
+        $ pulumi import aws:cfg/recorderStatus:RecorderStatus example example
         ```
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] is_enabled: Whether the configuration recorder should be enabled or disabled.
-        :param pulumi.Input[_builtins.str] name: The name of the recorder
+        :param pulumi.Input[_builtins.str] name: The name of the configuration recorder.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -262,10 +273,21 @@ class RecorderStatus(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Configuration Recorder Status using the name of the Configuration Recorder. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the configuration recorder.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Configuration Recorder Statuses using the `name`. For example:
 
         ```sh
-        $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
+        $ pulumi import aws:cfg/recorderStatus:RecorderStatus example example
         ```
 
 
@@ -322,7 +344,7 @@ class RecorderStatus(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] is_enabled: Whether the configuration recorder should be enabled or disabled.
-        :param pulumi.Input[_builtins.str] name: The name of the recorder
+        :param pulumi.Input[_builtins.str] name: The name of the configuration recorder.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -346,7 +368,7 @@ class RecorderStatus(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the recorder
+        The name of the configuration recorder.
         """
         return pulumi.get(self, "name")
 

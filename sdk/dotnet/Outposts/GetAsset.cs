@@ -102,6 +102,10 @@ namespace Pulumi.Aws.Outposts
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Instance families supported by the asset.
+        /// </summary>
+        public readonly ImmutableArray<string> InstanceFamilies;
+        /// <summary>
         /// Position of an asset in a rack measured in rack units.
         /// </summary>
         public readonly int RackElevation;
@@ -123,6 +127,8 @@ namespace Pulumi.Aws.Outposts
 
             string id,
 
+            ImmutableArray<string> instanceFamilies,
+
             int rackElevation,
 
             string rackId,
@@ -134,6 +140,7 @@ namespace Pulumi.Aws.Outposts
             AssetType = assetType;
             HostId = hostId;
             Id = id;
+            InstanceFamilies = instanceFamilies;
             RackElevation = rackElevation;
             RackId = rackId;
             Region = region;

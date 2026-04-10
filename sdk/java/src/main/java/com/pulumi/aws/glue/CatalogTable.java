@@ -232,6 +232,51 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Protected View
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.glue.CatalogTable;
+ * import com.pulumi.aws.glue.CatalogTableArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableViewDefinitionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new CatalogTable("example", CatalogTableArgs.builder()
+ *             .name("multidialect_view")
+ *             .databaseName("catalog_database")
+ *             .tableType("VIRTUAL_VIEW")
+ *             .viewDefinition(CatalogTableViewDefinitionArgs.builder()
+ *                 .isProtected(true)
+ *                 .representations(CatalogTableViewDefinitionRepresentationArgs.builder()
+ *                     .dialect("ATHENA")
+ *                     .dialectVersion("3")
+ *                     .viewOriginalText("SELECT * FROM catalog_database.base_table")
+ *                     .validationConnection(exampleAwsGlueConnection.name())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:

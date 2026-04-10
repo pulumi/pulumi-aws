@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Ecs
     ///             InstanceLaunchTemplate = new Aws.Ecs.Inputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs
     ///             {
     ///                 Ec2InstanceProfileArn = ecsInstance.Arn,
-    ///                 Monitoring = "ENABLED",
+    ///                 Monitoring = "DETAILED",
     ///                 NetworkConfiguration = new Aws.Ecs.Inputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs
     ///                 {
     ///                     Subnets = new[]

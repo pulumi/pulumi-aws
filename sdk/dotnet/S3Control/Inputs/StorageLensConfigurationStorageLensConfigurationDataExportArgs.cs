@@ -24,6 +24,12 @@ namespace Pulumi.Aws.S3Control.Inputs
         [Input("s3BucketDestination")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs>? S3BucketDestination { get; set; }
 
+        /// <summary>
+        /// S3 table bucket where the S3 Storage Lens metrics export will be located. See Storage Lens Table Destination below for more details.
+        /// </summary>
+        [Input("storageLensTableDestination")]
+        public Input<Inputs.StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationArgs>? StorageLensTableDestination { get; set; }
+
         public StorageLensConfigurationStorageLensConfigurationDataExportArgs()
         {
         }

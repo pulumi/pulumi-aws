@@ -15,23 +15,51 @@ public final class RecordsExclusiveResourceRecordSetGeolocationArgs extends com.
 
     public static final RecordsExclusiveResourceRecordSetGeolocationArgs Empty = new RecordsExclusiveResourceRecordSetGeolocationArgs();
 
+    /**
+     * Two-letter continent code.
+     * See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
+     * 
+     */
     @Import(name="continentCode")
     private @Nullable Output<String> continentCode;
 
+    /**
+     * @return Two-letter continent code.
+     * See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
+     * 
+     */
     public Optional<Output<String>> continentCode() {
         return Optional.ofNullable(this.continentCode);
     }
 
+    /**
+     * Two-letter country code.
+     * See the ISO standard linked from the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
+     * 
+     */
     @Import(name="countryCode")
     private @Nullable Output<String> countryCode;
 
+    /**
+     * @return Two-letter country code.
+     * See the ISO standard linked from the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
+     * 
+     */
     public Optional<Output<String>> countryCode() {
         return Optional.ofNullable(this.countryCode);
     }
 
+    /**
+     * Subdivision code.
+     * 
+     */
     @Import(name="subdivisionCode")
     private @Nullable Output<String> subdivisionCode;
 
+    /**
+     * @return Subdivision code.
+     * 
+     */
     public Optional<Output<String>> subdivisionCode() {
         return Optional.ofNullable(this.subdivisionCode);
     }
@@ -62,29 +90,69 @@ public final class RecordsExclusiveResourceRecordSetGeolocationArgs extends com.
             $ = new RecordsExclusiveResourceRecordSetGeolocationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param continentCode Two-letter continent code.
+         * See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder continentCode(@Nullable Output<String> continentCode) {
             $.continentCode = continentCode;
             return this;
         }
 
+        /**
+         * @param continentCode Two-letter continent code.
+         * See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder continentCode(String continentCode) {
             return continentCode(Output.of(continentCode));
         }
 
+        /**
+         * @param countryCode Two-letter country code.
+         * See the ISO standard linked from the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder countryCode(@Nullable Output<String> countryCode) {
             $.countryCode = countryCode;
             return this;
         }
 
+        /**
+         * @param countryCode Two-letter country code.
+         * See the ISO standard linked from the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html) for valid values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder countryCode(String countryCode) {
             return countryCode(Output.of(countryCode));
         }
 
+        /**
+         * @param subdivisionCode Subdivision code.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subdivisionCode(@Nullable Output<String> subdivisionCode) {
             $.subdivisionCode = subdivisionCode;
             return this;
         }
 
+        /**
+         * @param subdivisionCode Subdivision code.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subdivisionCode(String subdivisionCode) {
             return subdivisionCode(Output.of(subdivisionCode));
         }

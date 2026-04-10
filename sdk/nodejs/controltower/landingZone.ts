@@ -68,6 +68,10 @@ export class LandingZone extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
+     * Specifies list of remediation actions to apply. Currently only supports the `INHERITANCE_DRIFT` value.
+     */
+    declare public readonly remediationTypes: pulumi.Output<string[] | undefined>;
+    /**
      * Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
@@ -98,6 +102,7 @@ export class LandingZone extends pulumi.CustomResource {
             resourceInputs["latestAvailableVersion"] = state?.latestAvailableVersion;
             resourceInputs["manifestJson"] = state?.manifestJson;
             resourceInputs["region"] = state?.region;
+            resourceInputs["remediationTypes"] = state?.remediationTypes;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["version"] = state?.version;
@@ -111,6 +116,7 @@ export class LandingZone extends pulumi.CustomResource {
             }
             resourceInputs["manifestJson"] = args?.manifestJson;
             resourceInputs["region"] = args?.region;
+            resourceInputs["remediationTypes"] = args?.remediationTypes;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["version"] = args?.version;
             resourceInputs["arn"] = undefined /*out*/;
@@ -148,6 +154,10 @@ export interface LandingZoneState {
      */
     region?: pulumi.Input<string>;
     /**
+     * Specifies list of remediation actions to apply. Currently only supports the `INHERITANCE_DRIFT` value.
+     */
+    remediationTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -173,6 +183,10 @@ export interface LandingZoneArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
+    /**
+     * Specifies list of remediation actions to apply. Currently only supports the `INHERITANCE_DRIFT` value.
+     */
+    remediationTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -6,6 +6,7 @@ package com.pulumi.aws.s3control.inputs;
 import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs;
 import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsArgs;
 import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArgs;
+import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedPerformanceMetricsArgs;
 import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs;
 import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgs;
 import com.pulumi.core.Output;
@@ -66,6 +67,21 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelA
     }
 
     /**
+     * Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics below for more details.
+     * 
+     */
+    @Import(name="advancedPerformanceMetrics")
+    private @Nullable Output<StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedPerformanceMetricsArgs> advancedPerformanceMetrics;
+
+    /**
+     * @return Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics below for more details.
+     * 
+     */
+    public Optional<Output<StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedPerformanceMetricsArgs>> advancedPerformanceMetrics() {
+        return Optional.ofNullable(this.advancedPerformanceMetrics);
+    }
+
+    /**
      * S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
      * 
      */
@@ -101,6 +117,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelA
         this.activityMetrics = $.activityMetrics;
         this.advancedCostOptimizationMetrics = $.advancedCostOptimizationMetrics;
         this.advancedDataProtectionMetrics = $.advancedDataProtectionMetrics;
+        this.advancedPerformanceMetrics = $.advancedPerformanceMetrics;
         this.bucketLevel = $.bucketLevel;
         this.detailedStatusCodeMetrics = $.detailedStatusCodeMetrics;
     }
@@ -184,6 +201,27 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelA
          */
         public Builder advancedDataProtectionMetrics(StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArgs advancedDataProtectionMetrics) {
             return advancedDataProtectionMetrics(Output.of(advancedDataProtectionMetrics));
+        }
+
+        /**
+         * @param advancedPerformanceMetrics Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder advancedPerformanceMetrics(@Nullable Output<StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedPerformanceMetricsArgs> advancedPerformanceMetrics) {
+            $.advancedPerformanceMetrics = advancedPerformanceMetrics;
+            return this;
+        }
+
+        /**
+         * @param advancedPerformanceMetrics Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder advancedPerformanceMetrics(StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedPerformanceMetricsArgs advancedPerformanceMetrics) {
+            return advancedPerformanceMetrics(Output.of(advancedPerformanceMetrics));
         }
 
         /**

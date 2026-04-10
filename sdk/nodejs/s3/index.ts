@@ -190,6 +190,31 @@ export type DirectoryBucket = import("./directoryBucket").DirectoryBucket;
 export const DirectoryBucket: typeof import("./directoryBucket").DirectoryBucket = null as any;
 utilities.lazyLoad(exports, ["DirectoryBucket"], () => require("./directoryBucket"));
 
+export { FilesAccessPointArgs, FilesAccessPointState } from "./filesAccessPoint";
+export type FilesAccessPoint = import("./filesAccessPoint").FilesAccessPoint;
+export const FilesAccessPoint: typeof import("./filesAccessPoint").FilesAccessPoint = null as any;
+utilities.lazyLoad(exports, ["FilesAccessPoint"], () => require("./filesAccessPoint"));
+
+export { FilesFileSystemArgs, FilesFileSystemState } from "./filesFileSystem";
+export type FilesFileSystem = import("./filesFileSystem").FilesFileSystem;
+export const FilesFileSystem: typeof import("./filesFileSystem").FilesFileSystem = null as any;
+utilities.lazyLoad(exports, ["FilesFileSystem"], () => require("./filesFileSystem"));
+
+export { FilesFileSystemPolicyArgs, FilesFileSystemPolicyState } from "./filesFileSystemPolicy";
+export type FilesFileSystemPolicy = import("./filesFileSystemPolicy").FilesFileSystemPolicy;
+export const FilesFileSystemPolicy: typeof import("./filesFileSystemPolicy").FilesFileSystemPolicy = null as any;
+utilities.lazyLoad(exports, ["FilesFileSystemPolicy"], () => require("./filesFileSystemPolicy"));
+
+export { FilesMountTargetArgs, FilesMountTargetState } from "./filesMountTarget";
+export type FilesMountTarget = import("./filesMountTarget").FilesMountTarget;
+export const FilesMountTarget: typeof import("./filesMountTarget").FilesMountTarget = null as any;
+utilities.lazyLoad(exports, ["FilesMountTarget"], () => require("./filesMountTarget"));
+
+export { FilesSynchronizationConfigurationArgs, FilesSynchronizationConfigurationState } from "./filesSynchronizationConfiguration";
+export type FilesSynchronizationConfiguration = import("./filesSynchronizationConfiguration").FilesSynchronizationConfiguration;
+export const FilesSynchronizationConfiguration: typeof import("./filesSynchronizationConfiguration").FilesSynchronizationConfiguration = null as any;
+utilities.lazyLoad(exports, ["FilesSynchronizationConfiguration"], () => require("./filesSynchronizationConfiguration"));
+
 export { GetAccessPointArgs, GetAccessPointResult, GetAccessPointOutputArgs } from "./getAccessPoint";
 export const getAccessPoint: typeof import("./getAccessPoint").getAccessPoint = null as any;
 export const getAccessPointOutput: typeof import("./getAccessPoint").getAccessPointOutput = null as any;
@@ -239,6 +264,26 @@ export { GetDirectoryBucketsArgs, GetDirectoryBucketsResult, GetDirectoryBuckets
 export const getDirectoryBuckets: typeof import("./getDirectoryBuckets").getDirectoryBuckets = null as any;
 export const getDirectoryBucketsOutput: typeof import("./getDirectoryBuckets").getDirectoryBucketsOutput = null as any;
 utilities.lazyLoad(exports, ["getDirectoryBuckets","getDirectoryBucketsOutput"], () => require("./getDirectoryBuckets"));
+
+export { GetFilesAccessPointArgs, GetFilesAccessPointResult, GetFilesAccessPointOutputArgs } from "./getFilesAccessPoint";
+export const getFilesAccessPoint: typeof import("./getFilesAccessPoint").getFilesAccessPoint = null as any;
+export const getFilesAccessPointOutput: typeof import("./getFilesAccessPoint").getFilesAccessPointOutput = null as any;
+utilities.lazyLoad(exports, ["getFilesAccessPoint","getFilesAccessPointOutput"], () => require("./getFilesAccessPoint"));
+
+export { GetFilesFileSystemArgs, GetFilesFileSystemResult, GetFilesFileSystemOutputArgs } from "./getFilesFileSystem";
+export const getFilesFileSystem: typeof import("./getFilesFileSystem").getFilesFileSystem = null as any;
+export const getFilesFileSystemOutput: typeof import("./getFilesFileSystem").getFilesFileSystemOutput = null as any;
+utilities.lazyLoad(exports, ["getFilesFileSystem","getFilesFileSystemOutput"], () => require("./getFilesFileSystem"));
+
+export { GetFilesFileSystemsArgs, GetFilesFileSystemsResult, GetFilesFileSystemsOutputArgs } from "./getFilesFileSystems";
+export const getFilesFileSystems: typeof import("./getFilesFileSystems").getFilesFileSystems = null as any;
+export const getFilesFileSystemsOutput: typeof import("./getFilesFileSystems").getFilesFileSystemsOutput = null as any;
+utilities.lazyLoad(exports, ["getFilesFileSystems","getFilesFileSystemsOutput"], () => require("./getFilesFileSystems"));
+
+export { GetFilesMountTargetArgs, GetFilesMountTargetResult, GetFilesMountTargetOutputArgs } from "./getFilesMountTarget";
+export const getFilesMountTarget: typeof import("./getFilesMountTarget").getFilesMountTarget = null as any;
+export const getFilesMountTargetOutput: typeof import("./getFilesMountTarget").getFilesMountTargetOutput = null as any;
+utilities.lazyLoad(exports, ["getFilesMountTarget","getFilesMountTargetOutput"], () => require("./getFilesMountTarget"));
 
 export { GetObjectArgs, GetObjectResult, GetObjectOutputArgs } from "./getObject";
 export const getObject: typeof import("./getObject").getObject = null as any;
@@ -359,6 +404,16 @@ const _module = {
                 return new BucketWebsiteConfigurationV2(name, <any>undefined, { urn })
             case "aws:s3/directoryBucket:DirectoryBucket":
                 return new DirectoryBucket(name, <any>undefined, { urn })
+            case "aws:s3/filesAccessPoint:FilesAccessPoint":
+                return new FilesAccessPoint(name, <any>undefined, { urn })
+            case "aws:s3/filesFileSystem:FilesFileSystem":
+                return new FilesFileSystem(name, <any>undefined, { urn })
+            case "aws:s3/filesFileSystemPolicy:FilesFileSystemPolicy":
+                return new FilesFileSystemPolicy(name, <any>undefined, { urn })
+            case "aws:s3/filesMountTarget:FilesMountTarget":
+                return new FilesMountTarget(name, <any>undefined, { urn })
+            case "aws:s3/filesSynchronizationConfiguration:FilesSynchronizationConfiguration":
+                return new FilesSynchronizationConfiguration(name, <any>undefined, { urn })
             case "aws:s3/inventory:Inventory":
                 return new Inventory(name, <any>undefined, { urn })
             case "aws:s3/objectCopy:ObjectCopy":
@@ -411,6 +466,11 @@ pulumi.runtime.registerResourceModule("aws", "s3/bucketVersioningV2", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketWebsiteConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketWebsiteConfigurationV2", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/directoryBucket", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/filesAccessPoint", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/filesFileSystem", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/filesFileSystemPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/filesMountTarget", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/filesSynchronizationConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/inventory", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/objectCopy", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/vectorsIndex", _module)

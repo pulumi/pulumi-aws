@@ -298,10 +298,21 @@ class ConfigurationAggregator(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Configuration Aggregators using the name. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the configuration aggregator.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Configuration Aggregators using the `name`. For example:
 
         ```sh
-        $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
+        $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example example
         ```
 
 
@@ -371,10 +382,21 @@ class ConfigurationAggregator(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Configuration Aggregators using the name. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the configuration aggregator.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Configuration Aggregators using the `name`. For example:
 
         ```sh
-        $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
+        $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example example
         ```
 
 

@@ -39,6 +39,7 @@ class CapacityProviderArgs:
         :param pulumi.Input['CapacityProviderVpcConfigArgs'] vpc_config: Configuration block for VPC settings. See VPC Config below.
         :param pulumi.Input[Sequence[pulumi.Input['CapacityProviderCapacityProviderScalingConfigArgs']]] capacity_provider_scaling_configs: Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
         :param pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementArgs']]] instance_requirements: Configuration block for instance requirements settings. See Instance Requirements below.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
         :param pulumi.Input[_builtins.str] name: The name of the Capacity Provider.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -113,6 +114,9 @@ class CapacityProviderArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -185,6 +189,7 @@ class _CapacityProviderState:
         :param pulumi.Input[_builtins.str] arn: ARN of the Capacity Provider.
         :param pulumi.Input[Sequence[pulumi.Input['CapacityProviderCapacityProviderScalingConfigArgs']]] capacity_provider_scaling_configs: Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
         :param pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementArgs']]] instance_requirements: Configuration block for instance requirements settings. See Instance Requirements below.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
         :param pulumi.Input[_builtins.str] name: The name of the Capacity Provider.
         :param pulumi.Input['CapacityProviderPermissionsConfigArgs'] permissions_config: Configuration block for permissions settings. See Permissions Config below.
                
@@ -256,6 +261,9 @@ class _CapacityProviderState:
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -428,6 +436,7 @@ class CapacityProvider(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CapacityProviderCapacityProviderScalingConfigArgs', 'CapacityProviderCapacityProviderScalingConfigArgsDict']]]] capacity_provider_scaling_configs: Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CapacityProviderInstanceRequirementArgs', 'CapacityProviderInstanceRequirementArgsDict']]]] instance_requirements: Configuration block for instance requirements settings. See Instance Requirements below.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
         :param pulumi.Input[_builtins.str] name: The name of the Capacity Provider.
         :param pulumi.Input[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict']] permissions_config: Configuration block for permissions settings. See Permissions Config below.
                
@@ -583,6 +592,7 @@ class CapacityProvider(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the Capacity Provider.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CapacityProviderCapacityProviderScalingConfigArgs', 'CapacityProviderCapacityProviderScalingConfigArgsDict']]]] capacity_provider_scaling_configs: Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CapacityProviderInstanceRequirementArgs', 'CapacityProviderInstanceRequirementArgsDict']]]] instance_requirements: Configuration block for instance requirements settings. See Instance Requirements below.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
         :param pulumi.Input[_builtins.str] name: The name of the Capacity Provider.
         :param pulumi.Input[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict']] permissions_config: Configuration block for permissions settings. See Permissions Config below.
                
@@ -636,6 +646,9 @@ class CapacityProvider(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @_builtins.property

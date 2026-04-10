@@ -4,10 +4,12 @@
 package com.pulumi.aws.amp.inputs;
 
 import com.pulumi.aws.amp.inputs.ScraperSourceEksArgs;
+import com.pulumi.aws.amp.inputs.ScraperSourceVpcArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ScraperSourceArgs extends com.pulumi.resources.ResourceArgs {
@@ -18,21 +20,41 @@ public final class ScraperSourceArgs extends com.pulumi.resources.ResourceArgs {
      * Configuration block for an EKS cluster source. See `eks`.
      * 
      */
-    @Import(name="eks", required=true)
-    private Output<ScraperSourceEksArgs> eks;
+    @Import(name="eks")
+    private @Nullable Output<ScraperSourceEksArgs> eks;
 
     /**
      * @return Configuration block for an EKS cluster source. See `eks`.
      * 
      */
-    public Output<ScraperSourceEksArgs> eks() {
-        return this.eks;
+    public Optional<Output<ScraperSourceEksArgs>> eks() {
+        return Optional.ofNullable(this.eks);
+    }
+
+    /**
+     * Configuration block for a VPC source. See `vpc`.
+     * 
+     * &gt; **NOTE:** Either `eks` or `vpc` must be specified, but not both.
+     * 
+     */
+    @Import(name="vpc")
+    private @Nullable Output<ScraperSourceVpcArgs> vpc;
+
+    /**
+     * @return Configuration block for a VPC source. See `vpc`.
+     * 
+     * &gt; **NOTE:** Either `eks` or `vpc` must be specified, but not both.
+     * 
+     */
+    public Optional<Output<ScraperSourceVpcArgs>> vpc() {
+        return Optional.ofNullable(this.vpc);
     }
 
     private ScraperSourceArgs() {}
 
     private ScraperSourceArgs(ScraperSourceArgs $) {
         this.eks = $.eks;
+        this.vpc = $.vpc;
     }
 
     public static Builder builder() {
@@ -59,7 +81,7 @@ public final class ScraperSourceArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder eks(Output<ScraperSourceEksArgs> eks) {
+        public Builder eks(@Nullable Output<ScraperSourceEksArgs> eks) {
             $.eks = eks;
             return this;
         }
@@ -74,10 +96,32 @@ public final class ScraperSourceArgs extends com.pulumi.resources.ResourceArgs {
             return eks(Output.of(eks));
         }
 
+        /**
+         * @param vpc Configuration block for a VPC source. See `vpc`.
+         * 
+         * &gt; **NOTE:** Either `eks` or `vpc` must be specified, but not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vpc(@Nullable Output<ScraperSourceVpcArgs> vpc) {
+            $.vpc = vpc;
+            return this;
+        }
+
+        /**
+         * @param vpc Configuration block for a VPC source. See `vpc`.
+         * 
+         * &gt; **NOTE:** Either `eks` or `vpc` must be specified, but not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vpc(ScraperSourceVpcArgs vpc) {
+            return vpc(Output.of(vpc));
+        }
+
         public ScraperSourceArgs build() {
-            if ($.eks == null) {
-                throw new MissingRequiredPropertyException("ScraperSourceArgs", "eks");
-            }
             return $;
         }
     }

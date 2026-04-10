@@ -26,6 +26,10 @@ namespace Pulumi.Aws.S3Control.Outputs
         /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics? AdvancedDataProtectionMetrics;
         /// <summary>
+        /// Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics below for more details.
+        /// </summary>
+        public readonly Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedPerformanceMetrics? AdvancedPerformanceMetrics;
+        /// <summary>
         /// S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
         /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel BucketLevel;
@@ -42,6 +46,8 @@ namespace Pulumi.Aws.S3Control.Outputs
 
             Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics? advancedDataProtectionMetrics,
 
+            Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedPerformanceMetrics? advancedPerformanceMetrics,
+
             Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel bucketLevel,
 
             Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics? detailedStatusCodeMetrics)
@@ -49,6 +55,7 @@ namespace Pulumi.Aws.S3Control.Outputs
             ActivityMetrics = activityMetrics;
             AdvancedCostOptimizationMetrics = advancedCostOptimizationMetrics;
             AdvancedDataProtectionMetrics = advancedDataProtectionMetrics;
+            AdvancedPerformanceMetrics = advancedPerformanceMetrics;
             BucketLevel = bucketLevel;
             DetailedStatusCodeMetrics = detailedStatusCodeMetrics;
         }

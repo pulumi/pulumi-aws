@@ -7,9 +7,12 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration {
+    private @Nullable String dataSourceSelectionCriteria;
     /**
      * @return Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
      * 
@@ -19,9 +22,12 @@ public final class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigur
      * @return Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE &#39;/aws/lambda%&#39;`. Must be between 1 and 2000 characters.
      * 
      */
-    private String logGroupSelectionCriteria;
+    private @Nullable String logGroupSelectionCriteria;
 
     private CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration() {}
+    public Optional<String> dataSourceSelectionCriteria() {
+        return Optional.ofNullable(this.dataSourceSelectionCriteria);
+    }
     /**
      * @return Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
      * 
@@ -33,8 +39,8 @@ public final class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigur
      * @return Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE &#39;/aws/lambda%&#39;`. Must be between 1 and 2000 characters.
      * 
      */
-    public String logGroupSelectionCriteria() {
-        return this.logGroupSelectionCriteria;
+    public Optional<String> logGroupSelectionCriteria() {
+        return Optional.ofNullable(this.logGroupSelectionCriteria);
     }
 
     public static Builder builder() {
@@ -46,15 +52,23 @@ public final class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigur
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String dataSourceSelectionCriteria;
         private String encryptedLogGroupStrategy;
-        private String logGroupSelectionCriteria;
+        private @Nullable String logGroupSelectionCriteria;
         public Builder() {}
         public Builder(CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.dataSourceSelectionCriteria = defaults.dataSourceSelectionCriteria;
     	      this.encryptedLogGroupStrategy = defaults.encryptedLogGroupStrategy;
     	      this.logGroupSelectionCriteria = defaults.logGroupSelectionCriteria;
         }
 
+        @CustomType.Setter
+        public Builder dataSourceSelectionCriteria(@Nullable String dataSourceSelectionCriteria) {
+
+            this.dataSourceSelectionCriteria = dataSourceSelectionCriteria;
+            return this;
+        }
         @CustomType.Setter
         public Builder encryptedLogGroupStrategy(String encryptedLogGroupStrategy) {
             if (encryptedLogGroupStrategy == null) {
@@ -64,15 +78,14 @@ public final class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigur
             return this;
         }
         @CustomType.Setter
-        public Builder logGroupSelectionCriteria(String logGroupSelectionCriteria) {
-            if (logGroupSelectionCriteria == null) {
-              throw new MissingRequiredPropertyException("CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration", "logGroupSelectionCriteria");
-            }
+        public Builder logGroupSelectionCriteria(@Nullable String logGroupSelectionCriteria) {
+
             this.logGroupSelectionCriteria = logGroupSelectionCriteria;
             return this;
         }
         public CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration build() {
             final var _resultValue = new CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration();
+            _resultValue.dataSourceSelectionCriteria = dataSourceSelectionCriteria;
             _resultValue.encryptedLogGroupStrategy = encryptedLogGroupStrategy;
             _resultValue.logGroupSelectionCriteria = logGroupSelectionCriteria;
             return _resultValue;

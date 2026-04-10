@@ -112,10 +112,21 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Delivery Channel using the name. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Name` (String) Name of the delivery channel.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Delivery Channels using the `Name`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
+    /// $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/deliveryChannel:DeliveryChannel")]

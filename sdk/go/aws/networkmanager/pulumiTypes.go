@@ -1810,6 +1810,344 @@ func (o VpcAttachmentOptionsPtrOutput) SecurityGroupReferencingSupport() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+type GetCoreNetworkEdge struct {
+	// ASN of the core network edge.
+	Asn int `pulumi:"asn"`
+	// AWS region where the edge is located.
+	EdgeLocation string `pulumi:"edgeLocation"`
+	// Inside IP addresses used for core network edges.
+	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
+}
+
+// GetCoreNetworkEdgeInput is an input type that accepts GetCoreNetworkEdgeArgs and GetCoreNetworkEdgeOutput values.
+// You can construct a concrete instance of `GetCoreNetworkEdgeInput` via:
+//
+//	GetCoreNetworkEdgeArgs{...}
+type GetCoreNetworkEdgeInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkEdgeOutput() GetCoreNetworkEdgeOutput
+	ToGetCoreNetworkEdgeOutputWithContext(context.Context) GetCoreNetworkEdgeOutput
+}
+
+type GetCoreNetworkEdgeArgs struct {
+	// ASN of the core network edge.
+	Asn pulumi.IntInput `pulumi:"asn"`
+	// AWS region where the edge is located.
+	EdgeLocation pulumi.StringInput `pulumi:"edgeLocation"`
+	// Inside IP addresses used for core network edges.
+	InsideCidrBlocks pulumi.StringArrayInput `pulumi:"insideCidrBlocks"`
+}
+
+func (GetCoreNetworkEdgeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkEdge)(nil)).Elem()
+}
+
+func (i GetCoreNetworkEdgeArgs) ToGetCoreNetworkEdgeOutput() GetCoreNetworkEdgeOutput {
+	return i.ToGetCoreNetworkEdgeOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkEdgeArgs) ToGetCoreNetworkEdgeOutputWithContext(ctx context.Context) GetCoreNetworkEdgeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkEdgeOutput)
+}
+
+// GetCoreNetworkEdgeArrayInput is an input type that accepts GetCoreNetworkEdgeArray and GetCoreNetworkEdgeArrayOutput values.
+// You can construct a concrete instance of `GetCoreNetworkEdgeArrayInput` via:
+//
+//	GetCoreNetworkEdgeArray{ GetCoreNetworkEdgeArgs{...} }
+type GetCoreNetworkEdgeArrayInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkEdgeArrayOutput() GetCoreNetworkEdgeArrayOutput
+	ToGetCoreNetworkEdgeArrayOutputWithContext(context.Context) GetCoreNetworkEdgeArrayOutput
+}
+
+type GetCoreNetworkEdgeArray []GetCoreNetworkEdgeInput
+
+func (GetCoreNetworkEdgeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkEdge)(nil)).Elem()
+}
+
+func (i GetCoreNetworkEdgeArray) ToGetCoreNetworkEdgeArrayOutput() GetCoreNetworkEdgeArrayOutput {
+	return i.ToGetCoreNetworkEdgeArrayOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkEdgeArray) ToGetCoreNetworkEdgeArrayOutputWithContext(ctx context.Context) GetCoreNetworkEdgeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkEdgeArrayOutput)
+}
+
+type GetCoreNetworkEdgeOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkEdgeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkEdge)(nil)).Elem()
+}
+
+func (o GetCoreNetworkEdgeOutput) ToGetCoreNetworkEdgeOutput() GetCoreNetworkEdgeOutput {
+	return o
+}
+
+func (o GetCoreNetworkEdgeOutput) ToGetCoreNetworkEdgeOutputWithContext(ctx context.Context) GetCoreNetworkEdgeOutput {
+	return o
+}
+
+// ASN of the core network edge.
+func (o GetCoreNetworkEdgeOutput) Asn() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCoreNetworkEdge) int { return v.Asn }).(pulumi.IntOutput)
+}
+
+// AWS region where the edge is located.
+func (o GetCoreNetworkEdgeOutput) EdgeLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoreNetworkEdge) string { return v.EdgeLocation }).(pulumi.StringOutput)
+}
+
+// Inside IP addresses used for core network edges.
+func (o GetCoreNetworkEdgeOutput) InsideCidrBlocks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkEdge) []string { return v.InsideCidrBlocks }).(pulumi.StringArrayOutput)
+}
+
+type GetCoreNetworkEdgeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkEdgeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkEdge)(nil)).Elem()
+}
+
+func (o GetCoreNetworkEdgeArrayOutput) ToGetCoreNetworkEdgeArrayOutput() GetCoreNetworkEdgeArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkEdgeArrayOutput) ToGetCoreNetworkEdgeArrayOutputWithContext(ctx context.Context) GetCoreNetworkEdgeArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkEdgeArrayOutput) Index(i pulumi.IntInput) GetCoreNetworkEdgeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCoreNetworkEdge {
+		return vs[0].([]GetCoreNetworkEdge)[vs[1].(int)]
+	}).(GetCoreNetworkEdgeOutput)
+}
+
+type GetCoreNetworkNetworkFunctionGroup struct {
+	// AWS regions where the edges are located.
+	EdgeLocations []string `pulumi:"edgeLocations"`
+	// Name of the core network segment.
+	Name string `pulumi:"name"`
+	// Segments associated with the network function group. See `network_function_groups.segments` Attribute Reference for details.
+	Segments []GetCoreNetworkNetworkFunctionGroupSegment `pulumi:"segments"`
+}
+
+// GetCoreNetworkNetworkFunctionGroupInput is an input type that accepts GetCoreNetworkNetworkFunctionGroupArgs and GetCoreNetworkNetworkFunctionGroupOutput values.
+// You can construct a concrete instance of `GetCoreNetworkNetworkFunctionGroupInput` via:
+//
+//	GetCoreNetworkNetworkFunctionGroupArgs{...}
+type GetCoreNetworkNetworkFunctionGroupInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkNetworkFunctionGroupOutput() GetCoreNetworkNetworkFunctionGroupOutput
+	ToGetCoreNetworkNetworkFunctionGroupOutputWithContext(context.Context) GetCoreNetworkNetworkFunctionGroupOutput
+}
+
+type GetCoreNetworkNetworkFunctionGroupArgs struct {
+	// AWS regions where the edges are located.
+	EdgeLocations pulumi.StringArrayInput `pulumi:"edgeLocations"`
+	// Name of the core network segment.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Segments associated with the network function group. See `network_function_groups.segments` Attribute Reference for details.
+	Segments GetCoreNetworkNetworkFunctionGroupSegmentArrayInput `pulumi:"segments"`
+}
+
+func (GetCoreNetworkNetworkFunctionGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkNetworkFunctionGroup)(nil)).Elem()
+}
+
+func (i GetCoreNetworkNetworkFunctionGroupArgs) ToGetCoreNetworkNetworkFunctionGroupOutput() GetCoreNetworkNetworkFunctionGroupOutput {
+	return i.ToGetCoreNetworkNetworkFunctionGroupOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkNetworkFunctionGroupArgs) ToGetCoreNetworkNetworkFunctionGroupOutputWithContext(ctx context.Context) GetCoreNetworkNetworkFunctionGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkNetworkFunctionGroupOutput)
+}
+
+// GetCoreNetworkNetworkFunctionGroupArrayInput is an input type that accepts GetCoreNetworkNetworkFunctionGroupArray and GetCoreNetworkNetworkFunctionGroupArrayOutput values.
+// You can construct a concrete instance of `GetCoreNetworkNetworkFunctionGroupArrayInput` via:
+//
+//	GetCoreNetworkNetworkFunctionGroupArray{ GetCoreNetworkNetworkFunctionGroupArgs{...} }
+type GetCoreNetworkNetworkFunctionGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkNetworkFunctionGroupArrayOutput() GetCoreNetworkNetworkFunctionGroupArrayOutput
+	ToGetCoreNetworkNetworkFunctionGroupArrayOutputWithContext(context.Context) GetCoreNetworkNetworkFunctionGroupArrayOutput
+}
+
+type GetCoreNetworkNetworkFunctionGroupArray []GetCoreNetworkNetworkFunctionGroupInput
+
+func (GetCoreNetworkNetworkFunctionGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkNetworkFunctionGroup)(nil)).Elem()
+}
+
+func (i GetCoreNetworkNetworkFunctionGroupArray) ToGetCoreNetworkNetworkFunctionGroupArrayOutput() GetCoreNetworkNetworkFunctionGroupArrayOutput {
+	return i.ToGetCoreNetworkNetworkFunctionGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkNetworkFunctionGroupArray) ToGetCoreNetworkNetworkFunctionGroupArrayOutputWithContext(ctx context.Context) GetCoreNetworkNetworkFunctionGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkNetworkFunctionGroupArrayOutput)
+}
+
+type GetCoreNetworkNetworkFunctionGroupOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkNetworkFunctionGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkNetworkFunctionGroup)(nil)).Elem()
+}
+
+func (o GetCoreNetworkNetworkFunctionGroupOutput) ToGetCoreNetworkNetworkFunctionGroupOutput() GetCoreNetworkNetworkFunctionGroupOutput {
+	return o
+}
+
+func (o GetCoreNetworkNetworkFunctionGroupOutput) ToGetCoreNetworkNetworkFunctionGroupOutputWithContext(ctx context.Context) GetCoreNetworkNetworkFunctionGroupOutput {
+	return o
+}
+
+// AWS regions where the edges are located.
+func (o GetCoreNetworkNetworkFunctionGroupOutput) EdgeLocations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkNetworkFunctionGroup) []string { return v.EdgeLocations }).(pulumi.StringArrayOutput)
+}
+
+// Name of the core network segment.
+func (o GetCoreNetworkNetworkFunctionGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoreNetworkNetworkFunctionGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Segments associated with the network function group. See `network_function_groups.segments` Attribute Reference for details.
+func (o GetCoreNetworkNetworkFunctionGroupOutput) Segments() GetCoreNetworkNetworkFunctionGroupSegmentArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkNetworkFunctionGroup) []GetCoreNetworkNetworkFunctionGroupSegment {
+		return v.Segments
+	}).(GetCoreNetworkNetworkFunctionGroupSegmentArrayOutput)
+}
+
+type GetCoreNetworkNetworkFunctionGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkNetworkFunctionGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkNetworkFunctionGroup)(nil)).Elem()
+}
+
+func (o GetCoreNetworkNetworkFunctionGroupArrayOutput) ToGetCoreNetworkNetworkFunctionGroupArrayOutput() GetCoreNetworkNetworkFunctionGroupArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkNetworkFunctionGroupArrayOutput) ToGetCoreNetworkNetworkFunctionGroupArrayOutputWithContext(ctx context.Context) GetCoreNetworkNetworkFunctionGroupArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkNetworkFunctionGroupArrayOutput) Index(i pulumi.IntInput) GetCoreNetworkNetworkFunctionGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCoreNetworkNetworkFunctionGroup {
+		return vs[0].([]GetCoreNetworkNetworkFunctionGroup)[vs[1].(int)]
+	}).(GetCoreNetworkNetworkFunctionGroupOutput)
+}
+
+type GetCoreNetworkNetworkFunctionGroupSegment struct {
+	// List of segments associated with the `send-to` action.
+	SendTos []string `pulumi:"sendTos"`
+	// List of segments associated with the `send-via` action.
+	SendVias []string `pulumi:"sendVias"`
+}
+
+// GetCoreNetworkNetworkFunctionGroupSegmentInput is an input type that accepts GetCoreNetworkNetworkFunctionGroupSegmentArgs and GetCoreNetworkNetworkFunctionGroupSegmentOutput values.
+// You can construct a concrete instance of `GetCoreNetworkNetworkFunctionGroupSegmentInput` via:
+//
+//	GetCoreNetworkNetworkFunctionGroupSegmentArgs{...}
+type GetCoreNetworkNetworkFunctionGroupSegmentInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkNetworkFunctionGroupSegmentOutput() GetCoreNetworkNetworkFunctionGroupSegmentOutput
+	ToGetCoreNetworkNetworkFunctionGroupSegmentOutputWithContext(context.Context) GetCoreNetworkNetworkFunctionGroupSegmentOutput
+}
+
+type GetCoreNetworkNetworkFunctionGroupSegmentArgs struct {
+	// List of segments associated with the `send-to` action.
+	SendTos pulumi.StringArrayInput `pulumi:"sendTos"`
+	// List of segments associated with the `send-via` action.
+	SendVias pulumi.StringArrayInput `pulumi:"sendVias"`
+}
+
+func (GetCoreNetworkNetworkFunctionGroupSegmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkNetworkFunctionGroupSegment)(nil)).Elem()
+}
+
+func (i GetCoreNetworkNetworkFunctionGroupSegmentArgs) ToGetCoreNetworkNetworkFunctionGroupSegmentOutput() GetCoreNetworkNetworkFunctionGroupSegmentOutput {
+	return i.ToGetCoreNetworkNetworkFunctionGroupSegmentOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkNetworkFunctionGroupSegmentArgs) ToGetCoreNetworkNetworkFunctionGroupSegmentOutputWithContext(ctx context.Context) GetCoreNetworkNetworkFunctionGroupSegmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkNetworkFunctionGroupSegmentOutput)
+}
+
+// GetCoreNetworkNetworkFunctionGroupSegmentArrayInput is an input type that accepts GetCoreNetworkNetworkFunctionGroupSegmentArray and GetCoreNetworkNetworkFunctionGroupSegmentArrayOutput values.
+// You can construct a concrete instance of `GetCoreNetworkNetworkFunctionGroupSegmentArrayInput` via:
+//
+//	GetCoreNetworkNetworkFunctionGroupSegmentArray{ GetCoreNetworkNetworkFunctionGroupSegmentArgs{...} }
+type GetCoreNetworkNetworkFunctionGroupSegmentArrayInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkNetworkFunctionGroupSegmentArrayOutput() GetCoreNetworkNetworkFunctionGroupSegmentArrayOutput
+	ToGetCoreNetworkNetworkFunctionGroupSegmentArrayOutputWithContext(context.Context) GetCoreNetworkNetworkFunctionGroupSegmentArrayOutput
+}
+
+type GetCoreNetworkNetworkFunctionGroupSegmentArray []GetCoreNetworkNetworkFunctionGroupSegmentInput
+
+func (GetCoreNetworkNetworkFunctionGroupSegmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkNetworkFunctionGroupSegment)(nil)).Elem()
+}
+
+func (i GetCoreNetworkNetworkFunctionGroupSegmentArray) ToGetCoreNetworkNetworkFunctionGroupSegmentArrayOutput() GetCoreNetworkNetworkFunctionGroupSegmentArrayOutput {
+	return i.ToGetCoreNetworkNetworkFunctionGroupSegmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkNetworkFunctionGroupSegmentArray) ToGetCoreNetworkNetworkFunctionGroupSegmentArrayOutputWithContext(ctx context.Context) GetCoreNetworkNetworkFunctionGroupSegmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkNetworkFunctionGroupSegmentArrayOutput)
+}
+
+type GetCoreNetworkNetworkFunctionGroupSegmentOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkNetworkFunctionGroupSegmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkNetworkFunctionGroupSegment)(nil)).Elem()
+}
+
+func (o GetCoreNetworkNetworkFunctionGroupSegmentOutput) ToGetCoreNetworkNetworkFunctionGroupSegmentOutput() GetCoreNetworkNetworkFunctionGroupSegmentOutput {
+	return o
+}
+
+func (o GetCoreNetworkNetworkFunctionGroupSegmentOutput) ToGetCoreNetworkNetworkFunctionGroupSegmentOutputWithContext(ctx context.Context) GetCoreNetworkNetworkFunctionGroupSegmentOutput {
+	return o
+}
+
+// List of segments associated with the `send-to` action.
+func (o GetCoreNetworkNetworkFunctionGroupSegmentOutput) SendTos() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkNetworkFunctionGroupSegment) []string { return v.SendTos }).(pulumi.StringArrayOutput)
+}
+
+// List of segments associated with the `send-via` action.
+func (o GetCoreNetworkNetworkFunctionGroupSegmentOutput) SendVias() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkNetworkFunctionGroupSegment) []string { return v.SendVias }).(pulumi.StringArrayOutput)
+}
+
+type GetCoreNetworkNetworkFunctionGroupSegmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkNetworkFunctionGroupSegmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkNetworkFunctionGroupSegment)(nil)).Elem()
+}
+
+func (o GetCoreNetworkNetworkFunctionGroupSegmentArrayOutput) ToGetCoreNetworkNetworkFunctionGroupSegmentArrayOutput() GetCoreNetworkNetworkFunctionGroupSegmentArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkNetworkFunctionGroupSegmentArrayOutput) ToGetCoreNetworkNetworkFunctionGroupSegmentArrayOutputWithContext(ctx context.Context) GetCoreNetworkNetworkFunctionGroupSegmentArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkNetworkFunctionGroupSegmentArrayOutput) Index(i pulumi.IntInput) GetCoreNetworkNetworkFunctionGroupSegmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCoreNetworkNetworkFunctionGroupSegment {
+		return vs[0].([]GetCoreNetworkNetworkFunctionGroupSegment)[vs[1].(int)]
+	}).(GetCoreNetworkNetworkFunctionGroupSegmentOutput)
+}
+
 type GetCoreNetworkPolicyDocumentAttachmentPolicy struct {
 	// Action to take when a condition is true. Detailed Below.
 	Action GetCoreNetworkPolicyDocumentAttachmentPolicyAction `pulumi:"action"`
@@ -4273,6 +4611,121 @@ func (o GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput) Segments()
 	}).(pulumi.StringArrayOutput)
 }
 
+type GetCoreNetworkSegment struct {
+	// AWS regions where the edges are located.
+	EdgeLocations []string `pulumi:"edgeLocations"`
+	// Name of the core network segment.
+	Name string `pulumi:"name"`
+	// Shared segments of the core network.
+	SharedSegments []string `pulumi:"sharedSegments"`
+}
+
+// GetCoreNetworkSegmentInput is an input type that accepts GetCoreNetworkSegmentArgs and GetCoreNetworkSegmentOutput values.
+// You can construct a concrete instance of `GetCoreNetworkSegmentInput` via:
+//
+//	GetCoreNetworkSegmentArgs{...}
+type GetCoreNetworkSegmentInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkSegmentOutput() GetCoreNetworkSegmentOutput
+	ToGetCoreNetworkSegmentOutputWithContext(context.Context) GetCoreNetworkSegmentOutput
+}
+
+type GetCoreNetworkSegmentArgs struct {
+	// AWS regions where the edges are located.
+	EdgeLocations pulumi.StringArrayInput `pulumi:"edgeLocations"`
+	// Name of the core network segment.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Shared segments of the core network.
+	SharedSegments pulumi.StringArrayInput `pulumi:"sharedSegments"`
+}
+
+func (GetCoreNetworkSegmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkSegment)(nil)).Elem()
+}
+
+func (i GetCoreNetworkSegmentArgs) ToGetCoreNetworkSegmentOutput() GetCoreNetworkSegmentOutput {
+	return i.ToGetCoreNetworkSegmentOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkSegmentArgs) ToGetCoreNetworkSegmentOutputWithContext(ctx context.Context) GetCoreNetworkSegmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkSegmentOutput)
+}
+
+// GetCoreNetworkSegmentArrayInput is an input type that accepts GetCoreNetworkSegmentArray and GetCoreNetworkSegmentArrayOutput values.
+// You can construct a concrete instance of `GetCoreNetworkSegmentArrayInput` via:
+//
+//	GetCoreNetworkSegmentArray{ GetCoreNetworkSegmentArgs{...} }
+type GetCoreNetworkSegmentArrayInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkSegmentArrayOutput() GetCoreNetworkSegmentArrayOutput
+	ToGetCoreNetworkSegmentArrayOutputWithContext(context.Context) GetCoreNetworkSegmentArrayOutput
+}
+
+type GetCoreNetworkSegmentArray []GetCoreNetworkSegmentInput
+
+func (GetCoreNetworkSegmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkSegment)(nil)).Elem()
+}
+
+func (i GetCoreNetworkSegmentArray) ToGetCoreNetworkSegmentArrayOutput() GetCoreNetworkSegmentArrayOutput {
+	return i.ToGetCoreNetworkSegmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkSegmentArray) ToGetCoreNetworkSegmentArrayOutputWithContext(ctx context.Context) GetCoreNetworkSegmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkSegmentArrayOutput)
+}
+
+type GetCoreNetworkSegmentOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkSegmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkSegment)(nil)).Elem()
+}
+
+func (o GetCoreNetworkSegmentOutput) ToGetCoreNetworkSegmentOutput() GetCoreNetworkSegmentOutput {
+	return o
+}
+
+func (o GetCoreNetworkSegmentOutput) ToGetCoreNetworkSegmentOutputWithContext(ctx context.Context) GetCoreNetworkSegmentOutput {
+	return o
+}
+
+// AWS regions where the edges are located.
+func (o GetCoreNetworkSegmentOutput) EdgeLocations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkSegment) []string { return v.EdgeLocations }).(pulumi.StringArrayOutput)
+}
+
+// Name of the core network segment.
+func (o GetCoreNetworkSegmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoreNetworkSegment) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Shared segments of the core network.
+func (o GetCoreNetworkSegmentOutput) SharedSegments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkSegment) []string { return v.SharedSegments }).(pulumi.StringArrayOutput)
+}
+
+type GetCoreNetworkSegmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkSegmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkSegment)(nil)).Elem()
+}
+
+func (o GetCoreNetworkSegmentArrayOutput) ToGetCoreNetworkSegmentArrayOutput() GetCoreNetworkSegmentArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkSegmentArrayOutput) ToGetCoreNetworkSegmentArrayOutputWithContext(ctx context.Context) GetCoreNetworkSegmentArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkSegmentArrayOutput) Index(i pulumi.IntInput) GetCoreNetworkSegmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCoreNetworkSegment {
+		return vs[0].([]GetCoreNetworkSegment)[vs[1].(int)]
+	}).(GetCoreNetworkSegmentOutput)
+}
+
 type GetDeviceAwsLocation struct {
 	// ARN of the subnet that the device is located in.
 	SubnetArn string `pulumi:"subnetArn"`
@@ -4740,6 +5193,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteLocationPtrInput)(nil)).Elem(), SiteLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentOptionsInput)(nil)).Elem(), VpcAttachmentOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentOptionsPtrInput)(nil)).Elem(), VpcAttachmentOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkEdgeInput)(nil)).Elem(), GetCoreNetworkEdgeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkEdgeArrayInput)(nil)).Elem(), GetCoreNetworkEdgeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkNetworkFunctionGroupInput)(nil)).Elem(), GetCoreNetworkNetworkFunctionGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkNetworkFunctionGroupArrayInput)(nil)).Elem(), GetCoreNetworkNetworkFunctionGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkNetworkFunctionGroupSegmentInput)(nil)).Elem(), GetCoreNetworkNetworkFunctionGroupSegmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkNetworkFunctionGroupSegmentArrayInput)(nil)).Elem(), GetCoreNetworkNetworkFunctionGroupSegmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentPolicyInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentAttachmentPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentPolicyArrayInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentAttachmentPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentPolicyActionInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs{})
@@ -4776,6 +5235,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionWhenSentToInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkSegmentInput)(nil)).Elem(), GetCoreNetworkSegmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkSegmentArrayInput)(nil)).Elem(), GetCoreNetworkSegmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceAwsLocationInput)(nil)).Elem(), GetDeviceAwsLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceAwsLocationArrayInput)(nil)).Elem(), GetDeviceAwsLocationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceLocationInput)(nil)).Elem(), GetDeviceLocationArgs{})
@@ -4808,6 +5269,12 @@ func init() {
 	pulumi.RegisterOutputType(SiteLocationPtrOutput{})
 	pulumi.RegisterOutputType(VpcAttachmentOptionsOutput{})
 	pulumi.RegisterOutputType(VpcAttachmentOptionsPtrOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkEdgeOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkEdgeArrayOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkNetworkFunctionGroupOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkNetworkFunctionGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkNetworkFunctionGroupSegmentOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkNetworkFunctionGroupSegmentArrayOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentAttachmentPolicyOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput{})
@@ -4844,6 +5311,8 @@ func init() {
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentSegmentActionWhenSentToOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkSegmentOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkSegmentArrayOutput{})
 	pulumi.RegisterOutputType(GetDeviceAwsLocationOutput{})
 	pulumi.RegisterOutputType(GetDeviceAwsLocationArrayOutput{})
 	pulumi.RegisterOutputType(GetDeviceLocationOutput{})
