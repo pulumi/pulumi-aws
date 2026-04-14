@@ -1,3 +1,0 @@
-name: testing-aws-fifo-dotnet
-runtime: python
-description: A simple example of using autonaming Fifo queues in python
