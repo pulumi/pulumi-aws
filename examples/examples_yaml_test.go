@@ -230,7 +230,6 @@ func TestS3BucketV2Compat(t *testing.T) {
 }
 
 func TestS3BucketV2ToBucketSidecarUpgrade(t *testing.T) {
-	t.Skip("temporarily disabled, see https://github.com/pulumi/pulumi-aws/issues/6271")
 	test, _ := testProviderUpgrade(t, "bucket-sidecar-renames", &testProviderUpgradeOptions{
 		skipDefaultPreviewTest: true,
 		skipCache:              true,
