@@ -21,7 +21,7 @@ java = 'corretto-11'
 "github:pulumi/schema-tools" = "0.6.0"
 "go:github.com/pulumi/upgrade-provider" = "main"
 "aqua:gradle/gradle-distributions" = '7.6.6'
-golangci-lint = "1.64.8" # See note about about overrides if you need to customize this.
+golangci-lint = "2.2.2" # See note about about overrides if you need to customize this.
 "npm:yarn" = "1.22.22"
 
 [settings]
