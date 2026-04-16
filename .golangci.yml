@@ -27,7 +27,7 @@ linters:
     rules:
       - linters:
           - revive
-        path: pkg/version/
+        path: pkg/
         text: "var-naming" # https://github.com/pulumi/ci-mgmt/issues/2100
 formatters:
   enable:
