@@ -45,8 +45,8 @@ jobs:
           ESC_ACTION_OIDC_REQUESTED_TOKEN_TYPE: urn:pulumi:token-type:access_token:organization
         id: esc-secrets
         name: Fetch secrets from ESC
-        uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: pulumi/esc-action@9840934db12128a33f6afb60b17d9de8f7ec5519
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
           fetch-depth: 0
       - name: Checkout PR head (if applicable)
@@ -56,7 +56,7 @@ jobs:
           PR_NUMBER: ${{ github.event.pull_request.number || github.event.issue.number }}
         run: gh pr checkout "$PR_NUMBER"
       - name: Setup mise
-        uses: jdx/mise-action@c1a019b8d2586943b4dbebc456323b516910e310
+        uses: jdx/mise-action@d6e9fb75ae3ee715d1db0b62373f15621d5f7329
         env:
           MISE_FETCH_REMOTE_VERSIONS_TIMEOUT: 30s
         with:
@@ -79,7 +79,7 @@ jobs:
           (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude review')) ||
           (github.event_name == 'pull_request_review' && contains(github.event.review.body, '@claude review'))
         id: claude-review
-        uses: anthropics/claude-code-action@8341a564b0c1693e9fa29c681852ee3714980098 # v1
+        uses: anthropics/claude-code-action@905d4eb99ab3d43143d74fb0dcae537f29ac330a # v1
         with:
           anthropic_api_key: ${{ steps.esc-secrets.outputs.ANTHROPIC_API_KEY }}
           prompt: |
@@ -101,7 +101,7 @@ jobs:
           !contains(github.event.comment.body, '@claude review') &&
           !contains(github.event.review.body, '@claude review')
         id: claude-action
-        uses: anthropics/claude-code-action@8341a564b0c1693e9fa29c681852ee3714980098 # v1
+        uses: anthropics/claude-code-action@905d4eb99ab3d43143d74fb0dcae537f29ac330a # v1
         with:
           anthropic_api_key: ${{ steps.esc-secrets.outputs.ANTHROPIC_API_KEY }}
           # This allows claude to read github action logs
@@ -125,14 +125,14 @@ jobs:
         # Uploading the artifact allows you to download the artifact from the UI
       - name: Upload Claude review output on failure
         if: failure() && steps.claude-review.outputs.execution_file
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: claude-review-execution-log
           path: ${{ steps.claude-review.outputs.execution_file }}
           retention-days: 7
       - name: Upload Claude output on failure
         if: failure() && steps.claude-action.outputs.execution_file
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: claude-execution-log
           path: ${{ steps.claude-action.outputs.execution_file }}

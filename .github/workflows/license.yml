@@ -25,7 +25,7 @@ jobs:
       id-token: write # For ESC secrets.
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false      
       - env:
@@ -37,14 +37,14 @@ jobs:
         id: esc-secrets
         name: Fetch secrets from ESC
         uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
-      - uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf # v2.2.1
+      - uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3.0.0
         id: app-auth
         with:
           app-id: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_APP_ID }}
           private-key: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_PRIVATE_KEY }}
           owner: ${{ github.repository_owner }}
       - name: Setup mise
-        uses: jdx/mise-action@c1a019b8d2586943b4dbebc456323b516910e310
+        uses: jdx/mise-action@d6e9fb75ae3ee715d1db0b62373f15621d5f7329
         env:
           MISE_FETCH_REMOTE_VERSIONS_TIMEOUT: 30s
         with:

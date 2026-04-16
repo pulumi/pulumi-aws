@@ -217,17 +217,17 @@ install_python_sdk:
 .PHONY: install_dotnet_sdk install_go_sdk install_java_sdk install_nodejs_sdk install_python_sdk
 
 lint: upstream
-	git grep -l 'go:embed' -- provider | xargs perl -i -pe 's/go:embed/ goembed/g'
+	if git grep -ql 'go:embed' -- provider; then git grep -l 'go:embed' -- provider | xargs perl -i -pe 's/go:embed/ goembed/g'; fi
 	cd provider && golangci-lint run --path-prefix provider -c ../.golangci.yml; LINT_EXIT=$$?; \
-	git grep -l 'goembed' | xargs perl -i -pe 's/ goembed/go:embed/g'; \
+	if git grep -ql 'goembed'; then git grep -l 'goembed' | xargs perl -i -pe 's/ goembed/go:embed/g'; fi; \
 	exit $$LINT_EXIT
 
 # `lint.fix` is a utility target meant to be run manually
 # that will run the linter and fix errors when possible.
 lint.fix: upstream
-	git grep -l 'go:embed' -- provider | xargs perl -i -pe 's/go:embed/ goembed/g'
+	if git grep -ql 'go:embed' -- provider; then git grep -l 'go:embed' -- provider | xargs perl -i -pe 's/go:embed/ goembed/g'; fi
 	cd provider && golangci-lint run --path-prefix provider -c ../.golangci.yml --fix; LINT_EXIT=$$?; \
-	git grep -l 'goembed' | xargs perl -i -pe 's/ goembed/go:embed/g'; \
+	if git grep -ql 'goembed'; then git grep -l 'goembed' | xargs perl -i -pe 's/ goembed/go:embed/g'; fi; \
 	exit $$LINT_EXIT
 
 .PHONY: lint lint.fix
