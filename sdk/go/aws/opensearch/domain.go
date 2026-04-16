@@ -501,6 +501,8 @@ type Domain struct {
 	DashboardEndpoint pulumi.StringOutput `pulumi:"dashboardEndpoint"`
 	// V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
 	DashboardEndpointV2 pulumi.StringOutput `pulumi:"dashboardEndpointV2"`
+	// Configuration block for the deployment strategy options of the domain. Detailed below.
+	DeploymentStrategyOptions DomainDeploymentStrategyOptionsOutput `pulumi:"deploymentStrategyOptions"`
 	// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
 	DomainEndpointOptions DomainDomainEndpointOptionsOutput `pulumi:"domainEndpointOptions"`
 	// Dual stack hosted zone ID for the domain.
@@ -597,6 +599,8 @@ type domainState struct {
 	DashboardEndpoint *string `pulumi:"dashboardEndpoint"`
 	// V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
 	DashboardEndpointV2 *string `pulumi:"dashboardEndpointV2"`
+	// Configuration block for the deployment strategy options of the domain. Detailed below.
+	DeploymentStrategyOptions *DomainDeploymentStrategyOptions `pulumi:"deploymentStrategyOptions"`
 	// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
 	DomainEndpointOptions *DomainDomainEndpointOptions `pulumi:"domainEndpointOptions"`
 	// Dual stack hosted zone ID for the domain.
@@ -664,6 +668,8 @@ type DomainState struct {
 	DashboardEndpoint pulumi.StringPtrInput
 	// V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
 	DashboardEndpointV2 pulumi.StringPtrInput
+	// Configuration block for the deployment strategy options of the domain. Detailed below.
+	DeploymentStrategyOptions DomainDeploymentStrategyOptionsPtrInput
 	// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
 	DomainEndpointOptions DomainDomainEndpointOptionsPtrInput
 	// Dual stack hosted zone ID for the domain.
@@ -729,6 +735,8 @@ type domainArgs struct {
 	ClusterConfig *DomainClusterConfig `pulumi:"clusterConfig"`
 	// Configuration block for authenticating dashboard with Cognito. Detailed below.
 	CognitoOptions *DomainCognitoOptions `pulumi:"cognitoOptions"`
+	// Configuration block for the deployment strategy options of the domain. Detailed below.
+	DeploymentStrategyOptions *DomainDeploymentStrategyOptions `pulumi:"deploymentStrategyOptions"`
 	// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
 	DomainEndpointOptions *DomainDomainEndpointOptions `pulumi:"domainEndpointOptions"`
 	// Name of the domain.
@@ -781,6 +789,8 @@ type DomainArgs struct {
 	ClusterConfig DomainClusterConfigPtrInput
 	// Configuration block for authenticating dashboard with Cognito. Detailed below.
 	CognitoOptions DomainCognitoOptionsPtrInput
+	// Configuration block for the deployment strategy options of the domain. Detailed below.
+	DeploymentStrategyOptions DomainDeploymentStrategyOptionsPtrInput
 	// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
 	DomainEndpointOptions DomainDomainEndpointOptionsPtrInput
 	// Name of the domain.
@@ -952,6 +962,11 @@ func (o DomainOutput) DashboardEndpoint() pulumi.StringOutput {
 // V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
 func (o DomainOutput) DashboardEndpointV2() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DashboardEndpointV2 }).(pulumi.StringOutput)
+}
+
+// Configuration block for the deployment strategy options of the domain. Detailed below.
+func (o DomainOutput) DeploymentStrategyOptions() DomainDeploymentStrategyOptionsOutput {
+	return o.ApplyT(func(v *Domain) DomainDeploymentStrategyOptionsOutput { return v.DeploymentStrategyOptions }).(DomainDeploymentStrategyOptionsOutput)
 }
 
 // Configuration block for domain endpoint HTTP(S) related options. Detailed below.

@@ -79,7 +79,7 @@ import (
 //				Input: "my-tf-test-bucket-%s-%s-an",
 //				Args: []*string{
 //					current.AccountId,
-//					currentGetRegion.Name,
+//					currentGetRegion.Region,
 //				},
 //			}, nil)
 //			if err != nil {

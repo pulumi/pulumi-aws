@@ -17,6 +17,12 @@ from .. import iam
 from .. import iam as _iam
 
 __all__ = [
+    'AlarmMuteRuleMuteTargetsArgs',
+    'AlarmMuteRuleMuteTargetsArgsDict',
+    'AlarmMuteRuleRuleArgs',
+    'AlarmMuteRuleRuleArgsDict',
+    'AlarmMuteRuleRuleScheduleArgs',
+    'AlarmMuteRuleRuleScheduleArgsDict',
     'CompositeAlarmActionsSuppressorArgs',
     'CompositeAlarmActionsSuppressorArgsDict',
     'EventBusDeadLetterConfigArgs',
@@ -216,6 +222,130 @@ __all__ = [
     'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs',
     'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgsDict',
 ]
+
+class AlarmMuteRuleMuteTargetsArgsDict(TypedDict):
+    alarm_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of alarm names to mute.
+    """
+
+@pulumi.input_type
+class AlarmMuteRuleMuteTargetsArgs:
+    def __init__(__self__, *,
+                 alarm_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alarm_names: List of alarm names to mute.
+        """
+        pulumi.set(__self__, "alarm_names", alarm_names)
+
+    @_builtins.property
+    @pulumi.getter(name="alarmNames")
+    def alarm_names(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of alarm names to mute.
+        """
+        return pulumi.get(self, "alarm_names")
+
+    @alarm_names.setter
+    def alarm_names(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "alarm_names", value)
+
+
+class AlarmMuteRuleRuleArgsDict(TypedDict):
+    schedule: NotRequired[pulumi.Input['AlarmMuteRuleRuleScheduleArgsDict']]
+    """
+    Schedule for the mute rule. See `schedule` block below for details.
+    """
+
+@pulumi.input_type
+class AlarmMuteRuleRuleArgs:
+    def __init__(__self__, *,
+                 schedule: Optional[pulumi.Input['AlarmMuteRuleRuleScheduleArgs']] = None):
+        """
+        :param pulumi.Input['AlarmMuteRuleRuleScheduleArgs'] schedule: Schedule for the mute rule. See `schedule` block below for details.
+        """
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+
+    @_builtins.property
+    @pulumi.getter
+    def schedule(self) -> Optional[pulumi.Input['AlarmMuteRuleRuleScheduleArgs']]:
+        """
+        Schedule for the mute rule. See `schedule` block below for details.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: Optional[pulumi.Input['AlarmMuteRuleRuleScheduleArgs']]):
+        pulumi.set(self, "schedule", value)
+
+
+class AlarmMuteRuleRuleScheduleArgsDict(TypedDict):
+    duration: pulumi.Input[_builtins.str]
+    """
+    Duration of the mute period in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations) (e.g., `PT4H` for 4 hours).
+    """
+    expression: pulumi.Input[_builtins.str]
+    """
+    Schedule expression. Supports `cron()` and `at()` formats. For example, `cron(0 2 * * *)` for daily at 2:00 AM or `at(2026-01-01T00:00)` for a one-time mute. See [Defining alarm mute rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-mute-rules.html#defining-alarm-mute-rules) for details.
+    """
+    timezone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Timezone for the schedule expression (e.g., `Asia/Tokyo`). Defaults to UTC.
+    """
+
+@pulumi.input_type
+class AlarmMuteRuleRuleScheduleArgs:
+    def __init__(__self__, *,
+                 duration: pulumi.Input[_builtins.str],
+                 expression: pulumi.Input[_builtins.str],
+                 timezone: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] duration: Duration of the mute period in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations) (e.g., `PT4H` for 4 hours).
+        :param pulumi.Input[_builtins.str] expression: Schedule expression. Supports `cron()` and `at()` formats. For example, `cron(0 2 * * *)` for daily at 2:00 AM or `at(2026-01-01T00:00)` for a one-time mute. See [Defining alarm mute rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-mute-rules.html#defining-alarm-mute-rules) for details.
+        :param pulumi.Input[_builtins.str] timezone: Timezone for the schedule expression (e.g., `Asia/Tokyo`). Defaults to UTC.
+        """
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "expression", expression)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+
+    @_builtins.property
+    @pulumi.getter
+    def duration(self) -> pulumi.Input[_builtins.str]:
+        """
+        Duration of the mute period in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations) (e.g., `PT4H` for 4 hours).
+        """
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "duration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> pulumi.Input[_builtins.str]:
+        """
+        Schedule expression. Supports `cron()` and `at()` formats. For example, `cron(0 2 * * *)` for daily at 2:00 AM or `at(2026-01-01T00:00)` for a one-time mute. See [Defining alarm mute rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-mute-rules.html#defining-alarm-mute-rules) for details.
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "expression", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Timezone for the schedule expression (e.g., `Asia/Tokyo`). Defaults to UTC.
+        """
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "timezone", value)
+
 
 class CompositeAlarmActionsSuppressorArgsDict(TypedDict):
     alarm: pulumi.Input[_builtins.str]

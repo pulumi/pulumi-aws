@@ -8,6 +8,7 @@ import com.pulumi.aws.opensearch.inputs.DomainAimlOptionsArgs;
 import com.pulumi.aws.opensearch.inputs.DomainAutoTuneOptionsArgs;
 import com.pulumi.aws.opensearch.inputs.DomainClusterConfigArgs;
 import com.pulumi.aws.opensearch.inputs.DomainCognitoOptionsArgs;
+import com.pulumi.aws.opensearch.inputs.DomainDeploymentStrategyOptionsArgs;
 import com.pulumi.aws.opensearch.inputs.DomainDomainEndpointOptionsArgs;
 import com.pulumi.aws.opensearch.inputs.DomainEbsOptionsArgs;
 import com.pulumi.aws.opensearch.inputs.DomainEncryptAtRestArgs;
@@ -135,6 +136,21 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<DomainCognitoOptionsArgs>> cognitoOptions() {
         return Optional.ofNullable(this.cognitoOptions);
+    }
+
+    /**
+     * Configuration block for the deployment strategy options of the domain. Detailed below.
+     * 
+     */
+    @Import(name="deploymentStrategyOptions")
+    private @Nullable Output<DomainDeploymentStrategyOptionsArgs> deploymentStrategyOptions;
+
+    /**
+     * @return Configuration block for the deployment strategy options of the domain. Detailed below.
+     * 
+     */
+    public Optional<Output<DomainDeploymentStrategyOptionsArgs>> deploymentStrategyOptions() {
+        return Optional.ofNullable(this.deploymentStrategyOptions);
     }
 
     /**
@@ -380,6 +396,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         this.autoTuneOptions = $.autoTuneOptions;
         this.clusterConfig = $.clusterConfig;
         this.cognitoOptions = $.cognitoOptions;
+        this.deploymentStrategyOptions = $.deploymentStrategyOptions;
         this.domainEndpointOptions = $.domainEndpointOptions;
         this.domainName = $.domainName;
         this.ebsOptions = $.ebsOptions;
@@ -560,6 +577,27 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder cognitoOptions(DomainCognitoOptionsArgs cognitoOptions) {
             return cognitoOptions(Output.of(cognitoOptions));
+        }
+
+        /**
+         * @param deploymentStrategyOptions Configuration block for the deployment strategy options of the domain. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deploymentStrategyOptions(@Nullable Output<DomainDeploymentStrategyOptionsArgs> deploymentStrategyOptions) {
+            $.deploymentStrategyOptions = deploymentStrategyOptions;
+            return this;
+        }
+
+        /**
+         * @param deploymentStrategyOptions Configuration block for the deployment strategy options of the domain. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deploymentStrategyOptions(DomainDeploymentStrategyOptionsArgs deploymentStrategyOptions) {
+            return deploymentStrategyOptions(Output.of(deploymentStrategyOptions));
         }
 
         /**

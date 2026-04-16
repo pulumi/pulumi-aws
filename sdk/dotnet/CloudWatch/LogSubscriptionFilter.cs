@@ -37,10 +37,22 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CloudWatch Logs subscription filter using the log group name and subscription filter name separated by `|`. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `LogGroupName` (String) Name of the log group.
+    /// * `Name` (String) Name of the subscription filter.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Subscription Filters using `LogGroupName` and `Name` separated by a vertical bar (`|`). For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter test_lambdafunction_logfilter "/aws/lambda/example_lambda_name|test_lambdafunction_logfilter"
+    /// $ pulumi import aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter example example-group|example-filter
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter")]

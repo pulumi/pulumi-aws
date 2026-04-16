@@ -1348,10 +1348,10 @@ class Table(pulumi.CustomResource):
             }],
             replicas=[
                 {
-                    "region_name": alternate.name,
+                    "region_name": alternate.region,
                 },
                 {
-                    "region_name": third.name,
+                    "region_name": third.region,
                     "propagate_tags": True,
                 },
             ],
@@ -1362,12 +1362,23 @@ class Table(pulumi.CustomResource):
         example_tag = aws.dynamodb.Tag("example",
             resource_arn=example.arn.apply(lambda arn: std.replace(text=arn,
                 search=current.region,
-                replace=alternate.name)).apply(lambda invoke: invoke.result),
+                replace=alternate.region)).apply(lambda invoke: invoke.result),
             key="Architect",
             value="Gigi")
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the DynamoDB Table.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import DynamoDB tables using the `name`. For example:
 
@@ -1712,10 +1723,10 @@ class Table(pulumi.CustomResource):
             }],
             replicas=[
                 {
-                    "region_name": alternate.name,
+                    "region_name": alternate.region,
                 },
                 {
-                    "region_name": third.name,
+                    "region_name": third.region,
                     "propagate_tags": True,
                 },
             ],
@@ -1726,12 +1737,23 @@ class Table(pulumi.CustomResource):
         example_tag = aws.dynamodb.Tag("example",
             resource_arn=example.arn.apply(lambda arn: std.replace(text=arn,
                 search=current.region,
-                replace=alternate.name)).apply(lambda invoke: invoke.result),
+                replace=alternate.region)).apply(lambda invoke: invoke.result),
             key="Architect",
             value="Gigi")
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the DynamoDB Table.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import DynamoDB tables using the `name`. For example:
 

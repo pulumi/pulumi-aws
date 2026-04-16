@@ -66,7 +66,7 @@ namespace Pulumi.Aws.S3
     ///             Args = new[]
     ///             {
     ///                 current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///                 currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///                 currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///             },
     ///         }).Apply(invoke =&gt; invoke.Result),
     ///         BucketNamespace = "account-regional",

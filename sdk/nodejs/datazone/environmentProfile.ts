@@ -85,11 +85,11 @@ import * as utilities from "../utilities";
  *     domainId: testDomain.id,
  *     environmentBlueprintId: testGetEnvironmentBlueprint.apply(testGetEnvironmentBlueprint => testGetEnvironmentBlueprint.id),
  *     provisioningRoleArn: domainExecutionRole.arn,
- *     enabledRegions: [testGetRegion.then(testGetRegion => testGetRegion.name)],
+ *     enabledRegions: [testGetRegion.then(testGetRegion => testGetRegion.region)],
  * });
  * const testEnvironmentProfile = new aws.datazone.EnvironmentProfile("test", {
  *     awsAccountId: test.then(test => test.accountId),
- *     awsAccountRegion: testGetRegion.then(testGetRegion => testGetRegion.name),
+ *     awsAccountRegion: testGetRegion.then(testGetRegion => testGetRegion.region),
  *     description: "description",
  *     environmentBlueprintIdentifier: testGetEnvironmentBlueprint.apply(testGetEnvironmentBlueprint => testGetEnvironmentBlueprint.id),
  *     name: "example-name",

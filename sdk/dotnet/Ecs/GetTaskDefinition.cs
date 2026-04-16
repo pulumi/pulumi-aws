@@ -318,7 +318,7 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly string TaskRoleArn;
         /// <summary>
-        /// Configuration block for volumes that containers in your task may use. Detailed below.
+        /// Attributes corresponding to the `Volume` argument of the `aws.ecs.TaskDefinition` resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTaskDefinitionVolumeResult> Volumes;
 

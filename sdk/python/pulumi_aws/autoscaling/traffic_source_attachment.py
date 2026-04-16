@@ -162,6 +162,14 @@ class TrafficSourceAttachment(pulumi.CustomResource):
             })
         ```
 
+        ## Import
+
+        Using `pulumi import`, import Auto Scaling Traffic Source Attachments using `autoscaling_group_name`, `traffic_source_type`, and `traffic_source_identifier` separated by a comma (`,`). For example:
+
+        ```sh
+        $ pulumi import aws:autoscaling/trafficSourceAttachment:TrafficSourceAttachment example example,elbv2,arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/example/1234567890123456
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -194,6 +202,14 @@ class TrafficSourceAttachment(pulumi.CustomResource):
                 "identifier": example_aws_lb_target_group["arn"],
                 "type": "elbv2",
             })
+        ```
+
+        ## Import
+
+        Using `pulumi import`, import Auto Scaling Traffic Source Attachments using `autoscaling_group_name`, `traffic_source_type`, and `traffic_source_identifier` separated by a comma (`,`). For example:
+
+        ```sh
+        $ pulumi import aws:autoscaling/trafficSourceAttachment:TrafficSourceAttachment example example,elbv2,arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/example/1234567890123456
         ```
 
 

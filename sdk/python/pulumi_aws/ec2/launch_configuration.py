@@ -723,12 +723,15 @@ class LaunchConfiguration(pulumi.CustomResource):
             instance_type="t2.micro")
         ```
 
-        ## Import
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import launch configurations using the `name`. For example:
 
         ```sh
-        $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf pulumi-lg-123456
+        $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration example example
         ```
 
 
@@ -793,12 +796,15 @@ class LaunchConfiguration(pulumi.CustomResource):
             instance_type="t2.micro")
         ```
 
-        ## Import
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import launch configurations using the `name`. For example:
 
         ```sh
-        $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf pulumi-lg-123456
+        $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration example example
         ```
 
 

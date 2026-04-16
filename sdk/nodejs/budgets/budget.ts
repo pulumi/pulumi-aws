@@ -169,7 +169,7 @@ import * as utilities from "../utilities";
  * }]});
  * ```
  *
- * Create a budget with a simple dimension filter
+ * Create a budget with a simple dimension filter for unblended costs
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -181,6 +181,7 @@ import * as utilities from "../utilities";
  *     limitAmount: "500",
  *     limitUnit: "USD",
  *     timeUnit: "MONTHLY",
+ *     metrics: "UnblendedCost",
  *     filterExpression: {
  *         dimensions: {
  *             key: "SERVICE",
@@ -190,7 +191,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * Create a budget with AND filter
+ * Create a budget with AND filter for blended costs
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -202,6 +203,7 @@ import * as utilities from "../utilities";
  *     limitAmount: "1200",
  *     limitUnit: "USD",
  *     timeUnit: "MONTHLY",
+ *     metrics: "BlendedCost",
  *     filterExpression: {
  *         ands: [
  *             {
@@ -221,7 +223,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * Create a budget with OR filter
+ * Create a budget with OR filter for amortized costs
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -233,6 +235,7 @@ import * as utilities from "../utilities";
  *     limitAmount: "2000",
  *     limitUnit: "USD",
  *     timeUnit: "MONTHLY",
+ *     metrics: "AmortizedCost",
  *     filterExpression: {
  *         ors: [
  *             {
@@ -252,7 +255,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * Create a budget with NOT filter
+ * Create a budget with NOT filter for net unblended costs
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -264,6 +267,7 @@ import * as utilities from "../utilities";
  *     limitAmount: "1000",
  *     limitUnit: "USD",
  *     timeUnit: "MONTHLY",
+ *     metrics: "NetUnblendedCost",
  *     filterExpression: {
  *         not: {
  *             dimensions: {
@@ -275,7 +279,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * Create a budget with a compound filter
+ * Create a budget with a compound filter for net amortized costs
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -287,6 +291,7 @@ import * as utilities from "../utilities";
  *     limitAmount: "1500",
  *     limitUnit: "USD",
  *     timeUnit: "MONTHLY",
+ *     metrics: "NetAmortizedCost",
  *     filterExpression: {
  *         ors: [
  *             {
@@ -396,7 +401,7 @@ export class Budget extends pulumi.CustomResource {
      */
     declare public readonly costTypes: pulumi.Output<outputs.budgets.BudgetCostTypes>;
     /**
-     * Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+     * Object containing Filter Expression to apply to budget. Conflicts with `costFilter` and requires `metrics`.
      */
     declare public readonly filterExpression: pulumi.Output<outputs.budgets.BudgetFilterExpression | undefined>;
     /**
@@ -407,6 +412,10 @@ export class Budget extends pulumi.CustomResource {
      * The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
      */
     declare public readonly limitUnit: pulumi.Output<string>;
+    /**
+     * List containing definition for how the budget data is aggregated. Conflicts with `costTypes` and requires `filterExpression`.
+     */
+    declare public readonly metrics: pulumi.Output<string | undefined>;
     /**
      * The name of a budget. Unique within accounts.
      */
@@ -472,6 +481,7 @@ export class Budget extends pulumi.CustomResource {
             resourceInputs["filterExpression"] = state?.filterExpression;
             resourceInputs["limitAmount"] = state?.limitAmount;
             resourceInputs["limitUnit"] = state?.limitUnit;
+            resourceInputs["metrics"] = state?.metrics;
             resourceInputs["name"] = state?.name;
             resourceInputs["namePrefix"] = state?.namePrefix;
             resourceInputs["notifications"] = state?.notifications;
@@ -498,6 +508,7 @@ export class Budget extends pulumi.CustomResource {
             resourceInputs["filterExpression"] = args?.filterExpression;
             resourceInputs["limitAmount"] = args?.limitAmount;
             resourceInputs["limitUnit"] = args?.limitUnit;
+            resourceInputs["metrics"] = args?.metrics;
             resourceInputs["name"] = args?.name;
             resourceInputs["namePrefix"] = args?.namePrefix;
             resourceInputs["notifications"] = args?.notifications;
@@ -547,7 +558,7 @@ export interface BudgetState {
      */
     costTypes?: pulumi.Input<inputs.budgets.BudgetCostTypes>;
     /**
-     * Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+     * Object containing Filter Expression to apply to budget. Conflicts with `costFilter` and requires `metrics`.
      */
     filterExpression?: pulumi.Input<inputs.budgets.BudgetFilterExpression>;
     /**
@@ -558,6 +569,10 @@ export interface BudgetState {
      * The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
      */
     limitUnit?: pulumi.Input<string>;
+    /**
+     * List containing definition for how the budget data is aggregated. Conflicts with `costTypes` and requires `filterExpression`.
+     */
+    metrics?: pulumi.Input<string>;
     /**
      * The name of a budget. Unique within accounts.
      */
@@ -630,7 +645,7 @@ export interface BudgetArgs {
      */
     costTypes?: pulumi.Input<inputs.budgets.BudgetCostTypes>;
     /**
-     * Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+     * Object containing Filter Expression to apply to budget. Conflicts with `costFilter` and requires `metrics`.
      */
     filterExpression?: pulumi.Input<inputs.budgets.BudgetFilterExpression>;
     /**
@@ -641,6 +656,10 @@ export interface BudgetArgs {
      * The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
      */
     limitUnit?: pulumi.Input<string>;
+    /**
+     * List containing definition for how the budget data is aggregated. Conflicts with `costTypes` and requires `filterExpression`.
+     */
+    metrics?: pulumi.Input<string>;
     /**
      * The name of a budget. Unique within accounts.
      */

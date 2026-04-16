@@ -861,10 +861,22 @@ class Policy(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import AutoScaling scaling policy using the role autoscaling_group_name and name separated by `/`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `autoscaling_group_name` (String) Name of the Auto Scaling group.
+        * `name` (String) Name of the policy.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import AutoScaling Scaling Policies using `autoscaling_group_name` and `name` separated by a forward slash (`/`). For example:
 
         ```sh
-        $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
+        $ pulumi import aws:autoscaling/policy:Policy example example-asg/example-policy
         ```
 
 
@@ -1109,10 +1121,22 @@ class Policy(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import AutoScaling scaling policy using the role autoscaling_group_name and name separated by `/`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `autoscaling_group_name` (String) Name of the Auto Scaling group.
+        * `name` (String) Name of the policy.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import AutoScaling Scaling Policies using `autoscaling_group_name` and `name` separated by a forward slash (`/`). For example:
 
         ```sh
-        $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
+        $ pulumi import aws:autoscaling/policy:Policy example example-asg/example-policy
         ```
 
 

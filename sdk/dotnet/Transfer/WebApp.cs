@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Transfer
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:s3:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:access-grants/*",
+    ///                     $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:s3:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:access-grants/*",
     ///                 },
     ///                 Conditions = new[]
     ///                 {

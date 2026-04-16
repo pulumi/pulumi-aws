@@ -194,7 +194,7 @@ import * as utilities from "../utilities";
  *             logDriver: "awslogs",
  *             options: {
  *                 "awslogs-group": exampleLogGroup.name,
- *                 "awslogs-region": current.then(current => current.name),
+ *                 "awslogs-region": current.then(current => current.region),
  *                 "awslogs-stream-prefix": "service-connect",
  *             },
  *         },

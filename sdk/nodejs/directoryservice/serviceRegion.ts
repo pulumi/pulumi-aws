@@ -86,7 +86,7 @@ import * as utilities from "../utilities";
  * }
  * const exampleServiceRegion = new aws.directoryservice.ServiceRegion("example", {
  *     directoryId: exampleDirectory.id,
- *     regionName: example.then(example => example.name),
+ *     regionName: example.then(example => example.region),
  *     vpcSettings: {
  *         vpcId: example_secondary.id,
  *         subnetIds: example_secondarySubnet.map(__item => __item.id),

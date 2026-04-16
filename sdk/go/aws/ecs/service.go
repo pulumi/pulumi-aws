@@ -360,7 +360,7 @@ import (
 //						LogDriver: pulumi.String("awslogs"),
 //						Options: pulumi.StringMap{
 //							"awslogs-group":         exampleLogGroup.Name,
-//							"awslogs-region":        pulumi.String(current.Name),
+//							"awslogs-region":        pulumi.String(current.Region),
 //							"awslogs-stream-prefix": pulumi.String("service-connect"),
 //						},
 //					},

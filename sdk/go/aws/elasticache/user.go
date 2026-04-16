@@ -14,7 +14,7 @@ import (
 
 // Provides an ElastiCache user resource.
 //
-// > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
+// > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text unless you use the write-only `passwordsWo` argument.
 // ## Example Usage
 //
 // ```go
@@ -111,6 +111,37 @@ import (
 //
 // ```
 //
+// ### Using Write-Only Password (Terraform 1.11+)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticache"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := elasticache.NewUser(ctx, "test", &elasticache.UserArgs{
+//				UserId:             pulumi.String("testUserId"),
+//				UserName:           pulumi.String("testUserName"),
+//				AccessString:       pulumi.String("on ~* +@all"),
+//				Engine:             pulumi.String("redis"),
+//				PasswordsWo:        pulumi.Any(elasticachePassword),
+//				PasswordsWoVersion: pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import ElastiCache users using the `userId`. For example:
@@ -133,6 +164,11 @@ type User struct {
 	NoPasswordRequired pulumi.BoolPtrOutput `pulumi:"noPasswordRequired"`
 	// Passwords used for this user. You can create up to two passwords for each user.
 	Passwords pulumi.StringArrayOutput `pulumi:"passwords"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+	PasswordsWo pulumi.StringPtrOutput `pulumi:"passwordsWo"`
+	// Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+	PasswordsWoVersion pulumi.IntPtrOutput `pulumi:"passwordsWoVersion"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of tags to be added to this resource. A tag is a key-value pair.
@@ -168,8 +204,12 @@ func NewUser(ctx *pulumi.Context,
 	if args.Passwords != nil {
 		args.Passwords = pulumi.ToSecret(args.Passwords).(pulumi.StringArrayInput)
 	}
+	if args.PasswordsWo != nil {
+		args.PasswordsWo = pulumi.ToSecret(args.PasswordsWo).(pulumi.StringPtrInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"passwords",
+		"passwordsWo",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -207,6 +247,11 @@ type userState struct {
 	NoPasswordRequired *bool `pulumi:"noPasswordRequired"`
 	// Passwords used for this user. You can create up to two passwords for each user.
 	Passwords []string `pulumi:"passwords"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+	PasswordsWo *string `pulumi:"passwordsWo"`
+	// Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+	PasswordsWoVersion *int `pulumi:"passwordsWoVersion"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A list of tags to be added to this resource. A tag is a key-value pair.
@@ -233,6 +278,11 @@ type UserState struct {
 	NoPasswordRequired pulumi.BoolPtrInput
 	// Passwords used for this user. You can create up to two passwords for each user.
 	Passwords pulumi.StringArrayInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+	PasswordsWo pulumi.StringPtrInput
+	// Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+	PasswordsWoVersion pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A list of tags to be added to this resource. A tag is a key-value pair.
@@ -261,6 +311,11 @@ type userArgs struct {
 	NoPasswordRequired *bool `pulumi:"noPasswordRequired"`
 	// Passwords used for this user. You can create up to two passwords for each user.
 	Passwords []string `pulumi:"passwords"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+	PasswordsWo *string `pulumi:"passwordsWo"`
+	// Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+	PasswordsWoVersion *int `pulumi:"passwordsWoVersion"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A list of tags to be added to this resource. A tag is a key-value pair.
@@ -285,6 +340,11 @@ type UserArgs struct {
 	NoPasswordRequired pulumi.BoolPtrInput
 	// Passwords used for this user. You can create up to two passwords for each user.
 	Passwords pulumi.StringArrayInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+	PasswordsWo pulumi.StringPtrInput
+	// Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+	PasswordsWoVersion pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A list of tags to be added to this resource. A tag is a key-value pair.
@@ -412,6 +472,17 @@ func (o UserOutput) NoPasswordRequired() pulumi.BoolPtrOutput {
 // Passwords used for this user. You can create up to two passwords for each user.
 func (o UserOutput) Passwords() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.Passwords }).(pulumi.StringArrayOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+func (o UserOutput) PasswordsWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.PasswordsWo }).(pulumi.StringPtrOutput)
+}
+
+// Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+func (o UserOutput) PasswordsWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.IntPtrOutput { return v.PasswordsWoVersion }).(pulumi.IntPtrOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

@@ -129,14 +129,14 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+     * Object containing Filter Expression to apply to budget. Conflicts with `costFilter` and requires `metrics`.
      * 
      */
     @Import(name="filterExpression")
     private @Nullable Output<BudgetFilterExpressionArgs> filterExpression;
 
     /**
-     * @return Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+     * @return Object containing Filter Expression to apply to budget. Conflicts with `costFilter` and requires `metrics`.
      * 
      */
     public Optional<Output<BudgetFilterExpressionArgs>> filterExpression() {
@@ -171,6 +171,21 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> limitUnit() {
         return Optional.ofNullable(this.limitUnit);
+    }
+
+    /**
+     * List containing definition for how the budget data is aggregated. Conflicts with `costTypes` and requires `filterExpression`.
+     * 
+     */
+    @Import(name="metrics")
+    private @Nullable Output<String> metrics;
+
+    /**
+     * @return List containing definition for how the budget data is aggregated. Conflicts with `costTypes` and requires `filterExpression`.
+     * 
+     */
+    public Optional<Output<String>> metrics() {
+        return Optional.ofNullable(this.metrics);
     }
 
     /**
@@ -331,6 +346,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         this.filterExpression = $.filterExpression;
         this.limitAmount = $.limitAmount;
         this.limitUnit = $.limitUnit;
+        this.metrics = $.metrics;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
         this.notifications = $.notifications;
@@ -518,7 +534,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param filterExpression Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+         * @param filterExpression Object containing Filter Expression to apply to budget. Conflicts with `costFilter` and requires `metrics`.
          * 
          * @return builder
          * 
@@ -529,7 +545,7 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param filterExpression Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+         * @param filterExpression Object containing Filter Expression to apply to budget. Conflicts with `costFilter` and requires `metrics`.
          * 
          * @return builder
          * 
@@ -578,6 +594,27 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder limitUnit(String limitUnit) {
             return limitUnit(Output.of(limitUnit));
+        }
+
+        /**
+         * @param metrics List containing definition for how the budget data is aggregated. Conflicts with `costTypes` and requires `filterExpression`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metrics(@Nullable Output<String> metrics) {
+            $.metrics = metrics;
+            return this;
+        }
+
+        /**
+         * @param metrics List containing definition for how the budget data is aggregated. Conflicts with `costTypes` and requires `filterExpression`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metrics(String metrics) {
+            return metrics(Output.of(metrics));
         }
 
         /**

@@ -246,9 +246,9 @@ type ConfigurationSetEventDestination struct {
 
 	// The name of the configuration set.
 	ConfigurationSetName pulumi.StringOutput `pulumi:"configurationSetName"`
-	// A name that identifies the event destination within the configuration set.
-	EventDestination ConfigurationSetEventDestinationEventDestinationOutput `pulumi:"eventDestination"`
 	// An object that defines the event destination. See `eventDestination` Block for details.
+	EventDestination ConfigurationSetEventDestinationEventDestinationOutput `pulumi:"eventDestination"`
+	// A name that identifies the event destination within the configuration set.
 	EventDestinationName pulumi.StringOutput `pulumi:"eventDestinationName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -295,9 +295,9 @@ func GetConfigurationSetEventDestination(ctx *pulumi.Context,
 type configurationSetEventDestinationState struct {
 	// The name of the configuration set.
 	ConfigurationSetName *string `pulumi:"configurationSetName"`
-	// A name that identifies the event destination within the configuration set.
-	EventDestination *ConfigurationSetEventDestinationEventDestination `pulumi:"eventDestination"`
 	// An object that defines the event destination. See `eventDestination` Block for details.
+	EventDestination *ConfigurationSetEventDestinationEventDestination `pulumi:"eventDestination"`
+	// A name that identifies the event destination within the configuration set.
 	EventDestinationName *string `pulumi:"eventDestinationName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -306,9 +306,9 @@ type configurationSetEventDestinationState struct {
 type ConfigurationSetEventDestinationState struct {
 	// The name of the configuration set.
 	ConfigurationSetName pulumi.StringPtrInput
-	// A name that identifies the event destination within the configuration set.
-	EventDestination ConfigurationSetEventDestinationEventDestinationPtrInput
 	// An object that defines the event destination. See `eventDestination` Block for details.
+	EventDestination ConfigurationSetEventDestinationEventDestinationPtrInput
+	// A name that identifies the event destination within the configuration set.
 	EventDestinationName pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -321,9 +321,9 @@ func (ConfigurationSetEventDestinationState) ElementType() reflect.Type {
 type configurationSetEventDestinationArgs struct {
 	// The name of the configuration set.
 	ConfigurationSetName string `pulumi:"configurationSetName"`
-	// A name that identifies the event destination within the configuration set.
-	EventDestination ConfigurationSetEventDestinationEventDestination `pulumi:"eventDestination"`
 	// An object that defines the event destination. See `eventDestination` Block for details.
+	EventDestination ConfigurationSetEventDestinationEventDestination `pulumi:"eventDestination"`
+	// A name that identifies the event destination within the configuration set.
 	EventDestinationName string `pulumi:"eventDestinationName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -333,9 +333,9 @@ type configurationSetEventDestinationArgs struct {
 type ConfigurationSetEventDestinationArgs struct {
 	// The name of the configuration set.
 	ConfigurationSetName pulumi.StringInput
-	// A name that identifies the event destination within the configuration set.
-	EventDestination ConfigurationSetEventDestinationEventDestinationInput
 	// An object that defines the event destination. See `eventDestination` Block for details.
+	EventDestination ConfigurationSetEventDestinationEventDestinationInput
+	// A name that identifies the event destination within the configuration set.
 	EventDestinationName pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -433,14 +433,14 @@ func (o ConfigurationSetEventDestinationOutput) ConfigurationSetName() pulumi.St
 	return o.ApplyT(func(v *ConfigurationSetEventDestination) pulumi.StringOutput { return v.ConfigurationSetName }).(pulumi.StringOutput)
 }
 
-// A name that identifies the event destination within the configuration set.
+// An object that defines the event destination. See `eventDestination` Block for details.
 func (o ConfigurationSetEventDestinationOutput) EventDestination() ConfigurationSetEventDestinationEventDestinationOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestination) ConfigurationSetEventDestinationEventDestinationOutput {
 		return v.EventDestination
 	}).(ConfigurationSetEventDestinationEventDestinationOutput)
 }
 
-// An object that defines the event destination. See `eventDestination` Block for details.
+// A name that identifies the event destination within the configuration set.
 func (o ConfigurationSetEventDestinationOutput) EventDestinationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestination) pulumi.StringOutput { return v.EventDestinationName }).(pulumi.StringOutput)
 }

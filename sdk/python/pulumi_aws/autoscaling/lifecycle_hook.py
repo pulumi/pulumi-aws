@@ -383,10 +383,22 @@ class LifecycleHook(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import AutoScaling Lifecycle Hooks using the role autoscaling_group_name and name separated by `/`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `autoscaling_group_name` (String) Name of the Auto Scaling group.
+        * `name` (String) Name of the lifecycle hook.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import AutoScaling Lifecycle Hooks using `autoscaling_group_name` and `name` separated by a forward slash (`/`). For example:
 
         ```sh
-        $ pulumi import aws:autoscaling/lifecycleHook:LifecycleHook test-lifecycle-hook asg-name/lifecycle-hook-name
+        $ pulumi import aws:autoscaling/lifecycleHook:LifecycleHook example example-asg/example-hook
         ```
 
 
@@ -455,10 +467,22 @@ class LifecycleHook(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import AutoScaling Lifecycle Hooks using the role autoscaling_group_name and name separated by `/`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `autoscaling_group_name` (String) Name of the Auto Scaling group.
+        * `name` (String) Name of the lifecycle hook.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import AutoScaling Lifecycle Hooks using `autoscaling_group_name` and `name` separated by a forward slash (`/`). For example:
 
         ```sh
-        $ pulumi import aws:autoscaling/lifecycleHook:LifecycleHook test-lifecycle-hook asg-name/lifecycle-hook-name
+        $ pulumi import aws:autoscaling/lifecycleHook:LifecycleHook example example-asg/example-hook
         ```
 
 

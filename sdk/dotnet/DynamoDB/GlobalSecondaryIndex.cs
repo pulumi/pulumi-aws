@@ -285,7 +285,7 @@ namespace Pulumi.Aws.DynamoDB
         [Input("indexName", required: true)]
         public Input<string> IndexName { get; set; } = null!;
 
-        [Input("keySchemas")]
+        [Input("keySchemas", required: true)]
         private InputList<Inputs.GlobalSecondaryIndexKeySchemaArgs>? _keySchemas;
 
         /// <summary>

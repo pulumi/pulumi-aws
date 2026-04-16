@@ -84,6 +84,20 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `RestApiId` (String) ID of the associated REST API.
+    /// * `ResourceId` (String) API resource ID.
+    /// * `HttpMethod` (String) HTTP Method.
+    /// * `StatusCode` (String) HTTP status code.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import `aws.apigateway.IntegrationResponse` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:
     /// 
     /// ```sh

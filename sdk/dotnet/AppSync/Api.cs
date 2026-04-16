@@ -93,7 +93,7 @@ namespace Pulumi.Aws.AppSync
     ///                     CognitoConfig = new Aws.AppSync.Inputs.ApiEventConfigAuthProviderCognitoConfigArgs
     ///                     {
     ///                         UserPoolId = example.Id,
-    ///                         AwsRegion = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///                         AwsRegion = current.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///                     },
     ///                 },
     ///             },

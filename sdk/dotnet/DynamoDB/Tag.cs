@@ -37,7 +37,7 @@ namespace Pulumi.Aws.DynamoDB
     ///         {
     ///             new Aws.DynamoDB.Inputs.TableReplicaArgs
     ///             {
-    ///                 RegionName = replica.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///                 RegionName = replica.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///             },
     ///         },
     ///     });
@@ -53,7 +53,7 @@ namespace Pulumi.Aws.DynamoDB
     ///             {
     ///                 Text = arn,
     ///                 Search = current.Apply(getRegionResult =&gt; getRegionResult.Region),
-    ///                 Replace = replica.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///                 Replace = replica.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///             });
     ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Key = "testkey",

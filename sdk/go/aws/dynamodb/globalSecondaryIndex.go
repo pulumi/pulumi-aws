@@ -210,6 +210,9 @@ func NewGlobalSecondaryIndex(ctx *pulumi.Context,
 	if args.IndexName == nil {
 		return nil, errors.New("invalid value for required argument 'IndexName'")
 	}
+	if args.KeySchemas == nil {
+		return nil, errors.New("invalid value for required argument 'KeySchemas'")
+	}
 	if args.TableName == nil {
 		return nil, errors.New("invalid value for required argument 'TableName'")
 	}

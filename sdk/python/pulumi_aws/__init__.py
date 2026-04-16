@@ -2853,6 +2853,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cloudwatch/alarmMuteRule",
+  "fqn": "pulumi_aws.cloudwatch",
+  "classes": {
+   "aws:cloudwatch/alarmMuteRule:AlarmMuteRule": "AlarmMuteRule"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cloudwatch/compositeAlarm",
   "fqn": "pulumi_aws.cloudwatch",
   "classes": {

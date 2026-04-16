@@ -128,7 +128,7 @@ import javax.annotation.Nullable;
  * }
  *         var exampleServiceRegion = new ServiceRegion("exampleServiceRegion", ServiceRegionArgs.builder()
  *             .directoryId(exampleDirectory.id())
- *             .regionName(example.name())
+ *             .regionName(example.region())
  *             .vpcSettings(ServiceRegionVpcSettingsArgs.builder()
  *                 .vpcId(example_secondary.id())
  *                 .subnetIds(example_secondarySubnet.stream().map(element -> element.id()).collect(toList()))

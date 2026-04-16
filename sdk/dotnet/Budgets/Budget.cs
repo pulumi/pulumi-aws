@@ -272,7 +272,7 @@ namespace Pulumi.Aws.Budgets
     /// });
     /// ```
     /// 
-    /// Create a budget with a simple dimension filter
+    /// Create a budget with a simple dimension filter for unblended costs
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -289,6 +289,7 @@ namespace Pulumi.Aws.Budgets
     ///         LimitAmount = "500",
     ///         LimitUnit = "USD",
     ///         TimeUnit = "MONTHLY",
+    ///         Metrics = "UnblendedCost",
     ///         FilterExpression = new Aws.Budgets.Inputs.BudgetFilterExpressionArgs
     ///         {
     ///             Dimensions = new Aws.Budgets.Inputs.BudgetFilterExpressionDimensionsArgs
@@ -305,7 +306,7 @@ namespace Pulumi.Aws.Budgets
     /// });
     /// ```
     /// 
-    /// Create a budget with AND filter
+    /// Create a budget with AND filter for blended costs
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -322,6 +323,7 @@ namespace Pulumi.Aws.Budgets
     ///         LimitAmount = "1200",
     ///         LimitUnit = "USD",
     ///         TimeUnit = "MONTHLY",
+    ///         Metrics = "BlendedCost",
     ///         FilterExpression = new Aws.Budgets.Inputs.BudgetFilterExpressionArgs
     ///         {
     ///             Ands = new[]
@@ -355,7 +357,7 @@ namespace Pulumi.Aws.Budgets
     /// });
     /// ```
     /// 
-    /// Create a budget with OR filter
+    /// Create a budget with OR filter for amortized costs
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -372,6 +374,7 @@ namespace Pulumi.Aws.Budgets
     ///         LimitAmount = "2000",
     ///         LimitUnit = "USD",
     ///         TimeUnit = "MONTHLY",
+    ///         Metrics = "AmortizedCost",
     ///         FilterExpression = new Aws.Budgets.Inputs.BudgetFilterExpressionArgs
     ///         {
     ///             Ors = new[]
@@ -405,7 +408,7 @@ namespace Pulumi.Aws.Budgets
     /// });
     /// ```
     /// 
-    /// Create a budget with NOT filter
+    /// Create a budget with NOT filter for net unblended costs
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -422,6 +425,7 @@ namespace Pulumi.Aws.Budgets
     ///         LimitAmount = "1000",
     ///         LimitUnit = "USD",
     ///         TimeUnit = "MONTHLY",
+    ///         Metrics = "NetUnblendedCost",
     ///         FilterExpression = new Aws.Budgets.Inputs.BudgetFilterExpressionArgs
     ///         {
     ///             Not = new Aws.Budgets.Inputs.BudgetFilterExpressionNotArgs
@@ -441,7 +445,7 @@ namespace Pulumi.Aws.Budgets
     /// });
     /// ```
     /// 
-    /// Create a budget with a compound filter
+    /// Create a budget with a compound filter for net amortized costs
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -458,6 +462,7 @@ namespace Pulumi.Aws.Budgets
     ///         LimitAmount = "1500",
     ///         LimitUnit = "USD",
     ///         TimeUnit = "MONTHLY",
+    ///         Metrics = "NetAmortizedCost",
     ///         FilterExpression = new Aws.Budgets.Inputs.BudgetFilterExpressionArgs
     ///         {
     ///             Ors = new[]
@@ -590,7 +595,7 @@ namespace Pulumi.Aws.Budgets
         public Output<Outputs.BudgetCostTypes> CostTypes { get; private set; } = null!;
 
         /// <summary>
-        /// Object containing Filter Expression to apply to budget. Conflicts with `CostFilter`.
+        /// Object containing Filter Expression to apply to budget. Conflicts with `CostFilter` and requires `Metrics`.
         /// </summary>
         [Output("filterExpression")]
         public Output<Outputs.BudgetFilterExpression?> FilterExpression { get; private set; } = null!;
@@ -606,6 +611,12 @@ namespace Pulumi.Aws.Budgets
         /// </summary>
         [Output("limitUnit")]
         public Output<string> LimitUnit { get; private set; } = null!;
+
+        /// <summary>
+        /// List containing definition for how the budget data is aggregated. Conflicts with `CostTypes` and requires `FilterExpression`.
+        /// </summary>
+        [Output("metrics")]
+        public Output<string?> Metrics { get; private set; } = null!;
 
         /// <summary>
         /// The name of a budget. Unique within accounts.
@@ -755,7 +766,7 @@ namespace Pulumi.Aws.Budgets
         public Input<Inputs.BudgetCostTypesArgs>? CostTypes { get; set; }
 
         /// <summary>
-        /// Object containing Filter Expression to apply to budget. Conflicts with `CostFilter`.
+        /// Object containing Filter Expression to apply to budget. Conflicts with `CostFilter` and requires `Metrics`.
         /// </summary>
         [Input("filterExpression")]
         public Input<Inputs.BudgetFilterExpressionArgs>? FilterExpression { get; set; }
@@ -771,6 +782,12 @@ namespace Pulumi.Aws.Budgets
         /// </summary>
         [Input("limitUnit")]
         public Input<string>? LimitUnit { get; set; }
+
+        /// <summary>
+        /// List containing definition for how the budget data is aggregated. Conflicts with `CostTypes` and requires `FilterExpression`.
+        /// </summary>
+        [Input("metrics")]
+        public Input<string>? Metrics { get; set; }
 
         /// <summary>
         /// The name of a budget. Unique within accounts.
@@ -900,7 +917,7 @@ namespace Pulumi.Aws.Budgets
         public Input<Inputs.BudgetCostTypesGetArgs>? CostTypes { get; set; }
 
         /// <summary>
-        /// Object containing Filter Expression to apply to budget. Conflicts with `CostFilter`.
+        /// Object containing Filter Expression to apply to budget. Conflicts with `CostFilter` and requires `Metrics`.
         /// </summary>
         [Input("filterExpression")]
         public Input<Inputs.BudgetFilterExpressionGetArgs>? FilterExpression { get; set; }
@@ -916,6 +933,12 @@ namespace Pulumi.Aws.Budgets
         /// </summary>
         [Input("limitUnit")]
         public Input<string>? LimitUnit { get; set; }
+
+        /// <summary>
+        /// List containing definition for how the budget data is aggregated. Conflicts with `CostTypes` and requires `FilterExpression`.
+        /// </summary>
+        [Input("metrics")]
+        public Input<string>? Metrics { get; set; }
 
         /// <summary>
         /// The name of a budget. Unique within accounts.

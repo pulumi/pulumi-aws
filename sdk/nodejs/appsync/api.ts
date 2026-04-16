@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  *             authType: "AMAZON_COGNITO_USER_POOLS",
  *             cognitoConfig: {
  *                 userPoolId: example.id,
- *                 awsRegion: current.then(current => current.name),
+ *                 awsRegion: current.then(current => current.region),
  *             },
  *         }],
  *         connectionAuthModes: [{

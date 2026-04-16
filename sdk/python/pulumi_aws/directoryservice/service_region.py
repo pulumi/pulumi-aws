@@ -318,7 +318,7 @@ class ServiceRegion(pulumi.CustomResource):
                 }))
         example_service_region = aws.directoryservice.ServiceRegion("example",
             directory_id=example_directory.id,
-            region_name=example.name,
+            region_name=example.region,
             vpc_settings={
                 "vpc_id": example_secondary.id,
                 "subnet_ids": [__item.id for __item in example_secondary_subnet],
@@ -416,7 +416,7 @@ class ServiceRegion(pulumi.CustomResource):
                 }))
         example_service_region = aws.directoryservice.ServiceRegion("example",
             directory_id=example_directory.id,
-            region_name=example.name,
+            region_name=example.region,
             vpc_settings={
                 "vpc_id": example_secondary.id,
                 "subnet_ids": [__item.id for __item in example_secondary_subnet],

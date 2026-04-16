@@ -32,14 +32,14 @@ public final class ConfigurationSetEventDestinationState extends com.pulumi.reso
     }
 
     /**
-     * A name that identifies the event destination within the configuration set.
+     * An object that defines the event destination. See `eventDestination` Block for details.
      * 
      */
     @Import(name="eventDestination")
     private @Nullable Output<ConfigurationSetEventDestinationEventDestinationArgs> eventDestination;
 
     /**
-     * @return A name that identifies the event destination within the configuration set.
+     * @return An object that defines the event destination. See `eventDestination` Block for details.
      * 
      */
     public Optional<Output<ConfigurationSetEventDestinationEventDestinationArgs>> eventDestination() {
@@ -47,14 +47,14 @@ public final class ConfigurationSetEventDestinationState extends com.pulumi.reso
     }
 
     /**
-     * An object that defines the event destination. See `eventDestination` Block for details.
+     * A name that identifies the event destination within the configuration set.
      * 
      */
     @Import(name="eventDestinationName")
     private @Nullable Output<String> eventDestinationName;
 
     /**
-     * @return An object that defines the event destination. See `eventDestination` Block for details.
+     * @return A name that identifies the event destination within the configuration set.
      * 
      */
     public Optional<Output<String>> eventDestinationName() {
@@ -125,7 +125,7 @@ public final class ConfigurationSetEventDestinationState extends com.pulumi.reso
         }
 
         /**
-         * @param eventDestination A name that identifies the event destination within the configuration set.
+         * @param eventDestination An object that defines the event destination. See `eventDestination` Block for details.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class ConfigurationSetEventDestinationState extends com.pulumi.reso
         }
 
         /**
-         * @param eventDestination A name that identifies the event destination within the configuration set.
+         * @param eventDestination An object that defines the event destination. See `eventDestination` Block for details.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class ConfigurationSetEventDestinationState extends com.pulumi.reso
         }
 
         /**
-         * @param eventDestinationName An object that defines the event destination. See `eventDestination` Block for details.
+         * @param eventDestinationName A name that identifies the event destination within the configuration set.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class ConfigurationSetEventDestinationState extends com.pulumi.reso
         }
 
         /**
-         * @param eventDestinationName An object that defines the event destination. See `eventDestination` Block for details.
+         * @param eventDestinationName A name that identifies the event destination within the configuration set.
          * 
          * @return builder
          * 

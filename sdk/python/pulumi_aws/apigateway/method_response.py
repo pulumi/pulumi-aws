@@ -366,6 +366,20 @@ class MethodResponse(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `rest_api_id` (String) The string identifier of the associated REST API.
+        * `resource_id` (String) The Resource identifier for the method resource.
+        * `http_method` (String) The HTTP verb of the method resource.
+        * `status_code` (String) The method response's status code.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import `apigateway.MethodResponse` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:
 
         ```sh
@@ -480,6 +494,20 @@ class MethodResponse(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `rest_api_id` (String) The string identifier of the associated REST API.
+        * `resource_id` (String) The Resource identifier for the method resource.
+        * `http_method` (String) The HTTP verb of the method resource.
+        * `status_code` (String) The method response's status code.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import `apigateway.MethodResponse` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:
 

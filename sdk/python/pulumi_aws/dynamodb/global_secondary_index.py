@@ -22,8 +22,8 @@ __all__ = ['GlobalSecondaryIndexArgs', 'GlobalSecondaryIndex']
 class GlobalSecondaryIndexArgs:
     def __init__(__self__, *,
                  index_name: pulumi.Input[_builtins.str],
+                 key_schemas: pulumi.Input[Sequence[pulumi.Input['GlobalSecondaryIndexKeySchemaArgs']]],
                  table_name: pulumi.Input[_builtins.str],
-                 key_schemas: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalSecondaryIndexKeySchemaArgs']]]] = None,
                  on_demand_throughput: Optional[pulumi.Input['GlobalSecondaryIndexOnDemandThroughputArgs']] = None,
                  projection: Optional[pulumi.Input['GlobalSecondaryIndexProjectionArgs']] = None,
                  provisioned_throughput: Optional[pulumi.Input['GlobalSecondaryIndexProvisionedThroughputArgs']] = None,
@@ -34,14 +34,14 @@ class GlobalSecondaryIndexArgs:
         The set of arguments for constructing a GlobalSecondaryIndex resource.
 
         :param pulumi.Input[_builtins.str] index_name: Name of the index.
-        :param pulumi.Input[_builtins.str] table_name: Name of the table this index belongs to.
-               
-               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['GlobalSecondaryIndexKeySchemaArgs']]] key_schemas: Set of nested attribute definitions.
                At least 1 element defining a `HASH` is required.
                All elements with the `key_type` of `HASH` must precede elements with `key_type` of `RANGE`.
                Changing any values in `key_schema` will re-create the resource.
                See `key_schema` below.
+        :param pulumi.Input[_builtins.str] table_name: Name of the table this index belongs to.
+               
+               The following arguments are optional:
         :param pulumi.Input['GlobalSecondaryIndexOnDemandThroughputArgs'] on_demand_throughput: Sets the maximum number of read and write units for the index.
                See `on_demand_throughput` below.
                Only valid if the table's `billing_mode` is `PAY_PER_REQUEST`.
@@ -55,9 +55,8 @@ class GlobalSecondaryIndexArgs:
                See `warm_throughput` below.
         """
         pulumi.set(__self__, "index_name", index_name)
+        pulumi.set(__self__, "key_schemas", key_schemas)
         pulumi.set(__self__, "table_name", table_name)
-        if key_schemas is not None:
-            pulumi.set(__self__, "key_schemas", key_schemas)
         if on_demand_throughput is not None:
             pulumi.set(__self__, "on_demand_throughput", on_demand_throughput)
         if projection is not None:
@@ -84,6 +83,22 @@ class GlobalSecondaryIndexArgs:
         pulumi.set(self, "index_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="keySchemas")
+    def key_schemas(self) -> pulumi.Input[Sequence[pulumi.Input['GlobalSecondaryIndexKeySchemaArgs']]]:
+        """
+        Set of nested attribute definitions.
+        At least 1 element defining a `HASH` is required.
+        All elements with the `key_type` of `HASH` must precede elements with `key_type` of `RANGE`.
+        Changing any values in `key_schema` will re-create the resource.
+        See `key_schema` below.
+        """
+        return pulumi.get(self, "key_schemas")
+
+    @key_schemas.setter
+    def key_schemas(self, value: pulumi.Input[Sequence[pulumi.Input['GlobalSecondaryIndexKeySchemaArgs']]]):
+        pulumi.set(self, "key_schemas", value)
+
+    @_builtins.property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -96,22 +111,6 @@ class GlobalSecondaryIndexArgs:
     @table_name.setter
     def table_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "table_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="keySchemas")
-    def key_schemas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalSecondaryIndexKeySchemaArgs']]]]:
-        """
-        Set of nested attribute definitions.
-        At least 1 element defining a `HASH` is required.
-        All elements with the `key_type` of `HASH` must precede elements with `key_type` of `RANGE`.
-        Changing any values in `key_schema` will re-create the resource.
-        See `key_schema` below.
-        """
-        return pulumi.get(self, "key_schemas")
-
-    @key_schemas.setter
-    def key_schemas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalSecondaryIndexKeySchemaArgs']]]]):
-        pulumi.set(self, "key_schemas", value)
 
     @_builtins.property
     @pulumi.getter(name="onDemandThroughput")
@@ -689,6 +688,8 @@ class GlobalSecondaryIndex(pulumi.CustomResource):
             if index_name is None and not opts.urn:
                 raise TypeError("Missing required property 'index_name'")
             __props__.__dict__["index_name"] = index_name
+            if key_schemas is None and not opts.urn:
+                raise TypeError("Missing required property 'key_schemas'")
             __props__.__dict__["key_schemas"] = key_schemas
             __props__.__dict__["on_demand_throughput"] = on_demand_throughput
             __props__.__dict__["projection"] = projection
@@ -783,7 +784,7 @@ class GlobalSecondaryIndex(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="keySchemas")
-    def key_schemas(self) -> pulumi.Output[Optional[Sequence['outputs.GlobalSecondaryIndexKeySchema']]]:
+    def key_schemas(self) -> pulumi.Output[Sequence['outputs.GlobalSecondaryIndexKeySchema']]:
         """
         Set of nested attribute definitions.
         At least 1 element defining a `HASH` is required.

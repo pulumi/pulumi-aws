@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class TableMaintenanceConfigurationIcebergSnapshotManagementSettings {
     /**
-     * @return Snapshots older than this will be marked for deletiion.
+     * @return Snapshots older than this will be marked for deletion.
      * Must be at least `1`.
      * 
      */
@@ -25,7 +25,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementSetting
 
     private TableMaintenanceConfigurationIcebergSnapshotManagementSettings() {}
     /**
-     * @return Snapshots older than this will be marked for deletiion.
+     * @return Snapshots older than this will be marked for deletion.
      * Must be at least `1`.
      * 
      */

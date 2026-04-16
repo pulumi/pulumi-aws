@@ -305,10 +305,10 @@ import * as utilities from "../utilities";
  *     }],
  *     replicas: [
  *         {
- *             regionName: alternate.then(alternate => alternate.name),
+ *             regionName: alternate.then(alternate => alternate.region),
  *         },
  *         {
- *             regionName: third.then(third => third.name),
+ *             regionName: third.then(third => third.region),
  *             propagateTags: true,
  *         },
  *     ],
@@ -321,7 +321,7 @@ import * as utilities from "../utilities";
  *     resourceArn: pulumi.all([example.arn, current, alternate]).apply(([arn, current, alternate]) => std.replaceOutput({
  *         text: arn,
  *         search: current.region,
- *         replace: alternate.name,
+ *         replace: alternate.region,
  *     })).apply(invoke => invoke.result),
  *     key: "Architect",
  *     value: "Gigi",
@@ -329,6 +329,17 @@ import * as utilities from "../utilities";
  * ```
  *
  * ## Import
+ *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `name` (String) Name of the DynamoDB Table.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
  *
  * Using `pulumi import`, import DynamoDB tables using the `name`. For example:
  *

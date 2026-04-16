@@ -180,6 +180,10 @@ export class Directory extends pulumi.CustomResource {
      */
     declare public readonly edition: pulumi.Output<string>;
     /**
+     * Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
+     */
+    declare public readonly enableDirectoryDataAccess: pulumi.Output<boolean | undefined>;
+    /**
      * Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
      */
     declare public readonly enableSso: pulumi.Output<boolean | undefined>;
@@ -244,6 +248,7 @@ export class Directory extends pulumi.CustomResource {
             resourceInputs["desiredNumberOfDomainControllers"] = state?.desiredNumberOfDomainControllers;
             resourceInputs["dnsIpAddresses"] = state?.dnsIpAddresses;
             resourceInputs["edition"] = state?.edition;
+            resourceInputs["enableDirectoryDataAccess"] = state?.enableDirectoryDataAccess;
             resourceInputs["enableSso"] = state?.enableSso;
             resourceInputs["name"] = state?.name;
             resourceInputs["password"] = state?.password;
@@ -268,6 +273,7 @@ export class Directory extends pulumi.CustomResource {
             resourceInputs["description"] = args?.description;
             resourceInputs["desiredNumberOfDomainControllers"] = args?.desiredNumberOfDomainControllers;
             resourceInputs["edition"] = args?.edition;
+            resourceInputs["enableDirectoryDataAccess"] = args?.enableDirectoryDataAccess;
             resourceInputs["enableSso"] = args?.enableSso;
             resourceInputs["name"] = args?.name;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
@@ -321,6 +327,10 @@ export interface DirectoryState {
      * The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
      */
     edition?: pulumi.Input<string>;
+    /**
+     * Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
+     */
+    enableDirectoryDataAccess?: pulumi.Input<boolean>;
     /**
      * Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
      */
@@ -391,6 +401,10 @@ export interface DirectoryArgs {
      * The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
      */
     edition?: pulumi.Input<string>;
+    /**
+     * Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
+     */
+    enableDirectoryDataAccess?: pulumi.Input<boolean>;
     /**
      * Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
      */

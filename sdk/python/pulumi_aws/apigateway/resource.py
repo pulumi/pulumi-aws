@@ -206,6 +206,18 @@ class Resource(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `rest_api_id` (String) ID of the associated REST API.
+        * `id` (String) Resource's identifier.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import `apigateway.Resource` using `REST-API-ID/RESOURCE-ID`. For example:
 
         ```sh
@@ -245,6 +257,18 @@ class Resource(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `rest_api_id` (String) ID of the associated REST API.
+        * `id` (String) Resource's identifier.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import `apigateway.Resource` using `REST-API-ID/RESOURCE-ID`. For example:
 

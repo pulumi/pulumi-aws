@@ -6,6 +6,7 @@ package com.pulumi.aws.ecs.inputs;
 import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeDockerVolumeConfigurationArgs;
 import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeEfsVolumeConfigurationArgs;
 import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs;
+import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeS3filesVolumeConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -112,6 +113,21 @@ public final class TaskDefinitionVolumeArgs extends com.pulumi.resources.Resourc
         return this.name;
     }
 
+    /**
+     * Configuration block for an S3 Files volume. Detailed below.
+     * 
+     */
+    @Import(name="s3filesVolumeConfiguration")
+    private @Nullable Output<TaskDefinitionVolumeS3filesVolumeConfigurationArgs> s3filesVolumeConfiguration;
+
+    /**
+     * @return Configuration block for an S3 Files volume. Detailed below.
+     * 
+     */
+    public Optional<Output<TaskDefinitionVolumeS3filesVolumeConfigurationArgs>> s3filesVolumeConfiguration() {
+        return Optional.ofNullable(this.s3filesVolumeConfiguration);
+    }
+
     private TaskDefinitionVolumeArgs() {}
 
     private TaskDefinitionVolumeArgs(TaskDefinitionVolumeArgs $) {
@@ -121,6 +137,7 @@ public final class TaskDefinitionVolumeArgs extends com.pulumi.resources.Resourc
         this.fsxWindowsFileServerVolumeConfiguration = $.fsxWindowsFileServerVolumeConfiguration;
         this.hostPath = $.hostPath;
         this.name = $.name;
+        this.s3filesVolumeConfiguration = $.s3filesVolumeConfiguration;
     }
 
     public static Builder builder() {
@@ -267,6 +284,27 @@ public final class TaskDefinitionVolumeArgs extends com.pulumi.resources.Resourc
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param s3filesVolumeConfiguration Configuration block for an S3 Files volume. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3filesVolumeConfiguration(@Nullable Output<TaskDefinitionVolumeS3filesVolumeConfigurationArgs> s3filesVolumeConfiguration) {
+            $.s3filesVolumeConfiguration = s3filesVolumeConfiguration;
+            return this;
+        }
+
+        /**
+         * @param s3filesVolumeConfiguration Configuration block for an S3 Files volume. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3filesVolumeConfiguration(TaskDefinitionVolumeS3filesVolumeConfigurationArgs s3filesVolumeConfiguration) {
+            return s3filesVolumeConfiguration(Output.of(s3filesVolumeConfiguration));
         }
 
         public TaskDefinitionVolumeArgs build() {

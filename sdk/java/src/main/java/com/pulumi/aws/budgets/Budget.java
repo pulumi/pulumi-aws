@@ -372,7 +372,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * Create a budget with a simple dimension filter
+ * Create a budget with a simple dimension filter for unblended costs
  * 
  * <pre>
  * {@code
@@ -404,6 +404,7 @@ import javax.annotation.Nullable;
  *             .limitAmount("500")
  *             .limitUnit("USD")
  *             .timeUnit("MONTHLY")
+ *             .metrics("UnblendedCost")
  *             .filterExpression(BudgetFilterExpressionArgs.builder()
  *                 .dimensions(BudgetFilterExpressionDimensionsArgs.builder()
  *                     .key("SERVICE")
@@ -417,7 +418,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * Create a budget with AND filter
+ * Create a budget with AND filter for blended costs
  * 
  * <pre>
  * {@code
@@ -448,6 +449,7 @@ import javax.annotation.Nullable;
  *             .limitAmount("1200")
  *             .limitUnit("USD")
  *             .timeUnit("MONTHLY")
+ *             .metrics("BlendedCost")
  *             .filterExpression(BudgetFilterExpressionArgs.builder()
  *                 .ands(                
  *                     BudgetFilterExpressionAndArgs.builder()
@@ -470,7 +472,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * Create a budget with OR filter
+ * Create a budget with OR filter for amortized costs
  * 
  * <pre>
  * {@code
@@ -501,6 +503,7 @@ import javax.annotation.Nullable;
  *             .limitAmount("2000")
  *             .limitUnit("USD")
  *             .timeUnit("MONTHLY")
+ *             .metrics("AmortizedCost")
  *             .filterExpression(BudgetFilterExpressionArgs.builder()
  *                 .ors(                
  *                     BudgetFilterExpressionOrArgs.builder()
@@ -523,7 +526,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * Create a budget with NOT filter
+ * Create a budget with NOT filter for net unblended costs
  * 
  * <pre>
  * {@code
@@ -556,6 +559,7 @@ import javax.annotation.Nullable;
  *             .limitAmount("1000")
  *             .limitUnit("USD")
  *             .timeUnit("MONTHLY")
+ *             .metrics("NetUnblendedCost")
  *             .filterExpression(BudgetFilterExpressionArgs.builder()
  *                 .not(BudgetFilterExpressionNotArgs.builder()
  *                     .dimensions(BudgetFilterExpressionNotDimensionsArgs.builder()
@@ -571,7 +575,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * Create a budget with a compound filter
+ * Create a budget with a compound filter for net amortized costs
  * 
  * <pre>
  * {@code
@@ -603,6 +607,7 @@ import javax.annotation.Nullable;
  *             .limitAmount("1500")
  *             .limitUnit("USD")
  *             .timeUnit("MONTHLY")
+ *             .metrics("NetAmortizedCost")
  *             .filterExpression(BudgetFilterExpressionArgs.builder()
  *                 .ors(                
  *                     BudgetFilterExpressionOrArgs.builder()
@@ -759,14 +764,14 @@ public class Budget extends com.pulumi.resources.CustomResource {
         return this.costTypes;
     }
     /**
-     * Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+     * Object containing Filter Expression to apply to budget. Conflicts with `costFilter` and requires `metrics`.
      * 
      */
     @Export(name="filterExpression", refs={BudgetFilterExpression.class}, tree="[0]")
     private Output</* @Nullable */ BudgetFilterExpression> filterExpression;
 
     /**
-     * @return Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+     * @return Object containing Filter Expression to apply to budget. Conflicts with `costFilter` and requires `metrics`.
      * 
      */
     public Output<Optional<BudgetFilterExpression>> filterExpression() {
@@ -799,6 +804,20 @@ public class Budget extends com.pulumi.resources.CustomResource {
      */
     public Output<String> limitUnit() {
         return this.limitUnit;
+    }
+    /**
+     * List containing definition for how the budget data is aggregated. Conflicts with `costTypes` and requires `filterExpression`.
+     * 
+     */
+    @Export(name="metrics", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> metrics;
+
+    /**
+     * @return List containing definition for how the budget data is aggregated. Conflicts with `costTypes` and requires `filterExpression`.
+     * 
+     */
+    public Output<Optional<String>> metrics() {
+        return Codegen.optional(this.metrics);
     }
     /**
      * The name of a budget. Unique within accounts.

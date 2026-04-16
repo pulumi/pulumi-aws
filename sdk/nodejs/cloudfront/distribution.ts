@@ -403,6 +403,16 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `id` (String) CloudFront distribution ID.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ *
  * Using `pulumi import`, import CloudFront Distributions using the `id`. For example:
  *
  * ```sh

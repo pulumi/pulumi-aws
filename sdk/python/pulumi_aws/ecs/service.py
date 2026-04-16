@@ -1420,7 +1420,7 @@ class Service(pulumi.CustomResource):
                     "log_driver": "awslogs",
                     "options": {
                         "awslogs-group": example_log_group.name,
-                        "awslogs-region": current.name,
+                        "awslogs-region": current.region,
                         "awslogs-stream-prefix": "service-connect",
                     },
                 },
@@ -1685,7 +1685,7 @@ class Service(pulumi.CustomResource):
                     "log_driver": "awslogs",
                     "options": {
                         "awslogs-group": example_log_group.name,
-                        "awslogs-region": current.name,
+                        "awslogs-region": current.region,
                         "awslogs-stream-prefix": "service-connect",
                     },
                 },

@@ -127,6 +127,21 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
+     * 
+     */
+    @Import(name="enableDirectoryDataAccess")
+    private @Nullable Output<Boolean> enableDirectoryDataAccess;
+
+    /**
+     * @return Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
+     * 
+     */
+    public Optional<Output<Boolean>> enableDirectoryDataAccess() {
+        return Optional.ofNullable(this.enableDirectoryDataAccess);
+    }
+
+    /**
      * Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
      * 
      */
@@ -301,6 +316,7 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
         this.desiredNumberOfDomainControllers = $.desiredNumberOfDomainControllers;
         this.dnsIpAddresses = $.dnsIpAddresses;
         this.edition = $.edition;
+        this.enableDirectoryDataAccess = $.enableDirectoryDataAccess;
         this.enableSso = $.enableSso;
         this.name = $.name;
         this.password = $.password;
@@ -487,6 +503,27 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder edition(String edition) {
             return edition(Output.of(edition));
+        }
+
+        /**
+         * @param enableDirectoryDataAccess Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableDirectoryDataAccess(@Nullable Output<Boolean> enableDirectoryDataAccess) {
+            $.enableDirectoryDataAccess = enableDirectoryDataAccess;
+            return this;
+        }
+
+        /**
+         * @param enableDirectoryDataAccess Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableDirectoryDataAccess(Boolean enableDirectoryDataAccess) {
+            return enableDirectoryDataAccess(Output.of(enableDirectoryDataAccess));
         }
 
         /**

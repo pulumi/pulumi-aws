@@ -158,7 +158,7 @@ export interface GetTaskDefinitionResult {
      */
     readonly taskRoleArn: string;
     /**
-     * Configuration block for volumes that containers in your task may use. Detailed below.
+     * Attributes corresponding to the `volume` argument of the `aws.ecs.TaskDefinition` resource.
      */
     readonly volumes: outputs.ecs.GetTaskDefinitionVolume[];
 }

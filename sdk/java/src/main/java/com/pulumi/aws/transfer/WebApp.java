@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  *                     .actions(                    
  *                         "s3:GetDataAccess",
  *                         "s3:ListCallerAccessGrants")
- *                     .resources(String.format("arn:%s:s3:%s:%s:access-grants/*", currentGetPartition.partition(),currentGetRegion.name(),current.accountId()))
+ *                     .resources(String.format("arn:%s:s3:%s:%s:access-grants/*", currentGetPartition.partition(),currentGetRegion.region(),current.accountId()))
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test("StringEquals")
  *                         .values(current.accountId())

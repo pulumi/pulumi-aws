@@ -317,7 +317,7 @@ import (
 //
 // ```
 //
-// # Create a budget with a simple dimension filter
+// # Create a budget with a simple dimension filter for unblended costs
 //
 // ```go
 // package main
@@ -337,6 +337,7 @@ import (
 //				LimitAmount: pulumi.String("500"),
 //				LimitUnit:   pulumi.String("USD"),
 //				TimeUnit:    pulumi.String("MONTHLY"),
+//				Metrics:     pulumi.String("UnblendedCost"),
 //				FilterExpression: &budgets.BudgetFilterExpressionArgs{
 //					Dimensions: &budgets.BudgetFilterExpressionDimensionsArgs{
 //						Key: pulumi.String("SERVICE"),
@@ -355,7 +356,7 @@ import (
 //
 // ```
 //
-// # Create a budget with AND filter
+// # Create a budget with AND filter for blended costs
 //
 // ```go
 // package main
@@ -375,6 +376,7 @@ import (
 //				LimitAmount: pulumi.String("1200"),
 //				LimitUnit:   pulumi.String("USD"),
 //				TimeUnit:    pulumi.String("MONTHLY"),
+//				Metrics:     pulumi.String("BlendedCost"),
 //				FilterExpression: &budgets.BudgetFilterExpressionArgs{
 //					Ands: budgets.BudgetFilterExpressionAndArray{
 //						&budgets.BudgetFilterExpressionAndArgs{
@@ -405,7 +407,7 @@ import (
 //
 // ```
 //
-// # Create a budget with OR filter
+// # Create a budget with OR filter for amortized costs
 //
 // ```go
 // package main
@@ -425,6 +427,7 @@ import (
 //				LimitAmount: pulumi.String("2000"),
 //				LimitUnit:   pulumi.String("USD"),
 //				TimeUnit:    pulumi.String("MONTHLY"),
+//				Metrics:     pulumi.String("AmortizedCost"),
 //				FilterExpression: &budgets.BudgetFilterExpressionArgs{
 //					Ors: budgets.BudgetFilterExpressionOrArray{
 //						&budgets.BudgetFilterExpressionOrArgs{
@@ -455,7 +458,7 @@ import (
 //
 // ```
 //
-// # Create a budget with NOT filter
+// # Create a budget with NOT filter for net unblended costs
 //
 // ```go
 // package main
@@ -475,6 +478,7 @@ import (
 //				LimitAmount: pulumi.String("1000"),
 //				LimitUnit:   pulumi.String("USD"),
 //				TimeUnit:    pulumi.String("MONTHLY"),
+//				Metrics:     pulumi.String("NetUnblendedCost"),
 //				FilterExpression: &budgets.BudgetFilterExpressionArgs{
 //					Not: &budgets.BudgetFilterExpressionNotArgs{
 //						Dimensions: &budgets.BudgetFilterExpressionNotDimensionsArgs{
@@ -495,7 +499,7 @@ import (
 //
 // ```
 //
-// # Create a budget with a compound filter
+// # Create a budget with a compound filter for net amortized costs
 //
 // ```go
 // package main
@@ -515,6 +519,7 @@ import (
 //				LimitAmount: pulumi.String("1500"),
 //				LimitUnit:   pulumi.String("USD"),
 //				TimeUnit:    pulumi.String("MONTHLY"),
+//				Metrics:     pulumi.String("NetAmortizedCost"),
 //				FilterExpression: &budgets.BudgetFilterExpressionArgs{
 //					Ors: budgets.BudgetFilterExpressionOrArray{
 //						&budgets.BudgetFilterExpressionOrArgs{
@@ -602,12 +607,14 @@ type Budget struct {
 	CostFilters BudgetCostFilterArrayOutput `pulumi:"costFilters"`
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 	CostTypes BudgetCostTypesOutput `pulumi:"costTypes"`
-	// Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+	// Object containing Filter Expression to apply to budget. Conflicts with `costFilter` and requires `metrics`.
 	FilterExpression BudgetFilterExpressionPtrOutput `pulumi:"filterExpression"`
 	// The amount of cost or usage being measured for a budget.
 	LimitAmount pulumi.StringOutput `pulumi:"limitAmount"`
 	// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
 	LimitUnit pulumi.StringOutput `pulumi:"limitUnit"`
+	// List containing definition for how the budget data is aggregated. Conflicts with `costTypes` and requires `filterExpression`.
+	Metrics pulumi.StringPtrOutput `pulumi:"metrics"`
 	// The name of a budget. Unique within accounts.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The prefix of the name of a budget. Unique within accounts.
@@ -683,12 +690,14 @@ type budgetState struct {
 	CostFilters []BudgetCostFilter `pulumi:"costFilters"`
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 	CostTypes *BudgetCostTypes `pulumi:"costTypes"`
-	// Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+	// Object containing Filter Expression to apply to budget. Conflicts with `costFilter` and requires `metrics`.
 	FilterExpression *BudgetFilterExpression `pulumi:"filterExpression"`
 	// The amount of cost or usage being measured for a budget.
 	LimitAmount *string `pulumi:"limitAmount"`
 	// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
 	LimitUnit *string `pulumi:"limitUnit"`
+	// List containing definition for how the budget data is aggregated. Conflicts with `costTypes` and requires `filterExpression`.
+	Metrics *string `pulumi:"metrics"`
 	// The name of a budget. Unique within accounts.
 	Name *string `pulumi:"name"`
 	// The prefix of the name of a budget. Unique within accounts.
@@ -729,12 +738,14 @@ type BudgetState struct {
 	CostFilters BudgetCostFilterArrayInput
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 	CostTypes BudgetCostTypesPtrInput
-	// Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+	// Object containing Filter Expression to apply to budget. Conflicts with `costFilter` and requires `metrics`.
 	FilterExpression BudgetFilterExpressionPtrInput
 	// The amount of cost or usage being measured for a budget.
 	LimitAmount pulumi.StringPtrInput
 	// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
 	LimitUnit pulumi.StringPtrInput
+	// List containing definition for how the budget data is aggregated. Conflicts with `costTypes` and requires `filterExpression`.
+	Metrics pulumi.StringPtrInput
 	// The name of a budget. Unique within accounts.
 	Name pulumi.StringPtrInput
 	// The prefix of the name of a budget. Unique within accounts.
@@ -777,12 +788,14 @@ type budgetArgs struct {
 	CostFilters []BudgetCostFilter `pulumi:"costFilters"`
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 	CostTypes *BudgetCostTypes `pulumi:"costTypes"`
-	// Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+	// Object containing Filter Expression to apply to budget. Conflicts with `costFilter` and requires `metrics`.
 	FilterExpression *BudgetFilterExpression `pulumi:"filterExpression"`
 	// The amount of cost or usage being measured for a budget.
 	LimitAmount *string `pulumi:"limitAmount"`
 	// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
 	LimitUnit *string `pulumi:"limitUnit"`
+	// List containing definition for how the budget data is aggregated. Conflicts with `costTypes` and requires `filterExpression`.
+	Metrics *string `pulumi:"metrics"`
 	// The name of a budget. Unique within accounts.
 	Name *string `pulumi:"name"`
 	// The prefix of the name of a budget. Unique within accounts.
@@ -820,12 +833,14 @@ type BudgetArgs struct {
 	CostFilters BudgetCostFilterArrayInput
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 	CostTypes BudgetCostTypesPtrInput
-	// Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+	// Object containing Filter Expression to apply to budget. Conflicts with `costFilter` and requires `metrics`.
 	FilterExpression BudgetFilterExpressionPtrInput
 	// The amount of cost or usage being measured for a budget.
 	LimitAmount pulumi.StringPtrInput
 	// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
 	LimitUnit pulumi.StringPtrInput
+	// List containing definition for how the budget data is aggregated. Conflicts with `costTypes` and requires `filterExpression`.
+	Metrics pulumi.StringPtrInput
 	// The name of a budget. Unique within accounts.
 	Name pulumi.StringPtrInput
 	// The prefix of the name of a budget. Unique within accounts.
@@ -971,7 +986,7 @@ func (o BudgetOutput) CostTypes() BudgetCostTypesOutput {
 	return o.ApplyT(func(v *Budget) BudgetCostTypesOutput { return v.CostTypes }).(BudgetCostTypesOutput)
 }
 
-// Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+// Object containing Filter Expression to apply to budget. Conflicts with `costFilter` and requires `metrics`.
 func (o BudgetOutput) FilterExpression() BudgetFilterExpressionPtrOutput {
 	return o.ApplyT(func(v *Budget) BudgetFilterExpressionPtrOutput { return v.FilterExpression }).(BudgetFilterExpressionPtrOutput)
 }
@@ -984,6 +999,11 @@ func (o BudgetOutput) LimitAmount() pulumi.StringOutput {
 // The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
 func (o BudgetOutput) LimitUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v *Budget) pulumi.StringOutput { return v.LimitUnit }).(pulumi.StringOutput)
+}
+
+// List containing definition for how the budget data is aggregated. Conflicts with `costTypes` and requires `filterExpression`.
+func (o BudgetOutput) Metrics() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Budget) pulumi.StringPtrOutput { return v.Metrics }).(pulumi.StringPtrOutput)
 }
 
 // The name of a budget. Unique within accounts.

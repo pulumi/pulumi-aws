@@ -46,7 +46,7 @@ import (
 // example, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
 // Replicas: dynamodb.TableReplicaTypeArray{
 // &dynamodb.TableReplicaTypeArgs{
-// RegionName: pulumi.String(replica.Name),
+// RegionName: pulumi.String(replica.Region),
 // },
 // },
 // })
@@ -56,7 +56,7 @@ import (
 // invokeReplace, err := std.Replace(ctx, &std.ReplaceArgs{
 // Text: arn,
 // Search: current.Region,
-// Replace: replica.Name,
+// Replace: replica.Region,
 // }, nil)
 // if err != nil {
 // return err

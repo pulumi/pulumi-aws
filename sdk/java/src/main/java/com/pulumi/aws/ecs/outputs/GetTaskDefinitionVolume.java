@@ -6,6 +6,7 @@ package com.pulumi.aws.ecs.outputs;
 import com.pulumi.aws.ecs.outputs.GetTaskDefinitionVolumeDockerVolumeConfiguration;
 import com.pulumi.aws.ecs.outputs.GetTaskDefinitionVolumeEfsVolumeConfiguration;
 import com.pulumi.aws.ecs.outputs.GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration;
+import com.pulumi.aws.ecs.outputs.GetTaskDefinitionVolumeS3filesVolumeConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -15,81 +16,35 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTaskDefinitionVolume {
-    /**
-     * @return Whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
-     * 
-     */
     private Boolean configureAtLaunch;
-    /**
-     * @return Configuration block to configure a docker volume. Detailed below.
-     * 
-     */
     private List<GetTaskDefinitionVolumeDockerVolumeConfiguration> dockerVolumeConfigurations;
-    /**
-     * @return Configuration block for an EFS volume. Detailed below.
-     * 
-     */
     private List<GetTaskDefinitionVolumeEfsVolumeConfiguration> efsVolumeConfigurations;
-    /**
-     * @return Configuration block for an FSX Windows File Server volume. Detailed below.
-     * 
-     */
     private List<GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration> fsxWindowsFileServerVolumeConfigurations;
-    /**
-     * @return Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
-     * 
-     */
     private String hostPath;
-    /**
-     * @return Name of the volume. This name is referenced in the `sourceVolume`
-     * parameter of container definition in the `mountPoints` section.
-     * 
-     */
     private String name;
+    private List<GetTaskDefinitionVolumeS3filesVolumeConfiguration> s3filesVolumeConfigurations;
 
     private GetTaskDefinitionVolume() {}
-    /**
-     * @return Whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
-     * 
-     */
     public Boolean configureAtLaunch() {
         return this.configureAtLaunch;
     }
-    /**
-     * @return Configuration block to configure a docker volume. Detailed below.
-     * 
-     */
     public List<GetTaskDefinitionVolumeDockerVolumeConfiguration> dockerVolumeConfigurations() {
         return this.dockerVolumeConfigurations;
     }
-    /**
-     * @return Configuration block for an EFS volume. Detailed below.
-     * 
-     */
     public List<GetTaskDefinitionVolumeEfsVolumeConfiguration> efsVolumeConfigurations() {
         return this.efsVolumeConfigurations;
     }
-    /**
-     * @return Configuration block for an FSX Windows File Server volume. Detailed below.
-     * 
-     */
     public List<GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration> fsxWindowsFileServerVolumeConfigurations() {
         return this.fsxWindowsFileServerVolumeConfigurations;
     }
-    /**
-     * @return Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
-     * 
-     */
     public String hostPath() {
         return this.hostPath;
     }
-    /**
-     * @return Name of the volume. This name is referenced in the `sourceVolume`
-     * parameter of container definition in the `mountPoints` section.
-     * 
-     */
     public String name() {
         return this.name;
+    }
+    public List<GetTaskDefinitionVolumeS3filesVolumeConfiguration> s3filesVolumeConfigurations() {
+        return this.s3filesVolumeConfigurations;
     }
 
     public static Builder builder() {
@@ -107,6 +62,7 @@ public final class GetTaskDefinitionVolume {
         private List<GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration> fsxWindowsFileServerVolumeConfigurations;
         private String hostPath;
         private String name;
+        private List<GetTaskDefinitionVolumeS3filesVolumeConfiguration> s3filesVolumeConfigurations;
         public Builder() {}
         public Builder(GetTaskDefinitionVolume defaults) {
     	      Objects.requireNonNull(defaults);
@@ -116,6 +72,7 @@ public final class GetTaskDefinitionVolume {
     	      this.fsxWindowsFileServerVolumeConfigurations = defaults.fsxWindowsFileServerVolumeConfigurations;
     	      this.hostPath = defaults.hostPath;
     	      this.name = defaults.name;
+    	      this.s3filesVolumeConfigurations = defaults.s3filesVolumeConfigurations;
         }
 
         @CustomType.Setter
@@ -175,6 +132,17 @@ public final class GetTaskDefinitionVolume {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder s3filesVolumeConfigurations(List<GetTaskDefinitionVolumeS3filesVolumeConfiguration> s3filesVolumeConfigurations) {
+            if (s3filesVolumeConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetTaskDefinitionVolume", "s3filesVolumeConfigurations");
+            }
+            this.s3filesVolumeConfigurations = s3filesVolumeConfigurations;
+            return this;
+        }
+        public Builder s3filesVolumeConfigurations(GetTaskDefinitionVolumeS3filesVolumeConfiguration... s3filesVolumeConfigurations) {
+            return s3filesVolumeConfigurations(List.of(s3filesVolumeConfigurations));
+        }
         public GetTaskDefinitionVolume build() {
             final var _resultValue = new GetTaskDefinitionVolume();
             _resultValue.configureAtLaunch = configureAtLaunch;
@@ -183,6 +151,7 @@ public final class GetTaskDefinitionVolume {
             _resultValue.fsxWindowsFileServerVolumeConfigurations = fsxWindowsFileServerVolumeConfigurations;
             _resultValue.hostPath = hostPath;
             _resultValue.name = name;
+            _resultValue.s3filesVolumeConfigurations = s3filesVolumeConfigurations;
             return _resultValue;
         }
     }

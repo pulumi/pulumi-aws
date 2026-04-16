@@ -28,6 +28,7 @@ class DomainArgs:
                  auto_tune_options: Optional[pulumi.Input['DomainAutoTuneOptionsArgs']] = None,
                  cluster_config: Optional[pulumi.Input['DomainClusterConfigArgs']] = None,
                  cognito_options: Optional[pulumi.Input['DomainCognitoOptionsArgs']] = None,
+                 deployment_strategy_options: Optional[pulumi.Input['DomainDeploymentStrategyOptionsArgs']] = None,
                  domain_endpoint_options: Optional[pulumi.Input['DomainDomainEndpointOptionsArgs']] = None,
                  domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  ebs_options: Optional[pulumi.Input['DomainEbsOptionsArgs']] = None,
@@ -53,6 +54,7 @@ class DomainArgs:
         :param pulumi.Input['DomainAutoTuneOptionsArgs'] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
         :param pulumi.Input['DomainClusterConfigArgs'] cluster_config: Configuration block for the cluster of the domain. Detailed below.
         :param pulumi.Input['DomainCognitoOptionsArgs'] cognito_options: Configuration block for authenticating dashboard with Cognito. Detailed below.
+        :param pulumi.Input['DomainDeploymentStrategyOptionsArgs'] deployment_strategy_options: Configuration block for the deployment strategy options of the domain. Detailed below.
         :param pulumi.Input['DomainDomainEndpointOptionsArgs'] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         :param pulumi.Input[_builtins.str] domain_name: Name of the domain.
                
@@ -87,6 +89,8 @@ class DomainArgs:
             pulumi.set(__self__, "cluster_config", cluster_config)
         if cognito_options is not None:
             pulumi.set(__self__, "cognito_options", cognito_options)
+        if deployment_strategy_options is not None:
+            pulumi.set(__self__, "deployment_strategy_options", deployment_strategy_options)
         if domain_endpoint_options is not None:
             pulumi.set(__self__, "domain_endpoint_options", domain_endpoint_options)
         if domain_name is not None:
@@ -201,6 +205,18 @@ class DomainArgs:
     @cognito_options.setter
     def cognito_options(self, value: Optional[pulumi.Input['DomainCognitoOptionsArgs']]):
         pulumi.set(self, "cognito_options", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentStrategyOptions")
+    def deployment_strategy_options(self) -> Optional[pulumi.Input['DomainDeploymentStrategyOptionsArgs']]:
+        """
+        Configuration block for the deployment strategy options of the domain. Detailed below.
+        """
+        return pulumi.get(self, "deployment_strategy_options")
+
+    @deployment_strategy_options.setter
+    def deployment_strategy_options(self, value: Optional[pulumi.Input['DomainDeploymentStrategyOptionsArgs']]):
+        pulumi.set(self, "deployment_strategy_options", value)
 
     @_builtins.property
     @pulumi.getter(name="domainEndpointOptions")
@@ -400,6 +416,7 @@ class _DomainState:
                  cognito_options: Optional[pulumi.Input['DomainCognitoOptionsArgs']] = None,
                  dashboard_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  dashboard_endpoint_v2: Optional[pulumi.Input[_builtins.str]] = None,
+                 deployment_strategy_options: Optional[pulumi.Input['DomainDeploymentStrategyOptionsArgs']] = None,
                  domain_endpoint_options: Optional[pulumi.Input['DomainDomainEndpointOptionsArgs']] = None,
                  domain_endpoint_v2_hosted_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -433,6 +450,7 @@ class _DomainState:
         :param pulumi.Input['DomainCognitoOptionsArgs'] cognito_options: Configuration block for authenticating dashboard with Cognito. Detailed below.
         :param pulumi.Input[_builtins.str] dashboard_endpoint: Domain-specific endpoint for Dashboard without https scheme.
         :param pulumi.Input[_builtins.str] dashboard_endpoint_v2: V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+        :param pulumi.Input['DomainDeploymentStrategyOptionsArgs'] deployment_strategy_options: Configuration block for the deployment strategy options of the domain. Detailed below.
         :param pulumi.Input['DomainDomainEndpointOptionsArgs'] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         :param pulumi.Input[_builtins.str] domain_endpoint_v2_hosted_zone_id: Dual stack hosted zone ID for the domain.
         :param pulumi.Input[_builtins.str] domain_id: Unique identifier for the domain.
@@ -478,6 +496,8 @@ class _DomainState:
             pulumi.set(__self__, "dashboard_endpoint", dashboard_endpoint)
         if dashboard_endpoint_v2 is not None:
             pulumi.set(__self__, "dashboard_endpoint_v2", dashboard_endpoint_v2)
+        if deployment_strategy_options is not None:
+            pulumi.set(__self__, "deployment_strategy_options", deployment_strategy_options)
         if domain_endpoint_options is not None:
             pulumi.set(__self__, "domain_endpoint_options", domain_endpoint_options)
         if domain_endpoint_v2_hosted_zone_id is not None:
@@ -638,6 +658,18 @@ class _DomainState:
     @dashboard_endpoint_v2.setter
     def dashboard_endpoint_v2(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "dashboard_endpoint_v2", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentStrategyOptions")
+    def deployment_strategy_options(self) -> Optional[pulumi.Input['DomainDeploymentStrategyOptionsArgs']]:
+        """
+        Configuration block for the deployment strategy options of the domain. Detailed below.
+        """
+        return pulumi.get(self, "deployment_strategy_options")
+
+    @deployment_strategy_options.setter
+    def deployment_strategy_options(self, value: Optional[pulumi.Input['DomainDeploymentStrategyOptionsArgs']]):
+        pulumi.set(self, "deployment_strategy_options", value)
 
     @_builtins.property
     @pulumi.getter(name="domainEndpointOptions")
@@ -897,6 +929,7 @@ class Domain(pulumi.CustomResource):
                  auto_tune_options: Optional[pulumi.Input[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict']]] = None,
                  cluster_config: Optional[pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']]] = None,
                  cognito_options: Optional[pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']]] = None,
+                 deployment_strategy_options: Optional[pulumi.Input[Union['DomainDeploymentStrategyOptionsArgs', 'DomainDeploymentStrategyOptionsArgsDict']]] = None,
                  domain_endpoint_options: Optional[pulumi.Input[Union['DomainDomainEndpointOptionsArgs', 'DomainDomainEndpointOptionsArgsDict']]] = None,
                  domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  ebs_options: Optional[pulumi.Input[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']]] = None,
@@ -1179,6 +1212,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict']] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
         :param pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']] cluster_config: Configuration block for the cluster of the domain. Detailed below.
         :param pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']] cognito_options: Configuration block for authenticating dashboard with Cognito. Detailed below.
+        :param pulumi.Input[Union['DomainDeploymentStrategyOptionsArgs', 'DomainDeploymentStrategyOptionsArgsDict']] deployment_strategy_options: Configuration block for the deployment strategy options of the domain. Detailed below.
         :param pulumi.Input[Union['DomainDomainEndpointOptionsArgs', 'DomainDomainEndpointOptionsArgsDict']] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         :param pulumi.Input[_builtins.str] domain_name: Name of the domain.
                
@@ -1484,6 +1518,7 @@ class Domain(pulumi.CustomResource):
                  auto_tune_options: Optional[pulumi.Input[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict']]] = None,
                  cluster_config: Optional[pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']]] = None,
                  cognito_options: Optional[pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']]] = None,
+                 deployment_strategy_options: Optional[pulumi.Input[Union['DomainDeploymentStrategyOptionsArgs', 'DomainDeploymentStrategyOptionsArgsDict']]] = None,
                  domain_endpoint_options: Optional[pulumi.Input[Union['DomainDomainEndpointOptionsArgs', 'DomainDomainEndpointOptionsArgsDict']]] = None,
                  domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  ebs_options: Optional[pulumi.Input[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']]] = None,
@@ -1515,6 +1550,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["auto_tune_options"] = auto_tune_options
             __props__.__dict__["cluster_config"] = cluster_config
             __props__.__dict__["cognito_options"] = cognito_options
+            __props__.__dict__["deployment_strategy_options"] = deployment_strategy_options
             __props__.__dict__["domain_endpoint_options"] = domain_endpoint_options
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["ebs_options"] = ebs_options
@@ -1558,6 +1594,7 @@ class Domain(pulumi.CustomResource):
             cognito_options: Optional[pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']]] = None,
             dashboard_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
             dashboard_endpoint_v2: Optional[pulumi.Input[_builtins.str]] = None,
+            deployment_strategy_options: Optional[pulumi.Input[Union['DomainDeploymentStrategyOptionsArgs', 'DomainDeploymentStrategyOptionsArgsDict']]] = None,
             domain_endpoint_options: Optional[pulumi.Input[Union['DomainDomainEndpointOptionsArgs', 'DomainDomainEndpointOptionsArgsDict']]] = None,
             domain_endpoint_v2_hosted_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
             domain_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1595,6 +1632,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']] cognito_options: Configuration block for authenticating dashboard with Cognito. Detailed below.
         :param pulumi.Input[_builtins.str] dashboard_endpoint: Domain-specific endpoint for Dashboard without https scheme.
         :param pulumi.Input[_builtins.str] dashboard_endpoint_v2: V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+        :param pulumi.Input[Union['DomainDeploymentStrategyOptionsArgs', 'DomainDeploymentStrategyOptionsArgsDict']] deployment_strategy_options: Configuration block for the deployment strategy options of the domain. Detailed below.
         :param pulumi.Input[Union['DomainDomainEndpointOptionsArgs', 'DomainDomainEndpointOptionsArgsDict']] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         :param pulumi.Input[_builtins.str] domain_endpoint_v2_hosted_zone_id: Dual stack hosted zone ID for the domain.
         :param pulumi.Input[_builtins.str] domain_id: Unique identifier for the domain.
@@ -1634,6 +1672,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["cognito_options"] = cognito_options
         __props__.__dict__["dashboard_endpoint"] = dashboard_endpoint
         __props__.__dict__["dashboard_endpoint_v2"] = dashboard_endpoint_v2
+        __props__.__dict__["deployment_strategy_options"] = deployment_strategy_options
         __props__.__dict__["domain_endpoint_options"] = domain_endpoint_options
         __props__.__dict__["domain_endpoint_v2_hosted_zone_id"] = domain_endpoint_v2_hosted_zone_id
         __props__.__dict__["domain_id"] = domain_id
@@ -1735,6 +1774,14 @@ class Domain(pulumi.CustomResource):
         V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
         """
         return pulumi.get(self, "dashboard_endpoint_v2")
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentStrategyOptions")
+    def deployment_strategy_options(self) -> pulumi.Output['outputs.DomainDeploymentStrategyOptions']:
+        """
+        Configuration block for the deployment strategy options of the domain. Detailed below.
+        """
+        return pulumi.get(self, "deployment_strategy_options")
 
     @_builtins.property
     @pulumi.getter(name="domainEndpointOptions")

@@ -64,12 +64,15 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// 
-    /// ## Import
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
     /// Using `pulumi import`, import launch configurations using the `Name`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf pulumi-lg-123456
+    /// $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/launchConfiguration:LaunchConfiguration")]

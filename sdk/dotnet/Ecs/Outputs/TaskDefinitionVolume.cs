@@ -38,6 +38,10 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// parameter of container definition in the `mountPoints` section.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Configuration block for an S3 Files volume. Detailed below.
+        /// </summary>
+        public readonly Outputs.TaskDefinitionVolumeS3filesVolumeConfiguration? S3filesVolumeConfiguration;
 
         [OutputConstructor]
         private TaskDefinitionVolume(
@@ -51,7 +55,9 @@ namespace Pulumi.Aws.Ecs.Outputs
 
             string? hostPath,
 
-            string name)
+            string name,
+
+            Outputs.TaskDefinitionVolumeS3filesVolumeConfiguration? s3filesVolumeConfiguration)
         {
             ConfigureAtLaunch = configureAtLaunch;
             DockerVolumeConfiguration = dockerVolumeConfiguration;
@@ -59,6 +65,7 @@ namespace Pulumi.Aws.Ecs.Outputs
             FsxWindowsFileServerVolumeConfiguration = fsxWindowsFileServerVolumeConfiguration;
             HostPath = hostPath;
             Name = name;
+            S3filesVolumeConfiguration = s3filesVolumeConfiguration;
         }
     }
 }

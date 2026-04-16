@@ -273,10 +273,22 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import AutoScaling scaling policy using the role AutoscalingGroupName and name separated by `/`. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `AutoscalingGroupName` (String) Name of the Auto Scaling group.
+    /// * `Name` (String) Name of the policy.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import AutoScaling Scaling Policies using `AutoscalingGroupName` and `Name` separated by a forward slash (`/`). For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
+    /// $ pulumi import aws:autoscaling/policy:Policy example example-asg/example-policy
     /// ```
     /// </summary>
     [AwsResourceType("aws:autoscaling/policy:Policy")]

@@ -115,7 +115,7 @@ import javax.annotation.Nullable;
  *                 .input("my-tf-test-bucket-%s-%s-an")
  *                 .args(                
  *                     current.accountId(),
- *                     currentGetRegion.name())
+ *                     currentGetRegion.region())
  *                 .build()).result())
  *             .bucketNamespace("account-regional")
  *             .build());

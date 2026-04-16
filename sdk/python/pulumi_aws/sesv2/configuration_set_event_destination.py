@@ -29,8 +29,8 @@ class ConfigurationSetEventDestinationArgs:
         The set of arguments for constructing a ConfigurationSetEventDestination resource.
 
         :param pulumi.Input[_builtins.str] configuration_set_name: The name of the configuration set.
-        :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs'] event_destination: A name that identifies the event destination within the configuration set.
-        :param pulumi.Input[_builtins.str] event_destination_name: An object that defines the event destination. See `event_destination` Block for details.
+        :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs'] event_destination: An object that defines the event destination. See `event_destination` Block for details.
+        :param pulumi.Input[_builtins.str] event_destination_name: A name that identifies the event destination within the configuration set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "configuration_set_name", configuration_set_name)
@@ -55,7 +55,7 @@ class ConfigurationSetEventDestinationArgs:
     @pulumi.getter(name="eventDestination")
     def event_destination(self) -> pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs']:
         """
-        A name that identifies the event destination within the configuration set.
+        An object that defines the event destination. See `event_destination` Block for details.
         """
         return pulumi.get(self, "event_destination")
 
@@ -67,7 +67,7 @@ class ConfigurationSetEventDestinationArgs:
     @pulumi.getter(name="eventDestinationName")
     def event_destination_name(self) -> pulumi.Input[_builtins.str]:
         """
-        An object that defines the event destination. See `event_destination` Block for details.
+        A name that identifies the event destination within the configuration set.
         """
         return pulumi.get(self, "event_destination_name")
 
@@ -99,8 +99,8 @@ class _ConfigurationSetEventDestinationState:
         Input properties used for looking up and filtering ConfigurationSetEventDestination resources.
 
         :param pulumi.Input[_builtins.str] configuration_set_name: The name of the configuration set.
-        :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs'] event_destination: A name that identifies the event destination within the configuration set.
-        :param pulumi.Input[_builtins.str] event_destination_name: An object that defines the event destination. See `event_destination` Block for details.
+        :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs'] event_destination: An object that defines the event destination. See `event_destination` Block for details.
+        :param pulumi.Input[_builtins.str] event_destination_name: A name that identifies the event destination within the configuration set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if configuration_set_name is not None:
@@ -128,7 +128,7 @@ class _ConfigurationSetEventDestinationState:
     @pulumi.getter(name="eventDestination")
     def event_destination(self) -> Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs']]:
         """
-        A name that identifies the event destination within the configuration set.
+        An object that defines the event destination. See `event_destination` Block for details.
         """
         return pulumi.get(self, "event_destination")
 
@@ -140,7 +140,7 @@ class _ConfigurationSetEventDestinationState:
     @pulumi.getter(name="eventDestinationName")
     def event_destination_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        An object that defines the event destination. See `event_destination` Block for details.
+        A name that identifies the event destination within the configuration set.
         """
         return pulumi.get(self, "event_destination_name")
 
@@ -289,8 +289,8 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] configuration_set_name: The name of the configuration set.
-        :param pulumi.Input[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict']] event_destination: A name that identifies the event destination within the configuration set.
-        :param pulumi.Input[_builtins.str] event_destination_name: An object that defines the event destination. See `event_destination` Block for details.
+        :param pulumi.Input[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict']] event_destination: An object that defines the event destination. See `event_destination` Block for details.
+        :param pulumi.Input[_builtins.str] event_destination_name: A name that identifies the event destination within the configuration set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -473,8 +473,8 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] configuration_set_name: The name of the configuration set.
-        :param pulumi.Input[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict']] event_destination: A name that identifies the event destination within the configuration set.
-        :param pulumi.Input[_builtins.str] event_destination_name: An object that defines the event destination. See `event_destination` Block for details.
+        :param pulumi.Input[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict']] event_destination: An object that defines the event destination. See `event_destination` Block for details.
+        :param pulumi.Input[_builtins.str] event_destination_name: A name that identifies the event destination within the configuration set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -499,7 +499,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
     @pulumi.getter(name="eventDestination")
     def event_destination(self) -> pulumi.Output['outputs.ConfigurationSetEventDestinationEventDestination']:
         """
-        A name that identifies the event destination within the configuration set.
+        An object that defines the event destination. See `event_destination` Block for details.
         """
         return pulumi.get(self, "event_destination")
 
@@ -507,7 +507,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
     @pulumi.getter(name="eventDestinationName")
     def event_destination_name(self) -> pulumi.Output[_builtins.str]:
         """
-        An object that defines the event destination. See `event_destination` Block for details.
+        A name that identifies the event destination within the configuration set.
         """
         return pulumi.get(self, "event_destination_name")
 

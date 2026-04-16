@@ -8,6 +8,7 @@ import com.pulumi.aws.opensearch.inputs.DomainAimlOptionsArgs;
 import com.pulumi.aws.opensearch.inputs.DomainAutoTuneOptionsArgs;
 import com.pulumi.aws.opensearch.inputs.DomainClusterConfigArgs;
 import com.pulumi.aws.opensearch.inputs.DomainCognitoOptionsArgs;
+import com.pulumi.aws.opensearch.inputs.DomainDeploymentStrategyOptionsArgs;
 import com.pulumi.aws.opensearch.inputs.DomainDomainEndpointOptionsArgs;
 import com.pulumi.aws.opensearch.inputs.DomainEbsOptionsArgs;
 import com.pulumi.aws.opensearch.inputs.DomainEncryptAtRestArgs;
@@ -180,6 +181,21 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> dashboardEndpointV2() {
         return Optional.ofNullable(this.dashboardEndpointV2);
+    }
+
+    /**
+     * Configuration block for the deployment strategy options of the domain. Detailed below.
+     * 
+     */
+    @Import(name="deploymentStrategyOptions")
+    private @Nullable Output<DomainDeploymentStrategyOptionsArgs> deploymentStrategyOptions;
+
+    /**
+     * @return Configuration block for the deployment strategy options of the domain. Detailed below.
+     * 
+     */
+    public Optional<Output<DomainDeploymentStrategyOptionsArgs>> deploymentStrategyOptions() {
+        return Optional.ofNullable(this.deploymentStrategyOptions);
     }
 
     /**
@@ -503,6 +519,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         this.cognitoOptions = $.cognitoOptions;
         this.dashboardEndpoint = $.dashboardEndpoint;
         this.dashboardEndpointV2 = $.dashboardEndpointV2;
+        this.deploymentStrategyOptions = $.deploymentStrategyOptions;
         this.domainEndpointOptions = $.domainEndpointOptions;
         this.domainEndpointV2HostedZoneId = $.domainEndpointV2HostedZoneId;
         this.domainId = $.domainId;
@@ -751,6 +768,27 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dashboardEndpointV2(String dashboardEndpointV2) {
             return dashboardEndpointV2(Output.of(dashboardEndpointV2));
+        }
+
+        /**
+         * @param deploymentStrategyOptions Configuration block for the deployment strategy options of the domain. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deploymentStrategyOptions(@Nullable Output<DomainDeploymentStrategyOptionsArgs> deploymentStrategyOptions) {
+            $.deploymentStrategyOptions = deploymentStrategyOptions;
+            return this;
+        }
+
+        /**
+         * @param deploymentStrategyOptions Configuration block for the deployment strategy options of the domain. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deploymentStrategyOptions(DomainDeploymentStrategyOptionsArgs deploymentStrategyOptions) {
+            return deploymentStrategyOptions(Output.of(deploymentStrategyOptions));
         }
 
         /**

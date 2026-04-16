@@ -158,14 +158,14 @@ public final class MultitenantDistributionOriginArgs extends com.pulumi.resource
     }
 
     /**
-     * Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Default: 30.
+     * Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Must be integer greater than or equal to the value of `originReadTimeout` in Custom Origin Config. If omitted, no maximum value is enforced.
      * 
      */
     @Import(name="responseCompletionTimeout")
     private @Nullable Output<Integer> responseCompletionTimeout;
 
     /**
-     * @return Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Default: 30.
+     * @return Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Must be integer greater than or equal to the value of `originReadTimeout` in Custom Origin Config. If omitted, no maximum value is enforced.
      * 
      */
     public Optional<Output<Integer>> responseCompletionTimeout() {
@@ -441,7 +441,7 @@ public final class MultitenantDistributionOriginArgs extends com.pulumi.resource
         }
 
         /**
-         * @param responseCompletionTimeout Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Default: 30.
+         * @param responseCompletionTimeout Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Must be integer greater than or equal to the value of `originReadTimeout` in Custom Origin Config. If omitted, no maximum value is enforced.
          * 
          * @return builder
          * 
@@ -452,7 +452,7 @@ public final class MultitenantDistributionOriginArgs extends com.pulumi.resource
         }
 
         /**
-         * @param responseCompletionTimeout Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Default: 30.
+         * @param responseCompletionTimeout Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Must be integer greater than or equal to the value of `originReadTimeout` in Custom Origin Config. If omitted, no maximum value is enforced.
          * 
          * @return builder
          * 

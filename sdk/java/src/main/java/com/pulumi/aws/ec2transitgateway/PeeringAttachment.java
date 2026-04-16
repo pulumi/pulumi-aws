@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new PeeringAttachment("example", PeeringAttachmentArgs.builder()
  *             .peerAccountId(peerTransitGateway.ownerId())
- *             .peerRegion(peer.name())
+ *             .peerRegion(peer.region())
  *             .peerTransitGatewayId(peerTransitGateway.id())
  *             .transitGatewayId(local.id())
  *             .tags(Map.of("Name", "TGW Peering Requestor"))

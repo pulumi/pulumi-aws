@@ -101,7 +101,7 @@ import (
 // "s3:ListCallerAccessGrants",
 // },
 // Resources: []string{
-// fmt.Sprintf("arn:%v:s3:%v:%v:access-grants/*", currentGetPartition.Partition, currentGetRegion.Name, current.AccountId),
+// fmt.Sprintf("arn:%v:s3:%v:%v:access-grants/*", currentGetPartition.Partition, currentGetRegion.Region, current.AccountId),
 // },
 // Conditions: []iam.GetPolicyDocumentStatementCondition{
 // {

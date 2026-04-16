@@ -57,6 +57,8 @@ __all__ = [
     'DomainClusterConfigZoneAwarenessConfigArgsDict',
     'DomainCognitoOptionsArgs',
     'DomainCognitoOptionsArgsDict',
+    'DomainDeploymentStrategyOptionsArgs',
+    'DomainDeploymentStrategyOptionsArgsDict',
     'DomainDomainEndpointOptionsArgs',
     'DomainDomainEndpointOptionsArgsDict',
     'DomainEbsOptionsArgs',
@@ -1565,6 +1567,34 @@ class DomainCognitoOptionsArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
+
+
+class DomainDeploymentStrategyOptionsArgsDict(TypedDict):
+    deployment_strategy: pulumi.Input[_builtins.str]
+    """
+    Deployment strategy for the domain. Valid values: `Default` and `CapacityOptimized`.
+    """
+
+@pulumi.input_type
+class DomainDeploymentStrategyOptionsArgs:
+    def __init__(__self__, *,
+                 deployment_strategy: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] deployment_strategy: Deployment strategy for the domain. Valid values: `Default` and `CapacityOptimized`.
+        """
+        pulumi.set(__self__, "deployment_strategy", deployment_strategy)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentStrategy")
+    def deployment_strategy(self) -> pulumi.Input[_builtins.str]:
+        """
+        Deployment strategy for the domain. Valid values: `Default` and `CapacityOptimized`.
+        """
+        return pulumi.get(self, "deployment_strategy")
+
+    @deployment_strategy.setter
+    def deployment_strategy(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "deployment_strategy", value)
 
 
 class DomainDomainEndpointOptionsArgsDict(TypedDict):

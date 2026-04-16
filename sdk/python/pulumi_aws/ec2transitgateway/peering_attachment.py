@@ -334,7 +334,7 @@ class PeeringAttachment(pulumi.CustomResource):
         })
         example = aws.ec2transitgateway.PeeringAttachment("example",
             peer_account_id=peer_transit_gateway.owner_id,
-            peer_region=peer.name,
+            peer_region=peer.region,
             peer_transit_gateway_id=peer_transit_gateway.id,
             transit_gateway_id=local.id,
             tags={
@@ -386,7 +386,7 @@ class PeeringAttachment(pulumi.CustomResource):
         })
         example = aws.ec2transitgateway.PeeringAttachment("example",
             peer_account_id=peer_transit_gateway.owner_id,
-            peer_region=peer.name,
+            peer_region=peer.region,
             peer_transit_gateway_id=peer_transit_gateway.id,
             transit_gateway_id=local.id,
             tags={

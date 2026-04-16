@@ -750,12 +750,12 @@ class VpcIpamPool(pulumi.CustomResource):
         vpc = aws.ec2.VpcIpamPool("vpc",
             address_family="ipv4",
             ipam_scope_id=test_aws_vpc_ipam["privateDefaultScopeId"],
-            locale=current.name,
+            locale=current.region,
             source_ipam_pool_id=test.id,
             source_resource={
                 "resource_id": test_vpc.id,
                 "resource_owner": current_aws_caller_identity["accountId"],
-                "resource_region": current.name,
+                "resource_region": current.region,
                 "resource_type": "vpc",
             })
         ```
@@ -868,12 +868,12 @@ class VpcIpamPool(pulumi.CustomResource):
         vpc = aws.ec2.VpcIpamPool("vpc",
             address_family="ipv4",
             ipam_scope_id=test_aws_vpc_ipam["privateDefaultScopeId"],
-            locale=current.name,
+            locale=current.region,
             source_ipam_pool_id=test.id,
             source_resource={
                 "resource_id": test_vpc.id,
                 "resource_owner": current_aws_caller_identity["accountId"],
-                "resource_region": current.name,
+                "resource_region": current.region,
                 "resource_type": "vpc",
             })
         ```

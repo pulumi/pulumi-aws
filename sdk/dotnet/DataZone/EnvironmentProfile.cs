@@ -130,14 +130,14 @@ namespace Pulumi.Aws.DataZone
     ///         ProvisioningRoleArn = domainExecutionRole.Arn,
     ///         EnabledRegions = new[]
     ///         {
-    ///             testGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///             testGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///         },
     ///     });
     /// 
     ///     var testEnvironmentProfile = new Aws.DataZone.EnvironmentProfile("test", new()
     ///     {
     ///         AwsAccountId = test.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///         AwsAccountRegion = testGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///         AwsAccountRegion = testGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///         Description = "description",
     ///         EnvironmentBlueprintIdentifier = testGetEnvironmentBlueprint.Apply(getEnvironmentBlueprintResult =&gt; getEnvironmentBlueprintResult.Id),
     ///         Name = "example-name",
