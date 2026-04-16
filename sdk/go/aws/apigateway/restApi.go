@@ -19,7 +19,10 @@ import (
 //
 // ## Example Usage
 //
-// ## Import
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
 //
 // Using `pulumi import`, import `apigateway.RestApi` using the REST API ID. For example:
 //

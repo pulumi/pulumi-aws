@@ -227,6 +227,12 @@ namespace Pulumi.Aws.DirectoryService
         public Output<string> Edition { get; private set; } = null!;
 
         /// <summary>
+        /// Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
+        /// </summary>
+        [Output("enableDirectoryDataAccess")]
+        public Output<bool?> EnableDirectoryDataAccess { get; private set; } = null!;
+
+        /// <summary>
         /// Whether to enable single-sign on for the directory. Requires `Alias`. Defaults to `False`.
         /// </summary>
         [Output("enableSso")]
@@ -373,6 +379,12 @@ namespace Pulumi.Aws.DirectoryService
         public Input<string>? Edition { get; set; }
 
         /// <summary>
+        /// Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
+        /// </summary>
+        [Input("enableDirectoryDataAccess")]
+        public Input<bool>? EnableDirectoryDataAccess { get; set; }
+
+        /// <summary>
         /// Whether to enable single-sign on for the directory. Requires `Alias`. Defaults to `False`.
         /// </summary>
         [Input("enableSso")]
@@ -497,6 +509,12 @@ namespace Pulumi.Aws.DirectoryService
         /// </summary>
         [Input("edition")]
         public Input<string>? Edition { get; set; }
+
+        /// <summary>
+        /// Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
+        /// </summary>
+        [Input("enableDirectoryDataAccess")]
+        public Input<bool>? EnableDirectoryDataAccess { get; set; }
 
         /// <summary>
         /// Whether to enable single-sign on for the directory. Requires `Alias`. Defaults to `False`.

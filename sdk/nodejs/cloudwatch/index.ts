@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AlarmMuteRuleArgs, AlarmMuteRuleState } from "./alarmMuteRule";
+export type AlarmMuteRule = import("./alarmMuteRule").AlarmMuteRule;
+export const AlarmMuteRule: typeof import("./alarmMuteRule").AlarmMuteRule = null as any;
+utilities.lazyLoad(exports, ["AlarmMuteRule"], () => require("./alarmMuteRule"));
+
 export * from "./cloudwatchMixins";
 export { CompositeAlarmArgs, CompositeAlarmState } from "./compositeAlarm";
 export type CompositeAlarm = import("./compositeAlarm").CompositeAlarm;
@@ -218,6 +223,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:cloudwatch/alarmMuteRule:AlarmMuteRule":
+                return new AlarmMuteRule(name, <any>undefined, { urn })
             case "aws:cloudwatch/compositeAlarm:CompositeAlarm":
                 return new CompositeAlarm(name, <any>undefined, { urn })
             case "aws:cloudwatch/contributorInsightRule:ContributorInsightRule":
@@ -289,6 +296,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "cloudwatch/alarmMuteRule", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/compositeAlarm", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/contributorInsightRule", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/contributorManagedInsightRule", _module)

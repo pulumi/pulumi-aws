@@ -152,13 +152,13 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         AddressFamily = "ipv4",
     ///         IpamScopeId = testAwsVpcIpam.PrivateDefaultScopeId,
-    ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///         SourceIpamPoolId = test.Id,
     ///         SourceResource = new Aws.Ec2.Inputs.VpcIpamPoolSourceResourceArgs
     ///         {
     ///             ResourceId = testVpc.Id,
     ///             ResourceOwner = currentAwsCallerIdentity.AccountId,
-    ///             ResourceRegion = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///             ResourceRegion = current.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///             ResourceType = "vpc",
     ///         },
     ///     });

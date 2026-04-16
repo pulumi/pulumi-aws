@@ -152,7 +152,7 @@ import javax.annotation.Nullable;
  *         var testVpcIpamPool = new VpcIpamPool("testVpcIpamPool", VpcIpamPoolArgs.builder()
  *             .addressFamily("ipv4")
  *             .ipamScopeId(test.privateDefaultScopeId())
- *             .locale(current.name())
+ *             .locale(current.region())
  *             .build());
  * 
  *         var testVpcIpamPoolCidr = new VpcIpamPoolCidr("testVpcIpamPoolCidr", VpcIpamPoolCidrArgs.builder()
@@ -170,12 +170,12 @@ import javax.annotation.Nullable;
  *         var vpc = new VpcIpamPool("vpc", VpcIpamPoolArgs.builder()
  *             .addressFamily("ipv4")
  *             .ipamScopeId(test.privateDefaultScopeId())
- *             .locale(current.name())
+ *             .locale(current.region())
  *             .sourceIpamPoolId(testVpcIpamPool.id())
  *             .sourceResource(VpcIpamPoolSourceResourceArgs.builder()
  *                 .resourceId(testVpc.id())
  *                 .resourceOwner(currentAwsCallerIdentity.accountId())
- *                 .resourceRegion(current.name())
+ *                 .resourceRegion(current.region())
  *                 .resourceType("vpc")
  *                 .build())
  *             .build());

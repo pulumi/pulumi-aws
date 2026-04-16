@@ -7,6 +7,7 @@ import com.pulumi.aws.elasticache.inputs.UserAuthenticationModeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -110,6 +111,38 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+     * 
+     */
+    @Import(name="passwordsWo")
+    private @Nullable Output<String> passwordsWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+     * 
+     */
+    public Optional<Output<String>> passwordsWo() {
+        return Optional.ofNullable(this.passwordsWo);
+    }
+
+    /**
+     * Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+     * 
+     */
+    @Import(name="passwordsWoVersion")
+    private @Nullable Output<Integer> passwordsWoVersion;
+
+    /**
+     * @return Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+     * 
+     */
+    public Optional<Output<Integer>> passwordsWoVersion() {
+        return Optional.ofNullable(this.passwordsWoVersion);
+    }
+
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
@@ -189,6 +222,8 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         this.engine = $.engine;
         this.noPasswordRequired = $.noPasswordRequired;
         this.passwords = $.passwords;
+        this.passwordsWo = $.passwordsWo;
+        this.passwordsWoVersion = $.passwordsWoVersion;
         this.region = $.region;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -348,6 +383,50 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder passwords(String... passwords) {
             return passwords(List.of(passwords));
+        }
+
+        /**
+         * @param passwordsWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordsWo(@Nullable Output<String> passwordsWo) {
+            $.passwordsWo = passwordsWo;
+            return this;
+        }
+
+        /**
+         * @param passwordsWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordsWo(String passwordsWo) {
+            return passwordsWo(Output.of(passwordsWo));
+        }
+
+        /**
+         * @param passwordsWoVersion Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordsWoVersion(@Nullable Output<Integer> passwordsWoVersion) {
+            $.passwordsWoVersion = passwordsWoVersion;
+            return this;
+        }
+
+        /**
+         * @param passwordsWoVersion Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordsWoVersion(Integer passwordsWoVersion) {
+            return passwordsWoVersion(Output.of(passwordsWoVersion));
         }
 
         /**

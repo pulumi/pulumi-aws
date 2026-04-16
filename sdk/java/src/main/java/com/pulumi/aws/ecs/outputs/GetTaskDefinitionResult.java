@@ -122,7 +122,7 @@ public final class GetTaskDefinitionResult {
      */
     private String taskRoleArn;
     /**
-     * @return Configuration block for volumes that containers in your task may use. Detailed below.
+     * @return Attributes corresponding to the `volume` argument of the `aws.ecs.TaskDefinition` resource.
      * 
      */
     private List<GetTaskDefinitionVolume> volumes;
@@ -276,7 +276,7 @@ public final class GetTaskDefinitionResult {
         return this.taskRoleArn;
     }
     /**
-     * @return Configuration block for volumes that containers in your task may use. Detailed below.
+     * @return Attributes corresponding to the `volume` argument of the `aws.ecs.TaskDefinition` resource.
      * 
      */
     public List<GetTaskDefinitionVolume> volumes() {

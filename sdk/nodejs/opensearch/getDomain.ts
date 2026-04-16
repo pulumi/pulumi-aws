@@ -97,6 +97,10 @@ export interface GetDomainResult {
      */
     readonly deleted: boolean;
     /**
+     * Deployment strategy options for the domain.
+     */
+    readonly deploymentStrategyOptions: outputs.opensearch.GetDomainDeploymentStrategyOption[];
+    /**
      * Dual stack hosted zone ID for the domain.
      */
     readonly domainEndpointV2HostedZoneId: string;

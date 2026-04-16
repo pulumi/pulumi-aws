@@ -598,7 +598,10 @@ class RestApi(pulumi.CustomResource):
 
         ## Example Usage
 
-        ## Import
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import `apigateway.RestApi` using the REST API ID. For example:
 
@@ -641,7 +644,10 @@ class RestApi(pulumi.CustomResource):
 
         ## Example Usage
 
-        ## Import
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import `apigateway.RestApi` using the REST API ID. For example:
 

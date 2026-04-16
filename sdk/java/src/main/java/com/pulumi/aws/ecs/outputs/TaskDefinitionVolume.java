@@ -6,6 +6,7 @@ package com.pulumi.aws.ecs.outputs;
 import com.pulumi.aws.ecs.outputs.TaskDefinitionVolumeDockerVolumeConfiguration;
 import com.pulumi.aws.ecs.outputs.TaskDefinitionVolumeEfsVolumeConfiguration;
 import com.pulumi.aws.ecs.outputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration;
+import com.pulumi.aws.ecs.outputs.TaskDefinitionVolumeS3filesVolumeConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -47,6 +48,11 @@ public final class TaskDefinitionVolume {
      * 
      */
     private String name;
+    /**
+     * @return Configuration block for an S3 Files volume. Detailed below.
+     * 
+     */
+    private @Nullable TaskDefinitionVolumeS3filesVolumeConfiguration s3filesVolumeConfiguration;
 
     private TaskDefinitionVolume() {}
     /**
@@ -92,6 +98,13 @@ public final class TaskDefinitionVolume {
     public String name() {
         return this.name;
     }
+    /**
+     * @return Configuration block for an S3 Files volume. Detailed below.
+     * 
+     */
+    public Optional<TaskDefinitionVolumeS3filesVolumeConfiguration> s3filesVolumeConfiguration() {
+        return Optional.ofNullable(this.s3filesVolumeConfiguration);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -108,6 +121,7 @@ public final class TaskDefinitionVolume {
         private @Nullable TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration fsxWindowsFileServerVolumeConfiguration;
         private @Nullable String hostPath;
         private String name;
+        private @Nullable TaskDefinitionVolumeS3filesVolumeConfiguration s3filesVolumeConfiguration;
         public Builder() {}
         public Builder(TaskDefinitionVolume defaults) {
     	      Objects.requireNonNull(defaults);
@@ -117,6 +131,7 @@ public final class TaskDefinitionVolume {
     	      this.fsxWindowsFileServerVolumeConfiguration = defaults.fsxWindowsFileServerVolumeConfiguration;
     	      this.hostPath = defaults.hostPath;
     	      this.name = defaults.name;
+    	      this.s3filesVolumeConfiguration = defaults.s3filesVolumeConfiguration;
         }
 
         @CustomType.Setter
@@ -157,6 +172,12 @@ public final class TaskDefinitionVolume {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder s3filesVolumeConfiguration(@Nullable TaskDefinitionVolumeS3filesVolumeConfiguration s3filesVolumeConfiguration) {
+
+            this.s3filesVolumeConfiguration = s3filesVolumeConfiguration;
+            return this;
+        }
         public TaskDefinitionVolume build() {
             final var _resultValue = new TaskDefinitionVolume();
             _resultValue.configureAtLaunch = configureAtLaunch;
@@ -165,6 +186,7 @@ public final class TaskDefinitionVolume {
             _resultValue.fsxWindowsFileServerVolumeConfiguration = fsxWindowsFileServerVolumeConfiguration;
             _resultValue.hostPath = hostPath;
             _resultValue.name = name;
+            _resultValue.s3filesVolumeConfiguration = s3filesVolumeConfiguration;
             return _resultValue;
         }
     }

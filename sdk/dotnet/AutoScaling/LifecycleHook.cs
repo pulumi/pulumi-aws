@@ -78,10 +78,22 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import AutoScaling Lifecycle Hooks using the role AutoscalingGroupName and name separated by `/`. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `AutoscalingGroupName` (String) Name of the Auto Scaling group.
+    /// * `Name` (String) Name of the lifecycle hook.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import AutoScaling Lifecycle Hooks using `AutoscalingGroupName` and `Name` separated by a forward slash (`/`). For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:autoscaling/lifecycleHook:LifecycleHook test-lifecycle-hook asg-name/lifecycle-hook-name
+    /// $ pulumi import aws:autoscaling/lifecycleHook:LifecycleHook example example-asg/example-hook
     /// ```
     /// </summary>
     [AwsResourceType("aws:autoscaling/lifecycleHook:LifecycleHook")]

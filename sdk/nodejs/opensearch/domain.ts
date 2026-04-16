@@ -346,6 +346,10 @@ export class Domain extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly dashboardEndpointV2: pulumi.Output<string>;
     /**
+     * Configuration block for the deployment strategy options of the domain. Detailed below.
+     */
+    declare public readonly deploymentStrategyOptions: pulumi.Output<outputs.opensearch.DomainDeploymentStrategyOptions>;
+    /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
      */
     declare public readonly domainEndpointOptions: pulumi.Output<outputs.opensearch.DomainDomainEndpointOptions>;
@@ -453,6 +457,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["cognitoOptions"] = state?.cognitoOptions;
             resourceInputs["dashboardEndpoint"] = state?.dashboardEndpoint;
             resourceInputs["dashboardEndpointV2"] = state?.dashboardEndpointV2;
+            resourceInputs["deploymentStrategyOptions"] = state?.deploymentStrategyOptions;
             resourceInputs["domainEndpointOptions"] = state?.domainEndpointOptions;
             resourceInputs["domainEndpointV2HostedZoneId"] = state?.domainEndpointV2HostedZoneId;
             resourceInputs["domainId"] = state?.domainId;
@@ -482,6 +487,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["autoTuneOptions"] = args?.autoTuneOptions;
             resourceInputs["clusterConfig"] = args?.clusterConfig;
             resourceInputs["cognitoOptions"] = args?.cognitoOptions;
+            resourceInputs["deploymentStrategyOptions"] = args?.deploymentStrategyOptions;
             resourceInputs["domainEndpointOptions"] = args?.domainEndpointOptions;
             resourceInputs["domainName"] = args?.domainName;
             resourceInputs["ebsOptions"] = args?.ebsOptions;
@@ -555,6 +561,10 @@ export interface DomainState {
      * V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
      */
     dashboardEndpointV2?: pulumi.Input<string>;
+    /**
+     * Configuration block for the deployment strategy options of the domain. Detailed below.
+     */
+    deploymentStrategyOptions?: pulumi.Input<inputs.opensearch.DomainDeploymentStrategyOptions>;
     /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
      */
@@ -673,6 +683,10 @@ export interface DomainArgs {
      * Configuration block for authenticating dashboard with Cognito. Detailed below.
      */
     cognitoOptions?: pulumi.Input<inputs.opensearch.DomainCognitoOptions>;
+    /**
+     * Configuration block for the deployment strategy options of the domain. Detailed below.
+     */
+    deploymentStrategyOptions?: pulumi.Input<inputs.opensearch.DomainDeploymentStrategyOptions>;
     /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
      */

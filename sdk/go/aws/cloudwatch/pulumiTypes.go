@@ -14,6 +14,455 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AlarmMuteRuleMuteTargets struct {
+	// List of alarm names to mute.
+	AlarmNames []string `pulumi:"alarmNames"`
+}
+
+// AlarmMuteRuleMuteTargetsInput is an input type that accepts AlarmMuteRuleMuteTargetsArgs and AlarmMuteRuleMuteTargetsOutput values.
+// You can construct a concrete instance of `AlarmMuteRuleMuteTargetsInput` via:
+//
+//	AlarmMuteRuleMuteTargetsArgs{...}
+type AlarmMuteRuleMuteTargetsInput interface {
+	pulumi.Input
+
+	ToAlarmMuteRuleMuteTargetsOutput() AlarmMuteRuleMuteTargetsOutput
+	ToAlarmMuteRuleMuteTargetsOutputWithContext(context.Context) AlarmMuteRuleMuteTargetsOutput
+}
+
+type AlarmMuteRuleMuteTargetsArgs struct {
+	// List of alarm names to mute.
+	AlarmNames pulumi.StringArrayInput `pulumi:"alarmNames"`
+}
+
+func (AlarmMuteRuleMuteTargetsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlarmMuteRuleMuteTargets)(nil)).Elem()
+}
+
+func (i AlarmMuteRuleMuteTargetsArgs) ToAlarmMuteRuleMuteTargetsOutput() AlarmMuteRuleMuteTargetsOutput {
+	return i.ToAlarmMuteRuleMuteTargetsOutputWithContext(context.Background())
+}
+
+func (i AlarmMuteRuleMuteTargetsArgs) ToAlarmMuteRuleMuteTargetsOutputWithContext(ctx context.Context) AlarmMuteRuleMuteTargetsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmMuteRuleMuteTargetsOutput)
+}
+
+func (i AlarmMuteRuleMuteTargetsArgs) ToAlarmMuteRuleMuteTargetsPtrOutput() AlarmMuteRuleMuteTargetsPtrOutput {
+	return i.ToAlarmMuteRuleMuteTargetsPtrOutputWithContext(context.Background())
+}
+
+func (i AlarmMuteRuleMuteTargetsArgs) ToAlarmMuteRuleMuteTargetsPtrOutputWithContext(ctx context.Context) AlarmMuteRuleMuteTargetsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmMuteRuleMuteTargetsOutput).ToAlarmMuteRuleMuteTargetsPtrOutputWithContext(ctx)
+}
+
+// AlarmMuteRuleMuteTargetsPtrInput is an input type that accepts AlarmMuteRuleMuteTargetsArgs, AlarmMuteRuleMuteTargetsPtr and AlarmMuteRuleMuteTargetsPtrOutput values.
+// You can construct a concrete instance of `AlarmMuteRuleMuteTargetsPtrInput` via:
+//
+//	        AlarmMuteRuleMuteTargetsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlarmMuteRuleMuteTargetsPtrInput interface {
+	pulumi.Input
+
+	ToAlarmMuteRuleMuteTargetsPtrOutput() AlarmMuteRuleMuteTargetsPtrOutput
+	ToAlarmMuteRuleMuteTargetsPtrOutputWithContext(context.Context) AlarmMuteRuleMuteTargetsPtrOutput
+}
+
+type alarmMuteRuleMuteTargetsPtrType AlarmMuteRuleMuteTargetsArgs
+
+func AlarmMuteRuleMuteTargetsPtr(v *AlarmMuteRuleMuteTargetsArgs) AlarmMuteRuleMuteTargetsPtrInput {
+	return (*alarmMuteRuleMuteTargetsPtrType)(v)
+}
+
+func (*alarmMuteRuleMuteTargetsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlarmMuteRuleMuteTargets)(nil)).Elem()
+}
+
+func (i *alarmMuteRuleMuteTargetsPtrType) ToAlarmMuteRuleMuteTargetsPtrOutput() AlarmMuteRuleMuteTargetsPtrOutput {
+	return i.ToAlarmMuteRuleMuteTargetsPtrOutputWithContext(context.Background())
+}
+
+func (i *alarmMuteRuleMuteTargetsPtrType) ToAlarmMuteRuleMuteTargetsPtrOutputWithContext(ctx context.Context) AlarmMuteRuleMuteTargetsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmMuteRuleMuteTargetsPtrOutput)
+}
+
+type AlarmMuteRuleMuteTargetsOutput struct{ *pulumi.OutputState }
+
+func (AlarmMuteRuleMuteTargetsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlarmMuteRuleMuteTargets)(nil)).Elem()
+}
+
+func (o AlarmMuteRuleMuteTargetsOutput) ToAlarmMuteRuleMuteTargetsOutput() AlarmMuteRuleMuteTargetsOutput {
+	return o
+}
+
+func (o AlarmMuteRuleMuteTargetsOutput) ToAlarmMuteRuleMuteTargetsOutputWithContext(ctx context.Context) AlarmMuteRuleMuteTargetsOutput {
+	return o
+}
+
+func (o AlarmMuteRuleMuteTargetsOutput) ToAlarmMuteRuleMuteTargetsPtrOutput() AlarmMuteRuleMuteTargetsPtrOutput {
+	return o.ToAlarmMuteRuleMuteTargetsPtrOutputWithContext(context.Background())
+}
+
+func (o AlarmMuteRuleMuteTargetsOutput) ToAlarmMuteRuleMuteTargetsPtrOutputWithContext(ctx context.Context) AlarmMuteRuleMuteTargetsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlarmMuteRuleMuteTargets) *AlarmMuteRuleMuteTargets {
+		return &v
+	}).(AlarmMuteRuleMuteTargetsPtrOutput)
+}
+
+// List of alarm names to mute.
+func (o AlarmMuteRuleMuteTargetsOutput) AlarmNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlarmMuteRuleMuteTargets) []string { return v.AlarmNames }).(pulumi.StringArrayOutput)
+}
+
+type AlarmMuteRuleMuteTargetsPtrOutput struct{ *pulumi.OutputState }
+
+func (AlarmMuteRuleMuteTargetsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlarmMuteRuleMuteTargets)(nil)).Elem()
+}
+
+func (o AlarmMuteRuleMuteTargetsPtrOutput) ToAlarmMuteRuleMuteTargetsPtrOutput() AlarmMuteRuleMuteTargetsPtrOutput {
+	return o
+}
+
+func (o AlarmMuteRuleMuteTargetsPtrOutput) ToAlarmMuteRuleMuteTargetsPtrOutputWithContext(ctx context.Context) AlarmMuteRuleMuteTargetsPtrOutput {
+	return o
+}
+
+func (o AlarmMuteRuleMuteTargetsPtrOutput) Elem() AlarmMuteRuleMuteTargetsOutput {
+	return o.ApplyT(func(v *AlarmMuteRuleMuteTargets) AlarmMuteRuleMuteTargets {
+		if v != nil {
+			return *v
+		}
+		var ret AlarmMuteRuleMuteTargets
+		return ret
+	}).(AlarmMuteRuleMuteTargetsOutput)
+}
+
+// List of alarm names to mute.
+func (o AlarmMuteRuleMuteTargetsPtrOutput) AlarmNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlarmMuteRuleMuteTargets) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AlarmNames
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlarmMuteRuleRule struct {
+	// Schedule for the mute rule. See `schedule` block below for details.
+	Schedule *AlarmMuteRuleRuleSchedule `pulumi:"schedule"`
+}
+
+// AlarmMuteRuleRuleInput is an input type that accepts AlarmMuteRuleRuleArgs and AlarmMuteRuleRuleOutput values.
+// You can construct a concrete instance of `AlarmMuteRuleRuleInput` via:
+//
+//	AlarmMuteRuleRuleArgs{...}
+type AlarmMuteRuleRuleInput interface {
+	pulumi.Input
+
+	ToAlarmMuteRuleRuleOutput() AlarmMuteRuleRuleOutput
+	ToAlarmMuteRuleRuleOutputWithContext(context.Context) AlarmMuteRuleRuleOutput
+}
+
+type AlarmMuteRuleRuleArgs struct {
+	// Schedule for the mute rule. See `schedule` block below for details.
+	Schedule AlarmMuteRuleRuleSchedulePtrInput `pulumi:"schedule"`
+}
+
+func (AlarmMuteRuleRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlarmMuteRuleRule)(nil)).Elem()
+}
+
+func (i AlarmMuteRuleRuleArgs) ToAlarmMuteRuleRuleOutput() AlarmMuteRuleRuleOutput {
+	return i.ToAlarmMuteRuleRuleOutputWithContext(context.Background())
+}
+
+func (i AlarmMuteRuleRuleArgs) ToAlarmMuteRuleRuleOutputWithContext(ctx context.Context) AlarmMuteRuleRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmMuteRuleRuleOutput)
+}
+
+func (i AlarmMuteRuleRuleArgs) ToAlarmMuteRuleRulePtrOutput() AlarmMuteRuleRulePtrOutput {
+	return i.ToAlarmMuteRuleRulePtrOutputWithContext(context.Background())
+}
+
+func (i AlarmMuteRuleRuleArgs) ToAlarmMuteRuleRulePtrOutputWithContext(ctx context.Context) AlarmMuteRuleRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmMuteRuleRuleOutput).ToAlarmMuteRuleRulePtrOutputWithContext(ctx)
+}
+
+// AlarmMuteRuleRulePtrInput is an input type that accepts AlarmMuteRuleRuleArgs, AlarmMuteRuleRulePtr and AlarmMuteRuleRulePtrOutput values.
+// You can construct a concrete instance of `AlarmMuteRuleRulePtrInput` via:
+//
+//	        AlarmMuteRuleRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlarmMuteRuleRulePtrInput interface {
+	pulumi.Input
+
+	ToAlarmMuteRuleRulePtrOutput() AlarmMuteRuleRulePtrOutput
+	ToAlarmMuteRuleRulePtrOutputWithContext(context.Context) AlarmMuteRuleRulePtrOutput
+}
+
+type alarmMuteRuleRulePtrType AlarmMuteRuleRuleArgs
+
+func AlarmMuteRuleRulePtr(v *AlarmMuteRuleRuleArgs) AlarmMuteRuleRulePtrInput {
+	return (*alarmMuteRuleRulePtrType)(v)
+}
+
+func (*alarmMuteRuleRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlarmMuteRuleRule)(nil)).Elem()
+}
+
+func (i *alarmMuteRuleRulePtrType) ToAlarmMuteRuleRulePtrOutput() AlarmMuteRuleRulePtrOutput {
+	return i.ToAlarmMuteRuleRulePtrOutputWithContext(context.Background())
+}
+
+func (i *alarmMuteRuleRulePtrType) ToAlarmMuteRuleRulePtrOutputWithContext(ctx context.Context) AlarmMuteRuleRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmMuteRuleRulePtrOutput)
+}
+
+type AlarmMuteRuleRuleOutput struct{ *pulumi.OutputState }
+
+func (AlarmMuteRuleRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlarmMuteRuleRule)(nil)).Elem()
+}
+
+func (o AlarmMuteRuleRuleOutput) ToAlarmMuteRuleRuleOutput() AlarmMuteRuleRuleOutput {
+	return o
+}
+
+func (o AlarmMuteRuleRuleOutput) ToAlarmMuteRuleRuleOutputWithContext(ctx context.Context) AlarmMuteRuleRuleOutput {
+	return o
+}
+
+func (o AlarmMuteRuleRuleOutput) ToAlarmMuteRuleRulePtrOutput() AlarmMuteRuleRulePtrOutput {
+	return o.ToAlarmMuteRuleRulePtrOutputWithContext(context.Background())
+}
+
+func (o AlarmMuteRuleRuleOutput) ToAlarmMuteRuleRulePtrOutputWithContext(ctx context.Context) AlarmMuteRuleRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlarmMuteRuleRule) *AlarmMuteRuleRule {
+		return &v
+	}).(AlarmMuteRuleRulePtrOutput)
+}
+
+// Schedule for the mute rule. See `schedule` block below for details.
+func (o AlarmMuteRuleRuleOutput) Schedule() AlarmMuteRuleRuleSchedulePtrOutput {
+	return o.ApplyT(func(v AlarmMuteRuleRule) *AlarmMuteRuleRuleSchedule { return v.Schedule }).(AlarmMuteRuleRuleSchedulePtrOutput)
+}
+
+type AlarmMuteRuleRulePtrOutput struct{ *pulumi.OutputState }
+
+func (AlarmMuteRuleRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlarmMuteRuleRule)(nil)).Elem()
+}
+
+func (o AlarmMuteRuleRulePtrOutput) ToAlarmMuteRuleRulePtrOutput() AlarmMuteRuleRulePtrOutput {
+	return o
+}
+
+func (o AlarmMuteRuleRulePtrOutput) ToAlarmMuteRuleRulePtrOutputWithContext(ctx context.Context) AlarmMuteRuleRulePtrOutput {
+	return o
+}
+
+func (o AlarmMuteRuleRulePtrOutput) Elem() AlarmMuteRuleRuleOutput {
+	return o.ApplyT(func(v *AlarmMuteRuleRule) AlarmMuteRuleRule {
+		if v != nil {
+			return *v
+		}
+		var ret AlarmMuteRuleRule
+		return ret
+	}).(AlarmMuteRuleRuleOutput)
+}
+
+// Schedule for the mute rule. See `schedule` block below for details.
+func (o AlarmMuteRuleRulePtrOutput) Schedule() AlarmMuteRuleRuleSchedulePtrOutput {
+	return o.ApplyT(func(v *AlarmMuteRuleRule) *AlarmMuteRuleRuleSchedule {
+		if v == nil {
+			return nil
+		}
+		return v.Schedule
+	}).(AlarmMuteRuleRuleSchedulePtrOutput)
+}
+
+type AlarmMuteRuleRuleSchedule struct {
+	// Duration of the mute period in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations) (e.g., `PT4H` for 4 hours).
+	Duration string `pulumi:"duration"`
+	// Schedule expression. Supports `cron()` and `at()` formats. For example, `cron(0 2 * * *)` for daily at 2:00 AM or `at(2026-01-01T00:00)` for a one-time mute. See [Defining alarm mute rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-mute-rules.html#defining-alarm-mute-rules) for details.
+	Expression string `pulumi:"expression"`
+	// Timezone for the schedule expression (e.g., `Asia/Tokyo`). Defaults to UTC.
+	Timezone *string `pulumi:"timezone"`
+}
+
+// AlarmMuteRuleRuleScheduleInput is an input type that accepts AlarmMuteRuleRuleScheduleArgs and AlarmMuteRuleRuleScheduleOutput values.
+// You can construct a concrete instance of `AlarmMuteRuleRuleScheduleInput` via:
+//
+//	AlarmMuteRuleRuleScheduleArgs{...}
+type AlarmMuteRuleRuleScheduleInput interface {
+	pulumi.Input
+
+	ToAlarmMuteRuleRuleScheduleOutput() AlarmMuteRuleRuleScheduleOutput
+	ToAlarmMuteRuleRuleScheduleOutputWithContext(context.Context) AlarmMuteRuleRuleScheduleOutput
+}
+
+type AlarmMuteRuleRuleScheduleArgs struct {
+	// Duration of the mute period in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations) (e.g., `PT4H` for 4 hours).
+	Duration pulumi.StringInput `pulumi:"duration"`
+	// Schedule expression. Supports `cron()` and `at()` formats. For example, `cron(0 2 * * *)` for daily at 2:00 AM or `at(2026-01-01T00:00)` for a one-time mute. See [Defining alarm mute rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-mute-rules.html#defining-alarm-mute-rules) for details.
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// Timezone for the schedule expression (e.g., `Asia/Tokyo`). Defaults to UTC.
+	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
+}
+
+func (AlarmMuteRuleRuleScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlarmMuteRuleRuleSchedule)(nil)).Elem()
+}
+
+func (i AlarmMuteRuleRuleScheduleArgs) ToAlarmMuteRuleRuleScheduleOutput() AlarmMuteRuleRuleScheduleOutput {
+	return i.ToAlarmMuteRuleRuleScheduleOutputWithContext(context.Background())
+}
+
+func (i AlarmMuteRuleRuleScheduleArgs) ToAlarmMuteRuleRuleScheduleOutputWithContext(ctx context.Context) AlarmMuteRuleRuleScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmMuteRuleRuleScheduleOutput)
+}
+
+func (i AlarmMuteRuleRuleScheduleArgs) ToAlarmMuteRuleRuleSchedulePtrOutput() AlarmMuteRuleRuleSchedulePtrOutput {
+	return i.ToAlarmMuteRuleRuleSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i AlarmMuteRuleRuleScheduleArgs) ToAlarmMuteRuleRuleSchedulePtrOutputWithContext(ctx context.Context) AlarmMuteRuleRuleSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmMuteRuleRuleScheduleOutput).ToAlarmMuteRuleRuleSchedulePtrOutputWithContext(ctx)
+}
+
+// AlarmMuteRuleRuleSchedulePtrInput is an input type that accepts AlarmMuteRuleRuleScheduleArgs, AlarmMuteRuleRuleSchedulePtr and AlarmMuteRuleRuleSchedulePtrOutput values.
+// You can construct a concrete instance of `AlarmMuteRuleRuleSchedulePtrInput` via:
+//
+//	        AlarmMuteRuleRuleScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlarmMuteRuleRuleSchedulePtrInput interface {
+	pulumi.Input
+
+	ToAlarmMuteRuleRuleSchedulePtrOutput() AlarmMuteRuleRuleSchedulePtrOutput
+	ToAlarmMuteRuleRuleSchedulePtrOutputWithContext(context.Context) AlarmMuteRuleRuleSchedulePtrOutput
+}
+
+type alarmMuteRuleRuleSchedulePtrType AlarmMuteRuleRuleScheduleArgs
+
+func AlarmMuteRuleRuleSchedulePtr(v *AlarmMuteRuleRuleScheduleArgs) AlarmMuteRuleRuleSchedulePtrInput {
+	return (*alarmMuteRuleRuleSchedulePtrType)(v)
+}
+
+func (*alarmMuteRuleRuleSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlarmMuteRuleRuleSchedule)(nil)).Elem()
+}
+
+func (i *alarmMuteRuleRuleSchedulePtrType) ToAlarmMuteRuleRuleSchedulePtrOutput() AlarmMuteRuleRuleSchedulePtrOutput {
+	return i.ToAlarmMuteRuleRuleSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *alarmMuteRuleRuleSchedulePtrType) ToAlarmMuteRuleRuleSchedulePtrOutputWithContext(ctx context.Context) AlarmMuteRuleRuleSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmMuteRuleRuleSchedulePtrOutput)
+}
+
+type AlarmMuteRuleRuleScheduleOutput struct{ *pulumi.OutputState }
+
+func (AlarmMuteRuleRuleScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlarmMuteRuleRuleSchedule)(nil)).Elem()
+}
+
+func (o AlarmMuteRuleRuleScheduleOutput) ToAlarmMuteRuleRuleScheduleOutput() AlarmMuteRuleRuleScheduleOutput {
+	return o
+}
+
+func (o AlarmMuteRuleRuleScheduleOutput) ToAlarmMuteRuleRuleScheduleOutputWithContext(ctx context.Context) AlarmMuteRuleRuleScheduleOutput {
+	return o
+}
+
+func (o AlarmMuteRuleRuleScheduleOutput) ToAlarmMuteRuleRuleSchedulePtrOutput() AlarmMuteRuleRuleSchedulePtrOutput {
+	return o.ToAlarmMuteRuleRuleSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o AlarmMuteRuleRuleScheduleOutput) ToAlarmMuteRuleRuleSchedulePtrOutputWithContext(ctx context.Context) AlarmMuteRuleRuleSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlarmMuteRuleRuleSchedule) *AlarmMuteRuleRuleSchedule {
+		return &v
+	}).(AlarmMuteRuleRuleSchedulePtrOutput)
+}
+
+// Duration of the mute period in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations) (e.g., `PT4H` for 4 hours).
+func (o AlarmMuteRuleRuleScheduleOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v AlarmMuteRuleRuleSchedule) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+// Schedule expression. Supports `cron()` and `at()` formats. For example, `cron(0 2 * * *)` for daily at 2:00 AM or `at(2026-01-01T00:00)` for a one-time mute. See [Defining alarm mute rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-mute-rules.html#defining-alarm-mute-rules) for details.
+func (o AlarmMuteRuleRuleScheduleOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v AlarmMuteRuleRuleSchedule) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+// Timezone for the schedule expression (e.g., `Asia/Tokyo`). Defaults to UTC.
+func (o AlarmMuteRuleRuleScheduleOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlarmMuteRuleRuleSchedule) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+}
+
+type AlarmMuteRuleRuleSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (AlarmMuteRuleRuleSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlarmMuteRuleRuleSchedule)(nil)).Elem()
+}
+
+func (o AlarmMuteRuleRuleSchedulePtrOutput) ToAlarmMuteRuleRuleSchedulePtrOutput() AlarmMuteRuleRuleSchedulePtrOutput {
+	return o
+}
+
+func (o AlarmMuteRuleRuleSchedulePtrOutput) ToAlarmMuteRuleRuleSchedulePtrOutputWithContext(ctx context.Context) AlarmMuteRuleRuleSchedulePtrOutput {
+	return o
+}
+
+func (o AlarmMuteRuleRuleSchedulePtrOutput) Elem() AlarmMuteRuleRuleScheduleOutput {
+	return o.ApplyT(func(v *AlarmMuteRuleRuleSchedule) AlarmMuteRuleRuleSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret AlarmMuteRuleRuleSchedule
+		return ret
+	}).(AlarmMuteRuleRuleScheduleOutput)
+}
+
+// Duration of the mute period in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations) (e.g., `PT4H` for 4 hours).
+func (o AlarmMuteRuleRuleSchedulePtrOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlarmMuteRuleRuleSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Duration
+	}).(pulumi.StringPtrOutput)
+}
+
+// Schedule expression. Supports `cron()` and `at()` formats. For example, `cron(0 2 * * *)` for daily at 2:00 AM or `at(2026-01-01T00:00)` for a one-time mute. See [Defining alarm mute rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-mute-rules.html#defining-alarm-mute-rules) for details.
+func (o AlarmMuteRuleRuleSchedulePtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlarmMuteRuleRuleSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
+// Timezone for the schedule expression (e.g., `Asia/Tokyo`). Defaults to UTC.
+func (o AlarmMuteRuleRuleSchedulePtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlarmMuteRuleRuleSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timezone
+	}).(pulumi.StringPtrOutput)
+}
+
 type CompositeAlarmActionsSuppressor struct {
 	// Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
 	Alarm string `pulumi:"alarm"`
@@ -14597,6 +15046,12 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlarmMuteRuleMuteTargetsInput)(nil)).Elem(), AlarmMuteRuleMuteTargetsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlarmMuteRuleMuteTargetsPtrInput)(nil)).Elem(), AlarmMuteRuleMuteTargetsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlarmMuteRuleRuleInput)(nil)).Elem(), AlarmMuteRuleRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlarmMuteRuleRulePtrInput)(nil)).Elem(), AlarmMuteRuleRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlarmMuteRuleRuleScheduleInput)(nil)).Elem(), AlarmMuteRuleRuleScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlarmMuteRuleRuleSchedulePtrInput)(nil)).Elem(), AlarmMuteRuleRuleScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmActionsSuppressorInput)(nil)).Elem(), CompositeAlarmActionsSuppressorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmActionsSuppressorPtrInput)(nil)).Elem(), CompositeAlarmActionsSuppressorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventBusDeadLetterConfigInput)(nil)).Elem(), EventBusDeadLetterConfigArgs{})
@@ -14804,6 +15259,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs{})
+	pulumi.RegisterOutputType(AlarmMuteRuleMuteTargetsOutput{})
+	pulumi.RegisterOutputType(AlarmMuteRuleMuteTargetsPtrOutput{})
+	pulumi.RegisterOutputType(AlarmMuteRuleRuleOutput{})
+	pulumi.RegisterOutputType(AlarmMuteRuleRulePtrOutput{})
+	pulumi.RegisterOutputType(AlarmMuteRuleRuleScheduleOutput{})
+	pulumi.RegisterOutputType(AlarmMuteRuleRuleSchedulePtrOutput{})
 	pulumi.RegisterOutputType(CompositeAlarmActionsSuppressorOutput{})
 	pulumi.RegisterOutputType(CompositeAlarmActionsSuppressorPtrOutput{})
 	pulumi.RegisterOutputType(EventBusDeadLetterConfigOutput{})

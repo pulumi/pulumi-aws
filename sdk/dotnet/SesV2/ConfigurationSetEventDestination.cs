@@ -221,13 +221,13 @@ namespace Pulumi.Aws.SesV2
         public Output<string> ConfigurationSetName { get; private set; } = null!;
 
         /// <summary>
-        /// A name that identifies the event destination within the configuration set.
+        /// An object that defines the event destination. See `EventDestination` Block for details.
         /// </summary>
         [Output("eventDestination")]
         public Output<Outputs.ConfigurationSetEventDestinationEventDestination> EventDestination { get; private set; } = null!;
 
         /// <summary>
-        /// An object that defines the event destination. See `EventDestination` Block for details.
+        /// A name that identifies the event destination within the configuration set.
         /// </summary>
         [Output("eventDestinationName")]
         public Output<string> EventDestinationName { get; private set; } = null!;
@@ -291,13 +291,13 @@ namespace Pulumi.Aws.SesV2
         public Input<string> ConfigurationSetName { get; set; } = null!;
 
         /// <summary>
-        /// A name that identifies the event destination within the configuration set.
+        /// An object that defines the event destination. See `EventDestination` Block for details.
         /// </summary>
         [Input("eventDestination", required: true)]
         public Input<Inputs.ConfigurationSetEventDestinationEventDestinationArgs> EventDestination { get; set; } = null!;
 
         /// <summary>
-        /// An object that defines the event destination. See `EventDestination` Block for details.
+        /// A name that identifies the event destination within the configuration set.
         /// </summary>
         [Input("eventDestinationName", required: true)]
         public Input<string> EventDestinationName { get; set; } = null!;
@@ -323,13 +323,13 @@ namespace Pulumi.Aws.SesV2
         public Input<string>? ConfigurationSetName { get; set; }
 
         /// <summary>
-        /// A name that identifies the event destination within the configuration set.
+        /// An object that defines the event destination. See `EventDestination` Block for details.
         /// </summary>
         [Input("eventDestination")]
         public Input<Inputs.ConfigurationSetEventDestinationEventDestinationGetArgs>? EventDestination { get; set; }
 
         /// <summary>
-        /// An object that defines the event destination. See `EventDestination` Block for details.
+        /// A name that identifies the event destination within the configuration set.
         /// </summary>
         [Input("eventDestinationName")]
         public Input<string>? EventDestinationName { get; set; }

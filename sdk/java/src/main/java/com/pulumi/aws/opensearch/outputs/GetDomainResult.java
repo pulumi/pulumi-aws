@@ -7,6 +7,7 @@ import com.pulumi.aws.opensearch.outputs.GetDomainAdvancedSecurityOption;
 import com.pulumi.aws.opensearch.outputs.GetDomainAutoTuneOption;
 import com.pulumi.aws.opensearch.outputs.GetDomainClusterConfig;
 import com.pulumi.aws.opensearch.outputs.GetDomainCognitoOption;
+import com.pulumi.aws.opensearch.outputs.GetDomainDeploymentStrategyOption;
 import com.pulumi.aws.opensearch.outputs.GetDomainEbsOption;
 import com.pulumi.aws.opensearch.outputs.GetDomainEncryptionAtRest;
 import com.pulumi.aws.opensearch.outputs.GetDomainIdentityCenterOption;
@@ -81,6 +82,11 @@ public final class GetDomainResult {
      * 
      */
     private Boolean deleted;
+    /**
+     * @return Deployment strategy options for the domain.
+     * 
+     */
+    private List<GetDomainDeploymentStrategyOption> deploymentStrategyOptions;
     /**
      * @return Dual stack hosted zone ID for the domain.
      * 
@@ -253,6 +259,13 @@ public final class GetDomainResult {
         return this.deleted;
     }
     /**
+     * @return Deployment strategy options for the domain.
+     * 
+     */
+    public List<GetDomainDeploymentStrategyOption> deploymentStrategyOptions() {
+        return this.deploymentStrategyOptions;
+    }
+    /**
      * @return Dual stack hosted zone ID for the domain.
      * 
      */
@@ -405,6 +418,7 @@ public final class GetDomainResult {
         private String dashboardEndpoint;
         private String dashboardEndpointV2;
         private Boolean deleted;
+        private List<GetDomainDeploymentStrategyOption> deploymentStrategyOptions;
         private String domainEndpointV2HostedZoneId;
         private String domainId;
         private String domainName;
@@ -439,6 +453,7 @@ public final class GetDomainResult {
     	      this.dashboardEndpoint = defaults.dashboardEndpoint;
     	      this.dashboardEndpointV2 = defaults.dashboardEndpointV2;
     	      this.deleted = defaults.deleted;
+    	      this.deploymentStrategyOptions = defaults.deploymentStrategyOptions;
     	      this.domainEndpointV2HostedZoneId = defaults.domainEndpointV2HostedZoneId;
     	      this.domainId = defaults.domainId;
     	      this.domainName = defaults.domainName;
@@ -560,6 +575,17 @@ public final class GetDomainResult {
             }
             this.deleted = deleted;
             return this;
+        }
+        @CustomType.Setter
+        public Builder deploymentStrategyOptions(List<GetDomainDeploymentStrategyOption> deploymentStrategyOptions) {
+            if (deploymentStrategyOptions == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "deploymentStrategyOptions");
+            }
+            this.deploymentStrategyOptions = deploymentStrategyOptions;
+            return this;
+        }
+        public Builder deploymentStrategyOptions(GetDomainDeploymentStrategyOption... deploymentStrategyOptions) {
+            return deploymentStrategyOptions(List.of(deploymentStrategyOptions));
         }
         @CustomType.Setter
         public Builder domainEndpointV2HostedZoneId(String domainEndpointV2HostedZoneId) {
@@ -758,6 +784,7 @@ public final class GetDomainResult {
             _resultValue.dashboardEndpoint = dashboardEndpoint;
             _resultValue.dashboardEndpointV2 = dashboardEndpointV2;
             _resultValue.deleted = deleted;
+            _resultValue.deploymentStrategyOptions = deploymentStrategyOptions;
             _resultValue.domainEndpointV2HostedZoneId = domainEndpointV2HostedZoneId;
             _resultValue.domainId = domainId;
             _resultValue.domainName = domainName;

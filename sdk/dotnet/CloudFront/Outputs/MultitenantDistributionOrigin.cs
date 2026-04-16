@@ -50,7 +50,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.MultitenantDistributionOriginOriginShield> OriginShields;
         /// <summary>
-        /// Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Default: 30.
+        /// Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Must be integer greater than or equal to the value of `OriginReadTimeout` in Custom Origin Config. If omitted, no maximum value is enforced.
         /// </summary>
         public readonly int? ResponseCompletionTimeout;
         /// <summary>

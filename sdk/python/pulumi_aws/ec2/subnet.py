@@ -893,7 +893,7 @@ class Subnet(pulumi.CustomResource):
         test_vpc_ipam_pool = aws.ec2.VpcIpamPool("test",
             address_family="ipv4",
             ipam_scope_id=test.private_default_scope_id,
-            locale=current.name)
+            locale=current.region)
         test_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("test",
             ipam_pool_id=test_vpc_ipam_pool.id,
             cidr="10.0.0.0/16")
@@ -904,12 +904,12 @@ class Subnet(pulumi.CustomResource):
         vpc = aws.ec2.VpcIpamPool("vpc",
             address_family="ipv4",
             ipam_scope_id=test.private_default_scope_id,
-            locale=current.name,
+            locale=current.region,
             source_ipam_pool_id=test_vpc_ipam_pool.id,
             source_resource={
                 "resource_id": test_vpc.id,
                 "resource_owner": current_aws_caller_identity["accountId"],
-                "resource_region": current.name,
+                "resource_region": current.region,
                 "resource_type": "vpc",
             })
         vpc_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("vpc",
@@ -1028,7 +1028,7 @@ class Subnet(pulumi.CustomResource):
         test_vpc_ipam_pool = aws.ec2.VpcIpamPool("test",
             address_family="ipv4",
             ipam_scope_id=test.private_default_scope_id,
-            locale=current.name)
+            locale=current.region)
         test_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("test",
             ipam_pool_id=test_vpc_ipam_pool.id,
             cidr="10.0.0.0/16")
@@ -1039,12 +1039,12 @@ class Subnet(pulumi.CustomResource):
         vpc = aws.ec2.VpcIpamPool("vpc",
             address_family="ipv4",
             ipam_scope_id=test.private_default_scope_id,
-            locale=current.name,
+            locale=current.region,
             source_ipam_pool_id=test_vpc_ipam_pool.id,
             source_resource={
                 "resource_id": test_vpc.id,
                 "resource_owner": current_aws_caller_identity["accountId"],
-                "resource_region": current.name,
+                "resource_region": current.region,
                 "resource_type": "vpc",
             })
         vpc_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("vpc",

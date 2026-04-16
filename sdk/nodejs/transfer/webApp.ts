@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  *                 "s3:GetDataAccess",
  *                 "s3:ListCallerAccessGrants",
  *             ],
- *             resources: [`arn:${currentGetPartition.partition}:s3:${currentGetRegion.name}:${current.accountId}:access-grants/*`],
+ *             resources: [`arn:${currentGetPartition.partition}:s3:${currentGetRegion.region}:${current.accountId}:access-grants/*`],
  *             conditions: [{
  *                 test: "StringEquals",
  *                 values: [current1.accountId],

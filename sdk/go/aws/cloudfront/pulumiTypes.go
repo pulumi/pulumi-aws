@@ -12458,7 +12458,7 @@ type MultitenantDistributionOrigin struct {
 	OriginPath *string `pulumi:"originPath"`
 	// CloudFront Origin Shield configuration information. See Origin Shield below.
 	OriginShields []MultitenantDistributionOriginOriginShield `pulumi:"originShields"`
-	// Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Default: 30.
+	// Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Must be integer greater than or equal to the value of `originReadTimeout` in Custom Origin Config. If omitted, no maximum value is enforced.
 	ResponseCompletionTimeout *int `pulumi:"responseCompletionTimeout"`
 	// CloudFront VPC origin configuration. See VPC Origin Config below.
 	VpcOriginConfigs []MultitenantDistributionOriginVpcOriginConfig `pulumi:"vpcOriginConfigs"`
@@ -12494,7 +12494,7 @@ type MultitenantDistributionOriginArgs struct {
 	OriginPath pulumi.StringPtrInput `pulumi:"originPath"`
 	// CloudFront Origin Shield configuration information. See Origin Shield below.
 	OriginShields MultitenantDistributionOriginOriginShieldArrayInput `pulumi:"originShields"`
-	// Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Default: 30.
+	// Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Must be integer greater than or equal to the value of `originReadTimeout` in Custom Origin Config. If omitted, no maximum value is enforced.
 	ResponseCompletionTimeout pulumi.IntPtrInput `pulumi:"responseCompletionTimeout"`
 	// CloudFront VPC origin configuration. See VPC Origin Config below.
 	VpcOriginConfigs MultitenantDistributionOriginVpcOriginConfigArrayInput `pulumi:"vpcOriginConfigs"`
@@ -12602,7 +12602,7 @@ func (o MultitenantDistributionOriginOutput) OriginShields() MultitenantDistribu
 	}).(MultitenantDistributionOriginOriginShieldArrayOutput)
 }
 
-// Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Default: 30.
+// Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Must be integer greater than or equal to the value of `originReadTimeout` in Custom Origin Config. If omitted, no maximum value is enforced.
 func (o MultitenantDistributionOriginOutput) ResponseCompletionTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MultitenantDistributionOrigin) *int { return v.ResponseCompletionTimeout }).(pulumi.IntPtrOutput)
 }

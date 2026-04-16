@@ -106,6 +106,20 @@ import {RestApi} from "./index";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `restApiId` (String) The string identifier of the associated REST API.
+ * * `resourceId` (String) The Resource identifier for the method resource.
+ * * `httpMethod` (String) The HTTP verb of the method resource.
+ * * `statusCode` (String) The method response's status code.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import `aws.apigateway.MethodResponse` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:
  *
  * ```sh

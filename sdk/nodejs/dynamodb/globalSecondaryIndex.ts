@@ -167,7 +167,7 @@ export class GlobalSecondaryIndex extends pulumi.CustomResource {
      * Changing any values in `keySchema` will re-create the resource.
      * See `keySchema` below.
      */
-    declare public readonly keySchemas: pulumi.Output<outputs.dynamodb.GlobalSecondaryIndexKeySchema[] | undefined>;
+    declare public readonly keySchemas: pulumi.Output<outputs.dynamodb.GlobalSecondaryIndexKeySchema[]>;
     /**
      * Sets the maximum number of read and write units for the index.
      * See `onDemandThroughput` below.
@@ -229,6 +229,9 @@ export class GlobalSecondaryIndex extends pulumi.CustomResource {
             const args = argsOrState as GlobalSecondaryIndexArgs | undefined;
             if (args?.indexName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'indexName'");
+            }
+            if (args?.keySchemas === undefined && !opts.urn) {
+                throw new Error("Missing required property 'keySchemas'");
             }
             if (args?.tableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
@@ -319,7 +322,7 @@ export interface GlobalSecondaryIndexArgs {
      * Changing any values in `keySchema` will re-create the resource.
      * See `keySchema` below.
      */
-    keySchemas?: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalSecondaryIndexKeySchema>[]>;
+    keySchemas: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalSecondaryIndexKeySchema>[]>;
     /**
      * Sets the maximum number of read and write units for the index.
      * See `onDemandThroughput` below.

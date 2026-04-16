@@ -458,10 +458,10 @@ class EnvironmentProfile(pulumi.CustomResource):
             domain_id=test_domain.id,
             environment_blueprint_id=test_get_environment_blueprint.id,
             provisioning_role_arn=domain_execution_role.arn,
-            enabled_regions=[test_get_region.name])
+            enabled_regions=[test_get_region.region])
         test_environment_profile = aws.datazone.EnvironmentProfile("test",
             aws_account_id=test.account_id,
-            aws_account_region=test_get_region.name,
+            aws_account_region=test_get_region.region,
             description="description",
             environment_blueprint_identifier=test_get_environment_blueprint.id,
             name="example-name",
@@ -574,10 +574,10 @@ class EnvironmentProfile(pulumi.CustomResource):
             domain_id=test_domain.id,
             environment_blueprint_id=test_get_environment_blueprint.id,
             provisioning_role_arn=domain_execution_role.arn,
-            enabled_regions=[test_get_region.name])
+            enabled_regions=[test_get_region.region])
         test_environment_profile = aws.datazone.EnvironmentProfile("test",
             aws_account_id=test.account_id,
-            aws_account_region=test_get_region.name,
+            aws_account_region=test_get_region.region,
             description="description",
             environment_blueprint_identifier=test_get_environment_blueprint.id,
             name="example-name",

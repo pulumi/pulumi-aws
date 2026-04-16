@@ -187,12 +187,12 @@ class Tag(pulumi.CustomResource):
         replica = aws.get_region()
         current = aws.get_region()
         example = aws.dynamodb.Table("example", replicas=[{
-            "region_name": replica.name,
+            "region_name": replica.region,
         }])
         test = aws.dynamodb.Tag("test",
             resource_arn=example.arn.apply(lambda arn: std.replace(text=arn,
                 search=current.region,
-                replace=replica.name)).apply(lambda invoke: invoke.result),
+                replace=replica.region)).apply(lambda invoke: invoke.result),
             key="testkey",
             value="testvalue")
         ```
@@ -236,12 +236,12 @@ class Tag(pulumi.CustomResource):
         replica = aws.get_region()
         current = aws.get_region()
         example = aws.dynamodb.Table("example", replicas=[{
-            "region_name": replica.name,
+            "region_name": replica.region,
         }])
         test = aws.dynamodb.Tag("test",
             resource_arn=example.arn.apply(lambda arn: std.replace(text=arn,
                 search=current.region,
-                replace=replica.name)).apply(lambda invoke: invoke.result),
+                replace=replica.region)).apply(lambda invoke: invoke.result),
             key="testkey",
             value="testvalue")
         ```

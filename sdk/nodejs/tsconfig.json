@@ -408,6 +408,7 @@
         "cloudtrail/index.ts",
         "cloudtrail/organizationDelegatedAdminAccount.ts",
         "cloudtrail/trail.ts",
+        "cloudwatch/alarmMuteRule.ts",
         "cloudwatch/cloudwatchMixins.ts",
         "cloudwatch/compositeAlarm.ts",
         "cloudwatch/contributorInsightRule.ts",

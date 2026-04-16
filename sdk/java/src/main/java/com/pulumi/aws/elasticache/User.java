@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +22,7 @@ import javax.annotation.Nullable;
 /**
  * Provides an ElastiCache user resource.
  * 
- * &gt; **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
+ * &gt; **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text unless you use the write-only `passwordsWo` argument.
  * ## Example Usage
  * 
  * <pre>
@@ -138,6 +139,44 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Using Write-Only Password (Terraform 1.11+)
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.elasticache.User;
+ * import com.pulumi.aws.elasticache.UserArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         var test = new User("test", UserArgs.builder()
+ *             .userId("testUserId")
+ *             .userName("testUserName")
+ *             .accessString("on ~* +}{@literal @}{@code all")
+ *             .engine("redis")
+ *             .passwordsWo(elasticachePassword)
+ *             .passwordsWoVersion(1)
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import ElastiCache users using the `userId`. For example:
@@ -232,6 +271,36 @@ public class User extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> passwords() {
         return Codegen.optional(this.passwords);
+    }
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+     * 
+     */
+    @Export(name="passwordsWo", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> passwordsWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+     * 
+     */
+    public Output<Optional<String>> passwordsWo() {
+        return Codegen.optional(this.passwordsWo);
+    }
+    /**
+     * Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+     * 
+     */
+    @Export(name="passwordsWoVersion", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> passwordsWoVersion;
+
+    /**
+     * @return Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+     * 
+     */
+    public Output<Optional<Integer>> passwordsWoVersion() {
+        return Codegen.optional(this.passwordsWoVersion);
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -340,7 +409,8 @@ public class User extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "passwords"
+                "passwords",
+                "passwordsWo"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

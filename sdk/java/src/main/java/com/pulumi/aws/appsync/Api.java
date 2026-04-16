@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  *                     .authType("AMAZON_COGNITO_USER_POOLS")
  *                     .cognitoConfig(ApiEventConfigAuthProviderCognitoConfigArgs.builder()
  *                         .userPoolId(example.id())
- *                         .awsRegion(current.name())
+ *                         .awsRegion(current.region())
  *                         .build())
  *                     .build())
  *                 .connectionAuthModes(ApiEventConfigConnectionAuthModeArgs.builder()

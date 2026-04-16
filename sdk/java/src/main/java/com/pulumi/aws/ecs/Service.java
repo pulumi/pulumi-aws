@@ -457,7 +457,7 @@ import javax.annotation.Nullable;
  *                     .logDriver("awslogs")
  *                     .options(Map.ofEntries(
  *                         Map.entry("awslogs-group", exampleLogGroup.name()),
- *                         Map.entry("awslogs-region", current.name()),
+ *                         Map.entry("awslogs-region", current.region()),
  *                         Map.entry("awslogs-stream-prefix", "service-connect")
  *                     ))
  *                     .build())

@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Provides an ElastiCache user resource.
  *
- * > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
+ * > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text unless you use the write-only `passwordsWo` argument.
  * ## Example Usage
  *
  * ```typescript
@@ -57,6 +57,22 @@ import * as utilities from "../utilities";
  *             "password2",
  *         ],
  *     },
+ * });
+ * ```
+ *
+ * ### Using Write-Only Password (Terraform 1.11+)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.elasticache.User("test", {
+ *     userId: "testUserId",
+ *     userName: "testUserName",
+ *     accessString: "on ~* +@all",
+ *     engine: "redis",
+ *     passwordsWo: elasticachePassword,
+ *     passwordsWoVersion: 1,
  * });
  * ```
  *
@@ -121,6 +137,15 @@ export class User extends pulumi.CustomResource {
      */
     declare public readonly passwords: pulumi.Output<string[] | undefined>;
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+     */
+    declare public readonly passwordsWo: pulumi.Output<string | undefined>;
+    /**
+     * Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+     */
+    declare public readonly passwordsWoVersion: pulumi.Output<number | undefined>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
@@ -159,6 +184,8 @@ export class User extends pulumi.CustomResource {
             resourceInputs["engine"] = state?.engine;
             resourceInputs["noPasswordRequired"] = state?.noPasswordRequired;
             resourceInputs["passwords"] = state?.passwords;
+            resourceInputs["passwordsWo"] = state?.passwordsWo;
+            resourceInputs["passwordsWoVersion"] = state?.passwordsWoVersion;
             resourceInputs["region"] = state?.region;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
@@ -183,6 +210,8 @@ export class User extends pulumi.CustomResource {
             resourceInputs["engine"] = args?.engine;
             resourceInputs["noPasswordRequired"] = args?.noPasswordRequired;
             resourceInputs["passwords"] = args?.passwords ? pulumi.secret(args.passwords) : undefined;
+            resourceInputs["passwordsWo"] = args?.passwordsWo ? pulumi.secret(args.passwordsWo) : undefined;
+            resourceInputs["passwordsWoVersion"] = args?.passwordsWoVersion;
             resourceInputs["region"] = args?.region;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["userId"] = args?.userId;
@@ -191,7 +220,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["passwords"] };
+        const secretOpts = { additionalSecretOutputs: ["passwords", "passwordsWo"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(User.__pulumiType, name, resourceInputs, opts);
     }
@@ -225,6 +254,15 @@ export interface UserState {
      * Passwords used for this user. You can create up to two passwords for each user.
      */
     passwords?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+     */
+    passwordsWo?: pulumi.Input<string>;
+    /**
+     * Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+     */
+    passwordsWoVersion?: pulumi.Input<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -270,6 +308,15 @@ export interface UserArgs {
      * Passwords used for this user. You can create up to two passwords for each user.
      */
     passwords?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+     */
+    passwordsWo?: pulumi.Input<string>;
+    /**
+     * Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+     */
+    passwordsWoVersion?: pulumi.Input<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

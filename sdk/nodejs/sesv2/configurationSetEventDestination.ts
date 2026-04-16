@@ -160,11 +160,11 @@ export class ConfigurationSetEventDestination extends pulumi.CustomResource {
      */
     declare public readonly configurationSetName: pulumi.Output<string>;
     /**
-     * A name that identifies the event destination within the configuration set.
+     * An object that defines the event destination. See `eventDestination` Block for details.
      */
     declare public readonly eventDestination: pulumi.Output<outputs.sesv2.ConfigurationSetEventDestinationEventDestination>;
     /**
-     * An object that defines the event destination. See `eventDestination` Block for details.
+     * A name that identifies the event destination within the configuration set.
      */
     declare public readonly eventDestinationName: pulumi.Output<string>;
     /**
@@ -219,11 +219,11 @@ export interface ConfigurationSetEventDestinationState {
      */
     configurationSetName?: pulumi.Input<string>;
     /**
-     * A name that identifies the event destination within the configuration set.
+     * An object that defines the event destination. See `eventDestination` Block for details.
      */
     eventDestination?: pulumi.Input<inputs.sesv2.ConfigurationSetEventDestinationEventDestination>;
     /**
-     * An object that defines the event destination. See `eventDestination` Block for details.
+     * A name that identifies the event destination within the configuration set.
      */
     eventDestinationName?: pulumi.Input<string>;
     /**
@@ -241,11 +241,11 @@ export interface ConfigurationSetEventDestinationArgs {
      */
     configurationSetName: pulumi.Input<string>;
     /**
-     * A name that identifies the event destination within the configuration set.
+     * An object that defines the event destination. See `eventDestination` Block for details.
      */
     eventDestination: pulumi.Input<inputs.sesv2.ConfigurationSetEventDestinationEventDestination>;
     /**
-     * An object that defines the event destination. See `eventDestination` Block for details.
+     * A name that identifies the event destination within the configuration set.
      */
     eventDestinationName: pulumi.Input<string>;
     /**

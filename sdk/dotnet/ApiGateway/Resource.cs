@@ -40,6 +40,18 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `RestApiId` (String) ID of the associated REST API.
+    /// * `Id` (String) Resource's identifier.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import `aws.apigateway.Resource` using `REST-API-ID/RESOURCE-ID`. For example:
     /// 
     /// ```sh

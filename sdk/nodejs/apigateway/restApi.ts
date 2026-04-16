@@ -16,7 +16,10 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ## Import
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
  *
  * Using `pulumi import`, import `aws.apigateway.RestApi` using the REST API ID. For example:
  *

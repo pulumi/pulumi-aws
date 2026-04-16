@@ -91,10 +91,22 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import AutoScaling Lifecycle Hooks using the role autoscalingGroupName and name separated by `/`. For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `autoscalingGroupName` (String) Name of the Auto Scaling group.
+ * * `name` (String) Name of the lifecycle hook.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import AutoScaling Lifecycle Hooks using `autoscalingGroupName` and `name` separated by a forward slash (`/`). For example:
  * 
  * ```sh
- * $ pulumi import aws:autoscaling/lifecycleHook:LifecycleHook test-lifecycle-hook asg-name/lifecycle-hook-name
+ * $ pulumi import aws:autoscaling/lifecycleHook:LifecycleHook example example-asg/example-hook
  * ```
  * 
  */

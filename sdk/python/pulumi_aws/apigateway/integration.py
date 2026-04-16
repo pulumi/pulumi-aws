@@ -960,6 +960,19 @@ class Integration(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `rest_api_id` (String) - ID of the associated REST API.
+        * `resource_id` (String) - API resource ID.
+        * `http_method` (String) - HTTP Method.
+
+        #### Optional
+
+        * `account_id` (String) - AWS Account where this resource is managed.
+        * `region` (String) - Region where this resource is managed.
+
         Using `pulumi import`, import `apigateway.Integration` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`. For example:
 
         ```sh
@@ -1229,6 +1242,19 @@ class Integration(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `rest_api_id` (String) - ID of the associated REST API.
+        * `resource_id` (String) - API resource ID.
+        * `http_method` (String) - HTTP Method.
+
+        #### Optional
+
+        * `account_id` (String) - AWS Account where this resource is managed.
+        * `region` (String) - Region where this resource is managed.
 
         Using `pulumi import`, import `apigateway.Integration` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`. For example:
 

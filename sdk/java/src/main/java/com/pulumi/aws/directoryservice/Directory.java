@@ -327,6 +327,20 @@ public class Directory extends com.pulumi.resources.CustomResource {
         return this.edition;
     }
     /**
+     * Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
+     * 
+     */
+    @Export(name="enableDirectoryDataAccess", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> enableDirectoryDataAccess;
+
+    /**
+     * @return Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
+     * 
+     */
+    public Output<Optional<Boolean>> enableDirectoryDataAccess() {
+        return Codegen.optional(this.enableDirectoryDataAccess);
+    }
+    /**
      * Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
      * 
      */

@@ -1678,7 +1678,7 @@ func (o TableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput) Status(
 }
 
 type TableMaintenanceConfigurationIcebergSnapshotManagementSettings struct {
-	// Snapshots older than this will be marked for deletiion.
+	// Snapshots older than this will be marked for deletion.
 	// Must be at least `1`.
 	MaxSnapshotAgeHours int `pulumi:"maxSnapshotAgeHours"`
 	// Minimum number of snapshots to keep.
@@ -1698,7 +1698,7 @@ type TableMaintenanceConfigurationIcebergSnapshotManagementSettingsInput interfa
 }
 
 type TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs struct {
-	// Snapshots older than this will be marked for deletiion.
+	// Snapshots older than this will be marked for deletion.
 	// Must be at least `1`.
 	MaxSnapshotAgeHours pulumi.IntInput `pulumi:"maxSnapshotAgeHours"`
 	// Minimum number of snapshots to keep.
@@ -1783,7 +1783,7 @@ func (o TableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput) To
 	}).(TableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput)
 }
 
-// Snapshots older than this will be marked for deletiion.
+// Snapshots older than this will be marked for deletion.
 // Must be at least `1`.
 func (o TableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput) MaxSnapshotAgeHours() pulumi.IntOutput {
 	return o.ApplyT(func(v TableMaintenanceConfigurationIcebergSnapshotManagementSettings) int {
@@ -1823,7 +1823,7 @@ func (o TableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput)
 	}).(TableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput)
 }
 
-// Snapshots older than this will be marked for deletiion.
+// Snapshots older than this will be marked for deletion.
 // Must be at least `1`.
 func (o TableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput) MaxSnapshotAgeHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableMaintenanceConfigurationIcebergSnapshotManagementSettings) *int {

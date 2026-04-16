@@ -198,6 +198,10 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         public readonly bool Deleted;
         /// <summary>
+        /// Deployment strategy options for the domain.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDomainDeploymentStrategyOptionResult> DeploymentStrategyOptions;
+        /// <summary>
         /// Dual stack hosted zone ID for the domain.
         /// </summary>
         public readonly string DomainEndpointV2HostedZoneId;
@@ -296,6 +300,8 @@ namespace Pulumi.Aws.OpenSearch
 
             bool deleted,
 
+            ImmutableArray<Outputs.GetDomainDeploymentStrategyOptionResult> deploymentStrategyOptions,
+
             string domainEndpointV2HostedZoneId,
 
             string domainId,
@@ -347,6 +353,7 @@ namespace Pulumi.Aws.OpenSearch
             DashboardEndpoint = dashboardEndpoint;
             DashboardEndpointV2 = dashboardEndpointV2;
             Deleted = deleted;
+            DeploymentStrategyOptions = deploymentStrategyOptions;
             DomainEndpointV2HostedZoneId = domainEndpointV2HostedZoneId;
             DomainId = domainId;
             DomainName = domainName;

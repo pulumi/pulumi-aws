@@ -82,6 +82,8 @@ type LookupDomainResult struct {
 	DashboardEndpointV2 string `pulumi:"dashboardEndpointV2"`
 	// Status of the deletion of the domain.
 	Deleted bool `pulumi:"deleted"`
+	// Deployment strategy options for the domain.
+	DeploymentStrategyOptions []GetDomainDeploymentStrategyOption `pulumi:"deploymentStrategyOptions"`
 	// Dual stack hosted zone ID for the domain.
 	DomainEndpointV2HostedZoneId string `pulumi:"domainEndpointV2HostedZoneId"`
 	// Unique identifier for the domain.
@@ -213,6 +215,11 @@ func (o LookupDomainResultOutput) DashboardEndpointV2() pulumi.StringOutput {
 // Status of the deletion of the domain.
 func (o LookupDomainResultOutput) Deleted() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupDomainResult) bool { return v.Deleted }).(pulumi.BoolOutput)
+}
+
+// Deployment strategy options for the domain.
+func (o LookupDomainResultOutput) DeploymentStrategyOptions() GetDomainDeploymentStrategyOptionArrayOutput {
+	return o.ApplyT(func(v LookupDomainResult) []GetDomainDeploymentStrategyOption { return v.DeploymentStrategyOptions }).(GetDomainDeploymentStrategyOptionArrayOutput)
 }
 
 // Dual stack hosted zone ID for the domain.

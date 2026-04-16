@@ -417,10 +417,10 @@ import (
 // },
 // Replicas: dynamodb.TableReplicaTypeArray{
 // &dynamodb.TableReplicaTypeArgs{
-// RegionName: pulumi.String(alternate.Name),
+// RegionName: pulumi.String(alternate.Region),
 // },
 // &dynamodb.TableReplicaTypeArgs{
-// RegionName: pulumi.String(third.Name),
+// RegionName: pulumi.String(third.Region),
 // PropagateTags: pulumi.Bool(true),
 // },
 // },
@@ -435,7 +435,7 @@ import (
 // invokeReplace, err := std.Replace(ctx, &std.ReplaceArgs{
 // Text: arn,
 // Search: current.Region,
-// Replace: alternate.Name,
+// Replace: alternate.Region,
 // }, nil)
 // if err != nil {
 // return err
@@ -458,6 +458,17 @@ import (
 // ```
 //
 // ## Import
+//
+// ### Identity Schema
+//
+// #### Required
+//
+// * `name` (String) Name of the DynamoDB Table.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
 //
 // Using `pulumi import`, import DynamoDB tables using the `name`. For example:
 //

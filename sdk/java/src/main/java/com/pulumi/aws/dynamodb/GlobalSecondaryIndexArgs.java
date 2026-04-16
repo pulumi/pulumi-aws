@@ -46,8 +46,8 @@ public final class GlobalSecondaryIndexArgs extends com.pulumi.resources.Resourc
      * See `keySchema` below.
      * 
      */
-    @Import(name="keySchemas")
-    private @Nullable Output<List<GlobalSecondaryIndexKeySchemaArgs>> keySchemas;
+    @Import(name="keySchemas", required=true)
+    private Output<List<GlobalSecondaryIndexKeySchemaArgs>> keySchemas;
 
     /**
      * @return Set of nested attribute definitions.
@@ -57,8 +57,8 @@ public final class GlobalSecondaryIndexArgs extends com.pulumi.resources.Resourc
      * See `keySchema` below.
      * 
      */
-    public Optional<Output<List<GlobalSecondaryIndexKeySchemaArgs>>> keySchemas() {
-        return Optional.ofNullable(this.keySchemas);
+    public Output<List<GlobalSecondaryIndexKeySchemaArgs>> keySchemas() {
+        return this.keySchemas;
     }
 
     /**
@@ -237,7 +237,7 @@ public final class GlobalSecondaryIndexArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder keySchemas(@Nullable Output<List<GlobalSecondaryIndexKeySchemaArgs>> keySchemas) {
+        public Builder keySchemas(Output<List<GlobalSecondaryIndexKeySchemaArgs>> keySchemas) {
             $.keySchemas = keySchemas;
             return this;
         }
@@ -424,6 +424,9 @@ public final class GlobalSecondaryIndexArgs extends com.pulumi.resources.Resourc
         public GlobalSecondaryIndexArgs build() {
             if ($.indexName == null) {
                 throw new MissingRequiredPropertyException("GlobalSecondaryIndexArgs", "indexName");
+            }
+            if ($.keySchemas == null) {
+                throw new MissingRequiredPropertyException("GlobalSecondaryIndexArgs", "keySchemas");
             }
             if ($.tableName == null) {
                 throw new MissingRequiredPropertyException("GlobalSecondaryIndexArgs", "tableName");

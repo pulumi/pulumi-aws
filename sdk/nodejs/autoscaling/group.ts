@@ -451,10 +451,21 @@ import {LaunchConfiguration, PlacementGroup} from "../ec2";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `name` (String) Name of the Auto Scaling Group.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import Auto Scaling Groups using the `name`. For example:
  *
  * ```sh
- * $ pulumi import aws:autoscaling/group:Group web web-asg
+ * $ pulumi import aws:autoscaling/group:Group example example
  * ```
  */
 export class Group extends pulumi.CustomResource {

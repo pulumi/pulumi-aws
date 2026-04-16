@@ -273,7 +273,7 @@ class GetTaskDefinitionResult:
     @pulumi.getter
     def volumes(self) -> Sequence['outputs.GetTaskDefinitionVolumeResult']:
         """
-        Configuration block for volumes that containers in your task may use. Detailed below.
+        Attributes corresponding to the `volume` argument of the `ecs.TaskDefinition` resource.
         """
         return pulumi.get(self, "volumes")
 

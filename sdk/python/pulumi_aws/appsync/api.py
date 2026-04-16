@@ -351,7 +351,7 @@ class Api(pulumi.CustomResource):
                     "auth_type": "AMAZON_COGNITO_USER_POOLS",
                     "cognito_config": {
                         "user_pool_id": example.id,
-                        "aws_region": current.name,
+                        "aws_region": current.region,
                     },
                 }],
                 "connection_auth_modes": [{
@@ -463,7 +463,7 @@ class Api(pulumi.CustomResource):
                     "auth_type": "AMAZON_COGNITO_USER_POOLS",
                     "cognito_config": {
                         "user_pool_id": example.id,
-                        "aws_region": current.name,
+                        "aws_region": current.region,
                     },
                 }],
                 "connection_auth_modes": [{

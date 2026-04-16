@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new Table("example", TableArgs.builder()
  *             .replicas(TableReplicaArgs.builder()
- *                 .regionName(replica.name())
+ *                 .regionName(replica.region())
  *                 .build())
  *             .build());
  * 
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *             .resourceArn(example.arn().applyValue(_arn -> StdFunctions.replace(ReplaceArgs.builder()
  *                 .text(_arn)
  *                 .search(current.region())
- *                 .replace(replica.name())
+ *                 .replace(replica.region())
  *                 .build())).applyValue(_invoke -> _invoke.result()))
  *             .key("testkey")
  *             .value("testvalue")

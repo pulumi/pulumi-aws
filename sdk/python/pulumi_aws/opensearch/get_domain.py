@@ -27,7 +27,7 @@ class GetDomainResult:
     """
     A collection of values returned by getDomain.
     """
-    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, auto_tune_options=None, cluster_configs=None, cognito_options=None, created=None, dashboard_endpoint=None, dashboard_endpoint_v2=None, deleted=None, domain_endpoint_v2_hosted_zone_id=None, domain_id=None, domain_name=None, ebs_options=None, encryption_at_rests=None, endpoint=None, endpoint_v2=None, engine_version=None, id=None, identity_center_options=None, ip_address_type=None, log_publishing_options=None, node_to_node_encryptions=None, off_peak_window_options=None, processing=None, region=None, snapshot_options=None, software_update_options=None, tags=None, vpc_options=None):
+    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, auto_tune_options=None, cluster_configs=None, cognito_options=None, created=None, dashboard_endpoint=None, dashboard_endpoint_v2=None, deleted=None, deployment_strategy_options=None, domain_endpoint_v2_hosted_zone_id=None, domain_id=None, domain_name=None, ebs_options=None, encryption_at_rests=None, endpoint=None, endpoint_v2=None, engine_version=None, id=None, identity_center_options=None, ip_address_type=None, log_publishing_options=None, node_to_node_encryptions=None, off_peak_window_options=None, processing=None, region=None, snapshot_options=None, software_update_options=None, tags=None, vpc_options=None):
         if access_policies and not isinstance(access_policies, str):
             raise TypeError("Expected argument 'access_policies' to be a str")
         pulumi.set(__self__, "access_policies", access_policies)
@@ -61,6 +61,9 @@ class GetDomainResult:
         if deleted and not isinstance(deleted, bool):
             raise TypeError("Expected argument 'deleted' to be a bool")
         pulumi.set(__self__, "deleted", deleted)
+        if deployment_strategy_options and not isinstance(deployment_strategy_options, list):
+            raise TypeError("Expected argument 'deployment_strategy_options' to be a list")
+        pulumi.set(__self__, "deployment_strategy_options", deployment_strategy_options)
         if domain_endpoint_v2_hosted_zone_id and not isinstance(domain_endpoint_v2_hosted_zone_id, str):
             raise TypeError("Expected argument 'domain_endpoint_v2_hosted_zone_id' to be a str")
         pulumi.set(__self__, "domain_endpoint_v2_hosted_zone_id", domain_endpoint_v2_hosted_zone_id)
@@ -209,6 +212,14 @@ class GetDomainResult:
         Status of the deletion of the domain.
         """
         return pulumi.get(self, "deleted")
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentStrategyOptions")
+    def deployment_strategy_options(self) -> Sequence['outputs.GetDomainDeploymentStrategyOptionResult']:
+        """
+        Deployment strategy options for the domain.
+        """
+        return pulumi.get(self, "deployment_strategy_options")
 
     @_builtins.property
     @pulumi.getter(name="domainEndpointV2HostedZoneId")
@@ -382,6 +393,7 @@ class AwaitableGetDomainResult(GetDomainResult):
             dashboard_endpoint=self.dashboard_endpoint,
             dashboard_endpoint_v2=self.dashboard_endpoint_v2,
             deleted=self.deleted,
+            deployment_strategy_options=self.deployment_strategy_options,
             domain_endpoint_v2_hosted_zone_id=self.domain_endpoint_v2_hosted_zone_id,
             domain_id=self.domain_id,
             domain_name=self.domain_name,
@@ -444,6 +456,7 @@ def get_domain(domain_name: Optional[_builtins.str] = None,
         dashboard_endpoint=pulumi.get(__ret__, 'dashboard_endpoint'),
         dashboard_endpoint_v2=pulumi.get(__ret__, 'dashboard_endpoint_v2'),
         deleted=pulumi.get(__ret__, 'deleted'),
+        deployment_strategy_options=pulumi.get(__ret__, 'deployment_strategy_options'),
         domain_endpoint_v2_hosted_zone_id=pulumi.get(__ret__, 'domain_endpoint_v2_hosted_zone_id'),
         domain_id=pulumi.get(__ret__, 'domain_id'),
         domain_name=pulumi.get(__ret__, 'domain_name'),
@@ -503,6 +516,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
         dashboard_endpoint=pulumi.get(__response__, 'dashboard_endpoint'),
         dashboard_endpoint_v2=pulumi.get(__response__, 'dashboard_endpoint_v2'),
         deleted=pulumi.get(__response__, 'deleted'),
+        deployment_strategy_options=pulumi.get(__response__, 'deployment_strategy_options'),
         domain_endpoint_v2_hosted_zone_id=pulumi.get(__response__, 'domain_endpoint_v2_hosted_zone_id'),
         domain_id=pulumi.get(__response__, 'domain_id'),
         domain_name=pulumi.get(__response__, 'domain_name'),

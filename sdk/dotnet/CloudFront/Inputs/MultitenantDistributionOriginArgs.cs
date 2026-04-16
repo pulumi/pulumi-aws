@@ -85,7 +85,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         }
 
         /// <summary>
-        /// Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Default: 30.
+        /// Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Must be integer greater than or equal to the value of `OriginReadTimeout` in Custom Origin Config. If omitted, no maximum value is enforced.
         /// </summary>
         [Input("responseCompletionTimeout")]
         public Input<int>? ResponseCompletionTimeout { get; set; }

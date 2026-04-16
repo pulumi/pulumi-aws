@@ -15,7 +15,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementSetting
     public static final TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs Empty = new TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs();
 
     /**
-     * Snapshots older than this will be marked for deletiion.
+     * Snapshots older than this will be marked for deletion.
      * Must be at least `1`.
      * 
      */
@@ -23,7 +23,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementSetting
     private Output<Integer> maxSnapshotAgeHours;
 
     /**
-     * @return Snapshots older than this will be marked for deletiion.
+     * @return Snapshots older than this will be marked for deletion.
      * Must be at least `1`.
      * 
      */
@@ -74,7 +74,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementSetting
         }
 
         /**
-         * @param maxSnapshotAgeHours Snapshots older than this will be marked for deletiion.
+         * @param maxSnapshotAgeHours Snapshots older than this will be marked for deletion.
          * Must be at least `1`.
          * 
          * @return builder
@@ -86,7 +86,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementSetting
         }
 
         /**
-         * @param maxSnapshotAgeHours Snapshots older than this will be marked for deletiion.
+         * @param maxSnapshotAgeHours Snapshots older than this will be marked for deletion.
          * Must be at least `1`.
          * 
          * @return builder

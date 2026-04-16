@@ -533,7 +533,7 @@ class TableMaintenanceConfigurationIcebergSnapshotManagementArgs:
 class TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgsDict(TypedDict):
     max_snapshot_age_hours: pulumi.Input[_builtins.int]
     """
-    Snapshots older than this will be marked for deletiion.
+    Snapshots older than this will be marked for deletion.
     Must be at least `1`.
     """
     min_snapshots_to_keep: pulumi.Input[_builtins.int]
@@ -548,7 +548,7 @@ class TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs:
                  max_snapshot_age_hours: pulumi.Input[_builtins.int],
                  min_snapshots_to_keep: pulumi.Input[_builtins.int]):
         """
-        :param pulumi.Input[_builtins.int] max_snapshot_age_hours: Snapshots older than this will be marked for deletiion.
+        :param pulumi.Input[_builtins.int] max_snapshot_age_hours: Snapshots older than this will be marked for deletion.
                Must be at least `1`.
         :param pulumi.Input[_builtins.int] min_snapshots_to_keep: Minimum number of snapshots to keep.
                Must be at least `1`.
@@ -560,7 +560,7 @@ class TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs:
     @pulumi.getter(name="maxSnapshotAgeHours")
     def max_snapshot_age_hours(self) -> pulumi.Input[_builtins.int]:
         """
-        Snapshots older than this will be marked for deletiion.
+        Snapshots older than this will be marked for deletion.
         Must be at least `1`.
         """
         return pulumi.get(self, "max_snapshot_age_hours")

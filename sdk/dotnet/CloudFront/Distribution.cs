@@ -580,6 +580,16 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Id` (String) CloudFront distribution ID.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// 
     /// Using `pulumi import`, import CloudFront Distributions using the `Id`. For example:
     /// 
     /// ```sh

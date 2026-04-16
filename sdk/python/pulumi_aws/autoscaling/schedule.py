@@ -431,10 +431,22 @@ class Schedule(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import AutoScaling ScheduledAction using the `auto-scaling-group-name` and `scheduled-action-name`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `autoscaling_group_name` (String) Name of the Auto Scaling group.
+        * `scheduled_action_name` (String) Name of the scaling action.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import AutoScaling Schedules using `autoscaling_group_name` and `scheduled_action_name` separated by a forward slash (`/`). For example:
 
         ```sh
-        $ pulumi import aws:autoscaling/schedule:Schedule resource-name auto-scaling-group-name/scheduled-action-name
+        $ pulumi import aws:autoscaling/schedule:Schedule example example-asg/example-action
         ```
 
 
@@ -491,10 +503,22 @@ class Schedule(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import AutoScaling ScheduledAction using the `auto-scaling-group-name` and `scheduled-action-name`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `autoscaling_group_name` (String) Name of the Auto Scaling group.
+        * `scheduled_action_name` (String) Name of the scaling action.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import AutoScaling Schedules using `autoscaling_group_name` and `scheduled_action_name` separated by a forward slash (`/`). For example:
 
         ```sh
-        $ pulumi import aws:autoscaling/schedule:Schedule resource-name auto-scaling-group-name/scheduled-action-name
+        $ pulumi import aws:autoscaling/schedule:Schedule example example-asg/example-action
         ```
 
 

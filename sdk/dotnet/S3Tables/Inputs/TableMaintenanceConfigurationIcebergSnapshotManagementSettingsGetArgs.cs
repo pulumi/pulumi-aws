@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3Tables.Inputs
     public sealed class TableMaintenanceConfigurationIcebergSnapshotManagementSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Snapshots older than this will be marked for deletiion.
+        /// Snapshots older than this will be marked for deletion.
         /// Must be at least `1`.
         /// </summary>
         [Input("maxSnapshotAgeHours", required: true)]

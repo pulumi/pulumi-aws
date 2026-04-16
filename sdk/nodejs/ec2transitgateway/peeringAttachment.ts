@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * }});
  * const example = new aws.ec2transitgateway.PeeringAttachment("example", {
  *     peerAccountId: peerTransitGateway.ownerId,
- *     peerRegion: peer.then(peer => peer.name),
+ *     peerRegion: peer.then(peer => peer.region),
  *     peerTransitGatewayId: peerTransitGateway.id,
  *     transitGatewayId: local.id,
  *     tags: {

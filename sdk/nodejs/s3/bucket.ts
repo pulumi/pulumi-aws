@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  *         input: "my-tf-test-bucket-%s-%s-an",
  *         args: [
  *             current.then(current => current.accountId),
- *             currentGetRegion.then(currentGetRegion => currentGetRegion.name),
+ *             currentGetRegion.then(currentGetRegion => currentGetRegion.region),
  *         ],
  *     }).then(invoke => invoke.result),
  *     bucketNamespace: "account-regional",

@@ -140,7 +140,7 @@ type LookupTaskDefinitionResult struct {
 	TaskDefinition string `pulumi:"taskDefinition"`
 	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn string `pulumi:"taskRoleArn"`
-	// Configuration block for volumes that containers in your task may use. Detailed below.
+	// Attributes corresponding to the `volume` argument of the `ecs.TaskDefinition` resource.
 	Volumes []GetTaskDefinitionVolume `pulumi:"volumes"`
 }
 
@@ -291,7 +291,7 @@ func (o LookupTaskDefinitionResultOutput) TaskRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.TaskRoleArn }).(pulumi.StringOutput)
 }
 
-// Configuration block for volumes that containers in your task may use. Detailed below.
+// Attributes corresponding to the `volume` argument of the `ecs.TaskDefinition` resource.
 func (o LookupTaskDefinitionResultOutput) Volumes() GetTaskDefinitionVolumeArrayOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) []GetTaskDefinitionVolume { return v.Volumes }).(GetTaskDefinitionVolumeArrayOutput)
 }

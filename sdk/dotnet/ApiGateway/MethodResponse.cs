@@ -147,6 +147,20 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `RestApiId` (String) The string identifier of the associated REST API.
+    /// * `ResourceId` (String) The Resource identifier for the method resource.
+    /// * `HttpMethod` (String) The HTTP verb of the method resource.
+    /// * `StatusCode` (String) The method response's status code.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import `aws.apigateway.MethodResponse` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:
     /// 
     /// ```sh

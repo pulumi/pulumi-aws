@@ -474,10 +474,10 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .replicas(            
  *                 TableReplicaArgs.builder()
- *                     .regionName(alternate.name())
+ *                     .regionName(alternate.region())
  *                     .build(),
  *                 TableReplicaArgs.builder()
- *                     .regionName(third.name())
+ *                     .regionName(third.region())
  *                     .propagateTags(true)
  *                     .build())
  *             .tags(Map.ofEntries(
@@ -490,7 +490,7 @@ import javax.annotation.Nullable;
  *             .resourceArn(example.arn().applyValue(_arn -> StdFunctions.replace(ReplaceArgs.builder()
  *                 .text(_arn)
  *                 .search(current.region())
- *                 .replace(alternate.name())
+ *                 .replace(alternate.region())
  *                 .build())).applyValue(_invoke -> _invoke.result()))
  *             .key("Architect")
  *             .value("Gigi")
@@ -502,6 +502,17 @@ import javax.annotation.Nullable;
  * </pre>
  * 
  * ## Import
+ * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `name` (String) Name of the DynamoDB Table.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
  * 
  * Using `pulumi import`, import DynamoDB tables using the `name`. For example:
  * 

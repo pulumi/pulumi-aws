@@ -11,6 +11,7 @@ import com.pulumi.aws.opensearch.outputs.DomainAimlOptions;
 import com.pulumi.aws.opensearch.outputs.DomainAutoTuneOptions;
 import com.pulumi.aws.opensearch.outputs.DomainClusterConfig;
 import com.pulumi.aws.opensearch.outputs.DomainCognitoOptions;
+import com.pulumi.aws.opensearch.outputs.DomainDeploymentStrategyOptions;
 import com.pulumi.aws.opensearch.outputs.DomainDomainEndpointOptions;
 import com.pulumi.aws.opensearch.outputs.DomainEbsOptions;
 import com.pulumi.aws.opensearch.outputs.DomainEncryptAtRest;
@@ -629,6 +630,20 @@ public class Domain extends com.pulumi.resources.CustomResource {
      */
     public Output<String> dashboardEndpointV2() {
         return this.dashboardEndpointV2;
+    }
+    /**
+     * Configuration block for the deployment strategy options of the domain. Detailed below.
+     * 
+     */
+    @Export(name="deploymentStrategyOptions", refs={DomainDeploymentStrategyOptions.class}, tree="[0]")
+    private Output<DomainDeploymentStrategyOptions> deploymentStrategyOptions;
+
+    /**
+     * @return Configuration block for the deployment strategy options of the domain. Detailed below.
+     * 
+     */
+    public Output<DomainDeploymentStrategyOptions> deploymentStrategyOptions() {
+        return this.deploymentStrategyOptions;
     }
     /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.

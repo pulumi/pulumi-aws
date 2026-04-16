@@ -271,10 +271,22 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import AutoScaling scaling policy using the role autoscalingGroupName and name separated by `/`. For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// * `autoscalingGroupName` (String) Name of the Auto Scaling group.
+// * `name` (String) Name of the policy.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import AutoScaling Scaling Policies using `autoscalingGroupName` and `name` separated by a forward slash (`/`). For example:
 //
 // ```sh
-// $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
+// $ pulumi import aws:autoscaling/policy:Policy example example-asg/example-policy
 // ```
 type Policy struct {
 	pulumi.CustomResourceState

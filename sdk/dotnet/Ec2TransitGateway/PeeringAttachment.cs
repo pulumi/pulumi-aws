@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     ///     var example = new Aws.Ec2TransitGateway.PeeringAttachment("example", new()
     ///     {
     ///         PeerAccountId = peerTransitGateway.OwnerId,
-    ///         PeerRegion = peer.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///         PeerRegion = peer.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///         PeerTransitGatewayId = peerTransitGateway.Id,
     ///         TransitGatewayId = local.Id,
     ///         Tags = 

@@ -226,6 +226,8 @@ type Directory struct {
 	DnsIpAddresses pulumi.StringArrayOutput `pulumi:"dnsIpAddresses"`
 	// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
 	Edition pulumi.StringOutput `pulumi:"edition"`
+	// Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
+	EnableDirectoryDataAccess pulumi.BoolPtrOutput `pulumi:"enableDirectoryDataAccess"`
 	// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
 	EnableSso pulumi.BoolPtrOutput `pulumi:"enableSso"`
 	// The fully qualified name for the directory, such as `corp.example.com`
@@ -307,6 +309,8 @@ type directoryState struct {
 	DnsIpAddresses []string `pulumi:"dnsIpAddresses"`
 	// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
 	Edition *string `pulumi:"edition"`
+	// Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
+	EnableDirectoryDataAccess *bool `pulumi:"enableDirectoryDataAccess"`
 	// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
 	EnableSso *bool `pulumi:"enableSso"`
 	// The fully qualified name for the directory, such as `corp.example.com`
@@ -346,6 +350,8 @@ type DirectoryState struct {
 	DnsIpAddresses pulumi.StringArrayInput
 	// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
 	Edition pulumi.StringPtrInput
+	// Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
+	EnableDirectoryDataAccess pulumi.BoolPtrInput
 	// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
 	EnableSso pulumi.BoolPtrInput
 	// The fully qualified name for the directory, such as `corp.example.com`
@@ -385,6 +391,8 @@ type directoryArgs struct {
 	DesiredNumberOfDomainControllers *int `pulumi:"desiredNumberOfDomainControllers"`
 	// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
 	Edition *string `pulumi:"edition"`
+	// Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
+	EnableDirectoryDataAccess *bool `pulumi:"enableDirectoryDataAccess"`
 	// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
 	EnableSso *bool `pulumi:"enableSso"`
 	// The fully qualified name for the directory, such as `corp.example.com`
@@ -417,6 +425,8 @@ type DirectoryArgs struct {
 	DesiredNumberOfDomainControllers pulumi.IntPtrInput
 	// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
 	Edition pulumi.StringPtrInput
+	// Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
+	EnableDirectoryDataAccess pulumi.BoolPtrInput
 	// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
 	EnableSso pulumi.BoolPtrInput
 	// The fully qualified name for the directory, such as `corp.example.com`
@@ -557,6 +567,11 @@ func (o DirectoryOutput) DnsIpAddresses() pulumi.StringArrayOutput {
 // The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
 func (o DirectoryOutput) Edition() pulumi.StringOutput {
 	return o.ApplyT(func(v *Directory) pulumi.StringOutput { return v.Edition }).(pulumi.StringOutput)
+}
+
+// Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
+func (o DirectoryOutput) EnableDirectoryDataAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Directory) pulumi.BoolPtrOutput { return v.EnableDirectoryDataAccess }).(pulumi.BoolPtrOutput)
 }
 
 // Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.

@@ -393,6 +393,20 @@ class IntegrationResponse(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `rest_api_id` (String) ID of the associated REST API.
+        * `resource_id` (String) API resource ID.
+        * `http_method` (String) HTTP Method.
+        * `status_code` (String) HTTP status code.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import `apigateway.IntegrationResponse` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:
 
         ```sh
@@ -470,6 +484,20 @@ class IntegrationResponse(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `rest_api_id` (String) ID of the associated REST API.
+        * `resource_id` (String) API resource ID.
+        * `http_method` (String) HTTP Method.
+        * `status_code` (String) HTTP status code.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import `apigateway.IntegrationResponse` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:
 

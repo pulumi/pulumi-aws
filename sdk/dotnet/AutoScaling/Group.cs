@@ -635,10 +635,21 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Name` (String) Name of the Auto Scaling Group.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import Auto Scaling Groups using the `Name`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:autoscaling/group:Group web web-asg
+    /// $ pulumi import aws:autoscaling/group:Group example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:autoscaling/group:Group")]

@@ -64,7 +64,7 @@ public final class MultitenantDistributionOrigin {
      */
     private @Nullable List<MultitenantDistributionOriginOriginShield> originShields;
     /**
-     * @return Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Default: 30.
+     * @return Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Must be integer greater than or equal to the value of `originReadTimeout` in Custom Origin Config. If omitted, no maximum value is enforced.
      * 
      */
     private @Nullable Integer responseCompletionTimeout;
@@ -139,7 +139,7 @@ public final class MultitenantDistributionOrigin {
         return this.originShields == null ? List.of() : this.originShields;
     }
     /**
-     * @return Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Default: 30.
+     * @return Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Must be integer greater than or equal to the value of `originReadTimeout` in Custom Origin Config. If omitted, no maximum value is enforced.
      * 
      */
     public Optional<Integer> responseCompletionTimeout() {

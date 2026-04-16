@@ -301,7 +301,7 @@ namespace Pulumi.Aws.Ecs
     ///                 Options = 
     ///                 {
     ///                     { "awslogs-group", exampleLogGroup.Name },
-    ///                     { "awslogs-region", current.Apply(getRegionResult =&gt; getRegionResult.Name) },
+    ///                     { "awslogs-region", current.Apply(getRegionResult =&gt; getRegionResult.Region) },
     ///                     { "awslogs-stream-prefix", "service-connect" },
     ///                 },
     ///             },

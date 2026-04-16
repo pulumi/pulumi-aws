@@ -38,6 +38,14 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// });
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Using `pulumi import`, import Auto Scaling Traffic Source Attachments using `AutoscalingGroupName`, `TrafficSourceType`, and `TrafficSourceIdentifier` separated by a comma (`,`). For example:
+    /// 
+    /// ```sh
+    /// $ pulumi import aws:autoscaling/trafficSourceAttachment:TrafficSourceAttachment example example,elbv2,arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/example/1234567890123456
+    /// ```
     /// </summary>
     [AwsResourceType("aws:autoscaling/trafficSourceAttachment:TrafficSourceAttachment")]
     public partial class TrafficSourceAttachment : global::Pulumi.CustomResource

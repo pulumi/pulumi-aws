@@ -415,11 +415,11 @@ namespace Pulumi.Aws.DynamoDB
     ///         {
     ///             new Aws.DynamoDB.Inputs.TableReplicaArgs
     ///             {
-    ///                 RegionName = alternate.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///                 RegionName = alternate.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///             },
     ///             new Aws.DynamoDB.Inputs.TableReplicaArgs
     ///             {
-    ///                 RegionName = third.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///                 RegionName = third.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///                 PropagateTags = true,
     ///             },
     ///         },
@@ -441,7 +441,7 @@ namespace Pulumi.Aws.DynamoDB
     ///             {
     ///                 Text = arn,
     ///                 Search = current.Apply(getRegionResult =&gt; getRegionResult.Region),
-    ///                 Replace = alternate.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///                 Replace = alternate.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///             });
     ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Key = "Architect",
@@ -452,6 +452,17 @@ namespace Pulumi.Aws.DynamoDB
     /// ```
     /// 
     /// ## Import
+    /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Name` (String) Name of the DynamoDB Table.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
     /// Using `pulumi import`, import DynamoDB tables using the `Name`. For example:
     /// 

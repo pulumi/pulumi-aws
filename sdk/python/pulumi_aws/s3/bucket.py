@@ -1052,7 +1052,7 @@ class Bucket(pulumi.CustomResource):
             bucket=std.format(input="my-tf-test-bucket-%s-%s-an",
                 args=[
                     current.account_id,
-                    current_get_region.name,
+                    current_get_region.region,
                 ]).result,
             bucket_namespace="account-regional")
         ```
@@ -1161,7 +1161,7 @@ class Bucket(pulumi.CustomResource):
             bucket=std.format(input="my-tf-test-bucket-%s-%s-an",
                 args=[
                     current.account_id,
-                    current_get_region.name,
+                    current_get_region.region,
                 ]).result,
             bucket_namespace="account-regional")
         ```

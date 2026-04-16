@@ -4836,7 +4836,7 @@ class MultitenantDistributionOrigin(dict):
         :param _builtins.str origin_access_control_id: CloudFront origin access control identifier to associate with the origin.
         :param _builtins.str origin_path: Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
         :param Sequence['MultitenantDistributionOriginOriginShieldArgs'] origin_shields: CloudFront Origin Shield configuration information. See Origin Shield below.
-        :param _builtins.int response_completion_timeout: Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Default: 30.
+        :param _builtins.int response_completion_timeout: Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Must be integer greater than or equal to the value of `origin_read_timeout` in Custom Origin Config. If omitted, no maximum value is enforced.
         :param Sequence['MultitenantDistributionOriginVpcOriginConfigArgs'] vpc_origin_configs: CloudFront VPC origin configuration. See VPC Origin Config below.
         """
         pulumi.set(__self__, "domain_name", domain_name)
@@ -4936,7 +4936,7 @@ class MultitenantDistributionOrigin(dict):
     @pulumi.getter(name="responseCompletionTimeout")
     def response_completion_timeout(self) -> Optional[_builtins.int]:
         """
-        Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Default: 30.
+        Number of seconds that CloudFront waits for a response after forwarding a request to the origin. Must be integer greater than or equal to the value of `origin_read_timeout` in Custom Origin Config. If omitted, no maximum value is enforced.
         """
         return pulumi.get(self, "response_completion_timeout")
 

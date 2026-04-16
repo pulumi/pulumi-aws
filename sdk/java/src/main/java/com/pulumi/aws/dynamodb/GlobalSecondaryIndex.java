@@ -228,7 +228,7 @@ public class GlobalSecondaryIndex extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="keySchemas", refs={List.class,GlobalSecondaryIndexKeySchema.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<GlobalSecondaryIndexKeySchema>> keySchemas;
+    private Output<List<GlobalSecondaryIndexKeySchema>> keySchemas;
 
     /**
      * @return Set of nested attribute definitions.
@@ -238,8 +238,8 @@ public class GlobalSecondaryIndex extends com.pulumi.resources.CustomResource {
      * See `keySchema` below.
      * 
      */
-    public Output<Optional<List<GlobalSecondaryIndexKeySchema>>> keySchemas() {
-        return Codegen.optional(this.keySchemas);
+    public Output<List<GlobalSecondaryIndexKeySchema>> keySchemas() {
+        return this.keySchemas;
     }
     /**
      * Sets the maximum number of read and write units for the index.

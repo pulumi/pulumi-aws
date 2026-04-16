@@ -49,6 +49,12 @@ namespace Pulumi.Aws.Ecs.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Configuration block for an S3 Files volume. Detailed below.
+        /// </summary>
+        [Input("s3filesVolumeConfiguration")]
+        public Input<Inputs.TaskDefinitionVolumeS3filesVolumeConfigurationArgs>? S3filesVolumeConfiguration { get; set; }
+
         public TaskDefinitionVolumeArgs()
         {
         }

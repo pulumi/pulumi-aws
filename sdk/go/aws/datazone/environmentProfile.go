@@ -141,7 +141,7 @@ import (
 //				}).(pulumi.StringPtrOutput)),
 //				ProvisioningRoleArn: domainExecutionRole.Arn,
 //				EnabledRegions: pulumi.StringArray{
-//					pulumi.String(pulumi.String(testGetRegion.Name)),
+//					pulumi.String(pulumi.String(testGetRegion.Region)),
 //				},
 //			})
 //			if err != nil {
@@ -149,7 +149,7 @@ import (
 //			}
 //			_, err = datazone.NewEnvironmentProfile(ctx, "test", &datazone.EnvironmentProfileArgs{
 //				AwsAccountId:     pulumi.String(pulumi.String(test.AccountId)),
-//				AwsAccountRegion: pulumi.String(pulumi.String(testGetRegion.Name)),
+//				AwsAccountRegion: pulumi.String(pulumi.String(testGetRegion.Region)),
 //				Description:      pulumi.String("description"),
 //				EnvironmentBlueprintIdentifier: pulumi.String(testGetEnvironmentBlueprint.ApplyT(func(testGetEnvironmentBlueprint datazone.GetEnvironmentBlueprintResult) (*string, error) {
 //					return &testGetEnvironmentBlueprint.Id, nil

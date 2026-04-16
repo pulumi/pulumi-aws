@@ -37,6 +37,7 @@ __all__ = [
     'DomainClusterConfigNodeOptionNodeConfig',
     'DomainClusterConfigZoneAwarenessConfig',
     'DomainCognitoOptions',
+    'DomainDeploymentStrategyOptions',
     'DomainDomainEndpointOptions',
     'DomainEbsOptions',
     'DomainEncryptAtRest',
@@ -72,6 +73,7 @@ __all__ = [
     'GetDomainClusterConfigNodeOptionNodeConfigResult',
     'GetDomainClusterConfigZoneAwarenessConfigResult',
     'GetDomainCognitoOptionResult',
+    'GetDomainDeploymentStrategyOptionResult',
     'GetDomainEbsOptionResult',
     'GetDomainEncryptionAtRestResult',
     'GetDomainIdentityCenterOptionResult',
@@ -1290,6 +1292,41 @@ class DomainCognitoOptions(dict):
         Whether Amazon Cognito authentication with Dashboard is enabled or not. Default is `false`.
         """
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class DomainDeploymentStrategyOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deploymentStrategy":
+            suggest = "deployment_strategy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainDeploymentStrategyOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainDeploymentStrategyOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainDeploymentStrategyOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deployment_strategy: _builtins.str):
+        """
+        :param _builtins.str deployment_strategy: Deployment strategy for the domain. Valid values: `Default` and `CapacityOptimized`.
+        """
+        pulumi.set(__self__, "deployment_strategy", deployment_strategy)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentStrategy")
+    def deployment_strategy(self) -> _builtins.str:
+        """
+        Deployment strategy for the domain. Valid values: `Default` and `CapacityOptimized`.
+        """
+        return pulumi.get(self, "deployment_strategy")
 
 
 @pulumi.output_type
@@ -3141,6 +3178,24 @@ class GetDomainCognitoOptionResult(dict):
         Cognito User pool used by the domain.
         """
         return pulumi.get(self, "user_pool_id")
+
+
+@pulumi.output_type
+class GetDomainDeploymentStrategyOptionResult(dict):
+    def __init__(__self__, *,
+                 deployment_strategy: _builtins.str):
+        """
+        :param _builtins.str deployment_strategy: Deployment strategy for the domain.
+        """
+        pulumi.set(__self__, "deployment_strategy", deployment_strategy)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentStrategy")
+    def deployment_strategy(self) -> _builtins.str:
+        """
+        Deployment strategy for the domain.
+        """
+        return pulumi.get(self, "deployment_strategy")
 
 
 @pulumi.output_type

@@ -161,6 +161,8 @@ __all__ = [
     'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgsDict',
     'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs',
     'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgsDict',
+    'TaskDefinitionVolumeS3filesVolumeConfigurationArgs',
+    'TaskDefinitionVolumeS3filesVolumeConfigurationArgsDict',
     'TaskSetCapacityProviderStrategyArgs',
     'TaskSetCapacityProviderStrategyArgsDict',
     'TaskSetLoadBalancerArgs',
@@ -4754,6 +4756,10 @@ class TaskDefinitionVolumeArgsDict(TypedDict):
     """
     Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
     """
+    s3files_volume_configuration: NotRequired[pulumi.Input['TaskDefinitionVolumeS3filesVolumeConfigurationArgsDict']]
+    """
+    Configuration block for an S3 Files volume. Detailed below.
+    """
 
 @pulumi.input_type
 class TaskDefinitionVolumeArgs:
@@ -4763,7 +4769,8 @@ class TaskDefinitionVolumeArgs:
                  docker_volume_configuration: Optional[pulumi.Input['TaskDefinitionVolumeDockerVolumeConfigurationArgs']] = None,
                  efs_volume_configuration: Optional[pulumi.Input['TaskDefinitionVolumeEfsVolumeConfigurationArgs']] = None,
                  fsx_windows_file_server_volume_configuration: Optional[pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs']] = None,
-                 host_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 host_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 s3files_volume_configuration: Optional[pulumi.Input['TaskDefinitionVolumeS3filesVolumeConfigurationArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] name: Name of the volume. This name is referenced in the `sourceVolume`
                parameter of container definition in the `mountPoints` section.
@@ -4772,6 +4779,7 @@ class TaskDefinitionVolumeArgs:
         :param pulumi.Input['TaskDefinitionVolumeEfsVolumeConfigurationArgs'] efs_volume_configuration: Configuration block for an EFS volume. Detailed below.
         :param pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs'] fsx_windows_file_server_volume_configuration: Configuration block for an FSX Windows File Server volume. Detailed below.
         :param pulumi.Input[_builtins.str] host_path: Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
+        :param pulumi.Input['TaskDefinitionVolumeS3filesVolumeConfigurationArgs'] s3files_volume_configuration: Configuration block for an S3 Files volume. Detailed below.
         """
         pulumi.set(__self__, "name", name)
         if configure_at_launch is not None:
@@ -4784,6 +4792,8 @@ class TaskDefinitionVolumeArgs:
             pulumi.set(__self__, "fsx_windows_file_server_volume_configuration", fsx_windows_file_server_volume_configuration)
         if host_path is not None:
             pulumi.set(__self__, "host_path", host_path)
+        if s3files_volume_configuration is not None:
+            pulumi.set(__self__, "s3files_volume_configuration", s3files_volume_configuration)
 
     @_builtins.property
     @pulumi.getter
@@ -4857,6 +4867,18 @@ class TaskDefinitionVolumeArgs:
     @host_path.setter
     def host_path(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "host_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3filesVolumeConfiguration")
+    def s3files_volume_configuration(self) -> Optional[pulumi.Input['TaskDefinitionVolumeS3filesVolumeConfigurationArgs']]:
+        """
+        Configuration block for an S3 Files volume. Detailed below.
+        """
+        return pulumi.get(self, "s3files_volume_configuration")
+
+    @s3files_volume_configuration.setter
+    def s3files_volume_configuration(self, value: Optional[pulumi.Input['TaskDefinitionVolumeS3filesVolumeConfigurationArgs']]):
+        pulumi.set(self, "s3files_volume_configuration", value)
 
 
 class TaskDefinitionVolumeDockerVolumeConfigurationArgsDict(TypedDict):
@@ -5236,6 +5258,94 @@ class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationCo
     @domain.setter
     def domain(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "domain", value)
+
+
+class TaskDefinitionVolumeS3filesVolumeConfigurationArgsDict(TypedDict):
+    file_system_arn: pulumi.Input[_builtins.str]
+    """
+    Full ARN of the S3 Files file system to mount.
+    """
+    access_point_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Full ARN of the S3 Files access point to use. If configured, `root_directory` must either be omitted or set to `"/"`.
+    """
+    root_directory: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Directory within the Amazon S3 Files file system to mount as the root directory.
+    """
+    transit_encryption_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Port to use for sending encrypted data between the ECS host and the S3 Files file system.
+    """
+
+@pulumi.input_type
+class TaskDefinitionVolumeS3filesVolumeConfigurationArgs:
+    def __init__(__self__, *,
+                 file_system_arn: pulumi.Input[_builtins.str],
+                 access_point_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 root_directory: Optional[pulumi.Input[_builtins.str]] = None,
+                 transit_encryption_port: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] file_system_arn: Full ARN of the S3 Files file system to mount.
+        :param pulumi.Input[_builtins.str] access_point_arn: Full ARN of the S3 Files access point to use. If configured, `root_directory` must either be omitted or set to `"/"`.
+        :param pulumi.Input[_builtins.str] root_directory: Directory within the Amazon S3 Files file system to mount as the root directory.
+        :param pulumi.Input[_builtins.int] transit_encryption_port: Port to use for sending encrypted data between the ECS host and the S3 Files file system.
+        """
+        pulumi.set(__self__, "file_system_arn", file_system_arn)
+        if access_point_arn is not None:
+            pulumi.set(__self__, "access_point_arn", access_point_arn)
+        if root_directory is not None:
+            pulumi.set(__self__, "root_directory", root_directory)
+        if transit_encryption_port is not None:
+            pulumi.set(__self__, "transit_encryption_port", transit_encryption_port)
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemArn")
+    def file_system_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        Full ARN of the S3 Files file system to mount.
+        """
+        return pulumi.get(self, "file_system_arn")
+
+    @file_system_arn.setter
+    def file_system_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "file_system_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accessPointArn")
+    def access_point_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Full ARN of the S3 Files access point to use. If configured, `root_directory` must either be omitted or set to `"/"`.
+        """
+        return pulumi.get(self, "access_point_arn")
+
+    @access_point_arn.setter
+    def access_point_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "access_point_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rootDirectory")
+    def root_directory(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Directory within the Amazon S3 Files file system to mount as the root directory.
+        """
+        return pulumi.get(self, "root_directory")
+
+    @root_directory.setter
+    def root_directory(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "root_directory", value)
+
+    @_builtins.property
+    @pulumi.getter(name="transitEncryptionPort")
+    def transit_encryption_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Port to use for sending encrypted data between the ECS host and the S3 Files file system.
+        """
+        return pulumi.get(self, "transit_encryption_port")
+
+    @transit_encryption_port.setter
+    def transit_encryption_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "transit_encryption_port", value)
 
 
 class TaskSetCapacityProviderStrategyArgsDict(TypedDict):

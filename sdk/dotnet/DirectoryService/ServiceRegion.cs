@@ -131,7 +131,7 @@ namespace Pulumi.Aws.DirectoryService
     ///     var exampleServiceRegion = new Aws.DirectoryService.ServiceRegion("example", new()
     ///     {
     ///         DirectoryId = exampleDirectory.Id,
-    ///         RegionName = example.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///         RegionName = example.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///         VpcSettings = new Aws.DirectoryService.Inputs.ServiceRegionVpcSettingsArgs
     ///         {
     ///             VpcId = example_secondary.Id,

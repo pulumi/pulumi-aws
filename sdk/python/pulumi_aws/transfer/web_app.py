@@ -370,7 +370,7 @@ class WebApp(pulumi.CustomResource):
                     "s3:GetDataAccess",
                     "s3:ListCallerAccessGrants",
                 ],
-                "resources": [f"arn:{current_get_partition.partition}:s3:{current_get_region.name}:{current.account_id}:access-grants/*"],
+                "resources": [f"arn:{current_get_partition.partition}:s3:{current_get_region.region}:{current.account_id}:access-grants/*"],
                 "conditions": [{
                     "test": "StringEquals",
                     "values": [current.account_id],
@@ -475,7 +475,7 @@ class WebApp(pulumi.CustomResource):
                     "s3:GetDataAccess",
                     "s3:ListCallerAccessGrants",
                 ],
-                "resources": [f"arn:{current_get_partition.partition}:s3:{current_get_region.name}:{current.account_id}:access-grants/*"],
+                "resources": [f"arn:{current_get_partition.partition}:s3:{current_get_region.region}:{current.account_id}:access-grants/*"],
                 "conditions": [{
                     "test": "StringEquals",
                     "values": [current.account_id],

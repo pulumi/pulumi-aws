@@ -12,7 +12,7 @@ namespace Pulumi.Aws.ElastiCache
     /// <summary>
     /// Provides an ElastiCache user resource.
     /// 
-    /// &gt; **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
+    /// &gt; **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text unless you use the write-only `PasswordsWo` argument.
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -89,6 +89,29 @@ namespace Pulumi.Aws.ElastiCache
     /// });
     /// ```
     /// 
+    /// ### Using Write-Only Password (Terraform 1.11+)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.ElastiCache.User("test", new()
+    ///     {
+    ///         UserId = "testUserId",
+    ///         UserName = "testUserName",
+    ///         AccessString = "on ~* +@all",
+    ///         Engine = "redis",
+    ///         PasswordsWo = elasticachePassword,
+    ///         PasswordsWoVersion = 1,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ElastiCache users using the `UserId`. For example:
@@ -135,6 +158,19 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Output("passwords")]
         public Output<ImmutableArray<string>> Passwords { get; private set; } = null!;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only password for this user. This argument is not stored in state. Conflicts with `Passwords` and `AuthenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+        /// </summary>
+        [Output("passwordsWo")]
+        public Output<string?> PasswordsWo { get; private set; } = null!;
+
+        /// <summary>
+        /// Version number for `PasswordsWo`. Increment this value to trigger a password update. Required when using `PasswordsWo`.
+        /// </summary>
+        [Output("passwordsWoVersion")]
+        public Output<int?> PasswordsWoVersion { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -191,6 +227,7 @@ namespace Pulumi.Aws.ElastiCache
                 AdditionalSecretOutputs =
                 {
                     "passwords",
+                    "passwordsWo",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -254,6 +291,29 @@ namespace Pulumi.Aws.ElastiCache
                 _passwords = Output.All(value, emptySecret).Apply(v => v[0]);
             }
         }
+
+        [Input("passwordsWo")]
+        private Input<string>? _passwordsWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only password for this user. This argument is not stored in state. Conflicts with `Passwords` and `AuthenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+        /// </summary>
+        public Input<string>? PasswordsWo
+        {
+            get => _passwordsWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _passwordsWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Version number for `PasswordsWo`. Increment this value to trigger a password update. Required when using `PasswordsWo`.
+        /// </summary>
+        [Input("passwordsWoVersion")]
+        public Input<int>? PasswordsWoVersion { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -340,6 +400,29 @@ namespace Pulumi.Aws.ElastiCache
                 _passwords = Output.All(value, emptySecret).Apply(v => v[0]);
             }
         }
+
+        [Input("passwordsWo")]
+        private Input<string>? _passwordsWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only password for this user. This argument is not stored in state. Conflicts with `Passwords` and `AuthenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+        /// </summary>
+        public Input<string>? PasswordsWo
+        {
+            get => _passwordsWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _passwordsWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Version number for `PasswordsWo`. Increment this value to trigger a password update. Required when using `PasswordsWo`.
+        /// </summary>
+        [Input("passwordsWoVersion")]
+        public Input<int>? PasswordsWoVersion { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

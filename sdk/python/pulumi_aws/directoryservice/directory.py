@@ -28,6 +28,7 @@ class DirectoryArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  desired_number_of_domain_controllers: Optional[pulumi.Input[_builtins.int]] = None,
                  edition: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_directory_data_access: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_sso: Optional[pulumi.Input[_builtins.bool]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  short_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -45,6 +46,7 @@ class DirectoryArgs:
         :param pulumi.Input[_builtins.str] description: A textual description for the directory.
         :param pulumi.Input[_builtins.int] desired_number_of_domain_controllers: The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
         :param pulumi.Input[_builtins.str] edition: The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
+        :param pulumi.Input[_builtins.bool] enable_directory_data_access: Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
         :param pulumi.Input[_builtins.bool] enable_sso: Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] short_name: The short name of the directory, such as `CORP`.
@@ -65,6 +67,8 @@ class DirectoryArgs:
             pulumi.set(__self__, "desired_number_of_domain_controllers", desired_number_of_domain_controllers)
         if edition is not None:
             pulumi.set(__self__, "edition", edition)
+        if enable_directory_data_access is not None:
+            pulumi.set(__self__, "enable_directory_data_access", enable_directory_data_access)
         if enable_sso is not None:
             pulumi.set(__self__, "enable_sso", enable_sso)
         if region is not None:
@@ -165,6 +169,18 @@ class DirectoryArgs:
         pulumi.set(self, "edition", value)
 
     @_builtins.property
+    @pulumi.getter(name="enableDirectoryDataAccess")
+    def enable_directory_data_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
+        """
+        return pulumi.get(self, "enable_directory_data_access")
+
+    @enable_directory_data_access.setter
+    def enable_directory_data_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_directory_data_access", value)
+
+    @_builtins.property
     @pulumi.getter(name="enableSso")
     def enable_sso(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -259,6 +275,7 @@ class _DirectoryState:
                  desired_number_of_domain_controllers: Optional[pulumi.Input[_builtins.int]] = None,
                  dns_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  edition: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_directory_data_access: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_sso: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  password: Optional[pulumi.Input[_builtins.str]] = None,
@@ -280,6 +297,7 @@ class _DirectoryState:
         :param pulumi.Input[_builtins.int] desired_number_of_domain_controllers: The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_ip_addresses: A list of IP addresses of the DNS servers for the directory or connector.
         :param pulumi.Input[_builtins.str] edition: The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
+        :param pulumi.Input[_builtins.bool] enable_directory_data_access: Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
         :param pulumi.Input[_builtins.bool] enable_sso: Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
         :param pulumi.Input[_builtins.str] name: The fully qualified name for the directory, such as `corp.example.com`
         :param pulumi.Input[_builtins.str] password: The password for the directory administrator or connector user.
@@ -306,6 +324,8 @@ class _DirectoryState:
             pulumi.set(__self__, "dns_ip_addresses", dns_ip_addresses)
         if edition is not None:
             pulumi.set(__self__, "edition", edition)
+        if enable_directory_data_access is not None:
+            pulumi.set(__self__, "enable_directory_data_access", enable_directory_data_access)
         if enable_sso is not None:
             pulumi.set(__self__, "enable_sso", enable_sso)
         if name is not None:
@@ -412,6 +432,18 @@ class _DirectoryState:
     @edition.setter
     def edition(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "edition", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableDirectoryDataAccess")
+    def enable_directory_data_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
+        """
+        return pulumi.get(self, "enable_directory_data_access")
+
+    @enable_directory_data_access.setter
+    def enable_directory_data_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_directory_data_access", value)
 
     @_builtins.property
     @pulumi.getter(name="enableSso")
@@ -557,6 +589,7 @@ class Directory(pulumi.CustomResource):
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  desired_number_of_domain_controllers: Optional[pulumi.Input[_builtins.int]] = None,
                  edition: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_directory_data_access: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_sso: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  password: Optional[pulumi.Input[_builtins.str]] = None,
@@ -682,6 +715,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A textual description for the directory.
         :param pulumi.Input[_builtins.int] desired_number_of_domain_controllers: The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
         :param pulumi.Input[_builtins.str] edition: The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
+        :param pulumi.Input[_builtins.bool] enable_directory_data_access: Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
         :param pulumi.Input[_builtins.bool] enable_sso: Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
         :param pulumi.Input[_builtins.str] name: The fully qualified name for the directory, such as `corp.example.com`
         :param pulumi.Input[_builtins.str] password: The password for the directory administrator or connector user.
@@ -826,6 +860,7 @@ class Directory(pulumi.CustomResource):
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  desired_number_of_domain_controllers: Optional[pulumi.Input[_builtins.int]] = None,
                  edition: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_directory_data_access: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_sso: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  password: Optional[pulumi.Input[_builtins.str]] = None,
@@ -849,6 +884,7 @@ class Directory(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["desired_number_of_domain_controllers"] = desired_number_of_domain_controllers
             __props__.__dict__["edition"] = edition
+            __props__.__dict__["enable_directory_data_access"] = enable_directory_data_access
             __props__.__dict__["enable_sso"] = enable_sso
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
@@ -885,6 +921,7 @@ class Directory(pulumi.CustomResource):
             desired_number_of_domain_controllers: Optional[pulumi.Input[_builtins.int]] = None,
             dns_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             edition: Optional[pulumi.Input[_builtins.str]] = None,
+            enable_directory_data_access: Optional[pulumi.Input[_builtins.bool]] = None,
             enable_sso: Optional[pulumi.Input[_builtins.bool]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             password: Optional[pulumi.Input[_builtins.str]] = None,
@@ -910,6 +947,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] desired_number_of_domain_controllers: The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_ip_addresses: A list of IP addresses of the DNS servers for the directory or connector.
         :param pulumi.Input[_builtins.str] edition: The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
+        :param pulumi.Input[_builtins.bool] enable_directory_data_access: Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
         :param pulumi.Input[_builtins.bool] enable_sso: Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
         :param pulumi.Input[_builtins.str] name: The fully qualified name for the directory, such as `corp.example.com`
         :param pulumi.Input[_builtins.str] password: The password for the directory administrator or connector user.
@@ -933,6 +971,7 @@ class Directory(pulumi.CustomResource):
         __props__.__dict__["desired_number_of_domain_controllers"] = desired_number_of_domain_controllers
         __props__.__dict__["dns_ip_addresses"] = dns_ip_addresses
         __props__.__dict__["edition"] = edition
+        __props__.__dict__["enable_directory_data_access"] = enable_directory_data_access
         __props__.__dict__["enable_sso"] = enable_sso
         __props__.__dict__["name"] = name
         __props__.__dict__["password"] = password
@@ -1001,6 +1040,14 @@ class Directory(pulumi.CustomResource):
         The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
         """
         return pulumi.get(self, "edition")
+
+    @_builtins.property
+    @pulumi.getter(name="enableDirectoryDataAccess")
+    def enable_directory_data_access(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
+        """
+        return pulumi.get(self, "enable_directory_data_access")
 
     @_builtins.property
     @pulumi.getter(name="enableSso")

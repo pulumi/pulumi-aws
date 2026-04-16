@@ -143,12 +143,12 @@ import javax.annotation.Nullable;
  *             .domainId(testDomain.id())
  *             .environmentBlueprintId(testGetEnvironmentBlueprint.applyValue(_testGetEnvironmentBlueprint -> _testGetEnvironmentBlueprint.id()))
  *             .provisioningRoleArn(domainExecutionRole.arn())
- *             .enabledRegions(testGetRegion.name())
+ *             .enabledRegions(testGetRegion.region())
  *             .build());
  * 
  *         var testEnvironmentProfile = new EnvironmentProfile("testEnvironmentProfile", EnvironmentProfileArgs.builder()
  *             .awsAccountId(test.accountId())
- *             .awsAccountRegion(testGetRegion.name())
+ *             .awsAccountRegion(testGetRegion.region())
  *             .description("description")
  *             .environmentBlueprintIdentifier(testGetEnvironmentBlueprint.applyValue(_testGetEnvironmentBlueprint -> _testGetEnvironmentBlueprint.id()))
  *             .name("example-name")

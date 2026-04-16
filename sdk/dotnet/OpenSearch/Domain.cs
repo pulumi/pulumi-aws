@@ -517,6 +517,12 @@ namespace Pulumi.Aws.OpenSearch
         public Output<string> DashboardEndpointV2 { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block for the deployment strategy options of the domain. Detailed below.
+        /// </summary>
+        [Output("deploymentStrategyOptions")]
+        public Output<Outputs.DomainDeploymentStrategyOptions> DeploymentStrategyOptions { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         /// </summary>
         [Output("domainEndpointOptions")]
@@ -735,6 +741,12 @@ namespace Pulumi.Aws.OpenSearch
         public Input<Inputs.DomainCognitoOptionsArgs>? CognitoOptions { get; set; }
 
         /// <summary>
+        /// Configuration block for the deployment strategy options of the domain. Detailed below.
+        /// </summary>
+        [Input("deploymentStrategyOptions")]
+        public Input<Inputs.DomainDeploymentStrategyOptionsArgs>? DeploymentStrategyOptions { get; set; }
+
+        /// <summary>
         /// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         /// </summary>
         [Input("domainEndpointOptions")]
@@ -913,6 +925,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("dashboardEndpointV2")]
         public Input<string>? DashboardEndpointV2 { get; set; }
+
+        /// <summary>
+        /// Configuration block for the deployment strategy options of the domain. Detailed below.
+        /// </summary>
+        [Input("deploymentStrategyOptions")]
+        public Input<Inputs.DomainDeploymentStrategyOptionsGetArgs>? DeploymentStrategyOptions { get; set; }
 
         /// <summary>
         /// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
