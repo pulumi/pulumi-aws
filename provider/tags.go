@@ -90,7 +90,7 @@ func applyTags(
 	ctx context.Context, config resource.PropertyMap, meta resource.PropertyMap,
 ) (resource.PropertyMap, error) {
 	ret := config.Copy()
-	configTags := resource.NewObjectProperty(resource.PropertyMap{})
+	configTags := resource.NewNullProperty()
 	if t, ok := config["tags"]; ok {
 		configTags = t
 	}
@@ -99,7 +99,7 @@ func applyTags(
 		return nil, err
 	}
 	if allTags.IsNull() {
-		ret["tagsAll"] = resource.NewObjectProperty(resource.PropertyMap{})
+		ret["tagsAll"] = allTags // preserve null, don't convert to {}
 		return ret, nil
 	}
 	ret["tagsAll"] = allTags

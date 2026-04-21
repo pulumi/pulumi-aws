@@ -103,6 +103,65 @@ func TestHasOptionalOrRequiredNamePropertyOptimized(t *testing.T) {
 		}
 	}
 }
+func TestApplyTags(t *testing.T) {
+	t.Parallel()
+
+	ctx := context.Background()
+
+	t.Run("no tags in config and no default tags returns null tagsAll", func(t *testing.T) {
+		config := resource.PropertyMap{
+			"name": resource.NewStringProperty("my-resource"),
+		}
+		meta := resource.PropertyMap{}
+
+		result, err := applyTags(ctx, config, meta)
+		assert.NoError(t, err)
+		assert.True(t, result["tagsAll"].IsNull(),
+			"expected tagsAll to be null when no tags are set, got %v", result["tagsAll"])
+	})
+
+	t.Run("empty tags in config and no default tags returns null tagsAll", func(t *testing.T) {
+		config := resource.PropertyMap{
+			"tags": resource.NewObjectProperty(resource.PropertyMap{}),
+		}
+		meta := resource.PropertyMap{}
+
+		result, err := applyTags(ctx, config, meta)
+		assert.NoError(t, err)
+		assert.True(t, result["tagsAll"].IsNull(),
+			"expected tagsAll to be null when tags is empty, got %v", result["tagsAll"])
+	})
+
+	t.Run("tags in config are propagated to tagsAll", func(t *testing.T) {
+		config := resource.PropertyMap{
+			"tags": resource.NewObjectProperty(resource.PropertyMap{
+				"Name": resource.NewStringProperty("example"),
+			}),
+		}
+		meta := resource.PropertyMap{}
+
+		result, err := applyTags(ctx, config, meta)
+		assert.NoError(t, err)
+		assert.True(t, result["tagsAll"].IsObject())
+		assert.Equal(t,
+			resource.NewStringProperty("example"),
+			result["tagsAll"].ObjectValue()["Name"],
+		)
+	})
+
+	t.Run("does not mutate original config", func(t *testing.T) {
+		config := resource.PropertyMap{
+			"name": resource.NewStringProperty("my-resource"),
+		}
+		meta := resource.PropertyMap{}
+
+		_, err := applyTags(ctx, config, meta)
+		assert.NoError(t, err)
+		_, hasTagsAll := config["tagsAll"]
+		assert.False(t, hasTagsAll, "applyTags should not mutate the original config")
+	})
+}
+
 func TestExtractTags(t *testing.T) {
 	t.Parallel()
 
