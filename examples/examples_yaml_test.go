@@ -1550,9 +1550,7 @@ func TestSourceCodeHashImportedLambdaChecksCleanly(t *testing.T) {
         "inputs": {
             "__defaults": [
                 "memorySize",
-                "publish",
                 "reservedConcurrentExecutions",
-                "skipDestroy",
                 "timeout"
             ],
             "architectures": [
@@ -1571,23 +1569,16 @@ func TestSourceCodeHashImportedLambdaChecksCleanly(t *testing.T) {
             },
             "handler": "index.test",
             "loggingConfig": {
-                "__defaults": [
-                    "applicationLogLevel",
-                    "systemLogLevel"
-                ],
-                "applicationLogLevel": "",
+                "__defaults": [],
                 "logFormat": "Text",
-                "logGroup": "/aws/lambda/testLambda-83906f2",
-                "systemLogLevel": ""
+                "logGroup": "/aws/lambda/testLambda-83906f2"
             },
             "memorySize": 128,
             "name": "testLambda-83906f2",
             "packageType": "Zip",
-            "publish": false,
             "reservedConcurrentExecutions": -1,
             "role": "arn:aws:iam::616138583583:role/iamForLambda-d5757fe",
             "runtime": "nodejs18.x",
-            "skipDestroy": false,
             "sourceCodeHash": "WUsPYQdwiMj+sDZzl3tNaSzS42vqVfng2CZtgcy+TRs=",
             "timeout": 3,
 						"tagsAll": {},
