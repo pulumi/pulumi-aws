@@ -9462,7 +9462,7 @@ type FirehoseDeliveryStreamHttpEndpointConfiguration struct {
 	S3Configuration FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration `pulumi:"s3Configuration"`
 	// The Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
 	SecretsManagerConfiguration *FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration `pulumi:"secretsManagerConfiguration"`
-	// The HTTP endpoint URL to which Kinesis Firehose sends your data.
+	// The HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor's documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
 	Url string `pulumi:"url"`
 }
 
@@ -9502,7 +9502,7 @@ type FirehoseDeliveryStreamHttpEndpointConfigurationArgs struct {
 	S3Configuration FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationInput `pulumi:"s3Configuration"`
 	// The Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
 	SecretsManagerConfiguration FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrInput `pulumi:"secretsManagerConfiguration"`
-	// The HTTP endpoint URL to which Kinesis Firehose sends your data.
+	// The HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor's documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
 	Url pulumi.StringInput `pulumi:"url"`
 }
 
@@ -9653,7 +9653,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) SecretsManagerCon
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput)
 }
 
-// The HTTP endpoint URL to which Kinesis Firehose sends your data.
+// The HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor's documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -9802,7 +9802,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) SecretsManager
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput)
 }
 
-// The HTTP endpoint URL to which Kinesis Firehose sends your data.
+// The HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor's documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfiguration) *string {
 		if v == nil {

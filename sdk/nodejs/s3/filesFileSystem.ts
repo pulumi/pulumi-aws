@@ -70,6 +70,10 @@ export class FilesFileSystem extends pulumi.CustomResource {
     }
 
     /**
+     * Set to `true` to acknowledge and accept any warnings related to the bucket configuration. If not specified, the operation may fail when such warnings are present. For example, warnings may be raised when creating a file system scoped to a prefix containing a large number of objects (approximately 12 million objects). See [the AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-synchronization.html#s3-files-sync-rename-move) for more details.
+     */
+    declare public readonly acceptBucketWarning: pulumi.Output<boolean | undefined>;
+    /**
      * ARN of the file system.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
@@ -138,6 +142,7 @@ export class FilesFileSystem extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FilesFileSystemState | undefined;
+            resourceInputs["acceptBucketWarning"] = state?.acceptBucketWarning;
             resourceInputs["arn"] = state?.arn;
             resourceInputs["bucket"] = state?.bucket;
             resourceInputs["creationTime"] = state?.creationTime;
@@ -160,6 +165,7 @@ export class FilesFileSystem extends pulumi.CustomResource {
             if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
+            resourceInputs["acceptBucketWarning"] = args?.acceptBucketWarning;
             resourceInputs["bucket"] = args?.bucket;
             resourceInputs["kmsKeyId"] = args?.kmsKeyId;
             resourceInputs["prefix"] = args?.prefix;
@@ -184,6 +190,10 @@ export class FilesFileSystem extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FilesFileSystem resources.
  */
 export interface FilesFileSystemState {
+    /**
+     * Set to `true` to acknowledge and accept any warnings related to the bucket configuration. If not specified, the operation may fail when such warnings are present. For example, warnings may be raised when creating a file system scoped to a prefix containing a large number of objects (approximately 12 million objects). See [the AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-synchronization.html#s3-files-sync-rename-move) for more details.
+     */
+    acceptBucketWarning?: pulumi.Input<boolean>;
     /**
      * ARN of the file system.
      */
@@ -245,6 +255,10 @@ export interface FilesFileSystemState {
  * The set of arguments for constructing a FilesFileSystem resource.
  */
 export interface FilesFileSystemArgs {
+    /**
+     * Set to `true` to acknowledge and accept any warnings related to the bucket configuration. If not specified, the operation may fail when such warnings are present. For example, warnings may be raised when creating a file system scoped to a prefix containing a large number of objects (approximately 12 million objects). See [the AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-synchronization.html#s3-files-sync-rename-move) for more details.
+     */
+    acceptBucketWarning?: pulumi.Input<boolean>;
     /**
      * S3 bucket ARN. Changing this value forces replacement.
      */

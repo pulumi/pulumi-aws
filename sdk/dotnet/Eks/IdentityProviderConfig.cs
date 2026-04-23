@@ -38,10 +38,22 @@ namespace Pulumi.Aws.Eks
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EKS Identity Provider Configurations using the `ClusterName` and `IdentityProviderConfigName` separated by a colon (`:`). For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `ClusterName` (String) Name of the EKS Cluster.
+    /// * `IdentityProviderConfigName` (String) Name of the identity provider config.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Identity Provider Configurations using the `ClusterName` and `IdentityProviderConfigName` separated by a colon (`:`). For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig my_identity_provider_config my_cluster:my_identity_provider_config
+    /// $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig example example-cluster:example-config
     /// ```
     /// </summary>
     [AwsResourceType("aws:eks/identityProviderConfig:IdentityProviderConfig")]
@@ -58,6 +70,9 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Output("clusterName")]
         public Output<string> ClusterName { get; private set; } = null!;
+
+        [Output("identityProviderConfigName")]
+        public Output<string> IdentityProviderConfigName { get; private set; } = null!;
 
         /// <summary>
         /// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
@@ -184,6 +199,9 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
+
+        [Input("identityProviderConfigName")]
+        public Input<string>? IdentityProviderConfigName { get; set; }
 
         /// <summary>
         /// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.

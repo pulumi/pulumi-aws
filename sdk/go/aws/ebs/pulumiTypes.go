@@ -713,6 +713,181 @@ func (o SnapshotImportDiskContainerUserBucketPtrOutput) S3Key() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+type VolumeCopyTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// VolumeCopyTimeoutsInput is an input type that accepts VolumeCopyTimeoutsArgs and VolumeCopyTimeoutsOutput values.
+// You can construct a concrete instance of `VolumeCopyTimeoutsInput` via:
+//
+//	VolumeCopyTimeoutsArgs{...}
+type VolumeCopyTimeoutsInput interface {
+	pulumi.Input
+
+	ToVolumeCopyTimeoutsOutput() VolumeCopyTimeoutsOutput
+	ToVolumeCopyTimeoutsOutputWithContext(context.Context) VolumeCopyTimeoutsOutput
+}
+
+type VolumeCopyTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (VolumeCopyTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeCopyTimeouts)(nil)).Elem()
+}
+
+func (i VolumeCopyTimeoutsArgs) ToVolumeCopyTimeoutsOutput() VolumeCopyTimeoutsOutput {
+	return i.ToVolumeCopyTimeoutsOutputWithContext(context.Background())
+}
+
+func (i VolumeCopyTimeoutsArgs) ToVolumeCopyTimeoutsOutputWithContext(ctx context.Context) VolumeCopyTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeCopyTimeoutsOutput)
+}
+
+func (i VolumeCopyTimeoutsArgs) ToVolumeCopyTimeoutsPtrOutput() VolumeCopyTimeoutsPtrOutput {
+	return i.ToVolumeCopyTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeCopyTimeoutsArgs) ToVolumeCopyTimeoutsPtrOutputWithContext(ctx context.Context) VolumeCopyTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeCopyTimeoutsOutput).ToVolumeCopyTimeoutsPtrOutputWithContext(ctx)
+}
+
+// VolumeCopyTimeoutsPtrInput is an input type that accepts VolumeCopyTimeoutsArgs, VolumeCopyTimeoutsPtr and VolumeCopyTimeoutsPtrOutput values.
+// You can construct a concrete instance of `VolumeCopyTimeoutsPtrInput` via:
+//
+//	        VolumeCopyTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeCopyTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToVolumeCopyTimeoutsPtrOutput() VolumeCopyTimeoutsPtrOutput
+	ToVolumeCopyTimeoutsPtrOutputWithContext(context.Context) VolumeCopyTimeoutsPtrOutput
+}
+
+type volumeCopyTimeoutsPtrType VolumeCopyTimeoutsArgs
+
+func VolumeCopyTimeoutsPtr(v *VolumeCopyTimeoutsArgs) VolumeCopyTimeoutsPtrInput {
+	return (*volumeCopyTimeoutsPtrType)(v)
+}
+
+func (*volumeCopyTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeCopyTimeouts)(nil)).Elem()
+}
+
+func (i *volumeCopyTimeoutsPtrType) ToVolumeCopyTimeoutsPtrOutput() VolumeCopyTimeoutsPtrOutput {
+	return i.ToVolumeCopyTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeCopyTimeoutsPtrType) ToVolumeCopyTimeoutsPtrOutputWithContext(ctx context.Context) VolumeCopyTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeCopyTimeoutsPtrOutput)
+}
+
+type VolumeCopyTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (VolumeCopyTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeCopyTimeouts)(nil)).Elem()
+}
+
+func (o VolumeCopyTimeoutsOutput) ToVolumeCopyTimeoutsOutput() VolumeCopyTimeoutsOutput {
+	return o
+}
+
+func (o VolumeCopyTimeoutsOutput) ToVolumeCopyTimeoutsOutputWithContext(ctx context.Context) VolumeCopyTimeoutsOutput {
+	return o
+}
+
+func (o VolumeCopyTimeoutsOutput) ToVolumeCopyTimeoutsPtrOutput() VolumeCopyTimeoutsPtrOutput {
+	return o.ToVolumeCopyTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeCopyTimeoutsOutput) ToVolumeCopyTimeoutsPtrOutputWithContext(ctx context.Context) VolumeCopyTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeCopyTimeouts) *VolumeCopyTimeouts {
+		return &v
+	}).(VolumeCopyTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o VolumeCopyTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeCopyTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o VolumeCopyTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeCopyTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o VolumeCopyTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeCopyTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type VolumeCopyTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeCopyTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeCopyTimeouts)(nil)).Elem()
+}
+
+func (o VolumeCopyTimeoutsPtrOutput) ToVolumeCopyTimeoutsPtrOutput() VolumeCopyTimeoutsPtrOutput {
+	return o
+}
+
+func (o VolumeCopyTimeoutsPtrOutput) ToVolumeCopyTimeoutsPtrOutputWithContext(ctx context.Context) VolumeCopyTimeoutsPtrOutput {
+	return o
+}
+
+func (o VolumeCopyTimeoutsPtrOutput) Elem() VolumeCopyTimeoutsOutput {
+	return o.ApplyT(func(v *VolumeCopyTimeouts) VolumeCopyTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeCopyTimeouts
+		return ret
+	}).(VolumeCopyTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o VolumeCopyTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeCopyTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o VolumeCopyTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeCopyTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o VolumeCopyTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeCopyTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetEbsVolumesFilter struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
@@ -1227,6 +1402,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotImportDiskContainerPtrInput)(nil)).Elem(), SnapshotImportDiskContainerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotImportDiskContainerUserBucketInput)(nil)).Elem(), SnapshotImportDiskContainerUserBucketArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotImportDiskContainerUserBucketPtrInput)(nil)).Elem(), SnapshotImportDiskContainerUserBucketArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeCopyTimeoutsInput)(nil)).Elem(), VolumeCopyTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeCopyTimeoutsPtrInput)(nil)).Elem(), VolumeCopyTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEbsVolumesFilterInput)(nil)).Elem(), GetEbsVolumesFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEbsVolumesFilterArrayInput)(nil)).Elem(), GetEbsVolumesFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotFilterInput)(nil)).Elem(), GetSnapshotFilterArgs{})
@@ -1243,6 +1420,8 @@ func init() {
 	pulumi.RegisterOutputType(SnapshotImportDiskContainerPtrOutput{})
 	pulumi.RegisterOutputType(SnapshotImportDiskContainerUserBucketOutput{})
 	pulumi.RegisterOutputType(SnapshotImportDiskContainerUserBucketPtrOutput{})
+	pulumi.RegisterOutputType(VolumeCopyTimeoutsOutput{})
+	pulumi.RegisterOutputType(VolumeCopyTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GetEbsVolumesFilterOutput{})
 	pulumi.RegisterOutputType(GetEbsVolumesFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetSnapshotFilterOutput{})

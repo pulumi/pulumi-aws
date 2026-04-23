@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -43,6 +44,11 @@ public final class GetNetworkPeeringConnectionResult {
      * 
      */
     private String peerNetworkArn;
+    /**
+     * @return Set of peer network cidrs.
+     * 
+     */
+    private List<String> peerNetworkCidrs;
     /**
      * @return Progress of the ODB network peering connection.
      * 
@@ -112,6 +118,13 @@ public final class GetNetworkPeeringConnectionResult {
         return this.peerNetworkArn;
     }
     /**
+     * @return Set of peer network cidrs.
+     * 
+     */
+    public List<String> peerNetworkCidrs() {
+        return this.peerNetworkCidrs;
+    }
+    /**
      * @return Progress of the ODB network peering connection.
      * 
      */
@@ -159,6 +172,7 @@ public final class GetNetworkPeeringConnectionResult {
         private String odbNetworkArn;
         private String odbPeeringConnectionType;
         private String peerNetworkArn;
+        private List<String> peerNetworkCidrs;
         private Double percentProgress;
         private String region;
         private String status;
@@ -174,6 +188,7 @@ public final class GetNetworkPeeringConnectionResult {
     	      this.odbNetworkArn = defaults.odbNetworkArn;
     	      this.odbPeeringConnectionType = defaults.odbPeeringConnectionType;
     	      this.peerNetworkArn = defaults.peerNetworkArn;
+    	      this.peerNetworkCidrs = defaults.peerNetworkCidrs;
     	      this.percentProgress = defaults.percentProgress;
     	      this.region = defaults.region;
     	      this.status = defaults.status;
@@ -238,6 +253,17 @@ public final class GetNetworkPeeringConnectionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder peerNetworkCidrs(List<String> peerNetworkCidrs) {
+            if (peerNetworkCidrs == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPeeringConnectionResult", "peerNetworkCidrs");
+            }
+            this.peerNetworkCidrs = peerNetworkCidrs;
+            return this;
+        }
+        public Builder peerNetworkCidrs(String... peerNetworkCidrs) {
+            return peerNetworkCidrs(List.of(peerNetworkCidrs));
+        }
+        @CustomType.Setter
         public Builder percentProgress(Double percentProgress) {
             if (percentProgress == null) {
               throw new MissingRequiredPropertyException("GetNetworkPeeringConnectionResult", "percentProgress");
@@ -286,6 +312,7 @@ public final class GetNetworkPeeringConnectionResult {
             _resultValue.odbNetworkArn = odbNetworkArn;
             _resultValue.odbPeeringConnectionType = odbPeeringConnectionType;
             _resultValue.peerNetworkArn = peerNetworkArn;
+            _resultValue.peerNetworkCidrs = peerNetworkCidrs;
             _resultValue.percentProgress = percentProgress;
             _resultValue.region = region;
             _resultValue.status = status;

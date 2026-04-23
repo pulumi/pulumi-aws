@@ -8303,7 +8303,7 @@ class InventoryDestinationBucket(dict):
                  encryption: Optional['outputs.InventoryDestinationBucketEncryption'] = None,
                  prefix: Optional[_builtins.str] = None):
         """
-        :param _builtins.str bucket_arn: Amazon S3 bucket ARN of the destination.
+        :param _builtins.str bucket_arn: Amazon S3 bucket ARN of the destination. Only general purpose buckets are supported.
         :param _builtins.str format: Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
         :param _builtins.str account_id: ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
         :param 'InventoryDestinationBucketEncryptionArgs' encryption: Contains the type of server-side encryption to use to encrypt the inventory (documented below).
@@ -8322,7 +8322,7 @@ class InventoryDestinationBucket(dict):
     @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> _builtins.str:
         """
-        Amazon S3 bucket ARN of the destination.
+        Amazon S3 bucket ARN of the destination. Only general purpose buckets are supported.
         """
         return pulumi.get(self, "bucket_arn")
 

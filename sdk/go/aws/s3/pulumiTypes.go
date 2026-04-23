@@ -22880,7 +22880,7 @@ func (o InventoryDestinationPtrOutput) Bucket() InventoryDestinationBucketPtrOut
 type InventoryDestinationBucket struct {
 	// ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
 	AccountId *string `pulumi:"accountId"`
-	// Amazon S3 bucket ARN of the destination.
+	// Amazon S3 bucket ARN of the destination. Only general purpose buckets are supported.
 	BucketArn string `pulumi:"bucketArn"`
 	// Contains the type of server-side encryption to use to encrypt the inventory (documented below).
 	Encryption *InventoryDestinationBucketEncryption `pulumi:"encryption"`
@@ -22904,7 +22904,7 @@ type InventoryDestinationBucketInput interface {
 type InventoryDestinationBucketArgs struct {
 	// ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
-	// Amazon S3 bucket ARN of the destination.
+	// Amazon S3 bucket ARN of the destination. Only general purpose buckets are supported.
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
 	// Contains the type of server-side encryption to use to encrypt the inventory (documented below).
 	Encryption InventoryDestinationBucketEncryptionPtrInput `pulumi:"encryption"`
@@ -22996,7 +22996,7 @@ func (o InventoryDestinationBucketOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InventoryDestinationBucket) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
-// Amazon S3 bucket ARN of the destination.
+// Amazon S3 bucket ARN of the destination. Only general purpose buckets are supported.
 func (o InventoryDestinationBucketOutput) BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v InventoryDestinationBucket) string { return v.BucketArn }).(pulumi.StringOutput)
 }
@@ -23050,7 +23050,7 @@ func (o InventoryDestinationBucketPtrOutput) AccountId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon S3 bucket ARN of the destination.
+// Amazon S3 bucket ARN of the destination. Only general purpose buckets are supported.
 func (o InventoryDestinationBucketPtrOutput) BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InventoryDestinationBucket) *string {
 		if v == nil {

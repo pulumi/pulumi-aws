@@ -22,8 +22,6 @@ import javax.annotation.Nullable;
 /**
  * Provides a S3 bucket [inventory configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html) resource.
  * 
- * &gt; This resource cannot be used with S3 directory buckets.
- * 
  * ## Example Usage
  * 
  * ### Add inventory configuration
@@ -157,14 +155,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3/inventory:Inventory")
 public class Inventory extends com.pulumi.resources.CustomResource {
     /**
-     * Name of the source bucket that inventory lists the objects for.
+     * Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
      * 
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
-     * @return Name of the source bucket that inventory lists the objects for.
+     * @return Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
      * 
      */
     public Output<String> bucket() {

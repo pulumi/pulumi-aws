@@ -3112,7 +3112,7 @@ class LifecyclePolicyResourceSelectionRecipe(dict):
                  semantic_version: _builtins.str):
         """
         :param _builtins.str name: The name of an Image Builder recipe that the lifecycle policy uses for resource selection.
-        :param _builtins.str semantic_version: The version of the Image Builder recipe specified by the name field.
+        :param _builtins.str semantic_version: The version of the Image Builder recipe specified by the `name` field. Wildcard semantic version is supported (e.g. `1.0.x`, `1.x.x`, `x.x.x`).
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "semantic_version", semantic_version)
@@ -3129,7 +3129,7 @@ class LifecyclePolicyResourceSelectionRecipe(dict):
     @pulumi.getter(name="semanticVersion")
     def semantic_version(self) -> _builtins.str:
         """
-        The version of the Image Builder recipe specified by the name field.
+        The version of the Image Builder recipe specified by the `name` field. Wildcard semantic version is supported (e.g. `1.0.x`, `1.x.x`, `x.x.x`).
         """
         return pulumi.get(self, "semantic_version")
 

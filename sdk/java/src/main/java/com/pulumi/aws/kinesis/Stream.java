@@ -126,14 +126,14 @@ public class Stream extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enforceConsumerDeletion);
     }
     /**
-     * The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
+     * The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyId;
 
     /**
-     * @return The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
+     * @return The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
      * 
      */
     public Output<Optional<String>> kmsKeyId() {

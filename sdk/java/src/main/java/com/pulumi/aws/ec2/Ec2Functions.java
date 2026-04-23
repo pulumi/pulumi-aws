@@ -94,6 +94,10 @@ import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
 import com.pulumi.aws.ec2.inputs.GetSecurityGroupsPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetSerialConsoleAccessArgs;
 import com.pulumi.aws.ec2.inputs.GetSerialConsoleAccessPlainArgs;
+import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfaceArgs;
+import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacePlainArgs;
+import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesArgs;
+import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetSpotDatafeedSubscriptionArgs;
 import com.pulumi.aws.ec2.inputs.GetSpotDatafeedSubscriptionPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
@@ -177,6 +181,8 @@ import com.pulumi.aws.ec2.outputs.GetRouteTablesResult;
 import com.pulumi.aws.ec2.outputs.GetSecurityGroupResult;
 import com.pulumi.aws.ec2.outputs.GetSecurityGroupsResult;
 import com.pulumi.aws.ec2.outputs.GetSerialConsoleAccessResult;
+import com.pulumi.aws.ec2.outputs.GetServiceLinkVirtualInterfaceResult;
+import com.pulumi.aws.ec2.outputs.GetServiceLinkVirtualInterfacesResult;
 import com.pulumi.aws.ec2.outputs.GetSpotDatafeedSubscriptionResult;
 import com.pulumi.aws.ec2.outputs.GetSpotPriceResult;
 import com.pulumi.aws.ec2.outputs.GetSubnetResult;
@@ -16869,6 +16875,587 @@ public final class Ec2Functions {
      */
     public static CompletableFuture<GetSerialConsoleAccessResult> getSerialConsoleAccessPlain(GetSerialConsoleAccessPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", TypeShape.of(GetSerialConsoleAccessResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an EC2 Service Link Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/how-outposts-works.html#how-service-link).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getServiceLinkVirtualInterface(GetServiceLinkVirtualInterfaceArgs.builder()
+     *             .id("slvif-1234567890abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServiceLinkVirtualInterfaceResult> getServiceLinkVirtualInterface() {
+        return getServiceLinkVirtualInterface(GetServiceLinkVirtualInterfaceArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an EC2 Service Link Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/how-outposts-works.html#how-service-link).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getServiceLinkVirtualInterface(GetServiceLinkVirtualInterfaceArgs.builder()
+     *             .id("slvif-1234567890abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetServiceLinkVirtualInterfaceResult> getServiceLinkVirtualInterfacePlain() {
+        return getServiceLinkVirtualInterfacePlain(GetServiceLinkVirtualInterfacePlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an EC2 Service Link Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/how-outposts-works.html#how-service-link).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getServiceLinkVirtualInterface(GetServiceLinkVirtualInterfaceArgs.builder()
+     *             .id("slvif-1234567890abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServiceLinkVirtualInterfaceResult> getServiceLinkVirtualInterface(GetServiceLinkVirtualInterfaceArgs args) {
+        return getServiceLinkVirtualInterface(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an EC2 Service Link Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/how-outposts-works.html#how-service-link).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getServiceLinkVirtualInterface(GetServiceLinkVirtualInterfaceArgs.builder()
+     *             .id("slvif-1234567890abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetServiceLinkVirtualInterfaceResult> getServiceLinkVirtualInterfacePlain(GetServiceLinkVirtualInterfacePlainArgs args) {
+        return getServiceLinkVirtualInterfacePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an EC2 Service Link Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/how-outposts-works.html#how-service-link).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getServiceLinkVirtualInterface(GetServiceLinkVirtualInterfaceArgs.builder()
+     *             .id("slvif-1234567890abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServiceLinkVirtualInterfaceResult> getServiceLinkVirtualInterface(GetServiceLinkVirtualInterfaceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ec2/getServiceLinkVirtualInterface:getServiceLinkVirtualInterface", TypeShape.of(GetServiceLinkVirtualInterfaceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an EC2 Service Link Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/how-outposts-works.html#how-service-link).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getServiceLinkVirtualInterface(GetServiceLinkVirtualInterfaceArgs.builder()
+     *             .id("slvif-1234567890abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServiceLinkVirtualInterfaceResult> getServiceLinkVirtualInterface(GetServiceLinkVirtualInterfaceArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:ec2/getServiceLinkVirtualInterface:getServiceLinkVirtualInterface", TypeShape.of(GetServiceLinkVirtualInterfaceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an EC2 Service Link Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/how-outposts-works.html#how-service-link).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getServiceLinkVirtualInterface(GetServiceLinkVirtualInterfaceArgs.builder()
+     *             .id("slvif-1234567890abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetServiceLinkVirtualInterfaceResult> getServiceLinkVirtualInterfacePlain(GetServiceLinkVirtualInterfacePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ec2/getServiceLinkVirtualInterface:getServiceLinkVirtualInterface", TypeShape.of(GetServiceLinkVirtualInterfaceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a list of EC2 Service Link Virtual Interface IDs matching the provided filters. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/how-outposts-works.html#how-service-link).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getServiceLinkVirtualInterfaces(GetServiceLinkVirtualInterfacesArgs.builder()
+     *             .filters(GetServiceLinkVirtualInterfacesFilterArgs.builder()
+     *                 .name("outpost-arn")
+     *                 .values(exampleAwsOutpostsOutpost.arn())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServiceLinkVirtualInterfacesResult> getServiceLinkVirtualInterfaces() {
+        return getServiceLinkVirtualInterfaces(GetServiceLinkVirtualInterfacesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of EC2 Service Link Virtual Interface IDs matching the provided filters. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/how-outposts-works.html#how-service-link).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getServiceLinkVirtualInterfaces(GetServiceLinkVirtualInterfacesArgs.builder()
+     *             .filters(GetServiceLinkVirtualInterfacesFilterArgs.builder()
+     *                 .name("outpost-arn")
+     *                 .values(exampleAwsOutpostsOutpost.arn())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetServiceLinkVirtualInterfacesResult> getServiceLinkVirtualInterfacesPlain() {
+        return getServiceLinkVirtualInterfacesPlain(GetServiceLinkVirtualInterfacesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of EC2 Service Link Virtual Interface IDs matching the provided filters. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/how-outposts-works.html#how-service-link).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getServiceLinkVirtualInterfaces(GetServiceLinkVirtualInterfacesArgs.builder()
+     *             .filters(GetServiceLinkVirtualInterfacesFilterArgs.builder()
+     *                 .name("outpost-arn")
+     *                 .values(exampleAwsOutpostsOutpost.arn())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServiceLinkVirtualInterfacesResult> getServiceLinkVirtualInterfaces(GetServiceLinkVirtualInterfacesArgs args) {
+        return getServiceLinkVirtualInterfaces(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of EC2 Service Link Virtual Interface IDs matching the provided filters. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/how-outposts-works.html#how-service-link).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getServiceLinkVirtualInterfaces(GetServiceLinkVirtualInterfacesArgs.builder()
+     *             .filters(GetServiceLinkVirtualInterfacesFilterArgs.builder()
+     *                 .name("outpost-arn")
+     *                 .values(exampleAwsOutpostsOutpost.arn())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetServiceLinkVirtualInterfacesResult> getServiceLinkVirtualInterfacesPlain(GetServiceLinkVirtualInterfacesPlainArgs args) {
+        return getServiceLinkVirtualInterfacesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of EC2 Service Link Virtual Interface IDs matching the provided filters. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/how-outposts-works.html#how-service-link).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getServiceLinkVirtualInterfaces(GetServiceLinkVirtualInterfacesArgs.builder()
+     *             .filters(GetServiceLinkVirtualInterfacesFilterArgs.builder()
+     *                 .name("outpost-arn")
+     *                 .values(exampleAwsOutpostsOutpost.arn())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServiceLinkVirtualInterfacesResult> getServiceLinkVirtualInterfaces(GetServiceLinkVirtualInterfacesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ec2/getServiceLinkVirtualInterfaces:getServiceLinkVirtualInterfaces", TypeShape.of(GetServiceLinkVirtualInterfacesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a list of EC2 Service Link Virtual Interface IDs matching the provided filters. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/how-outposts-works.html#how-service-link).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getServiceLinkVirtualInterfaces(GetServiceLinkVirtualInterfacesArgs.builder()
+     *             .filters(GetServiceLinkVirtualInterfacesFilterArgs.builder()
+     *                 .name("outpost-arn")
+     *                 .values(exampleAwsOutpostsOutpost.arn())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServiceLinkVirtualInterfacesResult> getServiceLinkVirtualInterfaces(GetServiceLinkVirtualInterfacesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:ec2/getServiceLinkVirtualInterfaces:getServiceLinkVirtualInterfaces", TypeShape.of(GetServiceLinkVirtualInterfacesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a list of EC2 Service Link Virtual Interface IDs matching the provided filters. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/how-outposts-works.html#how-service-link).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getServiceLinkVirtualInterfaces(GetServiceLinkVirtualInterfacesArgs.builder()
+     *             .filters(GetServiceLinkVirtualInterfacesFilterArgs.builder()
+     *                 .name("outpost-arn")
+     *                 .values(exampleAwsOutpostsOutpost.arn())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetServiceLinkVirtualInterfacesResult> getServiceLinkVirtualInterfacesPlain(GetServiceLinkVirtualInterfacesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ec2/getServiceLinkVirtualInterfaces:getServiceLinkVirtualInterfaces", TypeShape.of(GetServiceLinkVirtualInterfacesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * &gt; There is only a single spot data feed subscription per account.

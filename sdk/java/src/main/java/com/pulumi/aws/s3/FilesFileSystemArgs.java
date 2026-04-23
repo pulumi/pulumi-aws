@@ -7,6 +7,7 @@ import com.pulumi.aws.s3.inputs.FilesFileSystemTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -17,6 +18,21 @@ import javax.annotation.Nullable;
 public final class FilesFileSystemArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final FilesFileSystemArgs Empty = new FilesFileSystemArgs();
+
+    /**
+     * Set to `true` to acknowledge and accept any warnings related to the bucket configuration. If not specified, the operation may fail when such warnings are present. For example, warnings may be raised when creating a file system scoped to a prefix containing a large number of objects (approximately 12 million objects). See [the AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-synchronization.html#s3-files-sync-rename-move) for more details.
+     * 
+     */
+    @Import(name="acceptBucketWarning")
+    private @Nullable Output<Boolean> acceptBucketWarning;
+
+    /**
+     * @return Set to `true` to acknowledge and accept any warnings related to the bucket configuration. If not specified, the operation may fail when such warnings are present. For example, warnings may be raised when creating a file system scoped to a prefix containing a large number of objects (approximately 12 million objects). See [the AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-synchronization.html#s3-files-sync-rename-move) for more details.
+     * 
+     */
+    public Optional<Output<Boolean>> acceptBucketWarning() {
+        return Optional.ofNullable(this.acceptBucketWarning);
+    }
 
     /**
      * S3 bucket ARN. Changing this value forces replacement.
@@ -122,6 +138,7 @@ public final class FilesFileSystemArgs extends com.pulumi.resources.ResourceArgs
     private FilesFileSystemArgs() {}
 
     private FilesFileSystemArgs(FilesFileSystemArgs $) {
+        this.acceptBucketWarning = $.acceptBucketWarning;
         this.bucket = $.bucket;
         this.kmsKeyId = $.kmsKeyId;
         this.prefix = $.prefix;
@@ -147,6 +164,27 @@ public final class FilesFileSystemArgs extends com.pulumi.resources.ResourceArgs
 
         public Builder(FilesFileSystemArgs defaults) {
             $ = new FilesFileSystemArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param acceptBucketWarning Set to `true` to acknowledge and accept any warnings related to the bucket configuration. If not specified, the operation may fail when such warnings are present. For example, warnings may be raised when creating a file system scoped to a prefix containing a large number of objects (approximately 12 million objects). See [the AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-synchronization.html#s3-files-sync-rename-move) for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder acceptBucketWarning(@Nullable Output<Boolean> acceptBucketWarning) {
+            $.acceptBucketWarning = acceptBucketWarning;
+            return this;
+        }
+
+        /**
+         * @param acceptBucketWarning Set to `true` to acknowledge and accept any warnings related to the bucket configuration. If not specified, the operation may fail when such warnings are present. For example, warnings may be raised when creating a file system scoped to a prefix containing a large number of objects (approximately 12 million objects). See [the AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-synchronization.html#s3-files-sync-rename-move) for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder acceptBucketWarning(Boolean acceptBucketWarning) {
+            return acceptBucketWarning(Output.of(acceptBucketWarning));
         }
 
         /**

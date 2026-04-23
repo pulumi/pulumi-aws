@@ -94,6 +94,7 @@ class _IdentityProviderConfigState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
                  cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity_provider_config_name: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc: Optional[pulumi.Input['IdentityProviderConfigOidcArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
@@ -114,6 +115,8 @@ class _IdentityProviderConfigState:
             pulumi.set(__self__, "arn", arn)
         if cluster_name is not None:
             pulumi.set(__self__, "cluster_name", cluster_name)
+        if identity_provider_config_name is not None:
+            pulumi.set(__self__, "identity_provider_config_name", identity_provider_config_name)
         if oidc is not None:
             pulumi.set(__self__, "oidc", oidc)
         if region is not None:
@@ -148,6 +151,15 @@ class _IdentityProviderConfigState:
     @cluster_name.setter
     def cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "cluster_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="identityProviderConfigName")
+    def identity_provider_config_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "identity_provider_config_name")
+
+    @identity_provider_config_name.setter
+    def identity_provider_config_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "identity_provider_config_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -241,10 +253,22 @@ class IdentityProviderConfig(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import EKS Identity Provider Configurations using the `cluster_name` and `identity_provider_config_name` separated by a colon (`:`). For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `cluster_name` (String) Name of the EKS Cluster.
+        * `identity_provider_config_name` (String) Name of the identity provider config.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Identity Provider Configurations using the `cluster_name` and `identity_provider_config_name` separated by a colon (`:`). For example:
 
         ```sh
-        $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig my_identity_provider_config my_cluster:my_identity_provider_config
+        $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig example example-cluster:example-config
         ```
 
 
@@ -281,10 +305,22 @@ class IdentityProviderConfig(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import EKS Identity Provider Configurations using the `cluster_name` and `identity_provider_config_name` separated by a colon (`:`). For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `cluster_name` (String) Name of the EKS Cluster.
+        * `identity_provider_config_name` (String) Name of the identity provider config.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Identity Provider Configurations using the `cluster_name` and `identity_provider_config_name` separated by a colon (`:`). For example:
 
         ```sh
-        $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig my_identity_provider_config my_cluster:my_identity_provider_config
+        $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig example example-cluster:example-config
         ```
 
 
@@ -325,6 +361,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
             __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["identity_provider_config_name"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
         super(IdentityProviderConfig, __self__).__init__(
@@ -339,6 +376,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[_builtins.str]] = None,
             cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+            identity_provider_config_name: Optional[pulumi.Input[_builtins.str]] = None,
             oidc: Optional[pulumi.Input[Union['IdentityProviderConfigOidcArgs', 'IdentityProviderConfigOidcArgsDict']]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
             status: Optional[pulumi.Input[_builtins.str]] = None,
@@ -365,6 +403,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["cluster_name"] = cluster_name
+        __props__.__dict__["identity_provider_config_name"] = identity_provider_config_name
         __props__.__dict__["oidc"] = oidc
         __props__.__dict__["region"] = region
         __props__.__dict__["status"] = status
@@ -387,6 +426,11 @@ class IdentityProviderConfig(pulumi.CustomResource):
         Name of the EKS Cluster.
         """
         return pulumi.get(self, "cluster_name")
+
+    @_builtins.property
+    @pulumi.getter(name="identityProviderConfigName")
+    def identity_provider_config_name(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "identity_provider_config_name")
 
     @_builtins.property
     @pulumi.getter

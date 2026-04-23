@@ -3117,6 +3117,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cloudwatch/otelEnrichment",
+  "fqn": "pulumi_aws.cloudwatch",
+  "classes": {
+   "aws:cloudwatch/otelEnrichment:OtelEnrichment": "OtelEnrichment"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cloudwatch/queryDefinition",
   "fqn": "pulumi_aws.cloudwatch",
   "classes": {
@@ -4649,6 +4657,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ebs",
   "classes": {
    "aws:ebs/volume:Volume": "Volume"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ebs/volumeCopy",
+  "fqn": "pulumi_aws.ebs",
+  "classes": {
+   "aws:ebs/volumeCopy:VolumeCopy": "VolumeCopy"
   }
  },
  {
@@ -11513,6 +11529,14 @@ _utilities.register(
   "fqn": "pulumi_aws.sagemaker",
   "classes": {
    "aws:sagemaker/humanTaskUI:HumanTaskUI": "HumanTaskUI"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sagemaker/hyperParameterTuningJob",
+  "fqn": "pulumi_aws.sagemaker",
+  "classes": {
+   "aws:sagemaker/hyperParameterTuningJob:HyperParameterTuningJob": "HyperParameterTuningJob"
   }
  },
  {

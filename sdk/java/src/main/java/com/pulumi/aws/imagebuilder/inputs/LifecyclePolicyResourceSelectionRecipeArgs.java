@@ -30,14 +30,14 @@ public final class LifecyclePolicyResourceSelectionRecipeArgs extends com.pulumi
     }
 
     /**
-     * The version of the Image Builder recipe specified by the name field.
+     * The version of the Image Builder recipe specified by the `name` field. Wildcard semantic version is supported (e.g. `1.0.x`, `1.x.x`, `x.x.x`).
      * 
      */
     @Import(name="semanticVersion", required=true)
     private Output<String> semanticVersion;
 
     /**
-     * @return The version of the Image Builder recipe specified by the name field.
+     * @return The version of the Image Builder recipe specified by the `name` field. Wildcard semantic version is supported (e.g. `1.0.x`, `1.x.x`, `x.x.x`).
      * 
      */
     public Output<String> semanticVersion() {
@@ -91,7 +91,7 @@ public final class LifecyclePolicyResourceSelectionRecipeArgs extends com.pulumi
         }
 
         /**
-         * @param semanticVersion The version of the Image Builder recipe specified by the name field.
+         * @param semanticVersion The version of the Image Builder recipe specified by the `name` field. Wildcard semantic version is supported (e.g. `1.0.x`, `1.x.x`, `x.x.x`).
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class LifecyclePolicyResourceSelectionRecipeArgs extends com.pulumi
         }
 
         /**
-         * @param semanticVersion The version of the Image Builder recipe specified by the name field.
+         * @param semanticVersion The version of the Image Builder recipe specified by the `name` field. Wildcard semantic version is supported (e.g. `1.0.x`, `1.x.x`, `x.x.x`).
          * 
          * @return builder
          * 

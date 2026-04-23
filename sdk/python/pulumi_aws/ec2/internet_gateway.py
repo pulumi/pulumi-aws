@@ -246,6 +246,17 @@ class InternetGateway(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) ID of the Internet Gateway.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import Internet Gateways using the `id`. For example:
 
         ```sh
@@ -292,6 +303,17 @@ class InternetGateway(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) ID of the Internet Gateway.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Internet Gateways using the `id`. For example:
 

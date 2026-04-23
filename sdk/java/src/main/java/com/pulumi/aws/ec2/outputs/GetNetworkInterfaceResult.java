@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetNetworkInterfaceAssociation;
 import com.pulumi.aws.ec2.outputs.GetNetworkInterfaceAttachment;
+import com.pulumi.aws.ec2.outputs.GetNetworkInterfaceEnaSrdSpecification;
 import com.pulumi.aws.ec2.outputs.GetNetworkInterfaceFilter;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -41,6 +42,11 @@ public final class GetNetworkInterfaceResult {
      * 
      */
     private String description;
+    /**
+     * @return ENA Express configuration for the network interface. See enaSrdSpecification below.
+     * 
+     */
+    private List<GetNetworkInterfaceEnaSrdSpecification> enaSrdSpecifications;
     private @Nullable List<GetNetworkInterfaceFilter> filters;
     private String id;
     /**
@@ -145,6 +151,13 @@ public final class GetNetworkInterfaceResult {
      */
     public String description() {
         return this.description;
+    }
+    /**
+     * @return ENA Express configuration for the network interface. See enaSrdSpecification below.
+     * 
+     */
+    public List<GetNetworkInterfaceEnaSrdSpecification> enaSrdSpecifications() {
+        return this.enaSrdSpecifications;
     }
     public List<GetNetworkInterfaceFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -261,6 +274,7 @@ public final class GetNetworkInterfaceResult {
         private List<GetNetworkInterfaceAttachment> attachments;
         private String availabilityZone;
         private String description;
+        private List<GetNetworkInterfaceEnaSrdSpecification> enaSrdSpecifications;
         private @Nullable List<GetNetworkInterfaceFilter> filters;
         private String id;
         private String interfaceType;
@@ -285,6 +299,7 @@ public final class GetNetworkInterfaceResult {
     	      this.attachments = defaults.attachments;
     	      this.availabilityZone = defaults.availabilityZone;
     	      this.description = defaults.description;
+    	      this.enaSrdSpecifications = defaults.enaSrdSpecifications;
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.interfaceType = defaults.interfaceType;
@@ -348,6 +363,17 @@ public final class GetNetworkInterfaceResult {
             }
             this.description = description;
             return this;
+        }
+        @CustomType.Setter
+        public Builder enaSrdSpecifications(List<GetNetworkInterfaceEnaSrdSpecification> enaSrdSpecifications) {
+            if (enaSrdSpecifications == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "enaSrdSpecifications");
+            }
+            this.enaSrdSpecifications = enaSrdSpecifications;
+            return this;
+        }
+        public Builder enaSrdSpecifications(GetNetworkInterfaceEnaSrdSpecification... enaSrdSpecifications) {
+            return enaSrdSpecifications(List.of(enaSrdSpecifications));
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetNetworkInterfaceFilter> filters) {
@@ -494,6 +520,7 @@ public final class GetNetworkInterfaceResult {
             _resultValue.attachments = attachments;
             _resultValue.availabilityZone = availabilityZone;
             _resultValue.description = description;
+            _resultValue.enaSrdSpecifications = enaSrdSpecifications;
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.interfaceType = interfaceType;

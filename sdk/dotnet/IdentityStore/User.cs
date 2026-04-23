@@ -158,6 +158,12 @@ namespace Pulumi.Aws.IdentityStore
         public Output<string> UserName { get; private set; } = null!;
 
         /// <summary>
+        /// The current status of the user account.
+        /// </summary>
+        [Output("userStatus")]
+        public Output<string> UserStatus { get; private set; } = null!;
+
+        /// <summary>
         /// The user type.
         /// 
         /// &gt; Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
@@ -416,6 +422,12 @@ namespace Pulumi.Aws.IdentityStore
         /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
+
+        /// <summary>
+        /// The current status of the user account.
+        /// </summary>
+        [Input("userStatus")]
+        public Input<string>? UserStatus { get; set; }
 
         /// <summary>
         /// The user type.

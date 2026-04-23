@@ -213,6 +213,11 @@ export type MetricStream = import("./metricStream").MetricStream;
 export const MetricStream: typeof import("./metricStream").MetricStream = null as any;
 utilities.lazyLoad(exports, ["MetricStream"], () => require("./metricStream"));
 
+export { OtelEnrichmentArgs, OtelEnrichmentState } from "./otelEnrichment";
+export type OtelEnrichment = import("./otelEnrichment").OtelEnrichment;
+export const OtelEnrichment: typeof import("./otelEnrichment").OtelEnrichment = null as any;
+utilities.lazyLoad(exports, ["OtelEnrichment"], () => require("./otelEnrichment"));
+
 export { QueryDefinitionArgs, QueryDefinitionState } from "./queryDefinition";
 export type QueryDefinition = import("./queryDefinition").QueryDefinition;
 export const QueryDefinition: typeof import("./queryDefinition").QueryDefinition = null as any;
@@ -289,6 +294,8 @@ const _module = {
                 return new MetricAlarm(name, <any>undefined, { urn })
             case "aws:cloudwatch/metricStream:MetricStream":
                 return new MetricStream(name, <any>undefined, { urn })
+            case "aws:cloudwatch/otelEnrichment:OtelEnrichment":
+                return new OtelEnrichment(name, <any>undefined, { urn })
             case "aws:cloudwatch/queryDefinition:QueryDefinition":
                 return new QueryDefinition(name, <any>undefined, { urn })
             default:
@@ -329,4 +336,5 @@ pulumi.runtime.registerResourceModule("aws", "cloudwatch/logSubscriptionFilter",
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logTransformer", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/metricAlarm", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/metricStream", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudwatch/otelEnrichment", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/queryDefinition", _module)

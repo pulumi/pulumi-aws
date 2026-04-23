@@ -42,6 +42,17 @@ namespace Pulumi.Aws.Ebs
     /// ```sh
     /// $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
     /// ```
+    /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Id` (String) Volume ID.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// </summary>
     [AwsResourceType("aws:ebs/volume:Volume")]
     public partial class Volume : global::Pulumi.CustomResource

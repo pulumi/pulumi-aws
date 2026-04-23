@@ -12040,6 +12040,320 @@ func (o LogTransformerTransformerConfigUpperCaseStringArrayOutput) Index(i pulum
 	}).(LogTransformerTransformerConfigUpperCaseStringOutput)
 }
 
+type MetricAlarmEvaluationCriteria struct {
+	// The PromQL criteria for the alarm evaluation.
+	PromqlCriteria MetricAlarmEvaluationCriteriaPromqlCriteria `pulumi:"promqlCriteria"`
+}
+
+// MetricAlarmEvaluationCriteriaInput is an input type that accepts MetricAlarmEvaluationCriteriaArgs and MetricAlarmEvaluationCriteriaOutput values.
+// You can construct a concrete instance of `MetricAlarmEvaluationCriteriaInput` via:
+//
+//	MetricAlarmEvaluationCriteriaArgs{...}
+type MetricAlarmEvaluationCriteriaInput interface {
+	pulumi.Input
+
+	ToMetricAlarmEvaluationCriteriaOutput() MetricAlarmEvaluationCriteriaOutput
+	ToMetricAlarmEvaluationCriteriaOutputWithContext(context.Context) MetricAlarmEvaluationCriteriaOutput
+}
+
+type MetricAlarmEvaluationCriteriaArgs struct {
+	// The PromQL criteria for the alarm evaluation.
+	PromqlCriteria MetricAlarmEvaluationCriteriaPromqlCriteriaInput `pulumi:"promqlCriteria"`
+}
+
+func (MetricAlarmEvaluationCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlarmEvaluationCriteria)(nil)).Elem()
+}
+
+func (i MetricAlarmEvaluationCriteriaArgs) ToMetricAlarmEvaluationCriteriaOutput() MetricAlarmEvaluationCriteriaOutput {
+	return i.ToMetricAlarmEvaluationCriteriaOutputWithContext(context.Background())
+}
+
+func (i MetricAlarmEvaluationCriteriaArgs) ToMetricAlarmEvaluationCriteriaOutputWithContext(ctx context.Context) MetricAlarmEvaluationCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmEvaluationCriteriaOutput)
+}
+
+func (i MetricAlarmEvaluationCriteriaArgs) ToMetricAlarmEvaluationCriteriaPtrOutput() MetricAlarmEvaluationCriteriaPtrOutput {
+	return i.ToMetricAlarmEvaluationCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i MetricAlarmEvaluationCriteriaArgs) ToMetricAlarmEvaluationCriteriaPtrOutputWithContext(ctx context.Context) MetricAlarmEvaluationCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmEvaluationCriteriaOutput).ToMetricAlarmEvaluationCriteriaPtrOutputWithContext(ctx)
+}
+
+// MetricAlarmEvaluationCriteriaPtrInput is an input type that accepts MetricAlarmEvaluationCriteriaArgs, MetricAlarmEvaluationCriteriaPtr and MetricAlarmEvaluationCriteriaPtrOutput values.
+// You can construct a concrete instance of `MetricAlarmEvaluationCriteriaPtrInput` via:
+//
+//	        MetricAlarmEvaluationCriteriaArgs{...}
+//
+//	or:
+//
+//	        nil
+type MetricAlarmEvaluationCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToMetricAlarmEvaluationCriteriaPtrOutput() MetricAlarmEvaluationCriteriaPtrOutput
+	ToMetricAlarmEvaluationCriteriaPtrOutputWithContext(context.Context) MetricAlarmEvaluationCriteriaPtrOutput
+}
+
+type metricAlarmEvaluationCriteriaPtrType MetricAlarmEvaluationCriteriaArgs
+
+func MetricAlarmEvaluationCriteriaPtr(v *MetricAlarmEvaluationCriteriaArgs) MetricAlarmEvaluationCriteriaPtrInput {
+	return (*metricAlarmEvaluationCriteriaPtrType)(v)
+}
+
+func (*metricAlarmEvaluationCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricAlarmEvaluationCriteria)(nil)).Elem()
+}
+
+func (i *metricAlarmEvaluationCriteriaPtrType) ToMetricAlarmEvaluationCriteriaPtrOutput() MetricAlarmEvaluationCriteriaPtrOutput {
+	return i.ToMetricAlarmEvaluationCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *metricAlarmEvaluationCriteriaPtrType) ToMetricAlarmEvaluationCriteriaPtrOutputWithContext(ctx context.Context) MetricAlarmEvaluationCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmEvaluationCriteriaPtrOutput)
+}
+
+type MetricAlarmEvaluationCriteriaOutput struct{ *pulumi.OutputState }
+
+func (MetricAlarmEvaluationCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlarmEvaluationCriteria)(nil)).Elem()
+}
+
+func (o MetricAlarmEvaluationCriteriaOutput) ToMetricAlarmEvaluationCriteriaOutput() MetricAlarmEvaluationCriteriaOutput {
+	return o
+}
+
+func (o MetricAlarmEvaluationCriteriaOutput) ToMetricAlarmEvaluationCriteriaOutputWithContext(ctx context.Context) MetricAlarmEvaluationCriteriaOutput {
+	return o
+}
+
+func (o MetricAlarmEvaluationCriteriaOutput) ToMetricAlarmEvaluationCriteriaPtrOutput() MetricAlarmEvaluationCriteriaPtrOutput {
+	return o.ToMetricAlarmEvaluationCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o MetricAlarmEvaluationCriteriaOutput) ToMetricAlarmEvaluationCriteriaPtrOutputWithContext(ctx context.Context) MetricAlarmEvaluationCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricAlarmEvaluationCriteria) *MetricAlarmEvaluationCriteria {
+		return &v
+	}).(MetricAlarmEvaluationCriteriaPtrOutput)
+}
+
+// The PromQL criteria for the alarm evaluation.
+func (o MetricAlarmEvaluationCriteriaOutput) PromqlCriteria() MetricAlarmEvaluationCriteriaPromqlCriteriaOutput {
+	return o.ApplyT(func(v MetricAlarmEvaluationCriteria) MetricAlarmEvaluationCriteriaPromqlCriteria {
+		return v.PromqlCriteria
+	}).(MetricAlarmEvaluationCriteriaPromqlCriteriaOutput)
+}
+
+type MetricAlarmEvaluationCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (MetricAlarmEvaluationCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricAlarmEvaluationCriteria)(nil)).Elem()
+}
+
+func (o MetricAlarmEvaluationCriteriaPtrOutput) ToMetricAlarmEvaluationCriteriaPtrOutput() MetricAlarmEvaluationCriteriaPtrOutput {
+	return o
+}
+
+func (o MetricAlarmEvaluationCriteriaPtrOutput) ToMetricAlarmEvaluationCriteriaPtrOutputWithContext(ctx context.Context) MetricAlarmEvaluationCriteriaPtrOutput {
+	return o
+}
+
+func (o MetricAlarmEvaluationCriteriaPtrOutput) Elem() MetricAlarmEvaluationCriteriaOutput {
+	return o.ApplyT(func(v *MetricAlarmEvaluationCriteria) MetricAlarmEvaluationCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret MetricAlarmEvaluationCriteria
+		return ret
+	}).(MetricAlarmEvaluationCriteriaOutput)
+}
+
+// The PromQL criteria for the alarm evaluation.
+func (o MetricAlarmEvaluationCriteriaPtrOutput) PromqlCriteria() MetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput {
+	return o.ApplyT(func(v *MetricAlarmEvaluationCriteria) *MetricAlarmEvaluationCriteriaPromqlCriteria {
+		if v == nil {
+			return nil
+		}
+		return &v.PromqlCriteria
+	}).(MetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput)
+}
+
+type MetricAlarmEvaluationCriteriaPromqlCriteria struct {
+	// The duration, in seconds, that a contributor must be continuously breaching before it transitions to the ALARM state. Valid range: 0-86400.
+	PendingPeriod *int `pulumi:"pendingPeriod"`
+	// The PromQL query that the alarm evaluates. The query must return a result of vector type. Each entry in the vector result represents an alarm contributor.
+	Query string `pulumi:"query"`
+	// The duration, in seconds, that a contributor must continuously not be breaching before it transitions back to the OK state. Valid range: 0-86400.
+	RecoveryPeriod *int `pulumi:"recoveryPeriod"`
+}
+
+// MetricAlarmEvaluationCriteriaPromqlCriteriaInput is an input type that accepts MetricAlarmEvaluationCriteriaPromqlCriteriaArgs and MetricAlarmEvaluationCriteriaPromqlCriteriaOutput values.
+// You can construct a concrete instance of `MetricAlarmEvaluationCriteriaPromqlCriteriaInput` via:
+//
+//	MetricAlarmEvaluationCriteriaPromqlCriteriaArgs{...}
+type MetricAlarmEvaluationCriteriaPromqlCriteriaInput interface {
+	pulumi.Input
+
+	ToMetricAlarmEvaluationCriteriaPromqlCriteriaOutput() MetricAlarmEvaluationCriteriaPromqlCriteriaOutput
+	ToMetricAlarmEvaluationCriteriaPromqlCriteriaOutputWithContext(context.Context) MetricAlarmEvaluationCriteriaPromqlCriteriaOutput
+}
+
+type MetricAlarmEvaluationCriteriaPromqlCriteriaArgs struct {
+	// The duration, in seconds, that a contributor must be continuously breaching before it transitions to the ALARM state. Valid range: 0-86400.
+	PendingPeriod pulumi.IntPtrInput `pulumi:"pendingPeriod"`
+	// The PromQL query that the alarm evaluates. The query must return a result of vector type. Each entry in the vector result represents an alarm contributor.
+	Query pulumi.StringInput `pulumi:"query"`
+	// The duration, in seconds, that a contributor must continuously not be breaching before it transitions back to the OK state. Valid range: 0-86400.
+	RecoveryPeriod pulumi.IntPtrInput `pulumi:"recoveryPeriod"`
+}
+
+func (MetricAlarmEvaluationCriteriaPromqlCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlarmEvaluationCriteriaPromqlCriteria)(nil)).Elem()
+}
+
+func (i MetricAlarmEvaluationCriteriaPromqlCriteriaArgs) ToMetricAlarmEvaluationCriteriaPromqlCriteriaOutput() MetricAlarmEvaluationCriteriaPromqlCriteriaOutput {
+	return i.ToMetricAlarmEvaluationCriteriaPromqlCriteriaOutputWithContext(context.Background())
+}
+
+func (i MetricAlarmEvaluationCriteriaPromqlCriteriaArgs) ToMetricAlarmEvaluationCriteriaPromqlCriteriaOutputWithContext(ctx context.Context) MetricAlarmEvaluationCriteriaPromqlCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmEvaluationCriteriaPromqlCriteriaOutput)
+}
+
+func (i MetricAlarmEvaluationCriteriaPromqlCriteriaArgs) ToMetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput() MetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput {
+	return i.ToMetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i MetricAlarmEvaluationCriteriaPromqlCriteriaArgs) ToMetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutputWithContext(ctx context.Context) MetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmEvaluationCriteriaPromqlCriteriaOutput).ToMetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutputWithContext(ctx)
+}
+
+// MetricAlarmEvaluationCriteriaPromqlCriteriaPtrInput is an input type that accepts MetricAlarmEvaluationCriteriaPromqlCriteriaArgs, MetricAlarmEvaluationCriteriaPromqlCriteriaPtr and MetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput values.
+// You can construct a concrete instance of `MetricAlarmEvaluationCriteriaPromqlCriteriaPtrInput` via:
+//
+//	        MetricAlarmEvaluationCriteriaPromqlCriteriaArgs{...}
+//
+//	or:
+//
+//	        nil
+type MetricAlarmEvaluationCriteriaPromqlCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToMetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput() MetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput
+	ToMetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutputWithContext(context.Context) MetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput
+}
+
+type metricAlarmEvaluationCriteriaPromqlCriteriaPtrType MetricAlarmEvaluationCriteriaPromqlCriteriaArgs
+
+func MetricAlarmEvaluationCriteriaPromqlCriteriaPtr(v *MetricAlarmEvaluationCriteriaPromqlCriteriaArgs) MetricAlarmEvaluationCriteriaPromqlCriteriaPtrInput {
+	return (*metricAlarmEvaluationCriteriaPromqlCriteriaPtrType)(v)
+}
+
+func (*metricAlarmEvaluationCriteriaPromqlCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricAlarmEvaluationCriteriaPromqlCriteria)(nil)).Elem()
+}
+
+func (i *metricAlarmEvaluationCriteriaPromqlCriteriaPtrType) ToMetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput() MetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput {
+	return i.ToMetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *metricAlarmEvaluationCriteriaPromqlCriteriaPtrType) ToMetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutputWithContext(ctx context.Context) MetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput)
+}
+
+type MetricAlarmEvaluationCriteriaPromqlCriteriaOutput struct{ *pulumi.OutputState }
+
+func (MetricAlarmEvaluationCriteriaPromqlCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlarmEvaluationCriteriaPromqlCriteria)(nil)).Elem()
+}
+
+func (o MetricAlarmEvaluationCriteriaPromqlCriteriaOutput) ToMetricAlarmEvaluationCriteriaPromqlCriteriaOutput() MetricAlarmEvaluationCriteriaPromqlCriteriaOutput {
+	return o
+}
+
+func (o MetricAlarmEvaluationCriteriaPromqlCriteriaOutput) ToMetricAlarmEvaluationCriteriaPromqlCriteriaOutputWithContext(ctx context.Context) MetricAlarmEvaluationCriteriaPromqlCriteriaOutput {
+	return o
+}
+
+func (o MetricAlarmEvaluationCriteriaPromqlCriteriaOutput) ToMetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput() MetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput {
+	return o.ToMetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o MetricAlarmEvaluationCriteriaPromqlCriteriaOutput) ToMetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutputWithContext(ctx context.Context) MetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricAlarmEvaluationCriteriaPromqlCriteria) *MetricAlarmEvaluationCriteriaPromqlCriteria {
+		return &v
+	}).(MetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput)
+}
+
+// The duration, in seconds, that a contributor must be continuously breaching before it transitions to the ALARM state. Valid range: 0-86400.
+func (o MetricAlarmEvaluationCriteriaPromqlCriteriaOutput) PendingPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MetricAlarmEvaluationCriteriaPromqlCriteria) *int { return v.PendingPeriod }).(pulumi.IntPtrOutput)
+}
+
+// The PromQL query that the alarm evaluates. The query must return a result of vector type. Each entry in the vector result represents an alarm contributor.
+func (o MetricAlarmEvaluationCriteriaPromqlCriteriaOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricAlarmEvaluationCriteriaPromqlCriteria) string { return v.Query }).(pulumi.StringOutput)
+}
+
+// The duration, in seconds, that a contributor must continuously not be breaching before it transitions back to the OK state. Valid range: 0-86400.
+func (o MetricAlarmEvaluationCriteriaPromqlCriteriaOutput) RecoveryPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MetricAlarmEvaluationCriteriaPromqlCriteria) *int { return v.RecoveryPeriod }).(pulumi.IntPtrOutput)
+}
+
+type MetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (MetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricAlarmEvaluationCriteriaPromqlCriteria)(nil)).Elem()
+}
+
+func (o MetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput) ToMetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput() MetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput {
+	return o
+}
+
+func (o MetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput) ToMetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutputWithContext(ctx context.Context) MetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput {
+	return o
+}
+
+func (o MetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput) Elem() MetricAlarmEvaluationCriteriaPromqlCriteriaOutput {
+	return o.ApplyT(func(v *MetricAlarmEvaluationCriteriaPromqlCriteria) MetricAlarmEvaluationCriteriaPromqlCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret MetricAlarmEvaluationCriteriaPromqlCriteria
+		return ret
+	}).(MetricAlarmEvaluationCriteriaPromqlCriteriaOutput)
+}
+
+// The duration, in seconds, that a contributor must be continuously breaching before it transitions to the ALARM state. Valid range: 0-86400.
+func (o MetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput) PendingPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MetricAlarmEvaluationCriteriaPromqlCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PendingPeriod
+	}).(pulumi.IntPtrOutput)
+}
+
+// The PromQL query that the alarm evaluates. The query must return a result of vector type. Each entry in the vector result represents an alarm contributor.
+func (o MetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricAlarmEvaluationCriteriaPromqlCriteria) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+// The duration, in seconds, that a contributor must continuously not be breaching before it transitions back to the OK state. Valid range: 0-86400.
+func (o MetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput) RecoveryPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MetricAlarmEvaluationCriteriaPromqlCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RecoveryPeriod
+	}).(pulumi.IntPtrOutput)
+}
+
 type MetricAlarmMetricQuery struct {
 	// The ID of the account where the metrics are located, if this is a cross-account alarm.
 	AccountId *string `pulumi:"accountId"`
@@ -12882,6 +13196,162 @@ func (o MetricStreamStatisticsConfigurationIncludeMetricArrayOutput) Index(i pul
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricStreamStatisticsConfigurationIncludeMetric {
 		return vs[0].([]MetricStreamStatisticsConfigurationIncludeMetric)[vs[1].(int)]
 	}).(MetricStreamStatisticsConfigurationIncludeMetricOutput)
+}
+
+type OtelEnrichmentTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// OtelEnrichmentTimeoutsInput is an input type that accepts OtelEnrichmentTimeoutsArgs and OtelEnrichmentTimeoutsOutput values.
+// You can construct a concrete instance of `OtelEnrichmentTimeoutsInput` via:
+//
+//	OtelEnrichmentTimeoutsArgs{...}
+type OtelEnrichmentTimeoutsInput interface {
+	pulumi.Input
+
+	ToOtelEnrichmentTimeoutsOutput() OtelEnrichmentTimeoutsOutput
+	ToOtelEnrichmentTimeoutsOutputWithContext(context.Context) OtelEnrichmentTimeoutsOutput
+}
+
+type OtelEnrichmentTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (OtelEnrichmentTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtelEnrichmentTimeouts)(nil)).Elem()
+}
+
+func (i OtelEnrichmentTimeoutsArgs) ToOtelEnrichmentTimeoutsOutput() OtelEnrichmentTimeoutsOutput {
+	return i.ToOtelEnrichmentTimeoutsOutputWithContext(context.Background())
+}
+
+func (i OtelEnrichmentTimeoutsArgs) ToOtelEnrichmentTimeoutsOutputWithContext(ctx context.Context) OtelEnrichmentTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtelEnrichmentTimeoutsOutput)
+}
+
+func (i OtelEnrichmentTimeoutsArgs) ToOtelEnrichmentTimeoutsPtrOutput() OtelEnrichmentTimeoutsPtrOutput {
+	return i.ToOtelEnrichmentTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i OtelEnrichmentTimeoutsArgs) ToOtelEnrichmentTimeoutsPtrOutputWithContext(ctx context.Context) OtelEnrichmentTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtelEnrichmentTimeoutsOutput).ToOtelEnrichmentTimeoutsPtrOutputWithContext(ctx)
+}
+
+// OtelEnrichmentTimeoutsPtrInput is an input type that accepts OtelEnrichmentTimeoutsArgs, OtelEnrichmentTimeoutsPtr and OtelEnrichmentTimeoutsPtrOutput values.
+// You can construct a concrete instance of `OtelEnrichmentTimeoutsPtrInput` via:
+//
+//	        OtelEnrichmentTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type OtelEnrichmentTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToOtelEnrichmentTimeoutsPtrOutput() OtelEnrichmentTimeoutsPtrOutput
+	ToOtelEnrichmentTimeoutsPtrOutputWithContext(context.Context) OtelEnrichmentTimeoutsPtrOutput
+}
+
+type otelEnrichmentTimeoutsPtrType OtelEnrichmentTimeoutsArgs
+
+func OtelEnrichmentTimeoutsPtr(v *OtelEnrichmentTimeoutsArgs) OtelEnrichmentTimeoutsPtrInput {
+	return (*otelEnrichmentTimeoutsPtrType)(v)
+}
+
+func (*otelEnrichmentTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtelEnrichmentTimeouts)(nil)).Elem()
+}
+
+func (i *otelEnrichmentTimeoutsPtrType) ToOtelEnrichmentTimeoutsPtrOutput() OtelEnrichmentTimeoutsPtrOutput {
+	return i.ToOtelEnrichmentTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *otelEnrichmentTimeoutsPtrType) ToOtelEnrichmentTimeoutsPtrOutputWithContext(ctx context.Context) OtelEnrichmentTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtelEnrichmentTimeoutsPtrOutput)
+}
+
+type OtelEnrichmentTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (OtelEnrichmentTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtelEnrichmentTimeouts)(nil)).Elem()
+}
+
+func (o OtelEnrichmentTimeoutsOutput) ToOtelEnrichmentTimeoutsOutput() OtelEnrichmentTimeoutsOutput {
+	return o
+}
+
+func (o OtelEnrichmentTimeoutsOutput) ToOtelEnrichmentTimeoutsOutputWithContext(ctx context.Context) OtelEnrichmentTimeoutsOutput {
+	return o
+}
+
+func (o OtelEnrichmentTimeoutsOutput) ToOtelEnrichmentTimeoutsPtrOutput() OtelEnrichmentTimeoutsPtrOutput {
+	return o.ToOtelEnrichmentTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o OtelEnrichmentTimeoutsOutput) ToOtelEnrichmentTimeoutsPtrOutputWithContext(ctx context.Context) OtelEnrichmentTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OtelEnrichmentTimeouts) *OtelEnrichmentTimeouts {
+		return &v
+	}).(OtelEnrichmentTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o OtelEnrichmentTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OtelEnrichmentTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o OtelEnrichmentTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OtelEnrichmentTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type OtelEnrichmentTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (OtelEnrichmentTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OtelEnrichmentTimeouts)(nil)).Elem()
+}
+
+func (o OtelEnrichmentTimeoutsPtrOutput) ToOtelEnrichmentTimeoutsPtrOutput() OtelEnrichmentTimeoutsPtrOutput {
+	return o
+}
+
+func (o OtelEnrichmentTimeoutsPtrOutput) ToOtelEnrichmentTimeoutsPtrOutputWithContext(ctx context.Context) OtelEnrichmentTimeoutsPtrOutput {
+	return o
+}
+
+func (o OtelEnrichmentTimeoutsPtrOutput) Elem() OtelEnrichmentTimeoutsOutput {
+	return o.ApplyT(func(v *OtelEnrichmentTimeouts) OtelEnrichmentTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret OtelEnrichmentTimeouts
+		return ret
+	}).(OtelEnrichmentTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o OtelEnrichmentTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OtelEnrichmentTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o OtelEnrichmentTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OtelEnrichmentTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
 }
 
 // Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
@@ -15214,6 +15684,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigTypeConverterEntryArrayInput)(nil)).Elem(), LogTransformerTransformerConfigTypeConverterEntryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigUpperCaseStringInput)(nil)).Elem(), LogTransformerTransformerConfigUpperCaseStringArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigUpperCaseStringArrayInput)(nil)).Elem(), LogTransformerTransformerConfigUpperCaseStringArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmEvaluationCriteriaInput)(nil)).Elem(), MetricAlarmEvaluationCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmEvaluationCriteriaPtrInput)(nil)).Elem(), MetricAlarmEvaluationCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmEvaluationCriteriaPromqlCriteriaInput)(nil)).Elem(), MetricAlarmEvaluationCriteriaPromqlCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmEvaluationCriteriaPromqlCriteriaPtrInput)(nil)).Elem(), MetricAlarmEvaluationCriteriaPromqlCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmMetricQueryInput)(nil)).Elem(), MetricAlarmMetricQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmMetricQueryArrayInput)(nil)).Elem(), MetricAlarmMetricQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmMetricQueryMetricInput)(nil)).Elem(), MetricAlarmMetricQueryMetricArgs{})
@@ -15226,6 +15700,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsConfigurationArrayInput)(nil)).Elem(), MetricStreamStatisticsConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsConfigurationIncludeMetricInput)(nil)).Elem(), MetricStreamStatisticsConfigurationIncludeMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsConfigurationIncludeMetricArrayInput)(nil)).Elem(), MetricStreamStatisticsConfigurationIncludeMetricArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtelEnrichmentTimeoutsInput)(nil)).Elem(), OtelEnrichmentTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtelEnrichmentTimeoutsPtrInput)(nil)).Elem(), OtelEnrichmentTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDocumentInput)(nil)).Elem(), PolicyDocumentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDocumentPtrInput)(nil)).Elem(), PolicyDocumentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetContributorManagedInsightRulesManagedRuleInput)(nil)).Elem(), GetContributorManagedInsightRulesManagedRuleArgs{})
@@ -15427,6 +15903,10 @@ func init() {
 	pulumi.RegisterOutputType(LogTransformerTransformerConfigTypeConverterEntryArrayOutput{})
 	pulumi.RegisterOutputType(LogTransformerTransformerConfigUpperCaseStringOutput{})
 	pulumi.RegisterOutputType(LogTransformerTransformerConfigUpperCaseStringArrayOutput{})
+	pulumi.RegisterOutputType(MetricAlarmEvaluationCriteriaOutput{})
+	pulumi.RegisterOutputType(MetricAlarmEvaluationCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(MetricAlarmEvaluationCriteriaPromqlCriteriaOutput{})
+	pulumi.RegisterOutputType(MetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(MetricAlarmMetricQueryOutput{})
 	pulumi.RegisterOutputType(MetricAlarmMetricQueryArrayOutput{})
 	pulumi.RegisterOutputType(MetricAlarmMetricQueryMetricOutput{})
@@ -15439,6 +15919,8 @@ func init() {
 	pulumi.RegisterOutputType(MetricStreamStatisticsConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(MetricStreamStatisticsConfigurationIncludeMetricOutput{})
 	pulumi.RegisterOutputType(MetricStreamStatisticsConfigurationIncludeMetricArrayOutput{})
+	pulumi.RegisterOutputType(OtelEnrichmentTimeoutsOutput{})
+	pulumi.RegisterOutputType(OtelEnrichmentTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(PolicyDocumentOutput{})
 	pulumi.RegisterOutputType(PolicyDocumentPtrOutput{})
 	pulumi.RegisterOutputType(GetContributorManagedInsightRulesManagedRuleOutput{})

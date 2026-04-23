@@ -40,7 +40,7 @@ public final class GetStreamResult {
      */
     private String id;
     /**
-     * @return GUID for the customer-managed AWS KMS key to use for encryption.
+     * @return The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN.
      * 
      */
     private String kmsKeyId;
@@ -123,7 +123,7 @@ public final class GetStreamResult {
         return this.id;
     }
     /**
-     * @return GUID for the customer-managed AWS KMS key to use for encryption.
+     * @return The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN.
      * 
      */
     public String kmsKeyId() {

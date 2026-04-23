@@ -34,9 +34,17 @@ namespace Pulumi.Aws.S3Control.Outputs
         /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationExclude? Exclude;
         /// <summary>
+        /// Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See Expanded Prefixes Data Export below for more details.
+        /// </summary>
+        public readonly Outputs.StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport? ExpandedPrefixesDataExport;
+        /// <summary>
         /// What is included in this configuration. Conflicts with `Exclude`. See Include below for more details.
         /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationInclude? Include;
+        /// <summary>
+        /// Prefix delimiter used for object keys in this S3 Storage Lens configuration.
+        /// </summary>
+        public readonly string? PrefixDelimiter;
 
         [OutputConstructor]
         private StorageLensConfigurationStorageLensConfiguration(
@@ -50,14 +58,20 @@ namespace Pulumi.Aws.S3Control.Outputs
 
             Outputs.StorageLensConfigurationStorageLensConfigurationExclude? exclude,
 
-            Outputs.StorageLensConfigurationStorageLensConfigurationInclude? include)
+            Outputs.StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport? expandedPrefixesDataExport,
+
+            Outputs.StorageLensConfigurationStorageLensConfigurationInclude? include,
+
+            string? prefixDelimiter)
         {
             AccountLevel = accountLevel;
             AwsOrg = awsOrg;
             DataExport = dataExport;
             Enabled = enabled;
             Exclude = exclude;
+            ExpandedPrefixesDataExport = expandedPrefixesDataExport;
             Include = include;
+            PrefixDelimiter = prefixDelimiter;
         }
     }
 }

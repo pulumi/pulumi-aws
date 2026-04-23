@@ -7,10 +7,12 @@ import com.pulumi.aws.s3control.outputs.StorageLensConfigurationStorageLensConfi
 import com.pulumi.aws.s3control.outputs.StorageLensConfigurationStorageLensConfigurationAwsOrg;
 import com.pulumi.aws.s3control.outputs.StorageLensConfigurationStorageLensConfigurationDataExport;
 import com.pulumi.aws.s3control.outputs.StorageLensConfigurationStorageLensConfigurationExclude;
+import com.pulumi.aws.s3control.outputs.StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport;
 import com.pulumi.aws.s3control.outputs.StorageLensConfigurationStorageLensConfigurationInclude;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -43,10 +45,20 @@ public final class StorageLensConfigurationStorageLensConfiguration {
      */
     private @Nullable StorageLensConfigurationStorageLensConfigurationExclude exclude;
     /**
+     * @return Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See Expanded Prefixes Data Export below for more details.
+     * 
+     */
+    private @Nullable StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport expandedPrefixesDataExport;
+    /**
      * @return What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
      * 
      */
     private @Nullable StorageLensConfigurationStorageLensConfigurationInclude include;
+    /**
+     * @return Prefix delimiter used for object keys in this S3 Storage Lens configuration.
+     * 
+     */
+    private @Nullable String prefixDelimiter;
 
     private StorageLensConfigurationStorageLensConfiguration() {}
     /**
@@ -85,11 +97,25 @@ public final class StorageLensConfigurationStorageLensConfiguration {
         return Optional.ofNullable(this.exclude);
     }
     /**
+     * @return Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See Expanded Prefixes Data Export below for more details.
+     * 
+     */
+    public Optional<StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport> expandedPrefixesDataExport() {
+        return Optional.ofNullable(this.expandedPrefixesDataExport);
+    }
+    /**
      * @return What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
      * 
      */
     public Optional<StorageLensConfigurationStorageLensConfigurationInclude> include() {
         return Optional.ofNullable(this.include);
+    }
+    /**
+     * @return Prefix delimiter used for object keys in this S3 Storage Lens configuration.
+     * 
+     */
+    public Optional<String> prefixDelimiter() {
+        return Optional.ofNullable(this.prefixDelimiter);
     }
 
     public static Builder builder() {
@@ -106,7 +132,9 @@ public final class StorageLensConfigurationStorageLensConfiguration {
         private @Nullable StorageLensConfigurationStorageLensConfigurationDataExport dataExport;
         private Boolean enabled;
         private @Nullable StorageLensConfigurationStorageLensConfigurationExclude exclude;
+        private @Nullable StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport expandedPrefixesDataExport;
         private @Nullable StorageLensConfigurationStorageLensConfigurationInclude include;
+        private @Nullable String prefixDelimiter;
         public Builder() {}
         public Builder(StorageLensConfigurationStorageLensConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -115,7 +143,9 @@ public final class StorageLensConfigurationStorageLensConfiguration {
     	      this.dataExport = defaults.dataExport;
     	      this.enabled = defaults.enabled;
     	      this.exclude = defaults.exclude;
+    	      this.expandedPrefixesDataExport = defaults.expandedPrefixesDataExport;
     	      this.include = defaults.include;
+    	      this.prefixDelimiter = defaults.prefixDelimiter;
         }
 
         @CustomType.Setter
@@ -153,9 +183,21 @@ public final class StorageLensConfigurationStorageLensConfiguration {
             return this;
         }
         @CustomType.Setter
+        public Builder expandedPrefixesDataExport(@Nullable StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport expandedPrefixesDataExport) {
+
+            this.expandedPrefixesDataExport = expandedPrefixesDataExport;
+            return this;
+        }
+        @CustomType.Setter
         public Builder include(@Nullable StorageLensConfigurationStorageLensConfigurationInclude include) {
 
             this.include = include;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder prefixDelimiter(@Nullable String prefixDelimiter) {
+
+            this.prefixDelimiter = prefixDelimiter;
             return this;
         }
         public StorageLensConfigurationStorageLensConfiguration build() {
@@ -165,7 +207,9 @@ public final class StorageLensConfigurationStorageLensConfiguration {
             _resultValue.dataExport = dataExport;
             _resultValue.enabled = enabled;
             _resultValue.exclude = exclude;
+            _resultValue.expandedPrefixesDataExport = expandedPrefixesDataExport;
             _resultValue.include = include;
+            _resultValue.prefixDelimiter = prefixDelimiter;
             return _resultValue;
         }
     }

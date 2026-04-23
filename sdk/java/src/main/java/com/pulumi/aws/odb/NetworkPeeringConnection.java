@@ -13,6 +13,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Double;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -164,6 +165,20 @@ public class NetworkPeeringConnection extends com.pulumi.resources.CustomResourc
      */
     public Output<String> peerNetworkArn() {
         return this.peerNetworkArn;
+    }
+    /**
+     * Set of peer network cidrs. Add remove is only supported during update operation. During create this attribute is compute only.
+     * 
+     */
+    @Export(name="peerNetworkCidrs", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> peerNetworkCidrs;
+
+    /**
+     * @return Set of peer network cidrs. Add remove is only supported during update operation. During create this attribute is compute only.
+     * 
+     */
+    public Output<List<String>> peerNetworkCidrs() {
+        return this.peerNetworkCidrs;
     }
     /**
      * The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.

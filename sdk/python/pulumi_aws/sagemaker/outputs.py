@@ -201,6 +201,50 @@ __all__ = [
     'FlowDefinitionOutputConfig',
     'HubS3StorageConfig',
     'HumanTaskUIUiTemplate',
+    'HyperParameterTuningJobAutotune',
+    'HyperParameterTuningJobConfig',
+    'HyperParameterTuningJobConfigObjective',
+    'HyperParameterTuningJobConfigParameterRanges',
+    'HyperParameterTuningJobConfigParameterRangesAutoParameter',
+    'HyperParameterTuningJobConfigParameterRangesCategoricalParameterRange',
+    'HyperParameterTuningJobConfigParameterRangesContinuousParameterRange',
+    'HyperParameterTuningJobConfigParameterRangesIntegerParameterRange',
+    'HyperParameterTuningJobConfigResourceLimits',
+    'HyperParameterTuningJobConfigStrategyConfig',
+    'HyperParameterTuningJobConfigStrategyConfigHyperbandStrategyConfig',
+    'HyperParameterTuningJobConfigTuningJobCompletionCriteria',
+    'HyperParameterTuningJobConfigTuningJobCompletionCriteriaBestObjectiveNotImproving',
+    'HyperParameterTuningJobConfigTuningJobCompletionCriteriaConvergenceDetected',
+    'HyperParameterTuningJobTimeouts',
+    'HyperParameterTuningJobTrainingJobDefinition',
+    'HyperParameterTuningJobTrainingJobDefinitionAlgorithmSpecification',
+    'HyperParameterTuningJobTrainingJobDefinitionAlgorithmSpecificationMetricDefinition',
+    'HyperParameterTuningJobTrainingJobDefinitionCheckpointConfig',
+    'HyperParameterTuningJobTrainingJobDefinitionHyperParameterRanges',
+    'HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesAutoParameter',
+    'HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesCategoricalParameterRange',
+    'HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesContinuousParameterRange',
+    'HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesIntegerParameterRange',
+    'HyperParameterTuningJobTrainingJobDefinitionHyperParameterTuningResourceConfig',
+    'HyperParameterTuningJobTrainingJobDefinitionHyperParameterTuningResourceConfigInstanceConfig',
+    'HyperParameterTuningJobTrainingJobDefinitionInputDataConfig',
+    'HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSource',
+    'HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource',
+    'HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSource',
+    'HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig',
+    'HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig',
+    'HyperParameterTuningJobTrainingJobDefinitionInputDataConfigShuffleConfig',
+    'HyperParameterTuningJobTrainingJobDefinitionOutputDataConfig',
+    'HyperParameterTuningJobTrainingJobDefinitionResourceConfig',
+    'HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstanceGroup',
+    'HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstancePlacementConfig',
+    'HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecification',
+    'HyperParameterTuningJobTrainingJobDefinitionRetryStrategy',
+    'HyperParameterTuningJobTrainingJobDefinitionStoppingCondition',
+    'HyperParameterTuningJobTrainingJobDefinitionTuningObjective',
+    'HyperParameterTuningJobTrainingJobDefinitionVpcConfig',
+    'HyperParameterTuningJobWarmStartConfig',
+    'HyperParameterTuningJobWarmStartConfigParentHyperParameterTuningJob',
     'LabelingJobHumanTaskConfig',
     'LabelingJobHumanTaskConfigAnnotationConsolidationConfig',
     'LabelingJobHumanTaskConfigPublicWorkforceTaskPrice',
@@ -11938,6 +11982,2777 @@ class HumanTaskUIUiTemplate(dict):
         The URL for the user interface template.
         """
         return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobAutotune(dict):
+    def __init__(__self__, *,
+                 mode: _builtins.str):
+        """
+        :param _builtins.str mode: Autotune mode. Valid value is `Enabled`.
+        """
+        pulumi.set(__self__, "mode", mode)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> _builtins.str:
+        """
+        Autotune mode. Valid value is `Enabled`.
+        """
+        return pulumi.get(self, "mode")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceLimits":
+            suggest = "resource_limits"
+        elif key == "parameterRanges":
+            suggest = "parameter_ranges"
+        elif key == "randomSeed":
+            suggest = "random_seed"
+        elif key == "strategyConfig":
+            suggest = "strategy_config"
+        elif key == "trainingJobEarlyStoppingType":
+            suggest = "training_job_early_stopping_type"
+        elif key == "tuningJobCompletionCriteria":
+            suggest = "tuning_job_completion_criteria"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_limits: 'outputs.HyperParameterTuningJobConfigResourceLimits',
+                 strategy: _builtins.str,
+                 objective: Optional['outputs.HyperParameterTuningJobConfigObjective'] = None,
+                 parameter_ranges: Optional['outputs.HyperParameterTuningJobConfigParameterRanges'] = None,
+                 random_seed: Optional[_builtins.int] = None,
+                 strategy_config: Optional['outputs.HyperParameterTuningJobConfigStrategyConfig'] = None,
+                 training_job_early_stopping_type: Optional[_builtins.str] = None,
+                 tuning_job_completion_criteria: Optional['outputs.HyperParameterTuningJobConfigTuningJobCompletionCriteria'] = None):
+        """
+        :param 'HyperParameterTuningJobConfigResourceLimitsArgs' resource_limits: Training job limits for tuning. See `resource_limits`.
+        :param _builtins.str strategy: Search strategy for tuning.
+        :param 'HyperParameterTuningJobConfigObjectiveArgs' objective: Objective metric used by tuning. See `objective`.
+        :param 'HyperParameterTuningJobConfigParameterRangesArgs' parameter_ranges: Hyperparameter search ranges. See `parameter_ranges`.
+        :param _builtins.int random_seed: Random seed for tuning.
+        :param 'HyperParameterTuningJobConfigStrategyConfigArgs' strategy_config: Extra strategy options. See `strategy_config`.
+        :param _builtins.str training_job_early_stopping_type: Early stopping behavior for training jobs.
+        :param 'HyperParameterTuningJobConfigTuningJobCompletionCriteriaArgs' tuning_job_completion_criteria: Conditions to complete tuning. See `tuning_job_completion_criteria`.
+        """
+        pulumi.set(__self__, "resource_limits", resource_limits)
+        pulumi.set(__self__, "strategy", strategy)
+        if objective is not None:
+            pulumi.set(__self__, "objective", objective)
+        if parameter_ranges is not None:
+            pulumi.set(__self__, "parameter_ranges", parameter_ranges)
+        if random_seed is not None:
+            pulumi.set(__self__, "random_seed", random_seed)
+        if strategy_config is not None:
+            pulumi.set(__self__, "strategy_config", strategy_config)
+        if training_job_early_stopping_type is not None:
+            pulumi.set(__self__, "training_job_early_stopping_type", training_job_early_stopping_type)
+        if tuning_job_completion_criteria is not None:
+            pulumi.set(__self__, "tuning_job_completion_criteria", tuning_job_completion_criteria)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceLimits")
+    def resource_limits(self) -> 'outputs.HyperParameterTuningJobConfigResourceLimits':
+        """
+        Training job limits for tuning. See `resource_limits`.
+        """
+        return pulumi.get(self, "resource_limits")
+
+    @_builtins.property
+    @pulumi.getter
+    def strategy(self) -> _builtins.str:
+        """
+        Search strategy for tuning.
+        """
+        return pulumi.get(self, "strategy")
+
+    @_builtins.property
+    @pulumi.getter
+    def objective(self) -> Optional['outputs.HyperParameterTuningJobConfigObjective']:
+        """
+        Objective metric used by tuning. See `objective`.
+        """
+        return pulumi.get(self, "objective")
+
+    @_builtins.property
+    @pulumi.getter(name="parameterRanges")
+    def parameter_ranges(self) -> Optional['outputs.HyperParameterTuningJobConfigParameterRanges']:
+        """
+        Hyperparameter search ranges. See `parameter_ranges`.
+        """
+        return pulumi.get(self, "parameter_ranges")
+
+    @_builtins.property
+    @pulumi.getter(name="randomSeed")
+    def random_seed(self) -> Optional[_builtins.int]:
+        """
+        Random seed for tuning.
+        """
+        return pulumi.get(self, "random_seed")
+
+    @_builtins.property
+    @pulumi.getter(name="strategyConfig")
+    def strategy_config(self) -> Optional['outputs.HyperParameterTuningJobConfigStrategyConfig']:
+        """
+        Extra strategy options. See `strategy_config`.
+        """
+        return pulumi.get(self, "strategy_config")
+
+    @_builtins.property
+    @pulumi.getter(name="trainingJobEarlyStoppingType")
+    def training_job_early_stopping_type(self) -> Optional[_builtins.str]:
+        """
+        Early stopping behavior for training jobs.
+        """
+        return pulumi.get(self, "training_job_early_stopping_type")
+
+    @_builtins.property
+    @pulumi.getter(name="tuningJobCompletionCriteria")
+    def tuning_job_completion_criteria(self) -> Optional['outputs.HyperParameterTuningJobConfigTuningJobCompletionCriteria']:
+        """
+        Conditions to complete tuning. See `tuning_job_completion_criteria`.
+        """
+        return pulumi.get(self, "tuning_job_completion_criteria")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobConfigObjective(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobConfigObjective. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobConfigObjective.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobConfigObjective.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_name: _builtins.str,
+                 type: _builtins.str):
+        """
+        :param _builtins.str metric_name: Metric name that tuning tries to optimize.
+        :param _builtins.str type: Optimization direction. Valid values include `Minimize` and `Maximize`.
+        """
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> _builtins.str:
+        """
+        Metric name that tuning tries to optimize.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Optimization direction. Valid values include `Minimize` and `Maximize`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobConfigParameterRanges(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoParameters":
+            suggest = "auto_parameters"
+        elif key == "categoricalParameterRanges":
+            suggest = "categorical_parameter_ranges"
+        elif key == "continuousParameterRanges":
+            suggest = "continuous_parameter_ranges"
+        elif key == "integerParameterRanges":
+            suggest = "integer_parameter_ranges"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobConfigParameterRanges. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobConfigParameterRanges.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobConfigParameterRanges.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_parameters: Optional[Sequence['outputs.HyperParameterTuningJobConfigParameterRangesAutoParameter']] = None,
+                 categorical_parameter_ranges: Optional[Sequence['outputs.HyperParameterTuningJobConfigParameterRangesCategoricalParameterRange']] = None,
+                 continuous_parameter_ranges: Optional[Sequence['outputs.HyperParameterTuningJobConfigParameterRangesContinuousParameterRange']] = None,
+                 integer_parameter_ranges: Optional[Sequence['outputs.HyperParameterTuningJobConfigParameterRangesIntegerParameterRange']] = None):
+        """
+        :param Sequence['HyperParameterTuningJobConfigParameterRangesAutoParameterArgs'] auto_parameters: Parameter list for automatic range selection.
+        :param Sequence['HyperParameterTuningJobConfigParameterRangesCategoricalParameterRangeArgs'] categorical_parameter_ranges: Categorical parameter ranges.
+        :param Sequence['HyperParameterTuningJobConfigParameterRangesContinuousParameterRangeArgs'] continuous_parameter_ranges: Continuous parameter ranges.
+        :param Sequence['HyperParameterTuningJobConfigParameterRangesIntegerParameterRangeArgs'] integer_parameter_ranges: Integer parameter ranges.
+        """
+        if auto_parameters is not None:
+            pulumi.set(__self__, "auto_parameters", auto_parameters)
+        if categorical_parameter_ranges is not None:
+            pulumi.set(__self__, "categorical_parameter_ranges", categorical_parameter_ranges)
+        if continuous_parameter_ranges is not None:
+            pulumi.set(__self__, "continuous_parameter_ranges", continuous_parameter_ranges)
+        if integer_parameter_ranges is not None:
+            pulumi.set(__self__, "integer_parameter_ranges", integer_parameter_ranges)
+
+    @_builtins.property
+    @pulumi.getter(name="autoParameters")
+    def auto_parameters(self) -> Optional[Sequence['outputs.HyperParameterTuningJobConfigParameterRangesAutoParameter']]:
+        """
+        Parameter list for automatic range selection.
+        """
+        return pulumi.get(self, "auto_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="categoricalParameterRanges")
+    def categorical_parameter_ranges(self) -> Optional[Sequence['outputs.HyperParameterTuningJobConfigParameterRangesCategoricalParameterRange']]:
+        """
+        Categorical parameter ranges.
+        """
+        return pulumi.get(self, "categorical_parameter_ranges")
+
+    @_builtins.property
+    @pulumi.getter(name="continuousParameterRanges")
+    def continuous_parameter_ranges(self) -> Optional[Sequence['outputs.HyperParameterTuningJobConfigParameterRangesContinuousParameterRange']]:
+        """
+        Continuous parameter ranges.
+        """
+        return pulumi.get(self, "continuous_parameter_ranges")
+
+    @_builtins.property
+    @pulumi.getter(name="integerParameterRanges")
+    def integer_parameter_ranges(self) -> Optional[Sequence['outputs.HyperParameterTuningJobConfigParameterRangesIntegerParameterRange']]:
+        """
+        Integer parameter ranges.
+        """
+        return pulumi.get(self, "integer_parameter_ranges")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobConfigParameterRangesAutoParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "valueHint":
+            suggest = "value_hint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobConfigParameterRangesAutoParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobConfigParameterRangesAutoParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobConfigParameterRangesAutoParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 value_hint: _builtins.str):
+        """
+        :param _builtins.str name: Parameter name.
+        :param _builtins.str value_hint: Value hint for the parameter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value_hint", value_hint)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Parameter name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="valueHint")
+    def value_hint(self) -> _builtins.str:
+        """
+        Value hint for the parameter.
+        """
+        return pulumi.get(self, "value_hint")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobConfigParameterRangesCategoricalParameterRange(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str name: Parameter name.
+        :param Sequence[_builtins.str] values: Set of allowed values.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Parameter name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        Set of allowed values.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobConfigParameterRangesContinuousParameterRange(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxValue":
+            suggest = "max_value"
+        elif key == "minValue":
+            suggest = "min_value"
+        elif key == "scalingType":
+            suggest = "scaling_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobConfigParameterRangesContinuousParameterRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobConfigParameterRangesContinuousParameterRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobConfigParameterRangesContinuousParameterRange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_value: _builtins.str,
+                 min_value: _builtins.str,
+                 name: _builtins.str,
+                 scaling_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str max_value: Maximum value.
+        :param _builtins.str min_value: Minimum value.
+        :param _builtins.str name: Parameter name.
+        :param _builtins.str scaling_type: Scaling rule for the range.
+        """
+        pulumi.set(__self__, "max_value", max_value)
+        pulumi.set(__self__, "min_value", min_value)
+        pulumi.set(__self__, "name", name)
+        if scaling_type is not None:
+            pulumi.set(__self__, "scaling_type", scaling_type)
+
+    @_builtins.property
+    @pulumi.getter(name="maxValue")
+    def max_value(self) -> _builtins.str:
+        """
+        Maximum value.
+        """
+        return pulumi.get(self, "max_value")
+
+    @_builtins.property
+    @pulumi.getter(name="minValue")
+    def min_value(self) -> _builtins.str:
+        """
+        Minimum value.
+        """
+        return pulumi.get(self, "min_value")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Parameter name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="scalingType")
+    def scaling_type(self) -> Optional[_builtins.str]:
+        """
+        Scaling rule for the range.
+        """
+        return pulumi.get(self, "scaling_type")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobConfigParameterRangesIntegerParameterRange(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxValue":
+            suggest = "max_value"
+        elif key == "minValue":
+            suggest = "min_value"
+        elif key == "scalingType":
+            suggest = "scaling_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobConfigParameterRangesIntegerParameterRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobConfigParameterRangesIntegerParameterRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobConfigParameterRangesIntegerParameterRange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_value: _builtins.str,
+                 min_value: _builtins.str,
+                 name: _builtins.str,
+                 scaling_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str max_value: Maximum value.
+        :param _builtins.str min_value: Minimum value.
+        :param _builtins.str name: Parameter name.
+        :param _builtins.str scaling_type: Scaling rule for the range.
+        """
+        pulumi.set(__self__, "max_value", max_value)
+        pulumi.set(__self__, "min_value", min_value)
+        pulumi.set(__self__, "name", name)
+        if scaling_type is not None:
+            pulumi.set(__self__, "scaling_type", scaling_type)
+
+    @_builtins.property
+    @pulumi.getter(name="maxValue")
+    def max_value(self) -> _builtins.str:
+        """
+        Maximum value.
+        """
+        return pulumi.get(self, "max_value")
+
+    @_builtins.property
+    @pulumi.getter(name="minValue")
+    def min_value(self) -> _builtins.str:
+        """
+        Minimum value.
+        """
+        return pulumi.get(self, "min_value")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Parameter name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="scalingType")
+    def scaling_type(self) -> Optional[_builtins.str]:
+        """
+        Scaling rule for the range.
+        """
+        return pulumi.get(self, "scaling_type")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobConfigResourceLimits(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxParallelTrainingJobs":
+            suggest = "max_parallel_training_jobs"
+        elif key == "maxNumberOfTrainingJobs":
+            suggest = "max_number_of_training_jobs"
+        elif key == "maxRuntimeInSeconds":
+            suggest = "max_runtime_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobConfigResourceLimits. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobConfigResourceLimits.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobConfigResourceLimits.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_parallel_training_jobs: _builtins.int,
+                 max_number_of_training_jobs: Optional[_builtins.int] = None,
+                 max_runtime_in_seconds: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int max_parallel_training_jobs: Maximum parallel training jobs.
+        :param _builtins.int max_number_of_training_jobs: Maximum total training jobs.
+        :param _builtins.int max_runtime_in_seconds: Maximum total runtime in seconds.
+        """
+        pulumi.set(__self__, "max_parallel_training_jobs", max_parallel_training_jobs)
+        if max_number_of_training_jobs is not None:
+            pulumi.set(__self__, "max_number_of_training_jobs", max_number_of_training_jobs)
+        if max_runtime_in_seconds is not None:
+            pulumi.set(__self__, "max_runtime_in_seconds", max_runtime_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="maxParallelTrainingJobs")
+    def max_parallel_training_jobs(self) -> _builtins.int:
+        """
+        Maximum parallel training jobs.
+        """
+        return pulumi.get(self, "max_parallel_training_jobs")
+
+    @_builtins.property
+    @pulumi.getter(name="maxNumberOfTrainingJobs")
+    def max_number_of_training_jobs(self) -> Optional[_builtins.int]:
+        """
+        Maximum total training jobs.
+        """
+        return pulumi.get(self, "max_number_of_training_jobs")
+
+    @_builtins.property
+    @pulumi.getter(name="maxRuntimeInSeconds")
+    def max_runtime_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        Maximum total runtime in seconds.
+        """
+        return pulumi.get(self, "max_runtime_in_seconds")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobConfigStrategyConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hyperbandStrategyConfig":
+            suggest = "hyperband_strategy_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobConfigStrategyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobConfigStrategyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobConfigStrategyConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hyperband_strategy_config: Optional['outputs.HyperParameterTuningJobConfigStrategyConfigHyperbandStrategyConfig'] = None):
+        """
+        :param 'HyperParameterTuningJobConfigStrategyConfigHyperbandStrategyConfigArgs' hyperband_strategy_config: Hyperband strategy settings. See `hyperband_strategy_config`.
+        """
+        if hyperband_strategy_config is not None:
+            pulumi.set(__self__, "hyperband_strategy_config", hyperband_strategy_config)
+
+    @_builtins.property
+    @pulumi.getter(name="hyperbandStrategyConfig")
+    def hyperband_strategy_config(self) -> Optional['outputs.HyperParameterTuningJobConfigStrategyConfigHyperbandStrategyConfig']:
+        """
+        Hyperband strategy settings. See `hyperband_strategy_config`.
+        """
+        return pulumi.get(self, "hyperband_strategy_config")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobConfigStrategyConfigHyperbandStrategyConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxResource":
+            suggest = "max_resource"
+        elif key == "minResource":
+            suggest = "min_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobConfigStrategyConfigHyperbandStrategyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobConfigStrategyConfigHyperbandStrategyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobConfigStrategyConfigHyperbandStrategyConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_resource: Optional[_builtins.int] = None,
+                 min_resource: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int max_resource: Upper bound for resource allocation.
+        :param _builtins.int min_resource: Lower bound for resource allocation.
+        """
+        if max_resource is not None:
+            pulumi.set(__self__, "max_resource", max_resource)
+        if min_resource is not None:
+            pulumi.set(__self__, "min_resource", min_resource)
+
+    @_builtins.property
+    @pulumi.getter(name="maxResource")
+    def max_resource(self) -> Optional[_builtins.int]:
+        """
+        Upper bound for resource allocation.
+        """
+        return pulumi.get(self, "max_resource")
+
+    @_builtins.property
+    @pulumi.getter(name="minResource")
+    def min_resource(self) -> Optional[_builtins.int]:
+        """
+        Lower bound for resource allocation.
+        """
+        return pulumi.get(self, "min_resource")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobConfigTuningJobCompletionCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bestObjectiveNotImproving":
+            suggest = "best_objective_not_improving"
+        elif key == "convergenceDetected":
+            suggest = "convergence_detected"
+        elif key == "targetObjectiveMetricValue":
+            suggest = "target_objective_metric_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobConfigTuningJobCompletionCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobConfigTuningJobCompletionCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobConfigTuningJobCompletionCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 best_objective_not_improving: Optional['outputs.HyperParameterTuningJobConfigTuningJobCompletionCriteriaBestObjectiveNotImproving'] = None,
+                 convergence_detected: Optional['outputs.HyperParameterTuningJobConfigTuningJobCompletionCriteriaConvergenceDetected'] = None,
+                 target_objective_metric_value: Optional[_builtins.float] = None):
+        """
+        :param 'HyperParameterTuningJobConfigTuningJobCompletionCriteriaBestObjectiveNotImprovingArgs' best_objective_not_improving: Stop condition for non-improving jobs. See `best_objective_not_improving`.
+        :param 'HyperParameterTuningJobConfigTuningJobCompletionCriteriaConvergenceDetectedArgs' convergence_detected: Stop condition based on convergence. See `convergence_detected`.
+        :param _builtins.float target_objective_metric_value: Target metric value that can stop tuning.
+        """
+        if best_objective_not_improving is not None:
+            pulumi.set(__self__, "best_objective_not_improving", best_objective_not_improving)
+        if convergence_detected is not None:
+            pulumi.set(__self__, "convergence_detected", convergence_detected)
+        if target_objective_metric_value is not None:
+            pulumi.set(__self__, "target_objective_metric_value", target_objective_metric_value)
+
+    @_builtins.property
+    @pulumi.getter(name="bestObjectiveNotImproving")
+    def best_objective_not_improving(self) -> Optional['outputs.HyperParameterTuningJobConfigTuningJobCompletionCriteriaBestObjectiveNotImproving']:
+        """
+        Stop condition for non-improving jobs. See `best_objective_not_improving`.
+        """
+        return pulumi.get(self, "best_objective_not_improving")
+
+    @_builtins.property
+    @pulumi.getter(name="convergenceDetected")
+    def convergence_detected(self) -> Optional['outputs.HyperParameterTuningJobConfigTuningJobCompletionCriteriaConvergenceDetected']:
+        """
+        Stop condition based on convergence. See `convergence_detected`.
+        """
+        return pulumi.get(self, "convergence_detected")
+
+    @_builtins.property
+    @pulumi.getter(name="targetObjectiveMetricValue")
+    def target_objective_metric_value(self) -> Optional[_builtins.float]:
+        """
+        Target metric value that can stop tuning.
+        """
+        return pulumi.get(self, "target_objective_metric_value")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobConfigTuningJobCompletionCriteriaBestObjectiveNotImproving(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxNumberOfTrainingJobsNotImproving":
+            suggest = "max_number_of_training_jobs_not_improving"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobConfigTuningJobCompletionCriteriaBestObjectiveNotImproving. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobConfigTuningJobCompletionCriteriaBestObjectiveNotImproving.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobConfigTuningJobCompletionCriteriaBestObjectiveNotImproving.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_number_of_training_jobs_not_improving: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int max_number_of_training_jobs_not_improving: Maximum training jobs without improvement before completion.
+        """
+        if max_number_of_training_jobs_not_improving is not None:
+            pulumi.set(__self__, "max_number_of_training_jobs_not_improving", max_number_of_training_jobs_not_improving)
+
+    @_builtins.property
+    @pulumi.getter(name="maxNumberOfTrainingJobsNotImproving")
+    def max_number_of_training_jobs_not_improving(self) -> Optional[_builtins.int]:
+        """
+        Maximum training jobs without improvement before completion.
+        """
+        return pulumi.get(self, "max_number_of_training_jobs_not_improving")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobConfigTuningJobCompletionCriteriaConvergenceDetected(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "completeOnConvergence":
+            suggest = "complete_on_convergence"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobConfigTuningJobCompletionCriteriaConvergenceDetected. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobConfigTuningJobCompletionCriteriaConvergenceDetected.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobConfigTuningJobCompletionCriteriaConvergenceDetected.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 complete_on_convergence: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str complete_on_convergence: Whether to complete tuning when convergence is detected.
+        """
+        if complete_on_convergence is not None:
+            pulumi.set(__self__, "complete_on_convergence", complete_on_convergence)
+
+    @_builtins.property
+    @pulumi.getter(name="completeOnConvergence")
+    def complete_on_convergence(self) -> Optional[_builtins.str]:
+        """
+        Whether to complete tuning when convergence is detected.
+        """
+        return pulumi.get(self, "complete_on_convergence")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTrainingJobDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "algorithmSpecification":
+            suggest = "algorithm_specification"
+        elif key == "outputDataConfig":
+            suggest = "output_data_config"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "stoppingCondition":
+            suggest = "stopping_condition"
+        elif key == "checkpointConfig":
+            suggest = "checkpoint_config"
+        elif key == "definitionName":
+            suggest = "definition_name"
+        elif key == "enableInterContainerTrafficEncryption":
+            suggest = "enable_inter_container_traffic_encryption"
+        elif key == "enableManagedSpotTraining":
+            suggest = "enable_managed_spot_training"
+        elif key == "enableNetworkIsolation":
+            suggest = "enable_network_isolation"
+        elif key == "hyperParameterRanges":
+            suggest = "hyper_parameter_ranges"
+        elif key == "hyperParameterTuningResourceConfig":
+            suggest = "hyper_parameter_tuning_resource_config"
+        elif key == "inputDataConfigs":
+            suggest = "input_data_configs"
+        elif key == "resourceConfig":
+            suggest = "resource_config"
+        elif key == "retryStrategies":
+            suggest = "retry_strategies"
+        elif key == "staticHyperParameters":
+            suggest = "static_hyper_parameters"
+        elif key == "tuningObjective":
+            suggest = "tuning_objective"
+        elif key == "vpcConfig":
+            suggest = "vpc_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobTrainingJobDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobTrainingJobDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobTrainingJobDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 algorithm_specification: 'outputs.HyperParameterTuningJobTrainingJobDefinitionAlgorithmSpecification',
+                 output_data_config: 'outputs.HyperParameterTuningJobTrainingJobDefinitionOutputDataConfig',
+                 role_arn: _builtins.str,
+                 stopping_condition: 'outputs.HyperParameterTuningJobTrainingJobDefinitionStoppingCondition',
+                 checkpoint_config: Optional['outputs.HyperParameterTuningJobTrainingJobDefinitionCheckpointConfig'] = None,
+                 definition_name: Optional[_builtins.str] = None,
+                 enable_inter_container_traffic_encryption: Optional[_builtins.bool] = None,
+                 enable_managed_spot_training: Optional[_builtins.bool] = None,
+                 enable_network_isolation: Optional[_builtins.bool] = None,
+                 environment: Optional[Mapping[str, _builtins.str]] = None,
+                 hyper_parameter_ranges: Optional['outputs.HyperParameterTuningJobTrainingJobDefinitionHyperParameterRanges'] = None,
+                 hyper_parameter_tuning_resource_config: Optional['outputs.HyperParameterTuningJobTrainingJobDefinitionHyperParameterTuningResourceConfig'] = None,
+                 input_data_configs: Optional[Sequence['outputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfig']] = None,
+                 resource_config: Optional['outputs.HyperParameterTuningJobTrainingJobDefinitionResourceConfig'] = None,
+                 retry_strategies: Optional[Sequence['outputs.HyperParameterTuningJobTrainingJobDefinitionRetryStrategy']] = None,
+                 static_hyper_parameters: Optional[Mapping[str, _builtins.str]] = None,
+                 tuning_objective: Optional['outputs.HyperParameterTuningJobTrainingJobDefinitionTuningObjective'] = None,
+                 vpc_config: Optional['outputs.HyperParameterTuningJobTrainingJobDefinitionVpcConfig'] = None):
+        """
+        :param 'HyperParameterTuningJobTrainingJobDefinitionAlgorithmSpecificationArgs' algorithm_specification: Algorithm settings. See `algorithm_specification`.
+        :param 'HyperParameterTuningJobTrainingJobDefinitionOutputDataConfigArgs' output_data_config: Output data settings. See `output_data_config`.
+        :param _builtins.str role_arn: IAM role ARN used by SageMaker AI.
+        :param 'HyperParameterTuningJobTrainingJobDefinitionStoppingConditionArgs' stopping_condition: Stopping settings. See `stopping_condition`.
+        :param 'HyperParameterTuningJobTrainingJobDefinitionCheckpointConfigArgs' checkpoint_config: Checkpoint output location. See `checkpoint_config`.
+        :param _builtins.str definition_name: Name for this definition.
+        :param _builtins.bool enable_inter_container_traffic_encryption: Whether to encrypt traffic between containers.
+        :param _builtins.bool enable_managed_spot_training: Whether to use managed spot training.
+        :param _builtins.bool enable_network_isolation: Whether to isolate network access for containers.
+        :param Mapping[str, _builtins.str] environment: Map of environment variables.
+        :param 'HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesArgs' hyper_parameter_ranges: Hyperparameter ranges for this definition. See `parameter_ranges`.
+        :param 'HyperParameterTuningJobTrainingJobDefinitionHyperParameterTuningResourceConfigArgs' hyper_parameter_tuning_resource_config: Tuning resource settings. See `hyper_parameter_tuning_resource_config`.
+        :param Sequence['HyperParameterTuningJobTrainingJobDefinitionInputDataConfigArgs'] input_data_configs: Input data channels. See `input_data_config`.
+        :param 'HyperParameterTuningJobTrainingJobDefinitionResourceConfigArgs' resource_config: Training resources. See `resource_config`.
+        :param Sequence['HyperParameterTuningJobTrainingJobDefinitionRetryStrategyArgs'] retry_strategies: Retry settings. See `retry_strategy`.
+        :param Mapping[str, _builtins.str] static_hyper_parameters: Map of fixed hyperparameters.
+        :param 'HyperParameterTuningJobTrainingJobDefinitionTuningObjectiveArgs' tuning_objective: Objective for this training definition. See `tuning_objective`.
+        :param 'HyperParameterTuningJobTrainingJobDefinitionVpcConfigArgs' vpc_config: VPC settings. See `vpc_config`.
+        """
+        pulumi.set(__self__, "algorithm_specification", algorithm_specification)
+        pulumi.set(__self__, "output_data_config", output_data_config)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "stopping_condition", stopping_condition)
+        if checkpoint_config is not None:
+            pulumi.set(__self__, "checkpoint_config", checkpoint_config)
+        if definition_name is not None:
+            pulumi.set(__self__, "definition_name", definition_name)
+        if enable_inter_container_traffic_encryption is not None:
+            pulumi.set(__self__, "enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
+        if enable_managed_spot_training is not None:
+            pulumi.set(__self__, "enable_managed_spot_training", enable_managed_spot_training)
+        if enable_network_isolation is not None:
+            pulumi.set(__self__, "enable_network_isolation", enable_network_isolation)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if hyper_parameter_ranges is not None:
+            pulumi.set(__self__, "hyper_parameter_ranges", hyper_parameter_ranges)
+        if hyper_parameter_tuning_resource_config is not None:
+            pulumi.set(__self__, "hyper_parameter_tuning_resource_config", hyper_parameter_tuning_resource_config)
+        if input_data_configs is not None:
+            pulumi.set(__self__, "input_data_configs", input_data_configs)
+        if resource_config is not None:
+            pulumi.set(__self__, "resource_config", resource_config)
+        if retry_strategies is not None:
+            pulumi.set(__self__, "retry_strategies", retry_strategies)
+        if static_hyper_parameters is not None:
+            pulumi.set(__self__, "static_hyper_parameters", static_hyper_parameters)
+        if tuning_objective is not None:
+            pulumi.set(__self__, "tuning_objective", tuning_objective)
+        if vpc_config is not None:
+            pulumi.set(__self__, "vpc_config", vpc_config)
+
+    @_builtins.property
+    @pulumi.getter(name="algorithmSpecification")
+    def algorithm_specification(self) -> 'outputs.HyperParameterTuningJobTrainingJobDefinitionAlgorithmSpecification':
+        """
+        Algorithm settings. See `algorithm_specification`.
+        """
+        return pulumi.get(self, "algorithm_specification")
+
+    @_builtins.property
+    @pulumi.getter(name="outputDataConfig")
+    def output_data_config(self) -> 'outputs.HyperParameterTuningJobTrainingJobDefinitionOutputDataConfig':
+        """
+        Output data settings. See `output_data_config`.
+        """
+        return pulumi.get(self, "output_data_config")
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> _builtins.str:
+        """
+        IAM role ARN used by SageMaker AI.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="stoppingCondition")
+    def stopping_condition(self) -> 'outputs.HyperParameterTuningJobTrainingJobDefinitionStoppingCondition':
+        """
+        Stopping settings. See `stopping_condition`.
+        """
+        return pulumi.get(self, "stopping_condition")
+
+    @_builtins.property
+    @pulumi.getter(name="checkpointConfig")
+    def checkpoint_config(self) -> Optional['outputs.HyperParameterTuningJobTrainingJobDefinitionCheckpointConfig']:
+        """
+        Checkpoint output location. See `checkpoint_config`.
+        """
+        return pulumi.get(self, "checkpoint_config")
+
+    @_builtins.property
+    @pulumi.getter(name="definitionName")
+    def definition_name(self) -> Optional[_builtins.str]:
+        """
+        Name for this definition.
+        """
+        return pulumi.get(self, "definition_name")
+
+    @_builtins.property
+    @pulumi.getter(name="enableInterContainerTrafficEncryption")
+    def enable_inter_container_traffic_encryption(self) -> Optional[_builtins.bool]:
+        """
+        Whether to encrypt traffic between containers.
+        """
+        return pulumi.get(self, "enable_inter_container_traffic_encryption")
+
+    @_builtins.property
+    @pulumi.getter(name="enableManagedSpotTraining")
+    def enable_managed_spot_training(self) -> Optional[_builtins.bool]:
+        """
+        Whether to use managed spot training.
+        """
+        return pulumi.get(self, "enable_managed_spot_training")
+
+    @_builtins.property
+    @pulumi.getter(name="enableNetworkIsolation")
+    def enable_network_isolation(self) -> Optional[_builtins.bool]:
+        """
+        Whether to isolate network access for containers.
+        """
+        return pulumi.get(self, "enable_network_isolation")
+
+    @_builtins.property
+    @pulumi.getter
+    def environment(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Map of environment variables.
+        """
+        return pulumi.get(self, "environment")
+
+    @_builtins.property
+    @pulumi.getter(name="hyperParameterRanges")
+    def hyper_parameter_ranges(self) -> Optional['outputs.HyperParameterTuningJobTrainingJobDefinitionHyperParameterRanges']:
+        """
+        Hyperparameter ranges for this definition. See `parameter_ranges`.
+        """
+        return pulumi.get(self, "hyper_parameter_ranges")
+
+    @_builtins.property
+    @pulumi.getter(name="hyperParameterTuningResourceConfig")
+    def hyper_parameter_tuning_resource_config(self) -> Optional['outputs.HyperParameterTuningJobTrainingJobDefinitionHyperParameterTuningResourceConfig']:
+        """
+        Tuning resource settings. See `hyper_parameter_tuning_resource_config`.
+        """
+        return pulumi.get(self, "hyper_parameter_tuning_resource_config")
+
+    @_builtins.property
+    @pulumi.getter(name="inputDataConfigs")
+    def input_data_configs(self) -> Optional[Sequence['outputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfig']]:
+        """
+        Input data channels. See `input_data_config`.
+        """
+        return pulumi.get(self, "input_data_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfig")
+    def resource_config(self) -> Optional['outputs.HyperParameterTuningJobTrainingJobDefinitionResourceConfig']:
+        """
+        Training resources. See `resource_config`.
+        """
+        return pulumi.get(self, "resource_config")
+
+    @_builtins.property
+    @pulumi.getter(name="retryStrategies")
+    def retry_strategies(self) -> Optional[Sequence['outputs.HyperParameterTuningJobTrainingJobDefinitionRetryStrategy']]:
+        """
+        Retry settings. See `retry_strategy`.
+        """
+        return pulumi.get(self, "retry_strategies")
+
+    @_builtins.property
+    @pulumi.getter(name="staticHyperParameters")
+    def static_hyper_parameters(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Map of fixed hyperparameters.
+        """
+        return pulumi.get(self, "static_hyper_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="tuningObjective")
+    def tuning_objective(self) -> Optional['outputs.HyperParameterTuningJobTrainingJobDefinitionTuningObjective']:
+        """
+        Objective for this training definition. See `tuning_objective`.
+        """
+        return pulumi.get(self, "tuning_objective")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> Optional['outputs.HyperParameterTuningJobTrainingJobDefinitionVpcConfig']:
+        """
+        VPC settings. See `vpc_config`.
+        """
+        return pulumi.get(self, "vpc_config")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTrainingJobDefinitionAlgorithmSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trainingInputMode":
+            suggest = "training_input_mode"
+        elif key == "algorithmName":
+            suggest = "algorithm_name"
+        elif key == "metricDefinitions":
+            suggest = "metric_definitions"
+        elif key == "trainingImage":
+            suggest = "training_image"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobTrainingJobDefinitionAlgorithmSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionAlgorithmSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionAlgorithmSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 training_input_mode: _builtins.str,
+                 algorithm_name: Optional[_builtins.str] = None,
+                 metric_definitions: Optional[Sequence['outputs.HyperParameterTuningJobTrainingJobDefinitionAlgorithmSpecificationMetricDefinition']] = None,
+                 training_image: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str training_input_mode: Training input mode.
+               
+               Provide exactly one of `algorithm_name` or `training_image`.
+        :param _builtins.str algorithm_name: SageMaker algorithm ARN.
+        :param Sequence['HyperParameterTuningJobTrainingJobDefinitionAlgorithmSpecificationMetricDefinitionArgs'] metric_definitions: Metric extraction rules.
+        :param _builtins.str training_image: Container image used for training.
+        """
+        pulumi.set(__self__, "training_input_mode", training_input_mode)
+        if algorithm_name is not None:
+            pulumi.set(__self__, "algorithm_name", algorithm_name)
+        if metric_definitions is not None:
+            pulumi.set(__self__, "metric_definitions", metric_definitions)
+        if training_image is not None:
+            pulumi.set(__self__, "training_image", training_image)
+
+    @_builtins.property
+    @pulumi.getter(name="trainingInputMode")
+    def training_input_mode(self) -> _builtins.str:
+        """
+        Training input mode.
+
+        Provide exactly one of `algorithm_name` or `training_image`.
+        """
+        return pulumi.get(self, "training_input_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="algorithmName")
+    def algorithm_name(self) -> Optional[_builtins.str]:
+        """
+        SageMaker algorithm ARN.
+        """
+        return pulumi.get(self, "algorithm_name")
+
+    @_builtins.property
+    @pulumi.getter(name="metricDefinitions")
+    def metric_definitions(self) -> Optional[Sequence['outputs.HyperParameterTuningJobTrainingJobDefinitionAlgorithmSpecificationMetricDefinition']]:
+        """
+        Metric extraction rules.
+        """
+        return pulumi.get(self, "metric_definitions")
+
+    @_builtins.property
+    @pulumi.getter(name="trainingImage")
+    def training_image(self) -> Optional[_builtins.str]:
+        """
+        Container image used for training.
+        """
+        return pulumi.get(self, "training_image")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTrainingJobDefinitionAlgorithmSpecificationMetricDefinition(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 regex: _builtins.str):
+        """
+        :param _builtins.str name: Metric name.
+        :param _builtins.str regex: Pattern used to extract metric values.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "regex", regex)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Metric name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def regex(self) -> _builtins.str:
+        """
+        Pattern used to extract metric values.
+        """
+        return pulumi.get(self, "regex")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTrainingJobDefinitionCheckpointConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Uri":
+            suggest = "s3_uri"
+        elif key == "localPath":
+            suggest = "local_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobTrainingJobDefinitionCheckpointConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionCheckpointConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionCheckpointConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_uri: _builtins.str,
+                 local_path: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str s3_uri: S3 or HTTPS destination for checkpoints.
+        :param _builtins.str local_path: Local path for checkpoints.
+        """
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if local_path is not None:
+            pulumi.set(__self__, "local_path", local_path)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> _builtins.str:
+        """
+        S3 or HTTPS destination for checkpoints.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> Optional[_builtins.str]:
+        """
+        Local path for checkpoints.
+        """
+        return pulumi.get(self, "local_path")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTrainingJobDefinitionHyperParameterRanges(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoParameters":
+            suggest = "auto_parameters"
+        elif key == "categoricalParameterRanges":
+            suggest = "categorical_parameter_ranges"
+        elif key == "continuousParameterRanges":
+            suggest = "continuous_parameter_ranges"
+        elif key == "integerParameterRanges":
+            suggest = "integer_parameter_ranges"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobTrainingJobDefinitionHyperParameterRanges. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionHyperParameterRanges.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionHyperParameterRanges.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_parameters: Optional[Sequence['outputs.HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesAutoParameter']] = None,
+                 categorical_parameter_ranges: Optional[Sequence['outputs.HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesCategoricalParameterRange']] = None,
+                 continuous_parameter_ranges: Optional[Sequence['outputs.HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesContinuousParameterRange']] = None,
+                 integer_parameter_ranges: Optional[Sequence['outputs.HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesIntegerParameterRange']] = None):
+        """
+        :param Sequence['HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesAutoParameterArgs'] auto_parameters: Parameter list for automatic range selection.
+        :param Sequence['HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesCategoricalParameterRangeArgs'] categorical_parameter_ranges: Categorical parameter ranges.
+        :param Sequence['HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesContinuousParameterRangeArgs'] continuous_parameter_ranges: Continuous parameter ranges.
+        :param Sequence['HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesIntegerParameterRangeArgs'] integer_parameter_ranges: Integer parameter ranges.
+        """
+        if auto_parameters is not None:
+            pulumi.set(__self__, "auto_parameters", auto_parameters)
+        if categorical_parameter_ranges is not None:
+            pulumi.set(__self__, "categorical_parameter_ranges", categorical_parameter_ranges)
+        if continuous_parameter_ranges is not None:
+            pulumi.set(__self__, "continuous_parameter_ranges", continuous_parameter_ranges)
+        if integer_parameter_ranges is not None:
+            pulumi.set(__self__, "integer_parameter_ranges", integer_parameter_ranges)
+
+    @_builtins.property
+    @pulumi.getter(name="autoParameters")
+    def auto_parameters(self) -> Optional[Sequence['outputs.HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesAutoParameter']]:
+        """
+        Parameter list for automatic range selection.
+        """
+        return pulumi.get(self, "auto_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="categoricalParameterRanges")
+    def categorical_parameter_ranges(self) -> Optional[Sequence['outputs.HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesCategoricalParameterRange']]:
+        """
+        Categorical parameter ranges.
+        """
+        return pulumi.get(self, "categorical_parameter_ranges")
+
+    @_builtins.property
+    @pulumi.getter(name="continuousParameterRanges")
+    def continuous_parameter_ranges(self) -> Optional[Sequence['outputs.HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesContinuousParameterRange']]:
+        """
+        Continuous parameter ranges.
+        """
+        return pulumi.get(self, "continuous_parameter_ranges")
+
+    @_builtins.property
+    @pulumi.getter(name="integerParameterRanges")
+    def integer_parameter_ranges(self) -> Optional[Sequence['outputs.HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesIntegerParameterRange']]:
+        """
+        Integer parameter ranges.
+        """
+        return pulumi.get(self, "integer_parameter_ranges")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesAutoParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "valueHint":
+            suggest = "value_hint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesAutoParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesAutoParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesAutoParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 value_hint: _builtins.str):
+        """
+        :param _builtins.str name: Parameter name.
+        :param _builtins.str value_hint: Value hint for the parameter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value_hint", value_hint)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Parameter name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="valueHint")
+    def value_hint(self) -> _builtins.str:
+        """
+        Value hint for the parameter.
+        """
+        return pulumi.get(self, "value_hint")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesCategoricalParameterRange(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str name: Parameter name.
+        :param Sequence[_builtins.str] values: Set of allowed values.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Parameter name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        Set of allowed values.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesContinuousParameterRange(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxValue":
+            suggest = "max_value"
+        elif key == "minValue":
+            suggest = "min_value"
+        elif key == "scalingType":
+            suggest = "scaling_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesContinuousParameterRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesContinuousParameterRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesContinuousParameterRange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_value: _builtins.str,
+                 min_value: _builtins.str,
+                 name: _builtins.str,
+                 scaling_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str max_value: Maximum value.
+        :param _builtins.str min_value: Minimum value.
+        :param _builtins.str name: Parameter name.
+        :param _builtins.str scaling_type: Scaling rule for the range.
+        """
+        pulumi.set(__self__, "max_value", max_value)
+        pulumi.set(__self__, "min_value", min_value)
+        pulumi.set(__self__, "name", name)
+        if scaling_type is not None:
+            pulumi.set(__self__, "scaling_type", scaling_type)
+
+    @_builtins.property
+    @pulumi.getter(name="maxValue")
+    def max_value(self) -> _builtins.str:
+        """
+        Maximum value.
+        """
+        return pulumi.get(self, "max_value")
+
+    @_builtins.property
+    @pulumi.getter(name="minValue")
+    def min_value(self) -> _builtins.str:
+        """
+        Minimum value.
+        """
+        return pulumi.get(self, "min_value")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Parameter name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="scalingType")
+    def scaling_type(self) -> Optional[_builtins.str]:
+        """
+        Scaling rule for the range.
+        """
+        return pulumi.get(self, "scaling_type")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesIntegerParameterRange(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxValue":
+            suggest = "max_value"
+        elif key == "minValue":
+            suggest = "min_value"
+        elif key == "scalingType":
+            suggest = "scaling_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesIntegerParameterRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesIntegerParameterRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesIntegerParameterRange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_value: _builtins.str,
+                 min_value: _builtins.str,
+                 name: _builtins.str,
+                 scaling_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str max_value: Maximum value.
+        :param _builtins.str min_value: Minimum value.
+        :param _builtins.str name: Parameter name.
+        :param _builtins.str scaling_type: Scaling rule for the range.
+        """
+        pulumi.set(__self__, "max_value", max_value)
+        pulumi.set(__self__, "min_value", min_value)
+        pulumi.set(__self__, "name", name)
+        if scaling_type is not None:
+            pulumi.set(__self__, "scaling_type", scaling_type)
+
+    @_builtins.property
+    @pulumi.getter(name="maxValue")
+    def max_value(self) -> _builtins.str:
+        """
+        Maximum value.
+        """
+        return pulumi.get(self, "max_value")
+
+    @_builtins.property
+    @pulumi.getter(name="minValue")
+    def min_value(self) -> _builtins.str:
+        """
+        Minimum value.
+        """
+        return pulumi.get(self, "min_value")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Parameter name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="scalingType")
+    def scaling_type(self) -> Optional[_builtins.str]:
+        """
+        Scaling rule for the range.
+        """
+        return pulumi.get(self, "scaling_type")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTrainingJobDefinitionHyperParameterTuningResourceConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allocationStrategy":
+            suggest = "allocation_strategy"
+        elif key == "instanceConfigs":
+            suggest = "instance_configs"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "volumeKmsKeyId":
+            suggest = "volume_kms_key_id"
+        elif key == "volumeSizeInGb":
+            suggest = "volume_size_in_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobTrainingJobDefinitionHyperParameterTuningResourceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionHyperParameterTuningResourceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionHyperParameterTuningResourceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allocation_strategy: Optional[_builtins.str] = None,
+                 instance_configs: Optional[Sequence['outputs.HyperParameterTuningJobTrainingJobDefinitionHyperParameterTuningResourceConfigInstanceConfig']] = None,
+                 instance_count: Optional[_builtins.int] = None,
+                 instance_type: Optional[_builtins.str] = None,
+                 volume_kms_key_id: Optional[_builtins.str] = None,
+                 volume_size_in_gb: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str allocation_strategy: Allocation strategy for tuning resources.
+        :param Sequence['HyperParameterTuningJobTrainingJobDefinitionHyperParameterTuningResourceConfigInstanceConfigArgs'] instance_configs: Per-instance-type resource settings. See `instance_configs`.
+        :param _builtins.int instance_count: Number of training instances.
+        :param _builtins.str instance_type: Training instance type.
+        :param _builtins.str volume_kms_key_id: KMS key ID for volume encryption.
+        :param _builtins.int volume_size_in_gb: Volume size in GB.
+               
+               Do not set `instance_count`, `instance_type`, or `volume_size_in_gb` when `instance_configs` is set.
+        """
+        if allocation_strategy is not None:
+            pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+        if instance_configs is not None:
+            pulumi.set(__self__, "instance_configs", instance_configs)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if volume_kms_key_id is not None:
+            pulumi.set(__self__, "volume_kms_key_id", volume_kms_key_id)
+        if volume_size_in_gb is not None:
+            pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
+
+    @_builtins.property
+    @pulumi.getter(name="allocationStrategy")
+    def allocation_strategy(self) -> Optional[_builtins.str]:
+        """
+        Allocation strategy for tuning resources.
+        """
+        return pulumi.get(self, "allocation_strategy")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceConfigs")
+    def instance_configs(self) -> Optional[Sequence['outputs.HyperParameterTuningJobTrainingJobDefinitionHyperParameterTuningResourceConfigInstanceConfig']]:
+        """
+        Per-instance-type resource settings. See `instance_configs`.
+        """
+        return pulumi.get(self, "instance_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[_builtins.int]:
+        """
+        Number of training instances.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[_builtins.str]:
+        """
+        Training instance type.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeKmsKeyId")
+    def volume_kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        KMS key ID for volume encryption.
+        """
+        return pulumi.get(self, "volume_kms_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeSizeInGb")
+    def volume_size_in_gb(self) -> Optional[_builtins.int]:
+        """
+        Volume size in GB.
+
+        Do not set `instance_count`, `instance_type`, or `volume_size_in_gb` when `instance_configs` is set.
+        """
+        return pulumi.get(self, "volume_size_in_gb")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTrainingJobDefinitionHyperParameterTuningResourceConfigInstanceConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "volumeSizeInGb":
+            suggest = "volume_size_in_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobTrainingJobDefinitionHyperParameterTuningResourceConfigInstanceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionHyperParameterTuningResourceConfigInstanceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionHyperParameterTuningResourceConfigInstanceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_count: Optional[_builtins.int] = None,
+                 instance_type: Optional[_builtins.str] = None,
+                 volume_size_in_gb: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int instance_count: Number of instances.
+        :param _builtins.str instance_type: Instance type.
+        :param _builtins.int volume_size_in_gb: Volume size in GB.
+        """
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if volume_size_in_gb is not None:
+            pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[_builtins.int]:
+        """
+        Number of instances.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[_builtins.str]:
+        """
+        Instance type.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeSizeInGb")
+    def volume_size_in_gb(self) -> Optional[_builtins.int]:
+        """
+        Volume size in GB.
+        """
+        return pulumi.get(self, "volume_size_in_gb")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTrainingJobDefinitionInputDataConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "channelName":
+            suggest = "channel_name"
+        elif key == "dataSource":
+            suggest = "data_source"
+        elif key == "compressionType":
+            suggest = "compression_type"
+        elif key == "contentType":
+            suggest = "content_type"
+        elif key == "inputMode":
+            suggest = "input_mode"
+        elif key == "recordWrapperType":
+            suggest = "record_wrapper_type"
+        elif key == "shuffleConfig":
+            suggest = "shuffle_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobTrainingJobDefinitionInputDataConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionInputDataConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionInputDataConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 channel_name: _builtins.str,
+                 data_source: 'outputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSource',
+                 compression_type: Optional[_builtins.str] = None,
+                 content_type: Optional[_builtins.str] = None,
+                 input_mode: Optional[_builtins.str] = None,
+                 record_wrapper_type: Optional[_builtins.str] = None,
+                 shuffle_config: Optional['outputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigShuffleConfig'] = None):
+        """
+        :param _builtins.str channel_name: Input channel name.
+        :param 'HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceArgs' data_source: Data source settings. See `data_source`.
+        :param _builtins.str compression_type: Compression type.
+        :param _builtins.str content_type: Content type string.
+        :param _builtins.str input_mode: Input mode.
+        :param _builtins.str record_wrapper_type: Record wrapper format.
+        :param 'HyperParameterTuningJobTrainingJobDefinitionInputDataConfigShuffleConfigArgs' shuffle_config: Shuffling settings. See `shuffle_config`.
+        """
+        pulumi.set(__self__, "channel_name", channel_name)
+        pulumi.set(__self__, "data_source", data_source)
+        if compression_type is not None:
+            pulumi.set(__self__, "compression_type", compression_type)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if input_mode is not None:
+            pulumi.set(__self__, "input_mode", input_mode)
+        if record_wrapper_type is not None:
+            pulumi.set(__self__, "record_wrapper_type", record_wrapper_type)
+        if shuffle_config is not None:
+            pulumi.set(__self__, "shuffle_config", shuffle_config)
+
+    @_builtins.property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> _builtins.str:
+        """
+        Input channel name.
+        """
+        return pulumi.get(self, "channel_name")
+
+    @_builtins.property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> 'outputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSource':
+        """
+        Data source settings. See `data_source`.
+        """
+        return pulumi.get(self, "data_source")
+
+    @_builtins.property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> Optional[_builtins.str]:
+        """
+        Compression type.
+        """
+        return pulumi.get(self, "compression_type")
+
+    @_builtins.property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[_builtins.str]:
+        """
+        Content type string.
+        """
+        return pulumi.get(self, "content_type")
+
+    @_builtins.property
+    @pulumi.getter(name="inputMode")
+    def input_mode(self) -> Optional[_builtins.str]:
+        """
+        Input mode.
+        """
+        return pulumi.get(self, "input_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="recordWrapperType")
+    def record_wrapper_type(self) -> Optional[_builtins.str]:
+        """
+        Record wrapper format.
+        """
+        return pulumi.get(self, "record_wrapper_type")
+
+    @_builtins.property
+    @pulumi.getter(name="shuffleConfig")
+    def shuffle_config(self) -> Optional['outputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigShuffleConfig']:
+        """
+        Shuffling settings. See `shuffle_config`.
+        """
+        return pulumi.get(self, "shuffle_config")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileSystemDataSource":
+            suggest = "file_system_data_source"
+        elif key == "s3DataSource":
+            suggest = "s3_data_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_system_data_source: Optional['outputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource'] = None,
+                 s3_data_source: Optional['outputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSource'] = None):
+        """
+        :param 'HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceArgs' file_system_data_source: File system source settings. See `file_system_data_source`.
+        :param 'HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs' s3_data_source: S3 source settings. See `s3_data_source`.
+        """
+        if file_system_data_source is not None:
+            pulumi.set(__self__, "file_system_data_source", file_system_data_source)
+        if s3_data_source is not None:
+            pulumi.set(__self__, "s3_data_source", s3_data_source)
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemDataSource")
+    def file_system_data_source(self) -> Optional['outputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource']:
+        """
+        File system source settings. See `file_system_data_source`.
+        """
+        return pulumi.get(self, "file_system_data_source")
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataSource")
+    def s3_data_source(self) -> Optional['outputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSource']:
+        """
+        S3 source settings. See `s3_data_source`.
+        """
+        return pulumi.get(self, "s3_data_source")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "directoryPath":
+            suggest = "directory_path"
+        elif key == "fileSystemAccessMode":
+            suggest = "file_system_access_mode"
+        elif key == "fileSystemId":
+            suggest = "file_system_id"
+        elif key == "fileSystemType":
+            suggest = "file_system_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 directory_path: _builtins.str,
+                 file_system_access_mode: _builtins.str,
+                 file_system_id: _builtins.str,
+                 file_system_type: _builtins.str):
+        """
+        :param _builtins.str directory_path: Directory path in the file system.
+        :param _builtins.str file_system_access_mode: Access mode for the file system.
+        :param _builtins.str file_system_id: File system ID.
+        :param _builtins.str file_system_type: File system type.
+        """
+        pulumi.set(__self__, "directory_path", directory_path)
+        pulumi.set(__self__, "file_system_access_mode", file_system_access_mode)
+        pulumi.set(__self__, "file_system_id", file_system_id)
+        pulumi.set(__self__, "file_system_type", file_system_type)
+
+    @_builtins.property
+    @pulumi.getter(name="directoryPath")
+    def directory_path(self) -> _builtins.str:
+        """
+        Directory path in the file system.
+        """
+        return pulumi.get(self, "directory_path")
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemAccessMode")
+    def file_system_access_mode(self) -> _builtins.str:
+        """
+        Access mode for the file system.
+        """
+        return pulumi.get(self, "file_system_access_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> _builtins.str:
+        """
+        File system ID.
+        """
+        return pulumi.get(self, "file_system_id")
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemType")
+    def file_system_type(self) -> _builtins.str:
+        """
+        File system type.
+        """
+        return pulumi.get(self, "file_system_type")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3DataType":
+            suggest = "s3_data_type"
+        elif key == "s3Uri":
+            suggest = "s3_uri"
+        elif key == "attributeNames":
+            suggest = "attribute_names"
+        elif key == "hubAccessConfig":
+            suggest = "hub_access_config"
+        elif key == "instanceGroupNames":
+            suggest = "instance_group_names"
+        elif key == "modelAccessConfig":
+            suggest = "model_access_config"
+        elif key == "s3DataDistributionType":
+            suggest = "s3_data_distribution_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_data_type: _builtins.str,
+                 s3_uri: _builtins.str,
+                 attribute_names: Optional[Sequence[_builtins.str]] = None,
+                 hub_access_config: Optional['outputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig'] = None,
+                 instance_group_names: Optional[Sequence[_builtins.str]] = None,
+                 model_access_config: Optional['outputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig'] = None,
+                 s3_data_distribution_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str s3_data_type: S3 data type.
+        :param _builtins.str s3_uri: S3 or HTTPS source URI.
+        :param Sequence[_builtins.str] attribute_names: Attribute names for Pipe mode.
+        :param 'HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs' hub_access_config: Hub access settings. See `hub_access_config`.
+        :param Sequence[_builtins.str] instance_group_names: Instance group names used with this channel.
+        :param 'HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs' model_access_config: Model access settings. See `model_access_config`.
+        :param _builtins.str s3_data_distribution_type: Distribution mode for S3 data.
+        """
+        pulumi.set(__self__, "s3_data_type", s3_data_type)
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if attribute_names is not None:
+            pulumi.set(__self__, "attribute_names", attribute_names)
+        if hub_access_config is not None:
+            pulumi.set(__self__, "hub_access_config", hub_access_config)
+        if instance_group_names is not None:
+            pulumi.set(__self__, "instance_group_names", instance_group_names)
+        if model_access_config is not None:
+            pulumi.set(__self__, "model_access_config", model_access_config)
+        if s3_data_distribution_type is not None:
+            pulumi.set(__self__, "s3_data_distribution_type", s3_data_distribution_type)
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataType")
+    def s3_data_type(self) -> _builtins.str:
+        """
+        S3 data type.
+        """
+        return pulumi.get(self, "s3_data_type")
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> _builtins.str:
+        """
+        S3 or HTTPS source URI.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="attributeNames")
+    def attribute_names(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Attribute names for Pipe mode.
+        """
+        return pulumi.get(self, "attribute_names")
+
+    @_builtins.property
+    @pulumi.getter(name="hubAccessConfig")
+    def hub_access_config(self) -> Optional['outputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig']:
+        """
+        Hub access settings. See `hub_access_config`.
+        """
+        return pulumi.get(self, "hub_access_config")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceGroupNames")
+    def instance_group_names(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Instance group names used with this channel.
+        """
+        return pulumi.get(self, "instance_group_names")
+
+    @_builtins.property
+    @pulumi.getter(name="modelAccessConfig")
+    def model_access_config(self) -> Optional['outputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig']:
+        """
+        Model access settings. See `model_access_config`.
+        """
+        return pulumi.get(self, "model_access_config")
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataDistributionType")
+    def s3_data_distribution_type(self) -> Optional[_builtins.str]:
+        """
+        Distribution mode for S3 data.
+        """
+        return pulumi.get(self, "s3_data_distribution_type")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hubContentArn":
+            suggest = "hub_content_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hub_content_arn: _builtins.str):
+        """
+        :param _builtins.str hub_content_arn: Hub content ARN.
+        """
+        pulumi.set(__self__, "hub_content_arn", hub_content_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="hubContentArn")
+    def hub_content_arn(self) -> _builtins.str:
+        """
+        Hub content ARN.
+        """
+        return pulumi.get(self, "hub_content_arn")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "acceptEula":
+            suggest = "accept_eula"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 accept_eula: _builtins.bool):
+        """
+        :param _builtins.bool accept_eula: Whether to accept model EULA. Value must be `true`.
+        """
+        pulumi.set(__self__, "accept_eula", accept_eula)
+
+    @_builtins.property
+    @pulumi.getter(name="acceptEula")
+    def accept_eula(self) -> _builtins.bool:
+        """
+        Whether to accept model EULA. Value must be `true`.
+        """
+        return pulumi.get(self, "accept_eula")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTrainingJobDefinitionInputDataConfigShuffleConfig(dict):
+    def __init__(__self__, *,
+                 seed: _builtins.int):
+        """
+        :param _builtins.int seed: Shuffle seed.
+        """
+        pulumi.set(__self__, "seed", seed)
+
+    @_builtins.property
+    @pulumi.getter
+    def seed(self) -> _builtins.int:
+        """
+        Shuffle seed.
+        """
+        return pulumi.get(self, "seed")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTrainingJobDefinitionOutputDataConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3OutputPath":
+            suggest = "s3_output_path"
+        elif key == "compressionType":
+            suggest = "compression_type"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobTrainingJobDefinitionOutputDataConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionOutputDataConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionOutputDataConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_output_path: _builtins.str,
+                 compression_type: Optional[_builtins.str] = None,
+                 kms_key_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str s3_output_path: S3 or HTTPS output path.
+        :param _builtins.str compression_type: Compression type for output.
+        :param _builtins.str kms_key_id: KMS key ID for output encryption.
+        """
+        pulumi.set(__self__, "s3_output_path", s3_output_path)
+        if compression_type is not None:
+            pulumi.set(__self__, "compression_type", compression_type)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> _builtins.str:
+        """
+        S3 or HTTPS output path.
+        """
+        return pulumi.get(self, "s3_output_path")
+
+    @_builtins.property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> Optional[_builtins.str]:
+        """
+        Compression type for output.
+        """
+        return pulumi.get(self, "compression_type")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        KMS key ID for output encryption.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTrainingJobDefinitionResourceConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "instanceGroups":
+            suggest = "instance_groups"
+        elif key == "instancePlacementConfig":
+            suggest = "instance_placement_config"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "keepAlivePeriodInSeconds":
+            suggest = "keep_alive_period_in_seconds"
+        elif key == "trainingPlanArn":
+            suggest = "training_plan_arn"
+        elif key == "volumeKmsKeyId":
+            suggest = "volume_kms_key_id"
+        elif key == "volumeSizeInGb":
+            suggest = "volume_size_in_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobTrainingJobDefinitionResourceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionResourceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionResourceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_count: Optional[_builtins.int] = None,
+                 instance_groups: Optional[Sequence['outputs.HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstanceGroup']] = None,
+                 instance_placement_config: Optional['outputs.HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstancePlacementConfig'] = None,
+                 instance_type: Optional[_builtins.str] = None,
+                 keep_alive_period_in_seconds: Optional[_builtins.int] = None,
+                 training_plan_arn: Optional[_builtins.str] = None,
+                 volume_kms_key_id: Optional[_builtins.str] = None,
+                 volume_size_in_gb: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int instance_count: Number of instances.
+        :param Sequence['HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstanceGroupArgs'] instance_groups: Instance group settings. See `instance_groups`.
+        :param 'HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstancePlacementConfigArgs' instance_placement_config: Placement settings. See `instance_placement_config`.
+        :param _builtins.str instance_type: Instance type.
+        :param _builtins.int keep_alive_period_in_seconds: Warm pool keep-alive period in seconds.
+        :param _builtins.str training_plan_arn: Training plan ARN.
+        :param _builtins.str volume_kms_key_id: KMS key ID for volume encryption.
+        :param _builtins.int volume_size_in_gb: Volume size in GB.
+        """
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if instance_groups is not None:
+            pulumi.set(__self__, "instance_groups", instance_groups)
+        if instance_placement_config is not None:
+            pulumi.set(__self__, "instance_placement_config", instance_placement_config)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if keep_alive_period_in_seconds is not None:
+            pulumi.set(__self__, "keep_alive_period_in_seconds", keep_alive_period_in_seconds)
+        if training_plan_arn is not None:
+            pulumi.set(__self__, "training_plan_arn", training_plan_arn)
+        if volume_kms_key_id is not None:
+            pulumi.set(__self__, "volume_kms_key_id", volume_kms_key_id)
+        if volume_size_in_gb is not None:
+            pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[_builtins.int]:
+        """
+        Number of instances.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceGroups")
+    def instance_groups(self) -> Optional[Sequence['outputs.HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstanceGroup']]:
+        """
+        Instance group settings. See `instance_groups`.
+        """
+        return pulumi.get(self, "instance_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="instancePlacementConfig")
+    def instance_placement_config(self) -> Optional['outputs.HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstancePlacementConfig']:
+        """
+        Placement settings. See `instance_placement_config`.
+        """
+        return pulumi.get(self, "instance_placement_config")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[_builtins.str]:
+        """
+        Instance type.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @_builtins.property
+    @pulumi.getter(name="keepAlivePeriodInSeconds")
+    def keep_alive_period_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        Warm pool keep-alive period in seconds.
+        """
+        return pulumi.get(self, "keep_alive_period_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="trainingPlanArn")
+    def training_plan_arn(self) -> Optional[_builtins.str]:
+        """
+        Training plan ARN.
+        """
+        return pulumi.get(self, "training_plan_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeKmsKeyId")
+    def volume_kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        KMS key ID for volume encryption.
+        """
+        return pulumi.get(self, "volume_kms_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeSizeInGb")
+    def volume_size_in_gb(self) -> Optional[_builtins.int]:
+        """
+        Volume size in GB.
+        """
+        return pulumi.get(self, "volume_size_in_gb")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstanceGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "instanceGroupName":
+            suggest = "instance_group_name"
+        elif key == "instanceType":
+            suggest = "instance_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstanceGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstanceGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstanceGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_count: _builtins.int,
+                 instance_group_name: _builtins.str,
+                 instance_type: _builtins.str):
+        """
+        :param _builtins.int instance_count: Number of instances in the group.
+        :param _builtins.str instance_group_name: Name of the group.
+        :param _builtins.str instance_type: Instance type.
+        """
+        pulumi.set(__self__, "instance_count", instance_count)
+        pulumi.set(__self__, "instance_group_name", instance_group_name)
+        pulumi.set(__self__, "instance_type", instance_type)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> _builtins.int:
+        """
+        Number of instances in the group.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceGroupName")
+    def instance_group_name(self) -> _builtins.str:
+        """
+        Name of the group.
+        """
+        return pulumi.get(self, "instance_group_name")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> _builtins.str:
+        """
+        Instance type.
+        """
+        return pulumi.get(self, "instance_type")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstancePlacementConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableMultipleJobs":
+            suggest = "enable_multiple_jobs"
+        elif key == "placementSpecifications":
+            suggest = "placement_specifications"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstancePlacementConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstancePlacementConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstancePlacementConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_multiple_jobs: Optional[_builtins.bool] = None,
+                 placement_specifications: Optional[Sequence['outputs.HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecification']] = None):
+        """
+        :param _builtins.bool enable_multiple_jobs: Whether to run multiple jobs on shared infrastructure.
+        :param Sequence['HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArgs'] placement_specifications: Placement details. See `placement_specifications`.
+        """
+        if enable_multiple_jobs is not None:
+            pulumi.set(__self__, "enable_multiple_jobs", enable_multiple_jobs)
+        if placement_specifications is not None:
+            pulumi.set(__self__, "placement_specifications", placement_specifications)
+
+    @_builtins.property
+    @pulumi.getter(name="enableMultipleJobs")
+    def enable_multiple_jobs(self) -> Optional[_builtins.bool]:
+        """
+        Whether to run multiple jobs on shared infrastructure.
+        """
+        return pulumi.get(self, "enable_multiple_jobs")
+
+    @_builtins.property
+    @pulumi.getter(name="placementSpecifications")
+    def placement_specifications(self) -> Optional[Sequence['outputs.HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecification']]:
+        """
+        Placement details. See `placement_specifications`.
+        """
+        return pulumi.get(self, "placement_specifications")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "ultraServerId":
+            suggest = "ultra_server_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_count: _builtins.int,
+                 ultra_server_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int instance_count: Number of instances in this placement item.
+        :param _builtins.str ultra_server_id: UltraServer ID.
+        """
+        pulumi.set(__self__, "instance_count", instance_count)
+        if ultra_server_id is not None:
+            pulumi.set(__self__, "ultra_server_id", ultra_server_id)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> _builtins.int:
+        """
+        Number of instances in this placement item.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @_builtins.property
+    @pulumi.getter(name="ultraServerId")
+    def ultra_server_id(self) -> Optional[_builtins.str]:
+        """
+        UltraServer ID.
+        """
+        return pulumi.get(self, "ultra_server_id")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTrainingJobDefinitionRetryStrategy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumRetryAttempts":
+            suggest = "maximum_retry_attempts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobTrainingJobDefinitionRetryStrategy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionRetryStrategy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionRetryStrategy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maximum_retry_attempts: _builtins.int):
+        """
+        :param _builtins.int maximum_retry_attempts: Maximum retry attempts.
+        """
+        pulumi.set(__self__, "maximum_retry_attempts", maximum_retry_attempts)
+
+    @_builtins.property
+    @pulumi.getter(name="maximumRetryAttempts")
+    def maximum_retry_attempts(self) -> _builtins.int:
+        """
+        Maximum retry attempts.
+        """
+        return pulumi.get(self, "maximum_retry_attempts")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTrainingJobDefinitionStoppingCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxPendingTimeInSeconds":
+            suggest = "max_pending_time_in_seconds"
+        elif key == "maxRuntimeInSeconds":
+            suggest = "max_runtime_in_seconds"
+        elif key == "maxWaitTimeInSeconds":
+            suggest = "max_wait_time_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobTrainingJobDefinitionStoppingCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionStoppingCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionStoppingCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_pending_time_in_seconds: Optional[_builtins.int] = None,
+                 max_runtime_in_seconds: Optional[_builtins.int] = None,
+                 max_wait_time_in_seconds: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int max_pending_time_in_seconds: Maximum pending time in seconds.
+        :param _builtins.int max_runtime_in_seconds: Maximum runtime in seconds.
+        :param _builtins.int max_wait_time_in_seconds: Maximum wait time in seconds.
+        """
+        if max_pending_time_in_seconds is not None:
+            pulumi.set(__self__, "max_pending_time_in_seconds", max_pending_time_in_seconds)
+        if max_runtime_in_seconds is not None:
+            pulumi.set(__self__, "max_runtime_in_seconds", max_runtime_in_seconds)
+        if max_wait_time_in_seconds is not None:
+            pulumi.set(__self__, "max_wait_time_in_seconds", max_wait_time_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="maxPendingTimeInSeconds")
+    def max_pending_time_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        Maximum pending time in seconds.
+        """
+        return pulumi.get(self, "max_pending_time_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="maxRuntimeInSeconds")
+    def max_runtime_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        Maximum runtime in seconds.
+        """
+        return pulumi.get(self, "max_runtime_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="maxWaitTimeInSeconds")
+    def max_wait_time_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        Maximum wait time in seconds.
+        """
+        return pulumi.get(self, "max_wait_time_in_seconds")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTrainingJobDefinitionTuningObjective(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobTrainingJobDefinitionTuningObjective. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionTuningObjective.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionTuningObjective.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_name: _builtins.str,
+                 type: _builtins.str):
+        """
+        :param _builtins.str metric_name: Metric name for objective.
+        :param _builtins.str type: Optimization direction. Valid values include `Minimize` and `Maximize`.
+        """
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> _builtins.str:
+        """
+        Metric name for objective.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Optimization direction. Valid values include `Minimize` and `Maximize`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobTrainingJobDefinitionVpcConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobTrainingJobDefinitionVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobTrainingJobDefinitionVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_ids: Sequence[_builtins.str],
+                 subnets: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] security_group_ids: Security group IDs.
+        :param Sequence[_builtins.str] subnets: Subnet IDs.
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[_builtins.str]:
+        """
+        Security group IDs.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> Sequence[_builtins.str]:
+        """
+        Subnet IDs.
+        """
+        return pulumi.get(self, "subnets")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobWarmStartConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parentHyperParameterTuningJobs":
+            suggest = "parent_hyper_parameter_tuning_jobs"
+        elif key == "warmStartType":
+            suggest = "warm_start_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperParameterTuningJobWarmStartConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperParameterTuningJobWarmStartConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperParameterTuningJobWarmStartConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 parent_hyper_parameter_tuning_jobs: Optional[Sequence['outputs.HyperParameterTuningJobWarmStartConfigParentHyperParameterTuningJob']] = None,
+                 warm_start_type: Optional[_builtins.str] = None):
+        """
+        :param Sequence['HyperParameterTuningJobWarmStartConfigParentHyperParameterTuningJobArgs'] parent_hyper_parameter_tuning_jobs: Parent tuning jobs for warm start.
+        :param _builtins.str warm_start_type: Warm start mode.
+        """
+        if parent_hyper_parameter_tuning_jobs is not None:
+            pulumi.set(__self__, "parent_hyper_parameter_tuning_jobs", parent_hyper_parameter_tuning_jobs)
+        if warm_start_type is not None:
+            pulumi.set(__self__, "warm_start_type", warm_start_type)
+
+    @_builtins.property
+    @pulumi.getter(name="parentHyperParameterTuningJobs")
+    def parent_hyper_parameter_tuning_jobs(self) -> Optional[Sequence['outputs.HyperParameterTuningJobWarmStartConfigParentHyperParameterTuningJob']]:
+        """
+        Parent tuning jobs for warm start.
+        """
+        return pulumi.get(self, "parent_hyper_parameter_tuning_jobs")
+
+    @_builtins.property
+    @pulumi.getter(name="warmStartType")
+    def warm_start_type(self) -> Optional[_builtins.str]:
+        """
+        Warm start mode.
+        """
+        return pulumi.get(self, "warm_start_type")
+
+
+@pulumi.output_type
+class HyperParameterTuningJobWarmStartConfigParentHyperParameterTuningJob(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str):
+        """
+        :param _builtins.str name: Parent tuning job name.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Parent tuning job name.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

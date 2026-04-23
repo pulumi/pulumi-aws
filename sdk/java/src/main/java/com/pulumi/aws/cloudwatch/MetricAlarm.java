@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudwatch;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.cloudwatch.MetricAlarmArgs;
 import com.pulumi.aws.cloudwatch.inputs.MetricAlarmState;
+import com.pulumi.aws.cloudwatch.outputs.MetricAlarmEvaluationCriteria;
 import com.pulumi.aws.cloudwatch.outputs.MetricAlarmMetricQuery;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -182,6 +183,51 @@ import javax.annotation.Nullable;
  *                         .dimensions(Map.of("LoadBalancer", "app/web"))
  *                         .build())
  *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### With PromQL
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.MetricAlarm;
+ * import com.pulumi.aws.cloudwatch.MetricAlarmArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.MetricAlarmEvaluationCriteriaArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.MetricAlarmEvaluationCriteriaPromqlCriteriaArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var promqlAlarm = new MetricAlarm("promqlAlarm", MetricAlarmArgs.builder()
+ *             .name("high-cpu-promql")
+ *             .alarmDescription("Alarm when average CPU exceeds 80% using PromQL")
+ *             .evaluationCriteria(MetricAlarmEvaluationCriteriaArgs.builder()
+ *                 .promqlCriteria(MetricAlarmEvaluationCriteriaPromqlCriteriaArgs.builder()
+ *                     .query("avg(cpu_utilization_percent) > 80")
+ *                     .pendingPeriod(300)
+ *                     .recoveryPeriod(120)
+ *                     .build())
+ *                 .build())
+ *             .evaluationInterval(30)
+ *             .alarmActions(alerts.arn())
  *             .build());
  * 
  *     }
@@ -434,14 +480,14 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="comparisonOperator", refs={String.class}, tree="[0]")
-    private Output<String> comparisonOperator;
+    private Output</* @Nullable */ String> comparisonOperator;
 
     /**
      * @return The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
      * 
      */
-    public Output<String> comparisonOperator() {
-        return this.comparisonOperator;
+    public Output<Optional<String>> comparisonOperator() {
+        return Codegen.optional(this.comparisonOperator);
     }
     /**
      * The number of data points that must be breaching to trigger the alarm.
@@ -492,18 +538,46 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
         return this.evaluateLowSampleCountPercentiles;
     }
     /**
-     * The number of periods over which data is compared to the specified threshold.
+     * The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
+     * 
+     */
+    @Export(name="evaluationCriteria", refs={MetricAlarmEvaluationCriteria.class}, tree="[0]")
+    private Output</* @Nullable */ MetricAlarmEvaluationCriteria> evaluationCriteria;
+
+    /**
+     * @return The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
+     * 
+     */
+    public Output<Optional<MetricAlarmEvaluationCriteria>> evaluationCriteria() {
+        return Codegen.optional(this.evaluationCriteria);
+    }
+    /**
+     * The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluationCriteria`.
+     * 
+     */
+    @Export(name="evaluationInterval", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> evaluationInterval;
+
+    /**
+     * @return The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluationCriteria`.
+     * 
+     */
+    public Output<Optional<Integer>> evaluationInterval() {
+        return Codegen.optional(this.evaluationInterval);
+    }
+    /**
+     * The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
      * 
      */
     @Export(name="evaluationPeriods", refs={Integer.class}, tree="[0]")
-    private Output<Integer> evaluationPeriods;
+    private Output</* @Nullable */ Integer> evaluationPeriods;
 
     /**
-     * @return The number of periods over which data is compared to the specified threshold.
+     * @return The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
      * 
      */
-    public Output<Integer> evaluationPeriods() {
-        return this.evaluationPeriods;
+    public Output<Optional<Integer>> evaluationPeriods() {
+        return Codegen.optional(this.evaluationPeriods);
     }
     /**
      * The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
@@ -760,7 +834,7 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public MetricAlarm(java.lang.String name, MetricAlarmArgs args) {
+    public MetricAlarm(java.lang.String name, @Nullable MetricAlarmArgs args) {
         this(name, args, null);
     }
     /**
@@ -769,7 +843,7 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public MetricAlarm(java.lang.String name, MetricAlarmArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public MetricAlarm(java.lang.String name, @Nullable MetricAlarmArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cloudwatch/metricAlarm:MetricAlarm", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -777,7 +851,7 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
         super("aws:cloudwatch/metricAlarm:MetricAlarm", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static MetricAlarmArgs makeArgs(MetricAlarmArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static MetricAlarmArgs makeArgs(@Nullable MetricAlarmArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

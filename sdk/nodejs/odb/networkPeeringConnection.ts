@@ -94,6 +94,10 @@ export class NetworkPeeringConnection extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly peerNetworkArn: pulumi.Output<string>;
     /**
+     * Set of peer network cidrs. Add remove is only supported during update operation. During create this attribute is compute only.
+     */
+    declare public readonly peerNetworkCidrs: pulumi.Output<string[]>;
+    /**
      * The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
      */
     declare public readonly peerNetworkId: pulumi.Output<string>;
@@ -143,6 +147,7 @@ export class NetworkPeeringConnection extends pulumi.CustomResource {
             resourceInputs["odbNetworkId"] = state?.odbNetworkId;
             resourceInputs["odbPeeringConnectionType"] = state?.odbPeeringConnectionType;
             resourceInputs["peerNetworkArn"] = state?.peerNetworkArn;
+            resourceInputs["peerNetworkCidrs"] = state?.peerNetworkCidrs;
             resourceInputs["peerNetworkId"] = state?.peerNetworkId;
             resourceInputs["percentProgress"] = state?.percentProgress;
             resourceInputs["region"] = state?.region;
@@ -162,6 +167,7 @@ export class NetworkPeeringConnection extends pulumi.CustomResource {
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["odbNetworkArn"] = args?.odbNetworkArn;
             resourceInputs["odbNetworkId"] = args?.odbNetworkId;
+            resourceInputs["peerNetworkCidrs"] = args?.peerNetworkCidrs;
             resourceInputs["peerNetworkId"] = args?.peerNetworkId;
             resourceInputs["region"] = args?.region;
             resourceInputs["tags"] = args?.tags;
@@ -212,6 +218,10 @@ export interface NetworkPeeringConnectionState {
      */
     peerNetworkArn?: pulumi.Input<string>;
     /**
+     * Set of peer network cidrs. Add remove is only supported during update operation. During create this attribute is compute only.
+     */
+    peerNetworkCidrs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
      */
     peerNetworkId?: pulumi.Input<string>;
@@ -260,6 +270,10 @@ export interface NetworkPeeringConnectionArgs {
      * The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
      */
     odbNetworkId?: pulumi.Input<string>;
+    /**
+     * Set of peer network cidrs. Add remove is only supported during update operation. During create this attribute is compute only.
+     */
+    peerNetworkCidrs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
      */

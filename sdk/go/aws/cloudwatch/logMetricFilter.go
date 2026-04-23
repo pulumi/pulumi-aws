@@ -55,10 +55,22 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import CloudWatch Log Metric Filter using the `log_group_name:name`. For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// * `logGroupName` (String) Name of the log group.
+// * `name` (String) Name of the metric filter.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import Metric Filters using `logGroupName` and `name` separated by a colon (`:`). For example:
 //
 // ```sh
-// $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
+// $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter example example-group:example-filter
 // ```
 type LogMetricFilter struct {
 	pulumi.CustomResourceState

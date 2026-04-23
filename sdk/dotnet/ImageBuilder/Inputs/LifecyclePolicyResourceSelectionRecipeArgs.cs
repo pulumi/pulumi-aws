@@ -19,7 +19,7 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The version of the Image Builder recipe specified by the name field.
+        /// The version of the Image Builder recipe specified by the `Name` field. Wildcard semantic version is supported (e.g. `1.0.x`, `1.x.x`, `x.x.x`).
         /// </summary>
         [Input("semanticVersion", required: true)]
         public Input<string> SemanticVersion { get; set; } = null!;

@@ -257,10 +257,23 @@ class AccessPolicyAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import EKS access entry using the `cluster_name` `principal_arn` and `policy_arn` separated by an octothorp (`#`). For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `cluster_name` (String) Name of the EKS Cluster.
+        * `principal_arn` (String) IAM principal ARN.
+        * `policy_arn` - (String) Access policy ARN.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Access Entry Policy Associations using `cluster_name`, `principal_arn`, and `policy_arn` separated by an octothorp (`#`). For example:
 
         ```sh
-        $ pulumi import aws:eks/accessPolicyAssociation:AccessPolicyAssociation my_eks_access_entry my_cluster_name#my_principal_arn#my_policy_arn
+        $ pulumi import aws:eks/accessPolicyAssociation:AccessPolicyAssociation example example-cluster#arn:aws:iam::123456789012:role/example#arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy
         ```
 
 
@@ -299,10 +312,23 @@ class AccessPolicyAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import EKS access entry using the `cluster_name` `principal_arn` and `policy_arn` separated by an octothorp (`#`). For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `cluster_name` (String) Name of the EKS Cluster.
+        * `principal_arn` (String) IAM principal ARN.
+        * `policy_arn` - (String) Access policy ARN.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Access Entry Policy Associations using `cluster_name`, `principal_arn`, and `policy_arn` separated by an octothorp (`#`). For example:
 
         ```sh
-        $ pulumi import aws:eks/accessPolicyAssociation:AccessPolicyAssociation my_eks_access_entry my_cluster_name#my_principal_arn#my_policy_arn
+        $ pulumi import aws:eks/accessPolicyAssociation:AccessPolicyAssociation example example-cluster#arn:aws:iam::123456789012:role/example#arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy
         ```
 
 

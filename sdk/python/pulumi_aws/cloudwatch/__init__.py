@@ -47,6 +47,7 @@ from .log_subscription_filter import *
 from .log_transformer import *
 from .metric_alarm import *
 from .metric_stream import *
+from .otel_enrichment import *
 from .query_definition import *
 from ._inputs import *
 from . import outputs

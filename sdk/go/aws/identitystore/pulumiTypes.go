@@ -3230,6 +3230,8 @@ type GetUsersUser struct {
 	UserId string `pulumi:"userId"`
 	// User's user name value.
 	UserName string `pulumi:"userName"`
+	// Current status of the user account.
+	UserStatus string `pulumi:"userStatus"`
 	// User type.
 	UserType string `pulumi:"userType"`
 }
@@ -3276,6 +3278,8 @@ type GetUsersUserArgs struct {
 	UserId pulumi.StringInput `pulumi:"userId"`
 	// User's user name value.
 	UserName pulumi.StringInput `pulumi:"userName"`
+	// Current status of the user account.
+	UserStatus pulumi.StringInput `pulumi:"userStatus"`
 	// User type.
 	UserType pulumi.StringInput `pulumi:"userType"`
 }
@@ -3404,6 +3408,11 @@ func (o GetUsersUserOutput) UserId() pulumi.StringOutput {
 // User's user name value.
 func (o GetUsersUserOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.UserName }).(pulumi.StringOutput)
+}
+
+// Current status of the user account.
+func (o GetUsersUserOutput) UserStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersUser) string { return v.UserStatus }).(pulumi.StringOutput)
 }
 
 // User type.

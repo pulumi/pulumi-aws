@@ -130,7 +130,7 @@ type ResolverFirewallRule struct {
 	BlockResponse pulumi.StringPtrOutput `pulumi:"blockResponse"`
 	// The confidence threshold for DNS Firewall Advanced rules. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `LOW`, `MEDIUM`, `HIGH`. Conflicts with `firewallDomainListId`.
 	ConfidenceThreshold pulumi.StringPtrOutput `pulumi:"confidenceThreshold"`
-	// The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
+	// The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DICTIONARY_DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
 	DnsThreatProtection pulumi.StringPtrOutput `pulumi:"dnsThreatProtection"`
 	// The ID of the domain list that you want to use in the rule. Required for standard rules. Conflicts with `dnsThreatProtection` and `confidenceThreshold`.
 	FirewallDomainListId pulumi.StringPtrOutput `pulumi:"firewallDomainListId"`
@@ -201,7 +201,7 @@ type resolverFirewallRuleState struct {
 	BlockResponse *string `pulumi:"blockResponse"`
 	// The confidence threshold for DNS Firewall Advanced rules. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `LOW`, `MEDIUM`, `HIGH`. Conflicts with `firewallDomainListId`.
 	ConfidenceThreshold *string `pulumi:"confidenceThreshold"`
-	// The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
+	// The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DICTIONARY_DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
 	DnsThreatProtection *string `pulumi:"dnsThreatProtection"`
 	// The ID of the domain list that you want to use in the rule. Required for standard rules. Conflicts with `dnsThreatProtection` and `confidenceThreshold`.
 	FirewallDomainListId *string `pulumi:"firewallDomainListId"`
@@ -234,7 +234,7 @@ type ResolverFirewallRuleState struct {
 	BlockResponse pulumi.StringPtrInput
 	// The confidence threshold for DNS Firewall Advanced rules. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `LOW`, `MEDIUM`, `HIGH`. Conflicts with `firewallDomainListId`.
 	ConfidenceThreshold pulumi.StringPtrInput
-	// The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
+	// The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DICTIONARY_DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
 	DnsThreatProtection pulumi.StringPtrInput
 	// The ID of the domain list that you want to use in the rule. Required for standard rules. Conflicts with `dnsThreatProtection` and `confidenceThreshold`.
 	FirewallDomainListId pulumi.StringPtrInput
@@ -271,7 +271,7 @@ type resolverFirewallRuleArgs struct {
 	BlockResponse *string `pulumi:"blockResponse"`
 	// The confidence threshold for DNS Firewall Advanced rules. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `LOW`, `MEDIUM`, `HIGH`. Conflicts with `firewallDomainListId`.
 	ConfidenceThreshold *string `pulumi:"confidenceThreshold"`
-	// The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
+	// The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DICTIONARY_DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
 	DnsThreatProtection *string `pulumi:"dnsThreatProtection"`
 	// The ID of the domain list that you want to use in the rule. Required for standard rules. Conflicts with `dnsThreatProtection` and `confidenceThreshold`.
 	FirewallDomainListId *string `pulumi:"firewallDomainListId"`
@@ -303,7 +303,7 @@ type ResolverFirewallRuleArgs struct {
 	BlockResponse pulumi.StringPtrInput
 	// The confidence threshold for DNS Firewall Advanced rules. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `LOW`, `MEDIUM`, `HIGH`. Conflicts with `firewallDomainListId`.
 	ConfidenceThreshold pulumi.StringPtrInput
-	// The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
+	// The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DICTIONARY_DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
 	DnsThreatProtection pulumi.StringPtrInput
 	// The ID of the domain list that you want to use in the rule. Required for standard rules. Conflicts with `dnsThreatProtection` and `confidenceThreshold`.
 	FirewallDomainListId pulumi.StringPtrInput
@@ -438,7 +438,7 @@ func (o ResolverFirewallRuleOutput) ConfidenceThreshold() pulumi.StringPtrOutput
 	return o.ApplyT(func(v *ResolverFirewallRule) pulumi.StringPtrOutput { return v.ConfidenceThreshold }).(pulumi.StringPtrOutput)
 }
 
-// The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
+// The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DICTIONARY_DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
 func (o ResolverFirewallRuleOutput) DnsThreatProtection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverFirewallRule) pulumi.StringPtrOutput { return v.DnsThreatProtection }).(pulumi.StringPtrOutput)
 }

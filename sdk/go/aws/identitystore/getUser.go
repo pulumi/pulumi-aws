@@ -111,6 +111,8 @@ type LookupUserResult struct {
 	UserId string `pulumi:"userId"`
 	// User's user name value.
 	UserName string `pulumi:"userName"`
+	// The current status of the user account.
+	UserStatus string `pulumi:"userStatus"`
 	// The user type.
 	UserType string `pulumi:"userType"`
 }
@@ -244,6 +246,11 @@ func (o LookupUserResultOutput) UserId() pulumi.StringOutput {
 // User's user name value.
 func (o LookupUserResultOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.UserName }).(pulumi.StringOutput)
+}
+
+// The current status of the user account.
+func (o LookupUserResultOutput) UserStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.UserStatus }).(pulumi.StringOutput)
 }
 
 // The user type.

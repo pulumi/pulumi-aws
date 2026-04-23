@@ -79,7 +79,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
      */
     private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration secretsManagerConfiguration;
     /**
-     * @return The HTTP endpoint URL to which Kinesis Firehose sends your data.
+     * @return The HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor&#39;s documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
      * 
      */
     private String url;
@@ -170,7 +170,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
         return Optional.ofNullable(this.secretsManagerConfiguration);
     }
     /**
-     * @return The HTTP endpoint URL to which Kinesis Firehose sends your data.
+     * @return The HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor&#39;s documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
      * 
      */
     public String url() {

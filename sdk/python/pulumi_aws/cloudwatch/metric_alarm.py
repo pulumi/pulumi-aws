@@ -21,14 +21,16 @@ __all__ = ['MetricAlarmArgs', 'MetricAlarm']
 @pulumi.input_type
 class MetricAlarmArgs:
     def __init__(__self__, *,
-                 comparison_operator: pulumi.Input[_builtins.str],
-                 evaluation_periods: pulumi.Input[_builtins.int],
                  actions_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  alarm_description: Optional[pulumi.Input[_builtins.str]] = None,
+                 comparison_operator: Optional[pulumi.Input[_builtins.str]] = None,
                  datapoints_to_alarm: Optional[pulumi.Input[_builtins.int]] = None,
                  dimensions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  evaluate_low_sample_count_percentiles: Optional[pulumi.Input[_builtins.str]] = None,
+                 evaluation_criteria: Optional[pulumi.Input['MetricAlarmEvaluationCriteriaArgs']] = None,
+                 evaluation_interval: Optional[pulumi.Input[_builtins.int]] = None,
+                 evaluation_periods: Optional[pulumi.Input[_builtins.int]] = None,
                  extended_statistic: Optional[pulumi.Input[_builtins.str]] = None,
                  insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  metric_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -47,17 +49,19 @@ class MetricAlarmArgs:
         """
         The set of arguments for constructing a MetricAlarm resource.
 
-        :param pulumi.Input[_builtins.str] comparison_operator: The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
-        :param pulumi.Input[_builtins.int] evaluation_periods: The number of periods over which data is compared to the specified threshold.
         :param pulumi.Input[_builtins.bool] actions_enabled: Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alarm_actions: The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[_builtins.str] alarm_description: The description for the alarm.
+        :param pulumi.Input[_builtins.str] comparison_operator: The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
         :param pulumi.Input[_builtins.int] datapoints_to_alarm: The number of data points that must be breaching to trigger the alarm.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] dimensions: The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         :param pulumi.Input[_builtins.str] evaluate_low_sample_count_percentiles: Used only for alarms based on percentiles.
                If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
                If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
                The following values are supported: `ignore`, and `evaluate`.
+        :param pulumi.Input['MetricAlarmEvaluationCriteriaArgs'] evaluation_criteria: The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
+        :param pulumi.Input[_builtins.int] evaluation_interval: The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluation_criteria`.
+        :param pulumi.Input[_builtins.int] evaluation_periods: The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
         :param pulumi.Input[_builtins.str] extended_statistic: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] insufficient_data_actions: The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[_builtins.str] metric_name: The name for the alarm's associated metric.
@@ -83,20 +87,26 @@ class MetricAlarmArgs:
         :param pulumi.Input[_builtins.str] treat_missing_data: Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
         :param pulumi.Input[_builtins.str] unit: The unit for the alarm's associated metric.
         """
-        pulumi.set(__self__, "comparison_operator", comparison_operator)
-        pulumi.set(__self__, "evaluation_periods", evaluation_periods)
         if actions_enabled is not None:
             pulumi.set(__self__, "actions_enabled", actions_enabled)
         if alarm_actions is not None:
             pulumi.set(__self__, "alarm_actions", alarm_actions)
         if alarm_description is not None:
             pulumi.set(__self__, "alarm_description", alarm_description)
+        if comparison_operator is not None:
+            pulumi.set(__self__, "comparison_operator", comparison_operator)
         if datapoints_to_alarm is not None:
             pulumi.set(__self__, "datapoints_to_alarm", datapoints_to_alarm)
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
         if evaluate_low_sample_count_percentiles is not None:
             pulumi.set(__self__, "evaluate_low_sample_count_percentiles", evaluate_low_sample_count_percentiles)
+        if evaluation_criteria is not None:
+            pulumi.set(__self__, "evaluation_criteria", evaluation_criteria)
+        if evaluation_interval is not None:
+            pulumi.set(__self__, "evaluation_interval", evaluation_interval)
+        if evaluation_periods is not None:
+            pulumi.set(__self__, "evaluation_periods", evaluation_periods)
         if extended_statistic is not None:
             pulumi.set(__self__, "extended_statistic", extended_statistic)
         if insufficient_data_actions is not None:
@@ -127,30 +137,6 @@ class MetricAlarmArgs:
             pulumi.set(__self__, "treat_missing_data", treat_missing_data)
         if unit is not None:
             pulumi.set(__self__, "unit", unit)
-
-    @_builtins.property
-    @pulumi.getter(name="comparisonOperator")
-    def comparison_operator(self) -> pulumi.Input[_builtins.str]:
-        """
-        The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
-        """
-        return pulumi.get(self, "comparison_operator")
-
-    @comparison_operator.setter
-    def comparison_operator(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "comparison_operator", value)
-
-    @_builtins.property
-    @pulumi.getter(name="evaluationPeriods")
-    def evaluation_periods(self) -> pulumi.Input[_builtins.int]:
-        """
-        The number of periods over which data is compared to the specified threshold.
-        """
-        return pulumi.get(self, "evaluation_periods")
-
-    @evaluation_periods.setter
-    def evaluation_periods(self, value: pulumi.Input[_builtins.int]):
-        pulumi.set(self, "evaluation_periods", value)
 
     @_builtins.property
     @pulumi.getter(name="actionsEnabled")
@@ -187,6 +173,18 @@ class MetricAlarmArgs:
     @alarm_description.setter
     def alarm_description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "alarm_description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="comparisonOperator")
+    def comparison_operator(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
+        """
+        return pulumi.get(self, "comparison_operator")
+
+    @comparison_operator.setter
+    def comparison_operator(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comparison_operator", value)
 
     @_builtins.property
     @pulumi.getter(name="datapointsToAlarm")
@@ -226,6 +224,42 @@ class MetricAlarmArgs:
     @evaluate_low_sample_count_percentiles.setter
     def evaluate_low_sample_count_percentiles(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "evaluate_low_sample_count_percentiles", value)
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationCriteria")
+    def evaluation_criteria(self) -> Optional[pulumi.Input['MetricAlarmEvaluationCriteriaArgs']]:
+        """
+        The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
+        """
+        return pulumi.get(self, "evaluation_criteria")
+
+    @evaluation_criteria.setter
+    def evaluation_criteria(self, value: Optional[pulumi.Input['MetricAlarmEvaluationCriteriaArgs']]):
+        pulumi.set(self, "evaluation_criteria", value)
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationInterval")
+    def evaluation_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluation_criteria`.
+        """
+        return pulumi.get(self, "evaluation_interval")
+
+    @evaluation_interval.setter
+    def evaluation_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "evaluation_interval", value)
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationPeriods")
+    def evaluation_periods(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
+        """
+        return pulumi.get(self, "evaluation_periods")
+
+    @evaluation_periods.setter
+    def evaluation_periods(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "evaluation_periods", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedStatistic")
@@ -428,6 +462,8 @@ class _MetricAlarmState:
                  datapoints_to_alarm: Optional[pulumi.Input[_builtins.int]] = None,
                  dimensions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  evaluate_low_sample_count_percentiles: Optional[pulumi.Input[_builtins.str]] = None,
+                 evaluation_criteria: Optional[pulumi.Input['MetricAlarmEvaluationCriteriaArgs']] = None,
+                 evaluation_interval: Optional[pulumi.Input[_builtins.int]] = None,
                  evaluation_periods: Optional[pulumi.Input[_builtins.int]] = None,
                  extended_statistic: Optional[pulumi.Input[_builtins.str]] = None,
                  insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -459,7 +495,9 @@ class _MetricAlarmState:
                If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
                If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
                The following values are supported: `ignore`, and `evaluate`.
-        :param pulumi.Input[_builtins.int] evaluation_periods: The number of periods over which data is compared to the specified threshold.
+        :param pulumi.Input['MetricAlarmEvaluationCriteriaArgs'] evaluation_criteria: The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
+        :param pulumi.Input[_builtins.int] evaluation_interval: The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluation_criteria`.
+        :param pulumi.Input[_builtins.int] evaluation_periods: The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
         :param pulumi.Input[_builtins.str] extended_statistic: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] insufficient_data_actions: The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[_builtins.str] metric_name: The name for the alarm's associated metric.
@@ -502,6 +540,10 @@ class _MetricAlarmState:
             pulumi.set(__self__, "dimensions", dimensions)
         if evaluate_low_sample_count_percentiles is not None:
             pulumi.set(__self__, "evaluate_low_sample_count_percentiles", evaluate_low_sample_count_percentiles)
+        if evaluation_criteria is not None:
+            pulumi.set(__self__, "evaluation_criteria", evaluation_criteria)
+        if evaluation_interval is not None:
+            pulumi.set(__self__, "evaluation_interval", evaluation_interval)
         if evaluation_periods is not None:
             pulumi.set(__self__, "evaluation_periods", evaluation_periods)
         if extended_statistic is not None:
@@ -637,10 +679,34 @@ class _MetricAlarmState:
         pulumi.set(self, "evaluate_low_sample_count_percentiles", value)
 
     @_builtins.property
+    @pulumi.getter(name="evaluationCriteria")
+    def evaluation_criteria(self) -> Optional[pulumi.Input['MetricAlarmEvaluationCriteriaArgs']]:
+        """
+        The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
+        """
+        return pulumi.get(self, "evaluation_criteria")
+
+    @evaluation_criteria.setter
+    def evaluation_criteria(self, value: Optional[pulumi.Input['MetricAlarmEvaluationCriteriaArgs']]):
+        pulumi.set(self, "evaluation_criteria", value)
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationInterval")
+    def evaluation_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluation_criteria`.
+        """
+        return pulumi.get(self, "evaluation_interval")
+
+    @evaluation_interval.setter
+    def evaluation_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "evaluation_interval", value)
+
+    @_builtins.property
     @pulumi.getter(name="evaluationPeriods")
     def evaluation_periods(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The number of periods over which data is compared to the specified threshold.
+        The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
         """
         return pulumi.get(self, "evaluation_periods")
 
@@ -863,6 +929,8 @@ class MetricAlarm(pulumi.CustomResource):
                  datapoints_to_alarm: Optional[pulumi.Input[_builtins.int]] = None,
                  dimensions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  evaluate_low_sample_count_percentiles: Optional[pulumi.Input[_builtins.str]] = None,
+                 evaluation_criteria: Optional[pulumi.Input[Union['MetricAlarmEvaluationCriteriaArgs', 'MetricAlarmEvaluationCriteriaArgsDict']]] = None,
+                 evaluation_interval: Optional[pulumi.Input[_builtins.int]] = None,
                  evaluation_periods: Optional[pulumi.Input[_builtins.int]] = None,
                  extended_statistic: Optional[pulumi.Input[_builtins.str]] = None,
                  insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -979,6 +1047,26 @@ class MetricAlarm(pulumi.CustomResource):
                     },
                 },
             ])
+        ```
+
+        ### With PromQL
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        promql_alarm = aws.cloudwatch.MetricAlarm("promql_alarm",
+            name="high-cpu-promql",
+            alarm_description="Alarm when average CPU exceeds 80% using PromQL",
+            evaluation_criteria={
+                "promql_criteria": {
+                    "query": "avg(cpu_utilization_percent) > 80",
+                    "pending_period": 300,
+                    "recovery_period": 120,
+                },
+            },
+            evaluation_interval=30,
+            alarm_actions=[alerts["arn"]])
         ```
 
         ```python
@@ -1105,7 +1193,9 @@ class MetricAlarm(pulumi.CustomResource):
                If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
                If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
                The following values are supported: `ignore`, and `evaluate`.
-        :param pulumi.Input[_builtins.int] evaluation_periods: The number of periods over which data is compared to the specified threshold.
+        :param pulumi.Input[Union['MetricAlarmEvaluationCriteriaArgs', 'MetricAlarmEvaluationCriteriaArgsDict']] evaluation_criteria: The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
+        :param pulumi.Input[_builtins.int] evaluation_interval: The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluation_criteria`.
+        :param pulumi.Input[_builtins.int] evaluation_periods: The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
         :param pulumi.Input[_builtins.str] extended_statistic: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] insufficient_data_actions: The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[_builtins.str] metric_name: The name for the alarm's associated metric.
@@ -1135,7 +1225,7 @@ class MetricAlarm(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MetricAlarmArgs,
+                 args: Optional[MetricAlarmArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CloudWatch Metric Alarm resource.
@@ -1236,6 +1326,26 @@ class MetricAlarm(pulumi.CustomResource):
                     },
                 },
             ])
+        ```
+
+        ### With PromQL
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        promql_alarm = aws.cloudwatch.MetricAlarm("promql_alarm",
+            name="high-cpu-promql",
+            alarm_description="Alarm when average CPU exceeds 80% using PromQL",
+            evaluation_criteria={
+                "promql_criteria": {
+                    "query": "avg(cpu_utilization_percent) > 80",
+                    "pending_period": 300,
+                    "recovery_period": 120,
+                },
+            },
+            evaluation_interval=30,
+            alarm_actions=[alerts["arn"]])
         ```
 
         ```python
@@ -1372,6 +1482,8 @@ class MetricAlarm(pulumi.CustomResource):
                  datapoints_to_alarm: Optional[pulumi.Input[_builtins.int]] = None,
                  dimensions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  evaluate_low_sample_count_percentiles: Optional[pulumi.Input[_builtins.str]] = None,
+                 evaluation_criteria: Optional[pulumi.Input[Union['MetricAlarmEvaluationCriteriaArgs', 'MetricAlarmEvaluationCriteriaArgsDict']]] = None,
+                 evaluation_interval: Optional[pulumi.Input[_builtins.int]] = None,
                  evaluation_periods: Optional[pulumi.Input[_builtins.int]] = None,
                  extended_statistic: Optional[pulumi.Input[_builtins.str]] = None,
                  insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1400,14 +1512,12 @@ class MetricAlarm(pulumi.CustomResource):
             __props__.__dict__["actions_enabled"] = actions_enabled
             __props__.__dict__["alarm_actions"] = alarm_actions
             __props__.__dict__["alarm_description"] = alarm_description
-            if comparison_operator is None and not opts.urn:
-                raise TypeError("Missing required property 'comparison_operator'")
             __props__.__dict__["comparison_operator"] = comparison_operator
             __props__.__dict__["datapoints_to_alarm"] = datapoints_to_alarm
             __props__.__dict__["dimensions"] = dimensions
             __props__.__dict__["evaluate_low_sample_count_percentiles"] = evaluate_low_sample_count_percentiles
-            if evaluation_periods is None and not opts.urn:
-                raise TypeError("Missing required property 'evaluation_periods'")
+            __props__.__dict__["evaluation_criteria"] = evaluation_criteria
+            __props__.__dict__["evaluation_interval"] = evaluation_interval
             __props__.__dict__["evaluation_periods"] = evaluation_periods
             __props__.__dict__["extended_statistic"] = extended_statistic
             __props__.__dict__["insufficient_data_actions"] = insufficient_data_actions
@@ -1444,6 +1554,8 @@ class MetricAlarm(pulumi.CustomResource):
             datapoints_to_alarm: Optional[pulumi.Input[_builtins.int]] = None,
             dimensions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             evaluate_low_sample_count_percentiles: Optional[pulumi.Input[_builtins.str]] = None,
+            evaluation_criteria: Optional[pulumi.Input[Union['MetricAlarmEvaluationCriteriaArgs', 'MetricAlarmEvaluationCriteriaArgsDict']]] = None,
+            evaluation_interval: Optional[pulumi.Input[_builtins.int]] = None,
             evaluation_periods: Optional[pulumi.Input[_builtins.int]] = None,
             extended_statistic: Optional[pulumi.Input[_builtins.str]] = None,
             insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1479,7 +1591,9 @@ class MetricAlarm(pulumi.CustomResource):
                If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
                If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
                The following values are supported: `ignore`, and `evaluate`.
-        :param pulumi.Input[_builtins.int] evaluation_periods: The number of periods over which data is compared to the specified threshold.
+        :param pulumi.Input[Union['MetricAlarmEvaluationCriteriaArgs', 'MetricAlarmEvaluationCriteriaArgsDict']] evaluation_criteria: The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
+        :param pulumi.Input[_builtins.int] evaluation_interval: The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluation_criteria`.
+        :param pulumi.Input[_builtins.int] evaluation_periods: The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
         :param pulumi.Input[_builtins.str] extended_statistic: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] insufficient_data_actions: The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[_builtins.str] metric_name: The name for the alarm's associated metric.
@@ -1518,6 +1632,8 @@ class MetricAlarm(pulumi.CustomResource):
         __props__.__dict__["datapoints_to_alarm"] = datapoints_to_alarm
         __props__.__dict__["dimensions"] = dimensions
         __props__.__dict__["evaluate_low_sample_count_percentiles"] = evaluate_low_sample_count_percentiles
+        __props__.__dict__["evaluation_criteria"] = evaluation_criteria
+        __props__.__dict__["evaluation_interval"] = evaluation_interval
         __props__.__dict__["evaluation_periods"] = evaluation_periods
         __props__.__dict__["extended_statistic"] = extended_statistic
         __props__.__dict__["insufficient_data_actions"] = insufficient_data_actions
@@ -1571,7 +1687,7 @@ class MetricAlarm(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="comparisonOperator")
-    def comparison_operator(self) -> pulumi.Output[_builtins.str]:
+    def comparison_operator(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
         """
@@ -1605,10 +1721,26 @@ class MetricAlarm(pulumi.CustomResource):
         return pulumi.get(self, "evaluate_low_sample_count_percentiles")
 
     @_builtins.property
-    @pulumi.getter(name="evaluationPeriods")
-    def evaluation_periods(self) -> pulumi.Output[_builtins.int]:
+    @pulumi.getter(name="evaluationCriteria")
+    def evaluation_criteria(self) -> pulumi.Output[Optional['outputs.MetricAlarmEvaluationCriteria']]:
         """
-        The number of periods over which data is compared to the specified threshold.
+        The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
+        """
+        return pulumi.get(self, "evaluation_criteria")
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationInterval")
+    def evaluation_interval(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluation_criteria`.
+        """
+        return pulumi.get(self, "evaluation_interval")
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationPeriods")
+    def evaluation_periods(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
         """
         return pulumi.get(self, "evaluation_periods")
 

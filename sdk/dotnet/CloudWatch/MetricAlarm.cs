@@ -149,6 +149,39 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// 
+    /// ### With PromQL
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var promqlAlarm = new Aws.CloudWatch.MetricAlarm("promql_alarm", new()
+    ///     {
+    ///         Name = "high-cpu-promql",
+    ///         AlarmDescription = "Alarm when average CPU exceeds 80% using PromQL",
+    ///         EvaluationCriteria = new Aws.CloudWatch.Inputs.MetricAlarmEvaluationCriteriaArgs
+    ///         {
+    ///             PromqlCriteria = new Aws.CloudWatch.Inputs.MetricAlarmEvaluationCriteriaPromqlCriteriaArgs
+    ///             {
+    ///                 Query = "avg(cpu_utilization_percent) &gt; 80",
+    ///                 PendingPeriod = 300,
+    ///                 RecoveryPeriod = 120,
+    ///             },
+    ///         },
+    ///         EvaluationInterval = 30,
+    ///         AlarmActions = new[]
+    ///         {
+    ///             alerts.Arn,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -331,7 +364,7 @@ namespace Pulumi.Aws.CloudWatch
         /// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
         /// </summary>
         [Output("comparisonOperator")]
-        public Output<string> ComparisonOperator { get; private set; } = null!;
+        public Output<string?> ComparisonOperator { get; private set; } = null!;
 
         /// <summary>
         /// The number of data points that must be breaching to trigger the alarm.
@@ -355,10 +388,22 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> EvaluateLowSampleCountPercentiles { get; private set; } = null!;
 
         /// <summary>
-        /// The number of periods over which data is compared to the specified threshold.
+        /// The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
+        /// </summary>
+        [Output("evaluationCriteria")]
+        public Output<Outputs.MetricAlarmEvaluationCriteria?> EvaluationCriteria { get; private set; } = null!;
+
+        /// <summary>
+        /// The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `EvaluationCriteria`.
+        /// </summary>
+        [Output("evaluationInterval")]
+        public Output<int?> EvaluationInterval { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
         /// </summary>
         [Output("evaluationPeriods")]
-        public Output<int> EvaluationPeriods { get; private set; } = null!;
+        public Output<int?> EvaluationPeriods { get; private set; } = null!;
 
         /// <summary>
         /// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
@@ -473,7 +518,7 @@ namespace Pulumi.Aws.CloudWatch
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public MetricAlarm(string name, MetricAlarmArgs args, CustomResourceOptions? options = null)
+        public MetricAlarm(string name, MetricAlarmArgs? args = null, CustomResourceOptions? options = null)
             : base("aws:cloudwatch/metricAlarm:MetricAlarm", name, args ?? new MetricAlarmArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -538,8 +583,8 @@ namespace Pulumi.Aws.CloudWatch
         /// <summary>
         /// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
         /// </summary>
-        [Input("comparisonOperator", required: true)]
-        public Input<string> ComparisonOperator { get; set; } = null!;
+        [Input("comparisonOperator")]
+        public Input<string>? ComparisonOperator { get; set; }
 
         /// <summary>
         /// The number of data points that must be breaching to trigger the alarm.
@@ -569,10 +614,22 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? EvaluateLowSampleCountPercentiles { get; set; }
 
         /// <summary>
-        /// The number of periods over which data is compared to the specified threshold.
+        /// The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
         /// </summary>
-        [Input("evaluationPeriods", required: true)]
-        public Input<int> EvaluationPeriods { get; set; } = null!;
+        [Input("evaluationCriteria")]
+        public Input<Inputs.MetricAlarmEvaluationCriteriaArgs>? EvaluationCriteria { get; set; }
+
+        /// <summary>
+        /// The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `EvaluationCriteria`.
+        /// </summary>
+        [Input("evaluationInterval")]
+        public Input<int>? EvaluationInterval { get; set; }
+
+        /// <summary>
+        /// The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
+        /// </summary>
+        [Input("evaluationPeriods")]
+        public Input<int>? EvaluationPeriods { get; set; }
 
         /// <summary>
         /// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
@@ -769,7 +826,19 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? EvaluateLowSampleCountPercentiles { get; set; }
 
         /// <summary>
-        /// The number of periods over which data is compared to the specified threshold.
+        /// The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
+        /// </summary>
+        [Input("evaluationCriteria")]
+        public Input<Inputs.MetricAlarmEvaluationCriteriaGetArgs>? EvaluationCriteria { get; set; }
+
+        /// <summary>
+        /// The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `EvaluationCriteria`.
+        /// </summary>
+        [Input("evaluationInterval")]
+        public Input<int>? EvaluationInterval { get; set; }
+
+        /// <summary>
+        /// The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
         /// </summary>
         [Input("evaluationPeriods")]
         public Input<int>? EvaluationPeriods { get; set; }

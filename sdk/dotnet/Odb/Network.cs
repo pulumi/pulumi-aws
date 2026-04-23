@@ -62,6 +62,12 @@ namespace Pulumi.Aws.Odb
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
+        /// The list of regions enabled for cross-region restore in the ODB network.
+        /// </summary>
+        [Output("crossRegionS3RestoreSourcesAccesses")]
+        public Output<ImmutableArray<string>> CrossRegionS3RestoreSourcesAccesses { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the custom domain that the network is located. Custom_domain_name and DefaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
         /// </summary>
         [Output("customDomainName")]
@@ -98,7 +104,7 @@ namespace Pulumi.Aws.Odb
         public Output<string?> KmsPolicyDocument { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the OCI resource anchor for the Exadata infrastructure.
+        /// The managed services configuration for the ODB network.
         /// </summary>
         [Output("managedServices")]
         public Output<ImmutableArray<Outputs.NetworkManagedService>> ManagedServices { get; private set; } = null!;
@@ -283,6 +289,18 @@ namespace Pulumi.Aws.Odb
         [Input("clientSubnetCidr", required: true)]
         public Input<string> ClientSubnetCidr { get; set; } = null!;
 
+        [Input("crossRegionS3RestoreSourcesAccesses")]
+        private InputList<string>? _crossRegionS3RestoreSourcesAccesses;
+
+        /// <summary>
+        /// The list of regions enabled for cross-region restore in the ODB network.
+        /// </summary>
+        public InputList<string> CrossRegionS3RestoreSourcesAccesses
+        {
+            get => _crossRegionS3RestoreSourcesAccesses ?? (_crossRegionS3RestoreSourcesAccesses = new InputList<string>());
+            set => _crossRegionS3RestoreSourcesAccesses = value;
+        }
+
         /// <summary>
         /// The name of the custom domain that the network is located. Custom_domain_name and DefaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
         /// </summary>
@@ -416,6 +434,18 @@ namespace Pulumi.Aws.Odb
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
+        [Input("crossRegionS3RestoreSourcesAccesses")]
+        private InputList<string>? _crossRegionS3RestoreSourcesAccesses;
+
+        /// <summary>
+        /// The list of regions enabled for cross-region restore in the ODB network.
+        /// </summary>
+        public InputList<string> CrossRegionS3RestoreSourcesAccesses
+        {
+            get => _crossRegionS3RestoreSourcesAccesses ?? (_crossRegionS3RestoreSourcesAccesses = new InputList<string>());
+            set => _crossRegionS3RestoreSourcesAccesses = value;
+        }
+
         /// <summary>
         /// The name of the custom domain that the network is located. Custom_domain_name and DefaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
         /// </summary>
@@ -456,7 +486,7 @@ namespace Pulumi.Aws.Odb
         private InputList<Inputs.NetworkManagedServiceGetArgs>? _managedServices;
 
         /// <summary>
-        /// The name of the OCI resource anchor for the Exadata infrastructure.
+        /// The managed services configuration for the ODB network.
         /// </summary>
         public InputList<Inputs.NetworkManagedServiceGetArgs> ManagedServices
         {

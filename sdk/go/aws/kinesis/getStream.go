@@ -73,7 +73,7 @@ type LookupStreamResult struct {
 	EncryptionType string `pulumi:"encryptionType"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// GUID for the customer-managed AWS KMS key to use for encryption.
+	// The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// The maximum size for a single data record in KiB.
 	MaxRecordSizeInKib int `pulumi:"maxRecordSizeInKib"`
@@ -157,7 +157,7 @@ func (o LookupStreamResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStreamResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// GUID for the customer-managed AWS KMS key to use for encryption.
+// The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN.
 func (o LookupStreamResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStreamResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }

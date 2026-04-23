@@ -12,6 +12,18 @@ namespace Pulumi.Aws.Odb.Inputs
 
     public sealed class NetworkManagedServiceGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("crossRegionS3RestoreSourcesAccesses", required: true)]
+        private InputList<Inputs.NetworkManagedServiceCrossRegionS3RestoreSourcesAccessGetArgs>? _crossRegionS3RestoreSourcesAccesses;
+
+        /// <summary>
+        /// The list of regions enabled for cross-region restore in the ODB network.
+        /// </summary>
+        public InputList<Inputs.NetworkManagedServiceCrossRegionS3RestoreSourcesAccessGetArgs> CrossRegionS3RestoreSourcesAccesses
+        {
+            get => _crossRegionS3RestoreSourcesAccesses ?? (_crossRegionS3RestoreSourcesAccesses = new InputList<Inputs.NetworkManagedServiceCrossRegionS3RestoreSourcesAccessGetArgs>());
+            set => _crossRegionS3RestoreSourcesAccesses = value;
+        }
+
         [Input("kmsAccesses", required: true)]
         private InputList<Inputs.NetworkManagedServiceKmsAccessGetArgs>? _kmsAccesses;
 

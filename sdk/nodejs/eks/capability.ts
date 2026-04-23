@@ -38,10 +38,22 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import EKS Capability using the `clusterName` and `capabilityName` separated by a comma (`,`). For example:
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `clusterName` (String) Name of the EKS Cluster.
+ * * `capabilityName` (String) Name of the capability.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import Capabilities using `clusterName` and `capabilityName` separated by a comma (`,`). For example:
  *
  * ```sh
- * $ pulumi import aws:eks/capability:Capability example my-cluster,my-capability
+ * $ pulumi import aws:eks/capability:Capability example example-cluster,example-capability
  * ```
  */
 export class Capability extends pulumi.CustomResource {

@@ -122,6 +122,20 @@ public class Network extends com.pulumi.resources.CustomResource {
         return this.createdAt;
     }
     /**
+     * The list of regions enabled for cross-region restore in the ODB network.
+     * 
+     */
+    @Export(name="crossRegionS3RestoreSourcesAccesses", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> crossRegionS3RestoreSourcesAccesses;
+
+    /**
+     * @return The list of regions enabled for cross-region restore in the ODB network.
+     * 
+     */
+    public Output<List<String>> crossRegionS3RestoreSourcesAccesses() {
+        return this.crossRegionS3RestoreSourcesAccesses;
+    }
+    /**
      * The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can&#39;t be given. Changing this will force terraform to create new resource.
      * 
      */
@@ -206,14 +220,14 @@ public class Network extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kmsPolicyDocument);
     }
     /**
-     * The name of the OCI resource anchor for the Exadata infrastructure.
+     * The managed services configuration for the ODB network.
      * 
      */
     @Export(name="managedServices", refs={List.class,NetworkManagedService.class}, tree="[0,1]")
     private Output<List<NetworkManagedService>> managedServices;
 
     /**
-     * @return The name of the OCI resource anchor for the Exadata infrastructure.
+     * @return The managed services configuration for the ODB network.
      * 
      */
     public Output<List<NetworkManagedService>> managedServices() {

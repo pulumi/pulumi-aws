@@ -30,6 +30,7 @@ __all__ = [
     'CloudVmClusterIormConfigCacheDbPlan',
     'CloudVmClusterTimeouts',
     'NetworkManagedService',
+    'NetworkManagedServiceCrossRegionS3RestoreSourcesAccess',
     'NetworkManagedServiceKmsAccess',
     'NetworkManagedServiceManagedS3BackupAccess',
     'NetworkManagedServiceS3Access',
@@ -59,6 +60,7 @@ __all__ = [
     'GetDbSystemShapesDbSystemShapeResult',
     'GetGiVersionsGiVersionResult',
     'GetNetworkManagedServiceResult',
+    'GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessResult',
     'GetNetworkManagedServiceKmsAccessResult',
     'GetNetworkManagedServiceManagedS3BackupAccessResult',
     'GetNetworkManagedServiceS3AccessResult',
@@ -651,7 +653,9 @@ class NetworkManagedService(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "kmsAccesses":
+        if key == "crossRegionS3RestoreSourcesAccesses":
+            suggest = "cross_region_s3_restore_sources_accesses"
+        elif key == "kmsAccesses":
             suggest = "kms_accesses"
         elif key == "managedS3BackupAccesses":
             suggest = "managed_s3_backup_accesses"
@@ -682,6 +686,7 @@ class NetworkManagedService(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 cross_region_s3_restore_sources_accesses: Sequence['outputs.NetworkManagedServiceCrossRegionS3RestoreSourcesAccess'],
                  kms_accesses: Sequence['outputs.NetworkManagedServiceKmsAccess'],
                  managed_s3_backup_accesses: Sequence['outputs.NetworkManagedServiceManagedS3BackupAccess'],
                  managed_service_ipv4_cidrs: Sequence[_builtins.str],
@@ -692,6 +697,7 @@ class NetworkManagedService(dict):
                  sts_accesses: Sequence['outputs.NetworkManagedServiceStsAccess'],
                  zero_etl_accesses: Sequence['outputs.NetworkManagedServiceZeroEtlAccess']):
         """
+        :param Sequence['NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs'] cross_region_s3_restore_sources_accesses: The list of regions enabled for cross-region restore in the ODB network.
         :param Sequence['NetworkManagedServiceKmsAccessArgs'] kms_accesses: Specifies the configuration for KMS access from the ODB network.
         :param Sequence['NetworkManagedServiceS3AccessArgs'] s3_accesses: Specifies the configuration for Amazon S3 access from the ODB network.
         :param Sequence['NetworkManagedServiceStsAccessArgs'] sts_accesses: Specifies the configuration for STS access from the ODB network.
@@ -699,6 +705,7 @@ class NetworkManagedService(dict):
                
                The following arguments are optional:
         """
+        pulumi.set(__self__, "cross_region_s3_restore_sources_accesses", cross_region_s3_restore_sources_accesses)
         pulumi.set(__self__, "kms_accesses", kms_accesses)
         pulumi.set(__self__, "managed_s3_backup_accesses", managed_s3_backup_accesses)
         pulumi.set(__self__, "managed_service_ipv4_cidrs", managed_service_ipv4_cidrs)
@@ -708,6 +715,14 @@ class NetworkManagedService(dict):
         pulumi.set(__self__, "service_network_endpoints", service_network_endpoints)
         pulumi.set(__self__, "sts_accesses", sts_accesses)
         pulumi.set(__self__, "zero_etl_accesses", zero_etl_accesses)
+
+    @_builtins.property
+    @pulumi.getter(name="crossRegionS3RestoreSourcesAccesses")
+    def cross_region_s3_restore_sources_accesses(self) -> Sequence['outputs.NetworkManagedServiceCrossRegionS3RestoreSourcesAccess']:
+        """
+        The list of regions enabled for cross-region restore in the ODB network.
+        """
+        return pulumi.get(self, "cross_region_s3_restore_sources_accesses")
 
     @_builtins.property
     @pulumi.getter(name="kmsAccesses")
@@ -767,6 +782,59 @@ class NetworkManagedService(dict):
         The following arguments are optional:
         """
         return pulumi.get(self, "zero_etl_accesses")
+
+
+@pulumi.output_type
+class NetworkManagedServiceCrossRegionS3RestoreSourcesAccess(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipv4Addresses":
+            suggest = "ipv4_addresses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkManagedServiceCrossRegionS3RestoreSourcesAccess. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkManagedServiceCrossRegionS3RestoreSourcesAccess.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkManagedServiceCrossRegionS3RestoreSourcesAccess.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ipv4_addresses: Sequence[_builtins.str],
+                 region: _builtins.str,
+                 status: _builtins.str):
+        """
+        :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param _builtins.str status: The status of the network resource.
+        """
+        pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv4Addresses")
+    def ipv4_addresses(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "ipv4_addresses")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        The status of the network resource.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -2541,6 +2609,7 @@ class GetGiVersionsGiVersionResult(dict):
 @pulumi.output_type
 class GetNetworkManagedServiceResult(dict):
     def __init__(__self__, *,
+                 cross_region_s3_restore_sources_accesses: Sequence['outputs.GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessResult'],
                  kms_accesses: Sequence['outputs.GetNetworkManagedServiceKmsAccessResult'],
                  managed_s3_backup_accesses: Sequence['outputs.GetNetworkManagedServiceManagedS3BackupAccessResult'],
                  managed_service_ipv4_cidrs: Sequence[_builtins.str],
@@ -2550,6 +2619,7 @@ class GetNetworkManagedServiceResult(dict):
                  service_network_endpoints: Sequence['outputs.GetNetworkManagedServiceServiceNetworkEndpointResult'],
                  sts_accesses: Sequence['outputs.GetNetworkManagedServiceStsAccessResult'],
                  zero_tl_accesses: Sequence['outputs.GetNetworkManagedServiceZeroTlAccessResult']):
+        pulumi.set(__self__, "cross_region_s3_restore_sources_accesses", cross_region_s3_restore_sources_accesses)
         pulumi.set(__self__, "kms_accesses", kms_accesses)
         pulumi.set(__self__, "managed_s3_backup_accesses", managed_s3_backup_accesses)
         pulumi.set(__self__, "managed_service_ipv4_cidrs", managed_service_ipv4_cidrs)
@@ -2559,6 +2629,11 @@ class GetNetworkManagedServiceResult(dict):
         pulumi.set(__self__, "service_network_endpoints", service_network_endpoints)
         pulumi.set(__self__, "sts_accesses", sts_accesses)
         pulumi.set(__self__, "zero_tl_accesses", zero_tl_accesses)
+
+    @_builtins.property
+    @pulumi.getter(name="crossRegionS3RestoreSourcesAccesses")
+    def cross_region_s3_restore_sources_accesses(self) -> Sequence['outputs.GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessResult']:
+        return pulumi.get(self, "cross_region_s3_restore_sources_accesses")
 
     @_builtins.property
     @pulumi.getter(name="kmsAccesses")
@@ -2604,6 +2679,42 @@ class GetNetworkManagedServiceResult(dict):
     @pulumi.getter(name="zeroTlAccesses")
     def zero_tl_accesses(self) -> Sequence['outputs.GetNetworkManagedServiceZeroTlAccessResult']:
         return pulumi.get(self, "zero_tl_accesses")
+
+
+@pulumi.output_type
+class GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessResult(dict):
+    def __init__(__self__, *,
+                 ipv4_addresses: Sequence[_builtins.str],
+                 region: _builtins.str,
+                 status: _builtins.str):
+        """
+        :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param _builtins.str status: The status of the network resource.
+        """
+        pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv4Addresses")
+    def ipv4_addresses(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "ipv4_addresses")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        The status of the network resource.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

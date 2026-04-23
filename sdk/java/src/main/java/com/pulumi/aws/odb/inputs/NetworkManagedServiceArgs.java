@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.odb.inputs;
 
+import com.pulumi.aws.odb.inputs.NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs;
 import com.pulumi.aws.odb.inputs.NetworkManagedServiceKmsAccessArgs;
 import com.pulumi.aws.odb.inputs.NetworkManagedServiceManagedS3BackupAccessArgs;
 import com.pulumi.aws.odb.inputs.NetworkManagedServiceS3AccessArgs;
@@ -20,6 +21,21 @@ import java.util.Objects;
 public final class NetworkManagedServiceArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final NetworkManagedServiceArgs Empty = new NetworkManagedServiceArgs();
+
+    /**
+     * The list of regions enabled for cross-region restore in the ODB network.
+     * 
+     */
+    @Import(name="crossRegionS3RestoreSourcesAccesses", required=true)
+    private Output<List<NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs>> crossRegionS3RestoreSourcesAccesses;
+
+    /**
+     * @return The list of regions enabled for cross-region restore in the ODB network.
+     * 
+     */
+    public Output<List<NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs>> crossRegionS3RestoreSourcesAccesses() {
+        return this.crossRegionS3RestoreSourcesAccesses;
+    }
 
     /**
      * Specifies the configuration for KMS access from the ODB network.
@@ -123,6 +139,7 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
     private NetworkManagedServiceArgs() {}
 
     private NetworkManagedServiceArgs(NetworkManagedServiceArgs $) {
+        this.crossRegionS3RestoreSourcesAccesses = $.crossRegionS3RestoreSourcesAccesses;
         this.kmsAccesses = $.kmsAccesses;
         this.managedS3BackupAccesses = $.managedS3BackupAccesses;
         this.managedServiceIpv4Cidrs = $.managedServiceIpv4Cidrs;
@@ -150,6 +167,37 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
 
         public Builder(NetworkManagedServiceArgs defaults) {
             $ = new NetworkManagedServiceArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param crossRegionS3RestoreSourcesAccesses The list of regions enabled for cross-region restore in the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossRegionS3RestoreSourcesAccesses(Output<List<NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs>> crossRegionS3RestoreSourcesAccesses) {
+            $.crossRegionS3RestoreSourcesAccesses = crossRegionS3RestoreSourcesAccesses;
+            return this;
+        }
+
+        /**
+         * @param crossRegionS3RestoreSourcesAccesses The list of regions enabled for cross-region restore in the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossRegionS3RestoreSourcesAccesses(List<NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs> crossRegionS3RestoreSourcesAccesses) {
+            return crossRegionS3RestoreSourcesAccesses(Output.of(crossRegionS3RestoreSourcesAccesses));
+        }
+
+        /**
+         * @param crossRegionS3RestoreSourcesAccesses The list of regions enabled for cross-region restore in the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossRegionS3RestoreSourcesAccesses(NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs... crossRegionS3RestoreSourcesAccesses) {
+            return crossRegionS3RestoreSourcesAccesses(List.of(crossRegionS3RestoreSourcesAccesses));
         }
 
         /**
@@ -340,6 +388,9 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
         }
 
         public NetworkManagedServiceArgs build() {
+            if ($.crossRegionS3RestoreSourcesAccesses == null) {
+                throw new MissingRequiredPropertyException("NetworkManagedServiceArgs", "crossRegionS3RestoreSourcesAccesses");
+            }
             if ($.kmsAccesses == null) {
                 throw new MissingRequiredPropertyException("NetworkManagedServiceArgs", "kmsAccesses");
             }

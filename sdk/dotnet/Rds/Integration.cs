@@ -187,6 +187,12 @@ namespace Pulumi.Aws.Rds
         public Output<string> DataFilter { get; private set; } = null!;
 
         /// <summary>
+        /// Identifier of the Integration. This value can be used when creating the target database to [receive results of zero-ETL integrations](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html#r_CREATE_DATABASE-integration).
+        /// </summary>
+        [Output("integrationIdentifier")]
+        public Output<string> IntegrationIdentifier { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the integration.
         /// </summary>
         [Output("integrationName")]
@@ -395,6 +401,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("dataFilter")]
         public Input<string>? DataFilter { get; set; }
+
+        /// <summary>
+        /// Identifier of the Integration. This value can be used when creating the target database to [receive results of zero-ETL integrations](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html#r_CREATE_DATABASE-integration).
+        /// </summary>
+        [Input("integrationIdentifier")]
+        public Input<string>? IntegrationIdentifier { get; set; }
 
         /// <summary>
         /// Name of the integration.

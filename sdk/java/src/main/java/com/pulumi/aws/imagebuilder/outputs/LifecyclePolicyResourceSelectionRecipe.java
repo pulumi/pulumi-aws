@@ -16,7 +16,7 @@ public final class LifecyclePolicyResourceSelectionRecipe {
      */
     private String name;
     /**
-     * @return The version of the Image Builder recipe specified by the name field.
+     * @return The version of the Image Builder recipe specified by the `name` field. Wildcard semantic version is supported (e.g. `1.0.x`, `1.x.x`, `x.x.x`).
      * 
      */
     private String semanticVersion;
@@ -30,7 +30,7 @@ public final class LifecyclePolicyResourceSelectionRecipe {
         return this.name;
     }
     /**
-     * @return The version of the Image Builder recipe specified by the name field.
+     * @return The version of the Image Builder recipe specified by the `name` field. Wildcard semantic version is supported (e.g. `1.0.x`, `1.x.x`, `x.x.x`).
      * 
      */
     public String semanticVersion() {

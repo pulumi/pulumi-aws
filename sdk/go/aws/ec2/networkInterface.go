@@ -85,6 +85,8 @@ type NetworkInterface struct {
 	Attachments NetworkInterfaceAttachmentTypeArrayOutput `pulumi:"attachments"`
 	// Description for the network interface.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
+	EnaSrdSpecification NetworkInterfaceEnaSrdSpecificationPtrOutput `pulumi:"enaSrdSpecification"`
 	// Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
 	EnablePrimaryIpv6 pulumi.BoolOutput `pulumi:"enablePrimaryIpv6"`
 	// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interfaceType` will cause the resource to be destroyed and re-created.
@@ -176,6 +178,8 @@ type networkInterfaceState struct {
 	Attachments []NetworkInterfaceAttachmentType `pulumi:"attachments"`
 	// Description for the network interface.
 	Description *string `pulumi:"description"`
+	// Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
+	EnaSrdSpecification *NetworkInterfaceEnaSrdSpecification `pulumi:"enaSrdSpecification"`
 	// Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
 	EnablePrimaryIpv6 *bool `pulumi:"enablePrimaryIpv6"`
 	// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interfaceType` will cause the resource to be destroyed and re-created.
@@ -235,6 +239,8 @@ type NetworkInterfaceState struct {
 	Attachments NetworkInterfaceAttachmentTypeArrayInput
 	// Description for the network interface.
 	Description pulumi.StringPtrInput
+	// Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
+	EnaSrdSpecification NetworkInterfaceEnaSrdSpecificationPtrInput
 	// Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
 	EnablePrimaryIpv6 pulumi.BoolPtrInput
 	// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interfaceType` will cause the resource to be destroyed and re-created.
@@ -296,6 +302,8 @@ type networkInterfaceArgs struct {
 	Attachments []NetworkInterfaceAttachmentType `pulumi:"attachments"`
 	// Description for the network interface.
 	Description *string `pulumi:"description"`
+	// Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
+	EnaSrdSpecification *NetworkInterfaceEnaSrdSpecification `pulumi:"enaSrdSpecification"`
 	// Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
 	EnablePrimaryIpv6 *bool `pulumi:"enablePrimaryIpv6"`
 	// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interfaceType` will cause the resource to be destroyed and re-created.
@@ -345,6 +353,8 @@ type NetworkInterfaceArgs struct {
 	Attachments NetworkInterfaceAttachmentTypeArrayInput
 	// Description for the network interface.
 	Description pulumi.StringPtrInput
+	// Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
+	EnaSrdSpecification NetworkInterfaceEnaSrdSpecificationPtrInput
 	// Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
 	EnablePrimaryIpv6 pulumi.BoolPtrInput
 	// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interfaceType` will cause the resource to be destroyed and re-created.
@@ -488,6 +498,11 @@ func (o NetworkInterfaceOutput) Attachments() NetworkInterfaceAttachmentTypeArra
 // Description for the network interface.
 func (o NetworkInterfaceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
+func (o NetworkInterfaceOutput) EnaSrdSpecification() NetworkInterfaceEnaSrdSpecificationPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) NetworkInterfaceEnaSrdSpecificationPtrOutput { return v.EnaSrdSpecification }).(NetworkInterfaceEnaSrdSpecificationPtrOutput)
 }
 
 // Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.

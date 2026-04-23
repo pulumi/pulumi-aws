@@ -73,6 +73,10 @@ export class Network extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
+     * The list of regions enabled for cross-region restore in the ODB network.
+     */
+    declare public readonly crossRegionS3RestoreSourcesAccesses: pulumi.Output<string[]>;
+    /**
      * The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
      */
     declare public readonly customDomainName: pulumi.Output<string | undefined>;
@@ -97,7 +101,7 @@ export class Network extends pulumi.CustomResource {
      */
     declare public readonly kmsPolicyDocument: pulumi.Output<string | undefined>;
     /**
-     * The name of the OCI resource anchor for the Exadata infrastructure.
+     * The managed services configuration for the ODB network.
      */
     declare public /*out*/ readonly managedServices: pulumi.Output<outputs.odb.NetworkManagedService[]>;
     /**
@@ -192,6 +196,7 @@ export class Network extends pulumi.CustomResource {
             resourceInputs["backupSubnetCidr"] = state?.backupSubnetCidr;
             resourceInputs["clientSubnetCidr"] = state?.clientSubnetCidr;
             resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["crossRegionS3RestoreSourcesAccesses"] = state?.crossRegionS3RestoreSourcesAccesses;
             resourceInputs["customDomainName"] = state?.customDomainName;
             resourceInputs["defaultDnsPrefix"] = state?.defaultDnsPrefix;
             resourceInputs["deleteAssociatedResources"] = state?.deleteAssociatedResources;
@@ -242,6 +247,7 @@ export class Network extends pulumi.CustomResource {
             resourceInputs["availabilityZoneId"] = args?.availabilityZoneId;
             resourceInputs["backupSubnetCidr"] = args?.backupSubnetCidr;
             resourceInputs["clientSubnetCidr"] = args?.clientSubnetCidr;
+            resourceInputs["crossRegionS3RestoreSourcesAccesses"] = args?.crossRegionS3RestoreSourcesAccesses;
             resourceInputs["customDomainName"] = args?.customDomainName;
             resourceInputs["defaultDnsPrefix"] = args?.defaultDnsPrefix;
             resourceInputs["deleteAssociatedResources"] = args?.deleteAssociatedResources;
@@ -305,6 +311,10 @@ export interface NetworkState {
      */
     createdAt?: pulumi.Input<string>;
     /**
+     * The list of regions enabled for cross-region restore in the ODB network.
+     */
+    crossRegionS3RestoreSourcesAccesses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
      */
     customDomainName?: pulumi.Input<string>;
@@ -329,7 +339,7 @@ export interface NetworkState {
      */
     kmsPolicyDocument?: pulumi.Input<string>;
     /**
-     * The name of the OCI resource anchor for the Exadata infrastructure.
+     * The managed services configuration for the ODB network.
      */
     managedServices?: pulumi.Input<pulumi.Input<inputs.odb.NetworkManagedService>[]>;
     /**
@@ -426,6 +436,10 @@ export interface NetworkArgs {
      * The CIDR notation for the network resource. Changing this will force terraform to create new resource.
      */
     clientSubnetCidr: pulumi.Input<string>;
+    /**
+     * The list of regions enabled for cross-region restore in the ODB network.
+     */
+    crossRegionS3RestoreSourcesAccesses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
      */

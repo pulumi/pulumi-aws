@@ -223,6 +223,20 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return this.dataFilter;
     }
     /**
+     * Identifier of the Integration. This value can be used when creating the target database to [receive results of zero-ETL integrations](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html#r_CREATE_DATABASE-integration).
+     * 
+     */
+    @Export(name="integrationIdentifier", refs={String.class}, tree="[0]")
+    private Output<String> integrationIdentifier;
+
+    /**
+     * @return Identifier of the Integration. This value can be used when creating the target database to [receive results of zero-ETL integrations](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html#r_CREATE_DATABASE-integration).
+     * 
+     */
+    public Output<String> integrationIdentifier() {
+        return this.integrationIdentifier;
+    }
+    /**
      * Name of the integration.
      * 
      */

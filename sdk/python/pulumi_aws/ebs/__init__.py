@@ -20,5 +20,6 @@ from .snapshot_block_public_access import *
 from .snapshot_copy import *
 from .snapshot_import import *
 from .volume import *
+from .volume_copy import *
 from ._inputs import *
 from . import outputs

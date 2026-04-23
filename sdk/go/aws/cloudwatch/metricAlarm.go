@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -159,6 +158,45 @@ import (
 //							},
 //						},
 //					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### With PromQL
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudwatch.NewMetricAlarm(ctx, "promql_alarm", &cloudwatch.MetricAlarmArgs{
+//				Name:             pulumi.String("high-cpu-promql"),
+//				AlarmDescription: pulumi.String("Alarm when average CPU exceeds 80% using PromQL"),
+//				EvaluationCriteria: &cloudwatch.MetricAlarmEvaluationCriteriaArgs{
+//					PromqlCriteria: &cloudwatch.MetricAlarmEvaluationCriteriaPromqlCriteriaArgs{
+//						Query:          pulumi.String("avg(cpu_utilization_percent) > 80"),
+//						PendingPeriod:  pulumi.Int(300),
+//						RecoveryPeriod: pulumi.Int(120),
+//					},
+//				},
+//				EvaluationInterval: pulumi.Int(30),
+//				AlarmActions: pulumi.Array{
+//					alerts.Arn,
 //				},
 //			})
 //			if err != nil {
@@ -350,7 +388,7 @@ type MetricAlarm struct {
 	// The ARN of the CloudWatch Metric Alarm.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
-	ComparisonOperator pulumi.StringOutput `pulumi:"comparisonOperator"`
+	ComparisonOperator pulumi.StringPtrOutput `pulumi:"comparisonOperator"`
 	// The number of data points that must be breaching to trigger the alarm.
 	DatapointsToAlarm pulumi.IntPtrOutput `pulumi:"datapointsToAlarm"`
 	// The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -360,8 +398,12 @@ type MetricAlarm struct {
 	// If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
 	// The following values are supported: `ignore`, and `evaluate`.
 	EvaluateLowSampleCountPercentiles pulumi.StringOutput `pulumi:"evaluateLowSampleCountPercentiles"`
-	// The number of periods over which data is compared to the specified threshold.
-	EvaluationPeriods pulumi.IntOutput `pulumi:"evaluationPeriods"`
+	// The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
+	EvaluationCriteria MetricAlarmEvaluationCriteriaPtrOutput `pulumi:"evaluationCriteria"`
+	// The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluationCriteria`.
+	EvaluationInterval pulumi.IntPtrOutput `pulumi:"evaluationInterval"`
+	// The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
+	EvaluationPeriods pulumi.IntPtrOutput `pulumi:"evaluationPeriods"`
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	ExtendedStatistic pulumi.StringPtrOutput `pulumi:"extendedStatistic"`
 	// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
@@ -409,15 +451,9 @@ type MetricAlarm struct {
 func NewMetricAlarm(ctx *pulumi.Context,
 	name string, args *MetricAlarmArgs, opts ...pulumi.ResourceOption) (*MetricAlarm, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &MetricAlarmArgs{}
 	}
 
-	if args.ComparisonOperator == nil {
-		return nil, errors.New("invalid value for required argument 'ComparisonOperator'")
-	}
-	if args.EvaluationPeriods == nil {
-		return nil, errors.New("invalid value for required argument 'EvaluationPeriods'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MetricAlarm
 	err := ctx.RegisterResource("aws:cloudwatch/metricAlarm:MetricAlarm", name, args, &resource, opts...)
@@ -460,7 +496,11 @@ type metricAlarmState struct {
 	// If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
 	// The following values are supported: `ignore`, and `evaluate`.
 	EvaluateLowSampleCountPercentiles *string `pulumi:"evaluateLowSampleCountPercentiles"`
-	// The number of periods over which data is compared to the specified threshold.
+	// The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
+	EvaluationCriteria *MetricAlarmEvaluationCriteria `pulumi:"evaluationCriteria"`
+	// The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluationCriteria`.
+	EvaluationInterval *int `pulumi:"evaluationInterval"`
+	// The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
 	EvaluationPeriods *int `pulumi:"evaluationPeriods"`
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	ExtendedStatistic *string `pulumi:"extendedStatistic"`
@@ -525,7 +565,11 @@ type MetricAlarmState struct {
 	// If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
 	// The following values are supported: `ignore`, and `evaluate`.
 	EvaluateLowSampleCountPercentiles pulumi.StringPtrInput
-	// The number of periods over which data is compared to the specified threshold.
+	// The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
+	EvaluationCriteria MetricAlarmEvaluationCriteriaPtrInput
+	// The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluationCriteria`.
+	EvaluationInterval pulumi.IntPtrInput
+	// The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
 	EvaluationPeriods pulumi.IntPtrInput
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	ExtendedStatistic pulumi.StringPtrInput
@@ -582,7 +626,7 @@ type metricAlarmArgs struct {
 	// The description for the alarm.
 	AlarmDescription *string `pulumi:"alarmDescription"`
 	// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
-	ComparisonOperator string `pulumi:"comparisonOperator"`
+	ComparisonOperator *string `pulumi:"comparisonOperator"`
 	// The number of data points that must be breaching to trigger the alarm.
 	DatapointsToAlarm *int `pulumi:"datapointsToAlarm"`
 	// The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -592,8 +636,12 @@ type metricAlarmArgs struct {
 	// If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
 	// The following values are supported: `ignore`, and `evaluate`.
 	EvaluateLowSampleCountPercentiles *string `pulumi:"evaluateLowSampleCountPercentiles"`
-	// The number of periods over which data is compared to the specified threshold.
-	EvaluationPeriods int `pulumi:"evaluationPeriods"`
+	// The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
+	EvaluationCriteria *MetricAlarmEvaluationCriteria `pulumi:"evaluationCriteria"`
+	// The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluationCriteria`.
+	EvaluationInterval *int `pulumi:"evaluationInterval"`
+	// The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
+	EvaluationPeriods *int `pulumi:"evaluationPeriods"`
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	ExtendedStatistic *string `pulumi:"extendedStatistic"`
 	// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
@@ -644,7 +692,7 @@ type MetricAlarmArgs struct {
 	// The description for the alarm.
 	AlarmDescription pulumi.StringPtrInput
 	// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
-	ComparisonOperator pulumi.StringInput
+	ComparisonOperator pulumi.StringPtrInput
 	// The number of data points that must be breaching to trigger the alarm.
 	DatapointsToAlarm pulumi.IntPtrInput
 	// The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -654,8 +702,12 @@ type MetricAlarmArgs struct {
 	// If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
 	// The following values are supported: `ignore`, and `evaluate`.
 	EvaluateLowSampleCountPercentiles pulumi.StringPtrInput
-	// The number of periods over which data is compared to the specified threshold.
-	EvaluationPeriods pulumi.IntInput
+	// The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
+	EvaluationCriteria MetricAlarmEvaluationCriteriaPtrInput
+	// The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluationCriteria`.
+	EvaluationInterval pulumi.IntPtrInput
+	// The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
+	EvaluationPeriods pulumi.IntPtrInput
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	ExtendedStatistic pulumi.StringPtrInput
 	// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
@@ -805,8 +857,8 @@ func (o MetricAlarmOutput) Arn() pulumi.StringOutput {
 }
 
 // The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
-func (o MetricAlarmOutput) ComparisonOperator() pulumi.StringOutput {
-	return o.ApplyT(func(v *MetricAlarm) pulumi.StringOutput { return v.ComparisonOperator }).(pulumi.StringOutput)
+func (o MetricAlarmOutput) ComparisonOperator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricAlarm) pulumi.StringPtrOutput { return v.ComparisonOperator }).(pulumi.StringPtrOutput)
 }
 
 // The number of data points that must be breaching to trigger the alarm.
@@ -827,9 +879,19 @@ func (o MetricAlarmOutput) EvaluateLowSampleCountPercentiles() pulumi.StringOutp
 	return o.ApplyT(func(v *MetricAlarm) pulumi.StringOutput { return v.EvaluateLowSampleCountPercentiles }).(pulumi.StringOutput)
 }
 
-// The number of periods over which data is compared to the specified threshold.
-func (o MetricAlarmOutput) EvaluationPeriods() pulumi.IntOutput {
-	return o.ApplyT(func(v *MetricAlarm) pulumi.IntOutput { return v.EvaluationPeriods }).(pulumi.IntOutput)
+// The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
+func (o MetricAlarmOutput) EvaluationCriteria() MetricAlarmEvaluationCriteriaPtrOutput {
+	return o.ApplyT(func(v *MetricAlarm) MetricAlarmEvaluationCriteriaPtrOutput { return v.EvaluationCriteria }).(MetricAlarmEvaluationCriteriaPtrOutput)
+}
+
+// The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluationCriteria`.
+func (o MetricAlarmOutput) EvaluationInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MetricAlarm) pulumi.IntPtrOutput { return v.EvaluationInterval }).(pulumi.IntPtrOutput)
+}
+
+// The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
+func (o MetricAlarmOutput) EvaluationPeriods() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MetricAlarm) pulumi.IntPtrOutput { return v.EvaluationPeriods }).(pulumi.IntPtrOutput)
 }
 
 // The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.

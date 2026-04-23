@@ -18,7 +18,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The version of the Image Builder recipe specified by the name field.
+        /// The version of the Image Builder recipe specified by the `Name` field. Wildcard semantic version is supported (e.g. `1.0.x`, `1.x.x`, `x.x.x`).
         /// </summary>
         public readonly string SemanticVersion;
 

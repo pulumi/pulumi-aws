@@ -25,6 +25,7 @@ class AddonArgs:
                  cluster_name: pulumi.Input[_builtins.str],
                  addon_version: Optional[pulumi.Input[_builtins.str]] = None,
                  configuration_values: Optional[pulumi.Input[_builtins.str]] = None,
+                 namespace_config: Optional[pulumi.Input['AddonNamespaceConfigArgs']] = None,
                  pod_identity_associations: Optional[pulumi.Input[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]]] = None,
                  preserve: Optional[pulumi.Input[_builtins.bool]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -42,7 +43,8 @@ class AddonArgs:
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] addon_version: The version of the EKS add-on. The version must
                match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
-        :param pulumi.Input[_builtins.str] configuration_values: custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+        :param pulumi.Input[_builtins.str] configuration_values: Custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+        :param pulumi.Input['AddonNamespaceConfigArgs'] namespace_config: Namespace configuration for the add-on. See `namespace_config` below for details.
         :param pulumi.Input[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]] pod_identity_associations: Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
         :param pulumi.Input[_builtins.bool] preserve: Indicates if you want to preserve the created resources when deleting the EKS add-on.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -67,6 +69,8 @@ class AddonArgs:
             pulumi.set(__self__, "addon_version", addon_version)
         if configuration_values is not None:
             pulumi.set(__self__, "configuration_values", configuration_values)
+        if namespace_config is not None:
+            pulumi.set(__self__, "namespace_config", namespace_config)
         if pod_identity_associations is not None:
             pulumi.set(__self__, "pod_identity_associations", pod_identity_associations)
         if preserve is not None:
@@ -126,13 +130,25 @@ class AddonArgs:
     @pulumi.getter(name="configurationValues")
     def configuration_values(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+        Custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
         """
         return pulumi.get(self, "configuration_values")
 
     @configuration_values.setter
     def configuration_values(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "configuration_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="namespaceConfig")
+    def namespace_config(self) -> Optional[pulumi.Input['AddonNamespaceConfigArgs']]:
+        """
+        Namespace configuration for the add-on. See `namespace_config` below for details.
+        """
+        return pulumi.get(self, "namespace_config")
+
+    @namespace_config.setter
+    def namespace_config(self, value: Optional[pulumi.Input['AddonNamespaceConfigArgs']]):
+        pulumi.set(self, "namespace_config", value)
 
     @_builtins.property
     @pulumi.getter(name="podIdentityAssociations")
@@ -239,6 +255,7 @@ class _AddonState:
                  configuration_values: Optional[pulumi.Input[_builtins.str]] = None,
                  created_at: Optional[pulumi.Input[_builtins.str]] = None,
                  modified_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 namespace_config: Optional[pulumi.Input['AddonNamespaceConfigArgs']] = None,
                  pod_identity_associations: Optional[pulumi.Input[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]]] = None,
                  preserve: Optional[pulumi.Input[_builtins.bool]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -258,9 +275,10 @@ class _AddonState:
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] configuration_values: custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+        :param pulumi.Input[_builtins.str] configuration_values: Custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
         :param pulumi.Input[_builtins.str] created_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
         :param pulumi.Input[_builtins.str] modified_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
+        :param pulumi.Input['AddonNamespaceConfigArgs'] namespace_config: Namespace configuration for the add-on. See `namespace_config` below for details.
         :param pulumi.Input[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]] pod_identity_associations: Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
         :param pulumi.Input[_builtins.bool] preserve: Indicates if you want to preserve the created resources when deleting the EKS add-on.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -294,6 +312,8 @@ class _AddonState:
             pulumi.set(__self__, "created_at", created_at)
         if modified_at is not None:
             pulumi.set(__self__, "modified_at", modified_at)
+        if namespace_config is not None:
+            pulumi.set(__self__, "namespace_config", namespace_config)
         if pod_identity_associations is not None:
             pulumi.set(__self__, "pod_identity_associations", pod_identity_associations)
         if preserve is not None:
@@ -367,7 +387,7 @@ class _AddonState:
     @pulumi.getter(name="configurationValues")
     def configuration_values(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+        Custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
         """
         return pulumi.get(self, "configuration_values")
 
@@ -398,6 +418,18 @@ class _AddonState:
     @modified_at.setter
     def modified_at(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "modified_at", value)
+
+    @_builtins.property
+    @pulumi.getter(name="namespaceConfig")
+    def namespace_config(self) -> Optional[pulumi.Input['AddonNamespaceConfigArgs']]:
+        """
+        Namespace configuration for the add-on. See `namespace_config` below for details.
+        """
+        return pulumi.get(self, "namespace_config")
+
+    @namespace_config.setter
+    def namespace_config(self, value: Optional[pulumi.Input['AddonNamespaceConfigArgs']]):
+        pulumi.set(self, "namespace_config", value)
 
     @_builtins.property
     @pulumi.getter(name="podIdentityAssociations")
@@ -516,6 +548,7 @@ class Addon(pulumi.CustomResource):
                  addon_version: Optional[pulumi.Input[_builtins.str]] = None,
                  cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
                  configuration_values: Optional[pulumi.Input[_builtins.str]] = None,
+                 namespace_config: Optional[pulumi.Input[Union['AddonNamespaceConfigArgs', 'AddonNamespaceConfigArgsDict']]] = None,
                  pod_identity_associations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]]] = None,
                  preserve: Optional[pulumi.Input[_builtins.bool]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -589,12 +622,15 @@ class Addon(pulumi.CustomResource):
             }))
         ```
 
-        ## Import
+        #### Optional
 
-        Using `pulumi import`, import EKS add-on using the `cluster_name` and `addon_name` separated by a colon (`:`). For example:
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Add-Ons using `cluster_name` and `addon_name` separated by a colon (`:`). For example:
 
         ```sh
-        $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
+        $ pulumi import aws:eks/addon:Addon example example-cluster:example-addon
         ```
 
 
@@ -607,7 +643,8 @@ class Addon(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] configuration_values: custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+        :param pulumi.Input[_builtins.str] configuration_values: Custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+        :param pulumi.Input[Union['AddonNamespaceConfigArgs', 'AddonNamespaceConfigArgsDict']] namespace_config: Namespace configuration for the add-on. See `namespace_config` below for details.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]] pod_identity_associations: Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
         :param pulumi.Input[_builtins.bool] preserve: Indicates if you want to preserve the created resources when deleting the EKS add-on.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -697,12 +734,15 @@ class Addon(pulumi.CustomResource):
             }))
         ```
 
-        ## Import
+        #### Optional
 
-        Using `pulumi import`, import EKS add-on using the `cluster_name` and `addon_name` separated by a colon (`:`). For example:
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Add-Ons using `cluster_name` and `addon_name` separated by a colon (`:`). For example:
 
         ```sh
-        $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
+        $ pulumi import aws:eks/addon:Addon example example-cluster:example-addon
         ```
 
 
@@ -725,6 +765,7 @@ class Addon(pulumi.CustomResource):
                  addon_version: Optional[pulumi.Input[_builtins.str]] = None,
                  cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
                  configuration_values: Optional[pulumi.Input[_builtins.str]] = None,
+                 namespace_config: Optional[pulumi.Input[Union['AddonNamespaceConfigArgs', 'AddonNamespaceConfigArgsDict']]] = None,
                  pod_identity_associations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]]] = None,
                  preserve: Optional[pulumi.Input[_builtins.bool]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -749,6 +790,7 @@ class Addon(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["configuration_values"] = configuration_values
+            __props__.__dict__["namespace_config"] = namespace_config
             __props__.__dict__["pod_identity_associations"] = pod_identity_associations
             __props__.__dict__["preserve"] = preserve
             __props__.__dict__["region"] = region
@@ -777,6 +819,7 @@ class Addon(pulumi.CustomResource):
             configuration_values: Optional[pulumi.Input[_builtins.str]] = None,
             created_at: Optional[pulumi.Input[_builtins.str]] = None,
             modified_at: Optional[pulumi.Input[_builtins.str]] = None,
+            namespace_config: Optional[pulumi.Input[Union['AddonNamespaceConfigArgs', 'AddonNamespaceConfigArgsDict']]] = None,
             pod_identity_associations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]]] = None,
             preserve: Optional[pulumi.Input[_builtins.bool]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -800,9 +843,10 @@ class Addon(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] configuration_values: custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+        :param pulumi.Input[_builtins.str] configuration_values: Custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
         :param pulumi.Input[_builtins.str] created_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
         :param pulumi.Input[_builtins.str] modified_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
+        :param pulumi.Input[Union['AddonNamespaceConfigArgs', 'AddonNamespaceConfigArgsDict']] namespace_config: Namespace configuration for the add-on. See `namespace_config` below for details.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]] pod_identity_associations: Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
         :param pulumi.Input[_builtins.bool] preserve: Indicates if you want to preserve the created resources when deleting the EKS add-on.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -833,6 +877,7 @@ class Addon(pulumi.CustomResource):
         __props__.__dict__["configuration_values"] = configuration_values
         __props__.__dict__["created_at"] = created_at
         __props__.__dict__["modified_at"] = modified_at
+        __props__.__dict__["namespace_config"] = namespace_config
         __props__.__dict__["pod_identity_associations"] = pod_identity_associations
         __props__.__dict__["preserve"] = preserve
         __props__.__dict__["region"] = region
@@ -883,7 +928,7 @@ class Addon(pulumi.CustomResource):
     @pulumi.getter(name="configurationValues")
     def configuration_values(self) -> pulumi.Output[_builtins.str]:
         """
-        custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+        Custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
         """
         return pulumi.get(self, "configuration_values")
 
@@ -902,6 +947,14 @@ class Addon(pulumi.CustomResource):
         Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
         """
         return pulumi.get(self, "modified_at")
+
+    @_builtins.property
+    @pulumi.getter(name="namespaceConfig")
+    def namespace_config(self) -> pulumi.Output['outputs.AddonNamespaceConfig']:
+        """
+        Namespace configuration for the add-on. See `namespace_config` below for details.
+        """
+        return pulumi.get(self, "namespace_config")
 
     @_builtins.property
     @pulumi.getter(name="podIdentityAssociations")

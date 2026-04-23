@@ -418,10 +418,22 @@ class PodIdentityAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import EKS (Elastic Kubernetes) Pod Identity Association using the `cluster_name` and `association_id` separated by a comma (`,`). For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `cluster_name` (String) Name of the EKS Cluster.
+        * `association_id` (String) ID of the association.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Pod Identity Associations using `cluster_name` and `association_id` separated by a comma (`,`). For example:
 
         ```sh
-        $ pulumi import aws:eks/podIdentityAssociation:PodIdentityAssociation example example,a-12345678
+        $ pulumi import aws:eks/podIdentityAssociation:PodIdentityAssociation example example-cluster,a-yrpsdroc4ei7k6xps
         ```
 
 
@@ -489,10 +501,22 @@ class PodIdentityAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import EKS (Elastic Kubernetes) Pod Identity Association using the `cluster_name` and `association_id` separated by a comma (`,`). For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `cluster_name` (String) Name of the EKS Cluster.
+        * `association_id` (String) ID of the association.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Pod Identity Associations using `cluster_name` and `association_id` separated by a comma (`,`). For example:
 
         ```sh
-        $ pulumi import aws:eks/podIdentityAssociation:PodIdentityAssociation example example,a-12345678
+        $ pulumi import aws:eks/podIdentityAssociation:PodIdentityAssociation example example-cluster,a-yrpsdroc4ei7k6xps
         ```
 
 

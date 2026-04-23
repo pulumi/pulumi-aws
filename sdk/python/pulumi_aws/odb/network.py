@@ -28,6 +28,7 @@ class NetworkArgs:
                  s3_access: pulumi.Input[_builtins.str],
                  zero_etl_access: pulumi.Input[_builtins.str],
                  availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 cross_region_s3_restore_sources_accesses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  default_dns_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  delete_associated_resources: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -51,6 +52,7 @@ class NetworkArgs:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] availability_zone: The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availability_zone maps correctly with availability_zone_id.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cross_region_s3_restore_sources_accesses: The list of regions enabled for cross-region restore in the ODB network.
         :param pulumi.Input[_builtins.str] custom_domain_name: The name of the custom domain that the network is located. Custom_domain_name and default_dns_prefix both can't be given. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] default_dns_prefix: The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.bool] delete_associated_resources: If set to true deletes associated OCI resources. Default false.
@@ -70,6 +72,8 @@ class NetworkArgs:
         pulumi.set(__self__, "zero_etl_access", zero_etl_access)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if cross_region_s3_restore_sources_accesses is not None:
+            pulumi.set(__self__, "cross_region_s3_restore_sources_accesses", cross_region_s3_restore_sources_accesses)
         if custom_domain_name is not None:
             pulumi.set(__self__, "custom_domain_name", custom_domain_name)
         if default_dns_prefix is not None:
@@ -178,6 +182,18 @@ class NetworkArgs:
     @availability_zone.setter
     def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
+
+    @_builtins.property
+    @pulumi.getter(name="crossRegionS3RestoreSourcesAccesses")
+    def cross_region_s3_restore_sources_accesses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of regions enabled for cross-region restore in the ODB network.
+        """
+        return pulumi.get(self, "cross_region_s3_restore_sources_accesses")
+
+    @cross_region_s3_restore_sources_accesses.setter
+    def cross_region_s3_restore_sources_accesses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "cross_region_s3_restore_sources_accesses", value)
 
     @_builtins.property
     @pulumi.getter(name="customDomainName")
@@ -318,6 +334,7 @@ class _NetworkState:
                  backup_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
                  client_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
                  created_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 cross_region_s3_restore_sources_accesses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  default_dns_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  delete_associated_resources: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -353,13 +370,14 @@ class _NetworkState:
         :param pulumi.Input[_builtins.str] backup_subnet_cidr: The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] client_subnet_cidr: The CIDR notation for the network resource. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] created_at: The date and time when the ODB network was created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cross_region_s3_restore_sources_accesses: The list of regions enabled for cross-region restore in the ODB network.
         :param pulumi.Input[_builtins.str] custom_domain_name: The name of the custom domain that the network is located. Custom_domain_name and default_dns_prefix both can't be given. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] default_dns_prefix: The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.bool] delete_associated_resources: If set to true deletes associated OCI resources. Default false.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
         :param pulumi.Input[_builtins.str] kms_access: Specifies the configuration for KMS access from the ODB network.
         :param pulumi.Input[_builtins.str] kms_policy_document: Specifies the endpoint policy for KMS access from the ODB network.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceArgs']]] managed_services: The name of the OCI resource anchor for the Exadata infrastructure.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceArgs']]] managed_services: The managed services configuration for the ODB network.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkOciDnsForwardingConfigArgs']]] oci_dns_forwarding_configs: The number of storage servers requested for the Exadata infrastructure.
         :param pulumi.Input[_builtins.str] oci_network_anchor_id: The unique identifier of the OCI network anchor for the ODB network.
         :param pulumi.Input[_builtins.str] oci_network_anchor_url: The URL of the OCI network anchor for the ODB network.
@@ -392,6 +410,8 @@ class _NetworkState:
             pulumi.set(__self__, "client_subnet_cidr", client_subnet_cidr)
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
+        if cross_region_s3_restore_sources_accesses is not None:
+            pulumi.set(__self__, "cross_region_s3_restore_sources_accesses", cross_region_s3_restore_sources_accesses)
         if custom_domain_name is not None:
             pulumi.set(__self__, "custom_domain_name", custom_domain_name)
         if default_dns_prefix is not None:
@@ -518,6 +538,18 @@ class _NetworkState:
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
+    @pulumi.getter(name="crossRegionS3RestoreSourcesAccesses")
+    def cross_region_s3_restore_sources_accesses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of regions enabled for cross-region restore in the ODB network.
+        """
+        return pulumi.get(self, "cross_region_s3_restore_sources_accesses")
+
+    @cross_region_s3_restore_sources_accesses.setter
+    def cross_region_s3_restore_sources_accesses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "cross_region_s3_restore_sources_accesses", value)
+
+    @_builtins.property
     @pulumi.getter(name="customDomainName")
     def custom_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -593,7 +625,7 @@ class _NetworkState:
     @pulumi.getter(name="managedServices")
     def managed_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceArgs']]]]:
         """
-        The name of the OCI resource anchor for the Exadata infrastructure.
+        The managed services configuration for the ODB network.
         """
         return pulumi.get(self, "managed_services")
 
@@ -836,6 +868,7 @@ class Network(pulumi.CustomResource):
                  availability_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
                  backup_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
                  client_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
+                 cross_region_s3_restore_sources_accesses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  default_dns_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  delete_associated_resources: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -871,6 +904,7 @@ class Network(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] availability_zone_id: The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] backup_subnet_cidr: The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] client_subnet_cidr: The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cross_region_s3_restore_sources_accesses: The list of regions enabled for cross-region restore in the ODB network.
         :param pulumi.Input[_builtins.str] custom_domain_name: The name of the custom domain that the network is located. Custom_domain_name and default_dns_prefix both can't be given. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] default_dns_prefix: The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.bool] delete_associated_resources: If set to true deletes associated OCI resources. Default false.
@@ -926,6 +960,7 @@ class Network(pulumi.CustomResource):
                  availability_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
                  backup_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
                  client_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
+                 cross_region_s3_restore_sources_accesses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  default_dns_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  delete_associated_resources: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -959,6 +994,7 @@ class Network(pulumi.CustomResource):
             if client_subnet_cidr is None and not opts.urn:
                 raise TypeError("Missing required property 'client_subnet_cidr'")
             __props__.__dict__["client_subnet_cidr"] = client_subnet_cidr
+            __props__.__dict__["cross_region_s3_restore_sources_accesses"] = cross_region_s3_restore_sources_accesses
             __props__.__dict__["custom_domain_name"] = custom_domain_name
             __props__.__dict__["default_dns_prefix"] = default_dns_prefix
             __props__.__dict__["delete_associated_resources"] = delete_associated_resources
@@ -1009,6 +1045,7 @@ class Network(pulumi.CustomResource):
             backup_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
             client_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
             created_at: Optional[pulumi.Input[_builtins.str]] = None,
+            cross_region_s3_restore_sources_accesses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
             default_dns_prefix: Optional[pulumi.Input[_builtins.str]] = None,
             delete_associated_resources: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1048,13 +1085,14 @@ class Network(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] backup_subnet_cidr: The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] client_subnet_cidr: The CIDR notation for the network resource. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] created_at: The date and time when the ODB network was created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cross_region_s3_restore_sources_accesses: The list of regions enabled for cross-region restore in the ODB network.
         :param pulumi.Input[_builtins.str] custom_domain_name: The name of the custom domain that the network is located. Custom_domain_name and default_dns_prefix both can't be given. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] default_dns_prefix: The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.bool] delete_associated_resources: If set to true deletes associated OCI resources. Default false.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
         :param pulumi.Input[_builtins.str] kms_access: Specifies the configuration for KMS access from the ODB network.
         :param pulumi.Input[_builtins.str] kms_policy_document: Specifies the endpoint policy for KMS access from the ODB network.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagedServiceArgs', 'NetworkManagedServiceArgsDict']]]] managed_services: The name of the OCI resource anchor for the Exadata infrastructure.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagedServiceArgs', 'NetworkManagedServiceArgsDict']]]] managed_services: The managed services configuration for the ODB network.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkOciDnsForwardingConfigArgs', 'NetworkOciDnsForwardingConfigArgsDict']]]] oci_dns_forwarding_configs: The number of storage servers requested for the Exadata infrastructure.
         :param pulumi.Input[_builtins.str] oci_network_anchor_id: The unique identifier of the OCI network anchor for the ODB network.
         :param pulumi.Input[_builtins.str] oci_network_anchor_url: The URL of the OCI network anchor for the ODB network.
@@ -1085,6 +1123,7 @@ class Network(pulumi.CustomResource):
         __props__.__dict__["backup_subnet_cidr"] = backup_subnet_cidr
         __props__.__dict__["client_subnet_cidr"] = client_subnet_cidr
         __props__.__dict__["created_at"] = created_at
+        __props__.__dict__["cross_region_s3_restore_sources_accesses"] = cross_region_s3_restore_sources_accesses
         __props__.__dict__["custom_domain_name"] = custom_domain_name
         __props__.__dict__["default_dns_prefix"] = default_dns_prefix
         __props__.__dict__["delete_associated_resources"] = delete_associated_resources
@@ -1162,6 +1201,14 @@ class Network(pulumi.CustomResource):
         return pulumi.get(self, "created_at")
 
     @_builtins.property
+    @pulumi.getter(name="crossRegionS3RestoreSourcesAccesses")
+    def cross_region_s3_restore_sources_accesses(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        The list of regions enabled for cross-region restore in the ODB network.
+        """
+        return pulumi.get(self, "cross_region_s3_restore_sources_accesses")
+
+    @_builtins.property
     @pulumi.getter(name="customDomainName")
     def custom_domain_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -1213,7 +1260,7 @@ class Network(pulumi.CustomResource):
     @pulumi.getter(name="managedServices")
     def managed_services(self) -> pulumi.Output[Sequence['outputs.NetworkManagedService']]:
         """
-        The name of the OCI resource anchor for the Exadata infrastructure.
+        The managed services configuration for the ODB network.
         """
         return pulumi.get(self, "managed_services")
 

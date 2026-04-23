@@ -164,7 +164,19 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Lambda Layers using `arn`. For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `layerName` (String) Unique name for the Lambda Layer.
+ * * `version` (String) Lambda Layer version number.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import Lambda Layer Versions using the `arn`. For example:
  * 
  * ```sh
  * $ pulumi import aws:lambda/layerVersion:LayerVersion example arn:aws:lambda:us-west-2:123456789012:layer:example:1

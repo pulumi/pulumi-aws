@@ -197,6 +197,10 @@ namespace Pulumi.Aws.Ec2
         /// Description of the network interface.
         /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// ENA Express configuration for the network interface. See EnaSrdSpecification below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetNetworkInterfaceEnaSrdSpecificationResult> EnaSrdSpecifications;
         public readonly ImmutableArray<Outputs.GetNetworkInterfaceFilterResult> Filters;
         public readonly string Id;
         /// <summary>
@@ -265,6 +269,8 @@ namespace Pulumi.Aws.Ec2
 
             string description,
 
+            ImmutableArray<Outputs.GetNetworkInterfaceEnaSrdSpecificationResult> enaSrdSpecifications,
+
             ImmutableArray<Outputs.GetNetworkInterfaceFilterResult> filters,
 
             string id,
@@ -302,6 +308,7 @@ namespace Pulumi.Aws.Ec2
             Attachments = attachments;
             AvailabilityZone = availabilityZone;
             Description = description;
+            EnaSrdSpecifications = enaSrdSpecifications;
             Filters = filters;
             Id = id;
             InterfaceType = interfaceType;

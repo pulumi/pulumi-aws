@@ -266,6 +266,21 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The current status of the user account.
+     * 
+     */
+    @Import(name="userStatus")
+    private @Nullable Output<String> userStatus;
+
+    /**
+     * @return The current status of the user account.
+     * 
+     */
+    public Optional<Output<String>> userStatus() {
+        return Optional.ofNullable(this.userStatus);
+    }
+
+    /**
      * The user type.
      * 
      * &gt; Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
@@ -303,6 +318,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         this.title = $.title;
         this.userId = $.userId;
         this.userName = $.userName;
+        this.userStatus = $.userStatus;
         this.userType = $.userType;
     }
 
@@ -672,6 +688,27 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder userName(String userName) {
             return userName(Output.of(userName));
+        }
+
+        /**
+         * @param userStatus The current status of the user account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userStatus(@Nullable Output<String> userStatus) {
+            $.userStatus = userStatus;
+            return this;
+        }
+
+        /**
+         * @param userStatus The current status of the user account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userStatus(String userStatus) {
+            return userStatus(Output.of(userStatus));
         }
 
         /**

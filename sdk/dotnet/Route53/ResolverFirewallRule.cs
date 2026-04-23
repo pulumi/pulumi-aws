@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Route53
         public Output<string?> ConfidenceThreshold { get; private set; } = null!;
 
         /// <summary>
-        /// The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DNS_TUNNELING`. Conflicts with `FirewallDomainListId`.
+        /// The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DICTIONARY_DGA`, `DNS_TUNNELING`. Conflicts with `FirewallDomainListId`.
         /// </summary>
         [Output("dnsThreatProtection")]
         public Output<string?> DnsThreatProtection { get; private set; } = null!;
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.Route53
         public Input<string>? ConfidenceThreshold { get; set; }
 
         /// <summary>
-        /// The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DNS_TUNNELING`. Conflicts with `FirewallDomainListId`.
+        /// The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DICTIONARY_DGA`, `DNS_TUNNELING`. Conflicts with `FirewallDomainListId`.
         /// </summary>
         [Input("dnsThreatProtection")]
         public Input<string>? DnsThreatProtection { get; set; }
@@ -364,7 +364,7 @@ namespace Pulumi.Aws.Route53
         public Input<string>? ConfidenceThreshold { get; set; }
 
         /// <summary>
-        /// The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DNS_TUNNELING`. Conflicts with `FirewallDomainListId`.
+        /// The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DICTIONARY_DGA`, `DNS_TUNNELING`. Conflicts with `FirewallDomainListId`.
         /// </summary>
         [Input("dnsThreatProtection")]
         public Input<string>? DnsThreatProtection { get; set; }

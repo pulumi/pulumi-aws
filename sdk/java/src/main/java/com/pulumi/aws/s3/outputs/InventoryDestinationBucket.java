@@ -19,7 +19,7 @@ public final class InventoryDestinationBucket {
      */
     private @Nullable String accountId;
     /**
-     * @return Amazon S3 bucket ARN of the destination.
+     * @return Amazon S3 bucket ARN of the destination. Only general purpose buckets are supported.
      * 
      */
     private String bucketArn;
@@ -48,7 +48,7 @@ public final class InventoryDestinationBucket {
         return Optional.ofNullable(this.accountId);
     }
     /**
-     * @return Amazon S3 bucket ARN of the destination.
+     * @return Amazon S3 bucket ARN of the destination. Only general purpose buckets are supported.
      * 
      */
     public String bucketArn() {

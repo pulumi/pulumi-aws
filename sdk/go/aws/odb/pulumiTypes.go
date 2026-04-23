@@ -1919,6 +1919,8 @@ func (o CloudVmClusterTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type NetworkManagedService struct {
+	// The list of regions enabled for cross-region restore in the ODB network.
+	CrossRegionS3RestoreSourcesAccesses []NetworkManagedServiceCrossRegionS3RestoreSourcesAccess `pulumi:"crossRegionS3RestoreSourcesAccesses"`
 	// Specifies the configuration for KMS access from the ODB network.
 	KmsAccesses             []NetworkManagedServiceKmsAccess             `pulumi:"kmsAccesses"`
 	ManagedS3BackupAccesses []NetworkManagedServiceManagedS3BackupAccess `pulumi:"managedS3BackupAccesses"`
@@ -1948,6 +1950,8 @@ type NetworkManagedServiceInput interface {
 }
 
 type NetworkManagedServiceArgs struct {
+	// The list of regions enabled for cross-region restore in the ODB network.
+	CrossRegionS3RestoreSourcesAccesses NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayInput `pulumi:"crossRegionS3RestoreSourcesAccesses"`
 	// Specifies the configuration for KMS access from the ODB network.
 	KmsAccesses             NetworkManagedServiceKmsAccessArrayInput             `pulumi:"kmsAccesses"`
 	ManagedS3BackupAccesses NetworkManagedServiceManagedS3BackupAccessArrayInput `pulumi:"managedS3BackupAccesses"`
@@ -2016,6 +2020,13 @@ func (o NetworkManagedServiceOutput) ToNetworkManagedServiceOutputWithContext(ct
 	return o
 }
 
+// The list of regions enabled for cross-region restore in the ODB network.
+func (o NetworkManagedServiceOutput) CrossRegionS3RestoreSourcesAccesses() NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput {
+	return o.ApplyT(func(v NetworkManagedService) []NetworkManagedServiceCrossRegionS3RestoreSourcesAccess {
+		return v.CrossRegionS3RestoreSourcesAccesses
+	}).(NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput)
+}
+
 // Specifies the configuration for KMS access from the ODB network.
 func (o NetworkManagedServiceOutput) KmsAccesses() NetworkManagedServiceKmsAccessArrayOutput {
 	return o.ApplyT(func(v NetworkManagedService) []NetworkManagedServiceKmsAccess { return v.KmsAccesses }).(NetworkManagedServiceKmsAccessArrayOutput)
@@ -2080,6 +2091,118 @@ func (o NetworkManagedServiceArrayOutput) Index(i pulumi.IntInput) NetworkManage
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkManagedService {
 		return vs[0].([]NetworkManagedService)[vs[1].(int)]
 	}).(NetworkManagedServiceOutput)
+}
+
+type NetworkManagedServiceCrossRegionS3RestoreSourcesAccess struct {
+	Ipv4Addresses []string `pulumi:"ipv4Addresses"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region string `pulumi:"region"`
+	// The status of the network resource.
+	Status string `pulumi:"status"`
+}
+
+// NetworkManagedServiceCrossRegionS3RestoreSourcesAccessInput is an input type that accepts NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs and NetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput values.
+// You can construct a concrete instance of `NetworkManagedServiceCrossRegionS3RestoreSourcesAccessInput` via:
+//
+//	NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs{...}
+type NetworkManagedServiceCrossRegionS3RestoreSourcesAccessInput interface {
+	pulumi.Input
+
+	ToNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput() NetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput
+	ToNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutputWithContext(context.Context) NetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput
+}
+
+type NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs struct {
+	Ipv4Addresses pulumi.StringArrayInput `pulumi:"ipv4Addresses"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringInput `pulumi:"region"`
+	// The status of the network resource.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkManagedServiceCrossRegionS3RestoreSourcesAccess)(nil)).Elem()
+}
+
+func (i NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs) ToNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput() NetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput {
+	return i.ToNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutputWithContext(context.Background())
+}
+
+func (i NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs) ToNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutputWithContext(ctx context.Context) NetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput)
+}
+
+// NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayInput is an input type that accepts NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArray and NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput values.
+// You can construct a concrete instance of `NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayInput` via:
+//
+//	NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArray{ NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs{...} }
+type NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayInput interface {
+	pulumi.Input
+
+	ToNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput() NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput
+	ToNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutputWithContext(context.Context) NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput
+}
+
+type NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArray []NetworkManagedServiceCrossRegionS3RestoreSourcesAccessInput
+
+func (NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkManagedServiceCrossRegionS3RestoreSourcesAccess)(nil)).Elem()
+}
+
+func (i NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArray) ToNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput() NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput {
+	return i.ToNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArray) ToNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutputWithContext(ctx context.Context) NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput)
+}
+
+type NetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput struct{ *pulumi.OutputState }
+
+func (NetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkManagedServiceCrossRegionS3RestoreSourcesAccess)(nil)).Elem()
+}
+
+func (o NetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput) ToNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput() NetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput {
+	return o
+}
+
+func (o NetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput) ToNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutputWithContext(ctx context.Context) NetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput {
+	return o
+}
+
+func (o NetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput) Ipv4Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkManagedServiceCrossRegionS3RestoreSourcesAccess) []string { return v.Ipv4Addresses }).(pulumi.StringArrayOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o NetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkManagedServiceCrossRegionS3RestoreSourcesAccess) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// The status of the network resource.
+func (o NetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkManagedServiceCrossRegionS3RestoreSourcesAccess) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkManagedServiceCrossRegionS3RestoreSourcesAccess)(nil)).Elem()
+}
+
+func (o NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput) ToNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput() NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput {
+	return o
+}
+
+func (o NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput) ToNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutputWithContext(ctx context.Context) NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput {
+	return o
+}
+
+func (o NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput) Index(i pulumi.IntInput) NetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkManagedServiceCrossRegionS3RestoreSourcesAccess {
+		return vs[0].([]NetworkManagedServiceCrossRegionS3RestoreSourcesAccess)[vs[1].(int)]
+	}).(NetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput)
 }
 
 type NetworkManagedServiceKmsAccess struct {
@@ -5905,15 +6028,16 @@ func (o GetGiVersionsGiVersionArrayOutput) Index(i pulumi.IntInput) GetGiVersion
 }
 
 type GetNetworkManagedService struct {
-	KmsAccesses             []GetNetworkManagedServiceKmsAccess              `pulumi:"kmsAccesses"`
-	ManagedS3BackupAccesses []GetNetworkManagedServiceManagedS3BackupAccess  `pulumi:"managedS3BackupAccesses"`
-	ManagedServiceIpv4Cidrs []string                                         `pulumi:"managedServiceIpv4Cidrs"`
-	ResourceGatewayArn      string                                           `pulumi:"resourceGatewayArn"`
-	S3Accesses              []GetNetworkManagedServiceS3Access               `pulumi:"s3Accesses"`
-	ServiceNetworkArn       string                                           `pulumi:"serviceNetworkArn"`
-	ServiceNetworkEndpoints []GetNetworkManagedServiceServiceNetworkEndpoint `pulumi:"serviceNetworkEndpoints"`
-	StsAccesses             []GetNetworkManagedServiceStsAccess              `pulumi:"stsAccesses"`
-	ZeroTlAccesses          []GetNetworkManagedServiceZeroTlAccess           `pulumi:"zeroTlAccesses"`
+	CrossRegionS3RestoreSourcesAccesses []GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccess `pulumi:"crossRegionS3RestoreSourcesAccesses"`
+	KmsAccesses                         []GetNetworkManagedServiceKmsAccess                         `pulumi:"kmsAccesses"`
+	ManagedS3BackupAccesses             []GetNetworkManagedServiceManagedS3BackupAccess             `pulumi:"managedS3BackupAccesses"`
+	ManagedServiceIpv4Cidrs             []string                                                    `pulumi:"managedServiceIpv4Cidrs"`
+	ResourceGatewayArn                  string                                                      `pulumi:"resourceGatewayArn"`
+	S3Accesses                          []GetNetworkManagedServiceS3Access                          `pulumi:"s3Accesses"`
+	ServiceNetworkArn                   string                                                      `pulumi:"serviceNetworkArn"`
+	ServiceNetworkEndpoints             []GetNetworkManagedServiceServiceNetworkEndpoint            `pulumi:"serviceNetworkEndpoints"`
+	StsAccesses                         []GetNetworkManagedServiceStsAccess                         `pulumi:"stsAccesses"`
+	ZeroTlAccesses                      []GetNetworkManagedServiceZeroTlAccess                      `pulumi:"zeroTlAccesses"`
 }
 
 // GetNetworkManagedServiceInput is an input type that accepts GetNetworkManagedServiceArgs and GetNetworkManagedServiceOutput values.
@@ -5928,15 +6052,16 @@ type GetNetworkManagedServiceInput interface {
 }
 
 type GetNetworkManagedServiceArgs struct {
-	KmsAccesses             GetNetworkManagedServiceKmsAccessArrayInput              `pulumi:"kmsAccesses"`
-	ManagedS3BackupAccesses GetNetworkManagedServiceManagedS3BackupAccessArrayInput  `pulumi:"managedS3BackupAccesses"`
-	ManagedServiceIpv4Cidrs pulumi.StringArrayInput                                  `pulumi:"managedServiceIpv4Cidrs"`
-	ResourceGatewayArn      pulumi.StringInput                                       `pulumi:"resourceGatewayArn"`
-	S3Accesses              GetNetworkManagedServiceS3AccessArrayInput               `pulumi:"s3Accesses"`
-	ServiceNetworkArn       pulumi.StringInput                                       `pulumi:"serviceNetworkArn"`
-	ServiceNetworkEndpoints GetNetworkManagedServiceServiceNetworkEndpointArrayInput `pulumi:"serviceNetworkEndpoints"`
-	StsAccesses             GetNetworkManagedServiceStsAccessArrayInput              `pulumi:"stsAccesses"`
-	ZeroTlAccesses          GetNetworkManagedServiceZeroTlAccessArrayInput           `pulumi:"zeroTlAccesses"`
+	CrossRegionS3RestoreSourcesAccesses GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayInput `pulumi:"crossRegionS3RestoreSourcesAccesses"`
+	KmsAccesses                         GetNetworkManagedServiceKmsAccessArrayInput                         `pulumi:"kmsAccesses"`
+	ManagedS3BackupAccesses             GetNetworkManagedServiceManagedS3BackupAccessArrayInput             `pulumi:"managedS3BackupAccesses"`
+	ManagedServiceIpv4Cidrs             pulumi.StringArrayInput                                             `pulumi:"managedServiceIpv4Cidrs"`
+	ResourceGatewayArn                  pulumi.StringInput                                                  `pulumi:"resourceGatewayArn"`
+	S3Accesses                          GetNetworkManagedServiceS3AccessArrayInput                          `pulumi:"s3Accesses"`
+	ServiceNetworkArn                   pulumi.StringInput                                                  `pulumi:"serviceNetworkArn"`
+	ServiceNetworkEndpoints             GetNetworkManagedServiceServiceNetworkEndpointArrayInput            `pulumi:"serviceNetworkEndpoints"`
+	StsAccesses                         GetNetworkManagedServiceStsAccessArrayInput                         `pulumi:"stsAccesses"`
+	ZeroTlAccesses                      GetNetworkManagedServiceZeroTlAccessArrayInput                      `pulumi:"zeroTlAccesses"`
 }
 
 func (GetNetworkManagedServiceArgs) ElementType() reflect.Type {
@@ -5988,6 +6113,12 @@ func (o GetNetworkManagedServiceOutput) ToGetNetworkManagedServiceOutput() GetNe
 
 func (o GetNetworkManagedServiceOutput) ToGetNetworkManagedServiceOutputWithContext(ctx context.Context) GetNetworkManagedServiceOutput {
 	return o
+}
+
+func (o GetNetworkManagedServiceOutput) CrossRegionS3RestoreSourcesAccesses() GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput {
+	return o.ApplyT(func(v GetNetworkManagedService) []GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccess {
+		return v.CrossRegionS3RestoreSourcesAccesses
+	}).(GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput)
 }
 
 func (o GetNetworkManagedServiceOutput) KmsAccesses() GetNetworkManagedServiceKmsAccessArrayOutput {
@@ -6048,6 +6179,118 @@ func (o GetNetworkManagedServiceArrayOutput) Index(i pulumi.IntInput) GetNetwork
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkManagedService {
 		return vs[0].([]GetNetworkManagedService)[vs[1].(int)]
 	}).(GetNetworkManagedServiceOutput)
+}
+
+type GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccess struct {
+	Ipv4Addresses []string `pulumi:"ipv4Addresses"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region string `pulumi:"region"`
+	// The status of the network resource.
+	Status string `pulumi:"status"`
+}
+
+// GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessInput is an input type that accepts GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs and GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput values.
+// You can construct a concrete instance of `GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessInput` via:
+//
+//	GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs{...}
+type GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessInput interface {
+	pulumi.Input
+
+	ToGetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput() GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput
+	ToGetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutputWithContext(context.Context) GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput
+}
+
+type GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs struct {
+	Ipv4Addresses pulumi.StringArrayInput `pulumi:"ipv4Addresses"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringInput `pulumi:"region"`
+	// The status of the network resource.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccess)(nil)).Elem()
+}
+
+func (i GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs) ToGetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput() GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput {
+	return i.ToGetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutputWithContext(context.Background())
+}
+
+func (i GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs) ToGetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutputWithContext(ctx context.Context) GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput)
+}
+
+// GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayInput is an input type that accepts GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArray and GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput values.
+// You can construct a concrete instance of `GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayInput` via:
+//
+//	GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArray{ GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs{...} }
+type GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput() GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput
+	ToGetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutputWithContext(context.Context) GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput
+}
+
+type GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArray []GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessInput
+
+func (GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccess)(nil)).Elem()
+}
+
+func (i GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArray) ToGetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput() GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput {
+	return i.ToGetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArray) ToGetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutputWithContext(ctx context.Context) GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput)
+}
+
+type GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccess)(nil)).Elem()
+}
+
+func (o GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput) ToGetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput() GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput {
+	return o
+}
+
+func (o GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput) ToGetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutputWithContext(ctx context.Context) GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput {
+	return o
+}
+
+func (o GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput) Ipv4Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccess) []string { return v.Ipv4Addresses }).(pulumi.StringArrayOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccess) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// The status of the network resource.
+func (o GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccess) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccess)(nil)).Elem()
+}
+
+func (o GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput) ToGetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput() GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput {
+	return o
+}
+
+func (o GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput) ToGetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutputWithContext(ctx context.Context) GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput {
+	return o
+}
+
+func (o GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput) Index(i pulumi.IntInput) GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccess {
+		return vs[0].([]GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccess)[vs[1].(int)]
+	}).(GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput)
 }
 
 type GetNetworkManagedServiceKmsAccess struct {
@@ -7105,6 +7348,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudVmClusterTimeoutsPtrInput)(nil)).Elem(), CloudVmClusterTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagedServiceInput)(nil)).Elem(), NetworkManagedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagedServiceArrayInput)(nil)).Elem(), NetworkManagedServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagedServiceCrossRegionS3RestoreSourcesAccessInput)(nil)).Elem(), NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayInput)(nil)).Elem(), NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagedServiceKmsAccessInput)(nil)).Elem(), NetworkManagedServiceKmsAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagedServiceKmsAccessArrayInput)(nil)).Elem(), NetworkManagedServiceKmsAccessArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagedServiceManagedS3BackupAccessInput)(nil)).Elem(), NetworkManagedServiceManagedS3BackupAccessArgs{})
@@ -7163,6 +7408,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGiVersionsGiVersionArrayInput)(nil)).Elem(), GetGiVersionsGiVersionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagedServiceInput)(nil)).Elem(), GetNetworkManagedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagedServiceArrayInput)(nil)).Elem(), GetNetworkManagedServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessInput)(nil)).Elem(), GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayInput)(nil)).Elem(), GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagedServiceKmsAccessInput)(nil)).Elem(), GetNetworkManagedServiceKmsAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagedServiceKmsAccessArrayInput)(nil)).Elem(), GetNetworkManagedServiceKmsAccessArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagedServiceManagedS3BackupAccessInput)(nil)).Elem(), GetNetworkManagedServiceManagedS3BackupAccessArgs{})
@@ -7209,6 +7456,8 @@ func init() {
 	pulumi.RegisterOutputType(CloudVmClusterTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(NetworkManagedServiceOutput{})
 	pulumi.RegisterOutputType(NetworkManagedServiceArrayOutput{})
+	pulumi.RegisterOutputType(NetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput{})
+	pulumi.RegisterOutputType(NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput{})
 	pulumi.RegisterOutputType(NetworkManagedServiceKmsAccessOutput{})
 	pulumi.RegisterOutputType(NetworkManagedServiceKmsAccessArrayOutput{})
 	pulumi.RegisterOutputType(NetworkManagedServiceManagedS3BackupAccessOutput{})
@@ -7267,6 +7516,8 @@ func init() {
 	pulumi.RegisterOutputType(GetGiVersionsGiVersionArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkManagedServiceOutput{})
 	pulumi.RegisterOutputType(GetNetworkManagedServiceArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput{})
+	pulumi.RegisterOutputType(GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkManagedServiceKmsAccessOutput{})
 	pulumi.RegisterOutputType(GetNetworkManagedServiceKmsAccessArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkManagedServiceManagedS3BackupAccessOutput{})

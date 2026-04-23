@@ -28,10 +28,22 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import EKS Identity Provider Configurations using the `clusterName` and `identityProviderConfigName` separated by a colon (`:`). For example:
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `clusterName` (String) Name of the EKS Cluster.
+ * * `identityProviderConfigName` (String) Name of the identity provider config.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import Identity Provider Configurations using the `clusterName` and `identityProviderConfigName` separated by a colon (`:`). For example:
  *
  * ```sh
- * $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig my_identity_provider_config my_cluster:my_identity_provider_config
+ * $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig example example-cluster:example-config
  * ```
  */
 export class IdentityProviderConfig extends pulumi.CustomResource {
@@ -70,6 +82,7 @@ export class IdentityProviderConfig extends pulumi.CustomResource {
      * Name of the EKS Cluster.
      */
     declare public readonly clusterName: pulumi.Output<string>;
+    declare public /*out*/ readonly identityProviderConfigName: pulumi.Output<string>;
     /**
      * Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
      */
@@ -106,6 +119,7 @@ export class IdentityProviderConfig extends pulumi.CustomResource {
             const state = argsOrState as IdentityProviderConfigState | undefined;
             resourceInputs["arn"] = state?.arn;
             resourceInputs["clusterName"] = state?.clusterName;
+            resourceInputs["identityProviderConfigName"] = state?.identityProviderConfigName;
             resourceInputs["oidc"] = state?.oidc;
             resourceInputs["region"] = state?.region;
             resourceInputs["status"] = state?.status;
@@ -124,6 +138,7 @@ export class IdentityProviderConfig extends pulumi.CustomResource {
             resourceInputs["region"] = args?.region;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["identityProviderConfigName"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -144,6 +159,7 @@ export interface IdentityProviderConfigState {
      * Name of the EKS Cluster.
      */
     clusterName?: pulumi.Input<string>;
+    identityProviderConfigName?: pulumi.Input<string>;
     /**
      * Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
      */

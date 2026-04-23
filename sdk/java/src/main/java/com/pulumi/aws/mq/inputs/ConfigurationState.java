@@ -5,6 +5,7 @@ package com.pulumi.aws.mq.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -157,6 +158,21 @@ public final class ConfigurationState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Set to `true` if you do not wish the configuration to be deleted at destroy time, and instead just remove the configuration from the Terraform state. Default is `false`.
+     * 
+     */
+    @Import(name="skipDestroy")
+    private @Nullable Output<Boolean> skipDestroy;
+
+    /**
+     * @return Set to `true` if you do not wish the configuration to be deleted at destroy time, and instead just remove the configuration from the Terraform state. Default is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> skipDestroy() {
+        return Optional.ofNullable(this.skipDestroy);
+    }
+
+    /**
      * Key-value map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -198,6 +214,7 @@ public final class ConfigurationState extends com.pulumi.resources.ResourceArgs 
         this.latestRevision = $.latestRevision;
         this.name = $.name;
         this.region = $.region;
+        this.skipDestroy = $.skipDestroy;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
     }
@@ -411,6 +428,27 @@ public final class ConfigurationState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param skipDestroy Set to `true` if you do not wish the configuration to be deleted at destroy time, and instead just remove the configuration from the Terraform state. Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipDestroy(@Nullable Output<Boolean> skipDestroy) {
+            $.skipDestroy = skipDestroy;
+            return this;
+        }
+
+        /**
+         * @param skipDestroy Set to `true` if you do not wish the configuration to be deleted at destroy time, and instead just remove the configuration from the Terraform state. Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipDestroy(Boolean skipDestroy) {
+            return skipDestroy(Output.of(skipDestroy));
         }
 
         /**

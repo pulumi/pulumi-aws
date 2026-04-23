@@ -33,14 +33,14 @@ public final class InventoryDestinationBucketArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Amazon S3 bucket ARN of the destination.
+     * Amazon S3 bucket ARN of the destination. Only general purpose buckets are supported.
      * 
      */
     @Import(name="bucketArn", required=true)
     private Output<String> bucketArn;
 
     /**
-     * @return Amazon S3 bucket ARN of the destination.
+     * @return Amazon S3 bucket ARN of the destination. Only general purpose buckets are supported.
      * 
      */
     public Output<String> bucketArn() {
@@ -142,7 +142,7 @@ public final class InventoryDestinationBucketArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param bucketArn Amazon S3 bucket ARN of the destination.
+         * @param bucketArn Amazon S3 bucket ARN of the destination. Only general purpose buckets are supported.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class InventoryDestinationBucketArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param bucketArn Amazon S3 bucket ARN of the destination.
+         * @param bucketArn Amazon S3 bucket ARN of the destination. Only general purpose buckets are supported.
          * 
          * @return builder
          * 

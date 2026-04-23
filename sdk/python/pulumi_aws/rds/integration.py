@@ -194,6 +194,7 @@ class _IntegrationState:
                  additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
                  data_filter: Optional[pulumi.Input[_builtins.str]] = None,
+                 integration_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  integration_name: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -214,6 +215,7 @@ class _IntegrationState:
                The value should match the syntax from the AWS CLI which includes an `include:` or `exclude:` prefix before a filter expression.
                Multiple expressions are separated by a comma.
                See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
+        :param pulumi.Input[_builtins.str] integration_identifier: Identifier of the Integration. This value can be used when creating the target database to [receive results of zero-ETL integrations](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html#r_CREATE_DATABASE-integration).
         :param pulumi.Input[_builtins.str] integration_name: Name of the integration.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key identifier for the key to use to encrypt the integration.
                If you don't specify an encryption key, RDS uses a default AWS owned key.
@@ -234,6 +236,8 @@ class _IntegrationState:
             pulumi.set(__self__, "arn", arn)
         if data_filter is not None:
             pulumi.set(__self__, "data_filter", data_filter)
+        if integration_identifier is not None:
+            pulumi.set(__self__, "integration_identifier", integration_identifier)
         if integration_name is not None:
             pulumi.set(__self__, "integration_name", integration_name)
         if kms_key_id is not None:
@@ -292,6 +296,18 @@ class _IntegrationState:
     @data_filter.setter
     def data_filter(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "data_filter", value)
+
+    @_builtins.property
+    @pulumi.getter(name="integrationIdentifier")
+    def integration_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Identifier of the Integration. This value can be used when creating the target database to [receive results of zero-ETL integrations](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html#r_CREATE_DATABASE-integration).
+        """
+        return pulumi.get(self, "integration_identifier")
+
+    @integration_identifier.setter
+    def integration_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "integration_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationName")
@@ -657,6 +673,7 @@ class Integration(pulumi.CustomResource):
             __props__.__dict__["target_arn"] = target_arn
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["arn"] = None
+            __props__.__dict__["integration_identifier"] = None
             __props__.__dict__["tags_all"] = None
         super(Integration, __self__).__init__(
             'aws:rds/integration:Integration',
@@ -671,6 +688,7 @@ class Integration(pulumi.CustomResource):
             additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             arn: Optional[pulumi.Input[_builtins.str]] = None,
             data_filter: Optional[pulumi.Input[_builtins.str]] = None,
+            integration_identifier: Optional[pulumi.Input[_builtins.str]] = None,
             integration_name: Optional[pulumi.Input[_builtins.str]] = None,
             kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -695,6 +713,7 @@ class Integration(pulumi.CustomResource):
                The value should match the syntax from the AWS CLI which includes an `include:` or `exclude:` prefix before a filter expression.
                Multiple expressions are separated by a comma.
                See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
+        :param pulumi.Input[_builtins.str] integration_identifier: Identifier of the Integration. This value can be used when creating the target database to [receive results of zero-ETL integrations](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html#r_CREATE_DATABASE-integration).
         :param pulumi.Input[_builtins.str] integration_name: Name of the integration.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key identifier for the key to use to encrypt the integration.
                If you don't specify an encryption key, RDS uses a default AWS owned key.
@@ -716,6 +735,7 @@ class Integration(pulumi.CustomResource):
         __props__.__dict__["additional_encryption_context"] = additional_encryption_context
         __props__.__dict__["arn"] = arn
         __props__.__dict__["data_filter"] = data_filter
+        __props__.__dict__["integration_identifier"] = integration_identifier
         __props__.__dict__["integration_name"] = integration_name
         __props__.__dict__["kms_key_id"] = kms_key_id
         __props__.__dict__["region"] = region
@@ -755,6 +775,14 @@ class Integration(pulumi.CustomResource):
         See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
         """
         return pulumi.get(self, "data_filter")
+
+    @_builtins.property
+    @pulumi.getter(name="integrationIdentifier")
+    def integration_identifier(self) -> pulumi.Output[_builtins.str]:
+        """
+        Identifier of the Integration. This value can be used when creating the target database to [receive results of zero-ETL integrations](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html#r_CREATE_DATABASE-integration).
+        """
+        return pulumi.get(self, "integration_identifier")
 
     @_builtins.property
     @pulumi.getter(name="integrationName")

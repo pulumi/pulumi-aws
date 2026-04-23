@@ -223,14 +223,14 @@ public class ResolverFirewallRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.confidenceThreshold);
     }
     /**
-     * The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
+     * The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DICTIONARY_DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
      * 
      */
     @Export(name="dnsThreatProtection", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dnsThreatProtection;
 
     /**
-     * @return The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
+     * @return The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DICTIONARY_DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
      * 
      */
     public Output<Optional<String>> dnsThreatProtection() {

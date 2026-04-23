@@ -214,10 +214,22 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import EKS Node Groups using the `clusterName` and `nodeGroupName` separated by a colon (`:`). For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// * `clusterName` (String) Name of the EKS Cluster.
+// * `nodeGroupName` (String) Name of the node group.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import Node Groups using the `clusterName` and `nodeGroupName` separated by a colon (`:`). For example:
 //
 // ```sh
-// $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
+// $ pulumi import aws:eks/nodeGroup:NodeGroup example example-cluster:example-group
 // ```
 type NodeGroup struct {
 	pulumi.CustomResourceState

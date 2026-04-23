@@ -21,6 +21,7 @@ from .flow_definition import *
 from .get_prebuilt_ecr_image import *
 from .hub import *
 from .human_task_ui import *
+from .hyper_parameter_tuning_job import *
 from .image import *
 from .image_version import *
 from .labeling_job import *

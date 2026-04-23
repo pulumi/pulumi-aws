@@ -6,6 +6,7 @@ package com.pulumi.aws.eks;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.eks.AddonArgs;
 import com.pulumi.aws.eks.inputs.AddonState;
+import com.pulumi.aws.eks.outputs.AddonNamespaceConfig;
 import com.pulumi.aws.eks.outputs.AddonPodIdentityAssociation;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -153,12 +154,15 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Import
+ * #### Optional
  * 
- * Using `pulumi import`, import EKS add-on using the `clusterName` and `addonName` separated by a colon (`:`). For example:
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import Add-Ons using `clusterName` and `addonName` separated by a colon (`:`). For example:
  * 
  * ```sh
- * $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
+ * $ pulumi import aws:eks/addon:Addon example example-cluster:example-addon
  * ```
  * 
  */
@@ -229,14 +233,14 @@ public class Addon extends com.pulumi.resources.CustomResource {
         return this.clusterName;
     }
     /**
-     * custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+     * Custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
      * 
      */
     @Export(name="configurationValues", refs={String.class}, tree="[0]")
     private Output<String> configurationValues;
 
     /**
-     * @return custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+     * @return Custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
      * 
      */
     public Output<String> configurationValues() {
@@ -269,6 +273,20 @@ public class Addon extends com.pulumi.resources.CustomResource {
      */
     public Output<String> modifiedAt() {
         return this.modifiedAt;
+    }
+    /**
+     * Namespace configuration for the add-on. See `namespaceConfig` below for details.
+     * 
+     */
+    @Export(name="namespaceConfig", refs={AddonNamespaceConfig.class}, tree="[0]")
+    private Output<AddonNamespaceConfig> namespaceConfig;
+
+    /**
+     * @return Namespace configuration for the add-on. See `namespaceConfig` below for details.
+     * 
+     */
+    public Output<AddonNamespaceConfig> namespaceConfig() {
+        return this.namespaceConfig;
     }
     /**
      * Configuration block with EKS Pod Identity association settings. See `podIdentityAssociation` below for details.

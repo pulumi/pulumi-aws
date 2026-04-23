@@ -60,10 +60,22 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import EKS Identity Provider Configurations using the `clusterName` and `identityProviderConfigName` separated by a colon (`:`). For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `clusterName` (String) Name of the EKS Cluster.
+ * * `identityProviderConfigName` (String) Name of the identity provider config.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import Identity Provider Configurations using the `clusterName` and `identityProviderConfigName` separated by a colon (`:`). For example:
  * 
  * ```sh
- * $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig my_identity_provider_config my_cluster:my_identity_provider_config
+ * $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig example example-cluster:example-config
  * ```
  * 
  */
@@ -96,6 +108,12 @@ public class IdentityProviderConfig extends com.pulumi.resources.CustomResource 
      */
     public Output<String> clusterName() {
         return this.clusterName;
+    }
+    @Export(name="identityProviderConfigName", refs={String.class}, tree="[0]")
+    private Output<String> identityProviderConfigName;
+
+    public Output<String> identityProviderConfigName() {
+        return this.identityProviderConfigName;
     }
     /**
      * Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.

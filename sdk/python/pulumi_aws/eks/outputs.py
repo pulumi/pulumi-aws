@@ -17,6 +17,7 @@ from . import outputs
 
 __all__ = [
     'AccessPolicyAssociationAccessScope',
+    'AddonNamespaceConfig',
     'AddonPodIdentityAssociation',
     'CapabilityConfiguration',
     'CapabilityConfigurationArgoCd',
@@ -113,6 +114,25 @@ class AccessPolicyAssociationAccessScope(dict):
         The namespaces to which the access scope applies when type is namespace.
         """
         return pulumi.get(self, "namespaces")
+
+
+@pulumi.output_type
+class AddonNamespaceConfig(dict):
+    def __init__(__self__, *,
+                 namespace: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str namespace: Name of the Kubernetes namespace to install the add-on in. Once you install an add-on in a specific namespace, you must remove and re-create the add-on to change its namespace. For more details see the [Custom namespace for add-ons](https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html#custom-namespace).
+        """
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> Optional[_builtins.str]:
+        """
+        Name of the Kubernetes namespace to install the add-on in. Once you install an add-on in a specific namespace, you must remove and re-create the add-on to change its namespace. For more details see the [Custom namespace for add-ons](https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html#custom-namespace).
+        """
+        return pulumi.get(self, "namespace")
 
 
 @pulumi.output_type

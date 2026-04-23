@@ -405,10 +405,22 @@ class Capability(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import EKS Capability using the `cluster_name` and `capability_name` separated by a comma (`,`). For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `cluster_name` (String) Name of the EKS Cluster.
+        * `capability_name` (String) Name of the capability.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Capabilities using `cluster_name` and `capability_name` separated by a comma (`,`). For example:
 
         ```sh
-        $ pulumi import aws:eks/capability:Capability example my-cluster,my-capability
+        $ pulumi import aws:eks/capability:Capability example example-cluster,example-capability
         ```
 
 
@@ -459,10 +471,22 @@ class Capability(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import EKS Capability using the `cluster_name` and `capability_name` separated by a comma (`,`). For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `cluster_name` (String) Name of the EKS Cluster.
+        * `capability_name` (String) Name of the capability.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Capabilities using `cluster_name` and `capability_name` separated by a comma (`,`). For example:
 
         ```sh
-        $ pulumi import aws:eks/capability:Capability example my-cluster,my-capability
+        $ pulumi import aws:eks/capability:Capability example example-cluster,example-capability
         ```
 
 

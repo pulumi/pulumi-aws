@@ -48,10 +48,22 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import EKS access entry using the `clusterName` and `principalArn` separated by a colon (`:`). For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// * `clusterName` (String) Name of the EKS Cluster.
+// * `principalArn` (String) IAM principal ARN.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import Access Entries using `clusterName` and `principalArn` separated by a colon (`:`). For example:
 //
 // ```sh
-// $ pulumi import aws:eks/accessEntry:AccessEntry my_eks_access_entry my_cluster_name:my_principal_arn
+// $ pulumi import aws:eks/accessEntry:AccessEntry example example-cluster:arn:aws:iam::123456789012:role/example
 // ```
 type AccessEntry struct {
 	pulumi.CustomResourceState

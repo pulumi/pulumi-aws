@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.odb.outputs;
 
+import com.pulumi.aws.odb.outputs.GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccess;
 import com.pulumi.aws.odb.outputs.GetNetworkManagedServiceKmsAccess;
 import com.pulumi.aws.odb.outputs.GetNetworkManagedServiceManagedS3BackupAccess;
 import com.pulumi.aws.odb.outputs.GetNetworkManagedServiceS3Access;
@@ -17,6 +18,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetNetworkManagedService {
+    private List<GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccess> crossRegionS3RestoreSourcesAccesses;
     private List<GetNetworkManagedServiceKmsAccess> kmsAccesses;
     private List<GetNetworkManagedServiceManagedS3BackupAccess> managedS3BackupAccesses;
     private List<String> managedServiceIpv4Cidrs;
@@ -28,6 +30,9 @@ public final class GetNetworkManagedService {
     private List<GetNetworkManagedServiceZeroTlAccess> zeroTlAccesses;
 
     private GetNetworkManagedService() {}
+    public List<GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccess> crossRegionS3RestoreSourcesAccesses() {
+        return this.crossRegionS3RestoreSourcesAccesses;
+    }
     public List<GetNetworkManagedServiceKmsAccess> kmsAccesses() {
         return this.kmsAccesses;
     }
@@ -65,6 +70,7 @@ public final class GetNetworkManagedService {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccess> crossRegionS3RestoreSourcesAccesses;
         private List<GetNetworkManagedServiceKmsAccess> kmsAccesses;
         private List<GetNetworkManagedServiceManagedS3BackupAccess> managedS3BackupAccesses;
         private List<String> managedServiceIpv4Cidrs;
@@ -77,6 +83,7 @@ public final class GetNetworkManagedService {
         public Builder() {}
         public Builder(GetNetworkManagedService defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.crossRegionS3RestoreSourcesAccesses = defaults.crossRegionS3RestoreSourcesAccesses;
     	      this.kmsAccesses = defaults.kmsAccesses;
     	      this.managedS3BackupAccesses = defaults.managedS3BackupAccesses;
     	      this.managedServiceIpv4Cidrs = defaults.managedServiceIpv4Cidrs;
@@ -88,6 +95,17 @@ public final class GetNetworkManagedService {
     	      this.zeroTlAccesses = defaults.zeroTlAccesses;
         }
 
+        @CustomType.Setter
+        public Builder crossRegionS3RestoreSourcesAccesses(List<GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccess> crossRegionS3RestoreSourcesAccesses) {
+            if (crossRegionS3RestoreSourcesAccesses == null) {
+              throw new MissingRequiredPropertyException("GetNetworkManagedService", "crossRegionS3RestoreSourcesAccesses");
+            }
+            this.crossRegionS3RestoreSourcesAccesses = crossRegionS3RestoreSourcesAccesses;
+            return this;
+        }
+        public Builder crossRegionS3RestoreSourcesAccesses(GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccess... crossRegionS3RestoreSourcesAccesses) {
+            return crossRegionS3RestoreSourcesAccesses(List.of(crossRegionS3RestoreSourcesAccesses));
+        }
         @CustomType.Setter
         public Builder kmsAccesses(List<GetNetworkManagedServiceKmsAccess> kmsAccesses) {
             if (kmsAccesses == null) {
@@ -183,6 +201,7 @@ public final class GetNetworkManagedService {
         }
         public GetNetworkManagedService build() {
             final var _resultValue = new GetNetworkManagedService();
+            _resultValue.crossRegionS3RestoreSourcesAccesses = crossRegionS3RestoreSourcesAccesses;
             _resultValue.kmsAccesses = kmsAccesses;
             _resultValue.managedS3BackupAccesses = managedS3BackupAccesses;
             _resultValue.managedServiceIpv4Cidrs = managedServiceIpv4Cidrs;

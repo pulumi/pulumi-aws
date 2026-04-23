@@ -7540,7 +7540,7 @@ func (o LifecyclePolicyResourceSelectionPtrOutput) TagMap() pulumi.StringMapOutp
 type LifecyclePolicyResourceSelectionRecipe struct {
 	// The name of an Image Builder recipe that the lifecycle policy uses for resource selection.
 	Name string `pulumi:"name"`
-	// The version of the Image Builder recipe specified by the name field.
+	// The version of the Image Builder recipe specified by the `name` field. Wildcard semantic version is supported (e.g. `1.0.x`, `1.x.x`, `x.x.x`).
 	SemanticVersion string `pulumi:"semanticVersion"`
 }
 
@@ -7558,7 +7558,7 @@ type LifecyclePolicyResourceSelectionRecipeInput interface {
 type LifecyclePolicyResourceSelectionRecipeArgs struct {
 	// The name of an Image Builder recipe that the lifecycle policy uses for resource selection.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The version of the Image Builder recipe specified by the name field.
+	// The version of the Image Builder recipe specified by the `name` field. Wildcard semantic version is supported (e.g. `1.0.x`, `1.x.x`, `x.x.x`).
 	SemanticVersion pulumi.StringInput `pulumi:"semanticVersion"`
 }
 
@@ -7618,7 +7618,7 @@ func (o LifecyclePolicyResourceSelectionRecipeOutput) Name() pulumi.StringOutput
 	return o.ApplyT(func(v LifecyclePolicyResourceSelectionRecipe) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The version of the Image Builder recipe specified by the name field.
+// The version of the Image Builder recipe specified by the `name` field. Wildcard semantic version is supported (e.g. `1.0.x`, `1.x.x`, `x.x.x`).
 func (o LifecyclePolicyResourceSelectionRecipeOutput) SemanticVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LifecyclePolicyResourceSelectionRecipe) string { return v.SemanticVersion }).(pulumi.StringOutput)
 }

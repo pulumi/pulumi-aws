@@ -267,6 +267,10 @@ namespace Pulumi.Aws.IdentityStore
         /// </summary>
         public readonly string UserName;
         /// <summary>
+        /// The current status of the user account.
+        /// </summary>
+        public readonly string UserStatus;
+        /// <summary>
         /// The user type.
         /// </summary>
         public readonly string UserType;
@@ -309,6 +313,8 @@ namespace Pulumi.Aws.IdentityStore
 
             string userName,
 
+            string userStatus,
+
             string userType)
         {
             Addresses = addresses;
@@ -329,6 +335,7 @@ namespace Pulumi.Aws.IdentityStore
             Title = title;
             UserId = userId;
             UserName = userName;
+            UserStatus = userStatus;
             UserType = userType;
         }
     }

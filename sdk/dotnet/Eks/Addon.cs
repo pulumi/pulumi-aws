@@ -102,12 +102,15 @@ namespace Pulumi.Aws.Eks
     /// });
     /// ```
     /// 
-    /// ## Import
+    /// #### Optional
     /// 
-    /// Using `pulumi import`, import EKS add-on using the `ClusterName` and `AddonName` separated by a colon (`:`). For example:
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Add-Ons using `ClusterName` and `AddonName` separated by a colon (`:`). For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
+    /// $ pulumi import aws:eks/addon:Addon example example-cluster:example-addon
     /// ```
     /// </summary>
     [AwsResourceType("aws:eks/addon:Addon")]
@@ -142,7 +145,7 @@ namespace Pulumi.Aws.Eks
         public Output<string> ClusterName { get; private set; } = null!;
 
         /// <summary>
-        /// custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+        /// Custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
         /// </summary>
         [Output("configurationValues")]
         public Output<string> ConfigurationValues { get; private set; } = null!;
@@ -158,6 +161,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Output("modifiedAt")]
         public Output<string> ModifiedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// Namespace configuration for the add-on. See `NamespaceConfig` below for details.
+        /// </summary>
+        [Output("namespaceConfig")]
+        public Output<Outputs.AddonNamespaceConfig> NamespaceConfig { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block with EKS Pod Identity association settings. See `PodIdentityAssociation` below for details.
@@ -286,10 +295,16 @@ namespace Pulumi.Aws.Eks
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+        /// Custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
         /// </summary>
         [Input("configurationValues")]
         public Input<string>? ConfigurationValues { get; set; }
+
+        /// <summary>
+        /// Namespace configuration for the add-on. See `NamespaceConfig` below for details.
+        /// </summary>
+        [Input("namespaceConfig")]
+        public Input<Inputs.AddonNamespaceConfigArgs>? NamespaceConfig { get; set; }
 
         [Input("podIdentityAssociations")]
         private InputList<Inputs.AddonPodIdentityAssociationArgs>? _podIdentityAssociations;
@@ -392,7 +407,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? ClusterName { get; set; }
 
         /// <summary>
-        /// custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+        /// Custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
         /// </summary>
         [Input("configurationValues")]
         public Input<string>? ConfigurationValues { get; set; }
@@ -408,6 +423,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("modifiedAt")]
         public Input<string>? ModifiedAt { get; set; }
+
+        /// <summary>
+        /// Namespace configuration for the add-on. See `NamespaceConfig` below for details.
+        /// </summary>
+        [Input("namespaceConfig")]
+        public Input<Inputs.AddonNamespaceConfigGetArgs>? NamespaceConfig { get; set; }
 
         [Input("podIdentityAssociations")]
         private InputList<Inputs.AddonPodIdentityAssociationGetArgs>? _podIdentityAssociations;

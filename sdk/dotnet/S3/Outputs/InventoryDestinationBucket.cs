@@ -18,7 +18,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string? AccountId;
         /// <summary>
-        /// Amazon S3 bucket ARN of the destination.
+        /// Amazon S3 bucket ARN of the destination. Only general purpose buckets are supported.
         /// </summary>
         public readonly string BucketArn;
         /// <summary>

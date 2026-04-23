@@ -210,10 +210,21 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `id` (String) Allocation ID that identifies the Elastic IP.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import EIPs in a VPC using their Allocation ID. For example:
 //
 // ```sh
-// $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
+// $ pulumi import aws:ec2/eip:Eip example eipalloc-00a10e96
 // ```
 type Eip struct {
 	pulumi.CustomResourceState

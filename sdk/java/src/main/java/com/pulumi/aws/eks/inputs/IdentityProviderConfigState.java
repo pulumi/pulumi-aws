@@ -47,6 +47,13 @@ public final class IdentityProviderConfigState extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.clusterName);
     }
 
+    @Import(name="identityProviderConfigName")
+    private @Nullable Output<String> identityProviderConfigName;
+
+    public Optional<Output<String>> identityProviderConfigName() {
+        return Optional.ofNullable(this.identityProviderConfigName);
+    }
+
     /**
      * Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
      * 
@@ -127,6 +134,7 @@ public final class IdentityProviderConfigState extends com.pulumi.resources.Reso
     private IdentityProviderConfigState(IdentityProviderConfigState $) {
         this.arn = $.arn;
         this.clusterName = $.clusterName;
+        this.identityProviderConfigName = $.identityProviderConfigName;
         this.oidc = $.oidc;
         this.region = $.region;
         this.status = $.status;
@@ -192,6 +200,15 @@ public final class IdentityProviderConfigState extends com.pulumi.resources.Reso
          */
         public Builder clusterName(String clusterName) {
             return clusterName(Output.of(clusterName));
+        }
+
+        public Builder identityProviderConfigName(@Nullable Output<String> identityProviderConfigName) {
+            $.identityProviderConfigName = identityProviderConfigName;
+            return this;
+        }
+
+        public Builder identityProviderConfigName(String identityProviderConfigName) {
+            return identityProviderConfigName(Output.of(identityProviderConfigName));
         }
 
         /**

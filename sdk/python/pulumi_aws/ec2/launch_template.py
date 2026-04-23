@@ -1376,7 +1376,10 @@ class LaunchTemplate(pulumi.CustomResource):
         """
         Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
 
-        ## Import
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Launch Templates using the `id`. For example:
 
@@ -1443,7 +1446,10 @@ class LaunchTemplate(pulumi.CustomResource):
         """
         Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
 
-        ## Import
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Launch Templates using the `id`. For example:
 

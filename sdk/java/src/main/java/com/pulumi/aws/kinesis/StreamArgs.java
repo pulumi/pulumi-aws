@@ -66,14 +66,14 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
+     * The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
+     * @return The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -301,7 +301,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
+         * @param kmsKeyId The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
+         * @param kmsKeyId The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
          * 
          * @return builder
          * 

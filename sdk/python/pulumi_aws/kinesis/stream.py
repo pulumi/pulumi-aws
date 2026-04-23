@@ -39,7 +39,7 @@ class StreamArgs:
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
         :param pulumi.Input[_builtins.str] encryption_type: The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
         :param pulumi.Input[_builtins.bool] enforce_consumer_deletion: A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
-        :param pulumi.Input[_builtins.str] kms_key_id: The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
+        :param pulumi.Input[_builtins.str] kms_key_id: The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
         :param pulumi.Input[_builtins.int] max_record_size_in_kib: The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
         :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -115,7 +115,7 @@ class StreamArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
+        The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -243,7 +243,7 @@ class _StreamState:
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
         :param pulumi.Input[_builtins.str] encryption_type: The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
         :param pulumi.Input[_builtins.bool] enforce_consumer_deletion: A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
-        :param pulumi.Input[_builtins.str] kms_key_id: The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
+        :param pulumi.Input[_builtins.str] kms_key_id: The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
         :param pulumi.Input[_builtins.int] max_record_size_in_kib: The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
         :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -322,7 +322,7 @@ class _StreamState:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
+        The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -505,7 +505,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
         :param pulumi.Input[_builtins.str] encryption_type: The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
         :param pulumi.Input[_builtins.bool] enforce_consumer_deletion: A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
-        :param pulumi.Input[_builtins.str] kms_key_id: The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
+        :param pulumi.Input[_builtins.str] kms_key_id: The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
         :param pulumi.Input[_builtins.int] max_record_size_in_kib: The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
         :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -645,7 +645,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
         :param pulumi.Input[_builtins.str] encryption_type: The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
         :param pulumi.Input[_builtins.bool] enforce_consumer_deletion: A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
-        :param pulumi.Input[_builtins.str] kms_key_id: The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
+        :param pulumi.Input[_builtins.str] kms_key_id: The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
         :param pulumi.Input[_builtins.int] max_record_size_in_kib: The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
         :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -704,7 +704,7 @@ class Stream(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
+        The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
         """
         return pulumi.get(self, "kms_key_id")
 

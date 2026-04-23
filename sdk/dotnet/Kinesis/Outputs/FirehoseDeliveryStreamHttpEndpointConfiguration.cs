@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration? SecretsManagerConfiguration;
         /// <summary>
-        /// The HTTP endpoint URL to which Kinesis Firehose sends your data.
+        /// The HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor's documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
         /// </summary>
         public readonly string Url;
 

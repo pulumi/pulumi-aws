@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ec2.NetworkInterfaceArgs;
 import com.pulumi.aws.ec2.inputs.NetworkInterfaceState;
 import com.pulumi.aws.ec2.outputs.NetworkInterfaceAttachment;
+import com.pulumi.aws.ec2.outputs.NetworkInterfaceEnaSrdSpecification;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -131,6 +132,20 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
+    }
+    /**
+     * Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
+     * 
+     */
+    @Export(name="enaSrdSpecification", refs={NetworkInterfaceEnaSrdSpecification.class}, tree="[0]")
+    private Output</* @Nullable */ NetworkInterfaceEnaSrdSpecification> enaSrdSpecification;
+
+    /**
+     * @return Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
+     * 
+     */
+    public Output<Optional<NetworkInterfaceEnaSrdSpecification>> enaSrdSpecification() {
+        return Codegen.optional(this.enaSrdSpecification);
     }
     /**
      * Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.

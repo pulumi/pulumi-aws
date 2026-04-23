@@ -169,6 +169,143 @@ func (o AccessPolicyAssociationAccessScopePtrOutput) Type() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+type AddonNamespaceConfig struct {
+	// Name of the Kubernetes namespace to install the add-on in. Once you install an add-on in a specific namespace, you must remove and re-create the add-on to change its namespace. For more details see the [Custom namespace for add-ons](https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html#custom-namespace).
+	Namespace *string `pulumi:"namespace"`
+}
+
+// AddonNamespaceConfigInput is an input type that accepts AddonNamespaceConfigArgs and AddonNamespaceConfigOutput values.
+// You can construct a concrete instance of `AddonNamespaceConfigInput` via:
+//
+//	AddonNamespaceConfigArgs{...}
+type AddonNamespaceConfigInput interface {
+	pulumi.Input
+
+	ToAddonNamespaceConfigOutput() AddonNamespaceConfigOutput
+	ToAddonNamespaceConfigOutputWithContext(context.Context) AddonNamespaceConfigOutput
+}
+
+type AddonNamespaceConfigArgs struct {
+	// Name of the Kubernetes namespace to install the add-on in. Once you install an add-on in a specific namespace, you must remove and re-create the add-on to change its namespace. For more details see the [Custom namespace for add-ons](https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html#custom-namespace).
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+}
+
+func (AddonNamespaceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AddonNamespaceConfig)(nil)).Elem()
+}
+
+func (i AddonNamespaceConfigArgs) ToAddonNamespaceConfigOutput() AddonNamespaceConfigOutput {
+	return i.ToAddonNamespaceConfigOutputWithContext(context.Background())
+}
+
+func (i AddonNamespaceConfigArgs) ToAddonNamespaceConfigOutputWithContext(ctx context.Context) AddonNamespaceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AddonNamespaceConfigOutput)
+}
+
+func (i AddonNamespaceConfigArgs) ToAddonNamespaceConfigPtrOutput() AddonNamespaceConfigPtrOutput {
+	return i.ToAddonNamespaceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AddonNamespaceConfigArgs) ToAddonNamespaceConfigPtrOutputWithContext(ctx context.Context) AddonNamespaceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AddonNamespaceConfigOutput).ToAddonNamespaceConfigPtrOutputWithContext(ctx)
+}
+
+// AddonNamespaceConfigPtrInput is an input type that accepts AddonNamespaceConfigArgs, AddonNamespaceConfigPtr and AddonNamespaceConfigPtrOutput values.
+// You can construct a concrete instance of `AddonNamespaceConfigPtrInput` via:
+//
+//	        AddonNamespaceConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AddonNamespaceConfigPtrInput interface {
+	pulumi.Input
+
+	ToAddonNamespaceConfigPtrOutput() AddonNamespaceConfigPtrOutput
+	ToAddonNamespaceConfigPtrOutputWithContext(context.Context) AddonNamespaceConfigPtrOutput
+}
+
+type addonNamespaceConfigPtrType AddonNamespaceConfigArgs
+
+func AddonNamespaceConfigPtr(v *AddonNamespaceConfigArgs) AddonNamespaceConfigPtrInput {
+	return (*addonNamespaceConfigPtrType)(v)
+}
+
+func (*addonNamespaceConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AddonNamespaceConfig)(nil)).Elem()
+}
+
+func (i *addonNamespaceConfigPtrType) ToAddonNamespaceConfigPtrOutput() AddonNamespaceConfigPtrOutput {
+	return i.ToAddonNamespaceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *addonNamespaceConfigPtrType) ToAddonNamespaceConfigPtrOutputWithContext(ctx context.Context) AddonNamespaceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AddonNamespaceConfigPtrOutput)
+}
+
+type AddonNamespaceConfigOutput struct{ *pulumi.OutputState }
+
+func (AddonNamespaceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AddonNamespaceConfig)(nil)).Elem()
+}
+
+func (o AddonNamespaceConfigOutput) ToAddonNamespaceConfigOutput() AddonNamespaceConfigOutput {
+	return o
+}
+
+func (o AddonNamespaceConfigOutput) ToAddonNamespaceConfigOutputWithContext(ctx context.Context) AddonNamespaceConfigOutput {
+	return o
+}
+
+func (o AddonNamespaceConfigOutput) ToAddonNamespaceConfigPtrOutput() AddonNamespaceConfigPtrOutput {
+	return o.ToAddonNamespaceConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AddonNamespaceConfigOutput) ToAddonNamespaceConfigPtrOutputWithContext(ctx context.Context) AddonNamespaceConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AddonNamespaceConfig) *AddonNamespaceConfig {
+		return &v
+	}).(AddonNamespaceConfigPtrOutput)
+}
+
+// Name of the Kubernetes namespace to install the add-on in. Once you install an add-on in a specific namespace, you must remove and re-create the add-on to change its namespace. For more details see the [Custom namespace for add-ons](https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html#custom-namespace).
+func (o AddonNamespaceConfigOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AddonNamespaceConfig) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+type AddonNamespaceConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AddonNamespaceConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AddonNamespaceConfig)(nil)).Elem()
+}
+
+func (o AddonNamespaceConfigPtrOutput) ToAddonNamespaceConfigPtrOutput() AddonNamespaceConfigPtrOutput {
+	return o
+}
+
+func (o AddonNamespaceConfigPtrOutput) ToAddonNamespaceConfigPtrOutputWithContext(ctx context.Context) AddonNamespaceConfigPtrOutput {
+	return o
+}
+
+func (o AddonNamespaceConfigPtrOutput) Elem() AddonNamespaceConfigOutput {
+	return o.ApplyT(func(v *AddonNamespaceConfig) AddonNamespaceConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AddonNamespaceConfig
+		return ret
+	}).(AddonNamespaceConfigOutput)
+}
+
+// Name of the Kubernetes namespace to install the add-on in. Once you install an add-on in a specific namespace, you must remove and re-create the add-on to change its namespace. For more details see the [Custom namespace for add-ons](https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html#custom-namespace).
+func (o AddonNamespaceConfigPtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AddonNamespaceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
 type AddonPodIdentityAssociation struct {
 	// The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
 	RoleArn string `pulumi:"roleArn"`
@@ -8985,6 +9122,8 @@ func (o GetNodeGroupUpdateConfigArrayOutput) Index(i pulumi.IntInput) GetNodeGro
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyAssociationAccessScopeInput)(nil)).Elem(), AccessPolicyAssociationAccessScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyAssociationAccessScopePtrInput)(nil)).Elem(), AccessPolicyAssociationAccessScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AddonNamespaceConfigInput)(nil)).Elem(), AddonNamespaceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AddonNamespaceConfigPtrInput)(nil)).Elem(), AddonNamespaceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AddonPodIdentityAssociationInput)(nil)).Elem(), AddonPodIdentityAssociationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AddonPodIdentityAssociationArrayInput)(nil)).Elem(), AddonPodIdentityAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityConfigurationInput)(nil)).Elem(), CapabilityConfigurationArgs{})
@@ -9118,6 +9257,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupUpdateConfigArrayInput)(nil)).Elem(), GetNodeGroupUpdateConfigArray{})
 	pulumi.RegisterOutputType(AccessPolicyAssociationAccessScopeOutput{})
 	pulumi.RegisterOutputType(AccessPolicyAssociationAccessScopePtrOutput{})
+	pulumi.RegisterOutputType(AddonNamespaceConfigOutput{})
+	pulumi.RegisterOutputType(AddonNamespaceConfigPtrOutput{})
 	pulumi.RegisterOutputType(AddonPodIdentityAssociationOutput{})
 	pulumi.RegisterOutputType(AddonPodIdentityAssociationArrayOutput{})
 	pulumi.RegisterOutputType(CapabilityConfigurationOutput{})

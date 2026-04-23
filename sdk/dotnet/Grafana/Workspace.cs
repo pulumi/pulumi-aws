@@ -155,7 +155,7 @@ namespace Pulumi.Aws.Grafana
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
+        /// Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4` and `12.4`. If not specified, defaults to the latest version.
         /// </summary>
         [Output("grafanaVersion")]
         public Output<string> GrafanaVersion { get; private set; } = null!;
@@ -332,7 +332,7 @@ namespace Pulumi.Aws.Grafana
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
+        /// Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4` and `12.4`. If not specified, defaults to the latest version.
         /// </summary>
         [Input("grafanaVersion")]
         public Input<string>? GrafanaVersion { get; set; }
@@ -492,7 +492,7 @@ namespace Pulumi.Aws.Grafana
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
+        /// Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4` and `12.4`. If not specified, defaults to the latest version.
         /// </summary>
         [Input("grafanaVersion")]
         public Input<string>? GrafanaVersion { get; set; }

@@ -93,6 +93,10 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
+     * Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
+     */
+    declare public readonly enaSrdSpecification: pulumi.Output<outputs.ec2.NetworkInterfaceEnaSrdSpecification | undefined>;
+    /**
      * Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
      */
     declare public readonly enablePrimaryIpv6: pulumi.Output<boolean>;
@@ -205,6 +209,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             resourceInputs["arn"] = state?.arn;
             resourceInputs["attachments"] = state?.attachments;
             resourceInputs["description"] = state?.description;
+            resourceInputs["enaSrdSpecification"] = state?.enaSrdSpecification;
             resourceInputs["enablePrimaryIpv6"] = state?.enablePrimaryIpv6;
             resourceInputs["interfaceType"] = state?.interfaceType;
             resourceInputs["ipv4PrefixCount"] = state?.ipv4PrefixCount;
@@ -237,6 +242,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             }
             resourceInputs["attachments"] = args?.attachments;
             resourceInputs["description"] = args?.description;
+            resourceInputs["enaSrdSpecification"] = args?.enaSrdSpecification;
             resourceInputs["enablePrimaryIpv6"] = args?.enablePrimaryIpv6;
             resourceInputs["interfaceType"] = args?.interfaceType;
             resourceInputs["ipv4PrefixCount"] = args?.ipv4PrefixCount;
@@ -285,6 +291,10 @@ export interface NetworkInterfaceState {
      * Description for the network interface.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
+     */
+    enaSrdSpecification?: pulumi.Input<inputs.ec2.NetworkInterfaceEnaSrdSpecification>;
     /**
      * Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
      */
@@ -395,6 +405,10 @@ export interface NetworkInterfaceArgs {
      * Description for the network interface.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
+     */
+    enaSrdSpecification?: pulumi.Input<inputs.ec2.NetworkInterfaceEnaSrdSpecification>;
     /**
      * Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
      */

@@ -101,6 +101,24 @@ __all__ = [
     'StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionSseS3ArgsDict',
     'StorageLensConfigurationStorageLensConfigurationExcludeArgs',
     'StorageLensConfigurationStorageLensConfigurationExcludeArgsDict',
+    'StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportArgs',
+    'StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportArgsDict',
+    'StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationArgs',
+    'StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationArgsDict',
+    'StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionArgs',
+    'StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionArgsDict',
+    'StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseKmsArgs',
+    'StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseKmsArgsDict',
+    'StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseS3Args',
+    'StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseS3ArgsDict',
+    'StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationArgs',
+    'StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationArgsDict',
+    'StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionArgs',
+    'StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionArgsDict',
+    'StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseKmsArgs',
+    'StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseKmsArgsDict',
+    'StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseS3Args',
+    'StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseS3ArgsDict',
     'StorageLensConfigurationStorageLensConfigurationIncludeArgs',
     'StorageLensConfigurationStorageLensConfigurationIncludeArgsDict',
 ]
@@ -940,9 +958,17 @@ class StorageLensConfigurationStorageLensConfigurationArgsDict(TypedDict):
     """
     What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
     """
+    expanded_prefixes_data_export: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportArgsDict']]
+    """
+    Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See Expanded Prefixes Data Export below for more details.
+    """
     include: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationIncludeArgsDict']]
     """
     What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
+    """
+    prefix_delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Prefix delimiter used for object keys in this S3 Storage Lens configuration.
     """
 
 @pulumi.input_type
@@ -953,14 +979,18 @@ class StorageLensConfigurationStorageLensConfigurationArgs:
                  aws_org: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAwsOrgArgs']] = None,
                  data_export: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportArgs']] = None,
                  exclude: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExcludeArgs']] = None,
-                 include: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationIncludeArgs']] = None):
+                 expanded_prefixes_data_export: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportArgs']] = None,
+                 include: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationIncludeArgs']] = None,
+                 prefix_delimiter: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelArgs'] account_level: The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
         :param pulumi.Input[_builtins.bool] enabled: Whether the S3 Storage Lens configuration is enabled.
         :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAwsOrgArgs'] aws_org: The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
         :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportArgs'] data_export: Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
         :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationExcludeArgs'] exclude: What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportArgs'] expanded_prefixes_data_export: Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See Expanded Prefixes Data Export below for more details.
         :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationIncludeArgs'] include: What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
+        :param pulumi.Input[_builtins.str] prefix_delimiter: Prefix delimiter used for object keys in this S3 Storage Lens configuration.
         """
         pulumi.set(__self__, "account_level", account_level)
         pulumi.set(__self__, "enabled", enabled)
@@ -970,8 +1000,12 @@ class StorageLensConfigurationStorageLensConfigurationArgs:
             pulumi.set(__self__, "data_export", data_export)
         if exclude is not None:
             pulumi.set(__self__, "exclude", exclude)
+        if expanded_prefixes_data_export is not None:
+            pulumi.set(__self__, "expanded_prefixes_data_export", expanded_prefixes_data_export)
         if include is not None:
             pulumi.set(__self__, "include", include)
+        if prefix_delimiter is not None:
+            pulumi.set(__self__, "prefix_delimiter", prefix_delimiter)
 
     @_builtins.property
     @pulumi.getter(name="accountLevel")
@@ -1034,6 +1068,18 @@ class StorageLensConfigurationStorageLensConfigurationArgs:
         pulumi.set(self, "exclude", value)
 
     @_builtins.property
+    @pulumi.getter(name="expandedPrefixesDataExport")
+    def expanded_prefixes_data_export(self) -> Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportArgs']]:
+        """
+        Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See Expanded Prefixes Data Export below for more details.
+        """
+        return pulumi.get(self, "expanded_prefixes_data_export")
+
+    @expanded_prefixes_data_export.setter
+    def expanded_prefixes_data_export(self, value: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportArgs']]):
+        pulumi.set(self, "expanded_prefixes_data_export", value)
+
+    @_builtins.property
     @pulumi.getter
     def include(self) -> Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationIncludeArgs']]:
         """
@@ -1044,6 +1090,18 @@ class StorageLensConfigurationStorageLensConfigurationArgs:
     @include.setter
     def include(self, value: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationIncludeArgs']]):
         pulumi.set(self, "include", value)
+
+    @_builtins.property
+    @pulumi.getter(name="prefixDelimiter")
+    def prefix_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Prefix delimiter used for object keys in this S3 Storage Lens configuration.
+        """
+        return pulumi.get(self, "prefix_delimiter")
+
+    @prefix_delimiter.setter
+    def prefix_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "prefix_delimiter", value)
 
 
 class StorageLensConfigurationStorageLensConfigurationAccountLevelArgsDict(TypedDict):
@@ -2256,6 +2314,400 @@ class StorageLensConfigurationStorageLensConfigurationExcludeArgs:
     @regions.setter
     def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "regions", value)
+
+
+class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportArgsDict(TypedDict):
+    s3_bucket_destination: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationArgsDict']]
+    """
+    The bucket where the S3 Storage Lens expanded prefix metrics export will be located. See S3 Bucket Destination below for more details.
+    """
+    storage_lens_table_destination: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationArgsDict']]
+    """
+    S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See Storage Lens Table Destination below for more details.
+    """
+
+@pulumi.input_type
+class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportArgs:
+    def __init__(__self__, *,
+                 s3_bucket_destination: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationArgs']] = None,
+                 storage_lens_table_destination: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationArgs']] = None):
+        """
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationArgs'] s3_bucket_destination: The bucket where the S3 Storage Lens expanded prefix metrics export will be located. See S3 Bucket Destination below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationArgs'] storage_lens_table_destination: S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See Storage Lens Table Destination below for more details.
+        """
+        if s3_bucket_destination is not None:
+            pulumi.set(__self__, "s3_bucket_destination", s3_bucket_destination)
+        if storage_lens_table_destination is not None:
+            pulumi.set(__self__, "storage_lens_table_destination", storage_lens_table_destination)
+
+    @_builtins.property
+    @pulumi.getter(name="s3BucketDestination")
+    def s3_bucket_destination(self) -> Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationArgs']]:
+        """
+        The bucket where the S3 Storage Lens expanded prefix metrics export will be located. See S3 Bucket Destination below for more details.
+        """
+        return pulumi.get(self, "s3_bucket_destination")
+
+    @s3_bucket_destination.setter
+    def s3_bucket_destination(self, value: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationArgs']]):
+        pulumi.set(self, "s3_bucket_destination", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageLensTableDestination")
+    def storage_lens_table_destination(self) -> Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationArgs']]:
+        """
+        S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See Storage Lens Table Destination below for more details.
+        """
+        return pulumi.get(self, "storage_lens_table_destination")
+
+    @storage_lens_table_destination.setter
+    def storage_lens_table_destination(self, value: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationArgs']]):
+        pulumi.set(self, "storage_lens_table_destination", value)
+
+
+class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationArgsDict(TypedDict):
+    account_id: pulumi.Input[_builtins.str]
+    """
+    The account ID of the owner of the S3 Storage Lens metrics export bucket.
+    """
+    arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the bucket.
+    """
+    format: pulumi.Input[_builtins.str]
+    """
+    The export format. Valid values: `CSV`, `Parquet`.
+    """
+    output_schema_version: pulumi.Input[_builtins.str]
+    """
+    The schema version of the export file. Valid values: `V_1`.
+    """
+    encryption: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionArgsDict']]
+    """
+    Encryption of the metrics exports in this bucket. See Encryption below for more details.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The prefix of the destination bucket where the metrics export will be delivered.
+    """
+
+@pulumi.input_type
+class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationArgs:
+    def __init__(__self__, *,
+                 account_id: pulumi.Input[_builtins.str],
+                 arn: pulumi.Input[_builtins.str],
+                 format: pulumi.Input[_builtins.str],
+                 output_schema_version: pulumi.Input[_builtins.str],
+                 encryption: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionArgs']] = None,
+                 prefix: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] account_id: The account ID of the owner of the S3 Storage Lens metrics export bucket.
+        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[_builtins.str] format: The export format. Valid values: `CSV`, `Parquet`.
+        :param pulumi.Input[_builtins.str] output_schema_version: The schema version of the export file. Valid values: `V_1`.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionArgs'] encryption: Encryption of the metrics exports in this bucket. See Encryption below for more details.
+        :param pulumi.Input[_builtins.str] prefix: The prefix of the destination bucket where the metrics export will be delivered.
+        """
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "format", format)
+        pulumi.set(__self__, "output_schema_version", output_schema_version)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The account ID of the owner of the S3 Storage Lens metrics export bucket.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "account_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the bucket.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def format(self) -> pulumi.Input[_builtins.str]:
+        """
+        The export format. Valid values: `CSV`, `Parquet`.
+        """
+        return pulumi.get(self, "format")
+
+    @format.setter
+    def format(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "format", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputSchemaVersion")
+    def output_schema_version(self) -> pulumi.Input[_builtins.str]:
+        """
+        The schema version of the export file. Valid values: `V_1`.
+        """
+        return pulumi.get(self, "output_schema_version")
+
+    @output_schema_version.setter
+    def output_schema_version(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "output_schema_version", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionArgs']]:
+        """
+        Encryption of the metrics exports in this bucket. See Encryption below for more details.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The prefix of the destination bucket where the metrics export will be delivered.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "prefix", value)
+
+
+class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionArgsDict(TypedDict):
+    sse_kms: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseKmsArgsDict']]
+    """
+    SSE-KMS encryption. See SSE KMS below for more details.
+    """
+    sse_s3s: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseS3ArgsDict']]]]
+    """
+    SSE-S3 encryption. An empty configuration block `{}` should be used.
+    """
+
+@pulumi.input_type
+class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionArgs:
+    def __init__(__self__, *,
+                 sse_kms: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseKmsArgs']] = None,
+                 sse_s3s: Optional[pulumi.Input[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseS3Args']]]] = None):
+        """
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseKmsArgs'] sse_kms: SSE-KMS encryption. See SSE KMS below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseS3Args']]] sse_s3s: SSE-S3 encryption. An empty configuration block `{}` should be used.
+        """
+        if sse_kms is not None:
+            pulumi.set(__self__, "sse_kms", sse_kms)
+        if sse_s3s is not None:
+            pulumi.set(__self__, "sse_s3s", sse_s3s)
+
+    @_builtins.property
+    @pulumi.getter(name="sseKms")
+    def sse_kms(self) -> Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseKmsArgs']]:
+        """
+        SSE-KMS encryption. See SSE KMS below for more details.
+        """
+        return pulumi.get(self, "sse_kms")
+
+    @sse_kms.setter
+    def sse_kms(self, value: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseKmsArgs']]):
+        pulumi.set(self, "sse_kms", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sseS3s")
+    def sse_s3s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseS3Args']]]]:
+        """
+        SSE-S3 encryption. An empty configuration block `{}` should be used.
+        """
+        return pulumi.get(self, "sse_s3s")
+
+    @sse_s3s.setter
+    def sse_s3s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseS3Args']]]]):
+        pulumi.set(self, "sse_s3s", value)
+
+
+class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseKmsArgsDict(TypedDict):
+    key_id: pulumi.Input[_builtins.str]
+    """
+    KMS key ARN.
+    """
+
+@pulumi.input_type
+class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseKmsArgs:
+    def __init__(__self__, *,
+                 key_id: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] key_id: KMS key ARN.
+        """
+        pulumi.set(__self__, "key_id", key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        KMS key ARN.
+        """
+        return pulumi.get(self, "key_id")
+
+    @key_id.setter
+    def key_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key_id", value)
+
+
+class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseS3ArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseS3Args:
+    def __init__(__self__):
+        pass
+
+
+class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether S3 Storage Lens export to S3 tables is enabled.
+    """
+    encryption: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionArgsDict']]
+    """
+    Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.
+    """
+
+@pulumi.input_type
+class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 encryption: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: Whether S3 Storage Lens export to S3 tables is enabled.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionArgs'] encryption: Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether S3 Storage Lens export to S3 tables is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionArgs']]:
+        """
+        Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
+
+
+class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionArgsDict(TypedDict):
+    sse_kms: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseKmsArgsDict']]
+    """
+    SSE-KMS encryption. See SSE KMS below for more details.
+    """
+    sse_s3s: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseS3ArgsDict']]]]
+    """
+    SSE-S3 encryption. An empty configuration block `{}` should be used.
+    """
+
+@pulumi.input_type
+class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionArgs:
+    def __init__(__self__, *,
+                 sse_kms: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseKmsArgs']] = None,
+                 sse_s3s: Optional[pulumi.Input[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseS3Args']]]] = None):
+        """
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseKmsArgs'] sse_kms: SSE-KMS encryption. See SSE KMS below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseS3Args']]] sse_s3s: SSE-S3 encryption. An empty configuration block `{}` should be used.
+        """
+        if sse_kms is not None:
+            pulumi.set(__self__, "sse_kms", sse_kms)
+        if sse_s3s is not None:
+            pulumi.set(__self__, "sse_s3s", sse_s3s)
+
+    @_builtins.property
+    @pulumi.getter(name="sseKms")
+    def sse_kms(self) -> Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseKmsArgs']]:
+        """
+        SSE-KMS encryption. See SSE KMS below for more details.
+        """
+        return pulumi.get(self, "sse_kms")
+
+    @sse_kms.setter
+    def sse_kms(self, value: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseKmsArgs']]):
+        pulumi.set(self, "sse_kms", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sseS3s")
+    def sse_s3s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseS3Args']]]]:
+        """
+        SSE-S3 encryption. An empty configuration block `{}` should be used.
+        """
+        return pulumi.get(self, "sse_s3s")
+
+    @sse_s3s.setter
+    def sse_s3s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseS3Args']]]]):
+        pulumi.set(self, "sse_s3s", value)
+
+
+class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseKmsArgsDict(TypedDict):
+    key_id: pulumi.Input[_builtins.str]
+    """
+    KMS key ARN.
+    """
+
+@pulumi.input_type
+class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseKmsArgs:
+    def __init__(__self__, *,
+                 key_id: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] key_id: KMS key ARN.
+        """
+        pulumi.set(__self__, "key_id", key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        KMS key ARN.
+        """
+        return pulumi.get(self, "key_id")
+
+    @key_id.setter
+    def key_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key_id", value)
+
+
+class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseS3ArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseS3Args:
+    def __init__(__self__):
+        pass
 
 
 class StorageLensConfigurationStorageLensConfigurationIncludeArgsDict(TypedDict):

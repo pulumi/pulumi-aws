@@ -33,7 +33,7 @@ class InventoryArgs:
         """
         The set of arguments for constructing a Inventory resource.
 
-        :param pulumi.Input[_builtins.str] bucket: Name of the source bucket that inventory lists the objects for.
+        :param pulumi.Input[_builtins.str] bucket: Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
         :param pulumi.Input['InventoryDestinationArgs'] destination: Contains information about where to publish the inventory results (documented below).
         :param pulumi.Input[_builtins.str] included_object_versions: Object versions to include in the inventory list. Valid values: `All`, `Current`.
         :param pulumi.Input['InventoryScheduleArgs'] schedule: Specifies the schedule for generating inventory results (documented below).
@@ -62,7 +62,7 @@ class InventoryArgs:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the source bucket that inventory lists the objects for.
+        Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
         """
         return pulumi.get(self, "bucket")
 
@@ -182,7 +182,7 @@ class _InventoryState:
         """
         Input properties used for looking up and filtering Inventory resources.
 
-        :param pulumi.Input[_builtins.str] bucket: Name of the source bucket that inventory lists the objects for.
+        :param pulumi.Input[_builtins.str] bucket: Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
         :param pulumi.Input['InventoryDestinationArgs'] destination: Contains information about where to publish the inventory results (documented below).
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the inventory is enabled or disabled.
         :param pulumi.Input['InventoryFilterArgs'] filter: Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
@@ -215,7 +215,7 @@ class _InventoryState:
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Name of the source bucket that inventory lists the objects for.
+        Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
         """
         return pulumi.get(self, "bucket")
 
@@ -339,8 +339,6 @@ class Inventory(pulumi.CustomResource):
         """
         Provides a S3 bucket [inventory configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html) resource.
 
-        > This resource cannot be used with S3 directory buckets.
-
         ## Example Usage
 
         ### Add inventory configuration
@@ -404,7 +402,7 @@ class Inventory(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bucket: Name of the source bucket that inventory lists the objects for.
+        :param pulumi.Input[_builtins.str] bucket: Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
         :param pulumi.Input[Union['InventoryDestinationArgs', 'InventoryDestinationArgsDict']] destination: Contains information about where to publish the inventory results (documented below).
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the inventory is enabled or disabled.
         :param pulumi.Input[Union['InventoryFilterArgs', 'InventoryFilterArgsDict']] filter: Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
@@ -422,8 +420,6 @@ class Inventory(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a S3 bucket [inventory configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html) resource.
-
-        > This resource cannot be used with S3 directory buckets.
 
         ## Example Usage
 
@@ -562,7 +558,7 @@ class Inventory(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bucket: Name of the source bucket that inventory lists the objects for.
+        :param pulumi.Input[_builtins.str] bucket: Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
         :param pulumi.Input[Union['InventoryDestinationArgs', 'InventoryDestinationArgsDict']] destination: Contains information about where to publish the inventory results (documented below).
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the inventory is enabled or disabled.
         :param pulumi.Input[Union['InventoryFilterArgs', 'InventoryFilterArgsDict']] filter: Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
@@ -591,7 +587,7 @@ class Inventory(pulumi.CustomResource):
     @pulumi.getter
     def bucket(self) -> pulumi.Output[_builtins.str]:
         """
-        Name of the source bucket that inventory lists the objects for.
+        Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
         """
         return pulumi.get(self, "bucket")
 

@@ -12,7 +12,10 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
     /// 
-    /// ## Import
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
     /// Using `pulumi import`, import Launch Templates using the `Id`. For example:
     /// 

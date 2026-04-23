@@ -50,7 +50,7 @@ class WorkspaceArgs:
         :param pulumi.Input[_builtins.str] configuration: The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
         :param pulumi.Input[_builtins.str] description: The workspace description.
-        :param pulumi.Input[_builtins.str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
+        :param pulumi.Input[_builtins.str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4` and `12.4`. If not specified, defaults to the latest version.
         :param pulumi.Input[_builtins.str] kms_key_id: The ARN of the AWS KMS key for encrypting workspace data.
         :param pulumi.Input[_builtins.str] name: The Grafana workspace name.
         :param pulumi.Input['WorkspaceNetworkAccessControlArgs'] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
@@ -175,7 +175,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="grafanaVersion")
     def grafana_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
+        Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4` and `12.4`. If not specified, defaults to the latest version.
         """
         return pulumi.get(self, "grafana_version")
 
@@ -351,7 +351,7 @@ class _WorkspaceState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
         :param pulumi.Input[_builtins.str] description: The workspace description.
         :param pulumi.Input[_builtins.str] endpoint: The endpoint of the Grafana workspace.
-        :param pulumi.Input[_builtins.str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
+        :param pulumi.Input[_builtins.str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4` and `12.4`. If not specified, defaults to the latest version.
         :param pulumi.Input[_builtins.str] kms_key_id: The ARN of the AWS KMS key for encrypting workspace data.
         :param pulumi.Input[_builtins.str] name: The Grafana workspace name.
         :param pulumi.Input['WorkspaceNetworkAccessControlArgs'] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
@@ -501,7 +501,7 @@ class _WorkspaceState:
     @pulumi.getter(name="grafanaVersion")
     def grafana_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
+        Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4` and `12.4`. If not specified, defaults to the latest version.
         """
         return pulumi.get(self, "grafana_version")
 
@@ -776,7 +776,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] configuration: The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
         :param pulumi.Input[_builtins.str] description: The workspace description.
-        :param pulumi.Input[_builtins.str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
+        :param pulumi.Input[_builtins.str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4` and `12.4`. If not specified, defaults to the latest version.
         :param pulumi.Input[_builtins.str] kms_key_id: The ARN of the AWS KMS key for encrypting workspace data.
         :param pulumi.Input[_builtins.str] name: The Grafana workspace name.
         :param pulumi.Input[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict']] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
@@ -981,7 +981,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
         :param pulumi.Input[_builtins.str] description: The workspace description.
         :param pulumi.Input[_builtins.str] endpoint: The endpoint of the Grafana workspace.
-        :param pulumi.Input[_builtins.str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
+        :param pulumi.Input[_builtins.str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4` and `12.4`. If not specified, defaults to the latest version.
         :param pulumi.Input[_builtins.str] kms_key_id: The ARN of the AWS KMS key for encrypting workspace data.
         :param pulumi.Input[_builtins.str] name: The Grafana workspace name.
         :param pulumi.Input[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict']] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
@@ -1086,7 +1086,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="grafanaVersion")
     def grafana_version(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
+        Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4` and `12.4`. If not specified, defaults to the latest version.
         """
         return pulumi.get(self, "grafana_version")
 
