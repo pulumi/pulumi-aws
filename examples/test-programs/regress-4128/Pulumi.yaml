@@ -1,7 +1,0 @@
-name: regress-4128
-runtime: nodejs
-description: A minimal AWS TypeScript Pulumi program
-config:
-  pulumi:tags:
-    value:
-      pulumi:template: aws-typescript
