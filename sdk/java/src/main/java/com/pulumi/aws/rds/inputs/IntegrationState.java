@@ -75,6 +75,21 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Identifier of the Integration. This value can be used when creating the target database to [receive results of zero-ETL integrations](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html#r_CREATE_DATABASE-integration).
+     * 
+     */
+    @Import(name="integrationIdentifier")
+    private @Nullable Output<String> integrationIdentifier;
+
+    /**
+     * @return Identifier of the Integration. This value can be used when creating the target database to [receive results of zero-ETL integrations](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html#r_CREATE_DATABASE-integration).
+     * 
+     */
+    public Optional<Output<String>> integrationIdentifier() {
+        return Optional.ofNullable(this.integrationIdentifier);
+    }
+
+    /**
      * Name of the integration.
      * 
      */
@@ -204,6 +219,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         this.additionalEncryptionContext = $.additionalEncryptionContext;
         this.arn = $.arn;
         this.dataFilter = $.dataFilter;
+        this.integrationIdentifier = $.integrationIdentifier;
         this.integrationName = $.integrationName;
         this.kmsKeyId = $.kmsKeyId;
         this.region = $.region;
@@ -305,6 +321,27 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dataFilter(String dataFilter) {
             return dataFilter(Output.of(dataFilter));
+        }
+
+        /**
+         * @param integrationIdentifier Identifier of the Integration. This value can be used when creating the target database to [receive results of zero-ETL integrations](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html#r_CREATE_DATABASE-integration).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder integrationIdentifier(@Nullable Output<String> integrationIdentifier) {
+            $.integrationIdentifier = integrationIdentifier;
+            return this;
+        }
+
+        /**
+         * @param integrationIdentifier Identifier of the Integration. This value can be used when creating the target database to [receive results of zero-ETL integrations](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html#r_CREATE_DATABASE-integration).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder integrationIdentifier(String integrationIdentifier) {
+            return integrationIdentifier(Output.of(integrationIdentifier));
         }
 
         /**

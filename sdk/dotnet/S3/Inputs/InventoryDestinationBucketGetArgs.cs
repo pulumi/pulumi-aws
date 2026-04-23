@@ -19,7 +19,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// Amazon S3 bucket ARN of the destination.
+        /// Amazon S3 bucket ARN of the destination. Only general purpose buckets are supported.
         /// </summary>
         [Input("bucketArn", required: true)]
         public Input<string> BucketArn { get; set; } = null!;

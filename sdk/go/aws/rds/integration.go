@@ -186,6 +186,8 @@ type Integration struct {
 	// Multiple expressions are separated by a comma.
 	// See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
 	DataFilter pulumi.StringOutput `pulumi:"dataFilter"`
+	// Identifier of the Integration. This value can be used when creating the target database to [receive results of zero-ETL integrations](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html#r_CREATE_DATABASE-integration).
+	IntegrationIdentifier pulumi.StringOutput `pulumi:"integrationIdentifier"`
 	// Name of the integration.
 	IntegrationName pulumi.StringOutput `pulumi:"integrationName"`
 	// KMS key identifier for the key to use to encrypt the integration.
@@ -260,6 +262,8 @@ type integrationState struct {
 	// Multiple expressions are separated by a comma.
 	// See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
 	DataFilter *string `pulumi:"dataFilter"`
+	// Identifier of the Integration. This value can be used when creating the target database to [receive results of zero-ETL integrations](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html#r_CREATE_DATABASE-integration).
+	IntegrationIdentifier *string `pulumi:"integrationIdentifier"`
 	// Name of the integration.
 	IntegrationName *string `pulumi:"integrationName"`
 	// KMS key identifier for the key to use to encrypt the integration.
@@ -296,6 +300,8 @@ type IntegrationState struct {
 	// Multiple expressions are separated by a comma.
 	// See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
 	DataFilter pulumi.StringPtrInput
+	// Identifier of the Integration. This value can be used when creating the target database to [receive results of zero-ETL integrations](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html#r_CREATE_DATABASE-integration).
+	IntegrationIdentifier pulumi.StringPtrInput
 	// Name of the integration.
 	IntegrationName pulumi.StringPtrInput
 	// KMS key identifier for the key to use to encrypt the integration.
@@ -494,6 +500,11 @@ func (o IntegrationOutput) Arn() pulumi.StringOutput {
 // See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
 func (o IntegrationOutput) DataFilter() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.DataFilter }).(pulumi.StringOutput)
+}
+
+// Identifier of the Integration. This value can be used when creating the target database to [receive results of zero-ETL integrations](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html#r_CREATE_DATABASE-integration).
+func (o IntegrationOutput) IntegrationIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.IntegrationIdentifier }).(pulumi.StringOutput)
 }
 
 // Name of the integration.

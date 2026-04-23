@@ -591,6 +591,17 @@ class Volume(pulumi.CustomResource):
         $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
         ```
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) Volume ID.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -643,6 +654,17 @@ class Volume(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
         ```
+
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) Volume ID.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
 
         :param str resource_name: The name of the resource.

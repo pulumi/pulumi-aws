@@ -54,6 +54,12 @@ namespace Pulumi.Aws.S3
     public partial class FilesFileSystem : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Set to `True` to acknowledge and accept any warnings related to the bucket configuration. If not specified, the operation may fail when such warnings are present. For example, warnings may be raised when creating a file system scoped to a prefix containing a large number of objects (approximately 12 million objects). See [the AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-synchronization.html#s3-files-sync-rename-move) for more details.
+        /// </summary>
+        [Output("acceptBucketWarning")]
+        public Output<bool?> AcceptBucketWarning { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the file system.
         /// </summary>
         [Output("arn")]
@@ -183,6 +189,12 @@ namespace Pulumi.Aws.S3
     public sealed class FilesFileSystemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Set to `True` to acknowledge and accept any warnings related to the bucket configuration. If not specified, the operation may fail when such warnings are present. For example, warnings may be raised when creating a file system scoped to a prefix containing a large number of objects (approximately 12 million objects). See [the AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-synchronization.html#s3-files-sync-rename-move) for more details.
+        /// </summary>
+        [Input("acceptBucketWarning")]
+        public Input<bool>? AcceptBucketWarning { get; set; }
+
+        /// <summary>
         /// S3 bucket ARN. Changing this value forces replacement.
         /// </summary>
         [Input("bucket", required: true)]
@@ -237,6 +249,12 @@ namespace Pulumi.Aws.S3
 
     public sealed class FilesFileSystemState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Set to `True` to acknowledge and accept any warnings related to the bucket configuration. If not specified, the operation may fail when such warnings are present. For example, warnings may be raised when creating a file system scoped to a prefix containing a large number of objects (approximately 12 million objects). See [the AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-synchronization.html#s3-files-sync-rename-move) for more details.
+        /// </summary>
+        [Input("acceptBucketWarning")]
+        public Input<bool>? AcceptBucketWarning { get; set; }
+
         /// <summary>
         /// ARN of the file system.
         /// </summary>

@@ -8,6 +8,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Double;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -117,6 +118,21 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
      */
     public Optional<Output<String>> peerNetworkArn() {
         return Optional.ofNullable(this.peerNetworkArn);
+    }
+
+    /**
+     * Set of peer network cidrs. Add remove is only supported during update operation. During create this attribute is compute only.
+     * 
+     */
+    @Import(name="peerNetworkCidrs")
+    private @Nullable Output<List<String>> peerNetworkCidrs;
+
+    /**
+     * @return Set of peer network cidrs. Add remove is only supported during update operation. During create this attribute is compute only.
+     * 
+     */
+    public Optional<Output<List<String>>> peerNetworkCidrs() {
+        return Optional.ofNullable(this.peerNetworkCidrs);
     }
 
     /**
@@ -241,6 +257,7 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
         this.odbNetworkId = $.odbNetworkId;
         this.odbPeeringConnectionType = $.odbPeeringConnectionType;
         this.peerNetworkArn = $.peerNetworkArn;
+        this.peerNetworkCidrs = $.peerNetworkCidrs;
         this.peerNetworkId = $.peerNetworkId;
         this.percentProgress = $.percentProgress;
         this.region = $.region;
@@ -406,6 +423,37 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
          */
         public Builder peerNetworkArn(String peerNetworkArn) {
             return peerNetworkArn(Output.of(peerNetworkArn));
+        }
+
+        /**
+         * @param peerNetworkCidrs Set of peer network cidrs. Add remove is only supported during update operation. During create this attribute is compute only.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder peerNetworkCidrs(@Nullable Output<List<String>> peerNetworkCidrs) {
+            $.peerNetworkCidrs = peerNetworkCidrs;
+            return this;
+        }
+
+        /**
+         * @param peerNetworkCidrs Set of peer network cidrs. Add remove is only supported during update operation. During create this attribute is compute only.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder peerNetworkCidrs(List<String> peerNetworkCidrs) {
+            return peerNetworkCidrs(Output.of(peerNetworkCidrs));
+        }
+
+        /**
+         * @param peerNetworkCidrs Set of peer network cidrs. Add remove is only supported during update operation. During create this attribute is compute only.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder peerNetworkCidrs(String... peerNetworkCidrs) {
+            return peerNetworkCidrs(List.of(peerNetworkCidrs));
         }
 
         /**

@@ -17,6 +17,8 @@ from .. import _utilities
 __all__ = [
     'AccessPolicyAssociationAccessScopeArgs',
     'AccessPolicyAssociationAccessScopeArgsDict',
+    'AddonNamespaceConfigArgs',
+    'AddonNamespaceConfigArgsDict',
     'AddonPodIdentityAssociationArgs',
     'AddonPodIdentityAssociationArgsDict',
     'CapabilityConfigurationArgs',
@@ -143,6 +145,35 @@ class AccessPolicyAssociationAccessScopeArgs:
     @namespaces.setter
     def namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "namespaces", value)
+
+
+class AddonNamespaceConfigArgsDict(TypedDict):
+    namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Kubernetes namespace to install the add-on in. Once you install an add-on in a specific namespace, you must remove and re-create the add-on to change its namespace. For more details see the [Custom namespace for add-ons](https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html#custom-namespace).
+    """
+
+@pulumi.input_type
+class AddonNamespaceConfigArgs:
+    def __init__(__self__, *,
+                 namespace: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] namespace: Name of the Kubernetes namespace to install the add-on in. Once you install an add-on in a specific namespace, you must remove and re-create the add-on to change its namespace. For more details see the [Custom namespace for add-ons](https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html#custom-namespace).
+        """
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the Kubernetes namespace to install the add-on in. Once you install an add-on in a specific namespace, you must remove and re-create the add-on to change its namespace. For more details see the [Custom namespace for add-ons](https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html#custom-namespace).
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "namespace", value)
 
 
 class AddonPodIdentityAssociationArgsDict(TypedDict):

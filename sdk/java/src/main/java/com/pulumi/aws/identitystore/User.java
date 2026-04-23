@@ -314,6 +314,20 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.userName;
     }
     /**
+     * The current status of the user account.
+     * 
+     */
+    @Export(name="userStatus", refs={String.class}, tree="[0]")
+    private Output<String> userStatus;
+
+    /**
+     * @return The current status of the user account.
+     * 
+     */
+    public Output<String> userStatus() {
+        return this.userStatus;
+    }
+    /**
      * The user type.
      * 
      * &gt; Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.

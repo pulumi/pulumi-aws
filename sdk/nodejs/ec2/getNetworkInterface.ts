@@ -78,6 +78,10 @@ export interface GetNetworkInterfaceResult {
      * Description of the network interface.
      */
     readonly description: string;
+    /**
+     * ENA Express configuration for the network interface. See enaSrdSpecification below.
+     */
+    readonly enaSrdSpecifications: outputs.ec2.GetNetworkInterfaceEnaSrdSpecification[];
     readonly filters?: outputs.ec2.GetNetworkInterfaceFilter[];
     readonly id: string;
     /**

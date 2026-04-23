@@ -213,6 +213,8 @@ __all__ = [
     'NetworkInsightsPathFilterAtSourceDestinationPortRange',
     'NetworkInsightsPathFilterAtSourceSourcePortRange',
     'NetworkInterfaceAttachment',
+    'NetworkInterfaceEnaSrdSpecification',
+    'NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification',
     'NetworkInterfacePermissionTimeouts',
     'PeeringConnectionOptionsAccepter',
     'PeeringConnectionOptionsRequester',
@@ -465,6 +467,8 @@ __all__ = [
     'GetNetworkInsightsPathFilterAtSourceSourcePortRangeResult',
     'GetNetworkInterfaceAssociationResult',
     'GetNetworkInterfaceAttachmentResult',
+    'GetNetworkInterfaceEnaSrdSpecificationResult',
+    'GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationResult',
     'GetNetworkInterfaceFilterResult',
     'GetNetworkInterfacesFilterResult',
     'GetPrefixListFilterResult',
@@ -476,6 +480,8 @@ __all__ = [
     'GetRouteTablesFilterResult',
     'GetSecurityGroupFilterResult',
     'GetSecurityGroupsFilterResult',
+    'GetServiceLinkVirtualInterfaceFilterResult',
+    'GetServiceLinkVirtualInterfacesFilterResult',
     'GetSpotPriceFilterResult',
     'GetSubnetFilterResult',
     'GetSubnetsFilterResult',
@@ -13765,6 +13771,92 @@ class NetworkInterfaceAttachment(dict):
 
 
 @pulumi.output_type
+class NetworkInterfaceEnaSrdSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enaSrdEnabled":
+            suggest = "ena_srd_enabled"
+        elif key == "enaSrdUdpSpecification":
+            suggest = "ena_srd_udp_specification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInterfaceEnaSrdSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInterfaceEnaSrdSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInterfaceEnaSrdSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ena_srd_enabled: Optional[_builtins.bool] = None,
+                 ena_srd_udp_specification: Optional['outputs.NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification'] = None):
+        """
+        :param _builtins.bool ena_srd_enabled: Indicates whether ENA Express is enabled for the network interface.
+        :param 'NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs' ena_srd_udp_specification: Configures ENA Express for UDP network traffic. See ENA SRD UDP Specification below for more details.
+        """
+        if ena_srd_enabled is not None:
+            pulumi.set(__self__, "ena_srd_enabled", ena_srd_enabled)
+        if ena_srd_udp_specification is not None:
+            pulumi.set(__self__, "ena_srd_udp_specification", ena_srd_udp_specification)
+
+    @_builtins.property
+    @pulumi.getter(name="enaSrdEnabled")
+    def ena_srd_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether ENA Express is enabled for the network interface.
+        """
+        return pulumi.get(self, "ena_srd_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="enaSrdUdpSpecification")
+    def ena_srd_udp_specification(self) -> Optional['outputs.NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification']:
+        """
+        Configures ENA Express for UDP network traffic. See ENA SRD UDP Specification below for more details.
+        """
+        return pulumi.get(self, "ena_srd_udp_specification")
+
+
+@pulumi.output_type
+class NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enaSrdUdpEnabled":
+            suggest = "ena_srd_udp_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ena_srd_udp_enabled: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool ena_srd_udp_enabled: Indicates whether UDP traffic uses ENA Express. Requires `ena_srd_enabled` to be `true`.
+        """
+        if ena_srd_udp_enabled is not None:
+            pulumi.set(__self__, "ena_srd_udp_enabled", ena_srd_udp_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="enaSrdUdpEnabled")
+    def ena_srd_udp_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether UDP traffic uses ENA Express. Requires `ena_srd_enabled` to be `true`.
+        """
+        return pulumi.get(self, "ena_srd_udp_enabled")
+
+
+@pulumi.output_type
 class NetworkInterfacePermissionTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[_builtins.str] = None,
@@ -25723,6 +25815,53 @@ class GetNetworkInterfaceAttachmentResult(dict):
 
 
 @pulumi.output_type
+class GetNetworkInterfaceEnaSrdSpecificationResult(dict):
+    def __init__(__self__, *,
+                 ena_srd_enabled: _builtins.bool,
+                 ena_srd_udp_specifications: Sequence['outputs.GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationResult']):
+        """
+        :param _builtins.bool ena_srd_enabled: Whether ENA Express is enabled for the network interface.
+        :param Sequence['GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs'] ena_srd_udp_specifications: ENA Express UDP configuration. See below.
+        """
+        pulumi.set(__self__, "ena_srd_enabled", ena_srd_enabled)
+        pulumi.set(__self__, "ena_srd_udp_specifications", ena_srd_udp_specifications)
+
+    @_builtins.property
+    @pulumi.getter(name="enaSrdEnabled")
+    def ena_srd_enabled(self) -> _builtins.bool:
+        """
+        Whether ENA Express is enabled for the network interface.
+        """
+        return pulumi.get(self, "ena_srd_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="enaSrdUdpSpecifications")
+    def ena_srd_udp_specifications(self) -> Sequence['outputs.GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationResult']:
+        """
+        ENA Express UDP configuration. See below.
+        """
+        return pulumi.get(self, "ena_srd_udp_specifications")
+
+
+@pulumi.output_type
+class GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationResult(dict):
+    def __init__(__self__, *,
+                 ena_srd_udp_enabled: _builtins.bool):
+        """
+        :param _builtins.bool ena_srd_udp_enabled: Whether UDP traffic uses ENA Express.
+        """
+        pulumi.set(__self__, "ena_srd_udp_enabled", ena_srd_udp_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="enaSrdUdpEnabled")
+    def ena_srd_udp_enabled(self) -> _builtins.bool:
+        """
+        Whether UDP traffic uses ENA Express.
+        """
+        return pulumi.get(self, "ena_srd_udp_enabled")
+
+
+@pulumi.output_type
 class GetNetworkInterfaceFilterResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
@@ -26215,6 +26354,64 @@ class GetSecurityGroupsFilterResult(dict):
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetServiceLinkVirtualInterfaceFilterResult(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str name: Name of the filter.
+        :param Sequence[_builtins.str] values: List of one or more values for the filter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the filter.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        List of one or more values for the filter.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetServiceLinkVirtualInterfacesFilterResult(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str name: Name of the filter.
+        :param Sequence[_builtins.str] values: List of one or more values for the filter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the filter.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        List of one or more values for the filter.
+        """
         return pulumi.get(self, "values")
 
 

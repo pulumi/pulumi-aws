@@ -3,10 +3,10 @@
 
 package com.pulumi.aws.cloudwatch;
 
+import com.pulumi.aws.cloudwatch.inputs.MetricAlarmEvaluationCriteriaArgs;
 import com.pulumi.aws.cloudwatch.inputs.MetricAlarmMetricQueryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -71,15 +71,15 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
      * The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
      * 
      */
-    @Import(name="comparisonOperator", required=true)
-    private Output<String> comparisonOperator;
+    @Import(name="comparisonOperator")
+    private @Nullable Output<String> comparisonOperator;
 
     /**
      * @return The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
      * 
      */
-    public Output<String> comparisonOperator() {
-        return this.comparisonOperator;
+    public Optional<Output<String>> comparisonOperator() {
+        return Optional.ofNullable(this.comparisonOperator);
     }
 
     /**
@@ -134,18 +134,48 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of periods over which data is compared to the specified threshold.
+     * The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
      * 
      */
-    @Import(name="evaluationPeriods", required=true)
-    private Output<Integer> evaluationPeriods;
+    @Import(name="evaluationCriteria")
+    private @Nullable Output<MetricAlarmEvaluationCriteriaArgs> evaluationCriteria;
 
     /**
-     * @return The number of periods over which data is compared to the specified threshold.
+     * @return The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
      * 
      */
-    public Output<Integer> evaluationPeriods() {
-        return this.evaluationPeriods;
+    public Optional<Output<MetricAlarmEvaluationCriteriaArgs>> evaluationCriteria() {
+        return Optional.ofNullable(this.evaluationCriteria);
+    }
+
+    /**
+     * The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluationCriteria`.
+     * 
+     */
+    @Import(name="evaluationInterval")
+    private @Nullable Output<Integer> evaluationInterval;
+
+    /**
+     * @return The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluationCriteria`.
+     * 
+     */
+    public Optional<Output<Integer>> evaluationInterval() {
+        return Optional.ofNullable(this.evaluationInterval);
+    }
+
+    /**
+     * The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
+     * 
+     */
+    @Import(name="evaluationPeriods")
+    private @Nullable Output<Integer> evaluationPeriods;
+
+    /**
+     * @return The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
+     * 
+     */
+    public Optional<Output<Integer>> evaluationPeriods() {
+        return Optional.ofNullable(this.evaluationPeriods);
     }
 
     /**
@@ -401,6 +431,8 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         this.datapointsToAlarm = $.datapointsToAlarm;
         this.dimensions = $.dimensions;
         this.evaluateLowSampleCountPercentiles = $.evaluateLowSampleCountPercentiles;
+        this.evaluationCriteria = $.evaluationCriteria;
+        this.evaluationInterval = $.evaluationInterval;
         this.evaluationPeriods = $.evaluationPeriods;
         this.extendedStatistic = $.extendedStatistic;
         this.insufficientDataActions = $.insufficientDataActions;
@@ -516,7 +548,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder comparisonOperator(Output<String> comparisonOperator) {
+        public Builder comparisonOperator(@Nullable Output<String> comparisonOperator) {
             $.comparisonOperator = comparisonOperator;
             return this;
         }
@@ -601,18 +633,60 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param evaluationPeriods The number of periods over which data is compared to the specified threshold.
+         * @param evaluationCriteria The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
          * 
          * @return builder
          * 
          */
-        public Builder evaluationPeriods(Output<Integer> evaluationPeriods) {
+        public Builder evaluationCriteria(@Nullable Output<MetricAlarmEvaluationCriteriaArgs> evaluationCriteria) {
+            $.evaluationCriteria = evaluationCriteria;
+            return this;
+        }
+
+        /**
+         * @param evaluationCriteria The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder evaluationCriteria(MetricAlarmEvaluationCriteriaArgs evaluationCriteria) {
+            return evaluationCriteria(Output.of(evaluationCriteria));
+        }
+
+        /**
+         * @param evaluationInterval The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluationCriteria`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder evaluationInterval(@Nullable Output<Integer> evaluationInterval) {
+            $.evaluationInterval = evaluationInterval;
+            return this;
+        }
+
+        /**
+         * @param evaluationInterval The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluationCriteria`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder evaluationInterval(Integer evaluationInterval) {
+            return evaluationInterval(Output.of(evaluationInterval));
+        }
+
+        /**
+         * @param evaluationPeriods The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder evaluationPeriods(@Nullable Output<Integer> evaluationPeriods) {
             $.evaluationPeriods = evaluationPeriods;
             return this;
         }
 
         /**
-         * @param evaluationPeriods The number of periods over which data is compared to the specified threshold.
+         * @param evaluationPeriods The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
          * 
          * @return builder
          * 
@@ -985,12 +1059,6 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MetricAlarmArgs build() {
-            if ($.comparisonOperator == null) {
-                throw new MissingRequiredPropertyException("MetricAlarmArgs", "comparisonOperator");
-            }
-            if ($.evaluationPeriods == null) {
-                throw new MissingRequiredPropertyException("MetricAlarmArgs", "evaluationPeriods");
-            }
             return $;
         }
     }

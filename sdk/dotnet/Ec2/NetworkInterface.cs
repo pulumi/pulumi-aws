@@ -93,6 +93,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
+        /// </summary>
+        [Output("enaSrdSpecification")]
+        public Output<Outputs.NetworkInterfaceEnaSrdSpecification?> EnaSrdSpecification { get; private set; } = null!;
+
+        /// <summary>
         /// Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
         /// </summary>
         [Output("enablePrimaryIpv6")]
@@ -303,6 +309,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
+        /// </summary>
+        [Input("enaSrdSpecification")]
+        public Input<Inputs.NetworkInterfaceEnaSrdSpecificationArgs>? EnaSrdSpecification { get; set; }
+
+        /// <summary>
         /// Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
         /// </summary>
         [Input("enablePrimaryIpv6")]
@@ -500,6 +512,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
+        /// </summary>
+        [Input("enaSrdSpecification")]
+        public Input<Inputs.NetworkInterfaceEnaSrdSpecificationGetArgs>? EnaSrdSpecification { get; set; }
 
         /// <summary>
         /// Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.

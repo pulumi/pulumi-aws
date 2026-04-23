@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Odb.Outputs
     [OutputType]
     public sealed class GetNetworkManagedServiceResult
     {
+        public readonly ImmutableArray<Outputs.GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessResult> CrossRegionS3RestoreSourcesAccesses;
         public readonly ImmutableArray<Outputs.GetNetworkManagedServiceKmsAccessResult> KmsAccesses;
         public readonly ImmutableArray<Outputs.GetNetworkManagedServiceManagedS3BackupAccessResult> ManagedS3BackupAccesses;
         public readonly ImmutableArray<string> ManagedServiceIpv4Cidrs;
@@ -25,6 +26,8 @@ namespace Pulumi.Aws.Odb.Outputs
 
         [OutputConstructor]
         private GetNetworkManagedServiceResult(
+            ImmutableArray<Outputs.GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessResult> crossRegionS3RestoreSourcesAccesses,
+
             ImmutableArray<Outputs.GetNetworkManagedServiceKmsAccessResult> kmsAccesses,
 
             ImmutableArray<Outputs.GetNetworkManagedServiceManagedS3BackupAccessResult> managedS3BackupAccesses,
@@ -43,6 +46,7 @@ namespace Pulumi.Aws.Odb.Outputs
 
             ImmutableArray<Outputs.GetNetworkManagedServiceZeroTlAccessResult> zeroTlAccesses)
         {
+            CrossRegionS3RestoreSourcesAccesses = crossRegionS3RestoreSourcesAccesses;
             KmsAccesses = kmsAccesses;
             ManagedS3BackupAccesses = managedS3BackupAccesses;
             ManagedServiceIpv4Cidrs = managedServiceIpv4Cidrs;

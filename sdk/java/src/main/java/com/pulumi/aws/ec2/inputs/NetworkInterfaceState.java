@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.inputs;
 
 import com.pulumi.aws.ec2.inputs.NetworkInterfaceAttachmentArgs;
+import com.pulumi.aws.ec2.inputs.NetworkInterfaceEnaSrdSpecificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -63,6 +64,21 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
+     * 
+     */
+    @Import(name="enaSrdSpecification")
+    private @Nullable Output<NetworkInterfaceEnaSrdSpecificationArgs> enaSrdSpecification;
+
+    /**
+     * @return Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
+     * 
+     */
+    public Optional<Output<NetworkInterfaceEnaSrdSpecificationArgs>> enaSrdSpecification() {
+        return Optional.ofNullable(this.enaSrdSpecification);
     }
 
     /**
@@ -434,6 +450,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         this.arn = $.arn;
         this.attachments = $.attachments;
         this.description = $.description;
+        this.enaSrdSpecification = $.enaSrdSpecification;
         this.enablePrimaryIpv6 = $.enablePrimaryIpv6;
         this.interfaceType = $.interfaceType;
         this.ipv4PrefixCount = $.ipv4PrefixCount;
@@ -550,6 +567,27 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param enaSrdSpecification Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enaSrdSpecification(@Nullable Output<NetworkInterfaceEnaSrdSpecificationArgs> enaSrdSpecification) {
+            $.enaSrdSpecification = enaSrdSpecification;
+            return this;
+        }
+
+        /**
+         * @param enaSrdSpecification Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enaSrdSpecification(NetworkInterfaceEnaSrdSpecificationArgs enaSrdSpecification) {
+            return enaSrdSpecification(Output.of(enaSrdSpecification));
         }
 
         /**

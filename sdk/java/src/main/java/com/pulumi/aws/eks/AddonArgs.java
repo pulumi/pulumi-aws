@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.eks;
 
+import com.pulumi.aws.eks.inputs.AddonNamespaceConfigArgs;
 import com.pulumi.aws.eks.inputs.AddonPodIdentityAssociationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -74,18 +75,33 @@ public final class AddonArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+     * Custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
      * 
      */
     @Import(name="configurationValues")
     private @Nullable Output<String> configurationValues;
 
     /**
-     * @return custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+     * @return Custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
      * 
      */
     public Optional<Output<String>> configurationValues() {
         return Optional.ofNullable(this.configurationValues);
+    }
+
+    /**
+     * Namespace configuration for the add-on. See `namespaceConfig` below for details.
+     * 
+     */
+    @Import(name="namespaceConfig")
+    private @Nullable Output<AddonNamespaceConfigArgs> namespaceConfig;
+
+    /**
+     * @return Namespace configuration for the add-on. See `namespaceConfig` below for details.
+     * 
+     */
+    public Optional<Output<AddonNamespaceConfigArgs>> namespaceConfig() {
+        return Optional.ofNullable(this.namespaceConfig);
     }
 
     /**
@@ -220,6 +236,7 @@ public final class AddonArgs extends com.pulumi.resources.ResourceArgs {
         this.addonVersion = $.addonVersion;
         this.clusterName = $.clusterName;
         this.configurationValues = $.configurationValues;
+        this.namespaceConfig = $.namespaceConfig;
         this.podIdentityAssociations = $.podIdentityAssociations;
         this.preserve = $.preserve;
         this.region = $.region;
@@ -319,7 +336,7 @@ public final class AddonArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configurationValues custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+         * @param configurationValues Custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
          * 
          * @return builder
          * 
@@ -330,13 +347,34 @@ public final class AddonArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configurationValues custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+         * @param configurationValues Custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
          * 
          * @return builder
          * 
          */
         public Builder configurationValues(String configurationValues) {
             return configurationValues(Output.of(configurationValues));
+        }
+
+        /**
+         * @param namespaceConfig Namespace configuration for the add-on. See `namespaceConfig` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder namespaceConfig(@Nullable Output<AddonNamespaceConfigArgs> namespaceConfig) {
+            $.namespaceConfig = namespaceConfig;
+            return this;
+        }
+
+        /**
+         * @param namespaceConfig Namespace configuration for the add-on. See `namespaceConfig` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder namespaceConfig(AddonNamespaceConfigArgs namespaceConfig) {
+            return namespaceConfig(Output.of(namespaceConfig));
         }
 
         /**

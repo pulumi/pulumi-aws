@@ -185,6 +185,10 @@ __all__ = [
     'LogTransformerTransformerConfigTypeConverterEntryArgsDict',
     'LogTransformerTransformerConfigUpperCaseStringArgs',
     'LogTransformerTransformerConfigUpperCaseStringArgsDict',
+    'MetricAlarmEvaluationCriteriaArgs',
+    'MetricAlarmEvaluationCriteriaArgsDict',
+    'MetricAlarmEvaluationCriteriaPromqlCriteriaArgs',
+    'MetricAlarmEvaluationCriteriaPromqlCriteriaArgsDict',
     'MetricAlarmMetricQueryArgs',
     'MetricAlarmMetricQueryArgsDict',
     'MetricAlarmMetricQueryMetricArgs',
@@ -197,6 +201,8 @@ __all__ = [
     'MetricStreamStatisticsConfigurationArgsDict',
     'MetricStreamStatisticsConfigurationIncludeMetricArgs',
     'MetricStreamStatisticsConfigurationIncludeMetricArgsDict',
+    'OtelEnrichmentTimeoutsArgs',
+    'OtelEnrichmentTimeoutsArgsDict',
     'PolicyDocumentArgs',
     'PolicyDocumentArgsDict',
     'GetLogDataProtectionPolicyDocumentConfigurationArgs',
@@ -5247,6 +5253,102 @@ class LogTransformerTransformerConfigUpperCaseStringArgs:
         pulumi.set(self, "with_keys", value)
 
 
+class MetricAlarmEvaluationCriteriaArgsDict(TypedDict):
+    promql_criteria: pulumi.Input['MetricAlarmEvaluationCriteriaPromqlCriteriaArgsDict']
+    """
+    The PromQL criteria for the alarm evaluation.
+    """
+
+@pulumi.input_type
+class MetricAlarmEvaluationCriteriaArgs:
+    def __init__(__self__, *,
+                 promql_criteria: pulumi.Input['MetricAlarmEvaluationCriteriaPromqlCriteriaArgs']):
+        """
+        :param pulumi.Input['MetricAlarmEvaluationCriteriaPromqlCriteriaArgs'] promql_criteria: The PromQL criteria for the alarm evaluation.
+        """
+        pulumi.set(__self__, "promql_criteria", promql_criteria)
+
+    @_builtins.property
+    @pulumi.getter(name="promqlCriteria")
+    def promql_criteria(self) -> pulumi.Input['MetricAlarmEvaluationCriteriaPromqlCriteriaArgs']:
+        """
+        The PromQL criteria for the alarm evaluation.
+        """
+        return pulumi.get(self, "promql_criteria")
+
+    @promql_criteria.setter
+    def promql_criteria(self, value: pulumi.Input['MetricAlarmEvaluationCriteriaPromqlCriteriaArgs']):
+        pulumi.set(self, "promql_criteria", value)
+
+
+class MetricAlarmEvaluationCriteriaPromqlCriteriaArgsDict(TypedDict):
+    query: pulumi.Input[_builtins.str]
+    """
+    The PromQL query that the alarm evaluates. The query must return a result of vector type. Each entry in the vector result represents an alarm contributor.
+    """
+    pending_period: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The duration, in seconds, that a contributor must be continuously breaching before it transitions to the ALARM state. Valid range: 0-86400.
+    """
+    recovery_period: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The duration, in seconds, that a contributor must continuously not be breaching before it transitions back to the OK state. Valid range: 0-86400.
+    """
+
+@pulumi.input_type
+class MetricAlarmEvaluationCriteriaPromqlCriteriaArgs:
+    def __init__(__self__, *,
+                 query: pulumi.Input[_builtins.str],
+                 pending_period: Optional[pulumi.Input[_builtins.int]] = None,
+                 recovery_period: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] query: The PromQL query that the alarm evaluates. The query must return a result of vector type. Each entry in the vector result represents an alarm contributor.
+        :param pulumi.Input[_builtins.int] pending_period: The duration, in seconds, that a contributor must be continuously breaching before it transitions to the ALARM state. Valid range: 0-86400.
+        :param pulumi.Input[_builtins.int] recovery_period: The duration, in seconds, that a contributor must continuously not be breaching before it transitions back to the OK state. Valid range: 0-86400.
+        """
+        pulumi.set(__self__, "query", query)
+        if pending_period is not None:
+            pulumi.set(__self__, "pending_period", pending_period)
+        if recovery_period is not None:
+            pulumi.set(__self__, "recovery_period", recovery_period)
+
+    @_builtins.property
+    @pulumi.getter
+    def query(self) -> pulumi.Input[_builtins.str]:
+        """
+        The PromQL query that the alarm evaluates. The query must return a result of vector type. Each entry in the vector result represents an alarm contributor.
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "query", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pendingPeriod")
+    def pending_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The duration, in seconds, that a contributor must be continuously breaching before it transitions to the ALARM state. Valid range: 0-86400.
+        """
+        return pulumi.get(self, "pending_period")
+
+    @pending_period.setter
+    def pending_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "pending_period", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recoveryPeriod")
+    def recovery_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The duration, in seconds, that a contributor must continuously not be breaching before it transitions back to the OK state. Valid range: 0-86400.
+        """
+        return pulumi.get(self, "recovery_period")
+
+    @recovery_period.setter
+    def recovery_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "recovery_period", value)
+
+
 class MetricAlarmMetricQueryArgsDict(TypedDict):
     id: pulumi.Input[_builtins.str]
     """
@@ -5735,6 +5837,55 @@ class MetricStreamStatisticsConfigurationIncludeMetricArgs:
     @namespace.setter
     def namespace(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "namespace", value)
+
+
+class OtelEnrichmentTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+
+@pulumi.input_type
+class OtelEnrichmentTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "delete", value)
 
 
 class PolicyDocumentArgsDict(TypedDict):

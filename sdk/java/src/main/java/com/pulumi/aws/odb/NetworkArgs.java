@@ -9,6 +9,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -77,6 +78,21 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<String> clientSubnetCidr() {
         return this.clientSubnetCidr;
+    }
+
+    /**
+     * The list of regions enabled for cross-region restore in the ODB network.
+     * 
+     */
+    @Import(name="crossRegionS3RestoreSourcesAccesses")
+    private @Nullable Output<List<String>> crossRegionS3RestoreSourcesAccesses;
+
+    /**
+     * @return The list of regions enabled for cross-region restore in the ODB network.
+     * 
+     */
+    public Optional<Output<List<String>>> crossRegionS3RestoreSourcesAccesses() {
+        return Optional.ofNullable(this.crossRegionS3RestoreSourcesAccesses);
     }
 
     /**
@@ -292,6 +308,7 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
         this.availabilityZoneId = $.availabilityZoneId;
         this.backupSubnetCidr = $.backupSubnetCidr;
         this.clientSubnetCidr = $.clientSubnetCidr;
+        this.crossRegionS3RestoreSourcesAccesses = $.crossRegionS3RestoreSourcesAccesses;
         this.customDomainName = $.customDomainName;
         this.defaultDnsPrefix = $.defaultDnsPrefix;
         this.deleteAssociatedResources = $.deleteAssociatedResources;
@@ -408,6 +425,37 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder clientSubnetCidr(String clientSubnetCidr) {
             return clientSubnetCidr(Output.of(clientSubnetCidr));
+        }
+
+        /**
+         * @param crossRegionS3RestoreSourcesAccesses The list of regions enabled for cross-region restore in the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossRegionS3RestoreSourcesAccesses(@Nullable Output<List<String>> crossRegionS3RestoreSourcesAccesses) {
+            $.crossRegionS3RestoreSourcesAccesses = crossRegionS3RestoreSourcesAccesses;
+            return this;
+        }
+
+        /**
+         * @param crossRegionS3RestoreSourcesAccesses The list of regions enabled for cross-region restore in the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossRegionS3RestoreSourcesAccesses(List<String> crossRegionS3RestoreSourcesAccesses) {
+            return crossRegionS3RestoreSourcesAccesses(Output.of(crossRegionS3RestoreSourcesAccesses));
+        }
+
+        /**
+         * @param crossRegionS3RestoreSourcesAccesses The list of regions enabled for cross-region restore in the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossRegionS3RestoreSourcesAccesses(String... crossRegionS3RestoreSourcesAccesses) {
+            return crossRegionS3RestoreSourcesAccesses(List.of(crossRegionS3RestoreSourcesAccesses));
         }
 
         /**

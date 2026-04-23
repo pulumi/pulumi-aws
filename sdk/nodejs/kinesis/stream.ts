@@ -89,7 +89,7 @@ export class Stream extends pulumi.CustomResource {
      */
     declare public readonly enforceConsumerDeletion: pulumi.Output<boolean | undefined>;
     /**
-     * The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
+     * The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
      */
     declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
@@ -194,7 +194,7 @@ export interface StreamState {
      */
     enforceConsumerDeletion?: pulumi.Input<boolean>;
     /**
-     * The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
+     * The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
@@ -253,7 +253,7 @@ export interface StreamArgs {
      */
     enforceConsumerDeletion?: pulumi.Input<boolean>;
     /**
-     * The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
+     * The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
      */
     kmsKeyId?: pulumi.Input<string>;
     /**

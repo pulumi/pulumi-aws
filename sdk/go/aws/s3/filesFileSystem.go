@@ -62,6 +62,8 @@ import (
 type FilesFileSystem struct {
 	pulumi.CustomResourceState
 
+	// Set to `true` to acknowledge and accept any warnings related to the bucket configuration. If not specified, the operation may fail when such warnings are present. For example, warnings may be raised when creating a file system scoped to a prefix containing a large number of objects (approximately 12 million objects). See [the AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-synchronization.html#s3-files-sync-rename-move) for more details.
+	AcceptBucketWarning pulumi.BoolPtrOutput `pulumi:"acceptBucketWarning"`
 	// ARN of the file system.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// S3 bucket ARN. Changing this value forces replacement.
@@ -129,6 +131,8 @@ func GetFilesFileSystem(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FilesFileSystem resources.
 type filesFileSystemState struct {
+	// Set to `true` to acknowledge and accept any warnings related to the bucket configuration. If not specified, the operation may fail when such warnings are present. For example, warnings may be raised when creating a file system scoped to a prefix containing a large number of objects (approximately 12 million objects). See [the AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-synchronization.html#s3-files-sync-rename-move) for more details.
+	AcceptBucketWarning *bool `pulumi:"acceptBucketWarning"`
 	// ARN of the file system.
 	Arn *string `pulumi:"arn"`
 	// S3 bucket ARN. Changing this value forces replacement.
@@ -161,6 +165,8 @@ type filesFileSystemState struct {
 }
 
 type FilesFileSystemState struct {
+	// Set to `true` to acknowledge and accept any warnings related to the bucket configuration. If not specified, the operation may fail when such warnings are present. For example, warnings may be raised when creating a file system scoped to a prefix containing a large number of objects (approximately 12 million objects). See [the AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-synchronization.html#s3-files-sync-rename-move) for more details.
+	AcceptBucketWarning pulumi.BoolPtrInput
 	// ARN of the file system.
 	Arn pulumi.StringPtrInput
 	// S3 bucket ARN. Changing this value forces replacement.
@@ -197,6 +203,8 @@ func (FilesFileSystemState) ElementType() reflect.Type {
 }
 
 type filesFileSystemArgs struct {
+	// Set to `true` to acknowledge and accept any warnings related to the bucket configuration. If not specified, the operation may fail when such warnings are present. For example, warnings may be raised when creating a file system scoped to a prefix containing a large number of objects (approximately 12 million objects). See [the AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-synchronization.html#s3-files-sync-rename-move) for more details.
+	AcceptBucketWarning *bool `pulumi:"acceptBucketWarning"`
 	// S3 bucket ARN. Changing this value forces replacement.
 	Bucket string `pulumi:"bucket"`
 	// KMS key ID for encryption. Changing this value forces replacement.
@@ -216,6 +224,8 @@ type filesFileSystemArgs struct {
 
 // The set of arguments for constructing a FilesFileSystem resource.
 type FilesFileSystemArgs struct {
+	// Set to `true` to acknowledge and accept any warnings related to the bucket configuration. If not specified, the operation may fail when such warnings are present. For example, warnings may be raised when creating a file system scoped to a prefix containing a large number of objects (approximately 12 million objects). See [the AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-synchronization.html#s3-files-sync-rename-move) for more details.
+	AcceptBucketWarning pulumi.BoolPtrInput
 	// S3 bucket ARN. Changing this value forces replacement.
 	Bucket pulumi.StringInput
 	// KMS key ID for encryption. Changing this value forces replacement.
@@ -318,6 +328,11 @@ func (o FilesFileSystemOutput) ToFilesFileSystemOutput() FilesFileSystemOutput {
 
 func (o FilesFileSystemOutput) ToFilesFileSystemOutputWithContext(ctx context.Context) FilesFileSystemOutput {
 	return o
+}
+
+// Set to `true` to acknowledge and accept any warnings related to the bucket configuration. If not specified, the operation may fail when such warnings are present. For example, warnings may be raised when creating a file system scoped to a prefix containing a large number of objects (approximately 12 million objects). See [the AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-synchronization.html#s3-files-sync-rename-move) for more details.
+func (o FilesFileSystemOutput) AcceptBucketWarning() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FilesFileSystem) pulumi.BoolPtrOutput { return v.AcceptBucketWarning }).(pulumi.BoolPtrOutput)
 }
 
 // ARN of the file system.

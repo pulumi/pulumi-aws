@@ -92,10 +92,22 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import EKS (Elastic Kubernetes) Pod Identity Association using the `clusterName` and `associationId` separated by a comma (`,`). For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// * `clusterName` (String) Name of the EKS Cluster.
+// * `associationId` (String) ID of the association.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import Pod Identity Associations using `clusterName` and `associationId` separated by a comma (`,`). For example:
 //
 // ```sh
-// $ pulumi import aws:eks/podIdentityAssociation:PodIdentityAssociation example example,a-12345678
+// $ pulumi import aws:eks/podIdentityAssociation:PodIdentityAssociation example example-cluster,a-yrpsdroc4ei7k6xps
 // ```
 type PodIdentityAssociation struct {
 	pulumi.CustomResourceState

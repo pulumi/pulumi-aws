@@ -124,6 +124,10 @@ export class Configuration extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
+     * Set to `true` if you do not wish the configuration to be deleted at destroy time, and instead just remove the configuration from the Terraform state. Default is `false`.
+     */
+    declare public readonly skipDestroy: pulumi.Output<boolean | undefined>;
+    /**
      * Key-value map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
@@ -154,6 +158,7 @@ export class Configuration extends pulumi.CustomResource {
             resourceInputs["latestRevision"] = state?.latestRevision;
             resourceInputs["name"] = state?.name;
             resourceInputs["region"] = state?.region;
+            resourceInputs["skipDestroy"] = state?.skipDestroy;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
@@ -174,6 +179,7 @@ export class Configuration extends pulumi.CustomResource {
             resourceInputs["engineVersion"] = args?.engineVersion;
             resourceInputs["name"] = args?.name;
             resourceInputs["region"] = args?.region;
+            resourceInputs["skipDestroy"] = args?.skipDestroy;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["latestRevision"] = undefined /*out*/;
@@ -227,6 +233,10 @@ export interface ConfigurationState {
      */
     region?: pulumi.Input<string>;
     /**
+     * Set to `true` if you do not wish the configuration to be deleted at destroy time, and instead just remove the configuration from the Terraform state. Default is `false`.
+     */
+    skipDestroy?: pulumi.Input<boolean>;
+    /**
      * Key-value map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -270,6 +280,10 @@ export interface ConfigurationArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
+    /**
+     * Set to `true` if you do not wish the configuration to be deleted at destroy time, and instead just remove the configuration from the Terraform state. Default is `false`.
+     */
+    skipDestroy?: pulumi.Input<boolean>;
     /**
      * Key-value map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

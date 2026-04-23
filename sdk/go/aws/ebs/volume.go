@@ -51,6 +51,17 @@ import (
 // ```sh
 // $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
 // ```
+//
+// ### Identity Schema
+//
+// #### Required
+//
+// * `id` (String) Volume ID.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
 type Volume struct {
 	pulumi.CustomResourceState
 

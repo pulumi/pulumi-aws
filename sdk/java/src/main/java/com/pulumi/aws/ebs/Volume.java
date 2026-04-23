@@ -63,6 +63,17 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
  * ```
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `id` (String) Volume ID.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
  */
 @ResourceType(type="aws:ebs/volume:Volume")
 public class Volume extends com.pulumi.resources.CustomResource {

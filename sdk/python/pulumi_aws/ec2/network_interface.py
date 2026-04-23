@@ -24,6 +24,7 @@ class NetworkInterfaceArgs:
                  subnet_id: pulumi.Input[_builtins.str],
                  attachments: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 ena_srd_specification: Optional[pulumi.Input['NetworkInterfaceEnaSrdSpecificationArgs']] = None,
                  enable_primary_ipv6: Optional[pulumi.Input[_builtins.bool]] = None,
                  interface_type: Optional[pulumi.Input[_builtins.str]] = None,
                  ipv4_prefix_count: Optional[pulumi.Input[_builtins.int]] = None,
@@ -51,6 +52,7 @@ class NetworkInterfaceArgs:
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]] attachments: Configuration block to define the attachment of the ENI. See Attachment below for more details!
         :param pulumi.Input[_builtins.str] description: Description for the network interface.
+        :param pulumi.Input['NetworkInterfaceEnaSrdSpecificationArgs'] ena_srd_specification: Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
         :param pulumi.Input[_builtins.bool] enable_primary_ipv6: Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
         :param pulumi.Input[_builtins.str] interface_type: Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
         :param pulumi.Input[_builtins.int] ipv4_prefix_count: Number of IPv4 prefixes that AWS automatically assigns to the network interface.
@@ -75,6 +77,8 @@ class NetworkInterfaceArgs:
             pulumi.set(__self__, "attachments", attachments)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if ena_srd_specification is not None:
+            pulumi.set(__self__, "ena_srd_specification", ena_srd_specification)
         if enable_primary_ipv6 is not None:
             pulumi.set(__self__, "enable_primary_ipv6", enable_primary_ipv6)
         if interface_type is not None:
@@ -151,6 +155,18 @@ class NetworkInterfaceArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enaSrdSpecification")
+    def ena_srd_specification(self) -> Optional[pulumi.Input['NetworkInterfaceEnaSrdSpecificationArgs']]:
+        """
+        Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
+        """
+        return pulumi.get(self, "ena_srd_specification")
+
+    @ena_srd_specification.setter
+    def ena_srd_specification(self, value: Optional[pulumi.Input['NetworkInterfaceEnaSrdSpecificationArgs']]):
+        pulumi.set(self, "ena_srd_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="enablePrimaryIpv6")
@@ -384,6 +400,7 @@ class _NetworkInterfaceState:
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
                  attachments: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 ena_srd_specification: Optional[pulumi.Input['NetworkInterfaceEnaSrdSpecificationArgs']] = None,
                  enable_primary_ipv6: Optional[pulumi.Input[_builtins.bool]] = None,
                  interface_type: Optional[pulumi.Input[_builtins.str]] = None,
                  ipv4_prefix_count: Optional[pulumi.Input[_builtins.int]] = None,
@@ -415,6 +432,7 @@ class _NetworkInterfaceState:
         :param pulumi.Input[_builtins.str] arn: ARN of the network interface.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]] attachments: Configuration block to define the attachment of the ENI. See Attachment below for more details!
         :param pulumi.Input[_builtins.str] description: Description for the network interface.
+        :param pulumi.Input['NetworkInterfaceEnaSrdSpecificationArgs'] ena_srd_specification: Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
         :param pulumi.Input[_builtins.bool] enable_primary_ipv6: Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
         :param pulumi.Input[_builtins.str] interface_type: Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
         :param pulumi.Input[_builtins.int] ipv4_prefix_count: Number of IPv4 prefixes that AWS automatically assigns to the network interface.
@@ -447,6 +465,8 @@ class _NetworkInterfaceState:
             pulumi.set(__self__, "attachments", attachments)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if ena_srd_specification is not None:
+            pulumi.set(__self__, "ena_srd_specification", ena_srd_specification)
         if enable_primary_ipv6 is not None:
             pulumi.set(__self__, "enable_primary_ipv6", enable_primary_ipv6)
         if interface_type is not None:
@@ -533,6 +553,18 @@ class _NetworkInterfaceState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enaSrdSpecification")
+    def ena_srd_specification(self) -> Optional[pulumi.Input['NetworkInterfaceEnaSrdSpecificationArgs']]:
+        """
+        Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
+        """
+        return pulumi.get(self, "ena_srd_specification")
+
+    @ena_srd_specification.setter
+    def ena_srd_specification(self, value: Optional[pulumi.Input['NetworkInterfaceEnaSrdSpecificationArgs']]):
+        pulumi.set(self, "ena_srd_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="enablePrimaryIpv6")
@@ -839,6 +871,7 @@ class NetworkInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attachments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceAttachmentArgs', 'NetworkInterfaceAttachmentArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 ena_srd_specification: Optional[pulumi.Input[Union['NetworkInterfaceEnaSrdSpecificationArgs', 'NetworkInterfaceEnaSrdSpecificationArgsDict']]] = None,
                  enable_primary_ipv6: Optional[pulumi.Input[_builtins.bool]] = None,
                  interface_type: Optional[pulumi.Input[_builtins.str]] = None,
                  ipv4_prefix_count: Optional[pulumi.Input[_builtins.int]] = None,
@@ -909,6 +942,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceAttachmentArgs', 'NetworkInterfaceAttachmentArgsDict']]]] attachments: Configuration block to define the attachment of the ENI. See Attachment below for more details!
         :param pulumi.Input[_builtins.str] description: Description for the network interface.
+        :param pulumi.Input[Union['NetworkInterfaceEnaSrdSpecificationArgs', 'NetworkInterfaceEnaSrdSpecificationArgsDict']] ena_srd_specification: Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
         :param pulumi.Input[_builtins.bool] enable_primary_ipv6: Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
         :param pulumi.Input[_builtins.str] interface_type: Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
         :param pulumi.Input[_builtins.int] ipv4_prefix_count: Number of IPv4 prefixes that AWS automatically assigns to the network interface.
@@ -999,6 +1033,7 @@ class NetworkInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attachments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceAttachmentArgs', 'NetworkInterfaceAttachmentArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 ena_srd_specification: Optional[pulumi.Input[Union['NetworkInterfaceEnaSrdSpecificationArgs', 'NetworkInterfaceEnaSrdSpecificationArgsDict']]] = None,
                  enable_primary_ipv6: Optional[pulumi.Input[_builtins.bool]] = None,
                  interface_type: Optional[pulumi.Input[_builtins.str]] = None,
                  ipv4_prefix_count: Optional[pulumi.Input[_builtins.int]] = None,
@@ -1030,6 +1065,7 @@ class NetworkInterface(pulumi.CustomResource):
 
             __props__.__dict__["attachments"] = attachments
             __props__.__dict__["description"] = description
+            __props__.__dict__["ena_srd_specification"] = ena_srd_specification
             __props__.__dict__["enable_primary_ipv6"] = enable_primary_ipv6
             __props__.__dict__["interface_type"] = interface_type
             __props__.__dict__["ipv4_prefix_count"] = ipv4_prefix_count
@@ -1071,6 +1107,7 @@ class NetworkInterface(pulumi.CustomResource):
             arn: Optional[pulumi.Input[_builtins.str]] = None,
             attachments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceAttachmentArgs', 'NetworkInterfaceAttachmentArgsDict']]]]] = None,
             description: Optional[pulumi.Input[_builtins.str]] = None,
+            ena_srd_specification: Optional[pulumi.Input[Union['NetworkInterfaceEnaSrdSpecificationArgs', 'NetworkInterfaceEnaSrdSpecificationArgsDict']]] = None,
             enable_primary_ipv6: Optional[pulumi.Input[_builtins.bool]] = None,
             interface_type: Optional[pulumi.Input[_builtins.str]] = None,
             ipv4_prefix_count: Optional[pulumi.Input[_builtins.int]] = None,
@@ -1106,6 +1143,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the network interface.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceAttachmentArgs', 'NetworkInterfaceAttachmentArgsDict']]]] attachments: Configuration block to define the attachment of the ENI. See Attachment below for more details!
         :param pulumi.Input[_builtins.str] description: Description for the network interface.
+        :param pulumi.Input[Union['NetworkInterfaceEnaSrdSpecificationArgs', 'NetworkInterfaceEnaSrdSpecificationArgsDict']] ena_srd_specification: Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
         :param pulumi.Input[_builtins.bool] enable_primary_ipv6: Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
         :param pulumi.Input[_builtins.str] interface_type: Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
         :param pulumi.Input[_builtins.int] ipv4_prefix_count: Number of IPv4 prefixes that AWS automatically assigns to the network interface.
@@ -1139,6 +1177,7 @@ class NetworkInterface(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["attachments"] = attachments
         __props__.__dict__["description"] = description
+        __props__.__dict__["ena_srd_specification"] = ena_srd_specification
         __props__.__dict__["enable_primary_ipv6"] = enable_primary_ipv6
         __props__.__dict__["interface_type"] = interface_type
         __props__.__dict__["ipv4_prefix_count"] = ipv4_prefix_count
@@ -1189,6 +1228,14 @@ class NetworkInterface(pulumi.CustomResource):
         Description for the network interface.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="enaSrdSpecification")
+    def ena_srd_specification(self) -> pulumi.Output[Optional['outputs.NetworkInterfaceEnaSrdSpecification']]:
+        """
+        Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
+        """
+        return pulumi.get(self, "ena_srd_specification")
 
     @_builtins.property
     @pulumi.getter(name="enablePrimaryIpv6")

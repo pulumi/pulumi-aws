@@ -121,6 +121,17 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `ZoneId` (String) The Hosted Zone ID.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import Route53 Zones using the zone `Id`. For example:
     /// 
     /// ```sh

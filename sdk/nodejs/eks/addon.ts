@@ -74,12 +74,15 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Import
+ * #### Optional
  *
- * Using `pulumi import`, import EKS add-on using the `clusterName` and `addonName` separated by a colon (`:`). For example:
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import Add-Ons using `clusterName` and `addonName` separated by a colon (`:`). For example:
  *
  * ```sh
- * $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
+ * $ pulumi import aws:eks/addon:Addon example example-cluster:example-addon
  * ```
  */
 export class Addon extends pulumi.CustomResource {
@@ -131,7 +134,7 @@ export class Addon extends pulumi.CustomResource {
      */
     declare public readonly clusterName: pulumi.Output<string>;
     /**
-     * custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+     * Custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
      */
     declare public readonly configurationValues: pulumi.Output<string>;
     /**
@@ -142,6 +145,10 @@ export class Addon extends pulumi.CustomResource {
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
      */
     declare public /*out*/ readonly modifiedAt: pulumi.Output<string>;
+    /**
+     * Namespace configuration for the add-on. See `namespaceConfig` below for details.
+     */
+    declare public readonly namespaceConfig: pulumi.Output<outputs.eks.AddonNamespaceConfig>;
     /**
      * Configuration block with EKS Pod Identity association settings. See `podIdentityAssociation` below for details.
      */
@@ -205,6 +212,7 @@ export class Addon extends pulumi.CustomResource {
             resourceInputs["configurationValues"] = state?.configurationValues;
             resourceInputs["createdAt"] = state?.createdAt;
             resourceInputs["modifiedAt"] = state?.modifiedAt;
+            resourceInputs["namespaceConfig"] = state?.namespaceConfig;
             resourceInputs["podIdentityAssociations"] = state?.podIdentityAssociations;
             resourceInputs["preserve"] = state?.preserve;
             resourceInputs["region"] = state?.region;
@@ -225,6 +233,7 @@ export class Addon extends pulumi.CustomResource {
             resourceInputs["addonVersion"] = args?.addonVersion;
             resourceInputs["clusterName"] = args?.clusterName;
             resourceInputs["configurationValues"] = args?.configurationValues;
+            resourceInputs["namespaceConfig"] = args?.namespaceConfig;
             resourceInputs["podIdentityAssociations"] = args?.podIdentityAssociations;
             resourceInputs["preserve"] = args?.preserve;
             resourceInputs["region"] = args?.region;
@@ -267,7 +276,7 @@ export interface AddonState {
      */
     clusterName?: pulumi.Input<string>;
     /**
-     * custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+     * Custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
      */
     configurationValues?: pulumi.Input<string>;
     /**
@@ -278,6 +287,10 @@ export interface AddonState {
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
      */
     modifiedAt?: pulumi.Input<string>;
+    /**
+     * Namespace configuration for the add-on. See `namespaceConfig` below for details.
+     */
+    namespaceConfig?: pulumi.Input<inputs.eks.AddonNamespaceConfig>;
     /**
      * Configuration block with EKS Pod Identity association settings. See `podIdentityAssociation` below for details.
      */
@@ -343,9 +356,13 @@ export interface AddonArgs {
      */
     clusterName: pulumi.Input<string>;
     /**
-     * custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+     * Custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
      */
     configurationValues?: pulumi.Input<string>;
+    /**
+     * Namespace configuration for the add-on. See `namespaceConfig` below for details.
+     */
+    namespaceConfig?: pulumi.Input<inputs.eks.AddonNamespaceConfig>;
     /**
      * Configuration block with EKS Pod Identity association settings. See `podIdentityAssociation` below for details.
      */

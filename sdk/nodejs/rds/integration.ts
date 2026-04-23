@@ -144,6 +144,10 @@ export class Integration extends pulumi.CustomResource {
      */
     declare public readonly dataFilter: pulumi.Output<string>;
     /**
+     * Identifier of the Integration. This value can be used when creating the target database to [receive results of zero-ETL integrations](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html#r_CREATE_DATABASE-integration).
+     */
+    declare public /*out*/ readonly integrationIdentifier: pulumi.Output<string>;
+    /**
      * Name of the integration.
      */
     declare public readonly integrationName: pulumi.Output<string>;
@@ -195,6 +199,7 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["additionalEncryptionContext"] = state?.additionalEncryptionContext;
             resourceInputs["arn"] = state?.arn;
             resourceInputs["dataFilter"] = state?.dataFilter;
+            resourceInputs["integrationIdentifier"] = state?.integrationIdentifier;
             resourceInputs["integrationName"] = state?.integrationName;
             resourceInputs["kmsKeyId"] = state?.kmsKeyId;
             resourceInputs["region"] = state?.region;
@@ -224,6 +229,7 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["targetArn"] = args?.targetArn;
             resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["integrationIdentifier"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -253,6 +259,10 @@ export interface IntegrationState {
      * See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
      */
     dataFilter?: pulumi.Input<string>;
+    /**
+     * Identifier of the Integration. This value can be used when creating the target database to [receive results of zero-ETL integrations](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html#r_CREATE_DATABASE-integration).
+     */
+    integrationIdentifier?: pulumi.Input<string>;
     /**
      * Name of the integration.
      */

@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Optional;
@@ -75,6 +76,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:s3/filesFileSystem:FilesFileSystem")
 public class FilesFileSystem extends com.pulumi.resources.CustomResource {
+    /**
+     * Set to `true` to acknowledge and accept any warnings related to the bucket configuration. If not specified, the operation may fail when such warnings are present. For example, warnings may be raised when creating a file system scoped to a prefix containing a large number of objects (approximately 12 million objects). See [the AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-synchronization.html#s3-files-sync-rename-move) for more details.
+     * 
+     */
+    @Export(name="acceptBucketWarning", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> acceptBucketWarning;
+
+    /**
+     * @return Set to `true` to acknowledge and accept any warnings related to the bucket configuration. If not specified, the operation may fail when such warnings are present. For example, warnings may be raised when creating a file system scoped to a prefix containing a large number of objects (approximately 12 million objects). See [the AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-synchronization.html#s3-files-sync-rename-move) for more details.
+     * 
+     */
+    public Output<Optional<Boolean>> acceptBucketWarning() {
+        return Codegen.optional(this.acceptBucketWarning);
+    }
     /**
      * ARN of the file system.
      * 

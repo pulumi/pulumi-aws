@@ -7,11 +7,13 @@ import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfig
 import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationAwsOrgArgs;
 import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationDataExportArgs;
 import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationExcludeArgs;
+import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportArgs;
 import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationIncludeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -97,6 +99,21 @@ public final class StorageLensConfigurationStorageLensConfigurationArgs extends 
     }
 
     /**
+     * Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See Expanded Prefixes Data Export below for more details.
+     * 
+     */
+    @Import(name="expandedPrefixesDataExport")
+    private @Nullable Output<StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportArgs> expandedPrefixesDataExport;
+
+    /**
+     * @return Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See Expanded Prefixes Data Export below for more details.
+     * 
+     */
+    public Optional<Output<StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportArgs>> expandedPrefixesDataExport() {
+        return Optional.ofNullable(this.expandedPrefixesDataExport);
+    }
+
+    /**
      * What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
      * 
      */
@@ -111,6 +128,21 @@ public final class StorageLensConfigurationStorageLensConfigurationArgs extends 
         return Optional.ofNullable(this.include);
     }
 
+    /**
+     * Prefix delimiter used for object keys in this S3 Storage Lens configuration.
+     * 
+     */
+    @Import(name="prefixDelimiter")
+    private @Nullable Output<String> prefixDelimiter;
+
+    /**
+     * @return Prefix delimiter used for object keys in this S3 Storage Lens configuration.
+     * 
+     */
+    public Optional<Output<String>> prefixDelimiter() {
+        return Optional.ofNullable(this.prefixDelimiter);
+    }
+
     private StorageLensConfigurationStorageLensConfigurationArgs() {}
 
     private StorageLensConfigurationStorageLensConfigurationArgs(StorageLensConfigurationStorageLensConfigurationArgs $) {
@@ -119,7 +151,9 @@ public final class StorageLensConfigurationStorageLensConfigurationArgs extends 
         this.dataExport = $.dataExport;
         this.enabled = $.enabled;
         this.exclude = $.exclude;
+        this.expandedPrefixesDataExport = $.expandedPrefixesDataExport;
         this.include = $.include;
+        this.prefixDelimiter = $.prefixDelimiter;
     }
 
     public static Builder builder() {
@@ -246,6 +280,27 @@ public final class StorageLensConfigurationStorageLensConfigurationArgs extends 
         }
 
         /**
+         * @param expandedPrefixesDataExport Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See Expanded Prefixes Data Export below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder expandedPrefixesDataExport(@Nullable Output<StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportArgs> expandedPrefixesDataExport) {
+            $.expandedPrefixesDataExport = expandedPrefixesDataExport;
+            return this;
+        }
+
+        /**
+         * @param expandedPrefixesDataExport Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See Expanded Prefixes Data Export below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder expandedPrefixesDataExport(StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportArgs expandedPrefixesDataExport) {
+            return expandedPrefixesDataExport(Output.of(expandedPrefixesDataExport));
+        }
+
+        /**
          * @param include What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
          * 
          * @return builder
@@ -264,6 +319,27 @@ public final class StorageLensConfigurationStorageLensConfigurationArgs extends 
          */
         public Builder include(StorageLensConfigurationStorageLensConfigurationIncludeArgs include) {
             return include(Output.of(include));
+        }
+
+        /**
+         * @param prefixDelimiter Prefix delimiter used for object keys in this S3 Storage Lens configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prefixDelimiter(@Nullable Output<String> prefixDelimiter) {
+            $.prefixDelimiter = prefixDelimiter;
+            return this;
+        }
+
+        /**
+         * @param prefixDelimiter Prefix delimiter used for object keys in this S3 Storage Lens configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prefixDelimiter(String prefixDelimiter) {
+            return prefixDelimiter(Output.of(prefixDelimiter));
         }
 
         public StorageLensConfigurationStorageLensConfigurationArgs build() {

@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SnapshotImport{}
 	case "aws:ebs/volume:Volume":
 		r = &Volume{}
+	case "aws:ebs/volumeCopy:VolumeCopy":
+		r = &VolumeCopy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -88,6 +90,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ebs/volume",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ebs/volumeCopy",
 		&module{version},
 	)
 }

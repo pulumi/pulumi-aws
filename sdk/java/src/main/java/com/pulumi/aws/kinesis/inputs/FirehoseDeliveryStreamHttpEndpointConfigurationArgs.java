@@ -203,14 +203,14 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
     }
 
     /**
-     * The HTTP endpoint URL to which Kinesis Firehose sends your data.
+     * The HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor&#39;s documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
      * 
      */
     @Import(name="url", required=true)
     private Output<String> url;
 
     /**
-     * @return The HTTP endpoint URL to which Kinesis Firehose sends your data.
+     * @return The HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor&#39;s documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
      * 
      */
     public Output<String> url() {
@@ -506,7 +506,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param url The HTTP endpoint URL to which Kinesis Firehose sends your data.
+         * @param url The HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor&#39;s documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
          * 
          * @return builder
          * 
@@ -517,7 +517,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param url The HTTP endpoint URL to which Kinesis Firehose sends your data.
+         * @param url The HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor&#39;s documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
          * 
          * @return builder
          * 

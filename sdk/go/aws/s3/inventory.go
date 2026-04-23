@@ -14,8 +14,6 @@ import (
 
 // Provides a S3 bucket [inventory configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html) resource.
 //
-// > This resource cannot be used with S3 directory buckets.
-//
 // ## Example Usage
 //
 // ### Add inventory configuration
@@ -130,7 +128,7 @@ import (
 type Inventory struct {
 	pulumi.CustomResourceState
 
-	// Name of the source bucket that inventory lists the objects for.
+	// Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Contains information about where to publish the inventory results (documented below).
 	Destination InventoryDestinationOutput `pulumi:"destination"`
@@ -192,7 +190,7 @@ func GetInventory(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Inventory resources.
 type inventoryState struct {
-	// Name of the source bucket that inventory lists the objects for.
+	// Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
 	Bucket *string `pulumi:"bucket"`
 	// Contains information about where to publish the inventory results (documented below).
 	Destination *InventoryDestination `pulumi:"destination"`
@@ -213,7 +211,7 @@ type inventoryState struct {
 }
 
 type InventoryState struct {
-	// Name of the source bucket that inventory lists the objects for.
+	// Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
 	Bucket pulumi.StringPtrInput
 	// Contains information about where to publish the inventory results (documented below).
 	Destination InventoryDestinationPtrInput
@@ -238,7 +236,7 @@ func (InventoryState) ElementType() reflect.Type {
 }
 
 type inventoryArgs struct {
-	// Name of the source bucket that inventory lists the objects for.
+	// Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
 	Bucket string `pulumi:"bucket"`
 	// Contains information about where to publish the inventory results (documented below).
 	Destination InventoryDestination `pulumi:"destination"`
@@ -260,7 +258,7 @@ type inventoryArgs struct {
 
 // The set of arguments for constructing a Inventory resource.
 type InventoryArgs struct {
-	// Name of the source bucket that inventory lists the objects for.
+	// Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
 	Bucket pulumi.StringInput
 	// Contains information about where to publish the inventory results (documented below).
 	Destination InventoryDestinationInput
@@ -367,7 +365,7 @@ func (o InventoryOutput) ToInventoryOutputWithContext(ctx context.Context) Inven
 	return o
 }
 
-// Name of the source bucket that inventory lists the objects for.
+// Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
 func (o InventoryOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *Inventory) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }

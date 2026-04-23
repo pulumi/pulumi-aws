@@ -38,6 +38,8 @@ type Network struct {
 	ClientSubnetCidr pulumi.StringOutput `pulumi:"clientSubnetCidr"`
 	// The date and time when the ODB network was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The list of regions enabled for cross-region restore in the ODB network.
+	CrossRegionS3RestoreSourcesAccesses pulumi.StringArrayOutput `pulumi:"crossRegionS3RestoreSourcesAccesses"`
 	// The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
 	CustomDomainName pulumi.StringPtrOutput `pulumi:"customDomainName"`
 	// The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
@@ -50,7 +52,7 @@ type Network struct {
 	KmsAccess pulumi.StringOutput `pulumi:"kmsAccess"`
 	// Specifies the endpoint policy for KMS access from the ODB network.
 	KmsPolicyDocument pulumi.StringPtrOutput `pulumi:"kmsPolicyDocument"`
-	// The name of the OCI resource anchor for the Exadata infrastructure.
+	// The managed services configuration for the ODB network.
 	ManagedServices NetworkManagedServiceArrayOutput `pulumi:"managedServices"`
 	// The number of storage servers requested for the Exadata infrastructure.
 	OciDnsForwardingConfigs NetworkOciDnsForwardingConfigArrayOutput `pulumi:"ociDnsForwardingConfigs"`
@@ -152,6 +154,8 @@ type networkState struct {
 	ClientSubnetCidr *string `pulumi:"clientSubnetCidr"`
 	// The date and time when the ODB network was created.
 	CreatedAt *string `pulumi:"createdAt"`
+	// The list of regions enabled for cross-region restore in the ODB network.
+	CrossRegionS3RestoreSourcesAccesses []string `pulumi:"crossRegionS3RestoreSourcesAccesses"`
 	// The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
 	CustomDomainName *string `pulumi:"customDomainName"`
 	// The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
@@ -164,7 +168,7 @@ type networkState struct {
 	KmsAccess *string `pulumi:"kmsAccess"`
 	// Specifies the endpoint policy for KMS access from the ODB network.
 	KmsPolicyDocument *string `pulumi:"kmsPolicyDocument"`
-	// The name of the OCI resource anchor for the Exadata infrastructure.
+	// The managed services configuration for the ODB network.
 	ManagedServices []NetworkManagedService `pulumi:"managedServices"`
 	// The number of storage servers requested for the Exadata infrastructure.
 	OciDnsForwardingConfigs []NetworkOciDnsForwardingConfig `pulumi:"ociDnsForwardingConfigs"`
@@ -219,6 +223,8 @@ type NetworkState struct {
 	ClientSubnetCidr pulumi.StringPtrInput
 	// The date and time when the ODB network was created.
 	CreatedAt pulumi.StringPtrInput
+	// The list of regions enabled for cross-region restore in the ODB network.
+	CrossRegionS3RestoreSourcesAccesses pulumi.StringArrayInput
 	// The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
 	CustomDomainName pulumi.StringPtrInput
 	// The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
@@ -231,7 +237,7 @@ type NetworkState struct {
 	KmsAccess pulumi.StringPtrInput
 	// Specifies the endpoint policy for KMS access from the ODB network.
 	KmsPolicyDocument pulumi.StringPtrInput
-	// The name of the OCI resource anchor for the Exadata infrastructure.
+	// The managed services configuration for the ODB network.
 	ManagedServices NetworkManagedServiceArrayInput
 	// The number of storage servers requested for the Exadata infrastructure.
 	OciDnsForwardingConfigs NetworkOciDnsForwardingConfigArrayInput
@@ -286,6 +292,8 @@ type networkArgs struct {
 	BackupSubnetCidr string `pulumi:"backupSubnetCidr"`
 	// The CIDR notation for the network resource. Changing this will force terraform to create new resource.
 	ClientSubnetCidr string `pulumi:"clientSubnetCidr"`
+	// The list of regions enabled for cross-region restore in the ODB network.
+	CrossRegionS3RestoreSourcesAccesses []string `pulumi:"crossRegionS3RestoreSourcesAccesses"`
 	// The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
 	CustomDomainName *string `pulumi:"customDomainName"`
 	// The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
@@ -327,6 +335,8 @@ type NetworkArgs struct {
 	BackupSubnetCidr pulumi.StringInput
 	// The CIDR notation for the network resource. Changing this will force terraform to create new resource.
 	ClientSubnetCidr pulumi.StringInput
+	// The list of regions enabled for cross-region restore in the ODB network.
+	CrossRegionS3RestoreSourcesAccesses pulumi.StringArrayInput
 	// The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
 	CustomDomainName pulumi.StringPtrInput
 	// The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
@@ -475,6 +485,11 @@ func (o NetworkOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The list of regions enabled for cross-region restore in the ODB network.
+func (o NetworkOutput) CrossRegionS3RestoreSourcesAccesses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Network) pulumi.StringArrayOutput { return v.CrossRegionS3RestoreSourcesAccesses }).(pulumi.StringArrayOutput)
+}
+
 // The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
 func (o NetworkOutput) CustomDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringPtrOutput { return v.CustomDomainName }).(pulumi.StringPtrOutput)
@@ -505,7 +520,7 @@ func (o NetworkOutput) KmsPolicyDocument() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringPtrOutput { return v.KmsPolicyDocument }).(pulumi.StringPtrOutput)
 }
 
-// The name of the OCI resource anchor for the Exadata infrastructure.
+// The managed services configuration for the ODB network.
 func (o NetworkOutput) ManagedServices() NetworkManagedServiceArrayOutput {
 	return o.ApplyT(func(v *Network) NetworkManagedServiceArrayOutput { return v.ManagedServices }).(NetworkManagedServiceArrayOutput)
 }

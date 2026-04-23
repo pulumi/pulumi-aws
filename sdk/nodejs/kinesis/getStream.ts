@@ -76,7 +76,7 @@ export interface GetStreamResult {
      */
     readonly id: string;
     /**
-     * GUID for the customer-managed AWS KMS key to use for encryption.
+     * The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN.
      */
     readonly kmsKeyId: string;
     /**

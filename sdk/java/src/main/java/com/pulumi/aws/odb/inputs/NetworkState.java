@@ -113,6 +113,21 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The list of regions enabled for cross-region restore in the ODB network.
+     * 
+     */
+    @Import(name="crossRegionS3RestoreSourcesAccesses")
+    private @Nullable Output<List<String>> crossRegionS3RestoreSourcesAccesses;
+
+    /**
+     * @return The list of regions enabled for cross-region restore in the ODB network.
+     * 
+     */
+    public Optional<Output<List<String>>> crossRegionS3RestoreSourcesAccesses() {
+        return Optional.ofNullable(this.crossRegionS3RestoreSourcesAccesses);
+    }
+
+    /**
      * The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can&#39;t be given. Changing this will force terraform to create new resource.
      * 
      */
@@ -203,14 +218,14 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the OCI resource anchor for the Exadata infrastructure.
+     * The managed services configuration for the ODB network.
      * 
      */
     @Import(name="managedServices")
     private @Nullable Output<List<NetworkManagedServiceArgs>> managedServices;
 
     /**
-     * @return The name of the OCI resource anchor for the Exadata infrastructure.
+     * @return The managed services configuration for the ODB network.
      * 
      */
     public Optional<Output<List<NetworkManagedServiceArgs>>> managedServices() {
@@ -499,6 +514,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         this.backupSubnetCidr = $.backupSubnetCidr;
         this.clientSubnetCidr = $.clientSubnetCidr;
         this.createdAt = $.createdAt;
+        this.crossRegionS3RestoreSourcesAccesses = $.crossRegionS3RestoreSourcesAccesses;
         this.customDomainName = $.customDomainName;
         this.defaultDnsPrefix = $.defaultDnsPrefix;
         this.deleteAssociatedResources = $.deleteAssociatedResources;
@@ -672,6 +688,37 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param crossRegionS3RestoreSourcesAccesses The list of regions enabled for cross-region restore in the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossRegionS3RestoreSourcesAccesses(@Nullable Output<List<String>> crossRegionS3RestoreSourcesAccesses) {
+            $.crossRegionS3RestoreSourcesAccesses = crossRegionS3RestoreSourcesAccesses;
+            return this;
+        }
+
+        /**
+         * @param crossRegionS3RestoreSourcesAccesses The list of regions enabled for cross-region restore in the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossRegionS3RestoreSourcesAccesses(List<String> crossRegionS3RestoreSourcesAccesses) {
+            return crossRegionS3RestoreSourcesAccesses(Output.of(crossRegionS3RestoreSourcesAccesses));
+        }
+
+        /**
+         * @param crossRegionS3RestoreSourcesAccesses The list of regions enabled for cross-region restore in the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossRegionS3RestoreSourcesAccesses(String... crossRegionS3RestoreSourcesAccesses) {
+            return crossRegionS3RestoreSourcesAccesses(List.of(crossRegionS3RestoreSourcesAccesses));
+        }
+
+        /**
          * @param customDomainName The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can&#39;t be given. Changing this will force terraform to create new resource.
          * 
          * @return builder
@@ -798,7 +845,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedServices The name of the OCI resource anchor for the Exadata infrastructure.
+         * @param managedServices The managed services configuration for the ODB network.
          * 
          * @return builder
          * 
@@ -809,7 +856,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedServices The name of the OCI resource anchor for the Exadata infrastructure.
+         * @param managedServices The managed services configuration for the ODB network.
          * 
          * @return builder
          * 
@@ -819,7 +866,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedServices The name of the OCI resource anchor for the Exadata infrastructure.
+         * @param managedServices The managed services configuration for the ODB network.
          * 
          * @return builder
          * 

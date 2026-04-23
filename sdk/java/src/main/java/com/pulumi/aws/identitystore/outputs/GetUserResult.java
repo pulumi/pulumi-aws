@@ -98,6 +98,11 @@ public final class GetUserResult {
      */
     private String userName;
     /**
+     * @return The current status of the user account.
+     * 
+     */
+    private String userStatus;
+    /**
      * @return The user type.
      * 
      */
@@ -219,6 +224,13 @@ public final class GetUserResult {
         return this.userName;
     }
     /**
+     * @return The current status of the user account.
+     * 
+     */
+    public String userStatus() {
+        return this.userStatus;
+    }
+    /**
      * @return The user type.
      * 
      */
@@ -253,6 +265,7 @@ public final class GetUserResult {
         private String title;
         private String userId;
         private String userName;
+        private String userStatus;
         private String userType;
         public Builder() {}
         public Builder(GetUserResult defaults) {
@@ -275,6 +288,7 @@ public final class GetUserResult {
     	      this.title = defaults.title;
     	      this.userId = defaults.userId;
     	      this.userName = defaults.userName;
+    	      this.userStatus = defaults.userStatus;
     	      this.userType = defaults.userType;
         }
 
@@ -436,6 +450,14 @@ public final class GetUserResult {
             return this;
         }
         @CustomType.Setter
+        public Builder userStatus(String userStatus) {
+            if (userStatus == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "userStatus");
+            }
+            this.userStatus = userStatus;
+            return this;
+        }
+        @CustomType.Setter
         public Builder userType(String userType) {
             if (userType == null) {
               throw new MissingRequiredPropertyException("GetUserResult", "userType");
@@ -463,6 +485,7 @@ public final class GetUserResult {
             _resultValue.title = title;
             _resultValue.userId = userId;
             _resultValue.userName = userName;
+            _resultValue.userStatus = userStatus;
             _resultValue.userType = userType;
             return _resultValue;
         }

@@ -12,8 +12,6 @@ namespace Pulumi.Aws.S3
     /// <summary>
     /// Provides a S3 bucket [inventory configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html) resource.
     /// 
-    /// &gt; This resource cannot be used with S3 directory buckets.
-    /// 
     /// ## Example Usage
     /// 
     /// ### Add inventory configuration
@@ -117,7 +115,7 @@ namespace Pulumi.Aws.S3
     public partial class Inventory : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of the source bucket that inventory lists the objects for.
+        /// Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
         /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
@@ -217,7 +215,7 @@ namespace Pulumi.Aws.S3
     public sealed class InventoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the source bucket that inventory lists the objects for.
+        /// Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -285,7 +283,7 @@ namespace Pulumi.Aws.S3
     public sealed class InventoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the source bucket that inventory lists the objects for.
+        /// Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }

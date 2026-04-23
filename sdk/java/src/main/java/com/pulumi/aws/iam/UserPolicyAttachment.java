@@ -68,10 +68,21 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `user` (String) Name of the IAM user.
+ * * `policyArn` (String) ARN of the IAM policy.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * 
  * Using `pulumi import`, import IAM user policy attachments using the user name and policy arn separated by `/`. For example:
  * 
  * ```sh
- * $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+ * $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment example test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
  * ```
  * 
  */

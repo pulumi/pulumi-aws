@@ -121,7 +121,7 @@ export class ResolverFirewallRule extends pulumi.CustomResource {
      */
     declare public readonly confidenceThreshold: pulumi.Output<string | undefined>;
     /**
-     * The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
+     * The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DICTIONARY_DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
      */
     declare public readonly dnsThreatProtection: pulumi.Output<string | undefined>;
     /**
@@ -246,7 +246,7 @@ export interface ResolverFirewallRuleState {
      */
     confidenceThreshold?: pulumi.Input<string>;
     /**
-     * The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
+     * The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DICTIONARY_DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
      */
     dnsThreatProtection?: pulumi.Input<string>;
     /**
@@ -312,7 +312,7 @@ export interface ResolverFirewallRuleArgs {
      */
     confidenceThreshold?: pulumi.Input<string>;
     /**
-     * The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
+     * The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DICTIONARY_DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
      */
     dnsThreatProtection?: pulumi.Input<string>;
     /**

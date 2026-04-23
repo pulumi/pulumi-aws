@@ -29814,6 +29814,301 @@ func (o NetworkInterfaceAttachmentTypeArrayOutput) Index(i pulumi.IntInput) Netw
 	}).(NetworkInterfaceAttachmentTypeOutput)
 }
 
+type NetworkInterfaceEnaSrdSpecification struct {
+	// Indicates whether ENA Express is enabled for the network interface.
+	EnaSrdEnabled *bool `pulumi:"enaSrdEnabled"`
+	// Configures ENA Express for UDP network traffic. See ENA SRD UDP Specification below for more details.
+	EnaSrdUdpSpecification *NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification `pulumi:"enaSrdUdpSpecification"`
+}
+
+// NetworkInterfaceEnaSrdSpecificationInput is an input type that accepts NetworkInterfaceEnaSrdSpecificationArgs and NetworkInterfaceEnaSrdSpecificationOutput values.
+// You can construct a concrete instance of `NetworkInterfaceEnaSrdSpecificationInput` via:
+//
+//	NetworkInterfaceEnaSrdSpecificationArgs{...}
+type NetworkInterfaceEnaSrdSpecificationInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceEnaSrdSpecificationOutput() NetworkInterfaceEnaSrdSpecificationOutput
+	ToNetworkInterfaceEnaSrdSpecificationOutputWithContext(context.Context) NetworkInterfaceEnaSrdSpecificationOutput
+}
+
+type NetworkInterfaceEnaSrdSpecificationArgs struct {
+	// Indicates whether ENA Express is enabled for the network interface.
+	EnaSrdEnabled pulumi.BoolPtrInput `pulumi:"enaSrdEnabled"`
+	// Configures ENA Express for UDP network traffic. See ENA SRD UDP Specification below for more details.
+	EnaSrdUdpSpecification NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrInput `pulumi:"enaSrdUdpSpecification"`
+}
+
+func (NetworkInterfaceEnaSrdSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceEnaSrdSpecification)(nil)).Elem()
+}
+
+func (i NetworkInterfaceEnaSrdSpecificationArgs) ToNetworkInterfaceEnaSrdSpecificationOutput() NetworkInterfaceEnaSrdSpecificationOutput {
+	return i.ToNetworkInterfaceEnaSrdSpecificationOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceEnaSrdSpecificationArgs) ToNetworkInterfaceEnaSrdSpecificationOutputWithContext(ctx context.Context) NetworkInterfaceEnaSrdSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceEnaSrdSpecificationOutput)
+}
+
+func (i NetworkInterfaceEnaSrdSpecificationArgs) ToNetworkInterfaceEnaSrdSpecificationPtrOutput() NetworkInterfaceEnaSrdSpecificationPtrOutput {
+	return i.ToNetworkInterfaceEnaSrdSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceEnaSrdSpecificationArgs) ToNetworkInterfaceEnaSrdSpecificationPtrOutputWithContext(ctx context.Context) NetworkInterfaceEnaSrdSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceEnaSrdSpecificationOutput).ToNetworkInterfaceEnaSrdSpecificationPtrOutputWithContext(ctx)
+}
+
+// NetworkInterfaceEnaSrdSpecificationPtrInput is an input type that accepts NetworkInterfaceEnaSrdSpecificationArgs, NetworkInterfaceEnaSrdSpecificationPtr and NetworkInterfaceEnaSrdSpecificationPtrOutput values.
+// You can construct a concrete instance of `NetworkInterfaceEnaSrdSpecificationPtrInput` via:
+//
+//	        NetworkInterfaceEnaSrdSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkInterfaceEnaSrdSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceEnaSrdSpecificationPtrOutput() NetworkInterfaceEnaSrdSpecificationPtrOutput
+	ToNetworkInterfaceEnaSrdSpecificationPtrOutputWithContext(context.Context) NetworkInterfaceEnaSrdSpecificationPtrOutput
+}
+
+type networkInterfaceEnaSrdSpecificationPtrType NetworkInterfaceEnaSrdSpecificationArgs
+
+func NetworkInterfaceEnaSrdSpecificationPtr(v *NetworkInterfaceEnaSrdSpecificationArgs) NetworkInterfaceEnaSrdSpecificationPtrInput {
+	return (*networkInterfaceEnaSrdSpecificationPtrType)(v)
+}
+
+func (*networkInterfaceEnaSrdSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInterfaceEnaSrdSpecification)(nil)).Elem()
+}
+
+func (i *networkInterfaceEnaSrdSpecificationPtrType) ToNetworkInterfaceEnaSrdSpecificationPtrOutput() NetworkInterfaceEnaSrdSpecificationPtrOutput {
+	return i.ToNetworkInterfaceEnaSrdSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *networkInterfaceEnaSrdSpecificationPtrType) ToNetworkInterfaceEnaSrdSpecificationPtrOutputWithContext(ctx context.Context) NetworkInterfaceEnaSrdSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceEnaSrdSpecificationPtrOutput)
+}
+
+type NetworkInterfaceEnaSrdSpecificationOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceEnaSrdSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceEnaSrdSpecification)(nil)).Elem()
+}
+
+func (o NetworkInterfaceEnaSrdSpecificationOutput) ToNetworkInterfaceEnaSrdSpecificationOutput() NetworkInterfaceEnaSrdSpecificationOutput {
+	return o
+}
+
+func (o NetworkInterfaceEnaSrdSpecificationOutput) ToNetworkInterfaceEnaSrdSpecificationOutputWithContext(ctx context.Context) NetworkInterfaceEnaSrdSpecificationOutput {
+	return o
+}
+
+func (o NetworkInterfaceEnaSrdSpecificationOutput) ToNetworkInterfaceEnaSrdSpecificationPtrOutput() NetworkInterfaceEnaSrdSpecificationPtrOutput {
+	return o.ToNetworkInterfaceEnaSrdSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInterfaceEnaSrdSpecificationOutput) ToNetworkInterfaceEnaSrdSpecificationPtrOutputWithContext(ctx context.Context) NetworkInterfaceEnaSrdSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInterfaceEnaSrdSpecification) *NetworkInterfaceEnaSrdSpecification {
+		return &v
+	}).(NetworkInterfaceEnaSrdSpecificationPtrOutput)
+}
+
+// Indicates whether ENA Express is enabled for the network interface.
+func (o NetworkInterfaceEnaSrdSpecificationOutput) EnaSrdEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NetworkInterfaceEnaSrdSpecification) *bool { return v.EnaSrdEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Configures ENA Express for UDP network traffic. See ENA SRD UDP Specification below for more details.
+func (o NetworkInterfaceEnaSrdSpecificationOutput) EnaSrdUdpSpecification() NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput {
+	return o.ApplyT(func(v NetworkInterfaceEnaSrdSpecification) *NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification {
+		return v.EnaSrdUdpSpecification
+	}).(NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput)
+}
+
+type NetworkInterfaceEnaSrdSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceEnaSrdSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInterfaceEnaSrdSpecification)(nil)).Elem()
+}
+
+func (o NetworkInterfaceEnaSrdSpecificationPtrOutput) ToNetworkInterfaceEnaSrdSpecificationPtrOutput() NetworkInterfaceEnaSrdSpecificationPtrOutput {
+	return o
+}
+
+func (o NetworkInterfaceEnaSrdSpecificationPtrOutput) ToNetworkInterfaceEnaSrdSpecificationPtrOutputWithContext(ctx context.Context) NetworkInterfaceEnaSrdSpecificationPtrOutput {
+	return o
+}
+
+func (o NetworkInterfaceEnaSrdSpecificationPtrOutput) Elem() NetworkInterfaceEnaSrdSpecificationOutput {
+	return o.ApplyT(func(v *NetworkInterfaceEnaSrdSpecification) NetworkInterfaceEnaSrdSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInterfaceEnaSrdSpecification
+		return ret
+	}).(NetworkInterfaceEnaSrdSpecificationOutput)
+}
+
+// Indicates whether ENA Express is enabled for the network interface.
+func (o NetworkInterfaceEnaSrdSpecificationPtrOutput) EnaSrdEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NetworkInterfaceEnaSrdSpecification) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnaSrdEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Configures ENA Express for UDP network traffic. See ENA SRD UDP Specification below for more details.
+func (o NetworkInterfaceEnaSrdSpecificationPtrOutput) EnaSrdUdpSpecification() NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput {
+	return o.ApplyT(func(v *NetworkInterfaceEnaSrdSpecification) *NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.EnaSrdUdpSpecification
+	}).(NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput)
+}
+
+type NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification struct {
+	// Indicates whether UDP traffic uses ENA Express. Requires `enaSrdEnabled` to be `true`.
+	EnaSrdUdpEnabled *bool `pulumi:"enaSrdUdpEnabled"`
+}
+
+// NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationInput is an input type that accepts NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs and NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput values.
+// You can construct a concrete instance of `NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationInput` via:
+//
+//	NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs{...}
+type NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput() NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput
+	ToNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutputWithContext(context.Context) NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput
+}
+
+type NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs struct {
+	// Indicates whether UDP traffic uses ENA Express. Requires `enaSrdEnabled` to be `true`.
+	EnaSrdUdpEnabled pulumi.BoolPtrInput `pulumi:"enaSrdUdpEnabled"`
+}
+
+func (NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification)(nil)).Elem()
+}
+
+func (i NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs) ToNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput() NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput {
+	return i.ToNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs) ToNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutputWithContext(ctx context.Context) NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput)
+}
+
+func (i NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs) ToNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput() NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput {
+	return i.ToNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs) ToNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutputWithContext(ctx context.Context) NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput).ToNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutputWithContext(ctx)
+}
+
+// NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrInput is an input type that accepts NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs, NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtr and NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput values.
+// You can construct a concrete instance of `NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrInput` via:
+//
+//	        NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput() NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput
+	ToNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutputWithContext(context.Context) NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput
+}
+
+type networkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrType NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs
+
+func NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtr(v *NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs) NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrInput {
+	return (*networkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrType)(v)
+}
+
+func (*networkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification)(nil)).Elem()
+}
+
+func (i *networkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrType) ToNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput() NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput {
+	return i.ToNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *networkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrType) ToNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutputWithContext(ctx context.Context) NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput)
+}
+
+type NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification)(nil)).Elem()
+}
+
+func (o NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput) ToNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput() NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput {
+	return o
+}
+
+func (o NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput) ToNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutputWithContext(ctx context.Context) NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput {
+	return o
+}
+
+func (o NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput) ToNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput() NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput {
+	return o.ToNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput) ToNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutputWithContext(ctx context.Context) NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification) *NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification {
+		return &v
+	}).(NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput)
+}
+
+// Indicates whether UDP traffic uses ENA Express. Requires `enaSrdEnabled` to be `true`.
+func (o NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput) EnaSrdUdpEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification) *bool { return v.EnaSrdUdpEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification)(nil)).Elem()
+}
+
+func (o NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput) ToNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput() NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput {
+	return o
+}
+
+func (o NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput) ToNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutputWithContext(ctx context.Context) NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput {
+	return o
+}
+
+func (o NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput) Elem() NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput {
+	return o.ApplyT(func(v *NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification) NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification
+		return ret
+	}).(NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput)
+}
+
+// Indicates whether UDP traffic uses ENA Express. Requires `enaSrdEnabled` to be `true`.
+func (o NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput) EnaSrdUdpEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnaSrdUdpEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type NetworkInterfacePermissionTimeouts struct {
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
@@ -62851,6 +63146,211 @@ func (o GetNetworkInterfaceAttachmentTypeArrayOutput) Index(i pulumi.IntInput) G
 	}).(GetNetworkInterfaceAttachmentTypeOutput)
 }
 
+type GetNetworkInterfaceEnaSrdSpecification struct {
+	// Whether ENA Express is enabled for the network interface.
+	EnaSrdEnabled bool `pulumi:"enaSrdEnabled"`
+	// ENA Express UDP configuration. See below.
+	EnaSrdUdpSpecifications []GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification `pulumi:"enaSrdUdpSpecifications"`
+}
+
+// GetNetworkInterfaceEnaSrdSpecificationInput is an input type that accepts GetNetworkInterfaceEnaSrdSpecificationArgs and GetNetworkInterfaceEnaSrdSpecificationOutput values.
+// You can construct a concrete instance of `GetNetworkInterfaceEnaSrdSpecificationInput` via:
+//
+//	GetNetworkInterfaceEnaSrdSpecificationArgs{...}
+type GetNetworkInterfaceEnaSrdSpecificationInput interface {
+	pulumi.Input
+
+	ToGetNetworkInterfaceEnaSrdSpecificationOutput() GetNetworkInterfaceEnaSrdSpecificationOutput
+	ToGetNetworkInterfaceEnaSrdSpecificationOutputWithContext(context.Context) GetNetworkInterfaceEnaSrdSpecificationOutput
+}
+
+type GetNetworkInterfaceEnaSrdSpecificationArgs struct {
+	// Whether ENA Express is enabled for the network interface.
+	EnaSrdEnabled pulumi.BoolInput `pulumi:"enaSrdEnabled"`
+	// ENA Express UDP configuration. See below.
+	EnaSrdUdpSpecifications GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayInput `pulumi:"enaSrdUdpSpecifications"`
+}
+
+func (GetNetworkInterfaceEnaSrdSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkInterfaceEnaSrdSpecification)(nil)).Elem()
+}
+
+func (i GetNetworkInterfaceEnaSrdSpecificationArgs) ToGetNetworkInterfaceEnaSrdSpecificationOutput() GetNetworkInterfaceEnaSrdSpecificationOutput {
+	return i.ToGetNetworkInterfaceEnaSrdSpecificationOutputWithContext(context.Background())
+}
+
+func (i GetNetworkInterfaceEnaSrdSpecificationArgs) ToGetNetworkInterfaceEnaSrdSpecificationOutputWithContext(ctx context.Context) GetNetworkInterfaceEnaSrdSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkInterfaceEnaSrdSpecificationOutput)
+}
+
+// GetNetworkInterfaceEnaSrdSpecificationArrayInput is an input type that accepts GetNetworkInterfaceEnaSrdSpecificationArray and GetNetworkInterfaceEnaSrdSpecificationArrayOutput values.
+// You can construct a concrete instance of `GetNetworkInterfaceEnaSrdSpecificationArrayInput` via:
+//
+//	GetNetworkInterfaceEnaSrdSpecificationArray{ GetNetworkInterfaceEnaSrdSpecificationArgs{...} }
+type GetNetworkInterfaceEnaSrdSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkInterfaceEnaSrdSpecificationArrayOutput() GetNetworkInterfaceEnaSrdSpecificationArrayOutput
+	ToGetNetworkInterfaceEnaSrdSpecificationArrayOutputWithContext(context.Context) GetNetworkInterfaceEnaSrdSpecificationArrayOutput
+}
+
+type GetNetworkInterfaceEnaSrdSpecificationArray []GetNetworkInterfaceEnaSrdSpecificationInput
+
+func (GetNetworkInterfaceEnaSrdSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkInterfaceEnaSrdSpecification)(nil)).Elem()
+}
+
+func (i GetNetworkInterfaceEnaSrdSpecificationArray) ToGetNetworkInterfaceEnaSrdSpecificationArrayOutput() GetNetworkInterfaceEnaSrdSpecificationArrayOutput {
+	return i.ToGetNetworkInterfaceEnaSrdSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkInterfaceEnaSrdSpecificationArray) ToGetNetworkInterfaceEnaSrdSpecificationArrayOutputWithContext(ctx context.Context) GetNetworkInterfaceEnaSrdSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkInterfaceEnaSrdSpecificationArrayOutput)
+}
+
+type GetNetworkInterfaceEnaSrdSpecificationOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkInterfaceEnaSrdSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkInterfaceEnaSrdSpecification)(nil)).Elem()
+}
+
+func (o GetNetworkInterfaceEnaSrdSpecificationOutput) ToGetNetworkInterfaceEnaSrdSpecificationOutput() GetNetworkInterfaceEnaSrdSpecificationOutput {
+	return o
+}
+
+func (o GetNetworkInterfaceEnaSrdSpecificationOutput) ToGetNetworkInterfaceEnaSrdSpecificationOutputWithContext(ctx context.Context) GetNetworkInterfaceEnaSrdSpecificationOutput {
+	return o
+}
+
+// Whether ENA Express is enabled for the network interface.
+func (o GetNetworkInterfaceEnaSrdSpecificationOutput) EnaSrdEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetNetworkInterfaceEnaSrdSpecification) bool { return v.EnaSrdEnabled }).(pulumi.BoolOutput)
+}
+
+// ENA Express UDP configuration. See below.
+func (o GetNetworkInterfaceEnaSrdSpecificationOutput) EnaSrdUdpSpecifications() GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayOutput {
+	return o.ApplyT(func(v GetNetworkInterfaceEnaSrdSpecification) []GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification {
+		return v.EnaSrdUdpSpecifications
+	}).(GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayOutput)
+}
+
+type GetNetworkInterfaceEnaSrdSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkInterfaceEnaSrdSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkInterfaceEnaSrdSpecification)(nil)).Elem()
+}
+
+func (o GetNetworkInterfaceEnaSrdSpecificationArrayOutput) ToGetNetworkInterfaceEnaSrdSpecificationArrayOutput() GetNetworkInterfaceEnaSrdSpecificationArrayOutput {
+	return o
+}
+
+func (o GetNetworkInterfaceEnaSrdSpecificationArrayOutput) ToGetNetworkInterfaceEnaSrdSpecificationArrayOutputWithContext(ctx context.Context) GetNetworkInterfaceEnaSrdSpecificationArrayOutput {
+	return o
+}
+
+func (o GetNetworkInterfaceEnaSrdSpecificationArrayOutput) Index(i pulumi.IntInput) GetNetworkInterfaceEnaSrdSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkInterfaceEnaSrdSpecification {
+		return vs[0].([]GetNetworkInterfaceEnaSrdSpecification)[vs[1].(int)]
+	}).(GetNetworkInterfaceEnaSrdSpecificationOutput)
+}
+
+type GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification struct {
+	// Whether UDP traffic uses ENA Express.
+	EnaSrdUdpEnabled bool `pulumi:"enaSrdUdpEnabled"`
+}
+
+// GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationInput is an input type that accepts GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs and GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput values.
+// You can construct a concrete instance of `GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationInput` via:
+//
+//	GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs{...}
+type GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationInput interface {
+	pulumi.Input
+
+	ToGetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput() GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput
+	ToGetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutputWithContext(context.Context) GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput
+}
+
+type GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs struct {
+	// Whether UDP traffic uses ENA Express.
+	EnaSrdUdpEnabled pulumi.BoolInput `pulumi:"enaSrdUdpEnabled"`
+}
+
+func (GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification)(nil)).Elem()
+}
+
+func (i GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs) ToGetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput() GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput {
+	return i.ToGetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutputWithContext(context.Background())
+}
+
+func (i GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs) ToGetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutputWithContext(ctx context.Context) GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput)
+}
+
+// GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayInput is an input type that accepts GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArray and GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayOutput values.
+// You can construct a concrete instance of `GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayInput` via:
+//
+//	GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArray{ GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs{...} }
+type GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayOutput() GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayOutput
+	ToGetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayOutputWithContext(context.Context) GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayOutput
+}
+
+type GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArray []GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationInput
+
+func (GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification)(nil)).Elem()
+}
+
+func (i GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArray) ToGetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayOutput() GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayOutput {
+	return i.ToGetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArray) ToGetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayOutputWithContext(ctx context.Context) GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayOutput)
+}
+
+type GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification)(nil)).Elem()
+}
+
+func (o GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput) ToGetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput() GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput {
+	return o
+}
+
+func (o GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput) ToGetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutputWithContext(ctx context.Context) GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput {
+	return o
+}
+
+// Whether UDP traffic uses ENA Express.
+func (o GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput) EnaSrdUdpEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification) bool { return v.EnaSrdUdpEnabled }).(pulumi.BoolOutput)
+}
+
+type GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification)(nil)).Elem()
+}
+
+func (o GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayOutput) ToGetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayOutput() GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayOutput {
+	return o
+}
+
+func (o GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayOutput) ToGetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayOutputWithContext(ctx context.Context) GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayOutput {
+	return o
+}
+
+func (o GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayOutput) Index(i pulumi.IntInput) GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification {
+		return vs[0].([]GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification)[vs[1].(int)]
+	}).(GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput)
+}
+
 type GetNetworkInterfaceFilter struct {
 	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
@@ -64171,6 +64671,218 @@ func (o GetSecurityGroupsFilterArrayOutput) Index(i pulumi.IntInput) GetSecurity
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSecurityGroupsFilter {
 		return vs[0].([]GetSecurityGroupsFilter)[vs[1].(int)]
 	}).(GetSecurityGroupsFilterOutput)
+}
+
+type GetServiceLinkVirtualInterfaceFilter struct {
+	// Name of the filter.
+	Name string `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values []string `pulumi:"values"`
+}
+
+// GetServiceLinkVirtualInterfaceFilterInput is an input type that accepts GetServiceLinkVirtualInterfaceFilterArgs and GetServiceLinkVirtualInterfaceFilterOutput values.
+// You can construct a concrete instance of `GetServiceLinkVirtualInterfaceFilterInput` via:
+//
+//	GetServiceLinkVirtualInterfaceFilterArgs{...}
+type GetServiceLinkVirtualInterfaceFilterInput interface {
+	pulumi.Input
+
+	ToGetServiceLinkVirtualInterfaceFilterOutput() GetServiceLinkVirtualInterfaceFilterOutput
+	ToGetServiceLinkVirtualInterfaceFilterOutputWithContext(context.Context) GetServiceLinkVirtualInterfaceFilterOutput
+}
+
+type GetServiceLinkVirtualInterfaceFilterArgs struct {
+	// Name of the filter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetServiceLinkVirtualInterfaceFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceLinkVirtualInterfaceFilter)(nil)).Elem()
+}
+
+func (i GetServiceLinkVirtualInterfaceFilterArgs) ToGetServiceLinkVirtualInterfaceFilterOutput() GetServiceLinkVirtualInterfaceFilterOutput {
+	return i.ToGetServiceLinkVirtualInterfaceFilterOutputWithContext(context.Background())
+}
+
+func (i GetServiceLinkVirtualInterfaceFilterArgs) ToGetServiceLinkVirtualInterfaceFilterOutputWithContext(ctx context.Context) GetServiceLinkVirtualInterfaceFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceLinkVirtualInterfaceFilterOutput)
+}
+
+// GetServiceLinkVirtualInterfaceFilterArrayInput is an input type that accepts GetServiceLinkVirtualInterfaceFilterArray and GetServiceLinkVirtualInterfaceFilterArrayOutput values.
+// You can construct a concrete instance of `GetServiceLinkVirtualInterfaceFilterArrayInput` via:
+//
+//	GetServiceLinkVirtualInterfaceFilterArray{ GetServiceLinkVirtualInterfaceFilterArgs{...} }
+type GetServiceLinkVirtualInterfaceFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceLinkVirtualInterfaceFilterArrayOutput() GetServiceLinkVirtualInterfaceFilterArrayOutput
+	ToGetServiceLinkVirtualInterfaceFilterArrayOutputWithContext(context.Context) GetServiceLinkVirtualInterfaceFilterArrayOutput
+}
+
+type GetServiceLinkVirtualInterfaceFilterArray []GetServiceLinkVirtualInterfaceFilterInput
+
+func (GetServiceLinkVirtualInterfaceFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceLinkVirtualInterfaceFilter)(nil)).Elem()
+}
+
+func (i GetServiceLinkVirtualInterfaceFilterArray) ToGetServiceLinkVirtualInterfaceFilterArrayOutput() GetServiceLinkVirtualInterfaceFilterArrayOutput {
+	return i.ToGetServiceLinkVirtualInterfaceFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceLinkVirtualInterfaceFilterArray) ToGetServiceLinkVirtualInterfaceFilterArrayOutputWithContext(ctx context.Context) GetServiceLinkVirtualInterfaceFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceLinkVirtualInterfaceFilterArrayOutput)
+}
+
+type GetServiceLinkVirtualInterfaceFilterOutput struct{ *pulumi.OutputState }
+
+func (GetServiceLinkVirtualInterfaceFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceLinkVirtualInterfaceFilter)(nil)).Elem()
+}
+
+func (o GetServiceLinkVirtualInterfaceFilterOutput) ToGetServiceLinkVirtualInterfaceFilterOutput() GetServiceLinkVirtualInterfaceFilterOutput {
+	return o
+}
+
+func (o GetServiceLinkVirtualInterfaceFilterOutput) ToGetServiceLinkVirtualInterfaceFilterOutputWithContext(ctx context.Context) GetServiceLinkVirtualInterfaceFilterOutput {
+	return o
+}
+
+// Name of the filter.
+func (o GetServiceLinkVirtualInterfaceFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceLinkVirtualInterfaceFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of one or more values for the filter.
+func (o GetServiceLinkVirtualInterfaceFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServiceLinkVirtualInterfaceFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetServiceLinkVirtualInterfaceFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceLinkVirtualInterfaceFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceLinkVirtualInterfaceFilter)(nil)).Elem()
+}
+
+func (o GetServiceLinkVirtualInterfaceFilterArrayOutput) ToGetServiceLinkVirtualInterfaceFilterArrayOutput() GetServiceLinkVirtualInterfaceFilterArrayOutput {
+	return o
+}
+
+func (o GetServiceLinkVirtualInterfaceFilterArrayOutput) ToGetServiceLinkVirtualInterfaceFilterArrayOutputWithContext(ctx context.Context) GetServiceLinkVirtualInterfaceFilterArrayOutput {
+	return o
+}
+
+func (o GetServiceLinkVirtualInterfaceFilterArrayOutput) Index(i pulumi.IntInput) GetServiceLinkVirtualInterfaceFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceLinkVirtualInterfaceFilter {
+		return vs[0].([]GetServiceLinkVirtualInterfaceFilter)[vs[1].(int)]
+	}).(GetServiceLinkVirtualInterfaceFilterOutput)
+}
+
+type GetServiceLinkVirtualInterfacesFilter struct {
+	// Name of the filter.
+	Name string `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values []string `pulumi:"values"`
+}
+
+// GetServiceLinkVirtualInterfacesFilterInput is an input type that accepts GetServiceLinkVirtualInterfacesFilterArgs and GetServiceLinkVirtualInterfacesFilterOutput values.
+// You can construct a concrete instance of `GetServiceLinkVirtualInterfacesFilterInput` via:
+//
+//	GetServiceLinkVirtualInterfacesFilterArgs{...}
+type GetServiceLinkVirtualInterfacesFilterInput interface {
+	pulumi.Input
+
+	ToGetServiceLinkVirtualInterfacesFilterOutput() GetServiceLinkVirtualInterfacesFilterOutput
+	ToGetServiceLinkVirtualInterfacesFilterOutputWithContext(context.Context) GetServiceLinkVirtualInterfacesFilterOutput
+}
+
+type GetServiceLinkVirtualInterfacesFilterArgs struct {
+	// Name of the filter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetServiceLinkVirtualInterfacesFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceLinkVirtualInterfacesFilter)(nil)).Elem()
+}
+
+func (i GetServiceLinkVirtualInterfacesFilterArgs) ToGetServiceLinkVirtualInterfacesFilterOutput() GetServiceLinkVirtualInterfacesFilterOutput {
+	return i.ToGetServiceLinkVirtualInterfacesFilterOutputWithContext(context.Background())
+}
+
+func (i GetServiceLinkVirtualInterfacesFilterArgs) ToGetServiceLinkVirtualInterfacesFilterOutputWithContext(ctx context.Context) GetServiceLinkVirtualInterfacesFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceLinkVirtualInterfacesFilterOutput)
+}
+
+// GetServiceLinkVirtualInterfacesFilterArrayInput is an input type that accepts GetServiceLinkVirtualInterfacesFilterArray and GetServiceLinkVirtualInterfacesFilterArrayOutput values.
+// You can construct a concrete instance of `GetServiceLinkVirtualInterfacesFilterArrayInput` via:
+//
+//	GetServiceLinkVirtualInterfacesFilterArray{ GetServiceLinkVirtualInterfacesFilterArgs{...} }
+type GetServiceLinkVirtualInterfacesFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceLinkVirtualInterfacesFilterArrayOutput() GetServiceLinkVirtualInterfacesFilterArrayOutput
+	ToGetServiceLinkVirtualInterfacesFilterArrayOutputWithContext(context.Context) GetServiceLinkVirtualInterfacesFilterArrayOutput
+}
+
+type GetServiceLinkVirtualInterfacesFilterArray []GetServiceLinkVirtualInterfacesFilterInput
+
+func (GetServiceLinkVirtualInterfacesFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceLinkVirtualInterfacesFilter)(nil)).Elem()
+}
+
+func (i GetServiceLinkVirtualInterfacesFilterArray) ToGetServiceLinkVirtualInterfacesFilterArrayOutput() GetServiceLinkVirtualInterfacesFilterArrayOutput {
+	return i.ToGetServiceLinkVirtualInterfacesFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceLinkVirtualInterfacesFilterArray) ToGetServiceLinkVirtualInterfacesFilterArrayOutputWithContext(ctx context.Context) GetServiceLinkVirtualInterfacesFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceLinkVirtualInterfacesFilterArrayOutput)
+}
+
+type GetServiceLinkVirtualInterfacesFilterOutput struct{ *pulumi.OutputState }
+
+func (GetServiceLinkVirtualInterfacesFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceLinkVirtualInterfacesFilter)(nil)).Elem()
+}
+
+func (o GetServiceLinkVirtualInterfacesFilterOutput) ToGetServiceLinkVirtualInterfacesFilterOutput() GetServiceLinkVirtualInterfacesFilterOutput {
+	return o
+}
+
+func (o GetServiceLinkVirtualInterfacesFilterOutput) ToGetServiceLinkVirtualInterfacesFilterOutputWithContext(ctx context.Context) GetServiceLinkVirtualInterfacesFilterOutput {
+	return o
+}
+
+// Name of the filter.
+func (o GetServiceLinkVirtualInterfacesFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceLinkVirtualInterfacesFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of one or more values for the filter.
+func (o GetServiceLinkVirtualInterfacesFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServiceLinkVirtualInterfacesFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetServiceLinkVirtualInterfacesFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceLinkVirtualInterfacesFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceLinkVirtualInterfacesFilter)(nil)).Elem()
+}
+
+func (o GetServiceLinkVirtualInterfacesFilterArrayOutput) ToGetServiceLinkVirtualInterfacesFilterArrayOutput() GetServiceLinkVirtualInterfacesFilterArrayOutput {
+	return o
+}
+
+func (o GetServiceLinkVirtualInterfacesFilterArrayOutput) ToGetServiceLinkVirtualInterfacesFilterArrayOutputWithContext(ctx context.Context) GetServiceLinkVirtualInterfacesFilterArrayOutput {
+	return o
+}
+
+func (o GetServiceLinkVirtualInterfacesFilterArrayOutput) Index(i pulumi.IntInput) GetServiceLinkVirtualInterfacesFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceLinkVirtualInterfacesFilter {
+		return vs[0].([]GetServiceLinkVirtualInterfacesFilter)[vs[1].(int)]
+	}).(GetServiceLinkVirtualInterfacesFilterOutput)
 }
 
 type GetSpotPriceFilter struct {
@@ -68288,6 +69000,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathFilterAtSourceSourcePortRangePtrInput)(nil)).Elem(), NetworkInsightsPathFilterAtSourceSourcePortRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceAttachmentTypeInput)(nil)).Elem(), NetworkInterfaceAttachmentTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceAttachmentTypeArrayInput)(nil)).Elem(), NetworkInterfaceAttachmentTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceEnaSrdSpecificationInput)(nil)).Elem(), NetworkInterfaceEnaSrdSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceEnaSrdSpecificationPtrInput)(nil)).Elem(), NetworkInterfaceEnaSrdSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationInput)(nil)).Elem(), NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrInput)(nil)).Elem(), NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfacePermissionTimeoutsInput)(nil)).Elem(), NetworkInterfacePermissionTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfacePermissionTimeoutsPtrInput)(nil)).Elem(), NetworkInterfacePermissionTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PeeringConnectionOptionsAccepterInput)(nil)).Elem(), PeeringConnectionOptionsAccepterArgs{})
@@ -68791,6 +69507,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInterfaceAssociationArrayInput)(nil)).Elem(), GetNetworkInterfaceAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInterfaceAttachmentTypeInput)(nil)).Elem(), GetNetworkInterfaceAttachmentTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInterfaceAttachmentTypeArrayInput)(nil)).Elem(), GetNetworkInterfaceAttachmentTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInterfaceEnaSrdSpecificationInput)(nil)).Elem(), GetNetworkInterfaceEnaSrdSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInterfaceEnaSrdSpecificationArrayInput)(nil)).Elem(), GetNetworkInterfaceEnaSrdSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationInput)(nil)).Elem(), GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayInput)(nil)).Elem(), GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInterfaceFilterInput)(nil)).Elem(), GetNetworkInterfaceFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInterfaceFilterArrayInput)(nil)).Elem(), GetNetworkInterfaceFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInterfacesFilterInput)(nil)).Elem(), GetNetworkInterfacesFilterArgs{})
@@ -68813,6 +69533,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupFilterArrayInput)(nil)).Elem(), GetSecurityGroupFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupsFilterInput)(nil)).Elem(), GetSecurityGroupsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupsFilterArrayInput)(nil)).Elem(), GetSecurityGroupsFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLinkVirtualInterfaceFilterInput)(nil)).Elem(), GetServiceLinkVirtualInterfaceFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLinkVirtualInterfaceFilterArrayInput)(nil)).Elem(), GetServiceLinkVirtualInterfaceFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLinkVirtualInterfacesFilterInput)(nil)).Elem(), GetServiceLinkVirtualInterfacesFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLinkVirtualInterfacesFilterArrayInput)(nil)).Elem(), GetServiceLinkVirtualInterfacesFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSpotPriceFilterInput)(nil)).Elem(), GetSpotPriceFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSpotPriceFilterArrayInput)(nil)).Elem(), GetSpotPriceFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSubnetFilterInput)(nil)).Elem(), GetSubnetFilterArgs{})
@@ -69269,6 +69993,10 @@ func init() {
 	pulumi.RegisterOutputType(NetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceAttachmentTypeOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceAttachmentTypeArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceEnaSrdSpecificationOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceEnaSrdSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfacePermissionTimeoutsOutput{})
 	pulumi.RegisterOutputType(NetworkInterfacePermissionTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(PeeringConnectionOptionsAccepterOutput{})
@@ -69772,6 +70500,10 @@ func init() {
 	pulumi.RegisterOutputType(GetNetworkInterfaceAssociationArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkInterfaceAttachmentTypeOutput{})
 	pulumi.RegisterOutputType(GetNetworkInterfaceAttachmentTypeArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkInterfaceEnaSrdSpecificationOutput{})
+	pulumi.RegisterOutputType(GetNetworkInterfaceEnaSrdSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput{})
+	pulumi.RegisterOutputType(GetNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkInterfaceFilterOutput{})
 	pulumi.RegisterOutputType(GetNetworkInterfaceFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkInterfacesFilterOutput{})
@@ -69794,6 +70526,10 @@ func init() {
 	pulumi.RegisterOutputType(GetSecurityGroupFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetSecurityGroupsFilterOutput{})
 	pulumi.RegisterOutputType(GetSecurityGroupsFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceLinkVirtualInterfaceFilterOutput{})
+	pulumi.RegisterOutputType(GetServiceLinkVirtualInterfaceFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceLinkVirtualInterfacesFilterOutput{})
+	pulumi.RegisterOutputType(GetServiceLinkVirtualInterfacesFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetSpotPriceFilterOutput{})
 	pulumi.RegisterOutputType(GetSpotPriceFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetSubnetFilterOutput{})

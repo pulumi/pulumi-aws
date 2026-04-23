@@ -355,6 +355,16 @@ export const getSerialConsoleAccess: typeof import("./getSerialConsoleAccess").g
 export const getSerialConsoleAccessOutput: typeof import("./getSerialConsoleAccess").getSerialConsoleAccessOutput = null as any;
 utilities.lazyLoad(exports, ["getSerialConsoleAccess","getSerialConsoleAccessOutput"], () => require("./getSerialConsoleAccess"));
 
+export { GetServiceLinkVirtualInterfaceArgs, GetServiceLinkVirtualInterfaceResult, GetServiceLinkVirtualInterfaceOutputArgs } from "./getServiceLinkVirtualInterface";
+export const getServiceLinkVirtualInterface: typeof import("./getServiceLinkVirtualInterface").getServiceLinkVirtualInterface = null as any;
+export const getServiceLinkVirtualInterfaceOutput: typeof import("./getServiceLinkVirtualInterface").getServiceLinkVirtualInterfaceOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceLinkVirtualInterface","getServiceLinkVirtualInterfaceOutput"], () => require("./getServiceLinkVirtualInterface"));
+
+export { GetServiceLinkVirtualInterfacesArgs, GetServiceLinkVirtualInterfacesResult, GetServiceLinkVirtualInterfacesOutputArgs } from "./getServiceLinkVirtualInterfaces";
+export const getServiceLinkVirtualInterfaces: typeof import("./getServiceLinkVirtualInterfaces").getServiceLinkVirtualInterfaces = null as any;
+export const getServiceLinkVirtualInterfacesOutput: typeof import("./getServiceLinkVirtualInterfaces").getServiceLinkVirtualInterfacesOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceLinkVirtualInterfaces","getServiceLinkVirtualInterfacesOutput"], () => require("./getServiceLinkVirtualInterfaces"));
+
 export { GetSpotDatafeedSubscriptionArgs, GetSpotDatafeedSubscriptionResult, GetSpotDatafeedSubscriptionOutputArgs } from "./getSpotDatafeedSubscription";
 export const getSpotDatafeedSubscription: typeof import("./getSpotDatafeedSubscription").getSpotDatafeedSubscription = null as any;
 export const getSpotDatafeedSubscriptionOutput: typeof import("./getSpotDatafeedSubscription").getSpotDatafeedSubscriptionOutput = null as any;

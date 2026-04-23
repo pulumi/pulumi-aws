@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Odb.Outputs
     public sealed class NetworkManagedService
     {
         /// <summary>
+        /// The list of regions enabled for cross-region restore in the ODB network.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.NetworkManagedServiceCrossRegionS3RestoreSourcesAccess> CrossRegionS3RestoreSourcesAccesses;
+        /// <summary>
         /// Specifies the configuration for KMS access from the ODB network.
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkManagedServiceKmsAccess> KmsAccesses;
@@ -39,6 +43,8 @@ namespace Pulumi.Aws.Odb.Outputs
 
         [OutputConstructor]
         private NetworkManagedService(
+            ImmutableArray<Outputs.NetworkManagedServiceCrossRegionS3RestoreSourcesAccess> crossRegionS3RestoreSourcesAccesses,
+
             ImmutableArray<Outputs.NetworkManagedServiceKmsAccess> kmsAccesses,
 
             ImmutableArray<Outputs.NetworkManagedServiceManagedS3BackupAccess> managedS3BackupAccesses,
@@ -57,6 +63,7 @@ namespace Pulumi.Aws.Odb.Outputs
 
             ImmutableArray<Outputs.NetworkManagedServiceZeroEtlAccess> zeroEtlAccesses)
         {
+            CrossRegionS3RestoreSourcesAccesses = crossRegionS3RestoreSourcesAccesses;
             KmsAccesses = kmsAccesses;
             ManagedS3BackupAccesses = managedS3BackupAccesses;
             ManagedServiceIpv4Cidrs = managedServiceIpv4Cidrs;

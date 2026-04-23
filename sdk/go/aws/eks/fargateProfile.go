@@ -111,10 +111,22 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import EKS Fargate Profiles using the `clusterName` and `fargateProfileName` separated by a colon (`:`). For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// * `clusterName` (String) Name of the EKS Cluster.
+// * `fargateProfileName` (String) Name of the Fargate profile.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import Fargate Profiles using `clusterName` and `fargateProfileName` separated by a colon (`:`). For example:
 //
 // ```sh
-// $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
+// $ pulumi import aws:eks/fargateProfile:FargateProfile example example-cluster:example-profile
 // ```
 type FargateProfile struct {
 	pulumi.CustomResourceState

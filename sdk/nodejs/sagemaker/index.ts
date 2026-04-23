@@ -80,6 +80,11 @@ export type HumanTaskUI = import("./humanTaskUI").HumanTaskUI;
 export const HumanTaskUI: typeof import("./humanTaskUI").HumanTaskUI = null as any;
 utilities.lazyLoad(exports, ["HumanTaskUI"], () => require("./humanTaskUI"));
 
+export { HyperParameterTuningJobArgs, HyperParameterTuningJobState } from "./hyperParameterTuningJob";
+export type HyperParameterTuningJob = import("./hyperParameterTuningJob").HyperParameterTuningJob;
+export const HyperParameterTuningJob: typeof import("./hyperParameterTuningJob").HyperParameterTuningJob = null as any;
+utilities.lazyLoad(exports, ["HyperParameterTuningJob"], () => require("./hyperParameterTuningJob"));
+
 export { ImageArgs, ImageState } from "./image";
 export type Image = import("./image").Image;
 export const Image: typeof import("./image").Image = null as any;
@@ -223,6 +228,8 @@ const _module = {
                 return new Hub(name, <any>undefined, { urn })
             case "aws:sagemaker/humanTaskUI:HumanTaskUI":
                 return new HumanTaskUI(name, <any>undefined, { urn })
+            case "aws:sagemaker/hyperParameterTuningJob:HyperParameterTuningJob":
+                return new HyperParameterTuningJob(name, <any>undefined, { urn })
             case "aws:sagemaker/image:Image":
                 return new Image(name, <any>undefined, { urn })
             case "aws:sagemaker/imageVersion:ImageVersion":
@@ -286,6 +293,7 @@ pulumi.runtime.registerResourceModule("aws", "sagemaker/featureGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/flowDefinition", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/hub", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/humanTaskUI", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/hyperParameterTuningJob", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/image", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/imageVersion", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/labelingJob", _module)

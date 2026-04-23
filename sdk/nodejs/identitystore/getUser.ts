@@ -133,6 +133,10 @@ export interface GetUserResult {
      */
     readonly userName: string;
     /**
+     * The current status of the user account.
+     */
+    readonly userStatus: string;
+    /**
      * The user type.
      */
     readonly userType: string;

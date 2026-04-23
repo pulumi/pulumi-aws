@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a S3 bucket [inventory configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html) resource.
  *
- * > This resource cannot be used with S3 directory buckets.
- *
  * ## Example Usage
  *
  * ### Add inventory configuration
@@ -103,7 +101,7 @@ export class Inventory extends pulumi.CustomResource {
     }
 
     /**
-     * Name of the source bucket that inventory lists the objects for.
+     * Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
      */
     declare public readonly bucket: pulumi.Output<string>;
     /**
@@ -195,7 +193,7 @@ export class Inventory extends pulumi.CustomResource {
  */
 export interface InventoryState {
     /**
-     * Name of the source bucket that inventory lists the objects for.
+     * Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
      */
     bucket?: pulumi.Input<string>;
     /**
@@ -237,7 +235,7 @@ export interface InventoryState {
  */
 export interface InventoryArgs {
     /**
-     * Name of the source bucket that inventory lists the objects for.
+     * Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
      */
     bucket: pulumi.Input<string>;
     /**

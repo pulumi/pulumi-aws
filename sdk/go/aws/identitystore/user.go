@@ -100,6 +100,8 @@ type User struct {
 	//
 	// The following arguments are optional:
 	UserName pulumi.StringOutput `pulumi:"userName"`
+	// The current status of the user account.
+	UserStatus pulumi.StringOutput `pulumi:"userStatus"`
 	// The user type.
 	//
 	// > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
@@ -179,6 +181,8 @@ type userState struct {
 	//
 	// The following arguments are optional:
 	UserName *string `pulumi:"userName"`
+	// The current status of the user account.
+	UserStatus *string `pulumi:"userStatus"`
 	// The user type.
 	//
 	// > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
@@ -220,6 +224,8 @@ type UserState struct {
 	//
 	// The following arguments are optional:
 	UserName pulumi.StringPtrInput
+	// The current status of the user account.
+	UserStatus pulumi.StringPtrInput
 	// The user type.
 	//
 	// > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
@@ -472,6 +478,11 @@ func (o UserOutput) UserId() pulumi.StringOutput {
 // The following arguments are optional:
 func (o UserOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
+}
+
+// The current status of the user account.
+func (o UserOutput) UserStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserStatus }).(pulumi.StringOutput)
 }
 
 // The user type.

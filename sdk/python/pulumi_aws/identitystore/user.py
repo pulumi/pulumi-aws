@@ -291,6 +291,7 @@ class _UserState:
                  title: Optional[pulumi.Input[_builtins.str]] = None,
                  user_id: Optional[pulumi.Input[_builtins.str]] = None,
                  user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 user_status: Optional[pulumi.Input[_builtins.str]] = None,
                  user_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering User resources.
@@ -313,6 +314,7 @@ class _UserState:
         :param pulumi.Input[_builtins.str] user_name: A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] user_status: The current status of the user account.
         :param pulumi.Input[_builtins.str] user_type: The user type.
                
                > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
@@ -349,6 +351,8 @@ class _UserState:
             pulumi.set(__self__, "user_id", user_id)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
+        if user_status is not None:
+            pulumi.set(__self__, "user_status", user_status)
         if user_type is not None:
             pulumi.set(__self__, "user_type", user_type)
 
@@ -545,6 +549,18 @@ class _UserState:
     @user_name.setter
     def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "user_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userStatus")
+    def user_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The current status of the user account.
+        """
+        return pulumi.get(self, "user_status")
+
+    @user_status.setter
+    def user_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "user_status", value)
 
     @_builtins.property
     @pulumi.getter(name="userType")
@@ -749,6 +765,7 @@ class User(pulumi.CustomResource):
             __props__.__dict__["user_type"] = user_type
             __props__.__dict__["external_ids"] = None
             __props__.__dict__["user_id"] = None
+            __props__.__dict__["user_status"] = None
         super(User, __self__).__init__(
             'aws:identitystore/user:User',
             resource_name,
@@ -775,6 +792,7 @@ class User(pulumi.CustomResource):
             title: Optional[pulumi.Input[_builtins.str]] = None,
             user_id: Optional[pulumi.Input[_builtins.str]] = None,
             user_name: Optional[pulumi.Input[_builtins.str]] = None,
+            user_status: Optional[pulumi.Input[_builtins.str]] = None,
             user_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'User':
         """
         Get an existing User resource's state with the given name, id, and optional extra
@@ -801,6 +819,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] user_name: A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] user_status: The current status of the user account.
         :param pulumi.Input[_builtins.str] user_type: The user type.
                
                > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
@@ -825,6 +844,7 @@ class User(pulumi.CustomResource):
         __props__.__dict__["title"] = title
         __props__.__dict__["user_id"] = user_id
         __props__.__dict__["user_name"] = user_name
+        __props__.__dict__["user_status"] = user_status
         __props__.__dict__["user_type"] = user_type
         return User(resource_name, opts=opts, __props__=__props__)
 
@@ -957,6 +977,14 @@ class User(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "user_name")
+
+    @_builtins.property
+    @pulumi.getter(name="userStatus")
+    def user_status(self) -> pulumi.Output[_builtins.str]:
+        """
+        The current status of the user account.
+        """
+        return pulumi.get(self, "user_status")
 
     @_builtins.property
     @pulumi.getter(name="userType")

@@ -896,10 +896,22 @@ class NodeGroup(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import EKS Node Groups using the `cluster_name` and `node_group_name` separated by a colon (`:`). For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `cluster_name` (String) Name of the EKS Cluster.
+        * `node_group_name` (String) Name of the node group.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Node Groups using the `cluster_name` and `node_group_name` separated by a colon (`:`). For example:
 
         ```sh
-        $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
+        $ pulumi import aws:eks/nodeGroup:NodeGroup example example-cluster:example-group
         ```
 
 
@@ -1027,10 +1039,22 @@ class NodeGroup(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import EKS Node Groups using the `cluster_name` and `node_group_name` separated by a colon (`:`). For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `cluster_name` (String) Name of the EKS Cluster.
+        * `node_group_name` (String) Name of the node group.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Node Groups using the `cluster_name` and `node_group_name` separated by a colon (`:`). For example:
 
         ```sh
-        $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
+        $ pulumi import aws:eks/nodeGroup:NodeGroup example example-cluster:example-group
         ```
 
 

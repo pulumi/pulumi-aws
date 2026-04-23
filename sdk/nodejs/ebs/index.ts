@@ -75,6 +75,11 @@ export type Volume = import("./volume").Volume;
 export const Volume: typeof import("./volume").Volume = null as any;
 utilities.lazyLoad(exports, ["Volume"], () => require("./volume"));
 
+export { VolumeCopyArgs, VolumeCopyState } from "./volumeCopy";
+export type VolumeCopy = import("./volumeCopy").VolumeCopy;
+export const VolumeCopy: typeof import("./volumeCopy").VolumeCopy = null as any;
+utilities.lazyLoad(exports, ["VolumeCopy"], () => require("./volumeCopy"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -96,6 +101,8 @@ const _module = {
                 return new SnapshotImport(name, <any>undefined, { urn })
             case "aws:ebs/volume:Volume":
                 return new Volume(name, <any>undefined, { urn })
+            case "aws:ebs/volumeCopy:VolumeCopy":
+                return new VolumeCopy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -109,3 +116,4 @@ pulumi.runtime.registerResourceModule("aws", "ebs/snapshotBlockPublicAccess", _m
 pulumi.runtime.registerResourceModule("aws", "ebs/snapshotCopy", _module)
 pulumi.runtime.registerResourceModule("aws", "ebs/snapshotImport", _module)
 pulumi.runtime.registerResourceModule("aws", "ebs/volume", _module)
+pulumi.runtime.registerResourceModule("aws", "ebs/volumeCopy", _module)

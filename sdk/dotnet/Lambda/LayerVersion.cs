@@ -119,7 +119,19 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Lambda Layers using `Arn`. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `LayerName` (String) Unique name for the Lambda Layer.
+    /// * `Version` (String) Lambda Layer version number.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Lambda Layer Versions using the `Arn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:lambda/layerVersion:LayerVersion example arn:aws:lambda:us-west-2:123456789012:layer:example:1

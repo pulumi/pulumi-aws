@@ -164,10 +164,22 @@ namespace Pulumi.Aws.Eks
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EKS Node Groups using the `ClusterName` and `NodeGroupName` separated by a colon (`:`). For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `ClusterName` (String) Name of the EKS Cluster.
+    /// * `NodeGroupName` (String) Name of the node group.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Node Groups using the `ClusterName` and `NodeGroupName` separated by a colon (`:`). For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
+    /// $ pulumi import aws:eks/nodeGroup:NodeGroup example example-cluster:example-group
     /// ```
     /// </summary>
     [AwsResourceType("aws:eks/nodeGroup:NodeGroup")]

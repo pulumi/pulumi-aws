@@ -171,6 +171,10 @@ namespace Pulumi.Aws.Odb
         /// </summary>
         public readonly string PeerNetworkArn;
         /// <summary>
+        /// Set of peer network cidrs.
+        /// </summary>
+        public readonly ImmutableArray<string> PeerNetworkCidrs;
+        /// <summary>
         /// Progress of the ODB network peering connection.
         /// </summary>
         public readonly double PercentProgress;
@@ -204,6 +208,8 @@ namespace Pulumi.Aws.Odb
 
             string peerNetworkArn,
 
+            ImmutableArray<string> peerNetworkCidrs,
+
             double percentProgress,
 
             string region,
@@ -221,6 +227,7 @@ namespace Pulumi.Aws.Odb
             OdbNetworkArn = odbNetworkArn;
             OdbPeeringConnectionType = odbPeeringConnectionType;
             PeerNetworkArn = peerNetworkArn;
+            PeerNetworkCidrs = peerNetworkCidrs;
             PercentProgress = percentProgress;
             Region = region;
             Status = status;

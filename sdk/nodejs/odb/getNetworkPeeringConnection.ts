@@ -76,6 +76,10 @@ export interface GetNetworkPeeringConnectionResult {
      */
     readonly peerNetworkArn: string;
     /**
+     * Set of peer network cidrs.
+     */
+    readonly peerNetworkCidrs: string[];
+    /**
      * Progress of the ODB network peering connection.
      */
     readonly percentProgress: number;

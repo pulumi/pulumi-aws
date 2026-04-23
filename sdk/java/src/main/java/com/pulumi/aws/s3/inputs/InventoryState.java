@@ -21,14 +21,14 @@ public final class InventoryState extends com.pulumi.resources.ResourceArgs {
     public static final InventoryState Empty = new InventoryState();
 
     /**
-     * Name of the source bucket that inventory lists the objects for.
+     * Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
      * 
      */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
     /**
-     * @return Name of the source bucket that inventory lists the objects for.
+     * @return Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
      * 
      */
     public Optional<Output<String>> bucket() {
@@ -188,7 +188,7 @@ public final class InventoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucket Name of the source bucket that inventory lists the objects for.
+         * @param bucket Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class InventoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucket Name of the source bucket that inventory lists the objects for.
+         * @param bucket Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
          * 
          * @return builder
          * 

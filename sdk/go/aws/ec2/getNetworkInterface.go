@@ -71,9 +71,11 @@ type LookupNetworkInterfaceResult struct {
 	// Availability Zone.
 	AvailabilityZone string `pulumi:"availabilityZone"`
 	// Description of the network interface.
-	Description string                      `pulumi:"description"`
-	Filters     []GetNetworkInterfaceFilter `pulumi:"filters"`
-	Id          string                      `pulumi:"id"`
+	Description string `pulumi:"description"`
+	// ENA Express configuration for the network interface. See enaSrdSpecification below.
+	EnaSrdSpecifications []GetNetworkInterfaceEnaSrdSpecification `pulumi:"enaSrdSpecifications"`
+	Filters              []GetNetworkInterfaceFilter              `pulumi:"filters"`
+	Id                   string                                   `pulumi:"id"`
 	// Type of interface.
 	InterfaceType string `pulumi:"interfaceType"`
 	// List of IPv6 addresses to assign to the ENI.
@@ -166,6 +168,13 @@ func (o LookupNetworkInterfaceResultOutput) AvailabilityZone() pulumi.StringOutp
 // Description of the network interface.
 func (o LookupNetworkInterfaceResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// ENA Express configuration for the network interface. See enaSrdSpecification below.
+func (o LookupNetworkInterfaceResultOutput) EnaSrdSpecifications() GetNetworkInterfaceEnaSrdSpecificationArrayOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) []GetNetworkInterfaceEnaSrdSpecification {
+		return v.EnaSrdSpecifications
+	}).(GetNetworkInterfaceEnaSrdSpecificationArrayOutput)
 }
 
 func (o LookupNetworkInterfaceResultOutput) Filters() GetNetworkInterfaceFilterArrayOutput {

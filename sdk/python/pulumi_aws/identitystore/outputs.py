@@ -1088,6 +1088,7 @@ class GetUsersUserResult(dict):
                  title: _builtins.str,
                  user_id: _builtins.str,
                  user_name: _builtins.str,
+                 user_status: _builtins.str,
                  user_type: _builtins.str):
         """
         :param Sequence['GetUsersUserAddressArgs'] addresses: List of details about the user's address.
@@ -1105,6 +1106,7 @@ class GetUsersUserResult(dict):
         :param _builtins.str title: User's title.
         :param _builtins.str user_id: Identifier of the user in the Identity Store.
         :param _builtins.str user_name: User's user name value.
+        :param _builtins.str user_status: Current status of the user account.
         :param _builtins.str user_type: User type.
         """
         pulumi.set(__self__, "addresses", addresses)
@@ -1122,6 +1124,7 @@ class GetUsersUserResult(dict):
         pulumi.set(__self__, "title", title)
         pulumi.set(__self__, "user_id", user_id)
         pulumi.set(__self__, "user_name", user_name)
+        pulumi.set(__self__, "user_status", user_status)
         pulumi.set(__self__, "user_type", user_type)
 
     @_builtins.property
@@ -1243,6 +1246,14 @@ class GetUsersUserResult(dict):
         User's user name value.
         """
         return pulumi.get(self, "user_name")
+
+    @_builtins.property
+    @pulumi.getter(name="userStatus")
+    def user_status(self) -> _builtins.str:
+        """
+        Current status of the user account.
+        """
+        return pulumi.get(self, "user_status")
 
     @_builtins.property
     @pulumi.getter(name="userType")

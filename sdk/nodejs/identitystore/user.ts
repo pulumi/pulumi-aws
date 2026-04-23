@@ -140,6 +140,10 @@ export class User extends pulumi.CustomResource {
      */
     declare public readonly userName: pulumi.Output<string>;
     /**
+     * The current status of the user account.
+     */
+    declare public /*out*/ readonly userStatus: pulumi.Output<string>;
+    /**
      * The user type.
      *
      * > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
@@ -175,6 +179,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["title"] = state?.title;
             resourceInputs["userId"] = state?.userId;
             resourceInputs["userName"] = state?.userName;
+            resourceInputs["userStatus"] = state?.userStatus;
             resourceInputs["userType"] = state?.userType;
         } else {
             const args = argsOrState as UserArgs | undefined;
@@ -204,6 +209,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["userType"] = args?.userType;
             resourceInputs["externalIds"] = undefined /*out*/;
             resourceInputs["userId"] = undefined /*out*/;
+            resourceInputs["userStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(User.__pulumiType, name, resourceInputs, opts);
@@ -280,6 +286,10 @@ export interface UserState {
      * The following arguments are optional:
      */
     userName?: pulumi.Input<string>;
+    /**
+     * The current status of the user account.
+     */
+    userStatus?: pulumi.Input<string>;
     /**
      * The user type.
      *

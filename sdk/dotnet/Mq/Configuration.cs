@@ -136,6 +136,12 @@ namespace Pulumi.Aws.Mq
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
+        /// Set to `True` if you do not wish the configuration to be deleted at destroy time, and instead just remove the configuration from the Terraform state. Default is `False`.
+        /// </summary>
+        [Output("skipDestroy")]
+        public Output<bool?> SkipDestroy { get; private set; } = null!;
+
+        /// <summary>
         /// Key-value map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -237,6 +243,12 @@ namespace Pulumi.Aws.Mq
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// Set to `True` if you do not wish the configuration to be deleted at destroy time, and instead just remove the configuration from the Terraform state. Default is `False`.
+        /// </summary>
+        [Input("skipDestroy")]
+        public Input<bool>? SkipDestroy { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -312,6 +324,12 @@ namespace Pulumi.Aws.Mq
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// Set to `True` if you do not wish the configuration to be deleted at destroy time, and instead just remove the configuration from the Terraform state. Default is `False`.
+        /// </summary>
+        [Input("skipDestroy")]
+        public Input<bool>? SkipDestroy { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

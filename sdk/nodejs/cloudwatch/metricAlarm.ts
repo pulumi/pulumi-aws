@@ -114,6 +114,27 @@ import {Topic} from "../sns";
  * });
  * ```
  *
+ * ### With PromQL
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const promqlAlarm = new aws.cloudwatch.MetricAlarm("promql_alarm", {
+ *     name: "high-cpu-promql",
+ *     alarmDescription: "Alarm when average CPU exceeds 80% using PromQL",
+ *     evaluationCriteria: {
+ *         promqlCriteria: {
+ *             query: "avg(cpu_utilization_percent) > 80",
+ *             pendingPeriod: 300,
+ *             recoveryPeriod: 120,
+ *         },
+ *     },
+ *     evaluationInterval: 30,
+ *     alarmActions: [alerts.arn],
+ * });
+ * ```
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -275,7 +296,7 @@ export class MetricAlarm extends pulumi.CustomResource {
     /**
      * The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
      */
-    declare public readonly comparisonOperator: pulumi.Output<string>;
+    declare public readonly comparisonOperator: pulumi.Output<string | undefined>;
     /**
      * The number of data points that must be breaching to trigger the alarm.
      */
@@ -292,9 +313,17 @@ export class MetricAlarm extends pulumi.CustomResource {
      */
     declare public readonly evaluateLowSampleCountPercentiles: pulumi.Output<string>;
     /**
-     * The number of periods over which data is compared to the specified threshold.
+     * The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
      */
-    declare public readonly evaluationPeriods: pulumi.Output<number>;
+    declare public readonly evaluationCriteria: pulumi.Output<outputs.cloudwatch.MetricAlarmEvaluationCriteria | undefined>;
+    /**
+     * The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluationCriteria`.
+     */
+    declare public readonly evaluationInterval: pulumi.Output<number | undefined>;
+    /**
+     * The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
+     */
+    declare public readonly evaluationPeriods: pulumi.Output<number | undefined>;
     /**
      * The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
      */
@@ -376,7 +405,7 @@ export class MetricAlarm extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MetricAlarmArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: MetricAlarmArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MetricAlarmArgs | MetricAlarmState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -390,6 +419,8 @@ export class MetricAlarm extends pulumi.CustomResource {
             resourceInputs["datapointsToAlarm"] = state?.datapointsToAlarm;
             resourceInputs["dimensions"] = state?.dimensions;
             resourceInputs["evaluateLowSampleCountPercentiles"] = state?.evaluateLowSampleCountPercentiles;
+            resourceInputs["evaluationCriteria"] = state?.evaluationCriteria;
+            resourceInputs["evaluationInterval"] = state?.evaluationInterval;
             resourceInputs["evaluationPeriods"] = state?.evaluationPeriods;
             resourceInputs["extendedStatistic"] = state?.extendedStatistic;
             resourceInputs["insufficientDataActions"] = state?.insufficientDataActions;
@@ -409,12 +440,6 @@ export class MetricAlarm extends pulumi.CustomResource {
             resourceInputs["unit"] = state?.unit;
         } else {
             const args = argsOrState as MetricAlarmArgs | undefined;
-            if (args?.comparisonOperator === undefined && !opts.urn) {
-                throw new Error("Missing required property 'comparisonOperator'");
-            }
-            if (args?.evaluationPeriods === undefined && !opts.urn) {
-                throw new Error("Missing required property 'evaluationPeriods'");
-            }
             resourceInputs["actionsEnabled"] = args?.actionsEnabled;
             resourceInputs["alarmActions"] = args?.alarmActions;
             resourceInputs["alarmDescription"] = args?.alarmDescription;
@@ -422,6 +447,8 @@ export class MetricAlarm extends pulumi.CustomResource {
             resourceInputs["datapointsToAlarm"] = args?.datapointsToAlarm;
             resourceInputs["dimensions"] = args?.dimensions;
             resourceInputs["evaluateLowSampleCountPercentiles"] = args?.evaluateLowSampleCountPercentiles;
+            resourceInputs["evaluationCriteria"] = args?.evaluationCriteria;
+            resourceInputs["evaluationInterval"] = args?.evaluationInterval;
             resourceInputs["evaluationPeriods"] = args?.evaluationPeriods;
             resourceInputs["extendedStatistic"] = args?.extendedStatistic;
             resourceInputs["insufficientDataActions"] = args?.insufficientDataActions;
@@ -486,7 +513,15 @@ export interface MetricAlarmState {
      */
     evaluateLowSampleCountPercentiles?: pulumi.Input<string>;
     /**
-     * The number of periods over which data is compared to the specified threshold.
+     * The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
+     */
+    evaluationCriteria?: pulumi.Input<inputs.cloudwatch.MetricAlarmEvaluationCriteria>;
+    /**
+     * The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluationCriteria`.
+     */
+    evaluationInterval?: pulumi.Input<number>;
+    /**
+     * The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
      */
     evaluationPeriods?: pulumi.Input<number>;
     /**
@@ -583,7 +618,7 @@ export interface MetricAlarmArgs {
     /**
      * The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
      */
-    comparisonOperator: pulumi.Input<string>;
+    comparisonOperator?: pulumi.Input<string>;
     /**
      * The number of data points that must be breaching to trigger the alarm.
      */
@@ -600,9 +635,17 @@ export interface MetricAlarmArgs {
      */
     evaluateLowSampleCountPercentiles?: pulumi.Input<string>;
     /**
-     * The number of periods over which data is compared to the specified threshold.
+     * The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
      */
-    evaluationPeriods: pulumi.Input<number>;
+    evaluationCriteria?: pulumi.Input<inputs.cloudwatch.MetricAlarmEvaluationCriteria>;
+    /**
+     * The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluationCriteria`.
+     */
+    evaluationInterval?: pulumi.Input<number>;
+    /**
+     * The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
+     */
+    evaluationPeriods?: pulumi.Input<number>;
     /**
      * The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
      */

@@ -107,14 +107,14 @@ public final class ResolverFirewallRuleState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
+     * The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DICTIONARY_DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
      * 
      */
     @Import(name="dnsThreatProtection")
     private @Nullable Output<String> dnsThreatProtection;
 
     /**
-     * @return The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
+     * @return The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DICTIONARY_DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
      * 
      */
     public Optional<Output<String>> dnsThreatProtection() {
@@ -406,7 +406,7 @@ public final class ResolverFirewallRuleState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param dnsThreatProtection The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
+         * @param dnsThreatProtection The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DICTIONARY_DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
          * 
          * @return builder
          * 
@@ -417,7 +417,7 @@ public final class ResolverFirewallRuleState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param dnsThreatProtection The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
+         * @param dnsThreatProtection The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DICTIONARY_DGA`, `DNS_TUNNELING`. Conflicts with `firewallDomainListId`.
          * 
          * @return builder
          * 

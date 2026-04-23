@@ -131,7 +131,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
-     * Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
+     * Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4` and `12.4`. If not specified, defaults to the latest version.
      */
     declare public readonly grafanaVersion: pulumi.Output<string>;
     /**
@@ -297,7 +297,7 @@ export interface WorkspaceState {
      */
     endpoint?: pulumi.Input<string>;
     /**
-     * Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
+     * Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4` and `12.4`. If not specified, defaults to the latest version.
      */
     grafanaVersion?: pulumi.Input<string>;
     /**
@@ -382,7 +382,7 @@ export interface WorkspaceArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
+     * Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4` and `12.4`. If not specified, defaults to the latest version.
      */
     grafanaVersion?: pulumi.Input<string>;
     /**

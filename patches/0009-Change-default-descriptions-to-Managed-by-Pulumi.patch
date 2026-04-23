@@ -278,7 +278,7 @@ index 50efd08714f..a275f68c584 100644
  			names.AttrName: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/route53/record.go b/internal/service/route53/record.go
-index 6bd3c5d8db1..f2f9b95436f 100644
+index c3e6f74a324..ede973a39b7 100644
 --- a/internal/service/route53/record.go
 +++ b/internal/service/route53/record.go
 @@ -362,7 +362,7 @@ func resourceRecordCreate(ctx context.Context, d *schema.ResourceData, meta any)
@@ -309,10 +309,10 @@ index 6bd3c5d8db1..f2f9b95436f 100644
  		HostedZoneId: aws.String(zoneID),
  	}
 diff --git a/internal/service/route53/zone.go b/internal/service/route53/zone.go
-index faa1c2edd0d..9de6d430da8 100644
+index 613b7a3d179..db1d2d688a6 100644
 --- a/internal/service/route53/zone.go
 +++ b/internal/service/route53/zone.go
-@@ -53,7 +53,7 @@ func resourceZone() *schema.Resource {
+@@ -57,7 +57,7 @@ func resourceZone() *schema.Resource {
  			names.AttrComment: {
  				Type:         schema.TypeString,
  				Optional:     true,

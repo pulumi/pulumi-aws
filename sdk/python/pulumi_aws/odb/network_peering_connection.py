@@ -25,6 +25,7 @@ class NetworkPeeringConnectionArgs:
                  peer_network_id: pulumi.Input[_builtins.str],
                  odb_network_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  odb_network_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 peer_network_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['NetworkPeeringConnectionTimeoutsArgs']] = None):
@@ -37,6 +38,7 @@ class NetworkPeeringConnectionArgs:
         :param pulumi.Input[_builtins.str] peer_network_id: The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odb_network_id or odb_network_arn should be used.
         :param pulumi.Input[_builtins.str] odb_network_arn: ARN of the ODB network that initiates the peering connection. Changing this will force Terraform to create a new resource. Either odb_network_id or odb_network_arn should be used.
         :param pulumi.Input[_builtins.str] odb_network_id: The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] peer_network_cidrs: Set of peer network cidrs. Add remove is only supported during update operation. During create this attribute is compute only.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -46,6 +48,8 @@ class NetworkPeeringConnectionArgs:
             pulumi.set(__self__, "odb_network_arn", odb_network_arn)
         if odb_network_id is not None:
             pulumi.set(__self__, "odb_network_id", odb_network_id)
+        if peer_network_cidrs is not None:
+            pulumi.set(__self__, "peer_network_cidrs", peer_network_cidrs)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
@@ -104,6 +108,18 @@ class NetworkPeeringConnectionArgs:
         pulumi.set(self, "odb_network_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="peerNetworkCidrs")
+    def peer_network_cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of peer network cidrs. Add remove is only supported during update operation. During create this attribute is compute only.
+        """
+        return pulumi.get(self, "peer_network_cidrs")
+
+    @peer_network_cidrs.setter
+    def peer_network_cidrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "peer_network_cidrs", value)
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -147,6 +163,7 @@ class _NetworkPeeringConnectionState:
                  odb_network_id: Optional[pulumi.Input[_builtins.str]] = None,
                  odb_peering_connection_type: Optional[pulumi.Input[_builtins.str]] = None,
                  peer_network_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 peer_network_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  peer_network_id: Optional[pulumi.Input[_builtins.str]] = None,
                  percent_progress: Optional[pulumi.Input[_builtins.float]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -166,6 +183,7 @@ class _NetworkPeeringConnectionState:
         :param pulumi.Input[_builtins.str] odb_network_id: The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
         :param pulumi.Input[_builtins.str] odb_peering_connection_type: Type of the ODB peering connection.
         :param pulumi.Input[_builtins.str] peer_network_arn: ARN of the peer network peering connection.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] peer_network_cidrs: Set of peer network cidrs. Add remove is only supported during update operation. During create this attribute is compute only.
         :param pulumi.Input[_builtins.str] peer_network_id: The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odb_network_id or odb_network_arn should be used.
         :param pulumi.Input[_builtins.float] percent_progress: Progress of the ODB network peering connection.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -188,6 +206,8 @@ class _NetworkPeeringConnectionState:
             pulumi.set(__self__, "odb_peering_connection_type", odb_peering_connection_type)
         if peer_network_arn is not None:
             pulumi.set(__self__, "peer_network_arn", peer_network_arn)
+        if peer_network_cidrs is not None:
+            pulumi.set(__self__, "peer_network_cidrs", peer_network_cidrs)
         if peer_network_id is not None:
             pulumi.set(__self__, "peer_network_id", peer_network_id)
         if percent_progress is not None:
@@ -287,6 +307,18 @@ class _NetworkPeeringConnectionState:
     @peer_network_arn.setter
     def peer_network_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "peer_network_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="peerNetworkCidrs")
+    def peer_network_cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of peer network cidrs. Add remove is only supported during update operation. During create this attribute is compute only.
+        """
+        return pulumi.get(self, "peer_network_cidrs")
+
+    @peer_network_cidrs.setter
+    def peer_network_cidrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "peer_network_cidrs", value)
 
     @_builtins.property
     @pulumi.getter(name="peerNetworkId")
@@ -391,6 +423,7 @@ class NetworkPeeringConnection(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  odb_network_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  odb_network_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 peer_network_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  peer_network_id: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -434,6 +467,7 @@ class NetworkPeeringConnection(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] odb_network_arn: ARN of the ODB network that initiates the peering connection. Changing this will force Terraform to create a new resource. Either odb_network_id or odb_network_arn should be used.
         :param pulumi.Input[_builtins.str] odb_network_id: The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] peer_network_cidrs: Set of peer network cidrs. Add remove is only supported during update operation. During create this attribute is compute only.
         :param pulumi.Input[_builtins.str] peer_network_id: The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odb_network_id or odb_network_arn should be used.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -493,6 +527,7 @@ class NetworkPeeringConnection(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  odb_network_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  odb_network_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 peer_network_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  peer_network_id: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -511,6 +546,7 @@ class NetworkPeeringConnection(pulumi.CustomResource):
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["odb_network_arn"] = odb_network_arn
             __props__.__dict__["odb_network_id"] = odb_network_id
+            __props__.__dict__["peer_network_cidrs"] = peer_network_cidrs
             if peer_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'peer_network_id'")
             __props__.__dict__["peer_network_id"] = peer_network_id
@@ -542,6 +578,7 @@ class NetworkPeeringConnection(pulumi.CustomResource):
             odb_network_id: Optional[pulumi.Input[_builtins.str]] = None,
             odb_peering_connection_type: Optional[pulumi.Input[_builtins.str]] = None,
             peer_network_arn: Optional[pulumi.Input[_builtins.str]] = None,
+            peer_network_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             peer_network_id: Optional[pulumi.Input[_builtins.str]] = None,
             percent_progress: Optional[pulumi.Input[_builtins.float]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -565,6 +602,7 @@ class NetworkPeeringConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] odb_network_id: The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
         :param pulumi.Input[_builtins.str] odb_peering_connection_type: Type of the ODB peering connection.
         :param pulumi.Input[_builtins.str] peer_network_arn: ARN of the peer network peering connection.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] peer_network_cidrs: Set of peer network cidrs. Add remove is only supported during update operation. During create this attribute is compute only.
         :param pulumi.Input[_builtins.str] peer_network_id: The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odb_network_id or odb_network_arn should be used.
         :param pulumi.Input[_builtins.float] percent_progress: Progress of the ODB network peering connection.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -584,6 +622,7 @@ class NetworkPeeringConnection(pulumi.CustomResource):
         __props__.__dict__["odb_network_id"] = odb_network_id
         __props__.__dict__["odb_peering_connection_type"] = odb_peering_connection_type
         __props__.__dict__["peer_network_arn"] = peer_network_arn
+        __props__.__dict__["peer_network_cidrs"] = peer_network_cidrs
         __props__.__dict__["peer_network_id"] = peer_network_id
         __props__.__dict__["percent_progress"] = percent_progress
         __props__.__dict__["region"] = region
@@ -648,6 +687,14 @@ class NetworkPeeringConnection(pulumi.CustomResource):
         ARN of the peer network peering connection.
         """
         return pulumi.get(self, "peer_network_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="peerNetworkCidrs")
+    def peer_network_cidrs(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        Set of peer network cidrs. Add remove is only supported during update operation. During create this attribute is compute only.
+        """
+        return pulumi.get(self, "peer_network_cidrs")
 
     @_builtins.property
     @pulumi.getter(name="peerNetworkId")

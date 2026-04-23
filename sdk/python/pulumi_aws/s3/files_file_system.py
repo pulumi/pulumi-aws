@@ -23,6 +23,7 @@ class FilesFileSystemArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
+                 accept_bucket_warning: Optional[pulumi.Input[_builtins.bool]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -35,6 +36,7 @@ class FilesFileSystemArgs:
         :param pulumi.Input[_builtins.str] role_arn: IAM role ARN for S3 access. Changing this value forces replacement.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.bool] accept_bucket_warning: Set to `true` to acknowledge and accept any warnings related to the bucket configuration. If not specified, the operation may fail when such warnings are present. For example, warnings may be raised when creating a file system scoped to a prefix containing a large number of objects (approximately 12 million objects). See [the AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-synchronization.html#s3-files-sync-rename-move) for more details.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key ID for encryption. Changing this value forces replacement.
         :param pulumi.Input[_builtins.str] prefix: S3 bucket prefix. Changing this value forces replacement.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -42,6 +44,8 @@ class FilesFileSystemArgs:
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "role_arn", role_arn)
+        if accept_bucket_warning is not None:
+            pulumi.set(__self__, "accept_bucket_warning", accept_bucket_warning)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if prefix is not None:
@@ -78,6 +82,18 @@ class FilesFileSystemArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="acceptBucketWarning")
+    def accept_bucket_warning(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Set to `true` to acknowledge and accept any warnings related to the bucket configuration. If not specified, the operation may fail when such warnings are present. For example, warnings may be raised when creating a file system scoped to a prefix containing a large number of objects (approximately 12 million objects). See [the AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-synchronization.html#s3-files-sync-rename-move) for more details.
+        """
+        return pulumi.get(self, "accept_bucket_warning")
+
+    @accept_bucket_warning.setter
+    def accept_bucket_warning(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "accept_bucket_warning", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
@@ -140,6 +156,7 @@ class FilesFileSystemArgs:
 @pulumi.input_type
 class _FilesFileSystemState:
     def __init__(__self__, *,
+                 accept_bucket_warning: Optional[pulumi.Input[_builtins.bool]] = None,
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
                  bucket: Optional[pulumi.Input[_builtins.str]] = None,
                  creation_time: Optional[pulumi.Input[_builtins.str]] = None,
@@ -157,6 +174,7 @@ class _FilesFileSystemState:
         """
         Input properties used for looking up and filtering FilesFileSystem resources.
 
+        :param pulumi.Input[_builtins.bool] accept_bucket_warning: Set to `true` to acknowledge and accept any warnings related to the bucket configuration. If not specified, the operation may fail when such warnings are present. For example, warnings may be raised when creating a file system scoped to a prefix containing a large number of objects (approximately 12 million objects). See [the AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-synchronization.html#s3-files-sync-rename-move) for more details.
         :param pulumi.Input[_builtins.str] arn: ARN of the file system.
         :param pulumi.Input[_builtins.str] bucket: S3 bucket ARN. Changing this value forces replacement.
         :param pulumi.Input[_builtins.str] creation_time: Creation time.
@@ -173,6 +191,8 @@ class _FilesFileSystemState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        if accept_bucket_warning is not None:
+            pulumi.set(__self__, "accept_bucket_warning", accept_bucket_warning)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if bucket is not None:
@@ -201,6 +221,18 @@ class _FilesFileSystemState:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
+
+    @_builtins.property
+    @pulumi.getter(name="acceptBucketWarning")
+    def accept_bucket_warning(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Set to `true` to acknowledge and accept any warnings related to the bucket configuration. If not specified, the operation may fail when such warnings are present. For example, warnings may be raised when creating a file system scoped to a prefix containing a large number of objects (approximately 12 million objects). See [the AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-synchronization.html#s3-files-sync-rename-move) for more details.
+        """
+        return pulumi.get(self, "accept_bucket_warning")
+
+    @accept_bucket_warning.setter
+    def accept_bucket_warning(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "accept_bucket_warning", value)
 
     @_builtins.property
     @pulumi.getter
@@ -376,6 +408,7 @@ class FilesFileSystem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 accept_bucket_warning: Optional[pulumi.Input[_builtins.bool]] = None,
                  bucket: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  prefix: Optional[pulumi.Input[_builtins.str]] = None,
@@ -420,6 +453,7 @@ class FilesFileSystem(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] accept_bucket_warning: Set to `true` to acknowledge and accept any warnings related to the bucket configuration. If not specified, the operation may fail when such warnings are present. For example, warnings may be raised when creating a file system scoped to a prefix containing a large number of objects (approximately 12 million objects). See [the AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-synchronization.html#s3-files-sync-rename-move) for more details.
         :param pulumi.Input[_builtins.str] bucket: S3 bucket ARN. Changing this value forces replacement.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key ID for encryption. Changing this value forces replacement.
         :param pulumi.Input[_builtins.str] prefix: S3 bucket prefix. Changing this value forces replacement.
@@ -484,6 +518,7 @@ class FilesFileSystem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 accept_bucket_warning: Optional[pulumi.Input[_builtins.bool]] = None,
                  bucket: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  prefix: Optional[pulumi.Input[_builtins.str]] = None,
@@ -500,6 +535,7 @@ class FilesFileSystem(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FilesFileSystemArgs.__new__(FilesFileSystemArgs)
 
+            __props__.__dict__["accept_bucket_warning"] = accept_bucket_warning
             if bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'bucket'")
             __props__.__dict__["bucket"] = bucket
@@ -528,6 +564,7 @@ class FilesFileSystem(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            accept_bucket_warning: Optional[pulumi.Input[_builtins.bool]] = None,
             arn: Optional[pulumi.Input[_builtins.str]] = None,
             bucket: Optional[pulumi.Input[_builtins.str]] = None,
             creation_time: Optional[pulumi.Input[_builtins.str]] = None,
@@ -549,6 +586,7 @@ class FilesFileSystem(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] accept_bucket_warning: Set to `true` to acknowledge and accept any warnings related to the bucket configuration. If not specified, the operation may fail when such warnings are present. For example, warnings may be raised when creating a file system scoped to a prefix containing a large number of objects (approximately 12 million objects). See [the AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-synchronization.html#s3-files-sync-rename-move) for more details.
         :param pulumi.Input[_builtins.str] arn: ARN of the file system.
         :param pulumi.Input[_builtins.str] bucket: S3 bucket ARN. Changing this value forces replacement.
         :param pulumi.Input[_builtins.str] creation_time: Creation time.
@@ -569,6 +607,7 @@ class FilesFileSystem(pulumi.CustomResource):
 
         __props__ = _FilesFileSystemState.__new__(_FilesFileSystemState)
 
+        __props__.__dict__["accept_bucket_warning"] = accept_bucket_warning
         __props__.__dict__["arn"] = arn
         __props__.__dict__["bucket"] = bucket
         __props__.__dict__["creation_time"] = creation_time
@@ -584,6 +623,14 @@ class FilesFileSystem(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
         return FilesFileSystem(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="acceptBucketWarning")
+    def accept_bucket_warning(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Set to `true` to acknowledge and accept any warnings related to the bucket configuration. If not specified, the operation may fail when such warnings are present. For example, warnings may be raised when creating a file system scoped to a prefix containing a large number of objects (approximately 12 million objects). See [the AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-synchronization.html#s3-files-sync-rename-move) for more details.
+        """
+        return pulumi.get(self, "accept_bucket_warning")
 
     @_builtins.property
     @pulumi.getter

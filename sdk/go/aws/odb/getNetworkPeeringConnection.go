@@ -77,6 +77,8 @@ type LookupNetworkPeeringConnectionResult struct {
 	OdbPeeringConnectionType string `pulumi:"odbPeeringConnectionType"`
 	// ARN of the peer network peering connection.
 	PeerNetworkArn string `pulumi:"peerNetworkArn"`
+	// Set of peer network cidrs.
+	PeerNetworkCidrs []string `pulumi:"peerNetworkCidrs"`
 	// Progress of the ODB network peering connection.
 	PercentProgress float64 `pulumi:"percentProgress"`
 	Region          string  `pulumi:"region"`
@@ -158,6 +160,11 @@ func (o LookupNetworkPeeringConnectionResultOutput) OdbPeeringConnectionType() p
 // ARN of the peer network peering connection.
 func (o LookupNetworkPeeringConnectionResultOutput) PeerNetworkArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkPeeringConnectionResult) string { return v.PeerNetworkArn }).(pulumi.StringOutput)
+}
+
+// Set of peer network cidrs.
+func (o LookupNetworkPeeringConnectionResultOutput) PeerNetworkCidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupNetworkPeeringConnectionResult) []string { return v.PeerNetworkCidrs }).(pulumi.StringArrayOutput)
 }
 
 // Progress of the ODB network peering connection.

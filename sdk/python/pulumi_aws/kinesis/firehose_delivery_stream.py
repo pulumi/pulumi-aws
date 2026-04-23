@@ -1229,7 +1229,9 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             })
         ```
 
-        ### HTTP Endpoint (e.g., New Relic) Destination
+        ### HTTP Endpoint (e.g., New Relic, Datadog) Destination
+
+        The HTTP endpoint destination can be used with any vendor that exposes a compatible HTTP intake, including [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) and [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/). Refer to each vendor's documentation for the correct intake URL and authentication requirements.
 
         ```python
         import pulumi
@@ -1889,7 +1891,9 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             })
         ```
 
-        ### HTTP Endpoint (e.g., New Relic) Destination
+        ### HTTP Endpoint (e.g., New Relic, Datadog) Destination
+
+        The HTTP endpoint destination can be used with any vendor that exposes a compatible HTTP intake, including [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) and [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/). Refer to each vendor's documentation for the correct intake URL and authentication requirements.
 
         ```python
         import pulumi

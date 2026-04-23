@@ -93,6 +93,12 @@ namespace Pulumi.Aws.Odb
         public Output<string> PeerNetworkArn { get; private set; } = null!;
 
         /// <summary>
+        /// Set of peer network cidrs. Add remove is only supported during update operation. During create this attribute is compute only.
+        /// </summary>
+        [Output("peerNetworkCidrs")]
+        public Output<ImmutableArray<string>> PeerNetworkCidrs { get; private set; } = null!;
+
+        /// <summary>
         /// The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either OdbNetworkId or OdbNetworkArn should be used.
         /// </summary>
         [Output("peerNetworkId")]
@@ -203,6 +209,18 @@ namespace Pulumi.Aws.Odb
         [Input("odbNetworkId")]
         public Input<string>? OdbNetworkId { get; set; }
 
+        [Input("peerNetworkCidrs")]
+        private InputList<string>? _peerNetworkCidrs;
+
+        /// <summary>
+        /// Set of peer network cidrs. Add remove is only supported during update operation. During create this attribute is compute only.
+        /// </summary>
+        public InputList<string> PeerNetworkCidrs
+        {
+            get => _peerNetworkCidrs ?? (_peerNetworkCidrs = new InputList<string>());
+            set => _peerNetworkCidrs = value;
+        }
+
         /// <summary>
         /// The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either OdbNetworkId or OdbNetworkArn should be used.
         /// </summary>
@@ -278,6 +296,18 @@ namespace Pulumi.Aws.Odb
         /// </summary>
         [Input("peerNetworkArn")]
         public Input<string>? PeerNetworkArn { get; set; }
+
+        [Input("peerNetworkCidrs")]
+        private InputList<string>? _peerNetworkCidrs;
+
+        /// <summary>
+        /// Set of peer network cidrs. Add remove is only supported during update operation. During create this attribute is compute only.
+        /// </summary>
+        public InputList<string> PeerNetworkCidrs
+        {
+            get => _peerNetworkCidrs ?? (_peerNetworkCidrs = new InputList<string>());
+            set => _peerNetworkCidrs = value;
+        }
 
         /// <summary>
         /// The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either OdbNetworkId or OdbNetworkArn should be used.

@@ -4308,7 +4308,7 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationArgsDict(TypedDict):
     """
     url: pulumi.Input[_builtins.str]
     """
-    The HTTP endpoint URL to which Kinesis Firehose sends your data.
+    The HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor's documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
     """
     access_key: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -4373,7 +4373,7 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationArgs:
                  secrets_manager_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs']] = None):
         """
         :param pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs'] s3_configuration: The S3 Configuration. See `s3_configuration` block below for details.
-        :param pulumi.Input[_builtins.str] url: The HTTP endpoint URL to which Kinesis Firehose sends your data.
+        :param pulumi.Input[_builtins.str] url: The HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor's documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
         :param pulumi.Input[_builtins.str] access_key: The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
         :param pulumi.Input[_builtins.int] buffering_interval: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
         :param pulumi.Input[_builtins.int] buffering_size: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
@@ -4427,7 +4427,7 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationArgs:
     @pulumi.getter
     def url(self) -> pulumi.Input[_builtins.str]:
         """
-        The HTTP endpoint URL to which Kinesis Firehose sends your data.
+        The HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor's documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
         """
         return pulumi.get(self, "url")
 

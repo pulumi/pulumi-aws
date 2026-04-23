@@ -28,7 +28,7 @@ class GetNetworkInterfaceResult:
     """
     A collection of values returned by getNetworkInterface.
     """
-    def __init__(__self__, arn=None, associations=None, attachments=None, availability_zone=None, description=None, filters=None, id=None, interface_type=None, ipv6_addresses=None, mac_address=None, outpost_arn=None, owner_id=None, private_dns_name=None, private_ip=None, private_ips=None, region=None, requester_id=None, security_groups=None, subnet_id=None, tags=None, vpc_id=None):
+    def __init__(__self__, arn=None, associations=None, attachments=None, availability_zone=None, description=None, ena_srd_specifications=None, filters=None, id=None, interface_type=None, ipv6_addresses=None, mac_address=None, outpost_arn=None, owner_id=None, private_dns_name=None, private_ip=None, private_ips=None, region=None, requester_id=None, security_groups=None, subnet_id=None, tags=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -44,6 +44,9 @@ class GetNetworkInterfaceResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if ena_srd_specifications and not isinstance(ena_srd_specifications, list):
+            raise TypeError("Expected argument 'ena_srd_specifications' to be a list")
+        pulumi.set(__self__, "ena_srd_specifications", ena_srd_specifications)
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -132,6 +135,14 @@ class GetNetworkInterfaceResult:
         Description of the network interface.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="enaSrdSpecifications")
+    def ena_srd_specifications(self) -> Sequence['outputs.GetNetworkInterfaceEnaSrdSpecificationResult']:
+        """
+        ENA Express configuration for the network interface. See ena_srd_specification below.
+        """
+        return pulumi.get(self, "ena_srd_specifications")
 
     @_builtins.property
     @pulumi.getter
@@ -264,6 +275,7 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
             attachments=self.attachments,
             availability_zone=self.availability_zone,
             description=self.description,
+            ena_srd_specifications=self.ena_srd_specifications,
             filters=self.filters,
             id=self.id,
             interface_type=self.interface_type,
@@ -319,6 +331,7 @@ def get_network_interface(filters: Optional[Sequence[Union['GetNetworkInterfaceF
         attachments=pulumi.get(__ret__, 'attachments'),
         availability_zone=pulumi.get(__ret__, 'availability_zone'),
         description=pulumi.get(__ret__, 'description'),
+        ena_srd_specifications=pulumi.get(__ret__, 'ena_srd_specifications'),
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         interface_type=pulumi.get(__ret__, 'interface_type'),
@@ -371,6 +384,7 @@ def get_network_interface_output(filters: Optional[pulumi.Input[Optional[Sequenc
         attachments=pulumi.get(__response__, 'attachments'),
         availability_zone=pulumi.get(__response__, 'availability_zone'),
         description=pulumi.get(__response__, 'description'),
+        ena_srd_specifications=pulumi.get(__response__, 'ena_srd_specifications'),
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
         interface_type=pulumi.get(__response__, 'interface_type'),

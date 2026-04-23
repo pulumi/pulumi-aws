@@ -47,10 +47,22 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import EKS Identity Provider Configurations using the `clusterName` and `identityProviderConfigName` separated by a colon (`:`). For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// * `clusterName` (String) Name of the EKS Cluster.
+// * `identityProviderConfigName` (String) Name of the identity provider config.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import Identity Provider Configurations using the `clusterName` and `identityProviderConfigName` separated by a colon (`:`). For example:
 //
 // ```sh
-// $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig my_identity_provider_config my_cluster:my_identity_provider_config
+// $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig example example-cluster:example-config
 // ```
 type IdentityProviderConfig struct {
 	pulumi.CustomResourceState
@@ -58,7 +70,8 @@ type IdentityProviderConfig struct {
 	// Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the EKS Cluster.
-	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
+	ClusterName                pulumi.StringOutput `pulumi:"clusterName"`
+	IdentityProviderConfigName pulumi.StringOutput `pulumi:"identityProviderConfigName"`
 	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
 	Oidc IdentityProviderConfigOidcOutput `pulumi:"oidc"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -110,7 +123,8 @@ type identityProviderConfigState struct {
 	// Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
 	Arn *string `pulumi:"arn"`
 	// Name of the EKS Cluster.
-	ClusterName *string `pulumi:"clusterName"`
+	ClusterName                *string `pulumi:"clusterName"`
+	IdentityProviderConfigName *string `pulumi:"identityProviderConfigName"`
 	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
 	Oidc *IdentityProviderConfigOidc `pulumi:"oidc"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -127,7 +141,8 @@ type IdentityProviderConfigState struct {
 	// Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
 	Arn pulumi.StringPtrInput
 	// Name of the EKS Cluster.
-	ClusterName pulumi.StringPtrInput
+	ClusterName                pulumi.StringPtrInput
+	IdentityProviderConfigName pulumi.StringPtrInput
 	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
 	Oidc IdentityProviderConfigOidcPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -262,6 +277,10 @@ func (o IdentityProviderConfigOutput) Arn() pulumi.StringOutput {
 // Name of the EKS Cluster.
 func (o IdentityProviderConfigOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProviderConfig) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
+}
+
+func (o IdentityProviderConfigOutput) IdentityProviderConfigName() pulumi.StringOutput {
+	return o.ApplyT(func(v *IdentityProviderConfig) pulumi.StringOutput { return v.IdentityProviderConfigName }).(pulumi.StringOutput)
 }
 
 // Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
