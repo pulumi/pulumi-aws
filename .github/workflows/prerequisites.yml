@@ -78,7 +78,7 @@ jobs:
           .pulumi/examples-cache
         key: ${{ runner.os }}-${{ hashFiles('provider/go.sum') }}
     - name: Setup mise
-      uses: jdx/mise-action@5ad13376e30bbca3721f7f33f25bc0baff52c02d
+      uses: jdx/mise-action@1c5f70fd400ce6c745085c93ea80026272f8d346
       env:
         MISE_FETCH_REMOTE_VERSIONS_TIMEOUT: 30s
       with:
