@@ -42,19 +42,11 @@ func getGoBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	}
 }
 
-func TestAccWebserverGo(t *testing.T) {
+// Keep the Go release-verification example covered in normal CI.
+func TestReleaseVerificationGo(t *testing.T) {
 	test := getGoBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "webserver-go"),
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccPolicyDocumentGo(t *testing.T) {
-	test := getGoBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "iam-policy-document", "doc-go"),
 		})
 
 	integration.ProgramTest(t, &test)

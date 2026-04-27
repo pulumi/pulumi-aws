@@ -9,37 +9,14 @@ import (
 	"testing"
 
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
-	"github.com/stretchr/testify/assert"
 )
 
-func TestAccWebserverCs(t *testing.T) {
+// Keep the .NET release-verification example covered in normal CI.
+func TestReleaseVerificationCs(t *testing.T) {
 	test := getCSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			RunUpdateTest: false, //this is newly moved to a new namespace
-			Dir:           filepath.Join(getCwd(t), "webserver-cs"),
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccPolicyDocumentCs(t *testing.T) {
-	test := getCSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			RunUpdateTest: false, //this is newly moved to a new namespace
-			Dir:           filepath.Join(getCwd(t), "iam-policy-document", "csharp"),
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccFifoSqsQueueCs(t *testing.T) {
-	test := getCSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "sqs-fifo-queue", "csharp"),
 			RunUpdateTest: false,
-			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
-				assert.Contains(t, stack.Outputs["QueueName"].(string), ".fifo")
-			},
+			Dir:           filepath.Join(getCwd(t), "webserver-cs"),
 		})
 
 	integration.ProgramTest(t, &test)

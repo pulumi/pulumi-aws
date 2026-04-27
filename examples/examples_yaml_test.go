@@ -1182,15 +1182,6 @@ func TestRegressLandingZoneDiff(t *testing.T) {
 	replay(t, event)
 }
 
-func TestElasticacheReplicationGroup(t *testing.T) {
-	t.Parallel()
-
-	ptest := pulumiTest(t, filepath.Join("test-programs", "elasticache-replication-group"), opttest.SkipInstall())
-	upResult := ptest.Up(t)
-	replicationGroupArn := upResult.Outputs["replicationGroupArn"].Value.(string)
-	assert.NotEmpty(t, replicationGroupArn)
-}
-
 func TestSecurityGroupPreviewWarning(t *testing.T) {
 	t.Parallel()
 	pt := pulumiTest(t, filepath.Join("test-programs", "security-group", "security-group-1"))

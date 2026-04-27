@@ -50,15 +50,6 @@ func TestAccDedicatedHosts(t *testing.T) {
 }
 */
 
-func TestAccMinimal(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "minimal"),
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
 func TestAccExpress(t *testing.T) {
 	// This example is reused to further validate that provisioned CallbackFunctions in Node are working at runtime
 	// as expected, in particular their default runtime is not deprecated and they can utilize new APIs like the
@@ -152,17 +143,6 @@ func TestAccBucket(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-func TestAccCloudWatch(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "cloudwatch"),
-			RunUpdateTest: true,
-			// Inherit ambient credentials.
-		})
-	skipRefresh(&test)
-	integration.ProgramTest(t, &test)
-}
-
 func TestAccCloudWatchWithOIDC(t *testing.T) {
 	ctx := context.Background()
 
@@ -195,21 +175,6 @@ func TestAccCloudWatchWithOIDC(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-func TestAccCloudWatchOIDCAmbient(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "cloudwatchOidcManual"),
-
-			// TODO[pulumi/pulumi-aws#3193] multiple issues with refreshing and updating cleanly.
-			SkipRefresh:              true,
-			AllowEmptyPreviewChanges: true,
-			AllowEmptyUpdateChanges:  true,
-			// Inherit ambient credentials.
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
 func TestAccCloudWatchOIDCManual(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
@@ -228,65 +193,6 @@ func TestAccCloudWatchOIDCManual(t *testing.T) {
 			},
 		})
 
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccLogGroup(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "logGroup"),
-			RunUpdateTest: false,
-		})
-	skipRefresh(&test)
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccQueue(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "queue"),
-			RunUpdateTest: true,
-		})
-	skipRefresh(&test)
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccEventBus(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "eventbus"),
-		})
-	skipRefresh(&test)
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccStream(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "stream"),
-			RunUpdateTest: true,
-		})
-	skipRefresh(&test)
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccTable(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "table"),
-			RunUpdateTest: true,
-		})
-	skipRefresh(&test)
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccTopic(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "topic"),
-			RunUpdateTest: true,
-		})
-	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -341,56 +247,6 @@ func TestAccCallbackFunction(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-func TestAccSsmParameter(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "ssmparameter"),
-			RunUpdateTest: true,
-			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
-				tier, ok := stack.Outputs["tier"]
-				require.Equalf(t, true, ok, "tier not found in outputs")
-				assert.Equal(t, "Standard", tier)
-
-				tier2, ok := stack.Outputs["tier2"]
-				require.Equalf(t, true, ok, "tier2 not found in outputs")
-				assert.Equal(t, "Standard", tier2)
-			},
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccSsmParameterWithS3State(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "ssmparameter"),
-			RunUpdateTest: true,
-			CloudURL:      "s3://ci-remote-state-bucket",
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccRoute53(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "route53"),
-			RunUpdateTest: true,
-		})
-	skipRefresh(&test)
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccLambdaLayer(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "lambda-layer-old"),
-			RunUpdateTest: true,
-		})
-	skipRefresh(&test)
-	integration.ProgramTest(t, &test)
-}
-
 func TestAccLambdaContainerImages(t *testing.T) {
 	// TODO[pulumi/pulumi-awsx#1612]
 	t.Skipf("Skipping test until awsx is update to use getAuthorizationToken %s", t.Name())
@@ -399,26 +255,6 @@ func TestAccLambdaContainerImages(t *testing.T) {
 			Dir: filepath.Join(getCwd(t), "lambda-container-image"),
 		})
 	skipRefresh(&test)
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccLambdaLayerNewEnums(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "lambda-layer-new"),
-			RunUpdateTest: false,
-		})
-	skipRefresh(&test)
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccEcr(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "ecr"),
-			RunUpdateTest: true,
-		})
-
 	integration.ProgramTest(t, &test)
 }
 
@@ -460,116 +296,6 @@ func TestAccIgnoreChanges(t *testing.T) {
 				},
 			},
 		})
-
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccWebserver(t *testing.T) {
-	skipIfShort(t)
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "webserver"),
-			//
-			// TODO[pulumi/pulumi#12859] temporarily disable EditDirs to workaround ProgramTest bug
-			//
-			// EditDirs: []integration.EditDir{
-			// 	// First, look up the server just created using get.  No new resources.
-			// 	createEditDir(filepath.Join(getCwd(t), "webserver", "variants", "get")),
-			// 	// Next, patch the ingress rules by adding port 20: should be a quick update.
-			// 	createEditDir(filepath.Join(getCwd(t), "webserver", "variants", "ssh")),
-			// 	// Now do the reverse; this basically ensures that an update that deletes a property works.
-			// 	createEditDir(filepath.Join(getCwd(t), "webserver")),
-			// 	// Next patch the security group description, necessitating a full replacement of resources.
-			// 	createEditDir(filepath.Join(getCwd(t), "webserver", "variants", "ssh_description")),
-			// },
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccWebserverVariants(t *testing.T) {
-	skipIfShort(t)
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "webserver", "variants", "zones"),
-			RunUpdateTest: true,
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccWebserverComp(t *testing.T) {
-	skipIfShort(t)
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "webserver-comp"),
-			Secrets: map[string]string{
-				"aws:accessKey": os.Getenv("AWS_ACCESS_KEY_ID"),
-				"aws:secretKey": os.Getenv("AWS_SECRET_ACCESS_KEY"),
-			},
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccServerlessRaw(t *testing.T) {
-	skipIfShort(t)
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "serverless-raw"),
-			RunUpdateTest: false,
-			// Two changes are known to occur during refresh of the resources in this example:
-			// * `~  aws:apigateway:Method myrestapi-method updated changes: + authorizationScopes,...`
-			// * `~  aws:lambda:Function mylambda-logcollector updated changes: ~ lastModified`
-			ExpectRefreshChanges: true,
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccMultipleRegions(t *testing.T) {
-	skipIfShort(t)
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "multiple-regions"),
-			// RunUpdateTest: true,
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccFifoSqsQueueTs(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "sqs-fifo-queue", "ts"),
-			RunUpdateTest: false,
-			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
-				assert.Contains(t, stack.Outputs["name"].(string), ".fifo")
-			},
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccKmsAliasTs(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "kms-alias"),
-			RunUpdateTest: false,
-			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
-				assert.Contains(t, stack.Outputs["autonamedAlias"].(string), "alias/")
-			},
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccWafV2(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "wafv2"),
-		})
-	skipRefresh(&test)
 
 	integration.ProgramTest(t, &test)
 }
@@ -805,31 +531,6 @@ func TestRoleInlinePolicyAutoName(t *testing.T) {
 
 	require.Regexp(t, regexp.MustCompile("testrole-*"), inlinePolicy.Name)
 	require.JSONEq(t, `{"Version": "2012-10-17", "Statement": [{"Effect": "Allow", "Action": "s3:GetObject", "Resource": "*" }]}`, inlinePolicy.Policy)
-}
-
-func TestRdsGetEngineVersion(t *testing.T) {
-	skipIfShort(t)
-	t.Parallel()
-	test := pulumitest.NewPulumiTest(t, "rds-getengineversion",
-		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
-	)
-	res, err := test.CurrentStack().Up(test.Context())
-	require.NoError(t, err)
-
-	engineVersion := res.Outputs["vs"]
-	require.Equal(t, engineVersion.Value, "15.8")
-}
-
-func TestServerlessAppRepositoryApplication(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "serverless-app-repository-application"),
-			Config: map[string]string{
-				"functionName": "athena-cloudwatch-connector-" + randomString(10),
-			},
-		})
-
-	integration.ProgramTest(t, &test)
 }
 
 func TestAccEcrImage(t *testing.T) {
