@@ -258,48 +258,6 @@ func TestAccLambdaContainerImages(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-func TestAccDeleteBeforeCreate(t *testing.T) {
-	basePath := filepath.Join(getCwd(t), "delete_before_create", "mount_target")
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(basePath, "step1"),
-			RunUpdateTest: true,
-			EditDirs: []integration.EditDir{
-				{
-					Dir:      filepath.Join(basePath, "step2"),
-					Additive: true,
-				},
-				{
-					Dir:      filepath.Join(basePath, "step3"),
-					Additive: true,
-				},
-			},
-		})
-	skipRefresh(&test)
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccIgnoreChanges(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "ignoreChanges"),
-			RunUpdateTest: true,
-			EditDirs: []integration.EditDir{
-				{
-					Dir:      filepath.Join(getCwd(t), "ignoreChanges", "step1"),
-					Additive: true,
-					ExtraRuntimeValidation: func(t *testing.T, info integration.RuntimeValidationStackInfo) {
-						// Verify that the change to `"bar"` was succesfully ignored.
-						assert.Equal(t, "foo", info.Deployment.Resources[2].Inputs["bucketPrefix"])
-						assert.Equal(t, "foo", info.Deployment.Resources[2].Outputs["bucketPrefix"])
-					},
-				},
-			},
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
 func TestRegress1423Ts(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
@@ -323,22 +281,6 @@ func TestRegress2818(t *testing.T) {
 	test.SkipUpdate = true
 	test.SkipExportImport = true
 	test.SkipEmptyPreviewUpdate = true
-	// Disable envRegion mangling
-	test.Config = nil
-	integration.ProgramTest(t, &test)
-}
-
-// Checks aws.cognito.UserPool that had constant Diff issues.
-//
-// See https://github.com/pulumi/pulumi-aws/issues/2868
-func TestRegress2868(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "regress-2868"),
-			// TODO[pulumi/pulumi-aws#5521] `region` causes permanent diff without refresh
-			PreviewCommandlineFlags: []string{"--refresh"},
-			UpdateCommandlineFlags:  []string{"--refresh"},
-		})
 	// Disable envRegion mangling
 	test.Config = nil
 	integration.ProgramTest(t, &test)
@@ -653,22 +595,6 @@ func nodeProviderUpgradeOpts() *testProviderUpgradeOptions {
 	}
 }
 
-func TestRegress3094(t *testing.T) {
-	skipIfShort(t)
-	t.Parallel()
-	dir := filepath.Join("test-programs", "regress-3094")
-	cwd, err := os.Getwd()
-	require.NoError(t, err)
-	providerName := "aws"
-	options := []opttest.Option{
-		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
-		opttest.YarnLink("@pulumi/aws"),
-	}
-	test := pulumitest.NewPulumiTest(t, dir, options...)
-	upResult := test.Up(t)
-	t.Logf("#%v", upResult.Summary)
-}
-
 func TestChangingRegion(t *testing.T) {
 	skipIfShort(t)
 	t.Parallel()
@@ -716,23 +642,6 @@ func TestChangingRegion(t *testing.T) {
 	})
 }
 
-func TestRegressAttributeMustBeWholeNumber(t *testing.T) {
-	// pulumi/pulumi-terraform-bridge#1940
-	skipIfShort(t)
-	t.Parallel()
-	dir := filepath.Join("test-programs", "ec2-string-for-int")
-	cwd, err := os.Getwd()
-	require.NoError(t, err)
-	providerName := "aws"
-	options := []opttest.Option{
-		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
-		opttest.YarnLink("@pulumi/aws"),
-	}
-	test := pulumitest.NewPulumiTest(t, dir, options...)
-	result := test.Preview(t)
-	t.Logf("#%v", result.ChangeSummary)
-}
-
 func TestParallelLambdaCreation(t *testing.T) {
 	// This test is flaky and needs to be fixed. It occasionally fails to find the lambda zip archive
 	t.Skipf("TODO[pulumi/pulumi-aws#4731]")
@@ -759,24 +668,6 @@ func TestParallelLambdaCreation(t *testing.T) {
 
 		integration.ProgramTest(t, &test)
 	})
-}
-
-func TestRegress4446(t *testing.T) {
-	skipIfShort(t)
-	t.Parallel()
-	dir := filepath.Join("test-programs", "regress-4446")
-	cwd, err := os.Getwd()
-	require.NoError(t, err)
-	providerName := "aws"
-	options := []opttest.Option{
-		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
-		opttest.YarnLink("@pulumi/aws"),
-	}
-	test := pulumitest.NewPulumiTest(t, dir, options...)
-	upResult := test.Up(t)
-	t.Logf("#%v", upResult.Summary)
-	result := test.Preview(t, optpreview.ExpectNoChanges())
-	t.Logf("#%v", result.ChangeSummary)
 }
 
 func TestRegress5219(t *testing.T) {

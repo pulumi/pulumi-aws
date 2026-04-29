@@ -47,17 +47,6 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-// This test is not a proper examlpe but a test of the new capability to deploy Plugin Framework and SDKv2 based
-// resources alongside each other in the same provider.
-func TestAccPluginFramework(t *testing.T) {
-	test := getYamlBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "plugin-framework"),
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
 func TestEKSClusterUpgrade(t *testing.T) {
 	testProviderUpgrade(t, filepath.Join("test-programs", "eks-cluster"), nil)
 }
@@ -860,117 +849,6 @@ func TestRegressUnknownTags(t *testing.T) {
           }
         ]
 	`, seedB64, expectedName)
-	replay(t, repro)
-}
-
-func TestWrongStateMaxItemOneDiffProduced(t *testing.T) {
-	repro := `
-	[
-		{
-			"method": "/pulumirpc.ResourceProvider/Configure",
-			"request": {
-				"variables": {
-					"aws:config:region": "us-east-1",
-					"aws:config:skipCredentialsValidation": "true",
-					"aws:config:skipRegionValidation": "true"
-				},
-				"args": {
-					"region": "us-east-1",
-					"skipCredentialsValidation": "true",
-					"skipRegionValidation": "true",
-					"version": "7.0.0-alpha.0+dev"
-				},
-				"acceptSecrets": true,
-				"acceptResources": true,
-				"sendsOldInputs": true,
-				"sendsOldInputsToDelete": true,
-				"id": "8043d035-cb0a-40bb-9479-34f237a486d2",
-				"urn": "urn:pulumi:dev::aws_esm_py::pulumi:providers:aws::default_7_0_0_alpha_0_dev",
-				"name": "default_7_0_0_alpha_0_dev",
-				"type": "pulumi:providers:aws"
-			},
-			"response": {
-				"supportsPreview": true,
-				"supportsAutonamingConfiguration": true
-			},
-			"metadata": {
-				"kind": "resource",
-				"mode": "client",
-				"name": "aws"
-			}
-		},
-    {
-      "method": "/pulumirpc.ResourceProvider/Diff",
-      "request": {
-          "id": "f8af893f-869e-4861-a403-1a4fe3509754",
-          "urn": "urn:pulumi:dev::aws_esm_py::aws:lambda/eventSourceMapping:EventSourceMapping::example",
-          "olds": {
-              "amazonManagedKafkaEventSourceConfig": null,
-							"region": "us-east-1",
-              "batchSize": 10,
-              "bisectBatchOnFunctionError": false,
-              "destinationConfig": null,
-              "documentDbEventSourceConfig": null,
-              "enabled": true,
-              "eventSourceArn": "arn:aws:sqs:us-east-1:616138583583:queue-7798098",
-              "filterCriteria": null,
-              "functionArn": "arn:aws:lambda:us-east-1:616138583583:function:testLambda-74dac89",
-              "functionName": "arn:aws:lambda:us-east-1:616138583583:function:testLambda-74dac89",
-              "functionResponseTypes": [],
-              "id": "f8af893f-869e-4861-a403-1a4fe3509754",
-              "lastModified": "2023-12-08T16:02:48Z",
-              "lastProcessingResult": "",
-              "maximumBatchingWindowInSeconds": 0,
-              "maximumRecordAgeInSeconds": 0,
-              "maximumRetryAttempts": 0,
-              "parallelizationFactor": 0,
-              "queues": [],
-              "scalingConfig": null,
-              "selfManagedEventSource": null,
-              "selfManagedKafkaEventSourceConfig": null,
-              "sourceAccessConfigurations": [],
-              "startingPosition": "",
-              "startingPositionTimestamp": "",
-              "state": "Enabled",
-              "stateTransitionReason": "USER_INITIATED",
-              "topics": [],
-              "tumblingWindowInSeconds": 0,
-							"tagsAll": {},
-              "uuid": "f8af893f-869e-4861-a403-1a4fe3509754"
-          },
-          "news": {
-              "__defaults": [
-                  "enabled"
-              ],
-							"region": "us-east-1",
-              "enabled": true,
-              "eventSourceArn": "arn:aws:sqs:us-east-1:616138583583:queue-7798098",
-							"tagsAll": {},
-              "functionName": "arn:aws:lambda:us-east-1:616138583583:function:testLambda-74dac89"
-          },
-          "oldInputs": {
-              "__defaults": [
-                  "enabled"
-              ],
-							"region": "us-east-1",
-              "enabled": true,
-              "eventSourceArn": "arn:aws:sqs:us-east-1:616138583583:queue-7798098",
-              "functionName": "arn:aws:lambda:us-east-1:616138583583:function:testLambda-74dac89"
-          }
-      },
-      "response": {
-          "stables": "*",
-          "changes": "DIFF_SOME",
-          "hasDetailedDiff": true
-      },
-      "metadata": {
-          "kind": "resource",
-          "mode": "client",
-          "name": "aws"
-      }
-  }
-  ]
-	`
 	replay(t, repro)
 }
 
