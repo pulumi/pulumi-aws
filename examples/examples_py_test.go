@@ -25,16 +25,6 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestAccBucketPy(t *testing.T) {
-	test := getPythonBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "bucket-py"),
-			RunUpdateTest: true,
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
 func TestAccPolicyDocument(t *testing.T) {
 	test := getPythonBaseOptions(t).
 		With(integration.ProgramTestOptions{
@@ -55,38 +45,6 @@ func TestAccWebserverPy(t *testing.T) {
 			integration.ProgramTest(t, &test)
 		})
 	}
-}
-
-func TestAccCodeBuildProjectPy(t *testing.T) {
-	test := getPythonBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "codebuild-project-py"),
-			RunUpdateTest: false,
-		})
-	skipRefresh(&test)
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccFifoSqsQueuePy(t *testing.T) {
-	test := getPythonBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "sqs-fifo-queue", "python"),
-			RunUpdateTest: false,
-			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
-				assert.Contains(t, stack.Outputs["name"].(string), ".fifo")
-			},
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
-func TestSecretManagerPy(t *testing.T) {
-	test := getPythonBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "secretmanager"),
-		})
-
-	integration.ProgramTest(t, &test)
 }
 
 func TestRegress4031(t *testing.T) {

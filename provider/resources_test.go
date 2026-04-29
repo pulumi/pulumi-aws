@@ -2,8 +2,10 @@ package provider
 
 import (
 	"context"
+	"strings"
 	"testing"
 
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/stretchr/testify/assert"
 
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
@@ -103,6 +105,70 @@ func TestHasOptionalOrRequiredNamePropertyOptimized(t *testing.T) {
 		}
 	}
 }
+
+func TestCustomAutoNameTransforms(t *testing.T) {
+	t.Parallel()
+
+	tests := []struct {
+		name       string
+		resource   string
+		properties resource.PropertyMap
+		urnName    string
+		prefix     string
+		suffix     string
+	}{
+		{
+			name:     "SQS FIFO queue name ends with fifo suffix",
+			resource: "aws_sqs_queue",
+			properties: resource.PropertyMap{
+				"fifoQueue": resource.NewBoolProperty(true),
+			},
+			urnName: "queue",
+			prefix:  "queue-",
+			suffix:  ".fifo",
+		},
+		{
+			name:     "SQS standard queue name omits fifo suffix",
+			resource: "aws_sqs_queue",
+			properties: resource.PropertyMap{
+				"fifoQueue": resource.NewBoolProperty(false),
+			},
+			urnName: "queue",
+			prefix:  "queue-",
+		},
+		{
+			name:     "KMS alias name has required alias prefix",
+			resource: "aws_kms_alias",
+			urnName:  "key",
+			prefix:   "alias/key-",
+		},
+	}
+
+	for _, tt := range tests {
+		tt := tt
+		t.Run(tt.name, func(t *testing.T) {
+			t.Parallel()
+
+			field := Provider().Resources[tt.resource].Fields["name"]
+			actual, err := field.Default.ComputeDefault(context.Background(), tfbridge.ComputeDefaultOptions{
+				URN:        resource.NewURN("stack", "project", "", "aws:index/resource:Resource", tt.urnName),
+				Properties: tt.properties,
+				Seed:       []byte("test-seed"),
+			})
+			assert.NoError(t, err)
+
+			name, ok := actual.(string)
+			assert.True(t, ok)
+			assert.Truef(t, strings.HasPrefix(name, tt.prefix), "expected %q to have prefix %q", name, tt.prefix)
+			if tt.suffix != "" {
+				assert.Truef(t, strings.HasSuffix(name, tt.suffix), "expected %q to have suffix %q", name, tt.suffix)
+			} else {
+				assert.Falsef(t, strings.HasSuffix(name, ".fifo"), "expected %q to omit .fifo suffix", name)
+			}
+		})
+	}
+}
+
 func TestExtractTags(t *testing.T) {
 	t.Parallel()
 
