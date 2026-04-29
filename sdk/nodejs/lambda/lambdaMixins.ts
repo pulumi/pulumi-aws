@@ -223,7 +223,7 @@ export type BaseCallbackFunctionArgs = utils.Overwrite<FunctionArgs, {
     policies?: Record<string, pulumi.Input<string>> | string[];
 
     /**
-     * The Lambda runtime to use.  If not provided, will default to [aws.lambda.Runtime.NodeJS20dX].
+     * The Lambda runtime to use.  If not provided, will default to [aws.lambda.Runtime.NodeJS22dX].
      */
     runtime?: Runtime | string;
 
@@ -409,7 +409,7 @@ export class CallbackFunction<E, R> extends LambdaFunction {
             ...args,
             code: code,
             handler: serializedFileNameNoExtension + "." + handlerName,
-            runtime: args.runtime || Runtime.NodeJS20dX,
+            runtime: args.runtime || Runtime.NodeJS22dX,
             role: iam.Role.isInstance(role) ? role.arn : role,
             timeout: args.timeout === undefined ? 180 : args.timeout,
         };

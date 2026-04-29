@@ -52,11 +52,12 @@ func TestAccDedicatedHosts(t *testing.T) {
 
 func TestAccExpress(t *testing.T) {
 	// This example is reused to further validate that provisioned CallbackFunctions in Node are working at runtime
-	// as expected, in particular their default runtime is not deprecated and they can utilize new APIs like the
-	// fetch() API that is new in the Node 18 runtime.
+	// as expected, in particular their default runtime is not deprecated and they can utilize modern APIs like
+	// fetch().
 	validate := func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
 		lambdaRuntime := stack.Outputs["lambdaRuntime"].(string)
 		t.Logf("Picked the following runtime by default: %v", lambdaRuntime)
+		assert.Equal(t, "nodejs22.x", lambdaRuntime)
 
 		lambdaARN := stack.Outputs["lambdaARN"].(string)
 
