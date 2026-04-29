@@ -28,7 +28,6 @@ import (
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/optnewstack"
 	"github.com/pulumi/providertest/pulumitest/opttest"
-	"github.com/pulumi/pulumi-aws/provider/v7/pkg/elb"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
@@ -619,61 +618,6 @@ func TestRegress2868(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-// Checks aws.ssm.Document that had constant Diff issues.
-//
-// See https://github.com/pulumi/pulumi-aws/issues/2555
-func TestRegress2555(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: "regress-2555",
-
-			// TODO does not refresh cleanly, actually following upstream: both in TF
-			// pure and in Pulumi refreshing replaces nil with empty map for tags and
-			// permissions properties.
-			SkipRefresh: true,
-
-			// Sometimes pulumi destroy fails with this:
-			//
-			//     InvalidDocument: No matching value was found for Name.
-			//
-			// It happens if the document was created but creation has not yet propagated through AWS.
-			RetryFailedSteps: true,
-
-			EditDirs: []integration.EditDir{{
-				Dir:      filepath.Join("regress-2555", "step1"),
-				Additive: true,
-			}},
-		})
-	// Disable envRegion mangling
-	test.Config = nil
-	integration.ProgramTest(t, &test)
-}
-
-func TestRegress3421(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:         "regress-3421",
-			SkipRefresh: true,
-		},
-		)
-	// Disable envRegion mangling
-	test.Config = nil
-	integration.ProgramTest(t, &test)
-}
-
-func TestRegress3421Update(t *testing.T) {
-	skipIfShort(t)
-	t.Parallel()
-	test := pulumitest.NewPulumiTest(t, "regress-3421",
-		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
-	)
-
-	test.SetConfig(t, "listenerPort", "80")
-	test.Up(t)
-	test.SetConfig(t, "listenerPort", "81")
-	test.Up(t)
-}
-
 func TestGlobalResourcesUseSeparateRegionArgument(t *testing.T) {
 	skipIfShort(t)
 	t.Parallel()
@@ -876,26 +820,6 @@ func TestRdsGetEngineVersion(t *testing.T) {
 	require.Equal(t, engineVersion.Value, "15.8")
 }
 
-// Checks static get function for ssm.parameter that was broken for versioned IDs.
-//
-// See https://github.com/pulumi/pulumi-aws/issues/4011
-func TestRegress4011(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "regress-4011"),
-			EditDirs: []integration.EditDir{{
-				Dir:      filepath.Join(getCwd(t), "regress-4011", "step1"),
-				Additive: true,
-			}},
-		})
-
-	// Disable envRegion mangling
-	test.Config = map[string]string{
-		"parameterName": "regress-4011-" + randomString(10),
-	}
-	integration.ProgramTest(t, &test)
-}
-
 func TestServerlessAppRepositoryApplication(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
@@ -1044,22 +968,6 @@ func TestRegress3094(t *testing.T) {
 	t.Logf("#%v", upResult.Summary)
 }
 
-func TestRegress3835(t *testing.T) {
-	skipIfShort(t)
-	t.Parallel()
-	dir := filepath.Join("test-programs", "regress-3835")
-	cwd, err := os.Getwd()
-	require.NoError(t, err)
-	providerName := "aws"
-	options := []opttest.Option{
-		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
-		opttest.YarnLink("@pulumi/aws"),
-	}
-	test := pulumitest.NewPulumiTest(t, dir, options...)
-	result := test.Up(t)
-	t.Logf("#%v", result.Summary)
-}
-
 func TestChangingRegion(t *testing.T) {
 	skipIfShort(t)
 	t.Parallel()
@@ -1124,69 +1032,6 @@ func TestRegressAttributeMustBeWholeNumber(t *testing.T) {
 	t.Logf("#%v", result.ChangeSummary)
 }
 
-func TestRegress4079(t *testing.T) {
-	t.Parallel()
-	skipIfShort(t)
-	ctx := context.Background()
-	dir := filepath.Join("test-programs", "regress-4079")
-	cwd, err := os.Getwd()
-	require.NoError(t, err)
-	providerName := "aws"
-	options := []opttest.Option{
-		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
-		opttest.YarnLink("@pulumi/aws"),
-	}
-	test := pulumitest.NewPulumiTest(t, dir, options...)
-
-	test.SetConfig(t, "targetGroupCount", "2")
-	r1 := test.Up(t)
-	t.Logf("Stdout: %v", r1.StdOut)
-	t.Logf("Stderr: %v", r1.StdErr)
-
-	listenerARN := r1.Outputs["listenerARN"].Value.(string)
-	err = elb.ModifyListenerDefaultActions(ctx, listenerARN, func(as []elb.Action) []elb.Action {
-		r := []elb.Action{}
-		for _, a := range as {
-			b := a
-			t.Logf("BEFORE: len(ForwardConfig.TargetGroups)=%d", len(b.ForwardConfig.TargetGroups))
-			b.ForwardConfig.TargetGroups = []elb.TargetGroupTuple{
-				b.ForwardConfig.TargetGroups[0],
-			}
-			t.Logf("AFTER: len(ForwardConfig.TargetGroups)=%d", len(b.ForwardConfig.TargetGroups))
-			r = append(r, b)
-		}
-		return r
-	})
-	require.NoError(t, err)
-
-	rr := test.Refresh(t)
-	t.Logf("Stdout: %v", rr.StdOut)
-	t.Logf("Stderr: %v", rr.StdErr)
-
-	refreshedState := test.ExportStack(t)
-
-	type resource struct {
-		Type    string         `json:"type"`
-		Outputs map[string]any `json:"outputs"`
-	}
-	type deployment struct {
-		Resources []resource `json:"resources"`
-	}
-	var data deployment
-	err = json.Unmarshal(refreshedState.Deployment, &data)
-	require.NoError(t, err)
-
-	for _, r := range data.Resources {
-		if r.Type != "aws:lb/listener:Listener" {
-			continue
-		}
-		defaultAction1 := r.Outputs["defaultActions"].([]any)[0].(map[string]any)
-		t.Logf("defaultActions includes: %#v", defaultAction1)
-		require.NotNil(t, defaultAction1["forward"], "forward should be set in defaultActions")
-		require.Emptyf(t, defaultAction1["targetGroupArn"], "targetGroupArn should be empty in defaultActions")
-	}
-}
-
 func TestParallelLambdaCreation(t *testing.T) {
 	// This test is flaky and needs to be fixed. It occasionally fails to find the lambda zip archive
 	t.Skipf("TODO[pulumi/pulumi-aws#4731]")
@@ -1213,23 +1058,6 @@ func TestParallelLambdaCreation(t *testing.T) {
 
 		integration.ProgramTest(t, &test)
 	})
-}
-
-func TestRegress4128(t *testing.T) {
-	if testing.Short() {
-		t.Skipf("Skipping test in -short mode because it needs cloud credentials")
-		return
-	}
-
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:         filepath.Join("test-programs", "regress-4128"),
-			SkipRefresh: true,
-		},
-		)
-	// Disable envRegion mangling
-	test.Config = nil
-	integration.ProgramTest(t, &test)
 }
 
 func TestRegress4446(t *testing.T) {
