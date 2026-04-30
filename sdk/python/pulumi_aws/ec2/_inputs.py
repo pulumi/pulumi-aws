@@ -234,6 +234,38 @@ __all__ = [
     'NetworkAclEgressArgsDict',
     'NetworkAclIngressArgs',
     'NetworkAclIngressArgsDict',
+    'NetworkInsightsAccessScopeExcludePathArgs',
+    'NetworkInsightsAccessScopeExcludePathArgsDict',
+    'NetworkInsightsAccessScopeExcludePathDestinationArgs',
+    'NetworkInsightsAccessScopeExcludePathDestinationArgsDict',
+    'NetworkInsightsAccessScopeExcludePathDestinationPacketHeaderStatementArgs',
+    'NetworkInsightsAccessScopeExcludePathDestinationPacketHeaderStatementArgsDict',
+    'NetworkInsightsAccessScopeExcludePathDestinationResourceStatementArgs',
+    'NetworkInsightsAccessScopeExcludePathDestinationResourceStatementArgsDict',
+    'NetworkInsightsAccessScopeExcludePathSourceArgs',
+    'NetworkInsightsAccessScopeExcludePathSourceArgsDict',
+    'NetworkInsightsAccessScopeExcludePathSourcePacketHeaderStatementArgs',
+    'NetworkInsightsAccessScopeExcludePathSourcePacketHeaderStatementArgsDict',
+    'NetworkInsightsAccessScopeExcludePathSourceResourceStatementArgs',
+    'NetworkInsightsAccessScopeExcludePathSourceResourceStatementArgsDict',
+    'NetworkInsightsAccessScopeExcludePathThroughResourceArgs',
+    'NetworkInsightsAccessScopeExcludePathThroughResourceArgsDict',
+    'NetworkInsightsAccessScopeExcludePathThroughResourceResourceStatementArgs',
+    'NetworkInsightsAccessScopeExcludePathThroughResourceResourceStatementArgsDict',
+    'NetworkInsightsAccessScopeMatchPathArgs',
+    'NetworkInsightsAccessScopeMatchPathArgsDict',
+    'NetworkInsightsAccessScopeMatchPathDestinationArgs',
+    'NetworkInsightsAccessScopeMatchPathDestinationArgsDict',
+    'NetworkInsightsAccessScopeMatchPathDestinationPacketHeaderStatementArgs',
+    'NetworkInsightsAccessScopeMatchPathDestinationPacketHeaderStatementArgsDict',
+    'NetworkInsightsAccessScopeMatchPathDestinationResourceStatementArgs',
+    'NetworkInsightsAccessScopeMatchPathDestinationResourceStatementArgsDict',
+    'NetworkInsightsAccessScopeMatchPathSourceArgs',
+    'NetworkInsightsAccessScopeMatchPathSourceArgsDict',
+    'NetworkInsightsAccessScopeMatchPathSourcePacketHeaderStatementArgs',
+    'NetworkInsightsAccessScopeMatchPathSourcePacketHeaderStatementArgsDict',
+    'NetworkInsightsAccessScopeMatchPathSourceResourceStatementArgs',
+    'NetworkInsightsAccessScopeMatchPathSourceResourceStatementArgsDict',
     'NetworkInsightsAnalysisAlternatePathHintArgs',
     'NetworkInsightsAnalysisAlternatePathHintArgsDict',
     'NetworkInsightsAnalysisExplanationArgs',
@@ -11122,6 +11154,1263 @@ class NetworkAclIngressArgs:
     @ipv6_cidr_block.setter
     def ipv6_cidr_block(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "ipv6_cidr_block", value)
+
+
+class NetworkInsightsAccessScopeExcludePathArgsDict(TypedDict):
+    destination: NotRequired[pulumi.Input['NetworkInsightsAccessScopeExcludePathDestinationArgsDict']]
+    """
+    Path statement for the destination.
+    See `source` and `destination` below for details.
+    """
+    source: NotRequired[pulumi.Input['NetworkInsightsAccessScopeExcludePathSourceArgsDict']]
+    """
+    Path statement for the source.
+    See `source` and `destination` below for details.
+    """
+    through_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeExcludePathThroughResourceArgsDict']]]]
+    """
+    Path statement for through resources.
+    See `through_resources` below for details.
+    """
+
+@pulumi.input_type
+class NetworkInsightsAccessScopeExcludePathArgs:
+    def __init__(__self__, *,
+                 destination: Optional[pulumi.Input['NetworkInsightsAccessScopeExcludePathDestinationArgs']] = None,
+                 source: Optional[pulumi.Input['NetworkInsightsAccessScopeExcludePathSourceArgs']] = None,
+                 through_resources: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeExcludePathThroughResourceArgs']]]] = None):
+        """
+        :param pulumi.Input['NetworkInsightsAccessScopeExcludePathDestinationArgs'] destination: Path statement for the destination.
+               See `source` and `destination` below for details.
+        :param pulumi.Input['NetworkInsightsAccessScopeExcludePathSourceArgs'] source: Path statement for the source.
+               See `source` and `destination` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeExcludePathThroughResourceArgs']]] through_resources: Path statement for through resources.
+               See `through_resources` below for details.
+        """
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if through_resources is not None:
+            pulumi.set(__self__, "through_resources", through_resources)
+
+    @_builtins.property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input['NetworkInsightsAccessScopeExcludePathDestinationArgs']]:
+        """
+        Path statement for the destination.
+        See `source` and `destination` below for details.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input['NetworkInsightsAccessScopeExcludePathDestinationArgs']]):
+        pulumi.set(self, "destination", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input['NetworkInsightsAccessScopeExcludePathSourceArgs']]:
+        """
+        Path statement for the source.
+        See `source` and `destination` below for details.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input['NetworkInsightsAccessScopeExcludePathSourceArgs']]):
+        pulumi.set(self, "source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="throughResources")
+    def through_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeExcludePathThroughResourceArgs']]]]:
+        """
+        Path statement for through resources.
+        See `through_resources` below for details.
+        """
+        return pulumi.get(self, "through_resources")
+
+    @through_resources.setter
+    def through_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeExcludePathThroughResourceArgs']]]]):
+        pulumi.set(self, "through_resources", value)
+
+
+class NetworkInsightsAccessScopeExcludePathDestinationArgsDict(TypedDict):
+    packet_header_statement: NotRequired[pulumi.Input['NetworkInsightsAccessScopeExcludePathDestinationPacketHeaderStatementArgsDict']]
+    """
+    Packet header statement.
+    See `packet_header_statement` below for details.
+    """
+    resource_statement: NotRequired[pulumi.Input['NetworkInsightsAccessScopeExcludePathDestinationResourceStatementArgsDict']]
+
+@pulumi.input_type
+class NetworkInsightsAccessScopeExcludePathDestinationArgs:
+    def __init__(__self__, *,
+                 packet_header_statement: Optional[pulumi.Input['NetworkInsightsAccessScopeExcludePathDestinationPacketHeaderStatementArgs']] = None,
+                 resource_statement: Optional[pulumi.Input['NetworkInsightsAccessScopeExcludePathDestinationResourceStatementArgs']] = None):
+        """
+        :param pulumi.Input['NetworkInsightsAccessScopeExcludePathDestinationPacketHeaderStatementArgs'] packet_header_statement: Packet header statement.
+               See `packet_header_statement` below for details.
+        """
+        if packet_header_statement is not None:
+            pulumi.set(__self__, "packet_header_statement", packet_header_statement)
+        if resource_statement is not None:
+            pulumi.set(__self__, "resource_statement", resource_statement)
+
+    @_builtins.property
+    @pulumi.getter(name="packetHeaderStatement")
+    def packet_header_statement(self) -> Optional[pulumi.Input['NetworkInsightsAccessScopeExcludePathDestinationPacketHeaderStatementArgs']]:
+        """
+        Packet header statement.
+        See `packet_header_statement` below for details.
+        """
+        return pulumi.get(self, "packet_header_statement")
+
+    @packet_header_statement.setter
+    def packet_header_statement(self, value: Optional[pulumi.Input['NetworkInsightsAccessScopeExcludePathDestinationPacketHeaderStatementArgs']]):
+        pulumi.set(self, "packet_header_statement", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceStatement")
+    def resource_statement(self) -> Optional[pulumi.Input['NetworkInsightsAccessScopeExcludePathDestinationResourceStatementArgs']]:
+        return pulumi.get(self, "resource_statement")
+
+    @resource_statement.setter
+    def resource_statement(self, value: Optional[pulumi.Input['NetworkInsightsAccessScopeExcludePathDestinationResourceStatementArgs']]):
+        pulumi.set(self, "resource_statement", value)
+
+
+class NetworkInsightsAccessScopeExcludePathDestinationPacketHeaderStatementArgsDict(TypedDict):
+    destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of destination addresses.
+    """
+    destination_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of destination ports.
+    """
+    destination_prefix_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of destination prefix lists.
+    """
+    protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of protocols.
+    Valid values are `tcp` and `udp`.
+    """
+    source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of source addresses.
+    """
+    source_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of source ports.
+    """
+    source_prefix_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of source prefix lists.
+    """
+
+@pulumi.input_type
+class NetworkInsightsAccessScopeExcludePathDestinationPacketHeaderStatementArgs:
+    def __init__(__self__, *,
+                 destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_prefix_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_prefix_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_addresses: Set of destination addresses.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_ports: Set of destination ports.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_prefix_lists: Set of destination prefix lists.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: Set of protocols.
+               Valid values are `tcp` and `udp`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_addresses: Set of source addresses.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_ports: Set of source ports.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_prefix_lists: Set of source prefix lists.
+        """
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if destination_ports is not None:
+            pulumi.set(__self__, "destination_ports", destination_ports)
+        if destination_prefix_lists is not None:
+            pulumi.set(__self__, "destination_prefix_lists", destination_prefix_lists)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if source_ports is not None:
+            pulumi.set(__self__, "source_ports", source_ports)
+        if source_prefix_lists is not None:
+            pulumi.set(__self__, "source_prefix_lists", source_prefix_lists)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationAddresses")
+    def destination_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of destination addresses.
+        """
+        return pulumi.get(self, "destination_addresses")
+
+    @destination_addresses.setter
+    def destination_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "destination_addresses", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPorts")
+    def destination_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of destination ports.
+        """
+        return pulumi.get(self, "destination_ports")
+
+    @destination_ports.setter
+    def destination_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "destination_ports", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPrefixLists")
+    def destination_prefix_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of destination prefix lists.
+        """
+        return pulumi.get(self, "destination_prefix_lists")
+
+    @destination_prefix_lists.setter
+    def destination_prefix_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "destination_prefix_lists", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of protocols.
+        Valid values are `tcp` and `udp`.
+        """
+        return pulumi.get(self, "protocols")
+
+    @protocols.setter
+    def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "protocols", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of source addresses.
+        """
+        return pulumi.get(self, "source_addresses")
+
+    @source_addresses.setter
+    def source_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "source_addresses", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePorts")
+    def source_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of source ports.
+        """
+        return pulumi.get(self, "source_ports")
+
+    @source_ports.setter
+    def source_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "source_ports", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePrefixLists")
+    def source_prefix_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of source prefix lists.
+        """
+        return pulumi.get(self, "source_prefix_lists")
+
+    @source_prefix_lists.setter
+    def source_prefix_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "source_prefix_lists", value)
+
+
+class NetworkInsightsAccessScopeExcludePathDestinationResourceStatementArgsDict(TypedDict):
+    resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of resource types.
+    Cannot be specified together with `resources`.
+    """
+    resources: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of resource ARNs.
+    Cannot be specified together with `resource_types`.
+    """
+
+@pulumi.input_type
+class NetworkInsightsAccessScopeExcludePathDestinationResourceStatementArgs:
+    def __init__(__self__, *,
+                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_types: List of resource types.
+               Cannot be specified together with `resources`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resources: List of resource ARNs.
+               Cannot be specified together with `resource_types`.
+        """
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of resource types.
+        Cannot be specified together with `resources`.
+        """
+        return pulumi.get(self, "resource_types")
+
+    @resource_types.setter
+    def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "resource_types", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of resource ARNs.
+        Cannot be specified together with `resource_types`.
+        """
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "resources", value)
+
+
+class NetworkInsightsAccessScopeExcludePathSourceArgsDict(TypedDict):
+    packet_header_statement: NotRequired[pulumi.Input['NetworkInsightsAccessScopeExcludePathSourcePacketHeaderStatementArgsDict']]
+    """
+    Packet header statement.
+    See `packet_header_statement` below for details.
+    """
+    resource_statement: NotRequired[pulumi.Input['NetworkInsightsAccessScopeExcludePathSourceResourceStatementArgsDict']]
+    """
+    Resource statement.
+    Exactly one of `resources` or `resource_types` must be specified.
+    See `resource_statement` below for details.
+    """
+
+@pulumi.input_type
+class NetworkInsightsAccessScopeExcludePathSourceArgs:
+    def __init__(__self__, *,
+                 packet_header_statement: Optional[pulumi.Input['NetworkInsightsAccessScopeExcludePathSourcePacketHeaderStatementArgs']] = None,
+                 resource_statement: Optional[pulumi.Input['NetworkInsightsAccessScopeExcludePathSourceResourceStatementArgs']] = None):
+        """
+        :param pulumi.Input['NetworkInsightsAccessScopeExcludePathSourcePacketHeaderStatementArgs'] packet_header_statement: Packet header statement.
+               See `packet_header_statement` below for details.
+        :param pulumi.Input['NetworkInsightsAccessScopeExcludePathSourceResourceStatementArgs'] resource_statement: Resource statement.
+               Exactly one of `resources` or `resource_types` must be specified.
+               See `resource_statement` below for details.
+        """
+        if packet_header_statement is not None:
+            pulumi.set(__self__, "packet_header_statement", packet_header_statement)
+        if resource_statement is not None:
+            pulumi.set(__self__, "resource_statement", resource_statement)
+
+    @_builtins.property
+    @pulumi.getter(name="packetHeaderStatement")
+    def packet_header_statement(self) -> Optional[pulumi.Input['NetworkInsightsAccessScopeExcludePathSourcePacketHeaderStatementArgs']]:
+        """
+        Packet header statement.
+        See `packet_header_statement` below for details.
+        """
+        return pulumi.get(self, "packet_header_statement")
+
+    @packet_header_statement.setter
+    def packet_header_statement(self, value: Optional[pulumi.Input['NetworkInsightsAccessScopeExcludePathSourcePacketHeaderStatementArgs']]):
+        pulumi.set(self, "packet_header_statement", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceStatement")
+    def resource_statement(self) -> Optional[pulumi.Input['NetworkInsightsAccessScopeExcludePathSourceResourceStatementArgs']]:
+        """
+        Resource statement.
+        Exactly one of `resources` or `resource_types` must be specified.
+        See `resource_statement` below for details.
+        """
+        return pulumi.get(self, "resource_statement")
+
+    @resource_statement.setter
+    def resource_statement(self, value: Optional[pulumi.Input['NetworkInsightsAccessScopeExcludePathSourceResourceStatementArgs']]):
+        pulumi.set(self, "resource_statement", value)
+
+
+class NetworkInsightsAccessScopeExcludePathSourcePacketHeaderStatementArgsDict(TypedDict):
+    destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of destination addresses.
+    """
+    destination_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of destination ports.
+    """
+    destination_prefix_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of destination prefix lists.
+    """
+    protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of protocols.
+    Valid values are `tcp` and `udp`.
+    """
+    source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of source addresses.
+    """
+    source_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of source ports.
+    """
+    source_prefix_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of source prefix lists.
+    """
+
+@pulumi.input_type
+class NetworkInsightsAccessScopeExcludePathSourcePacketHeaderStatementArgs:
+    def __init__(__self__, *,
+                 destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_prefix_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_prefix_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_addresses: Set of destination addresses.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_ports: Set of destination ports.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_prefix_lists: Set of destination prefix lists.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: Set of protocols.
+               Valid values are `tcp` and `udp`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_addresses: Set of source addresses.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_ports: Set of source ports.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_prefix_lists: Set of source prefix lists.
+        """
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if destination_ports is not None:
+            pulumi.set(__self__, "destination_ports", destination_ports)
+        if destination_prefix_lists is not None:
+            pulumi.set(__self__, "destination_prefix_lists", destination_prefix_lists)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if source_ports is not None:
+            pulumi.set(__self__, "source_ports", source_ports)
+        if source_prefix_lists is not None:
+            pulumi.set(__self__, "source_prefix_lists", source_prefix_lists)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationAddresses")
+    def destination_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of destination addresses.
+        """
+        return pulumi.get(self, "destination_addresses")
+
+    @destination_addresses.setter
+    def destination_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "destination_addresses", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPorts")
+    def destination_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of destination ports.
+        """
+        return pulumi.get(self, "destination_ports")
+
+    @destination_ports.setter
+    def destination_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "destination_ports", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPrefixLists")
+    def destination_prefix_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of destination prefix lists.
+        """
+        return pulumi.get(self, "destination_prefix_lists")
+
+    @destination_prefix_lists.setter
+    def destination_prefix_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "destination_prefix_lists", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of protocols.
+        Valid values are `tcp` and `udp`.
+        """
+        return pulumi.get(self, "protocols")
+
+    @protocols.setter
+    def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "protocols", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of source addresses.
+        """
+        return pulumi.get(self, "source_addresses")
+
+    @source_addresses.setter
+    def source_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "source_addresses", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePorts")
+    def source_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of source ports.
+        """
+        return pulumi.get(self, "source_ports")
+
+    @source_ports.setter
+    def source_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "source_ports", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePrefixLists")
+    def source_prefix_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of source prefix lists.
+        """
+        return pulumi.get(self, "source_prefix_lists")
+
+    @source_prefix_lists.setter
+    def source_prefix_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "source_prefix_lists", value)
+
+
+class NetworkInsightsAccessScopeExcludePathSourceResourceStatementArgsDict(TypedDict):
+    resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of resource types.
+    Cannot be specified together with `resources`.
+    """
+    resources: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of resource ARNs.
+    Cannot be specified together with `resource_types`.
+    """
+
+@pulumi.input_type
+class NetworkInsightsAccessScopeExcludePathSourceResourceStatementArgs:
+    def __init__(__self__, *,
+                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_types: List of resource types.
+               Cannot be specified together with `resources`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resources: List of resource ARNs.
+               Cannot be specified together with `resource_types`.
+        """
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of resource types.
+        Cannot be specified together with `resources`.
+        """
+        return pulumi.get(self, "resource_types")
+
+    @resource_types.setter
+    def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "resource_types", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of resource ARNs.
+        Cannot be specified together with `resource_types`.
+        """
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "resources", value)
+
+
+class NetworkInsightsAccessScopeExcludePathThroughResourceArgsDict(TypedDict):
+    resource_statement: NotRequired[pulumi.Input['NetworkInsightsAccessScopeExcludePathThroughResourceResourceStatementArgsDict']]
+    """
+    Resource statement.
+    Exactly one of `resources` or `resource_types` must be specified.
+    See `resource_statement` below for details.
+    """
+
+@pulumi.input_type
+class NetworkInsightsAccessScopeExcludePathThroughResourceArgs:
+    def __init__(__self__, *,
+                 resource_statement: Optional[pulumi.Input['NetworkInsightsAccessScopeExcludePathThroughResourceResourceStatementArgs']] = None):
+        """
+        :param pulumi.Input['NetworkInsightsAccessScopeExcludePathThroughResourceResourceStatementArgs'] resource_statement: Resource statement.
+               Exactly one of `resources` or `resource_types` must be specified.
+               See `resource_statement` below for details.
+        """
+        if resource_statement is not None:
+            pulumi.set(__self__, "resource_statement", resource_statement)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceStatement")
+    def resource_statement(self) -> Optional[pulumi.Input['NetworkInsightsAccessScopeExcludePathThroughResourceResourceStatementArgs']]:
+        """
+        Resource statement.
+        Exactly one of `resources` or `resource_types` must be specified.
+        See `resource_statement` below for details.
+        """
+        return pulumi.get(self, "resource_statement")
+
+    @resource_statement.setter
+    def resource_statement(self, value: Optional[pulumi.Input['NetworkInsightsAccessScopeExcludePathThroughResourceResourceStatementArgs']]):
+        pulumi.set(self, "resource_statement", value)
+
+
+class NetworkInsightsAccessScopeExcludePathThroughResourceResourceStatementArgsDict(TypedDict):
+    resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of resource types.
+    Cannot be specified together with `resources`.
+    """
+    resources: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of resource ARNs.
+    Cannot be specified together with `resource_types`.
+    """
+
+@pulumi.input_type
+class NetworkInsightsAccessScopeExcludePathThroughResourceResourceStatementArgs:
+    def __init__(__self__, *,
+                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_types: List of resource types.
+               Cannot be specified together with `resources`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resources: List of resource ARNs.
+               Cannot be specified together with `resource_types`.
+        """
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of resource types.
+        Cannot be specified together with `resources`.
+        """
+        return pulumi.get(self, "resource_types")
+
+    @resource_types.setter
+    def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "resource_types", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of resource ARNs.
+        Cannot be specified together with `resource_types`.
+        """
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "resources", value)
+
+
+class NetworkInsightsAccessScopeMatchPathArgsDict(TypedDict):
+    destination: NotRequired[pulumi.Input['NetworkInsightsAccessScopeMatchPathDestinationArgsDict']]
+    """
+    Path statement for the destination.
+    See `source` and `destination` below for details.
+    """
+    source: NotRequired[pulumi.Input['NetworkInsightsAccessScopeMatchPathSourceArgsDict']]
+    """
+    Path statement for the source.
+    See `source` and `destination` below for details.
+    """
+
+@pulumi.input_type
+class NetworkInsightsAccessScopeMatchPathArgs:
+    def __init__(__self__, *,
+                 destination: Optional[pulumi.Input['NetworkInsightsAccessScopeMatchPathDestinationArgs']] = None,
+                 source: Optional[pulumi.Input['NetworkInsightsAccessScopeMatchPathSourceArgs']] = None):
+        """
+        :param pulumi.Input['NetworkInsightsAccessScopeMatchPathDestinationArgs'] destination: Path statement for the destination.
+               See `source` and `destination` below for details.
+        :param pulumi.Input['NetworkInsightsAccessScopeMatchPathSourceArgs'] source: Path statement for the source.
+               See `source` and `destination` below for details.
+        """
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input['NetworkInsightsAccessScopeMatchPathDestinationArgs']]:
+        """
+        Path statement for the destination.
+        See `source` and `destination` below for details.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input['NetworkInsightsAccessScopeMatchPathDestinationArgs']]):
+        pulumi.set(self, "destination", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input['NetworkInsightsAccessScopeMatchPathSourceArgs']]:
+        """
+        Path statement for the source.
+        See `source` and `destination` below for details.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input['NetworkInsightsAccessScopeMatchPathSourceArgs']]):
+        pulumi.set(self, "source", value)
+
+
+class NetworkInsightsAccessScopeMatchPathDestinationArgsDict(TypedDict):
+    packet_header_statement: NotRequired[pulumi.Input['NetworkInsightsAccessScopeMatchPathDestinationPacketHeaderStatementArgsDict']]
+    """
+    Packet header statement.
+    See `packet_header_statement` below for details.
+    """
+    resource_statement: NotRequired[pulumi.Input['NetworkInsightsAccessScopeMatchPathDestinationResourceStatementArgsDict']]
+
+@pulumi.input_type
+class NetworkInsightsAccessScopeMatchPathDestinationArgs:
+    def __init__(__self__, *,
+                 packet_header_statement: Optional[pulumi.Input['NetworkInsightsAccessScopeMatchPathDestinationPacketHeaderStatementArgs']] = None,
+                 resource_statement: Optional[pulumi.Input['NetworkInsightsAccessScopeMatchPathDestinationResourceStatementArgs']] = None):
+        """
+        :param pulumi.Input['NetworkInsightsAccessScopeMatchPathDestinationPacketHeaderStatementArgs'] packet_header_statement: Packet header statement.
+               See `packet_header_statement` below for details.
+        """
+        if packet_header_statement is not None:
+            pulumi.set(__self__, "packet_header_statement", packet_header_statement)
+        if resource_statement is not None:
+            pulumi.set(__self__, "resource_statement", resource_statement)
+
+    @_builtins.property
+    @pulumi.getter(name="packetHeaderStatement")
+    def packet_header_statement(self) -> Optional[pulumi.Input['NetworkInsightsAccessScopeMatchPathDestinationPacketHeaderStatementArgs']]:
+        """
+        Packet header statement.
+        See `packet_header_statement` below for details.
+        """
+        return pulumi.get(self, "packet_header_statement")
+
+    @packet_header_statement.setter
+    def packet_header_statement(self, value: Optional[pulumi.Input['NetworkInsightsAccessScopeMatchPathDestinationPacketHeaderStatementArgs']]):
+        pulumi.set(self, "packet_header_statement", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceStatement")
+    def resource_statement(self) -> Optional[pulumi.Input['NetworkInsightsAccessScopeMatchPathDestinationResourceStatementArgs']]:
+        return pulumi.get(self, "resource_statement")
+
+    @resource_statement.setter
+    def resource_statement(self, value: Optional[pulumi.Input['NetworkInsightsAccessScopeMatchPathDestinationResourceStatementArgs']]):
+        pulumi.set(self, "resource_statement", value)
+
+
+class NetworkInsightsAccessScopeMatchPathDestinationPacketHeaderStatementArgsDict(TypedDict):
+    destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of destination addresses.
+    """
+    destination_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of destination ports.
+    """
+    destination_prefix_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of destination prefix lists.
+    """
+    protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of protocols.
+    Valid values are `tcp` and `udp`.
+    """
+    source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of source addresses.
+    """
+    source_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of source ports.
+    """
+    source_prefix_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of source prefix lists.
+    """
+
+@pulumi.input_type
+class NetworkInsightsAccessScopeMatchPathDestinationPacketHeaderStatementArgs:
+    def __init__(__self__, *,
+                 destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_prefix_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_prefix_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_addresses: Set of destination addresses.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_ports: Set of destination ports.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_prefix_lists: Set of destination prefix lists.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: Set of protocols.
+               Valid values are `tcp` and `udp`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_addresses: Set of source addresses.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_ports: Set of source ports.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_prefix_lists: Set of source prefix lists.
+        """
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if destination_ports is not None:
+            pulumi.set(__self__, "destination_ports", destination_ports)
+        if destination_prefix_lists is not None:
+            pulumi.set(__self__, "destination_prefix_lists", destination_prefix_lists)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if source_ports is not None:
+            pulumi.set(__self__, "source_ports", source_ports)
+        if source_prefix_lists is not None:
+            pulumi.set(__self__, "source_prefix_lists", source_prefix_lists)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationAddresses")
+    def destination_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of destination addresses.
+        """
+        return pulumi.get(self, "destination_addresses")
+
+    @destination_addresses.setter
+    def destination_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "destination_addresses", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPorts")
+    def destination_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of destination ports.
+        """
+        return pulumi.get(self, "destination_ports")
+
+    @destination_ports.setter
+    def destination_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "destination_ports", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPrefixLists")
+    def destination_prefix_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of destination prefix lists.
+        """
+        return pulumi.get(self, "destination_prefix_lists")
+
+    @destination_prefix_lists.setter
+    def destination_prefix_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "destination_prefix_lists", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of protocols.
+        Valid values are `tcp` and `udp`.
+        """
+        return pulumi.get(self, "protocols")
+
+    @protocols.setter
+    def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "protocols", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of source addresses.
+        """
+        return pulumi.get(self, "source_addresses")
+
+    @source_addresses.setter
+    def source_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "source_addresses", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePorts")
+    def source_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of source ports.
+        """
+        return pulumi.get(self, "source_ports")
+
+    @source_ports.setter
+    def source_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "source_ports", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePrefixLists")
+    def source_prefix_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of source prefix lists.
+        """
+        return pulumi.get(self, "source_prefix_lists")
+
+    @source_prefix_lists.setter
+    def source_prefix_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "source_prefix_lists", value)
+
+
+class NetworkInsightsAccessScopeMatchPathDestinationResourceStatementArgsDict(TypedDict):
+    resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of resource types.
+    Cannot be specified together with `resources`.
+    """
+    resources: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of resource ARNs.
+    Cannot be specified together with `resource_types`.
+    """
+
+@pulumi.input_type
+class NetworkInsightsAccessScopeMatchPathDestinationResourceStatementArgs:
+    def __init__(__self__, *,
+                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_types: List of resource types.
+               Cannot be specified together with `resources`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resources: List of resource ARNs.
+               Cannot be specified together with `resource_types`.
+        """
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of resource types.
+        Cannot be specified together with `resources`.
+        """
+        return pulumi.get(self, "resource_types")
+
+    @resource_types.setter
+    def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "resource_types", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of resource ARNs.
+        Cannot be specified together with `resource_types`.
+        """
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "resources", value)
+
+
+class NetworkInsightsAccessScopeMatchPathSourceArgsDict(TypedDict):
+    packet_header_statement: NotRequired[pulumi.Input['NetworkInsightsAccessScopeMatchPathSourcePacketHeaderStatementArgsDict']]
+    """
+    Packet header statement.
+    See `packet_header_statement` below for details.
+    """
+    resource_statement: NotRequired[pulumi.Input['NetworkInsightsAccessScopeMatchPathSourceResourceStatementArgsDict']]
+    """
+    Resource statement.
+    Exactly one of `resources` or `resource_types` must be specified.
+    See `resource_statement` below for details.
+    """
+
+@pulumi.input_type
+class NetworkInsightsAccessScopeMatchPathSourceArgs:
+    def __init__(__self__, *,
+                 packet_header_statement: Optional[pulumi.Input['NetworkInsightsAccessScopeMatchPathSourcePacketHeaderStatementArgs']] = None,
+                 resource_statement: Optional[pulumi.Input['NetworkInsightsAccessScopeMatchPathSourceResourceStatementArgs']] = None):
+        """
+        :param pulumi.Input['NetworkInsightsAccessScopeMatchPathSourcePacketHeaderStatementArgs'] packet_header_statement: Packet header statement.
+               See `packet_header_statement` below for details.
+        :param pulumi.Input['NetworkInsightsAccessScopeMatchPathSourceResourceStatementArgs'] resource_statement: Resource statement.
+               Exactly one of `resources` or `resource_types` must be specified.
+               See `resource_statement` below for details.
+        """
+        if packet_header_statement is not None:
+            pulumi.set(__self__, "packet_header_statement", packet_header_statement)
+        if resource_statement is not None:
+            pulumi.set(__self__, "resource_statement", resource_statement)
+
+    @_builtins.property
+    @pulumi.getter(name="packetHeaderStatement")
+    def packet_header_statement(self) -> Optional[pulumi.Input['NetworkInsightsAccessScopeMatchPathSourcePacketHeaderStatementArgs']]:
+        """
+        Packet header statement.
+        See `packet_header_statement` below for details.
+        """
+        return pulumi.get(self, "packet_header_statement")
+
+    @packet_header_statement.setter
+    def packet_header_statement(self, value: Optional[pulumi.Input['NetworkInsightsAccessScopeMatchPathSourcePacketHeaderStatementArgs']]):
+        pulumi.set(self, "packet_header_statement", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceStatement")
+    def resource_statement(self) -> Optional[pulumi.Input['NetworkInsightsAccessScopeMatchPathSourceResourceStatementArgs']]:
+        """
+        Resource statement.
+        Exactly one of `resources` or `resource_types` must be specified.
+        See `resource_statement` below for details.
+        """
+        return pulumi.get(self, "resource_statement")
+
+    @resource_statement.setter
+    def resource_statement(self, value: Optional[pulumi.Input['NetworkInsightsAccessScopeMatchPathSourceResourceStatementArgs']]):
+        pulumi.set(self, "resource_statement", value)
+
+
+class NetworkInsightsAccessScopeMatchPathSourcePacketHeaderStatementArgsDict(TypedDict):
+    destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of destination addresses.
+    """
+    destination_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of destination ports.
+    """
+    destination_prefix_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of destination prefix lists.
+    """
+    protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of protocols.
+    Valid values are `tcp` and `udp`.
+    """
+    source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of source addresses.
+    """
+    source_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of source ports.
+    """
+    source_prefix_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of source prefix lists.
+    """
+
+@pulumi.input_type
+class NetworkInsightsAccessScopeMatchPathSourcePacketHeaderStatementArgs:
+    def __init__(__self__, *,
+                 destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 destination_prefix_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_prefix_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_addresses: Set of destination addresses.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_ports: Set of destination ports.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_prefix_lists: Set of destination prefix lists.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: Set of protocols.
+               Valid values are `tcp` and `udp`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_addresses: Set of source addresses.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_ports: Set of source ports.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_prefix_lists: Set of source prefix lists.
+        """
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if destination_ports is not None:
+            pulumi.set(__self__, "destination_ports", destination_ports)
+        if destination_prefix_lists is not None:
+            pulumi.set(__self__, "destination_prefix_lists", destination_prefix_lists)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if source_ports is not None:
+            pulumi.set(__self__, "source_ports", source_ports)
+        if source_prefix_lists is not None:
+            pulumi.set(__self__, "source_prefix_lists", source_prefix_lists)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationAddresses")
+    def destination_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of destination addresses.
+        """
+        return pulumi.get(self, "destination_addresses")
+
+    @destination_addresses.setter
+    def destination_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "destination_addresses", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPorts")
+    def destination_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of destination ports.
+        """
+        return pulumi.get(self, "destination_ports")
+
+    @destination_ports.setter
+    def destination_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "destination_ports", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPrefixLists")
+    def destination_prefix_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of destination prefix lists.
+        """
+        return pulumi.get(self, "destination_prefix_lists")
+
+    @destination_prefix_lists.setter
+    def destination_prefix_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "destination_prefix_lists", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of protocols.
+        Valid values are `tcp` and `udp`.
+        """
+        return pulumi.get(self, "protocols")
+
+    @protocols.setter
+    def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "protocols", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of source addresses.
+        """
+        return pulumi.get(self, "source_addresses")
+
+    @source_addresses.setter
+    def source_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "source_addresses", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePorts")
+    def source_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of source ports.
+        """
+        return pulumi.get(self, "source_ports")
+
+    @source_ports.setter
+    def source_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "source_ports", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePrefixLists")
+    def source_prefix_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of source prefix lists.
+        """
+        return pulumi.get(self, "source_prefix_lists")
+
+    @source_prefix_lists.setter
+    def source_prefix_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "source_prefix_lists", value)
+
+
+class NetworkInsightsAccessScopeMatchPathSourceResourceStatementArgsDict(TypedDict):
+    resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of resource types.
+    Cannot be specified together with `resources`.
+    """
+    resources: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of resource ARNs.
+    Cannot be specified together with `resource_types`.
+    """
+
+@pulumi.input_type
+class NetworkInsightsAccessScopeMatchPathSourceResourceStatementArgs:
+    def __init__(__self__, *,
+                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_types: List of resource types.
+               Cannot be specified together with `resources`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resources: List of resource ARNs.
+               Cannot be specified together with `resource_types`.
+        """
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of resource types.
+        Cannot be specified together with `resources`.
+        """
+        return pulumi.get(self, "resource_types")
+
+    @resource_types.setter
+    def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "resource_types", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of resource ARNs.
+        Cannot be specified together with `resource_types`.
+        """
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "resources", value)
 
 
 class NetworkInsightsAnalysisAlternatePathHintArgsDict(TypedDict):

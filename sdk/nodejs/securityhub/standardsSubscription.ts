@@ -25,18 +25,16 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Security Hub standards subscriptions using the standards subscription ARN. For example:
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `arn` (String) Security Hub finding aggregator ARN.
+ *
+ * Using `pulumi import`, import Security Hub standards subscriptions using `arn`. For example:
  *
  * ```sh
- * $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0
- * ```
- *
- * ```sh
- * $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1
- * ```
- *
- * ```sh
- * $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription nist_800_53_rev_5 arn:aws:securityhub:eu-west-1:123456789012:subscription/nist-800-53/v/5.0.0
+ * $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription example arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0
  * ```
  */
 export class StandardsSubscription extends pulumi.CustomResource {
@@ -67,6 +65,10 @@ export class StandardsSubscription extends pulumi.CustomResource {
         return obj['__pulumiType'] === StandardsSubscription.__pulumiType;
     }
 
+    /**
+     * The ARN of a resource that represents your subscription to a supported standard.
+     */
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -103,6 +105,7 @@ export class StandardsSubscription extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StandardsSubscriptionState | undefined;
+            resourceInputs["arn"] = state?.arn;
             resourceInputs["region"] = state?.region;
             resourceInputs["standardsArn"] = state?.standardsArn;
         } else {
@@ -112,6 +115,7 @@ export class StandardsSubscription extends pulumi.CustomResource {
             }
             resourceInputs["region"] = args?.region;
             resourceInputs["standardsArn"] = args?.standardsArn;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(StandardsSubscription.__pulumiType, name, resourceInputs, opts);
@@ -122,6 +126,10 @@ export class StandardsSubscription extends pulumi.CustomResource {
  * Input properties used for looking up and filtering StandardsSubscription resources.
  */
 export interface StandardsSubscriptionState {
+    /**
+     * The ARN of a resource that represents your subscription to a supported standard.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

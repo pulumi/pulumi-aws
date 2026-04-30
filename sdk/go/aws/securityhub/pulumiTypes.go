@@ -21719,6 +21719,400 @@ func (o OrganizationConfigurationOrganizationConfigurationPtrOutput) Configurati
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetEnabledStandardsStandardsSubscription struct {
+	// ARN of the standard.
+	StandardsArn string `pulumi:"standardsArn"`
+	// Whether you can retrieve information about and configure individual controls that apply to the standard. Valid values: `READY_FOR_UPDATES`, `NOT_READY_FOR_UPDATES`.
+	StandardsControlsUpdatable string `pulumi:"standardsControlsUpdatable"`
+	// Key-value map of input for the standard.
+	StandardsInputs map[string]string `pulumi:"standardsInputs"`
+	// Status of your subscription to the standard. Valid values: `PENDING`, `READY`, `FAILED`, `DELETING`, `INCOMPLETE`.
+	StandardsStatus string `pulumi:"standardsStatus"`
+	// Reason for the current status. See below for details.
+	StandardsStatusReasons []GetEnabledStandardsStandardsSubscriptionStandardsStatusReason `pulumi:"standardsStatusReasons"`
+	// ARN of the resource that represents your subscription to the standard.
+	StandardsSubscriptionArn string `pulumi:"standardsSubscriptionArn"`
+}
+
+// GetEnabledStandardsStandardsSubscriptionInput is an input type that accepts GetEnabledStandardsStandardsSubscriptionArgs and GetEnabledStandardsStandardsSubscriptionOutput values.
+// You can construct a concrete instance of `GetEnabledStandardsStandardsSubscriptionInput` via:
+//
+//	GetEnabledStandardsStandardsSubscriptionArgs{...}
+type GetEnabledStandardsStandardsSubscriptionInput interface {
+	pulumi.Input
+
+	ToGetEnabledStandardsStandardsSubscriptionOutput() GetEnabledStandardsStandardsSubscriptionOutput
+	ToGetEnabledStandardsStandardsSubscriptionOutputWithContext(context.Context) GetEnabledStandardsStandardsSubscriptionOutput
+}
+
+type GetEnabledStandardsStandardsSubscriptionArgs struct {
+	// ARN of the standard.
+	StandardsArn pulumi.StringInput `pulumi:"standardsArn"`
+	// Whether you can retrieve information about and configure individual controls that apply to the standard. Valid values: `READY_FOR_UPDATES`, `NOT_READY_FOR_UPDATES`.
+	StandardsControlsUpdatable pulumi.StringInput `pulumi:"standardsControlsUpdatable"`
+	// Key-value map of input for the standard.
+	StandardsInputs pulumi.StringMapInput `pulumi:"standardsInputs"`
+	// Status of your subscription to the standard. Valid values: `PENDING`, `READY`, `FAILED`, `DELETING`, `INCOMPLETE`.
+	StandardsStatus pulumi.StringInput `pulumi:"standardsStatus"`
+	// Reason for the current status. See below for details.
+	StandardsStatusReasons GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayInput `pulumi:"standardsStatusReasons"`
+	// ARN of the resource that represents your subscription to the standard.
+	StandardsSubscriptionArn pulumi.StringInput `pulumi:"standardsSubscriptionArn"`
+}
+
+func (GetEnabledStandardsStandardsSubscriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEnabledStandardsStandardsSubscription)(nil)).Elem()
+}
+
+func (i GetEnabledStandardsStandardsSubscriptionArgs) ToGetEnabledStandardsStandardsSubscriptionOutput() GetEnabledStandardsStandardsSubscriptionOutput {
+	return i.ToGetEnabledStandardsStandardsSubscriptionOutputWithContext(context.Background())
+}
+
+func (i GetEnabledStandardsStandardsSubscriptionArgs) ToGetEnabledStandardsStandardsSubscriptionOutputWithContext(ctx context.Context) GetEnabledStandardsStandardsSubscriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEnabledStandardsStandardsSubscriptionOutput)
+}
+
+// GetEnabledStandardsStandardsSubscriptionArrayInput is an input type that accepts GetEnabledStandardsStandardsSubscriptionArray and GetEnabledStandardsStandardsSubscriptionArrayOutput values.
+// You can construct a concrete instance of `GetEnabledStandardsStandardsSubscriptionArrayInput` via:
+//
+//	GetEnabledStandardsStandardsSubscriptionArray{ GetEnabledStandardsStandardsSubscriptionArgs{...} }
+type GetEnabledStandardsStandardsSubscriptionArrayInput interface {
+	pulumi.Input
+
+	ToGetEnabledStandardsStandardsSubscriptionArrayOutput() GetEnabledStandardsStandardsSubscriptionArrayOutput
+	ToGetEnabledStandardsStandardsSubscriptionArrayOutputWithContext(context.Context) GetEnabledStandardsStandardsSubscriptionArrayOutput
+}
+
+type GetEnabledStandardsStandardsSubscriptionArray []GetEnabledStandardsStandardsSubscriptionInput
+
+func (GetEnabledStandardsStandardsSubscriptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEnabledStandardsStandardsSubscription)(nil)).Elem()
+}
+
+func (i GetEnabledStandardsStandardsSubscriptionArray) ToGetEnabledStandardsStandardsSubscriptionArrayOutput() GetEnabledStandardsStandardsSubscriptionArrayOutput {
+	return i.ToGetEnabledStandardsStandardsSubscriptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetEnabledStandardsStandardsSubscriptionArray) ToGetEnabledStandardsStandardsSubscriptionArrayOutputWithContext(ctx context.Context) GetEnabledStandardsStandardsSubscriptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEnabledStandardsStandardsSubscriptionArrayOutput)
+}
+
+type GetEnabledStandardsStandardsSubscriptionOutput struct{ *pulumi.OutputState }
+
+func (GetEnabledStandardsStandardsSubscriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEnabledStandardsStandardsSubscription)(nil)).Elem()
+}
+
+func (o GetEnabledStandardsStandardsSubscriptionOutput) ToGetEnabledStandardsStandardsSubscriptionOutput() GetEnabledStandardsStandardsSubscriptionOutput {
+	return o
+}
+
+func (o GetEnabledStandardsStandardsSubscriptionOutput) ToGetEnabledStandardsStandardsSubscriptionOutputWithContext(ctx context.Context) GetEnabledStandardsStandardsSubscriptionOutput {
+	return o
+}
+
+// ARN of the standard.
+func (o GetEnabledStandardsStandardsSubscriptionOutput) StandardsArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEnabledStandardsStandardsSubscription) string { return v.StandardsArn }).(pulumi.StringOutput)
+}
+
+// Whether you can retrieve information about and configure individual controls that apply to the standard. Valid values: `READY_FOR_UPDATES`, `NOT_READY_FOR_UPDATES`.
+func (o GetEnabledStandardsStandardsSubscriptionOutput) StandardsControlsUpdatable() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEnabledStandardsStandardsSubscription) string { return v.StandardsControlsUpdatable }).(pulumi.StringOutput)
+}
+
+// Key-value map of input for the standard.
+func (o GetEnabledStandardsStandardsSubscriptionOutput) StandardsInputs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetEnabledStandardsStandardsSubscription) map[string]string { return v.StandardsInputs }).(pulumi.StringMapOutput)
+}
+
+// Status of your subscription to the standard. Valid values: `PENDING`, `READY`, `FAILED`, `DELETING`, `INCOMPLETE`.
+func (o GetEnabledStandardsStandardsSubscriptionOutput) StandardsStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEnabledStandardsStandardsSubscription) string { return v.StandardsStatus }).(pulumi.StringOutput)
+}
+
+// Reason for the current status. See below for details.
+func (o GetEnabledStandardsStandardsSubscriptionOutput) StandardsStatusReasons() GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayOutput {
+	return o.ApplyT(func(v GetEnabledStandardsStandardsSubscription) []GetEnabledStandardsStandardsSubscriptionStandardsStatusReason {
+		return v.StandardsStatusReasons
+	}).(GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayOutput)
+}
+
+// ARN of the resource that represents your subscription to the standard.
+func (o GetEnabledStandardsStandardsSubscriptionOutput) StandardsSubscriptionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEnabledStandardsStandardsSubscription) string { return v.StandardsSubscriptionArn }).(pulumi.StringOutput)
+}
+
+type GetEnabledStandardsStandardsSubscriptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEnabledStandardsStandardsSubscriptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEnabledStandardsStandardsSubscription)(nil)).Elem()
+}
+
+func (o GetEnabledStandardsStandardsSubscriptionArrayOutput) ToGetEnabledStandardsStandardsSubscriptionArrayOutput() GetEnabledStandardsStandardsSubscriptionArrayOutput {
+	return o
+}
+
+func (o GetEnabledStandardsStandardsSubscriptionArrayOutput) ToGetEnabledStandardsStandardsSubscriptionArrayOutputWithContext(ctx context.Context) GetEnabledStandardsStandardsSubscriptionArrayOutput {
+	return o
+}
+
+func (o GetEnabledStandardsStandardsSubscriptionArrayOutput) Index(i pulumi.IntInput) GetEnabledStandardsStandardsSubscriptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEnabledStandardsStandardsSubscription {
+		return vs[0].([]GetEnabledStandardsStandardsSubscription)[vs[1].(int)]
+	}).(GetEnabledStandardsStandardsSubscriptionOutput)
+}
+
+type GetEnabledStandardsStandardsSubscriptionStandardsStatusReason struct {
+	// Reason code that represents the reason for the current status of a standard subscription. Valid values: `NO_AVAILABLE_CONFIGURATION_RECORDER`, `MAXIMUM_NUMBER_OF_CONFIG_RULES_EXCEEDED`, `INTERNAL_ERROR`.
+	StatusReasonCode string `pulumi:"statusReasonCode"`
+}
+
+// GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonInput is an input type that accepts GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArgs and GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonOutput values.
+// You can construct a concrete instance of `GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonInput` via:
+//
+//	GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArgs{...}
+type GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonInput interface {
+	pulumi.Input
+
+	ToGetEnabledStandardsStandardsSubscriptionStandardsStatusReasonOutput() GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonOutput
+	ToGetEnabledStandardsStandardsSubscriptionStandardsStatusReasonOutputWithContext(context.Context) GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonOutput
+}
+
+type GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArgs struct {
+	// Reason code that represents the reason for the current status of a standard subscription. Valid values: `NO_AVAILABLE_CONFIGURATION_RECORDER`, `MAXIMUM_NUMBER_OF_CONFIG_RULES_EXCEEDED`, `INTERNAL_ERROR`.
+	StatusReasonCode pulumi.StringInput `pulumi:"statusReasonCode"`
+}
+
+func (GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEnabledStandardsStandardsSubscriptionStandardsStatusReason)(nil)).Elem()
+}
+
+func (i GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArgs) ToGetEnabledStandardsStandardsSubscriptionStandardsStatusReasonOutput() GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonOutput {
+	return i.ToGetEnabledStandardsStandardsSubscriptionStandardsStatusReasonOutputWithContext(context.Background())
+}
+
+func (i GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArgs) ToGetEnabledStandardsStandardsSubscriptionStandardsStatusReasonOutputWithContext(ctx context.Context) GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonOutput)
+}
+
+// GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayInput is an input type that accepts GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArray and GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayOutput values.
+// You can construct a concrete instance of `GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayInput` via:
+//
+//	GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArray{ GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArgs{...} }
+type GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayInput interface {
+	pulumi.Input
+
+	ToGetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayOutput() GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayOutput
+	ToGetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayOutputWithContext(context.Context) GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayOutput
+}
+
+type GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArray []GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonInput
+
+func (GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEnabledStandardsStandardsSubscriptionStandardsStatusReason)(nil)).Elem()
+}
+
+func (i GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArray) ToGetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayOutput() GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayOutput {
+	return i.ToGetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayOutputWithContext(context.Background())
+}
+
+func (i GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArray) ToGetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayOutputWithContext(ctx context.Context) GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayOutput)
+}
+
+type GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonOutput struct{ *pulumi.OutputState }
+
+func (GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEnabledStandardsStandardsSubscriptionStandardsStatusReason)(nil)).Elem()
+}
+
+func (o GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonOutput) ToGetEnabledStandardsStandardsSubscriptionStandardsStatusReasonOutput() GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonOutput {
+	return o
+}
+
+func (o GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonOutput) ToGetEnabledStandardsStandardsSubscriptionStandardsStatusReasonOutputWithContext(ctx context.Context) GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonOutput {
+	return o
+}
+
+// Reason code that represents the reason for the current status of a standard subscription. Valid values: `NO_AVAILABLE_CONFIGURATION_RECORDER`, `MAXIMUM_NUMBER_OF_CONFIG_RULES_EXCEEDED`, `INTERNAL_ERROR`.
+func (o GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonOutput) StatusReasonCode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEnabledStandardsStandardsSubscriptionStandardsStatusReason) string {
+		return v.StatusReasonCode
+	}).(pulumi.StringOutput)
+}
+
+type GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEnabledStandardsStandardsSubscriptionStandardsStatusReason)(nil)).Elem()
+}
+
+func (o GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayOutput) ToGetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayOutput() GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayOutput {
+	return o
+}
+
+func (o GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayOutput) ToGetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayOutputWithContext(ctx context.Context) GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayOutput {
+	return o
+}
+
+func (o GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayOutput) Index(i pulumi.IntInput) GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEnabledStandardsStandardsSubscriptionStandardsStatusReason {
+		return vs[0].([]GetEnabledStandardsStandardsSubscriptionStandardsStatusReason)[vs[1].(int)]
+	}).(GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonOutput)
+}
+
+type GetSecurityControlsSecurityControlDefinition struct {
+	// Whether the security control is available in the current AWS Region. Valid values: `AVAILABLE`, `UNAVAILABLE`.
+	CurrentRegionAvailability string `pulumi:"currentRegionAvailability"`
+	// Security control properties that you can customize.
+	CustomizableProperties []string `pulumi:"customizableProperties"`
+	// Description of the security control across standards.
+	Description string `pulumi:"description"`
+	// Link to Security Hub CSPM documentation that explains how to remediate a failed finding for the security control.
+	RemediationUrl string `pulumi:"remediationUrl"`
+	// Unique identifier of the security control across standards.
+	SecurityControlId string `pulumi:"securityControlId"`
+	// Severity of the security control. Valid values: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
+	SeverityRating string `pulumi:"severityRating"`
+	// Title of the security control.
+	Title string `pulumi:"title"`
+}
+
+// GetSecurityControlsSecurityControlDefinitionInput is an input type that accepts GetSecurityControlsSecurityControlDefinitionArgs and GetSecurityControlsSecurityControlDefinitionOutput values.
+// You can construct a concrete instance of `GetSecurityControlsSecurityControlDefinitionInput` via:
+//
+//	GetSecurityControlsSecurityControlDefinitionArgs{...}
+type GetSecurityControlsSecurityControlDefinitionInput interface {
+	pulumi.Input
+
+	ToGetSecurityControlsSecurityControlDefinitionOutput() GetSecurityControlsSecurityControlDefinitionOutput
+	ToGetSecurityControlsSecurityControlDefinitionOutputWithContext(context.Context) GetSecurityControlsSecurityControlDefinitionOutput
+}
+
+type GetSecurityControlsSecurityControlDefinitionArgs struct {
+	// Whether the security control is available in the current AWS Region. Valid values: `AVAILABLE`, `UNAVAILABLE`.
+	CurrentRegionAvailability pulumi.StringInput `pulumi:"currentRegionAvailability"`
+	// Security control properties that you can customize.
+	CustomizableProperties pulumi.StringArrayInput `pulumi:"customizableProperties"`
+	// Description of the security control across standards.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Link to Security Hub CSPM documentation that explains how to remediate a failed finding for the security control.
+	RemediationUrl pulumi.StringInput `pulumi:"remediationUrl"`
+	// Unique identifier of the security control across standards.
+	SecurityControlId pulumi.StringInput `pulumi:"securityControlId"`
+	// Severity of the security control. Valid values: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
+	SeverityRating pulumi.StringInput `pulumi:"severityRating"`
+	// Title of the security control.
+	Title pulumi.StringInput `pulumi:"title"`
+}
+
+func (GetSecurityControlsSecurityControlDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityControlsSecurityControlDefinition)(nil)).Elem()
+}
+
+func (i GetSecurityControlsSecurityControlDefinitionArgs) ToGetSecurityControlsSecurityControlDefinitionOutput() GetSecurityControlsSecurityControlDefinitionOutput {
+	return i.ToGetSecurityControlsSecurityControlDefinitionOutputWithContext(context.Background())
+}
+
+func (i GetSecurityControlsSecurityControlDefinitionArgs) ToGetSecurityControlsSecurityControlDefinitionOutputWithContext(ctx context.Context) GetSecurityControlsSecurityControlDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityControlsSecurityControlDefinitionOutput)
+}
+
+// GetSecurityControlsSecurityControlDefinitionArrayInput is an input type that accepts GetSecurityControlsSecurityControlDefinitionArray and GetSecurityControlsSecurityControlDefinitionArrayOutput values.
+// You can construct a concrete instance of `GetSecurityControlsSecurityControlDefinitionArrayInput` via:
+//
+//	GetSecurityControlsSecurityControlDefinitionArray{ GetSecurityControlsSecurityControlDefinitionArgs{...} }
+type GetSecurityControlsSecurityControlDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToGetSecurityControlsSecurityControlDefinitionArrayOutput() GetSecurityControlsSecurityControlDefinitionArrayOutput
+	ToGetSecurityControlsSecurityControlDefinitionArrayOutputWithContext(context.Context) GetSecurityControlsSecurityControlDefinitionArrayOutput
+}
+
+type GetSecurityControlsSecurityControlDefinitionArray []GetSecurityControlsSecurityControlDefinitionInput
+
+func (GetSecurityControlsSecurityControlDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityControlsSecurityControlDefinition)(nil)).Elem()
+}
+
+func (i GetSecurityControlsSecurityControlDefinitionArray) ToGetSecurityControlsSecurityControlDefinitionArrayOutput() GetSecurityControlsSecurityControlDefinitionArrayOutput {
+	return i.ToGetSecurityControlsSecurityControlDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i GetSecurityControlsSecurityControlDefinitionArray) ToGetSecurityControlsSecurityControlDefinitionArrayOutputWithContext(ctx context.Context) GetSecurityControlsSecurityControlDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityControlsSecurityControlDefinitionArrayOutput)
+}
+
+type GetSecurityControlsSecurityControlDefinitionOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityControlsSecurityControlDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityControlsSecurityControlDefinition)(nil)).Elem()
+}
+
+func (o GetSecurityControlsSecurityControlDefinitionOutput) ToGetSecurityControlsSecurityControlDefinitionOutput() GetSecurityControlsSecurityControlDefinitionOutput {
+	return o
+}
+
+func (o GetSecurityControlsSecurityControlDefinitionOutput) ToGetSecurityControlsSecurityControlDefinitionOutputWithContext(ctx context.Context) GetSecurityControlsSecurityControlDefinitionOutput {
+	return o
+}
+
+// Whether the security control is available in the current AWS Region. Valid values: `AVAILABLE`, `UNAVAILABLE`.
+func (o GetSecurityControlsSecurityControlDefinitionOutput) CurrentRegionAvailability() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityControlsSecurityControlDefinition) string { return v.CurrentRegionAvailability }).(pulumi.StringOutput)
+}
+
+// Security control properties that you can customize.
+func (o GetSecurityControlsSecurityControlDefinitionOutput) CustomizableProperties() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSecurityControlsSecurityControlDefinition) []string { return v.CustomizableProperties }).(pulumi.StringArrayOutput)
+}
+
+// Description of the security control across standards.
+func (o GetSecurityControlsSecurityControlDefinitionOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityControlsSecurityControlDefinition) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Link to Security Hub CSPM documentation that explains how to remediate a failed finding for the security control.
+func (o GetSecurityControlsSecurityControlDefinitionOutput) RemediationUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityControlsSecurityControlDefinition) string { return v.RemediationUrl }).(pulumi.StringOutput)
+}
+
+// Unique identifier of the security control across standards.
+func (o GetSecurityControlsSecurityControlDefinitionOutput) SecurityControlId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityControlsSecurityControlDefinition) string { return v.SecurityControlId }).(pulumi.StringOutput)
+}
+
+// Severity of the security control. Valid values: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
+func (o GetSecurityControlsSecurityControlDefinitionOutput) SeverityRating() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityControlsSecurityControlDefinition) string { return v.SeverityRating }).(pulumi.StringOutput)
+}
+
+// Title of the security control.
+func (o GetSecurityControlsSecurityControlDefinitionOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityControlsSecurityControlDefinition) string { return v.Title }).(pulumi.StringOutput)
+}
+
+type GetSecurityControlsSecurityControlDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityControlsSecurityControlDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityControlsSecurityControlDefinition)(nil)).Elem()
+}
+
+func (o GetSecurityControlsSecurityControlDefinitionArrayOutput) ToGetSecurityControlsSecurityControlDefinitionArrayOutput() GetSecurityControlsSecurityControlDefinitionArrayOutput {
+	return o
+}
+
+func (o GetSecurityControlsSecurityControlDefinitionArrayOutput) ToGetSecurityControlsSecurityControlDefinitionArrayOutputWithContext(ctx context.Context) GetSecurityControlsSecurityControlDefinitionArrayOutput {
+	return o
+}
+
+func (o GetSecurityControlsSecurityControlDefinitionArrayOutput) Index(i pulumi.IntInput) GetSecurityControlsSecurityControlDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSecurityControlsSecurityControlDefinition {
+		return vs[0].([]GetSecurityControlsSecurityControlDefinition)[vs[1].(int)]
+	}).(GetSecurityControlsSecurityControlDefinitionOutput)
+}
+
 type GetStandardsControlAssociationsStandardsControlAssociation struct {
 	// Enablement status of a control in a specific standard.
 	AssociationStatus string `pulumi:"associationStatus"`
@@ -22231,6 +22625,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersWorkflowStatusArrayInput)(nil)).Elem(), InsightFiltersWorkflowStatusArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationOrganizationConfigurationInput)(nil)).Elem(), OrganizationConfigurationOrganizationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationOrganizationConfigurationPtrInput)(nil)).Elem(), OrganizationConfigurationOrganizationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEnabledStandardsStandardsSubscriptionInput)(nil)).Elem(), GetEnabledStandardsStandardsSubscriptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEnabledStandardsStandardsSubscriptionArrayInput)(nil)).Elem(), GetEnabledStandardsStandardsSubscriptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonInput)(nil)).Elem(), GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayInput)(nil)).Elem(), GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityControlsSecurityControlDefinitionInput)(nil)).Elem(), GetSecurityControlsSecurityControlDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityControlsSecurityControlDefinitionArrayInput)(nil)).Elem(), GetSecurityControlsSecurityControlDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardsControlAssociationsStandardsControlAssociationInput)(nil)).Elem(), GetStandardsControlAssociationsStandardsControlAssociationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardsControlAssociationsStandardsControlAssociationArrayInput)(nil)).Elem(), GetStandardsControlAssociationsStandardsControlAssociationArray{})
 	pulumi.RegisterOutputType(AutomationRuleActionOutput{})
@@ -22569,6 +22969,12 @@ func init() {
 	pulumi.RegisterOutputType(InsightFiltersWorkflowStatusArrayOutput{})
 	pulumi.RegisterOutputType(OrganizationConfigurationOrganizationConfigurationOutput{})
 	pulumi.RegisterOutputType(OrganizationConfigurationOrganizationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GetEnabledStandardsStandardsSubscriptionOutput{})
+	pulumi.RegisterOutputType(GetEnabledStandardsStandardsSubscriptionArrayOutput{})
+	pulumi.RegisterOutputType(GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonOutput{})
+	pulumi.RegisterOutputType(GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArrayOutput{})
+	pulumi.RegisterOutputType(GetSecurityControlsSecurityControlDefinitionOutput{})
+	pulumi.RegisterOutputType(GetSecurityControlsSecurityControlDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(GetStandardsControlAssociationsStandardsControlAssociationOutput{})
 	pulumi.RegisterOutputType(GetStandardsControlAssociationsStandardsControlAssociationArrayOutput{})
 }

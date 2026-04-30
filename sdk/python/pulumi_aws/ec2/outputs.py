@@ -126,6 +126,22 @@ __all__ = [
     'NatGatewayRegionalNatGatewayAddress',
     'NetworkAclEgress',
     'NetworkAclIngress',
+    'NetworkInsightsAccessScopeExcludePath',
+    'NetworkInsightsAccessScopeExcludePathDestination',
+    'NetworkInsightsAccessScopeExcludePathDestinationPacketHeaderStatement',
+    'NetworkInsightsAccessScopeExcludePathDestinationResourceStatement',
+    'NetworkInsightsAccessScopeExcludePathSource',
+    'NetworkInsightsAccessScopeExcludePathSourcePacketHeaderStatement',
+    'NetworkInsightsAccessScopeExcludePathSourceResourceStatement',
+    'NetworkInsightsAccessScopeExcludePathThroughResource',
+    'NetworkInsightsAccessScopeExcludePathThroughResourceResourceStatement',
+    'NetworkInsightsAccessScopeMatchPath',
+    'NetworkInsightsAccessScopeMatchPathDestination',
+    'NetworkInsightsAccessScopeMatchPathDestinationPacketHeaderStatement',
+    'NetworkInsightsAccessScopeMatchPathDestinationResourceStatement',
+    'NetworkInsightsAccessScopeMatchPathSource',
+    'NetworkInsightsAccessScopeMatchPathSourcePacketHeaderStatement',
+    'NetworkInsightsAccessScopeMatchPathSourceResourceStatement',
     'NetworkInsightsAnalysisAlternatePathHint',
     'NetworkInsightsAnalysisExplanation',
     'NetworkInsightsAnalysisExplanationAcl',
@@ -8830,6 +8846,1095 @@ class NetworkAclIngress(dict):
         The IPv6 CIDR block.
         """
         return pulumi.get(self, "ipv6_cidr_block")
+
+
+@pulumi.output_type
+class NetworkInsightsAccessScopeExcludePath(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "throughResources":
+            suggest = "through_resources"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAccessScopeExcludePath. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAccessScopeExcludePath.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAccessScopeExcludePath.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: Optional['outputs.NetworkInsightsAccessScopeExcludePathDestination'] = None,
+                 source: Optional['outputs.NetworkInsightsAccessScopeExcludePathSource'] = None,
+                 through_resources: Optional[Sequence['outputs.NetworkInsightsAccessScopeExcludePathThroughResource']] = None):
+        """
+        :param 'NetworkInsightsAccessScopeExcludePathDestinationArgs' destination: Path statement for the destination.
+               See `source` and `destination` below for details.
+        :param 'NetworkInsightsAccessScopeExcludePathSourceArgs' source: Path statement for the source.
+               See `source` and `destination` below for details.
+        :param Sequence['NetworkInsightsAccessScopeExcludePathThroughResourceArgs'] through_resources: Path statement for through resources.
+               See `through_resources` below for details.
+        """
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if through_resources is not None:
+            pulumi.set(__self__, "through_resources", through_resources)
+
+    @_builtins.property
+    @pulumi.getter
+    def destination(self) -> Optional['outputs.NetworkInsightsAccessScopeExcludePathDestination']:
+        """
+        Path statement for the destination.
+        See `source` and `destination` below for details.
+        """
+        return pulumi.get(self, "destination")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional['outputs.NetworkInsightsAccessScopeExcludePathSource']:
+        """
+        Path statement for the source.
+        See `source` and `destination` below for details.
+        """
+        return pulumi.get(self, "source")
+
+    @_builtins.property
+    @pulumi.getter(name="throughResources")
+    def through_resources(self) -> Optional[Sequence['outputs.NetworkInsightsAccessScopeExcludePathThroughResource']]:
+        """
+        Path statement for through resources.
+        See `through_resources` below for details.
+        """
+        return pulumi.get(self, "through_resources")
+
+
+@pulumi.output_type
+class NetworkInsightsAccessScopeExcludePathDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "packetHeaderStatement":
+            suggest = "packet_header_statement"
+        elif key == "resourceStatement":
+            suggest = "resource_statement"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAccessScopeExcludePathDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAccessScopeExcludePathDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAccessScopeExcludePathDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 packet_header_statement: Optional['outputs.NetworkInsightsAccessScopeExcludePathDestinationPacketHeaderStatement'] = None,
+                 resource_statement: Optional['outputs.NetworkInsightsAccessScopeExcludePathDestinationResourceStatement'] = None):
+        """
+        :param 'NetworkInsightsAccessScopeExcludePathDestinationPacketHeaderStatementArgs' packet_header_statement: Packet header statement.
+               See `packet_header_statement` below for details.
+        """
+        if packet_header_statement is not None:
+            pulumi.set(__self__, "packet_header_statement", packet_header_statement)
+        if resource_statement is not None:
+            pulumi.set(__self__, "resource_statement", resource_statement)
+
+    @_builtins.property
+    @pulumi.getter(name="packetHeaderStatement")
+    def packet_header_statement(self) -> Optional['outputs.NetworkInsightsAccessScopeExcludePathDestinationPacketHeaderStatement']:
+        """
+        Packet header statement.
+        See `packet_header_statement` below for details.
+        """
+        return pulumi.get(self, "packet_header_statement")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceStatement")
+    def resource_statement(self) -> Optional['outputs.NetworkInsightsAccessScopeExcludePathDestinationResourceStatement']:
+        return pulumi.get(self, "resource_statement")
+
+
+@pulumi.output_type
+class NetworkInsightsAccessScopeExcludePathDestinationPacketHeaderStatement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationAddresses":
+            suggest = "destination_addresses"
+        elif key == "destinationPorts":
+            suggest = "destination_ports"
+        elif key == "destinationPrefixLists":
+            suggest = "destination_prefix_lists"
+        elif key == "sourceAddresses":
+            suggest = "source_addresses"
+        elif key == "sourcePorts":
+            suggest = "source_ports"
+        elif key == "sourcePrefixLists":
+            suggest = "source_prefix_lists"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAccessScopeExcludePathDestinationPacketHeaderStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAccessScopeExcludePathDestinationPacketHeaderStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAccessScopeExcludePathDestinationPacketHeaderStatement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_addresses: Optional[Sequence[_builtins.str]] = None,
+                 destination_ports: Optional[Sequence[_builtins.str]] = None,
+                 destination_prefix_lists: Optional[Sequence[_builtins.str]] = None,
+                 protocols: Optional[Sequence[_builtins.str]] = None,
+                 source_addresses: Optional[Sequence[_builtins.str]] = None,
+                 source_ports: Optional[Sequence[_builtins.str]] = None,
+                 source_prefix_lists: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence[_builtins.str] destination_addresses: Set of destination addresses.
+        :param Sequence[_builtins.str] destination_ports: Set of destination ports.
+        :param Sequence[_builtins.str] destination_prefix_lists: Set of destination prefix lists.
+        :param Sequence[_builtins.str] protocols: Set of protocols.
+               Valid values are `tcp` and `udp`.
+        :param Sequence[_builtins.str] source_addresses: Set of source addresses.
+        :param Sequence[_builtins.str] source_ports: Set of source ports.
+        :param Sequence[_builtins.str] source_prefix_lists: Set of source prefix lists.
+        """
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if destination_ports is not None:
+            pulumi.set(__self__, "destination_ports", destination_ports)
+        if destination_prefix_lists is not None:
+            pulumi.set(__self__, "destination_prefix_lists", destination_prefix_lists)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if source_ports is not None:
+            pulumi.set(__self__, "source_ports", source_ports)
+        if source_prefix_lists is not None:
+            pulumi.set(__self__, "source_prefix_lists", source_prefix_lists)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationAddresses")
+    def destination_addresses(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of destination addresses.
+        """
+        return pulumi.get(self, "destination_addresses")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPorts")
+    def destination_ports(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of destination ports.
+        """
+        return pulumi.get(self, "destination_ports")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPrefixLists")
+    def destination_prefix_lists(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of destination prefix lists.
+        """
+        return pulumi.get(self, "destination_prefix_lists")
+
+    @_builtins.property
+    @pulumi.getter
+    def protocols(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of protocols.
+        Valid values are `tcp` and `udp`.
+        """
+        return pulumi.get(self, "protocols")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of source addresses.
+        """
+        return pulumi.get(self, "source_addresses")
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePorts")
+    def source_ports(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of source ports.
+        """
+        return pulumi.get(self, "source_ports")
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePrefixLists")
+    def source_prefix_lists(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of source prefix lists.
+        """
+        return pulumi.get(self, "source_prefix_lists")
+
+
+@pulumi.output_type
+class NetworkInsightsAccessScopeExcludePathDestinationResourceStatement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceTypes":
+            suggest = "resource_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAccessScopeExcludePathDestinationResourceStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAccessScopeExcludePathDestinationResourceStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAccessScopeExcludePathDestinationResourceStatement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_types: Optional[Sequence[_builtins.str]] = None,
+                 resources: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence[_builtins.str] resource_types: List of resource types.
+               Cannot be specified together with `resources`.
+        :param Sequence[_builtins.str] resources: List of resource ARNs.
+               Cannot be specified together with `resource_types`.
+        """
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of resource types.
+        Cannot be specified together with `resources`.
+        """
+        return pulumi.get(self, "resource_types")
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of resource ARNs.
+        Cannot be specified together with `resource_types`.
+        """
+        return pulumi.get(self, "resources")
+
+
+@pulumi.output_type
+class NetworkInsightsAccessScopeExcludePathSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "packetHeaderStatement":
+            suggest = "packet_header_statement"
+        elif key == "resourceStatement":
+            suggest = "resource_statement"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAccessScopeExcludePathSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAccessScopeExcludePathSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAccessScopeExcludePathSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 packet_header_statement: Optional['outputs.NetworkInsightsAccessScopeExcludePathSourcePacketHeaderStatement'] = None,
+                 resource_statement: Optional['outputs.NetworkInsightsAccessScopeExcludePathSourceResourceStatement'] = None):
+        """
+        :param 'NetworkInsightsAccessScopeExcludePathSourcePacketHeaderStatementArgs' packet_header_statement: Packet header statement.
+               See `packet_header_statement` below for details.
+        :param 'NetworkInsightsAccessScopeExcludePathSourceResourceStatementArgs' resource_statement: Resource statement.
+               Exactly one of `resources` or `resource_types` must be specified.
+               See `resource_statement` below for details.
+        """
+        if packet_header_statement is not None:
+            pulumi.set(__self__, "packet_header_statement", packet_header_statement)
+        if resource_statement is not None:
+            pulumi.set(__self__, "resource_statement", resource_statement)
+
+    @_builtins.property
+    @pulumi.getter(name="packetHeaderStatement")
+    def packet_header_statement(self) -> Optional['outputs.NetworkInsightsAccessScopeExcludePathSourcePacketHeaderStatement']:
+        """
+        Packet header statement.
+        See `packet_header_statement` below for details.
+        """
+        return pulumi.get(self, "packet_header_statement")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceStatement")
+    def resource_statement(self) -> Optional['outputs.NetworkInsightsAccessScopeExcludePathSourceResourceStatement']:
+        """
+        Resource statement.
+        Exactly one of `resources` or `resource_types` must be specified.
+        See `resource_statement` below for details.
+        """
+        return pulumi.get(self, "resource_statement")
+
+
+@pulumi.output_type
+class NetworkInsightsAccessScopeExcludePathSourcePacketHeaderStatement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationAddresses":
+            suggest = "destination_addresses"
+        elif key == "destinationPorts":
+            suggest = "destination_ports"
+        elif key == "destinationPrefixLists":
+            suggest = "destination_prefix_lists"
+        elif key == "sourceAddresses":
+            suggest = "source_addresses"
+        elif key == "sourcePorts":
+            suggest = "source_ports"
+        elif key == "sourcePrefixLists":
+            suggest = "source_prefix_lists"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAccessScopeExcludePathSourcePacketHeaderStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAccessScopeExcludePathSourcePacketHeaderStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAccessScopeExcludePathSourcePacketHeaderStatement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_addresses: Optional[Sequence[_builtins.str]] = None,
+                 destination_ports: Optional[Sequence[_builtins.str]] = None,
+                 destination_prefix_lists: Optional[Sequence[_builtins.str]] = None,
+                 protocols: Optional[Sequence[_builtins.str]] = None,
+                 source_addresses: Optional[Sequence[_builtins.str]] = None,
+                 source_ports: Optional[Sequence[_builtins.str]] = None,
+                 source_prefix_lists: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence[_builtins.str] destination_addresses: Set of destination addresses.
+        :param Sequence[_builtins.str] destination_ports: Set of destination ports.
+        :param Sequence[_builtins.str] destination_prefix_lists: Set of destination prefix lists.
+        :param Sequence[_builtins.str] protocols: Set of protocols.
+               Valid values are `tcp` and `udp`.
+        :param Sequence[_builtins.str] source_addresses: Set of source addresses.
+        :param Sequence[_builtins.str] source_ports: Set of source ports.
+        :param Sequence[_builtins.str] source_prefix_lists: Set of source prefix lists.
+        """
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if destination_ports is not None:
+            pulumi.set(__self__, "destination_ports", destination_ports)
+        if destination_prefix_lists is not None:
+            pulumi.set(__self__, "destination_prefix_lists", destination_prefix_lists)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if source_ports is not None:
+            pulumi.set(__self__, "source_ports", source_ports)
+        if source_prefix_lists is not None:
+            pulumi.set(__self__, "source_prefix_lists", source_prefix_lists)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationAddresses")
+    def destination_addresses(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of destination addresses.
+        """
+        return pulumi.get(self, "destination_addresses")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPorts")
+    def destination_ports(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of destination ports.
+        """
+        return pulumi.get(self, "destination_ports")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPrefixLists")
+    def destination_prefix_lists(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of destination prefix lists.
+        """
+        return pulumi.get(self, "destination_prefix_lists")
+
+    @_builtins.property
+    @pulumi.getter
+    def protocols(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of protocols.
+        Valid values are `tcp` and `udp`.
+        """
+        return pulumi.get(self, "protocols")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of source addresses.
+        """
+        return pulumi.get(self, "source_addresses")
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePorts")
+    def source_ports(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of source ports.
+        """
+        return pulumi.get(self, "source_ports")
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePrefixLists")
+    def source_prefix_lists(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of source prefix lists.
+        """
+        return pulumi.get(self, "source_prefix_lists")
+
+
+@pulumi.output_type
+class NetworkInsightsAccessScopeExcludePathSourceResourceStatement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceTypes":
+            suggest = "resource_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAccessScopeExcludePathSourceResourceStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAccessScopeExcludePathSourceResourceStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAccessScopeExcludePathSourceResourceStatement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_types: Optional[Sequence[_builtins.str]] = None,
+                 resources: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence[_builtins.str] resource_types: List of resource types.
+               Cannot be specified together with `resources`.
+        :param Sequence[_builtins.str] resources: List of resource ARNs.
+               Cannot be specified together with `resource_types`.
+        """
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of resource types.
+        Cannot be specified together with `resources`.
+        """
+        return pulumi.get(self, "resource_types")
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of resource ARNs.
+        Cannot be specified together with `resource_types`.
+        """
+        return pulumi.get(self, "resources")
+
+
+@pulumi.output_type
+class NetworkInsightsAccessScopeExcludePathThroughResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceStatement":
+            suggest = "resource_statement"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAccessScopeExcludePathThroughResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAccessScopeExcludePathThroughResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAccessScopeExcludePathThroughResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_statement: Optional['outputs.NetworkInsightsAccessScopeExcludePathThroughResourceResourceStatement'] = None):
+        """
+        :param 'NetworkInsightsAccessScopeExcludePathThroughResourceResourceStatementArgs' resource_statement: Resource statement.
+               Exactly one of `resources` or `resource_types` must be specified.
+               See `resource_statement` below for details.
+        """
+        if resource_statement is not None:
+            pulumi.set(__self__, "resource_statement", resource_statement)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceStatement")
+    def resource_statement(self) -> Optional['outputs.NetworkInsightsAccessScopeExcludePathThroughResourceResourceStatement']:
+        """
+        Resource statement.
+        Exactly one of `resources` or `resource_types` must be specified.
+        See `resource_statement` below for details.
+        """
+        return pulumi.get(self, "resource_statement")
+
+
+@pulumi.output_type
+class NetworkInsightsAccessScopeExcludePathThroughResourceResourceStatement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceTypes":
+            suggest = "resource_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAccessScopeExcludePathThroughResourceResourceStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAccessScopeExcludePathThroughResourceResourceStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAccessScopeExcludePathThroughResourceResourceStatement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_types: Optional[Sequence[_builtins.str]] = None,
+                 resources: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence[_builtins.str] resource_types: List of resource types.
+               Cannot be specified together with `resources`.
+        :param Sequence[_builtins.str] resources: List of resource ARNs.
+               Cannot be specified together with `resource_types`.
+        """
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of resource types.
+        Cannot be specified together with `resources`.
+        """
+        return pulumi.get(self, "resource_types")
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of resource ARNs.
+        Cannot be specified together with `resource_types`.
+        """
+        return pulumi.get(self, "resources")
+
+
+@pulumi.output_type
+class NetworkInsightsAccessScopeMatchPath(dict):
+    def __init__(__self__, *,
+                 destination: Optional['outputs.NetworkInsightsAccessScopeMatchPathDestination'] = None,
+                 source: Optional['outputs.NetworkInsightsAccessScopeMatchPathSource'] = None):
+        """
+        :param 'NetworkInsightsAccessScopeMatchPathDestinationArgs' destination: Path statement for the destination.
+               See `source` and `destination` below for details.
+        :param 'NetworkInsightsAccessScopeMatchPathSourceArgs' source: Path statement for the source.
+               See `source` and `destination` below for details.
+        """
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def destination(self) -> Optional['outputs.NetworkInsightsAccessScopeMatchPathDestination']:
+        """
+        Path statement for the destination.
+        See `source` and `destination` below for details.
+        """
+        return pulumi.get(self, "destination")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional['outputs.NetworkInsightsAccessScopeMatchPathSource']:
+        """
+        Path statement for the source.
+        See `source` and `destination` below for details.
+        """
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class NetworkInsightsAccessScopeMatchPathDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "packetHeaderStatement":
+            suggest = "packet_header_statement"
+        elif key == "resourceStatement":
+            suggest = "resource_statement"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAccessScopeMatchPathDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAccessScopeMatchPathDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAccessScopeMatchPathDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 packet_header_statement: Optional['outputs.NetworkInsightsAccessScopeMatchPathDestinationPacketHeaderStatement'] = None,
+                 resource_statement: Optional['outputs.NetworkInsightsAccessScopeMatchPathDestinationResourceStatement'] = None):
+        """
+        :param 'NetworkInsightsAccessScopeMatchPathDestinationPacketHeaderStatementArgs' packet_header_statement: Packet header statement.
+               See `packet_header_statement` below for details.
+        """
+        if packet_header_statement is not None:
+            pulumi.set(__self__, "packet_header_statement", packet_header_statement)
+        if resource_statement is not None:
+            pulumi.set(__self__, "resource_statement", resource_statement)
+
+    @_builtins.property
+    @pulumi.getter(name="packetHeaderStatement")
+    def packet_header_statement(self) -> Optional['outputs.NetworkInsightsAccessScopeMatchPathDestinationPacketHeaderStatement']:
+        """
+        Packet header statement.
+        See `packet_header_statement` below for details.
+        """
+        return pulumi.get(self, "packet_header_statement")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceStatement")
+    def resource_statement(self) -> Optional['outputs.NetworkInsightsAccessScopeMatchPathDestinationResourceStatement']:
+        return pulumi.get(self, "resource_statement")
+
+
+@pulumi.output_type
+class NetworkInsightsAccessScopeMatchPathDestinationPacketHeaderStatement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationAddresses":
+            suggest = "destination_addresses"
+        elif key == "destinationPorts":
+            suggest = "destination_ports"
+        elif key == "destinationPrefixLists":
+            suggest = "destination_prefix_lists"
+        elif key == "sourceAddresses":
+            suggest = "source_addresses"
+        elif key == "sourcePorts":
+            suggest = "source_ports"
+        elif key == "sourcePrefixLists":
+            suggest = "source_prefix_lists"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAccessScopeMatchPathDestinationPacketHeaderStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAccessScopeMatchPathDestinationPacketHeaderStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAccessScopeMatchPathDestinationPacketHeaderStatement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_addresses: Optional[Sequence[_builtins.str]] = None,
+                 destination_ports: Optional[Sequence[_builtins.str]] = None,
+                 destination_prefix_lists: Optional[Sequence[_builtins.str]] = None,
+                 protocols: Optional[Sequence[_builtins.str]] = None,
+                 source_addresses: Optional[Sequence[_builtins.str]] = None,
+                 source_ports: Optional[Sequence[_builtins.str]] = None,
+                 source_prefix_lists: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence[_builtins.str] destination_addresses: Set of destination addresses.
+        :param Sequence[_builtins.str] destination_ports: Set of destination ports.
+        :param Sequence[_builtins.str] destination_prefix_lists: Set of destination prefix lists.
+        :param Sequence[_builtins.str] protocols: Set of protocols.
+               Valid values are `tcp` and `udp`.
+        :param Sequence[_builtins.str] source_addresses: Set of source addresses.
+        :param Sequence[_builtins.str] source_ports: Set of source ports.
+        :param Sequence[_builtins.str] source_prefix_lists: Set of source prefix lists.
+        """
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if destination_ports is not None:
+            pulumi.set(__self__, "destination_ports", destination_ports)
+        if destination_prefix_lists is not None:
+            pulumi.set(__self__, "destination_prefix_lists", destination_prefix_lists)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if source_ports is not None:
+            pulumi.set(__self__, "source_ports", source_ports)
+        if source_prefix_lists is not None:
+            pulumi.set(__self__, "source_prefix_lists", source_prefix_lists)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationAddresses")
+    def destination_addresses(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of destination addresses.
+        """
+        return pulumi.get(self, "destination_addresses")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPorts")
+    def destination_ports(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of destination ports.
+        """
+        return pulumi.get(self, "destination_ports")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPrefixLists")
+    def destination_prefix_lists(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of destination prefix lists.
+        """
+        return pulumi.get(self, "destination_prefix_lists")
+
+    @_builtins.property
+    @pulumi.getter
+    def protocols(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of protocols.
+        Valid values are `tcp` and `udp`.
+        """
+        return pulumi.get(self, "protocols")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of source addresses.
+        """
+        return pulumi.get(self, "source_addresses")
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePorts")
+    def source_ports(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of source ports.
+        """
+        return pulumi.get(self, "source_ports")
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePrefixLists")
+    def source_prefix_lists(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of source prefix lists.
+        """
+        return pulumi.get(self, "source_prefix_lists")
+
+
+@pulumi.output_type
+class NetworkInsightsAccessScopeMatchPathDestinationResourceStatement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceTypes":
+            suggest = "resource_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAccessScopeMatchPathDestinationResourceStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAccessScopeMatchPathDestinationResourceStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAccessScopeMatchPathDestinationResourceStatement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_types: Optional[Sequence[_builtins.str]] = None,
+                 resources: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence[_builtins.str] resource_types: List of resource types.
+               Cannot be specified together with `resources`.
+        :param Sequence[_builtins.str] resources: List of resource ARNs.
+               Cannot be specified together with `resource_types`.
+        """
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of resource types.
+        Cannot be specified together with `resources`.
+        """
+        return pulumi.get(self, "resource_types")
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of resource ARNs.
+        Cannot be specified together with `resource_types`.
+        """
+        return pulumi.get(self, "resources")
+
+
+@pulumi.output_type
+class NetworkInsightsAccessScopeMatchPathSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "packetHeaderStatement":
+            suggest = "packet_header_statement"
+        elif key == "resourceStatement":
+            suggest = "resource_statement"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAccessScopeMatchPathSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAccessScopeMatchPathSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAccessScopeMatchPathSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 packet_header_statement: Optional['outputs.NetworkInsightsAccessScopeMatchPathSourcePacketHeaderStatement'] = None,
+                 resource_statement: Optional['outputs.NetworkInsightsAccessScopeMatchPathSourceResourceStatement'] = None):
+        """
+        :param 'NetworkInsightsAccessScopeMatchPathSourcePacketHeaderStatementArgs' packet_header_statement: Packet header statement.
+               See `packet_header_statement` below for details.
+        :param 'NetworkInsightsAccessScopeMatchPathSourceResourceStatementArgs' resource_statement: Resource statement.
+               Exactly one of `resources` or `resource_types` must be specified.
+               See `resource_statement` below for details.
+        """
+        if packet_header_statement is not None:
+            pulumi.set(__self__, "packet_header_statement", packet_header_statement)
+        if resource_statement is not None:
+            pulumi.set(__self__, "resource_statement", resource_statement)
+
+    @_builtins.property
+    @pulumi.getter(name="packetHeaderStatement")
+    def packet_header_statement(self) -> Optional['outputs.NetworkInsightsAccessScopeMatchPathSourcePacketHeaderStatement']:
+        """
+        Packet header statement.
+        See `packet_header_statement` below for details.
+        """
+        return pulumi.get(self, "packet_header_statement")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceStatement")
+    def resource_statement(self) -> Optional['outputs.NetworkInsightsAccessScopeMatchPathSourceResourceStatement']:
+        """
+        Resource statement.
+        Exactly one of `resources` or `resource_types` must be specified.
+        See `resource_statement` below for details.
+        """
+        return pulumi.get(self, "resource_statement")
+
+
+@pulumi.output_type
+class NetworkInsightsAccessScopeMatchPathSourcePacketHeaderStatement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationAddresses":
+            suggest = "destination_addresses"
+        elif key == "destinationPorts":
+            suggest = "destination_ports"
+        elif key == "destinationPrefixLists":
+            suggest = "destination_prefix_lists"
+        elif key == "sourceAddresses":
+            suggest = "source_addresses"
+        elif key == "sourcePorts":
+            suggest = "source_ports"
+        elif key == "sourcePrefixLists":
+            suggest = "source_prefix_lists"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAccessScopeMatchPathSourcePacketHeaderStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAccessScopeMatchPathSourcePacketHeaderStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAccessScopeMatchPathSourcePacketHeaderStatement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_addresses: Optional[Sequence[_builtins.str]] = None,
+                 destination_ports: Optional[Sequence[_builtins.str]] = None,
+                 destination_prefix_lists: Optional[Sequence[_builtins.str]] = None,
+                 protocols: Optional[Sequence[_builtins.str]] = None,
+                 source_addresses: Optional[Sequence[_builtins.str]] = None,
+                 source_ports: Optional[Sequence[_builtins.str]] = None,
+                 source_prefix_lists: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence[_builtins.str] destination_addresses: Set of destination addresses.
+        :param Sequence[_builtins.str] destination_ports: Set of destination ports.
+        :param Sequence[_builtins.str] destination_prefix_lists: Set of destination prefix lists.
+        :param Sequence[_builtins.str] protocols: Set of protocols.
+               Valid values are `tcp` and `udp`.
+        :param Sequence[_builtins.str] source_addresses: Set of source addresses.
+        :param Sequence[_builtins.str] source_ports: Set of source ports.
+        :param Sequence[_builtins.str] source_prefix_lists: Set of source prefix lists.
+        """
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if destination_ports is not None:
+            pulumi.set(__self__, "destination_ports", destination_ports)
+        if destination_prefix_lists is not None:
+            pulumi.set(__self__, "destination_prefix_lists", destination_prefix_lists)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if source_ports is not None:
+            pulumi.set(__self__, "source_ports", source_ports)
+        if source_prefix_lists is not None:
+            pulumi.set(__self__, "source_prefix_lists", source_prefix_lists)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationAddresses")
+    def destination_addresses(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of destination addresses.
+        """
+        return pulumi.get(self, "destination_addresses")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPorts")
+    def destination_ports(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of destination ports.
+        """
+        return pulumi.get(self, "destination_ports")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPrefixLists")
+    def destination_prefix_lists(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of destination prefix lists.
+        """
+        return pulumi.get(self, "destination_prefix_lists")
+
+    @_builtins.property
+    @pulumi.getter
+    def protocols(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of protocols.
+        Valid values are `tcp` and `udp`.
+        """
+        return pulumi.get(self, "protocols")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of source addresses.
+        """
+        return pulumi.get(self, "source_addresses")
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePorts")
+    def source_ports(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of source ports.
+        """
+        return pulumi.get(self, "source_ports")
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePrefixLists")
+    def source_prefix_lists(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of source prefix lists.
+        """
+        return pulumi.get(self, "source_prefix_lists")
+
+
+@pulumi.output_type
+class NetworkInsightsAccessScopeMatchPathSourceResourceStatement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceTypes":
+            suggest = "resource_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInsightsAccessScopeMatchPathSourceResourceStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInsightsAccessScopeMatchPathSourceResourceStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInsightsAccessScopeMatchPathSourceResourceStatement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_types: Optional[Sequence[_builtins.str]] = None,
+                 resources: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence[_builtins.str] resource_types: List of resource types.
+               Cannot be specified together with `resources`.
+        :param Sequence[_builtins.str] resources: List of resource ARNs.
+               Cannot be specified together with `resource_types`.
+        """
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of resource types.
+        Cannot be specified together with `resources`.
+        """
+        return pulumi.get(self, "resource_types")
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of resource ARNs.
+        Cannot be specified together with `resource_types`.
+        """
+        return pulumi.get(self, "resources")
 
 
 @pulumi.output_type

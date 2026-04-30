@@ -37,7 +37,7 @@ class AgentcoreMemoryStrategyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespaces: Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] type: Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
+        :param pulumi.Input[_builtins.str] type: Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
         :param pulumi.Input['AgentcoreMemoryStrategyConfigurationArgs'] configuration: Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the memory strategy.
         :param pulumi.Input[_builtins.str] name: Name of the memory strategy.
@@ -89,7 +89,7 @@ class AgentcoreMemoryStrategyArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
+        Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
         """
         return pulumi.get(self, "type")
 
@@ -189,7 +189,7 @@ class _AgentcoreMemoryStrategyState:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] type: Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
+        :param pulumi.Input[_builtins.str] type: Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
         """
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
@@ -320,7 +320,7 @@ class _AgentcoreMemoryStrategyState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
+        Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
         """
         return pulumi.get(self, "type")
 
@@ -351,7 +351,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
         **Important Limitations:**
 
         - Each memory can have a maximum of 6 strategies total
-        - Only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory
+        - Only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory
         - Multiple `CUSTOM` strategies are allowed (subject to the total limit of 6)
 
         ## Example Usage
@@ -396,6 +396,20 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
             type="USER_PREFERENCE",
             description="User preference tracking strategy",
             namespaces=["preferences"])
+        ```
+
+        ### Episodic Strategy
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        episodic = aws.bedrock.AgentcoreMemoryStrategy("episodic",
+            name="episodic-strategy",
+            memory_id=example["id"],
+            type="EPISODIC",
+            description="Episodic memory strategy",
+            namespaces=["/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"])
         ```
 
         ### Custom Strategy with Semantic Override
@@ -465,6 +479,32 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
                 },
                 "extraction": {
                     "append_to_prompt": "Extract user preferences and interaction patterns",
+                    "model_id": "anthropic.claude-3-haiku-20240307-v1:0",
+                },
+            })
+        ```
+
+        ### Custom Strategy with Episodic Override
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        custom_episodic = aws.bedrock.AgentcoreMemoryStrategy("custom_episodic",
+            name="custom-episodic-strategy",
+            memory_id=example["id"],
+            memory_execution_role_arn=example["memoryExecutionRoleArn"],
+            type="CUSTOM",
+            description="Custom episodic processing strategy",
+            namespaces=["/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"],
+            configuration={
+                "type": "EPISODIC_OVERRIDE",
+                "consolidation": {
+                    "append_to_prompt": "Consolidate episodic memories into coherent narratives",
+                    "model_id": "anthropic.claude-3-sonnet-20240229-v1:0",
+                },
+                "extraction": {
+                    "append_to_prompt": "Extract key events and episodes from interactions",
                     "model_id": "anthropic.claude-3-haiku-20240307-v1:0",
                 },
             })
@@ -489,7 +529,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] type: Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
+        :param pulumi.Input[_builtins.str] type: Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
         """
         ...
     @overload
@@ -503,7 +543,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
         **Important Limitations:**
 
         - Each memory can have a maximum of 6 strategies total
-        - Only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory
+        - Only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory
         - Multiple `CUSTOM` strategies are allowed (subject to the total limit of 6)
 
         ## Example Usage
@@ -548,6 +588,20 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
             type="USER_PREFERENCE",
             description="User preference tracking strategy",
             namespaces=["preferences"])
+        ```
+
+        ### Episodic Strategy
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        episodic = aws.bedrock.AgentcoreMemoryStrategy("episodic",
+            name="episodic-strategy",
+            memory_id=example["id"],
+            type="EPISODIC",
+            description="Episodic memory strategy",
+            namespaces=["/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"])
         ```
 
         ### Custom Strategy with Semantic Override
@@ -617,6 +671,32 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
                 },
                 "extraction": {
                     "append_to_prompt": "Extract user preferences and interaction patterns",
+                    "model_id": "anthropic.claude-3-haiku-20240307-v1:0",
+                },
+            })
+        ```
+
+        ### Custom Strategy with Episodic Override
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        custom_episodic = aws.bedrock.AgentcoreMemoryStrategy("custom_episodic",
+            name="custom-episodic-strategy",
+            memory_id=example["id"],
+            memory_execution_role_arn=example["memoryExecutionRoleArn"],
+            type="CUSTOM",
+            description="Custom episodic processing strategy",
+            namespaces=["/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"],
+            configuration={
+                "type": "EPISODIC_OVERRIDE",
+                "consolidation": {
+                    "append_to_prompt": "Consolidate episodic memories into coherent narratives",
+                    "model_id": "anthropic.claude-3-sonnet-20240229-v1:0",
+                },
+                "extraction": {
+                    "append_to_prompt": "Extract key events and episodes from interactions",
                     "model_id": "anthropic.claude-3-haiku-20240307-v1:0",
                 },
             })
@@ -716,7 +796,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] type: Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
+        :param pulumi.Input[_builtins.str] type: Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -806,7 +886,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
+        Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
         """
         return pulumi.get(self, "type")
 

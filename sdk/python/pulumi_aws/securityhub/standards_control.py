@@ -306,6 +306,20 @@ class StandardsControl(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[cis_aws_foundations_benchmark]))
         ```
 
+        ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        - `standards_control_arn` (String) Standards control ARN.
+
+        Using `pulumi import`, import Security Hub standards controls using `standards_control_arn`. For example:
+
+        ```sh
+        $ pulumi import aws:securityhub/standardsControl:StandardsControl example arn:aws:securityhub:us-east-1:123456789012:control/cis-aws-foundations-benchmark/v/1.2.0/1.10
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -341,6 +355,20 @@ class StandardsControl(pulumi.CustomResource):
             control_status="DISABLED",
             disabled_reason="We handle password policies within Okta",
             opts = pulumi.ResourceOptions(depends_on=[cis_aws_foundations_benchmark]))
+        ```
+
+        ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        - `standards_control_arn` (String) Standards control ARN.
+
+        Using `pulumi import`, import Security Hub standards controls using `standards_control_arn`. For example:
+
+        ```sh
+        $ pulumi import aws:securityhub/standardsControl:StandardsControl example arn:aws:securityhub:us-east-1:123456789012:control/cis-aws-foundations-benchmark/v/1.2.0/1.10
         ```
 
 

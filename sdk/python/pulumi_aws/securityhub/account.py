@@ -190,9 +190,11 @@ class Account(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Enables Security Hub for this AWS account.
+        Enables Security Hub CSPM for this AWS account.
 
         > **NOTE:** Destroying this resource will disable Security Hub for this AWS account.
+
+        > **NOTE:** This resource manages Security Hub CSPM, which is distinct from the unified Security Hub V2 service managed by `securityhub.AccountV2`. Both can coexist in the same account.
 
         ## Example Usage
 
@@ -226,9 +228,11 @@ class Account(pulumi.CustomResource):
                  args: Optional[AccountArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Enables Security Hub for this AWS account.
+        Enables Security Hub CSPM for this AWS account.
 
         > **NOTE:** Destroying this resource will disable Security Hub for this AWS account.
+
+        > **NOTE:** This resource manages Security Hub CSPM, which is distinct from the unified Security Hub V2 service managed by `securityhub.AccountV2`. Both can coexist in the same account.
 
         ## Example Usage
 

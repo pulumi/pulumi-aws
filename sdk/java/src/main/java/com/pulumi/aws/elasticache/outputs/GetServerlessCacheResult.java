@@ -98,7 +98,7 @@ public final class GetServerlessCacheResult {
      */
     private List<String> subnetIds;
     /**
-     * @return The identifier of the UserGroup associated with the serverless cache. Available for Redis only.
+     * @return The identifier of the UserGroup associated with the serverless cache. Available for Redis and Valkey.
      * 
      */
     private String userGroupId;
@@ -223,7 +223,7 @@ public final class GetServerlessCacheResult {
         return this.subnetIds;
     }
     /**
-     * @return The identifier of the UserGroup associated with the serverless cache. Available for Redis only.
+     * @return The identifier of the UserGroup associated with the serverless cache. Available for Redis and Valkey.
      * 
      */
     public String userGroupId() {

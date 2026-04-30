@@ -25,7 +25,7 @@ public final class AgentcoreMemoryStrategyConfiguration {
      */
     private @Nullable AgentcoreMemoryStrategyConfigurationExtraction extraction;
     /**
-     * @return Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
+     * @return Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
      * 
      */
     private String type;
@@ -46,7 +46,7 @@ public final class AgentcoreMemoryStrategyConfiguration {
         return Optional.ofNullable(this.extraction);
     }
     /**
-     * @return Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
+     * @return Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
      * 
      */
     public String type() {

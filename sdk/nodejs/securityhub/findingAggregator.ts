@@ -79,10 +79,16 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import an existing Security Hub finding aggregator using the `arn`. For example:
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `arn` (String) Security Hub finding aggregator ARN.
+ *
+ * Using `pulumi import`, import Security Hub finding aggregators using `arn`. For example:
  *
  * ```sh
- * $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
+ * $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789012:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
  * ```
  */
 export class FindingAggregator extends pulumi.CustomResource {
@@ -114,6 +120,10 @@ export class FindingAggregator extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+     */
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
      * Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED`, `SPECIFIED_REGIONS` or `NO_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
      */
     declare public readonly linkingMode: pulumi.Output<string>;
@@ -139,6 +149,7 @@ export class FindingAggregator extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FindingAggregatorState | undefined;
+            resourceInputs["arn"] = state?.arn;
             resourceInputs["linkingMode"] = state?.linkingMode;
             resourceInputs["region"] = state?.region;
             resourceInputs["specifiedRegions"] = state?.specifiedRegions;
@@ -150,6 +161,7 @@ export class FindingAggregator extends pulumi.CustomResource {
             resourceInputs["linkingMode"] = args?.linkingMode;
             resourceInputs["region"] = args?.region;
             resourceInputs["specifiedRegions"] = args?.specifiedRegions;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FindingAggregator.__pulumiType, name, resourceInputs, opts);
@@ -160,6 +172,10 @@ export class FindingAggregator extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FindingAggregator resources.
  */
 export interface FindingAggregatorState {
+    /**
+     * Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED`, `SPECIFIED_REGIONS` or `NO_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
      */

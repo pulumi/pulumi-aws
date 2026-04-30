@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  *
  * - `arn` (String) Amazon Resource Name (ARN) of the Security Hub automation rule.
  *
- * Using `pulumi import`, import Security Hub automation rule using their ARN. For example:
+ * Using `pulumi import`, import Security Hub automation rules using `arn`. For example:
  *
  * ```sh
  * $ pulumi import aws:securityhub/automationRule:AutomationRule example arn:aws:securityhub:us-west-2:123456789012:automation-rule/473eddde-f5c4-4ae5-85c7-e922f271fffc

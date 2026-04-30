@@ -61,7 +61,18 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Security Hub members using their account ID. For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * - `memberAccountId` (String) ID of the member AWS account.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import Security Hub members using `accountId`. For example:
  * 
  * ```sh
  * $ pulumi import aws:securityhub/member:Member example 123456789012

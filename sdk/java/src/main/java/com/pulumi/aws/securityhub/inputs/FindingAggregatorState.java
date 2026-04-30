@@ -17,6 +17,21 @@ public final class FindingAggregatorState extends com.pulumi.resources.ResourceA
     public static final FindingAggregatorState Empty = new FindingAggregatorState();
 
     /**
+     * Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
      * Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED`, `SPECIFIED_REGIONS` or `NO_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
      * 
      */
@@ -64,6 +79,7 @@ public final class FindingAggregatorState extends com.pulumi.resources.ResourceA
     private FindingAggregatorState() {}
 
     private FindingAggregatorState(FindingAggregatorState $) {
+        this.arn = $.arn;
         this.linkingMode = $.linkingMode;
         this.region = $.region;
         this.specifiedRegions = $.specifiedRegions;
@@ -85,6 +101,27 @@ public final class FindingAggregatorState extends com.pulumi.resources.ResourceA
 
         public Builder(FindingAggregatorState defaults) {
             $ = new FindingAggregatorState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param arn Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**

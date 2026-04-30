@@ -7,11 +7,14 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .account import *
+from .account_v2 import *
 from .action_target import *
 from .automation_rule import *
 from .configuration_policy import *
 from .configuration_policy_association import *
 from .finding_aggregator import *
+from .get_enabled_standards import *
+from .get_security_controls import *
 from .get_standards_control_associations import *
 from .insight import *
 from .invite_accepter import *

@@ -15692,7 +15692,7 @@ class AgentcoreGatewayWorkloadIdentityDetailArgs:
 class AgentcoreMemoryStrategyConfigurationArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
     """
-    Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
+    Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
     """
     consolidation: NotRequired[pulumi.Input['AgentcoreMemoryStrategyConfigurationConsolidationArgsDict']]
     """
@@ -15710,7 +15710,7 @@ class AgentcoreMemoryStrategyConfigurationArgs:
                  consolidation: Optional[pulumi.Input['AgentcoreMemoryStrategyConfigurationConsolidationArgs']] = None,
                  extraction: Optional[pulumi.Input['AgentcoreMemoryStrategyConfigurationExtractionArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] type: Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
+        :param pulumi.Input[_builtins.str] type: Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
         :param pulumi.Input['AgentcoreMemoryStrategyConfigurationConsolidationArgs'] consolidation: Consolidation configuration for processing and organizing memory content. See `consolidation` below. Once added, this block cannot be removed without recreating the resource.
         :param pulumi.Input['AgentcoreMemoryStrategyConfigurationExtractionArgs'] extraction: Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
         """
@@ -15724,7 +15724,7 @@ class AgentcoreMemoryStrategyConfigurationArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
+        Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
         """
         return pulumi.get(self, "type")
 

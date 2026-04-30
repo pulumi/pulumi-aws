@@ -25,7 +25,7 @@ class ConfigurationPolicyAssociationArgs:
         """
         The set of arguments for constructing a ConfigurationPolicyAssociation resource.
 
-        :param pulumi.Input[_builtins.str] policy_id: The universally unique identifier (UUID) of the configuration policy.
+        :param pulumi.Input[_builtins.str] policy_id: The universally unique identifier (UUID) of the configuration policy, or `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
         :param pulumi.Input[_builtins.str] target_id: The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -38,7 +38,7 @@ class ConfigurationPolicyAssociationArgs:
     @pulumi.getter(name="policyId")
     def policy_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The universally unique identifier (UUID) of the configuration policy.
+        The universally unique identifier (UUID) of the configuration policy, or `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
         """
         return pulumi.get(self, "policy_id")
 
@@ -80,7 +80,7 @@ class _ConfigurationPolicyAssociationState:
         """
         Input properties used for looking up and filtering ConfigurationPolicyAssociation resources.
 
-        :param pulumi.Input[_builtins.str] policy_id: The universally unique identifier (UUID) of the configuration policy.
+        :param pulumi.Input[_builtins.str] policy_id: The universally unique identifier (UUID) of the configuration policy, or `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] target_id: The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
         """
@@ -95,7 +95,7 @@ class _ConfigurationPolicyAssociationState:
     @pulumi.getter(name="policyId")
     def policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The universally unique identifier (UUID) of the configuration policy.
+        The universally unique identifier (UUID) of the configuration policy, or `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
         """
         return pulumi.get(self, "policy_id")
 
@@ -180,20 +180,34 @@ class ConfigurationPolicyAssociation(pulumi.CustomResource):
         ou_example = aws.securityhub.ConfigurationPolicyAssociation("ou_example",
             target_id="ou-abcd-12345678",
             policy_id=example_configuration_policy.id)
+        self_managed_example = aws.securityhub.ConfigurationPolicyAssociation("self_managed_example",
+            target_id="123456789012",
+            policy_id="SELF_MANAGED_SECURITY_HUB")
         ```
 
         ## Import
 
-        Using `pulumi import`, import an existing Security Hub enabled account using the target id. For example:
+        ### Identity Schema
+
+        #### Required
+
+        - `target_id` (String) Identifier of the target account, organizational unit, or the root that is associated with the configuration.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Security Hub configuration policy associations using `target_id`. For example:
 
         ```sh
-        $ pulumi import aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation example_account_association 123456789012
+        $ pulumi import aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation example 123456789012
         ```
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy_id: The universally unique identifier (UUID) of the configuration policy.
+        :param pulumi.Input[_builtins.str] policy_id: The universally unique identifier (UUID) of the configuration policy, or `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] target_id: The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
         """
@@ -245,14 +259,28 @@ class ConfigurationPolicyAssociation(pulumi.CustomResource):
         ou_example = aws.securityhub.ConfigurationPolicyAssociation("ou_example",
             target_id="ou-abcd-12345678",
             policy_id=example_configuration_policy.id)
+        self_managed_example = aws.securityhub.ConfigurationPolicyAssociation("self_managed_example",
+            target_id="123456789012",
+            policy_id="SELF_MANAGED_SECURITY_HUB")
         ```
 
         ## Import
 
-        Using `pulumi import`, import an existing Security Hub enabled account using the target id. For example:
+        ### Identity Schema
+
+        #### Required
+
+        - `target_id` (String) Identifier of the target account, organizational unit, or the root that is associated with the configuration.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Security Hub configuration policy associations using `target_id`. For example:
 
         ```sh
-        $ pulumi import aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation example_account_association 123456789012
+        $ pulumi import aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation example 123456789012
         ```
 
 
@@ -310,7 +338,7 @@ class ConfigurationPolicyAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy_id: The universally unique identifier (UUID) of the configuration policy.
+        :param pulumi.Input[_builtins.str] policy_id: The universally unique identifier (UUID) of the configuration policy, or `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] target_id: The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
         """
@@ -327,7 +355,7 @@ class ConfigurationPolicyAssociation(pulumi.CustomResource):
     @pulumi.getter(name="policyId")
     def policy_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The universally unique identifier (UUID) of the configuration policy.
+        The universally unique identifier (UUID) of the configuration policy, or `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
         """
         return pulumi.get(self, "policy_id")
 

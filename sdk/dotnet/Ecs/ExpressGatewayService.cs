@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// Express services automatically handle infrastructure provisioning and updates through rolling deployments, ensuring high availability during service modifications. When you update an Express service, a new service revision is created and deployed with zero downtime.
     /// 
+    /// &gt; **Note:** To prevent a race condition during service deletion, make sure to set `DependsOn` to the related `aws.iam.RolePolicy` or `aws.iam.RolePolicyAttachment` resources. Otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Basic Usage
@@ -73,7 +75,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string> Cpu { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the current deployment.
+        /// (**Deprecated**) ARN of the current deployment.
         /// </summary>
         [Output("currentDeployment")]
         public Output<string> CurrentDeployment { get; private set; } = null!;
@@ -333,7 +335,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? Cpu { get; set; }
 
         /// <summary>
-        /// ARN of the current deployment.
+        /// (**Deprecated**) ARN of the current deployment.
         /// </summary>
         [Input("currentDeployment")]
         public Input<string>? CurrentDeployment { get; set; }

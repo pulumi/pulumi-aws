@@ -88,6 +88,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			_, err = securityhub.NewConfigurationPolicyAssociation(ctx, "self_managed_example", &securityhub.ConfigurationPolicyAssociationArgs{
+//				TargetId: pulumi.String("123456789012"),
+//				PolicyId: pulumi.String("SELF_MANAGED_SECURITY_HUB"),
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}
@@ -96,15 +103,26 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import an existing Security Hub enabled account using the target id. For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// - `targetId` (String) Identifier of the target account, organizational unit, or the root that is associated with the configuration.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import Security Hub configuration policy associations using `targetId`. For example:
 //
 // ```sh
-// $ pulumi import aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation example_account_association 123456789012
+// $ pulumi import aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation example 123456789012
 // ```
 type ConfigurationPolicyAssociation struct {
 	pulumi.CustomResourceState
 
-	// The universally unique identifier (UUID) of the configuration policy.
+	// The universally unique identifier (UUID) of the configuration policy, or `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
 	PolicyId pulumi.StringOutput `pulumi:"policyId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -148,7 +166,7 @@ func GetConfigurationPolicyAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConfigurationPolicyAssociation resources.
 type configurationPolicyAssociationState struct {
-	// The universally unique identifier (UUID) of the configuration policy.
+	// The universally unique identifier (UUID) of the configuration policy, or `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
 	PolicyId *string `pulumi:"policyId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -157,7 +175,7 @@ type configurationPolicyAssociationState struct {
 }
 
 type ConfigurationPolicyAssociationState struct {
-	// The universally unique identifier (UUID) of the configuration policy.
+	// The universally unique identifier (UUID) of the configuration policy, or `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
 	PolicyId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -170,7 +188,7 @@ func (ConfigurationPolicyAssociationState) ElementType() reflect.Type {
 }
 
 type configurationPolicyAssociationArgs struct {
-	// The universally unique identifier (UUID) of the configuration policy.
+	// The universally unique identifier (UUID) of the configuration policy, or `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
 	PolicyId string `pulumi:"policyId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -180,7 +198,7 @@ type configurationPolicyAssociationArgs struct {
 
 // The set of arguments for constructing a ConfigurationPolicyAssociation resource.
 type ConfigurationPolicyAssociationArgs struct {
-	// The universally unique identifier (UUID) of the configuration policy.
+	// The universally unique identifier (UUID) of the configuration policy, or `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
 	PolicyId pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -275,7 +293,7 @@ func (o ConfigurationPolicyAssociationOutput) ToConfigurationPolicyAssociationOu
 	return o
 }
 
-// The universally unique identifier (UUID) of the configuration policy.
+// The universally unique identifier (UUID) of the configuration policy, or `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
 func (o ConfigurationPolicyAssociationOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationPolicyAssociation) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }

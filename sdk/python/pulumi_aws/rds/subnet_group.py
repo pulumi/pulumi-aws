@@ -328,6 +328,17 @@ class SubnetGroup(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `name` (String) Name of the DB subnet group.
+
+        #### Optional
+
+        - `account_id` (String) AWS Account where this resource is managed.
+        - `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import DB Subnet groups using the `name`. For example:
 
         ```sh
@@ -371,6 +382,17 @@ class SubnetGroup(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        - `name` (String) Name of the DB subnet group.
+
+        #### Optional
+
+        - `account_id` (String) AWS Account where this resource is managed.
+        - `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import DB Subnet groups using the `name`. For example:
 

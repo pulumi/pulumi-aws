@@ -10,6 +10,11 @@ export type Account = import("./account").Account;
 export const Account: typeof import("./account").Account = null as any;
 utilities.lazyLoad(exports, ["Account"], () => require("./account"));
 
+export { AccountV2Args, AccountV2State } from "./accountV2";
+export type AccountV2 = import("./accountV2").AccountV2;
+export const AccountV2: typeof import("./accountV2").AccountV2 = null as any;
+utilities.lazyLoad(exports, ["AccountV2"], () => require("./accountV2"));
+
 export { ActionTargetArgs, ActionTargetState } from "./actionTarget";
 export type ActionTarget = import("./actionTarget").ActionTarget;
 export const ActionTarget: typeof import("./actionTarget").ActionTarget = null as any;
@@ -34,6 +39,16 @@ export { FindingAggregatorArgs, FindingAggregatorState } from "./findingAggregat
 export type FindingAggregator = import("./findingAggregator").FindingAggregator;
 export const FindingAggregator: typeof import("./findingAggregator").FindingAggregator = null as any;
 utilities.lazyLoad(exports, ["FindingAggregator"], () => require("./findingAggregator"));
+
+export { GetEnabledStandardsArgs, GetEnabledStandardsResult, GetEnabledStandardsOutputArgs } from "./getEnabledStandards";
+export const getEnabledStandards: typeof import("./getEnabledStandards").getEnabledStandards = null as any;
+export const getEnabledStandardsOutput: typeof import("./getEnabledStandards").getEnabledStandardsOutput = null as any;
+utilities.lazyLoad(exports, ["getEnabledStandards","getEnabledStandardsOutput"], () => require("./getEnabledStandards"));
+
+export { GetSecurityControlsArgs, GetSecurityControlsResult, GetSecurityControlsOutputArgs } from "./getSecurityControls";
+export const getSecurityControls: typeof import("./getSecurityControls").getSecurityControls = null as any;
+export const getSecurityControlsOutput: typeof import("./getSecurityControls").getSecurityControlsOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityControls","getSecurityControlsOutput"], () => require("./getSecurityControls"));
 
 export { GetStandardsControlAssociationsArgs, GetStandardsControlAssociationsResult, GetStandardsControlAssociationsOutputArgs } from "./getStandardsControlAssociations";
 export const getStandardsControlAssociations: typeof import("./getStandardsControlAssociations").getStandardsControlAssociations = null as any;
@@ -92,6 +107,8 @@ const _module = {
         switch (type) {
             case "aws:securityhub/account:Account":
                 return new Account(name, <any>undefined, { urn })
+            case "aws:securityhub/accountV2:AccountV2":
+                return new AccountV2(name, <any>undefined, { urn })
             case "aws:securityhub/actionTarget:ActionTarget":
                 return new ActionTarget(name, <any>undefined, { urn })
             case "aws:securityhub/automationRule:AutomationRule":
@@ -126,6 +143,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "securityhub/account", _module)
+pulumi.runtime.registerResourceModule("aws", "securityhub/accountV2", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/actionTarget", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/automationRule", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/configurationPolicy", _module)

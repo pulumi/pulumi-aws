@@ -256,6 +256,26 @@ class StandardsControlAssociation(pulumi.CustomResource):
                 updated_reason="Not needed"))
         ```
 
+        ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `security_control_id` (String) Security control ID.
+        * `standards_arn` (String) Standards ARN.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Security Hub standards control associations using `security_control_id` and `standards_arn` separated by a comma (`,`). For example:
+
+        ```sh
+        $ pulumi import aws:securityhub/standardsControlAssociation:StandardsControlAssociation example IAM.1,arn:aws:securityhub:us-east-1:123456789012:control/cis-aws-foundations-benchmark/v/1.2.0/1.10
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -316,6 +336,26 @@ class StandardsControlAssociation(pulumi.CustomResource):
                 security_control_id=iam1.security_control_id,
                 association_status="DISABLED",
                 updated_reason="Not needed"))
+        ```
+
+        ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `security_control_id` (String) Security control ID.
+        * `standards_arn` (String) Standards ARN.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Security Hub standards control associations using `security_control_id` and `standards_arn` separated by a comma (`,`). For example:
+
+        ```sh
+        $ pulumi import aws:securityhub/standardsControlAssociation:StandardsControlAssociation example IAM.1,arn:aws:securityhub:us-east-1:123456789012:control/cis-aws-foundations-benchmark/v/1.2.0/1.10
         ```
 
 

@@ -88,22 +88,39 @@ namespace Pulumi.Aws.SecurityHub
     ///         PolicyId = exampleConfigurationPolicy.Id,
     ///     });
     /// 
+    ///     var selfManagedExample = new Aws.SecurityHub.ConfigurationPolicyAssociation("self_managed_example", new()
+    ///     {
+    ///         TargetId = "123456789012",
+    ///         PolicyId = "SELF_MANAGED_SECURITY_HUB",
+    ///     });
+    /// 
     /// });
     /// ```
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import an existing Security Hub enabled account using the target id. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// - `TargetId` (String) Identifier of the target account, organizational unit, or the root that is associated with the configuration.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Security Hub configuration policy associations using `TargetId`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation example_account_association 123456789012
+    /// $ pulumi import aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation example 123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation")]
     public partial class ConfigurationPolicyAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The universally unique identifier (UUID) of the configuration policy.
+        /// The universally unique identifier (UUID) of the configuration policy, or `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
         /// </summary>
         [Output("policyId")]
         public Output<string> PolicyId { get; private set; } = null!;
@@ -167,7 +184,7 @@ namespace Pulumi.Aws.SecurityHub
     public sealed class ConfigurationPolicyAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The universally unique identifier (UUID) of the configuration policy.
+        /// The universally unique identifier (UUID) of the configuration policy, or `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
         /// </summary>
         [Input("policyId", required: true)]
         public Input<string> PolicyId { get; set; } = null!;
@@ -193,7 +210,7 @@ namespace Pulumi.Aws.SecurityHub
     public sealed class ConfigurationPolicyAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The universally unique identifier (UUID) of the configuration policy.
+        /// The universally unique identifier (UUID) of the configuration policy, or `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
         /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }

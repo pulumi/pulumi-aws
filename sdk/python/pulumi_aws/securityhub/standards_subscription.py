@@ -87,11 +87,13 @@ class StandardsSubscriptionArgs:
 @pulumi.input_type
 class _StandardsSubscriptionState:
     def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  standards_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StandardsSubscription resources.
 
+        :param pulumi.Input[_builtins.str] arn: The ARN of a resource that represents your subscription to a supported standard.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] standards_arn: The ARN of a standard - see below.
                
@@ -109,10 +111,24 @@ class _StandardsSubscriptionState:
                | PCI DSS  v3.2.1                          | `arn:${var.partition}:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
                | PCI DSS  v4.0.1                          | `arn:${var.partition}:securityhub:${var.region}::standards/pci-dss/v/4.0.1`                                  |
         """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if standards_arn is not None:
             pulumi.set(__self__, "standards_arn", standards_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARN of a resource that represents your subscription to a supported standard.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
@@ -181,18 +197,16 @@ class StandardsSubscription(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Security Hub standards subscriptions using the standards subscription ARN. For example:
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Security Hub finding aggregator ARN.
+
+        Using `pulumi import`, import Security Hub standards subscriptions using `arn`. For example:
 
         ```sh
-        $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0
-        ```
-
-        ```sh
-        $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1
-        ```
-
-        ```sh
-        $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription nist_800_53_rev_5 arn:aws:securityhub:eu-west-1:123456789012:subscription/nist-800-53/v/5.0.0
+        $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription example arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0
         ```
 
 
@@ -240,18 +254,16 @@ class StandardsSubscription(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Security Hub standards subscriptions using the standards subscription ARN. For example:
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Security Hub finding aggregator ARN.
+
+        Using `pulumi import`, import Security Hub standards subscriptions using `arn`. For example:
 
         ```sh
-        $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0
-        ```
-
-        ```sh
-        $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1
-        ```
-
-        ```sh
-        $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription nist_800_53_rev_5 arn:aws:securityhub:eu-west-1:123456789012:subscription/nist-800-53/v/5.0.0
+        $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription example arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0
         ```
 
 
@@ -285,6 +297,7 @@ class StandardsSubscription(pulumi.CustomResource):
             if standards_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'standards_arn'")
             __props__.__dict__["standards_arn"] = standards_arn
+            __props__.__dict__["arn"] = None
         super(StandardsSubscription, __self__).__init__(
             'aws:securityhub/standardsSubscription:StandardsSubscription',
             resource_name,
@@ -295,6 +308,7 @@ class StandardsSubscription(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[_builtins.str]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
             standards_arn: Optional[pulumi.Input[_builtins.str]] = None) -> 'StandardsSubscription':
         """
@@ -304,6 +318,7 @@ class StandardsSubscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] arn: The ARN of a resource that represents your subscription to a supported standard.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] standards_arn: The ARN of a standard - see below.
                
@@ -325,9 +340,18 @@ class StandardsSubscription(pulumi.CustomResource):
 
         __props__ = _StandardsSubscriptionState.__new__(_StandardsSubscriptionState)
 
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["region"] = region
         __props__.__dict__["standards_arn"] = standards_arn
         return StandardsSubscription(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        The ARN of a resource that represents your subscription to a supported standard.
+        """
+        return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter

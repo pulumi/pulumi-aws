@@ -96,6 +96,7 @@ import * as apprunner from "./apprunner";
 import * as appstream from "./appstream";
 import * as appsync from "./appsync";
 import * as arcregionswitch from "./arcregionswitch";
+import * as arczonalshift from "./arczonalshift";
 import * as athena from "./athena";
 import * as auditmanager from "./auditmanager";
 import * as autoscaling from "./autoscaling";
@@ -330,6 +331,7 @@ export {
     appstream,
     appsync,
     arcregionswitch,
+    arczonalshift,
     athena,
     auditmanager,
     autoscaling,

@@ -127,7 +127,18 @@ class OrganizationAdminAccount(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Security Hub Organization Admin Accounts using the AWS account ID. For example:
+        ### Identity Schema
+
+        #### Required
+
+        - `admin_account_id` (String) ID of the administrator AWS account.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Security Hub administrator accounts using `admin_account_id`. For example:
 
         ```sh
         $ pulumi import aws:securityhub/organizationAdminAccount:OrganizationAdminAccount example 123456789012
@@ -166,7 +177,18 @@ class OrganizationAdminAccount(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Security Hub Organization Admin Accounts using the AWS account ID. For example:
+        ### Identity Schema
+
+        #### Required
+
+        - `admin_account_id` (String) ID of the administrator AWS account.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Security Hub administrator accounts using `admin_account_id`. For example:
 
         ```sh
         $ pulumi import aws:securityhub/organizationAdminAccount:OrganizationAdminAccount example 123456789012

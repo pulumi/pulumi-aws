@@ -16,14 +16,14 @@ public final class ConfigurationPolicyAssociationState extends com.pulumi.resour
     public static final ConfigurationPolicyAssociationState Empty = new ConfigurationPolicyAssociationState();
 
     /**
-     * The universally unique identifier (UUID) of the configuration policy.
+     * The universally unique identifier (UUID) of the configuration policy, or `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
      * 
      */
     @Import(name="policyId")
     private @Nullable Output<String> policyId;
 
     /**
-     * @return The universally unique identifier (UUID) of the configuration policy.
+     * @return The universally unique identifier (UUID) of the configuration policy, or `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
      * 
      */
     public Optional<Output<String>> policyId() {
@@ -87,7 +87,7 @@ public final class ConfigurationPolicyAssociationState extends com.pulumi.resour
         }
 
         /**
-         * @param policyId The universally unique identifier (UUID) of the configuration policy.
+         * @param policyId The universally unique identifier (UUID) of the configuration policy, or `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class ConfigurationPolicyAssociationState extends com.pulumi.resour
         }
 
         /**
-         * @param policyId The universally unique identifier (UUID) of the configuration policy.
+         * @param policyId The universally unique identifier (UUID) of the configuration policy, or `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
          * 
          * @return builder
          * 

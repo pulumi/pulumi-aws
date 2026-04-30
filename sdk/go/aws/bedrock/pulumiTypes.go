@@ -41052,7 +41052,7 @@ type AgentcoreMemoryStrategyConfiguration struct {
 	Consolidation *AgentcoreMemoryStrategyConfigurationConsolidation `pulumi:"consolidation"`
 	// Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
 	Extraction *AgentcoreMemoryStrategyConfigurationExtraction `pulumi:"extraction"`
-	// Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
+	// Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
 	Type string `pulumi:"type"`
 }
 
@@ -41072,7 +41072,7 @@ type AgentcoreMemoryStrategyConfigurationArgs struct {
 	Consolidation AgentcoreMemoryStrategyConfigurationConsolidationPtrInput `pulumi:"consolidation"`
 	// Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
 	Extraction AgentcoreMemoryStrategyConfigurationExtractionPtrInput `pulumi:"extraction"`
-	// Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
+	// Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -41167,7 +41167,7 @@ func (o AgentcoreMemoryStrategyConfigurationOutput) Extraction() AgentcoreMemory
 	}).(AgentcoreMemoryStrategyConfigurationExtractionPtrOutput)
 }
 
-// Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
+// Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
 func (o AgentcoreMemoryStrategyConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreMemoryStrategyConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -41216,7 +41216,7 @@ func (o AgentcoreMemoryStrategyConfigurationPtrOutput) Extraction() AgentcoreMem
 	}).(AgentcoreMemoryStrategyConfigurationExtractionPtrOutput)
 }
 
-// Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
+// Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
 func (o AgentcoreMemoryStrategyConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfiguration) *string {
 		if v == nil {

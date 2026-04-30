@@ -4,8 +4,14 @@
 package com.pulumi.aws.securityhub;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.securityhub.inputs.GetEnabledStandardsArgs;
+import com.pulumi.aws.securityhub.inputs.GetEnabledStandardsPlainArgs;
+import com.pulumi.aws.securityhub.inputs.GetSecurityControlsArgs;
+import com.pulumi.aws.securityhub.inputs.GetSecurityControlsPlainArgs;
 import com.pulumi.aws.securityhub.inputs.GetStandardsControlAssociationsArgs;
 import com.pulumi.aws.securityhub.inputs.GetStandardsControlAssociationsPlainArgs;
+import com.pulumi.aws.securityhub.outputs.GetEnabledStandardsResult;
+import com.pulumi.aws.securityhub.outputs.GetSecurityControlsResult;
 import com.pulumi.aws.securityhub.outputs.GetStandardsControlAssociationsResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -15,6 +21,580 @@ import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class SecurityhubFunctions {
+    /**
+     * Lists the standards that are currently enabled.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.securityhub.SecurityhubFunctions;
+     * import com.pulumi.aws.securityhub.inputs.GetEnabledStandardsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SecurityhubFunctions.getEnabledStandards(GetEnabledStandardsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetEnabledStandardsResult> getEnabledStandards() {
+        return getEnabledStandards(GetEnabledStandardsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Lists the standards that are currently enabled.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.securityhub.SecurityhubFunctions;
+     * import com.pulumi.aws.securityhub.inputs.GetEnabledStandardsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SecurityhubFunctions.getEnabledStandards(GetEnabledStandardsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetEnabledStandardsResult> getEnabledStandardsPlain() {
+        return getEnabledStandardsPlain(GetEnabledStandardsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Lists the standards that are currently enabled.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.securityhub.SecurityhubFunctions;
+     * import com.pulumi.aws.securityhub.inputs.GetEnabledStandardsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SecurityhubFunctions.getEnabledStandards(GetEnabledStandardsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetEnabledStandardsResult> getEnabledStandards(GetEnabledStandardsArgs args) {
+        return getEnabledStandards(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lists the standards that are currently enabled.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.securityhub.SecurityhubFunctions;
+     * import com.pulumi.aws.securityhub.inputs.GetEnabledStandardsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SecurityhubFunctions.getEnabledStandards(GetEnabledStandardsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetEnabledStandardsResult> getEnabledStandardsPlain(GetEnabledStandardsPlainArgs args) {
+        return getEnabledStandardsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lists the standards that are currently enabled.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.securityhub.SecurityhubFunctions;
+     * import com.pulumi.aws.securityhub.inputs.GetEnabledStandardsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SecurityhubFunctions.getEnabledStandards(GetEnabledStandardsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetEnabledStandardsResult> getEnabledStandards(GetEnabledStandardsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:securityhub/getEnabledStandards:getEnabledStandards", TypeShape.of(GetEnabledStandardsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lists the standards that are currently enabled.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.securityhub.SecurityhubFunctions;
+     * import com.pulumi.aws.securityhub.inputs.GetEnabledStandardsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SecurityhubFunctions.getEnabledStandards(GetEnabledStandardsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetEnabledStandardsResult> getEnabledStandards(GetEnabledStandardsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:securityhub/getEnabledStandards:getEnabledStandards", TypeShape.of(GetEnabledStandardsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lists the standards that are currently enabled.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.securityhub.SecurityhubFunctions;
+     * import com.pulumi.aws.securityhub.inputs.GetEnabledStandardsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SecurityhubFunctions.getEnabledStandards(GetEnabledStandardsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetEnabledStandardsResult> getEnabledStandardsPlain(GetEnabledStandardsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:securityhub/getEnabledStandards:getEnabledStandards", TypeShape.of(GetEnabledStandardsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lists security controls.
+     * 
+     * ## Example Usage
+     * 
+     * ### All Controls
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.securityhub.SecurityhubFunctions;
+     * import com.pulumi.aws.securityhub.inputs.GetSecurityControlsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SecurityhubFunctions.getSecurityControls(GetSecurityControlsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### `HIGH` or `CRITICAL` Severity Controls
+     * 
+     */
+    public static Output<GetSecurityControlsResult> getSecurityControls() {
+        return getSecurityControls(GetSecurityControlsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Lists security controls.
+     * 
+     * ## Example Usage
+     * 
+     * ### All Controls
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.securityhub.SecurityhubFunctions;
+     * import com.pulumi.aws.securityhub.inputs.GetSecurityControlsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SecurityhubFunctions.getSecurityControls(GetSecurityControlsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### `HIGH` or `CRITICAL` Severity Controls
+     * 
+     */
+    public static CompletableFuture<GetSecurityControlsResult> getSecurityControlsPlain() {
+        return getSecurityControlsPlain(GetSecurityControlsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Lists security controls.
+     * 
+     * ## Example Usage
+     * 
+     * ### All Controls
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.securityhub.SecurityhubFunctions;
+     * import com.pulumi.aws.securityhub.inputs.GetSecurityControlsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SecurityhubFunctions.getSecurityControls(GetSecurityControlsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### `HIGH` or `CRITICAL` Severity Controls
+     * 
+     */
+    public static Output<GetSecurityControlsResult> getSecurityControls(GetSecurityControlsArgs args) {
+        return getSecurityControls(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lists security controls.
+     * 
+     * ## Example Usage
+     * 
+     * ### All Controls
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.securityhub.SecurityhubFunctions;
+     * import com.pulumi.aws.securityhub.inputs.GetSecurityControlsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SecurityhubFunctions.getSecurityControls(GetSecurityControlsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### `HIGH` or `CRITICAL` Severity Controls
+     * 
+     */
+    public static CompletableFuture<GetSecurityControlsResult> getSecurityControlsPlain(GetSecurityControlsPlainArgs args) {
+        return getSecurityControlsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lists security controls.
+     * 
+     * ## Example Usage
+     * 
+     * ### All Controls
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.securityhub.SecurityhubFunctions;
+     * import com.pulumi.aws.securityhub.inputs.GetSecurityControlsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SecurityhubFunctions.getSecurityControls(GetSecurityControlsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### `HIGH` or `CRITICAL` Severity Controls
+     * 
+     */
+    public static Output<GetSecurityControlsResult> getSecurityControls(GetSecurityControlsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:securityhub/getSecurityControls:getSecurityControls", TypeShape.of(GetSecurityControlsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lists security controls.
+     * 
+     * ## Example Usage
+     * 
+     * ### All Controls
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.securityhub.SecurityhubFunctions;
+     * import com.pulumi.aws.securityhub.inputs.GetSecurityControlsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SecurityhubFunctions.getSecurityControls(GetSecurityControlsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### `HIGH` or `CRITICAL` Severity Controls
+     * 
+     */
+    public static Output<GetSecurityControlsResult> getSecurityControls(GetSecurityControlsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:securityhub/getSecurityControls:getSecurityControls", TypeShape.of(GetSecurityControlsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lists security controls.
+     * 
+     * ## Example Usage
+     * 
+     * ### All Controls
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.securityhub.SecurityhubFunctions;
+     * import com.pulumi.aws.securityhub.inputs.GetSecurityControlsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SecurityhubFunctions.getSecurityControls(GetSecurityControlsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### `HIGH` or `CRITICAL` Severity Controls
+     * 
+     */
+    public static CompletableFuture<GetSecurityControlsResult> getSecurityControlsPlain(GetSecurityControlsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:securityhub/getSecurityControls:getSecurityControls", TypeShape.of(GetSecurityControlsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data source for managing an AWS Security Hub Standards Control Associations.
      * 

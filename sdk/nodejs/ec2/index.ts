@@ -550,6 +550,11 @@ export type NetworkAclRule = import("./networkAclRule").NetworkAclRule;
 export const NetworkAclRule: typeof import("./networkAclRule").NetworkAclRule = null as any;
 utilities.lazyLoad(exports, ["NetworkAclRule"], () => require("./networkAclRule"));
 
+export { NetworkInsightsAccessScopeArgs, NetworkInsightsAccessScopeState } from "./networkInsightsAccessScope";
+export type NetworkInsightsAccessScope = import("./networkInsightsAccessScope").NetworkInsightsAccessScope;
+export const NetworkInsightsAccessScope: typeof import("./networkInsightsAccessScope").NetworkInsightsAccessScope = null as any;
+utilities.lazyLoad(exports, ["NetworkInsightsAccessScope"], () => require("./networkInsightsAccessScope"));
+
 export { NetworkInsightsAnalysisArgs, NetworkInsightsAnalysisState } from "./networkInsightsAnalysis";
 export type NetworkInsightsAnalysis = import("./networkInsightsAnalysis").NetworkInsightsAnalysis;
 export const NetworkInsightsAnalysis: typeof import("./networkInsightsAnalysis").NetworkInsightsAnalysis = null as any;
@@ -969,6 +974,8 @@ const _module = {
                 return new NetworkAclAssociation(name, <any>undefined, { urn })
             case "aws:ec2/networkAclRule:NetworkAclRule":
                 return new NetworkAclRule(name, <any>undefined, { urn })
+            case "aws:ec2/networkInsightsAccessScope:NetworkInsightsAccessScope":
+                return new NetworkInsightsAccessScope(name, <any>undefined, { urn })
             case "aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis":
                 return new NetworkInsightsAnalysis(name, <any>undefined, { urn })
             case "aws:ec2/networkInsightsPath:NetworkInsightsPath":
@@ -1147,6 +1154,7 @@ pulumi.runtime.registerResourceModule("aws", "ec2/natGatewayEipAssociation", _mo
 pulumi.runtime.registerResourceModule("aws", "ec2/networkAcl", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/networkAclAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/networkAclRule", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/networkInsightsAccessScope", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/networkInsightsAnalysis", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/networkInsightsPath", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/networkInterface", _module)

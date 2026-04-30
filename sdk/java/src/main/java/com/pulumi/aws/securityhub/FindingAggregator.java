@@ -192,15 +192,35 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import an existing Security Hub finding aggregator using the `arn`. For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * - `arn` (String) Security Hub finding aggregator ARN.
+ * 
+ * Using `pulumi import`, import Security Hub finding aggregators using `arn`. For example:
  * 
  * ```sh
- * $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
+ * $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789012:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
  * ```
  * 
  */
 @ResourceType(type="aws:securityhub/findingAggregator:FindingAggregator")
 public class FindingAggregator extends com.pulumi.resources.CustomResource {
+    /**
+     * Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
     /**
      * Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED`, `SPECIFIED_REGIONS` or `NO_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
      * 

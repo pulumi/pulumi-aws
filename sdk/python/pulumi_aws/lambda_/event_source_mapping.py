@@ -1310,6 +1310,17 @@ class EventSourceMapping(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `uuid` (String) UUID of the event source mapping.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import Lambda event source mappings using the `UUID` (event source mapping identifier). For example:
 
         ```sh
@@ -1563,6 +1574,17 @@ class EventSourceMapping(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `uuid` (String) UUID of the event source mapping.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Lambda event source mappings using the `UUID` (event source mapping identifier). For example:
 

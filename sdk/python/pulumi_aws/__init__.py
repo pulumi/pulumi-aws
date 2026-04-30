@@ -67,6 +67,8 @@ if typing.TYPE_CHECKING:
     appsync = __appsync
     import pulumi_aws.arcregionswitch as __arcregionswitch
     arcregionswitch = __arcregionswitch
+    import pulumi_aws.arczonalshift as __arczonalshift
+    arczonalshift = __arczonalshift
     import pulumi_aws.athena as __athena
     athena = __athena
     import pulumi_aws.auditmanager as __auditmanager
@@ -509,6 +511,7 @@ else:
     appstream = _utilities.lazy_import('pulumi_aws.appstream')
     appsync = _utilities.lazy_import('pulumi_aws.appsync')
     arcregionswitch = _utilities.lazy_import('pulumi_aws.arcregionswitch')
+    arczonalshift = _utilities.lazy_import('pulumi_aws.arczonalshift')
     athena = _utilities.lazy_import('pulumi_aws.athena')
     auditmanager = _utilities.lazy_import('pulumi_aws.auditmanager')
     autoscaling = _utilities.lazy_import('pulumi_aws.autoscaling')
@@ -1729,6 +1732,14 @@ _utilities.register(
   "fqn": "pulumi_aws.arcregionswitch",
   "classes": {
    "aws:arcregionswitch/plan:Plan": "Plan"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "arczonalshift/autoshiftObserverNotificationStatus",
+  "fqn": "pulumi_aws.arczonalshift",
+  "classes": {
+   "aws:arczonalshift/autoshiftObserverNotificationStatus:AutoshiftObserverNotificationStatus": "AutoshiftObserverNotificationStatus"
   }
  },
  {
@@ -5009,6 +5020,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ec2",
   "classes": {
    "aws:ec2/networkAclRule:NetworkAclRule": "NetworkAclRule"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2/networkInsightsAccessScope",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/networkInsightsAccessScope:NetworkInsightsAccessScope": "NetworkInsightsAccessScope"
   }
  },
  {
@@ -11817,6 +11836,14 @@ _utilities.register(
   "fqn": "pulumi_aws.securityhub",
   "classes": {
    "aws:securityhub/account:Account": "Account"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "securityhub/accountV2",
+  "fqn": "pulumi_aws.securityhub",
+  "classes": {
+   "aws:securityhub/accountV2:AccountV2": "AccountV2"
   }
  },
  {

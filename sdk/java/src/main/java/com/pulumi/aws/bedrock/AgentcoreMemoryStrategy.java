@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * **Important Limitations:**
  * 
  * - Each memory can have a maximum of 6 strategies total
- * - Only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory
+ * - Only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory
  * - Multiple `CUSTOM` strategies are allowed (subject to the total limit of 6)
  * 
  * ## Example Usage
@@ -132,6 +132,43 @@ import javax.annotation.Nullable;
  *             .type("USER_PREFERENCE")
  *             .description("User preference tracking strategy")
  *             .namespaces("preferences")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Episodic Strategy
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentcoreMemoryStrategy;
+ * import com.pulumi.aws.bedrock.AgentcoreMemoryStrategyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var episodic = new AgentcoreMemoryStrategy("episodic", AgentcoreMemoryStrategyArgs.builder()
+ *             .name("episodic-strategy")
+ *             .memoryId(example.id())
+ *             .type("EPISODIC")
+ *             .description("Episodic memory strategy")
+ *             .namespaces("/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}")
  *             .build());
  * 
  *     }
@@ -288,6 +325,58 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Custom Strategy with Episodic Override
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentcoreMemoryStrategy;
+ * import com.pulumi.aws.bedrock.AgentcoreMemoryStrategyArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryStrategyConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryStrategyConfigurationConsolidationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryStrategyConfigurationExtractionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var customEpisodic = new AgentcoreMemoryStrategy("customEpisodic", AgentcoreMemoryStrategyArgs.builder()
+ *             .name("custom-episodic-strategy")
+ *             .memoryId(example.id())
+ *             .memoryExecutionRoleArn(example.memoryExecutionRoleArn())
+ *             .type("CUSTOM")
+ *             .description("Custom episodic processing strategy")
+ *             .namespaces("/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}")
+ *             .configuration(AgentcoreMemoryStrategyConfigurationArgs.builder()
+ *                 .type("EPISODIC_OVERRIDE")
+ *                 .consolidation(AgentcoreMemoryStrategyConfigurationConsolidationArgs.builder()
+ *                     .appendToPrompt("Consolidate episodic memories into coherent narratives")
+ *                     .modelId("anthropic.claude-3-sonnet-20240229-v1:0")
+ *                     .build())
+ *                 .extraction(AgentcoreMemoryStrategyConfigurationExtractionArgs.builder()
+ *                     .appendToPrompt("Extract key events and episodes from interactions")
+ *                     .modelId("anthropic.claude-3-haiku-20240307-v1:0")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Bedrock AgentCore Memory Strategy using the `memory_id,strategy_id`. For example:
@@ -414,14 +503,14 @@ public class AgentcoreMemoryStrategy extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.timeouts);
     }
     /**
-     * Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
+     * Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
+     * @return Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
      * 
      */
     public Output<String> type() {

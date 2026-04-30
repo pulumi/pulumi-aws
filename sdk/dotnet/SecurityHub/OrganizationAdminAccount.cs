@@ -55,7 +55,18 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Security Hub Organization Admin Accounts using the AWS account ID. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// - `AdminAccountId` (String) ID of the administrator AWS account.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Security Hub administrator accounts using `AdminAccountId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:securityhub/organizationAdminAccount:OrganizationAdminAccount example 123456789012

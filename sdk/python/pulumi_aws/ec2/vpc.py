@@ -654,6 +654,8 @@ class Vpc(pulumi.CustomResource):
         """
         Provides a VPC resource.
 
+        > **NOTE:** When AWS GuardDuty is enabled in your account, it automatically creates VPC endpoints and security groups in your VPCs to monitor network traffic. During VPC deletion, the provider automatically detects and removes these GuardDuty-managed VPC endpoints and security groups if they are blocking the deletion. This cleanup only targets resources tagged with `GuardDutyManaged=true` and happens automatically during destroy operations with no manual intervention required. For optimal functionality, the IAM role used by Terraform should have the optional permissions listed below. If these permissions are not available, the provider will continue with the deletion attempt and surface warnings only if the deletion ultimately fails.
+
         ## Example Usage
 
         Basic usage:
@@ -701,6 +703,10 @@ class Vpc(pulumi.CustomResource):
             ipv4_netmask_length=28,
             opts = pulumi.ResourceOptions(depends_on=[test_vpc_ipam_pool_cidr]))
         ```
+
+        ## GuardDuty Cleanup Permissions
+
+        The following IAM permissions are optional but recommended for automatic cleanup of GuardDuty-managed resources during VPC deletion:
 
         ## Import
 
@@ -737,6 +743,8 @@ class Vpc(pulumi.CustomResource):
         """
         Provides a VPC resource.
 
+        > **NOTE:** When AWS GuardDuty is enabled in your account, it automatically creates VPC endpoints and security groups in your VPCs to monitor network traffic. During VPC deletion, the provider automatically detects and removes these GuardDuty-managed VPC endpoints and security groups if they are blocking the deletion. This cleanup only targets resources tagged with `GuardDutyManaged=true` and happens automatically during destroy operations with no manual intervention required. For optimal functionality, the IAM role used by Terraform should have the optional permissions listed below. If these permissions are not available, the provider will continue with the deletion attempt and surface warnings only if the deletion ultimately fails.
+
         ## Example Usage
 
         Basic usage:
@@ -784,6 +792,10 @@ class Vpc(pulumi.CustomResource):
             ipv4_netmask_length=28,
             opts = pulumi.ResourceOptions(depends_on=[test_vpc_ipam_pool_cidr]))
         ```
+
+        ## GuardDuty Cleanup Permissions
+
+        The following IAM permissions are optional but recommended for automatic cleanup of GuardDuty-managed resources during VPC deletion:
 
         ## Import
 
