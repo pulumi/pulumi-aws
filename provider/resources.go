@@ -75,6 +75,7 @@ const (
 	appautoscalingMod           = "AppAutoScaling"           // Application Auto Scaling
 	appRunnerMod                = "AppRunner"                // AppRunner
 	arcRegionSwitchMod          = "ArcRegionSwitch"          // ARC Region Switch
+	arcZonalShiftMod            = "ArcZonalShift"            // ARC Zonal Shift
 	athenaMod                   = "Athena"                   // Athena
 	auditmanagerMod             = "Auditmanager"             // Audit Manager
 	autoscalingMod              = "AutoScaling"              // Auto Scaling
@@ -310,6 +311,7 @@ var moduleMap = map[string]string{
 	"appstream":                       appStreamMod,
 	"appsync":                         appsyncMod,
 	"arcregionswitch":                 arcRegionSwitchMod,
+	"arczonalshift":                   arcZonalShiftMod,
 	"athena":                          athenaMod,
 	"autoscaling":                     autoscalingMod,
 	"autoscalingplans":                autoscalingPlansMod,
