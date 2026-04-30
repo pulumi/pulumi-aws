@@ -99,7 +99,7 @@ var callbackFunction = schema.ResourceSpec{
 			TypeSpec: schema.TypeSpec{
 				Ref: "#/types/aws:lambda/Runtime:Runtime",
 			},
-			Description: "The Lambda runtime to use. If not provided, will default to `NodeJS20dX`.",
+			Description: "The Lambda runtime to use. If not provided, will default to `NodeJS22dX`.",
 		},
 		"codePathOptions": {
 			TypeSpec: schema.TypeSpec{
