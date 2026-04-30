@@ -48,11 +48,14 @@ jobs:
       matrix:
         service:
           - sqs
+          - ec2
           - docdb
           - redshiftserverless
         include:
           - service: sqs
             tests: TestAccSQSQueue
+          - service: ec2
+            tests: TestAccEC2KeyPair_publicKey
           - service: docdb
             tests: TestAccDocDBCluster_basic
           - service: redshiftserverless

@@ -315,8 +315,6 @@ class KeyPair(pulumi.CustomResource):
         $ pulumi import aws:ec2/keyPair:KeyPair deployer deployer-key
         ```
 
-        > **NOTE:** The AWS API does not include the public key in the response, so `pulumi up` will attempt to replace the key pair. There is currently no supported workaround for this limitation.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -361,8 +359,6 @@ class KeyPair(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ec2/keyPair:KeyPair deployer deployer-key
         ```
-
-        > **NOTE:** The AWS API does not include the public key in the response, so `pulumi up` will attempt to replace the key pair. There is currently no supported workaround for this limitation.
 
 
         :param str resource_name: The name of the resource.
