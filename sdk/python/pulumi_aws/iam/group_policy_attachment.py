@@ -128,6 +128,17 @@ class GroupPolicyAttachment(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `group` (String) Name of the IAM group.
+        * `policy_arn` (String) ARN of the IAM policy.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
         Using `pulumi import`, import IAM group policy attachments using the group name and policy arn separated by `/`. For example:
 
         ```sh
@@ -168,6 +179,17 @@ class GroupPolicyAttachment(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `group` (String) Name of the IAM group.
+        * `policy_arn` (String) ARN of the IAM policy.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
 
         Using `pulumi import`, import IAM group policy attachments using the group name and policy arn separated by `/`. For example:
 

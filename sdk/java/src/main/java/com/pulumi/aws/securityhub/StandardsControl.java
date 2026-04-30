@@ -70,6 +70,20 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ## Import
+ * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * - `standardsControlArn` (String) Standards control ARN.
+ * 
+ * Using `pulumi import`, import Security Hub standards controls using `standardsControlArn`. For example:
+ * 
+ * ```sh
+ * $ pulumi import aws:securityhub/standardsControl:StandardsControl example arn:aws:securityhub:us-east-1:123456789012:control/cis-aws-foundations-benchmark/v/1.2.0/1.10
+ * ```
+ * 
  */
 @ResourceType(type="aws:securityhub/standardsControl:StandardsControl")
 public class StandardsControl extends com.pulumi.resources.CustomResource {

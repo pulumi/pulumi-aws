@@ -114,7 +114,7 @@ export interface GetServerlessCacheResult {
      */
     readonly subnetIds: string[];
     /**
-     * The identifier of the UserGroup associated with the serverless cache. Available for Redis only.
+     * The identifier of the UserGroup associated with the serverless cache. Available for Redis and Valkey.
      */
     readonly userGroupId: string;
 }

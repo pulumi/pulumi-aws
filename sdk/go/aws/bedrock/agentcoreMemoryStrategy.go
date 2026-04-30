@@ -17,7 +17,7 @@ import (
 // **Important Limitations:**
 //
 // - Each memory can have a maximum of 6 strategies total
-// - Only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory
+// - Only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory
 // - Multiple `CUSTOM` strategies are allowed (subject to the total limit of 6)
 //
 // ## Example Usage
@@ -107,6 +107,38 @@ import (
 //				Description: pulumi.String("User preference tracking strategy"),
 //				Namespaces: pulumi.StringArray{
 //					pulumi.String("preferences"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Episodic Strategy
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := bedrock.NewAgentcoreMemoryStrategy(ctx, "episodic", &bedrock.AgentcoreMemoryStrategyArgs{
+//				Name:        pulumi.String("episodic-strategy"),
+//				MemoryId:    pulumi.Any(example.Id),
+//				Type:        pulumi.String("EPISODIC"),
+//				Description: pulumi.String("Episodic memory strategy"),
+//				Namespaces: pulumi.StringArray{
+//					pulumi.String("/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"),
 //				},
 //			})
 //			if err != nil {
@@ -244,6 +276,50 @@ import (
 //
 // ```
 //
+// ### Custom Strategy with Episodic Override
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := bedrock.NewAgentcoreMemoryStrategy(ctx, "custom_episodic", &bedrock.AgentcoreMemoryStrategyArgs{
+//				Name:                   pulumi.String("custom-episodic-strategy"),
+//				MemoryId:               pulumi.Any(example.Id),
+//				MemoryExecutionRoleArn: pulumi.Any(example.MemoryExecutionRoleArn),
+//				Type:                   pulumi.String("CUSTOM"),
+//				Description:            pulumi.String("Custom episodic processing strategy"),
+//				Namespaces: pulumi.StringArray{
+//					pulumi.String("/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"),
+//				},
+//				Configuration: &bedrock.AgentcoreMemoryStrategyConfigurationArgs{
+//					Type: pulumi.String("EPISODIC_OVERRIDE"),
+//					Consolidation: &bedrock.AgentcoreMemoryStrategyConfigurationConsolidationArgs{
+//						AppendToPrompt: pulumi.String("Consolidate episodic memories into coherent narratives"),
+//						ModelId:        pulumi.String("anthropic.claude-3-sonnet-20240229-v1:0"),
+//					},
+//					Extraction: &bedrock.AgentcoreMemoryStrategyConfigurationExtractionArgs{
+//						AppendToPrompt: pulumi.String("Extract key events and episodes from interactions"),
+//						ModelId:        pulumi.String("anthropic.claude-3-haiku-20240307-v1:0"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Bedrock AgentCore Memory Strategy using the `memory_id,strategy_id`. For example:
@@ -272,7 +348,7 @@ type AgentcoreMemoryStrategy struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringOutput                      `pulumi:"region"`
 	Timeouts AgentcoreMemoryStrategyTimeoutsPtrOutput `pulumi:"timeouts"`
-	// Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
+	// Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -333,7 +409,7 @@ type agentcoreMemoryStrategyState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                          `pulumi:"region"`
 	Timeouts *AgentcoreMemoryStrategyTimeouts `pulumi:"timeouts"`
-	// Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
+	// Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
 	Type *string `pulumi:"type"`
 }
 
@@ -356,7 +432,7 @@ type AgentcoreMemoryStrategyState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts AgentcoreMemoryStrategyTimeoutsPtrInput
-	// Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
+	// Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
 	Type pulumi.StringPtrInput
 }
 
@@ -381,7 +457,7 @@ type agentcoreMemoryStrategyArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                          `pulumi:"region"`
 	Timeouts *AgentcoreMemoryStrategyTimeouts `pulumi:"timeouts"`
-	// Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
+	// Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
 	Type string `pulumi:"type"`
 }
 
@@ -403,7 +479,7 @@ type AgentcoreMemoryStrategyArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts AgentcoreMemoryStrategyTimeoutsPtrInput
-	// Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
+	// Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
 	Type pulumi.StringInput
 }
 
@@ -539,7 +615,7 @@ func (o AgentcoreMemoryStrategyOutput) Timeouts() AgentcoreMemoryStrategyTimeout
 	return o.ApplyT(func(v *AgentcoreMemoryStrategy) AgentcoreMemoryStrategyTimeoutsPtrOutput { return v.Timeouts }).(AgentcoreMemoryStrategyTimeoutsPtrOutput)
 }
 
-// Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
+// Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
 func (o AgentcoreMemoryStrategyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreMemoryStrategy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

@@ -61,22 +61,22 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Security Hub standards subscriptions using the standards subscription ARN. For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// - `arn` (String) Security Hub finding aggregator ARN.
+//
+// Using `pulumi import`, import Security Hub standards subscriptions using `arn`. For example:
 //
 // ```sh
-// $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0
-// ```
-//
-// ```sh
-// $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1
-// ```
-//
-// ```sh
-// $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription nist_800_53_rev_5 arn:aws:securityhub:eu-west-1:123456789012:subscription/nist-800-53/v/5.0.0
+// $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription example arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0
 // ```
 type StandardsSubscription struct {
 	pulumi.CustomResourceState
 
+	// The ARN of a resource that represents your subscription to a supported standard.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of a standard - see below.
@@ -130,6 +130,8 @@ func GetStandardsSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StandardsSubscription resources.
 type standardsSubscriptionState struct {
+	// The ARN of a resource that represents your subscription to a supported standard.
+	Arn *string `pulumi:"arn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ARN of a standard - see below.
@@ -151,6 +153,8 @@ type standardsSubscriptionState struct {
 }
 
 type StandardsSubscriptionState struct {
+	// The ARN of a resource that represents your subscription to a supported standard.
+	Arn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ARN of a standard - see below.
@@ -303,6 +307,11 @@ func (o StandardsSubscriptionOutput) ToStandardsSubscriptionOutput() StandardsSu
 
 func (o StandardsSubscriptionOutput) ToStandardsSubscriptionOutputWithContext(ctx context.Context) StandardsSubscriptionOutput {
 	return o
+}
+
+// The ARN of a resource that represents your subscription to a supported standard.
+func (o StandardsSubscriptionOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *StandardsSubscription) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

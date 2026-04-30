@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * 
  * Express services automatically handle infrastructure provisioning and updates through rolling deployments, ensuring high availability during service modifications. When you update an Express service, a new service revision is created and deployed with zero downtime.
  * 
+ * &gt; **Note:** To prevent a race condition during service deletion, make sure to set `dependsOn` to the related `aws.iam.RolePolicy` or `aws.iam.RolePolicyAttachment` resources. Otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
+ * 
  * ## Example Usage
  * 
  * ### Basic Usage
@@ -117,14 +119,18 @@ public class ExpressGatewayService extends com.pulumi.resources.CustomResource {
         return this.cpu;
     }
     /**
-     * ARN of the current deployment.
+     * (**Deprecated**) ARN of the current deployment.
+     * 
+     * @deprecated
+     * This attribute will be removed in a future verion of the provider.
      * 
      */
+    @Deprecated /* This attribute will be removed in a future verion of the provider. */
     @Export(name="currentDeployment", refs={String.class}, tree="[0]")
     private Output<String> currentDeployment;
 
     /**
-     * @return ARN of the current deployment.
+     * @return (**Deprecated**) ARN of the current deployment.
      * 
      */
     public Output<String> currentDeployment() {

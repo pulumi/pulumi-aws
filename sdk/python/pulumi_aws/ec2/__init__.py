@@ -116,6 +116,7 @@ from .nat_gateway_eip_association import *
 from .network_acl import *
 from .network_acl_association import *
 from .network_acl_rule import *
+from .network_insights_access_scope import *
 from .network_insights_analysis import *
 from .network_insights_path import *
 from .network_interface import *

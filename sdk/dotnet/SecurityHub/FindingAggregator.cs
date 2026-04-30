@@ -138,15 +138,27 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import an existing Security Hub finding aggregator using the `Arn`. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// - `Arn` (String) Security Hub finding aggregator ARN.
+    /// 
+    /// Using `pulumi import`, import Security Hub finding aggregators using `Arn`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
+    /// $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789012:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
     /// ```
     /// </summary>
     [AwsResourceType("aws:securityhub/findingAggregator:FindingAggregator")]
     public partial class FindingAggregator : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
         /// <summary>
         /// Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED`, `SPECIFIED_REGIONS` or `NO_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
         /// </summary>
@@ -243,6 +255,12 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class FindingAggregatorState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED`, `SPECIFIED_REGIONS` or `NO_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
         /// </summary>

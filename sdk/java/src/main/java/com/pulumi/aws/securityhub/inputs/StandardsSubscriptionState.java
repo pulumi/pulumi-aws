@@ -16,6 +16,21 @@ public final class StandardsSubscriptionState extends com.pulumi.resources.Resou
     public static final StandardsSubscriptionState Empty = new StandardsSubscriptionState();
 
     /**
+     * The ARN of a resource that represents your subscription to a supported standard.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return The ARN of a resource that represents your subscription to a supported standard.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
@@ -76,6 +91,7 @@ public final class StandardsSubscriptionState extends com.pulumi.resources.Resou
     private StandardsSubscriptionState() {}
 
     private StandardsSubscriptionState(StandardsSubscriptionState $) {
+        this.arn = $.arn;
         this.region = $.region;
         this.standardsArn = $.standardsArn;
     }
@@ -96,6 +112,27 @@ public final class StandardsSubscriptionState extends com.pulumi.resources.Resou
 
         public Builder(StandardsSubscriptionState defaults) {
             $ = new StandardsSubscriptionState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param arn The ARN of a resource that represents your subscription to a supported standard.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn The ARN of a resource that represents your subscription to a supported standard.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**

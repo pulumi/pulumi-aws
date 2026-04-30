@@ -16,6 +16,8 @@ import (
 //
 // Express services automatically handle infrastructure provisioning and updates through rolling deployments, ensuring high availability during service modifications. When you update an Express service, a new service revision is created and deployed with zero downtime.
 //
+// > **Note:** To prevent a race condition during service deletion, make sure to set `dependsOn` to the related `iam.RolePolicy` or `iam.RolePolicyAttachment` resources. Otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
+//
 // ## Example Usage
 //
 // ### Basic Usage
@@ -72,7 +74,9 @@ type ExpressGatewayService struct {
 	Cluster pulumi.StringOutput `pulumi:"cluster"`
 	// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
 	Cpu pulumi.StringOutput `pulumi:"cpu"`
-	// ARN of the current deployment.
+	// (**Deprecated**) ARN of the current deployment.
+	//
+	// Deprecated: This attribute will be removed in a future verion of the provider.
 	CurrentDeployment pulumi.StringOutput `pulumi:"currentDeployment"`
 	// ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
 	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
@@ -151,7 +155,9 @@ type expressGatewayServiceState struct {
 	Cluster *string `pulumi:"cluster"`
 	// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
 	Cpu *string `pulumi:"cpu"`
-	// ARN of the current deployment.
+	// (**Deprecated**) ARN of the current deployment.
+	//
+	// Deprecated: This attribute will be removed in a future verion of the provider.
 	CurrentDeployment *string `pulumi:"currentDeployment"`
 	// ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
@@ -192,7 +198,9 @@ type ExpressGatewayServiceState struct {
 	Cluster pulumi.StringPtrInput
 	// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
 	Cpu pulumi.StringPtrInput
-	// ARN of the current deployment.
+	// (**Deprecated**) ARN of the current deployment.
+	//
+	// Deprecated: This attribute will be removed in a future verion of the provider.
 	CurrentDeployment pulumi.StringPtrInput
 	// ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
 	ExecutionRoleArn pulumi.StringPtrInput
@@ -392,7 +400,9 @@ func (o ExpressGatewayServiceOutput) Cpu() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringOutput { return v.Cpu }).(pulumi.StringOutput)
 }
 
-// ARN of the current deployment.
+// (**Deprecated**) ARN of the current deployment.
+//
+// Deprecated: This attribute will be removed in a future verion of the provider.
 func (o ExpressGatewayServiceOutput) CurrentDeployment() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringOutput { return v.CurrentDeployment }).(pulumi.StringOutput)
 }

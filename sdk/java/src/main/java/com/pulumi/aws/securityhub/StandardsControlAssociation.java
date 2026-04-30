@@ -123,6 +123,26 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ## Import
+ * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `securityControlId` (String) Security control ID.
+ * * `standardsArn` (String) Standards ARN.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import Security Hub standards control associations using `securityControlId` and `standardsArn` separated by a comma (`,`). For example:
+ * 
+ * ```sh
+ * $ pulumi import aws:securityhub/standardsControlAssociation:StandardsControlAssociation example IAM.1,arn:aws:securityhub:us-east-1:123456789012:control/cis-aws-foundations-benchmark/v/1.2.0/1.10
+ * ```
+ * 
  */
 @ResourceType(type="aws:securityhub/standardsControlAssociation:StandardsControlAssociation")
 public class StandardsControlAssociation extends com.pulumi.resources.CustomResource {

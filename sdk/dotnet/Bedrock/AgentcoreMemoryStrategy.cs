@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Bedrock
     /// **Important Limitations:**
     /// 
     /// - Each memory can have a maximum of 6 strategies total
-    /// - Only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory
+    /// - Only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory
     /// - Multiple `CUSTOM` strategies are allowed (subject to the total limit of 6)
     /// 
     /// ## Example Usage
@@ -89,6 +89,31 @@ namespace Pulumi.Aws.Bedrock
     ///         Namespaces = new[]
     ///         {
     ///             "preferences",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Episodic Strategy
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var episodic = new Aws.Bedrock.AgentcoreMemoryStrategy("episodic", new()
+    ///     {
+    ///         Name = "episodic-strategy",
+    ///         MemoryId = example.Id,
+    ///         Type = "EPISODIC",
+    ///         Description = "Episodic memory strategy",
+    ///         Namespaces = new[]
+    ///         {
+    ///             "/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}",
     ///         },
     ///     });
     /// 
@@ -208,6 +233,46 @@ namespace Pulumi.Aws.Bedrock
     /// });
     /// ```
     /// 
+    /// ### Custom Strategy with Episodic Override
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var customEpisodic = new Aws.Bedrock.AgentcoreMemoryStrategy("custom_episodic", new()
+    ///     {
+    ///         Name = "custom-episodic-strategy",
+    ///         MemoryId = example.Id,
+    ///         MemoryExecutionRoleArn = example.MemoryExecutionRoleArn,
+    ///         Type = "CUSTOM",
+    ///         Description = "Custom episodic processing strategy",
+    ///         Namespaces = new[]
+    ///         {
+    ///             "/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}",
+    ///         },
+    ///         Configuration = new Aws.Bedrock.Inputs.AgentcoreMemoryStrategyConfigurationArgs
+    ///         {
+    ///             Type = "EPISODIC_OVERRIDE",
+    ///             Consolidation = new Aws.Bedrock.Inputs.AgentcoreMemoryStrategyConfigurationConsolidationArgs
+    ///             {
+    ///                 AppendToPrompt = "Consolidate episodic memories into coherent narratives",
+    ///                 ModelId = "anthropic.claude-3-sonnet-20240229-v1:0",
+    ///             },
+    ///             Extraction = new Aws.Bedrock.Inputs.AgentcoreMemoryStrategyConfigurationExtractionArgs
+    ///             {
+    ///                 AppendToPrompt = "Extract key events and episodes from interactions",
+    ///                 ModelId = "anthropic.claude-3-haiku-20240307-v1:0",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Bedrock AgentCore Memory Strategy using the `memory_id,strategy_id`. For example:
@@ -270,7 +335,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<Outputs.AgentcoreMemoryStrategyTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
+        /// Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -372,7 +437,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<Inputs.AgentcoreMemoryStrategyTimeoutsArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
+        /// Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -442,7 +507,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<Inputs.AgentcoreMemoryStrategyTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`) can exist per memory.
+        /// Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

@@ -333,6 +333,17 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Uuid` (String) UUID of the event source mapping.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import Lambda event source mappings using the `UUID` (event source mapping identifier). For example:
     /// 
     /// ```sh

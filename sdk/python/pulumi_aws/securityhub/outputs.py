@@ -184,6 +184,9 @@ __all__ = [
     'InsightFiltersVerificationState',
     'InsightFiltersWorkflowStatus',
     'OrganizationConfigurationOrganizationConfiguration',
+    'GetEnabledStandardsStandardsSubscriptionResult',
+    'GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonResult',
+    'GetSecurityControlsSecurityControlDefinitionResult',
     'GetStandardsControlAssociationsStandardsControlAssociationResult',
 ]
 
@@ -6780,6 +6783,181 @@ class OrganizationConfigurationOrganizationConfiguration(dict):
         Indicates whether the organization uses local or central configuration. If using central configuration, `auto_enable` must be set to `false` and `auto_enable_standards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
         """
         return pulumi.get(self, "configuration_type")
+
+
+@pulumi.output_type
+class GetEnabledStandardsStandardsSubscriptionResult(dict):
+    def __init__(__self__, *,
+                 standards_arn: _builtins.str,
+                 standards_controls_updatable: _builtins.str,
+                 standards_inputs: Mapping[str, _builtins.str],
+                 standards_status: _builtins.str,
+                 standards_status_reasons: Sequence['outputs.GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonResult'],
+                 standards_subscription_arn: _builtins.str):
+        """
+        :param _builtins.str standards_arn: ARN of the standard.
+        :param _builtins.str standards_controls_updatable: Whether you can retrieve information about and configure individual controls that apply to the standard. Valid values: `READY_FOR_UPDATES`, `NOT_READY_FOR_UPDATES`.
+        :param Mapping[str, _builtins.str] standards_inputs: Key-value map of input for the standard.
+        :param _builtins.str standards_status: Status of your subscription to the standard. Valid values: `PENDING`, `READY`, `FAILED`, `DELETING`, `INCOMPLETE`.
+        :param Sequence['GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonArgs'] standards_status_reasons: Reason for the current status. See below for details.
+        :param _builtins.str standards_subscription_arn: ARN of the resource that represents your subscription to the standard.
+        """
+        pulumi.set(__self__, "standards_arn", standards_arn)
+        pulumi.set(__self__, "standards_controls_updatable", standards_controls_updatable)
+        pulumi.set(__self__, "standards_inputs", standards_inputs)
+        pulumi.set(__self__, "standards_status", standards_status)
+        pulumi.set(__self__, "standards_status_reasons", standards_status_reasons)
+        pulumi.set(__self__, "standards_subscription_arn", standards_subscription_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="standardsArn")
+    def standards_arn(self) -> _builtins.str:
+        """
+        ARN of the standard.
+        """
+        return pulumi.get(self, "standards_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="standardsControlsUpdatable")
+    def standards_controls_updatable(self) -> _builtins.str:
+        """
+        Whether you can retrieve information about and configure individual controls that apply to the standard. Valid values: `READY_FOR_UPDATES`, `NOT_READY_FOR_UPDATES`.
+        """
+        return pulumi.get(self, "standards_controls_updatable")
+
+    @_builtins.property
+    @pulumi.getter(name="standardsInputs")
+    def standards_inputs(self) -> Mapping[str, _builtins.str]:
+        """
+        Key-value map of input for the standard.
+        """
+        return pulumi.get(self, "standards_inputs")
+
+    @_builtins.property
+    @pulumi.getter(name="standardsStatus")
+    def standards_status(self) -> _builtins.str:
+        """
+        Status of your subscription to the standard. Valid values: `PENDING`, `READY`, `FAILED`, `DELETING`, `INCOMPLETE`.
+        """
+        return pulumi.get(self, "standards_status")
+
+    @_builtins.property
+    @pulumi.getter(name="standardsStatusReasons")
+    def standards_status_reasons(self) -> Sequence['outputs.GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonResult']:
+        """
+        Reason for the current status. See below for details.
+        """
+        return pulumi.get(self, "standards_status_reasons")
+
+    @_builtins.property
+    @pulumi.getter(name="standardsSubscriptionArn")
+    def standards_subscription_arn(self) -> _builtins.str:
+        """
+        ARN of the resource that represents your subscription to the standard.
+        """
+        return pulumi.get(self, "standards_subscription_arn")
+
+
+@pulumi.output_type
+class GetEnabledStandardsStandardsSubscriptionStandardsStatusReasonResult(dict):
+    def __init__(__self__, *,
+                 status_reason_code: _builtins.str):
+        """
+        :param _builtins.str status_reason_code: Reason code that represents the reason for the current status of a standard subscription. Valid values: `NO_AVAILABLE_CONFIGURATION_RECORDER`, `MAXIMUM_NUMBER_OF_CONFIG_RULES_EXCEEDED`, `INTERNAL_ERROR`.
+        """
+        pulumi.set(__self__, "status_reason_code", status_reason_code)
+
+    @_builtins.property
+    @pulumi.getter(name="statusReasonCode")
+    def status_reason_code(self) -> _builtins.str:
+        """
+        Reason code that represents the reason for the current status of a standard subscription. Valid values: `NO_AVAILABLE_CONFIGURATION_RECORDER`, `MAXIMUM_NUMBER_OF_CONFIG_RULES_EXCEEDED`, `INTERNAL_ERROR`.
+        """
+        return pulumi.get(self, "status_reason_code")
+
+
+@pulumi.output_type
+class GetSecurityControlsSecurityControlDefinitionResult(dict):
+    def __init__(__self__, *,
+                 current_region_availability: _builtins.str,
+                 customizable_properties: Sequence[_builtins.str],
+                 description: _builtins.str,
+                 remediation_url: _builtins.str,
+                 security_control_id: _builtins.str,
+                 severity_rating: _builtins.str,
+                 title: _builtins.str):
+        """
+        :param _builtins.str current_region_availability: Whether the security control is available in the current AWS Region. Valid values: `AVAILABLE`, `UNAVAILABLE`.
+        :param Sequence[_builtins.str] customizable_properties: Security control properties that you can customize.
+        :param _builtins.str description: Description of the security control across standards.
+        :param _builtins.str remediation_url: Link to Security Hub CSPM documentation that explains how to remediate a failed finding for the security control.
+        :param _builtins.str security_control_id: Unique identifier of the security control across standards.
+        :param _builtins.str severity_rating: Severity of the security control. Valid values: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
+        :param _builtins.str title: Title of the security control.
+        """
+        pulumi.set(__self__, "current_region_availability", current_region_availability)
+        pulumi.set(__self__, "customizable_properties", customizable_properties)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "remediation_url", remediation_url)
+        pulumi.set(__self__, "security_control_id", security_control_id)
+        pulumi.set(__self__, "severity_rating", severity_rating)
+        pulumi.set(__self__, "title", title)
+
+    @_builtins.property
+    @pulumi.getter(name="currentRegionAvailability")
+    def current_region_availability(self) -> _builtins.str:
+        """
+        Whether the security control is available in the current AWS Region. Valid values: `AVAILABLE`, `UNAVAILABLE`.
+        """
+        return pulumi.get(self, "current_region_availability")
+
+    @_builtins.property
+    @pulumi.getter(name="customizableProperties")
+    def customizable_properties(self) -> Sequence[_builtins.str]:
+        """
+        Security control properties that you can customize.
+        """
+        return pulumi.get(self, "customizable_properties")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        """
+        Description of the security control across standards.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="remediationUrl")
+    def remediation_url(self) -> _builtins.str:
+        """
+        Link to Security Hub CSPM documentation that explains how to remediate a failed finding for the security control.
+        """
+        return pulumi.get(self, "remediation_url")
+
+    @_builtins.property
+    @pulumi.getter(name="securityControlId")
+    def security_control_id(self) -> _builtins.str:
+        """
+        Unique identifier of the security control across standards.
+        """
+        return pulumi.get(self, "security_control_id")
+
+    @_builtins.property
+    @pulumi.getter(name="severityRating")
+    def severity_rating(self) -> _builtins.str:
+        """
+        Severity of the security control. Valid values: `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
+        """
+        return pulumi.get(self, "severity_rating")
+
+    @_builtins.property
+    @pulumi.getter
+    def title(self) -> _builtins.str:
+        """
+        Title of the security control.
+        """
+        return pulumi.get(self, "title")
 
 
 @pulumi.output_type

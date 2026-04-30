@@ -213,7 +213,13 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Security Hub insights using the ARN. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// - `Arn` (String) Security Hub custom insight ARN.
+    /// 
+    /// Using `pulumi import`, import Security Hub custom insights using `Arn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:securityhub/insight:Insight example arn:aws:securityhub:us-west-2:1234567890:insight/1234567890/custom/91299ed7-abd0-4e44-a858-d0b15e37141a

@@ -49,14 +49,14 @@ public final class AgentcoreMemoryStrategyConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
+     * Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
+     * @return Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
      * 
      */
     public Output<String> type() {
@@ -132,7 +132,7 @@ public final class AgentcoreMemoryStrategyConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param type Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
+         * @param type Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class AgentcoreMemoryStrategyConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param type Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
+         * @param type Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
          * 
          * @return builder
          * 

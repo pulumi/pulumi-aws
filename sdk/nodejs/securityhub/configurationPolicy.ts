@@ -125,10 +125,21 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import an existing Security Hub enabled account using the universally unique identifier (UUID) of the policy. For example:
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `id` (String) UUID of the configuration policy.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import Security Hub configuration policies using `id`. For example:
  *
  * ```sh
- * $ pulumi import aws:securityhub/configurationPolicy:ConfigurationPolicy example "00000000-1111-2222-3333-444444444444"
+ * $ pulumi import aws:securityhub/configurationPolicy:ConfigurationPolicy example 00000000-1111-2222-3333-444444444444
  * ```
  */
 export class ConfigurationPolicy extends pulumi.CustomResource {

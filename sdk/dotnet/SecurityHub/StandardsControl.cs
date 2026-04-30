@@ -54,6 +54,20 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// });
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// - `StandardsControlArn` (String) Standards control ARN.
+    /// 
+    /// Using `pulumi import`, import Security Hub standards controls using `StandardsControlArn`. For example:
+    /// 
+    /// ```sh
+    /// $ pulumi import aws:securityhub/standardsControl:StandardsControl example arn:aws:securityhub:us-east-1:123456789012:control/cis-aws-foundations-benchmark/v/1.2.0/1.10
+    /// ```
     /// </summary>
     [AwsResourceType("aws:securityhub/standardsControl:StandardsControl")]
     public partial class StandardsControl : global::Pulumi.CustomResource

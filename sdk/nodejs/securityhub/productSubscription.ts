@@ -22,10 +22,22 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Security Hub product subscriptions using `product_arn,arn`. For example:
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `arn` (String) Subscription ARN.
+ * * `productArn` (String) Product ARN.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import Security Hub product subscriptions using `productArn` and `arn` separated by a comma (`,`). For example:
  *
  * ```sh
- * $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
+ * $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1::product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
  * ```
  */
 export class ProductSubscription extends pulumi.CustomResource {

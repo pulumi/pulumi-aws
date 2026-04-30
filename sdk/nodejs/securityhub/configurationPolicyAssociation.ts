@@ -53,14 +53,29 @@ import * as utilities from "../utilities";
  *     targetId: "ou-abcd-12345678",
  *     policyId: exampleConfigurationPolicy.id,
  * });
+ * const selfManagedExample = new aws.securityhub.ConfigurationPolicyAssociation("self_managed_example", {
+ *     targetId: "123456789012",
+ *     policyId: "SELF_MANAGED_SECURITY_HUB",
+ * });
  * ```
  *
  * ## Import
  *
- * Using `pulumi import`, import an existing Security Hub enabled account using the target id. For example:
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `targetId` (String) Identifier of the target account, organizational unit, or the root that is associated with the configuration.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import Security Hub configuration policy associations using `targetId`. For example:
  *
  * ```sh
- * $ pulumi import aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation example_account_association 123456789012
+ * $ pulumi import aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation example 123456789012
  * ```
  */
 export class ConfigurationPolicyAssociation extends pulumi.CustomResource {
@@ -92,7 +107,7 @@ export class ConfigurationPolicyAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The universally unique identifier (UUID) of the configuration policy.
+     * The universally unique identifier (UUID) of the configuration policy, or `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
      */
     declare public readonly policyId: pulumi.Output<string>;
     /**
@@ -142,7 +157,7 @@ export class ConfigurationPolicyAssociation extends pulumi.CustomResource {
  */
 export interface ConfigurationPolicyAssociationState {
     /**
-     * The universally unique identifier (UUID) of the configuration policy.
+     * The universally unique identifier (UUID) of the configuration policy, or `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
      */
     policyId?: pulumi.Input<string>;
     /**
@@ -160,7 +175,7 @@ export interface ConfigurationPolicyAssociationState {
  */
 export interface ConfigurationPolicyAssociationArgs {
     /**
-     * The universally unique identifier (UUID) of the configuration policy.
+     * The universally unique identifier (UUID) of the configuration policy, or `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
      */
     policyId: pulumi.Input<string>;
     /**

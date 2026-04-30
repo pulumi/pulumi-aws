@@ -47,6 +47,17 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Group` (String) Name of the IAM group.
+    /// * `PolicyArn` (String) ARN of the IAM policy.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// 
     /// Using `pulumi import`, import IAM group policy attachments using the group name and policy arn separated by `/`. For example:
     /// 
     /// ```sh

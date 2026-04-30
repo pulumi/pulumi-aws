@@ -86,6 +86,26 @@ namespace Pulumi.Aws.SecurityHub
     ///     }
     /// });
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `SecurityControlId` (String) Security control ID.
+    /// * `StandardsArn` (String) Standards ARN.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Security Hub standards control associations using `SecurityControlId` and `StandardsArn` separated by a comma (`,`). For example:
+    /// 
+    /// ```sh
+    /// $ pulumi import aws:securityhub/standardsControlAssociation:StandardsControlAssociation example IAM.1,arn:aws:securityhub:us-east-1:123456789012:control/cis-aws-foundations-benchmark/v/1.2.0/1.10
+    /// ```
     /// </summary>
     [AwsResourceType("aws:securityhub/standardsControlAssociation:StandardsControlAssociation")]
     public partial class StandardsControlAssociation : global::Pulumi.CustomResource

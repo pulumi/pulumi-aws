@@ -16,9 +16,11 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Enables Security Hub for this AWS account.
+ * Enables Security Hub CSPM for this AWS account.
  * 
  * &gt; **NOTE:** Destroying this resource will disable Security Hub for this AWS account.
+ * 
+ * &gt; **NOTE:** This resource manages Security Hub CSPM, which is distinct from the unified Security Hub V2 service managed by `aws.securityhub.AccountV2`. Both can coexist in the same account.
  * 
  * ## Example Usage
  * 

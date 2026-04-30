@@ -71,7 +71,18 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Security Hub Organization Admin Accounts using the AWS account ID. For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * - `adminAccountId` (String) ID of the administrator AWS account.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import Security Hub administrator accounts using `adminAccountId`. For example:
  * 
  * ```sh
  * $ pulumi import aws:securityhub/organizationAdminAccount:OrganizationAdminAccount example 123456789012

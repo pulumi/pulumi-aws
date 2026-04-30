@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), subnets associated with Lambda Functions can take up to 45 minutes to successfully delete. To allow for successful deletion, the provider will wait for at least 45 minutes even if a shorter delete timeout is specified.
  * 
+ * &gt; **NOTE:** When AWS GuardDuty is enabled in your account, it automatically creates VPC endpoints in your VPCs to monitor network traffic. During subnet deletion, the provider automatically detects and dissociates the subnet from these GuardDuty-managed VPC endpoints if they are blocking the deletion, preserving GuardDuty protection for other subnets in the VPC. This cleanup only targets resources tagged with `GuardDutyManaged=true` and happens automatically during destroy operations with no manual intervention required. For optimal functionality, the IAM role used by Terraform should have the optional permissions listed below. If these permissions are not available, the provider will continue with the deletion attempt and surface warnings only if the deletion ultimately fails.
+ * 
  * ## Example Usage
  * 
  * ### Basic Usage
@@ -198,6 +200,10 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
+ * 
+ * ## GuardDuty Cleanup Permissions
+ * 
+ * The following IAM permissions are optional but recommended for automatic cleanup of GuardDuty-managed resources during subnet deletion:
  * 
  * ## Import
  * 

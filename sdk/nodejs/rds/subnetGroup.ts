@@ -27,6 +27,17 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `name` (String) Name of the DB subnet group.
+ *
+ * #### Optional
+ *
+ * - `accountId` (String) AWS Account where this resource is managed.
+ * - `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import DB Subnet groups using the `name`. For example:
  *
  * ```sh

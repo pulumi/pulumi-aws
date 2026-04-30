@@ -92,7 +92,7 @@ type LookupServerlessCacheResult struct {
 	Status string `pulumi:"status"`
 	// A list of the identifiers of the subnets where the VPC endpoint for the serverless cache are deployed.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// The identifier of the UserGroup associated with the serverless cache. Available for Redis only.
+	// The identifier of the UserGroup associated with the serverless cache. Available for Redis and Valkey.
 	UserGroupId string `pulumi:"userGroupId"`
 }
 
@@ -220,7 +220,7 @@ func (o LookupServerlessCacheResultOutput) SubnetIds() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v LookupServerlessCacheResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// The identifier of the UserGroup associated with the serverless cache. Available for Redis only.
+// The identifier of the UserGroup associated with the serverless cache. Available for Redis and Valkey.
 func (o LookupServerlessCacheResultOutput) UserGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) string { return v.UserGroupId }).(pulumi.StringOutput)
 }

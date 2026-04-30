@@ -280,7 +280,7 @@ class _ExpressGatewayServiceState:
 
         :param pulumi.Input[_builtins.str] cluster: Name or ARN of the ECS cluster. Defaults to `default`.
         :param pulumi.Input[_builtins.str] cpu: Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
-        :param pulumi.Input[_builtins.str] current_deployment: ARN of the current deployment.
+        :param pulumi.Input[_builtins.str] current_deployment: (**Deprecated**) ARN of the current deployment.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
         :param pulumi.Input[_builtins.str] health_check_path: Path for health check requests. Defaults to `/ping`.
         :param pulumi.Input[_builtins.str] infrastructure_role_arn: ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
@@ -301,6 +301,9 @@ class _ExpressGatewayServiceState:
             pulumi.set(__self__, "cluster", cluster)
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
+        if current_deployment is not None:
+            warnings.warn("""This attribute will be removed in a future verion of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""current_deployment is deprecated: This attribute will be removed in a future verion of the provider.""")
         if current_deployment is not None:
             pulumi.set(__self__, "current_deployment", current_deployment)
         if execution_role_arn is not None:
@@ -364,9 +367,10 @@ class _ExpressGatewayServiceState:
 
     @_builtins.property
     @pulumi.getter(name="currentDeployment")
+    @_utilities.deprecated("""This attribute will be removed in a future verion of the provider.""")
     def current_deployment(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ARN of the current deployment.
+        (**Deprecated**) ARN of the current deployment.
         """
         return pulumi.get(self, "current_deployment")
 
@@ -596,6 +600,8 @@ class ExpressGatewayService(pulumi.CustomResource):
 
         Express services automatically handle infrastructure provisioning and updates through rolling deployments, ensuring high availability during service modifications. When you update an Express service, a new service revision is created and deployed with zero downtime.
 
+        > **Note:** To prevent a race condition during service deletion, make sure to set `depends_on` to the related `iam.RolePolicy` or `iam.RolePolicyAttachment` resources. Otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
+
         ## Example Usage
 
         ### Basic Usage
@@ -657,6 +663,8 @@ class ExpressGatewayService(pulumi.CustomResource):
         Manages an ECS Express service. The Express service provides a simplified way to deploy containerized applications with automatic provisioning and management of AWS infrastructure including Application Load Balancers (ALBs), target groups, security groups, and auto-scaling policies. This service offers built-in load balancing, auto-scaling, and networking capabilities with zero-downtime deployments.
 
         Express services automatically handle infrastructure provisioning and updates through rolling deployments, ensuring high availability during service modifications. When you update an Express service, a new service revision is created and deployed with zero downtime.
+
+        > **Note:** To prevent a race condition during service deletion, make sure to set `depends_on` to the related `iam.RolePolicy` or `iam.RolePolicyAttachment` resources. Otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
 
         ## Example Usage
 
@@ -797,7 +805,7 @@ class ExpressGatewayService(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster: Name or ARN of the ECS cluster. Defaults to `default`.
         :param pulumi.Input[_builtins.str] cpu: Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
-        :param pulumi.Input[_builtins.str] current_deployment: ARN of the current deployment.
+        :param pulumi.Input[_builtins.str] current_deployment: (**Deprecated**) ARN of the current deployment.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
         :param pulumi.Input[_builtins.str] health_check_path: Path for health check requests. Defaults to `/ping`.
         :param pulumi.Input[_builtins.str] infrastructure_role_arn: ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
@@ -858,9 +866,10 @@ class ExpressGatewayService(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="currentDeployment")
+    @_utilities.deprecated("""This attribute will be removed in a future verion of the provider.""")
     def current_deployment(self) -> pulumi.Output[_builtins.str]:
         """
-        ARN of the current deployment.
+        (**Deprecated**) ARN of the current deployment.
         """
         return pulumi.get(self, "current_deployment")
 

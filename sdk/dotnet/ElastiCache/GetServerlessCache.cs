@@ -196,7 +196,7 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
         /// <summary>
-        /// The identifier of the UserGroup associated with the serverless cache. Available for Redis only.
+        /// The identifier of the UserGroup associated with the serverless cache. Available for Redis and Valkey.
         /// </summary>
         public readonly string UserGroupId;
 

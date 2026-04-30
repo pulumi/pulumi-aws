@@ -42,7 +42,18 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Security Hub members using their account ID. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// - `MemberAccountId` (String) ID of the member AWS account.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Security Hub members using `AccountId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:securityhub/member:Member example 123456789012

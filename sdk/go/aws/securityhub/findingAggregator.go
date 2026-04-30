@@ -162,14 +162,22 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import an existing Security Hub finding aggregator using the `arn`. For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// - `arn` (String) Security Hub finding aggregator ARN.
+//
+// Using `pulumi import`, import Security Hub finding aggregators using `arn`. For example:
 //
 // ```sh
-// $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
+// $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789012:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
 // ```
 type FindingAggregator struct {
 	pulumi.CustomResourceState
 
+	// Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED`, `SPECIFIED_REGIONS` or `NO_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
 	LinkingMode pulumi.StringOutput `pulumi:"linkingMode"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -211,6 +219,8 @@ func GetFindingAggregator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FindingAggregator resources.
 type findingAggregatorState struct {
+	// Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+	Arn *string `pulumi:"arn"`
 	// Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED`, `SPECIFIED_REGIONS` or `NO_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
 	LinkingMode *string `pulumi:"linkingMode"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -220,6 +230,8 @@ type findingAggregatorState struct {
 }
 
 type FindingAggregatorState struct {
+	// Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+	Arn pulumi.StringPtrInput
 	// Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED`, `SPECIFIED_REGIONS` or `NO_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
 	LinkingMode pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -336,6 +348,11 @@ func (o FindingAggregatorOutput) ToFindingAggregatorOutput() FindingAggregatorOu
 
 func (o FindingAggregatorOutput) ToFindingAggregatorOutputWithContext(ctx context.Context) FindingAggregatorOutput {
 	return o
+}
+
+// Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+func (o FindingAggregatorOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *FindingAggregator) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED`, `SPECIFIED_REGIONS` or `NO_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.

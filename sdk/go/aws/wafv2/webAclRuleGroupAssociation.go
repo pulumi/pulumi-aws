@@ -382,16 +382,16 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import WAFv2 web ACL custom rule group associations using `WebACLARN,RuleGroupARN,RuleName`. For example:
+// Using `pulumi import`, import WAFv2 web ACL custom rule group associations using `WebACLARN,RuleName,RuleGroupType,RuleGroupARN`, where `RuleGroupType` is `custom`. For example:
 //
 // ```sh
-// $ pulumi import aws:wafv2/webAclRuleGroupAssociation:WebAclRuleGroupAssociation example "arn:aws:wafv2:us-east-1:123456789012:regional/webacl/example-web-acl/12345678-1234-1234-1234-123456789012,arn:aws:wafv2:us-east-1:123456789012:regional/rulegroup/example-rule-group/87654321-4321-4321-4321-210987654321,example-rule-group-rule"
+// $ pulumi import aws:wafv2/webAclRuleGroupAssociation:WebAclRuleGroupAssociation example "arn:aws:wafv2:us-east-1:123456789012:regional/webacl/example-web-acl/12345678-1234-1234-1234-123456789012,example-rule-group-rule,custom,arn:aws:wafv2:us-east-1:123456789012:regional/rulegroup/example-rule-group/87654321-4321-4321-4321-210987654321"
 // ```
 //
-// Using `pulumi import`, import WAFv2 web ACL managed rule group associations using `WebACLARN,VendorName:RuleGroupName[:Version],RuleName`. For example:
+// Using `pulumi import`, import WAFv2 web ACL managed rule group associations using `WebACLARN,RuleName,RuleGroupType,VendorName:RuleGroupName[:Version]`, where `RuleGroupType` is `managed`. For example:
 //
 // ```sh
-// $ pulumi import aws:wafv2/webAclRuleGroupAssociation:WebAclRuleGroupAssociation managed_example "arn:aws:wafv2:us-east-1:123456789012:regional/webacl/example-web-acl/12345678-1234-1234-1234-123456789012,AWS:AWSManagedRulesCommonRuleSet,aws-common-rule-set"
+// $ pulumi import aws:wafv2/webAclRuleGroupAssociation:WebAclRuleGroupAssociation managed_example "arn:aws:wafv2:us-east-1:123456789012:regional/webacl/example-web-acl/12345678-1234-1234-1234-123456789012,aws-common-rule-set,managed,AWS:AWSManagedRulesCommonRuleSet"
 // ```
 type WebAclRuleGroupAssociation struct {
 	pulumi.CustomResourceState

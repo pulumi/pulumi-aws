@@ -97,6 +97,11 @@ import javax.annotation.Nullable;
  *             .policyId(exampleConfigurationPolicy.id())
  *             .build());
  * 
+ *         var selfManagedExample = new ConfigurationPolicyAssociation("selfManagedExample", ConfigurationPolicyAssociationArgs.builder()
+ *             .targetId("123456789012")
+ *             .policyId("SELF_MANAGED_SECURITY_HUB")
+ *             .build());
+ * 
  *     }
  * }
  * }
@@ -104,24 +109,35 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import an existing Security Hub enabled account using the target id. For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * - `targetId` (String) Identifier of the target account, organizational unit, or the root that is associated with the configuration.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import Security Hub configuration policy associations using `targetId`. For example:
  * 
  * ```sh
- * $ pulumi import aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation example_account_association 123456789012
+ * $ pulumi import aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation example 123456789012
  * ```
  * 
  */
 @ResourceType(type="aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation")
 public class ConfigurationPolicyAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The universally unique identifier (UUID) of the configuration policy.
+     * The universally unique identifier (UUID) of the configuration policy, or `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
      * 
      */
     @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output<String> policyId;
 
     /**
-     * @return The universally unique identifier (UUID) of the configuration policy.
+     * @return The universally unique identifier (UUID) of the configuration policy, or `SELF_MANAGED_SECURITY_HUB` for a self-managed configuration.
      * 
      */
     public Output<String> policyId() {

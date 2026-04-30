@@ -239,10 +239,10 @@ index 31408d428b0..149f4509564 100644
  			names.AttrFamily: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/rds/subnet_group.go b/internal/service/rds/subnet_group.go
-index e1df2feacbf..9ca619b6956 100644
+index f463b120c28..30470de77af 100644
 --- a/internal/service/rds/subnet_group.go
 +++ b/internal/service/rds/subnet_group.go
-@@ -49,7 +49,7 @@ func resourceSubnetGroup() *schema.Resource {
+@@ -51,7 +51,7 @@ func resourceSubnetGroup() *schema.Resource {
  			names.AttrDescription: {
  				Type:     schema.TypeString,
  				Optional: true,

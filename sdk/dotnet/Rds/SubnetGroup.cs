@@ -41,6 +41,17 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// - `Name` (String) Name of the DB subnet group.
+    /// 
+    /// #### Optional
+    /// 
+    /// - `AccountId` (String) AWS Account where this resource is managed.
+    /// - `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import DB Subnet groups using the `Name`. For example:
     /// 
     /// ```sh

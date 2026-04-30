@@ -223,7 +223,18 @@ class Member(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Security Hub members using their account ID. For example:
+        ### Identity Schema
+
+        #### Required
+
+        - `member_account_id` (String) ID of the member AWS account.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Security Hub members using `account_id`. For example:
 
         ```sh
         $ pulumi import aws:securityhub/member:Member example 123456789012
@@ -262,7 +273,18 @@ class Member(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Security Hub members using their account ID. For example:
+        ### Identity Schema
+
+        #### Required
+
+        - `member_account_id` (String) ID of the member AWS account.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Security Hub members using `account_id`. For example:
 
         ```sh
         $ pulumi import aws:securityhub/member:Member example 123456789012

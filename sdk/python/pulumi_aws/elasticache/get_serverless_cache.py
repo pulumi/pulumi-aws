@@ -228,7 +228,7 @@ class GetServerlessCacheResult:
     @pulumi.getter(name="userGroupId")
     def user_group_id(self) -> _builtins.str:
         """
-        The identifier of the UserGroup associated with the serverless cache. Available for Redis only.
+        The identifier of the UserGroup associated with the serverless cache. Available for Redis and Valkey.
         """
         return pulumi.get(self, "user_group_id")
 

@@ -75,22 +75,38 @@ class FindingAggregatorArgs:
 @pulumi.input_type
 class _FindingAggregatorState:
     def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[_builtins.str]] = None,
                  linking_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  specified_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering FindingAggregator resources.
 
+        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Security Hub finding aggregator.
         :param pulumi.Input[_builtins.str] linking_mode: Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED`, `SPECIFIED_REGIONS` or `NO_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] specified_regions: List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
         """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if linking_mode is not None:
             pulumi.set(__self__, "linking_mode", linking_mode)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if specified_regions is not None:
             pulumi.set(__self__, "specified_regions", specified_regions)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="linkingMode")
@@ -208,10 +224,16 @@ class FindingAggregator(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import an existing Security Hub finding aggregator using the `arn`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Security Hub finding aggregator ARN.
+
+        Using `pulumi import`, import Security Hub finding aggregators using `arn`. For example:
 
         ```sh
-        $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
+        $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789012:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
         ```
 
 
@@ -296,10 +318,16 @@ class FindingAggregator(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import an existing Security Hub finding aggregator using the `arn`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Security Hub finding aggregator ARN.
+
+        Using `pulumi import`, import Security Hub finding aggregators using `arn`. For example:
 
         ```sh
-        $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
+        $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789012:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
         ```
 
 
@@ -335,6 +363,7 @@ class FindingAggregator(pulumi.CustomResource):
             __props__.__dict__["linking_mode"] = linking_mode
             __props__.__dict__["region"] = region
             __props__.__dict__["specified_regions"] = specified_regions
+            __props__.__dict__["arn"] = None
         super(FindingAggregator, __self__).__init__(
             'aws:securityhub/findingAggregator:FindingAggregator',
             resource_name,
@@ -345,6 +374,7 @@ class FindingAggregator(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[_builtins.str]] = None,
             linking_mode: Optional[pulumi.Input[_builtins.str]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
             specified_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'FindingAggregator':
@@ -355,6 +385,7 @@ class FindingAggregator(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Security Hub finding aggregator.
         :param pulumi.Input[_builtins.str] linking_mode: Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED`, `SPECIFIED_REGIONS` or `NO_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] specified_regions: List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
@@ -363,10 +394,19 @@ class FindingAggregator(pulumi.CustomResource):
 
         __props__ = _FindingAggregatorState.__new__(_FindingAggregatorState)
 
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["linking_mode"] = linking_mode
         __props__.__dict__["region"] = region
         __props__.__dict__["specified_regions"] = specified_regions
         return FindingAggregator(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+        """
+        return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="linkingMode")
