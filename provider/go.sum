@@ -4427,8 +4427,8 @@ github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.102.0 h1:5jMf8Tk+nT
 github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.102.0/go.mod h1:s83nigApWw9uBGOLc3LlbJKWOw5IRhIqTe2IJMij9KQ=
 github.com/pulumi/pulumi-java/pkg v1.21.3 h1:Rzti1qvTkY9vFoah3R+K2oUDI71rC/HMOy1YZrQgtgc=
 github.com/pulumi/pulumi-java/pkg v1.21.3/go.mod h1:gmb9so5DANWs4HIhwRKTIIe9aUcMoqcJkd7Nsuu7r1U=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.127.0 h1:gI9ziJMv1UDENR2G2N9/cpOL5h72dIXKqvTqnlzjPgc=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.127.0/go.mod h1:SWYcV9/uTdXJEbjSQREaUxSNmIs7X5H79j6lFxEyjzY=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.128.0 h1:341tweaHJcxQ9h6ps0khEwdj1d81b3/LTO5OWKO/o1g=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.128.0/go.mod h1:SWYcV9/uTdXJEbjSQREaUxSNmIs7X5H79j6lFxEyjzY=
 github.com/pulumi/pulumi-yaml v1.30.1 h1:8zXKxz3gZ8t0kXr0NZJMnLjySzajzKMX5JQlPiFWTmQ=
 github.com/pulumi/pulumi-yaml v1.30.1/go.mod h1:O+MmszO4Wjxvi2TBeRowbzxszn1BPTyC5wyyq/r6Dn4=
 github.com/pulumi/pulumi/pkg/v3 v3.228.0 h1:OxTpwvLaiMjxZp6E65DgrDE6faYTbPwxVdsjxMbjwqQ=
