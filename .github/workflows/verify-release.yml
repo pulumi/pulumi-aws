@@ -71,7 +71,7 @@ jobs:
         name: Fetch secrets from ESC
         uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
       - name: Setup mise
-        uses: jdx/mise-action@b287efda3dc5f4f3c328507653b6617da783ff84
+        uses: jdx/mise-action@b9e293457e56d4673e497f4e094a64273db23835
         with:
           version: 2026.3.7
           github_token: ${{ secrets.GITHUB_TOKEN }}
