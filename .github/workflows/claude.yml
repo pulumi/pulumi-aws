@@ -79,7 +79,7 @@ jobs:
           (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude review')) ||
           (github.event_name == 'pull_request_review' && contains(github.event.review.body, '@claude review'))
         id: claude-review
-        uses: anthropics/claude-code-action@fefa07e9c665b7320f08c3b525980457f22f58aa # v1
+        uses: anthropics/claude-code-action@2cc1ac1331eac7a6a96d716dd204dd2888d0fcd2 # v1
         with:
           anthropic_api_key: ${{ steps.esc-secrets.outputs.ANTHROPIC_API_KEY }}
           prompt: |
@@ -101,7 +101,7 @@ jobs:
           !contains(github.event.comment.body, '@claude review') &&
           !contains(github.event.review.body, '@claude review')
         id: claude-action
-        uses: anthropics/claude-code-action@fefa07e9c665b7320f08c3b525980457f22f58aa # v1
+        uses: anthropics/claude-code-action@2cc1ac1331eac7a6a96d716dd204dd2888d0fcd2 # v1
         with:
           anthropic_api_key: ${{ steps.esc-secrets.outputs.ANTHROPIC_API_KEY }}
           # This allows claude to read github action logs
