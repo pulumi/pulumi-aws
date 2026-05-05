@@ -68,8 +68,6 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:ec2/keyPair:KeyPair deployer deployer-key
  * ```
  * 
- * &gt; **NOTE:** The AWS API does not include the public key in the response, so `pulumi up` will attempt to replace the key pair. There is currently no supported workaround for this limitation.
- * 
  */
 @ResourceType(type="aws:ec2/keyPair:KeyPair")
 public class KeyPair extends com.pulumi.resources.CustomResource {

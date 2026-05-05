@@ -38,6 +38,7 @@ import (
 	"github.com/pulumi/providertest/optproviderupgrade"
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/assertpreview"
+	"github.com/pulumi/providertest/pulumitest/optnewstack"
 	"github.com/pulumi/providertest/pulumitest/opttest"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
@@ -370,6 +371,80 @@ func randSeq(n int) string {
 		b[i] = letters[rand.Intn(len(letters))]
 	}
 	return string(b)
+}
+
+func TestImportEC2KeyPairPublicKeyChecksCleanly(t *testing.T) {
+	skipIfShort(t)
+	t.Parallel()
+
+	cwd := getCwd(t)
+	options := []opttest.Option{
+		opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
+		opttest.SkipInstall(),
+	}
+
+	keyName := fmt.Sprintf("pulumi-key-pair-import-%s", randSeq(8))
+	publicKey := "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 email@example.com"
+
+	createDir := t.TempDir()
+	createProgram := `name: ec2-keypair-import-create
+runtime: yaml
+description: EC2 key pair import regression setup
+config:
+  keyName:
+    type: string
+  publicKey:
+    type: string
+resources:
+  keyPair:
+    type: aws:ec2:KeyPair
+    properties:
+      keyName: ${keyName}
+      publicKey: ${publicKey}
+outputs:
+  keyName: ${keyPair.keyName}
+  publicKey: ${keyPair.publicKey}
+`
+	require.NoError(t, os.WriteFile(filepath.Join(createDir, "Pulumi.yaml"), []byte(createProgram), 0o600))
+	createTest := pulumitest.NewPulumiTest(t, createDir, options...)
+	createTest.SetConfig(t, "aws:region", "us-west-2")
+	createTest.SetConfig(t, "keyName", keyName)
+	createTest.SetConfig(t, "publicKey", publicKey)
+
+	createTest.Up(t)
+
+	importOptions := append([]opttest.Option{}, options...)
+	importOptions = append(importOptions, opttest.NewStackOptions(optnewstack.DisableAutoDestroy()))
+	importDir := t.TempDir()
+	importProgram := fmt.Sprintf(`name: ec2-keypair-import-import
+runtime: yaml
+description: EC2 key pair import regression
+config:
+  keyName:
+    type: string
+  publicKey:
+    type: string
+resources:
+  keyPair:
+    type: aws:ec2:KeyPair
+    properties:
+      keyName: ${keyName}
+      publicKey: ${publicKey}
+    options:
+      import: %s
+outputs:
+  keyName: ${keyPair.keyName}
+  publicKey: ${keyPair.publicKey}
+`, keyName)
+	require.NoError(t, os.WriteFile(filepath.Join(importDir, "Pulumi.yaml"), []byte(importProgram), 0o600))
+	importTest := pulumitest.NewPulumiTest(t, importDir, importOptions...)
+	importTest.SetConfig(t, "aws:region", "us-west-2")
+	importTest.SetConfig(t, "keyName", keyName)
+	importTest.SetConfig(t, "publicKey", publicKey)
+
+	importResult := importTest.Up(t)
+	assert.Equal(t, 1, (*importResult.Summary.ResourceChanges)["import"])
+	assertpreview.HasNoChanges(t, importTest.Preview(t))
 }
 
 func TestNonIdempotentSnsTopic(t *testing.T) {
